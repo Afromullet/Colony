@@ -1,0 +1,3 @@
+An abstract creature class will allow various kinds of creatures to be added with different body types. The base class contains the data we need to draw the class and creature statistics. The body on the other hand defines what limbs the creature consists of. 
+
+By implementing the base creature as an abstract type, I should be able to implement various different conditions based on the creature type.
