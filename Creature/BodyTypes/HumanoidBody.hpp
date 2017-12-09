@@ -14,6 +14,8 @@
 #include "Arm.hpp"
 #include "Leg.hpp"
 
+//A basic humanoid. Maybe a regular human, an orc, etc
+
 class HumanoidBody : public Body
 {
     
@@ -25,6 +27,13 @@ private:
 public:
     HumanoidBody();
     void AttackRandomBodyPart(int attackBonus, int damage);
+     void CalculateHealth();
+   
+    virtual HumanoidBody* clone() const
+    {
+        return new HumanoidBody(*this);
+    }
+    
 };
 
 

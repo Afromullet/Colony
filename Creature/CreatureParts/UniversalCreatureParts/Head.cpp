@@ -18,7 +18,7 @@ Head::Head(short int _headHealth) : headHealth(_headHealth)
     
 }
 
-Head::Head() : headHealth(-1)
+Head::Head() : headHealth(10)
 {
     
 }

@@ -10,7 +10,7 @@
 
 Arm::Arm()
 {
-    
+    setLimbHealth(10);
 }
 
 Arm::Arm(LimbType _limbType,AppendageType _appendageType) : Limb(_limbType), hand(_appendageType)

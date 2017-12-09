@@ -15,7 +15,7 @@ Tile::Tile()
     tileVertices.setPrimitiveType(sf::Quads);
     tileVertices.resize(4);
     TileID = -1;
-    //creature = NULL;
+    creature = NULL;
     
 }
 

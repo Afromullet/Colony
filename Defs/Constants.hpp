@@ -9,6 +9,8 @@
 #ifndef Constants_h
 #define Constants_h
 
+
+//Size of the window
 #define WINDOW_X 800
 #define WINDOW_Y 600
 
@@ -20,13 +22,9 @@
 
 #define PI 3.14
 
-#define INVALID_VALUE -999
+#define DEFAULT_TILE_SIZE 32 //The default size of any tile, be it map or a creature
 
-#define CONSECUTIVE_ATTACK_MOD -3 //Each consecutive attack will take a -3 (for right now at least)
-
-#define DEFAULT_TILE_SIZE 32
-
-
+//Will have to be initialized since these values depend on several variables (Windows size and default tile size
 extern const int MAP_WIDTH;
 extern const int MAP_HEIGHT;
 extern const int MAP_SIZE;

@@ -9,6 +9,9 @@
 #ifndef EnumTypes_h
 #define EnumTypes_h
 
+/*Some enumerated types used throughout the program. Not too sure if I should handle the parts that use enums the way I do. I rather use enums than class types, since not everything will be polymorphic or object oriented. For example, there's no need to have a different class for spears and swords. They just have to be broken down into some general properties and identified by their enum
+ 
+ */
 
 enum TileTerrainType{enGrass1,enSnow1,enSwamp1,enFloor1,enWall1};
 
@@ -27,19 +30,6 @@ enum EnumFitsBodyPart {enHead,enChest,enFeet,enLegs,enHands,enOneHanded,enTwoHan
 enum EnumBodyPart{enHeadBodyPart,enLeftArmBodyPart,enRightArmBodyPart,enLeftLegBodyPart,enRightLegBodyPart,enLeftFootBodyPart,enRightFootBodyPart,enChestBodyPart,enLeftHandBodyPart,enRightHandBodyPart};
 
 //Don't want to make separate classes for right and lef limbs...Maybe there's a better option than enums to distinguish between limbs. research todo
-enum EnumArmType{enLeftArm,enRightArm};
-enum EnumHandType{enLeftHand,enRightHand};
-
-
-
-enum EnumLegType{enLeftLeg,enRightLeg};
-enum EnumFootType{enLeftFoot,enRightFoot};
-
-
-
-
-enum EnumArmorBonusType {enArmorBonus,enDodgeMod,enDamageRed,enMoveMod};
-
 
 //The various types of weapons
 enum EnumWeaponClass{enDagger,enShortSword,enLongSword,enGreatsword,enLongbow,enCrossbow,enUndefinedWeaponClass};
@@ -47,11 +37,6 @@ enum EnumBonusType{enStrengthBonus,enDexterityBonus,enUndefinedBonus};
 
 //The different armor classes
 enum EnumArmorClass{enLight,enMedium,enHeavy,enBuckler,enLightShield,enHeavyShield,enUndefinedArmorClass};
-
-enum EnSizeCategory{enSmallCreature,enMediumCreature,enLargeCreature};
-
-enum EnMapCreatEvents{enMovement};
-
 
 void PrintEnumBodyPart(EnumBodyPart enBodyPart);
 

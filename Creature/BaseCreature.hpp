@@ -24,15 +24,16 @@ private:
     short int will;
     short int charisma;
     short int moveSpeed; //Currently both x and y speed
+    
     Body *body;
 public:
     
     BaseCreature();
     
     EntityTile creatureTile;
-    sf::Vector2u velocity; //Represents basic direction
+    sf::Vector2u velocity; //Represents basic direction..Not used at the moment.
     sf::Vector2u position;
-    sf::Vector2u prevPosition;
+    sf::Vector2u prevPosition; //Not used at the moment
     
     //TODO add some check to ensure the creature tile is initialized
     void loadCreatureTile(const std::string& tileset, int tileXSize,int tileYSize);
@@ -52,13 +53,11 @@ public:
     void setPosition(short int x, short int y);
     void setVelocity(int x, int y);
     void setBody(Body *_body);
+    void CloneBody(Body *_body);
     
-    
-    
-    
-  
     bool MoveCreature(int x, int y);
     
+    bool isAlive; //For testing
 
     
 };

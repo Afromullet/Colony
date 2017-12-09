@@ -19,7 +19,7 @@ Chest::Chest(short int _chestHealth) : health(_chestHealth)
     
 }
 
-Chest::Chest() : health(-1)
+Chest::Chest() : health(10)
 {
     
 }

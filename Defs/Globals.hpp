@@ -37,8 +37,9 @@ typedef struct TileIdentificationData
 
 
 
-extern Map MainMap;
-extern BaseCreature player;
+extern Map MainMap; //No need to have more than one main map (At least for now)
+
+extern BaseCreature player; //Maybe sometimes in the future there'll be more than one player. For now, having a player as a global var makes things easier for me
 
 
 extern sf::RenderWindow window;
@@ -47,7 +48,9 @@ extern sf::Font defaultFont;
 void InitializeGlobals();
 void InitializeTileData();
 
-extern std::vector<TileIDData> tileIDTable;
+extern std::vector<TileIDData> tileIDTable; //Tile types are predefined. TODO, populate this from a file.
+
+extern std::vector<BaseCreature> creatureList;
 
 extern float CELL_CHANCETOSTARTALIVE;
 extern int DEATH_LIMIT;

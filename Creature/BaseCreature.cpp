@@ -12,9 +12,10 @@
 
 BaseCreature::BaseCreature()
 {
-    
+    isAlive = true;
 }
 
+//TODO, ensure that the tile is loaded every time a creature is placed on a map. We do not have to load the tile until the creature has to be displayed on the map
 void BaseCreature::loadCreatureTile(const std::string& tileset, int tileXSize,int tileYSize)
 {
     creatureTile.loadTile(tileset,  sf::Vector2u(tileXSize, tileYSize), sf::Vector2u(position.x, position.y));
@@ -83,11 +84,14 @@ void BaseCreature::setVelocity(int x, int y)
     velocity.y = y;
 }
 
+//Does bound checking against the global MAP_WIDTH and MAP_HEIGHT
+//TODO, consider passing width and height as a parameter so the class does not depend
+//On outside values
 bool BaseCreature::MoveCreature(int x, int y)
 {
     
     
-    
+    //Not used at the moment, so don't pay attention to this.
     prevPosition.x = position.x;
     prevPosition.y = position.y;
     
@@ -95,37 +99,19 @@ bool BaseCreature::MoveCreature(int x, int y)
     int newY = position.y + y;
     bool retVal = 1;
     
-    //std::cout << "\n (W,H): " << MAP_WIDTH << "," << MAP_HEIGHT << "\n";
-    //std::cout << "Cur (X,Y) " << position.x << "," << position.y << "\n";
-    //std::cout << "New (X,Y) " << newX << "," << newY << "\n";
-    
-    
     if(newX < 0 || newX >= MAP_WIDTH)
-    {
-        //std::cout << "Width out of bounds\n";
-        //creatureTile.setPosition(position.x,position.y);
         retVal = 0;
-        
-    }
     else if(newY < 0|| newY > MAP_HEIGHT)
-    {
-        
-        //std::cout << "Height out of bounds\n";
         retVal = 0;
-        
-    }
     else
     {
-        
-        
-        //std::cout << "No out of bounds\n";
         position.x += x;
         position.y += y;
         creatureTile.setPosition(position.x,position.y);
         retVal = 1;
     }
     
-    //std::cout << "\n\n";
+    
     return retVal;
     
 }
@@ -133,4 +119,9 @@ bool BaseCreature::MoveCreature(int x, int y)
 void BaseCreature::setBody(Body *_body)
 {
     body = _body;
+}
+
+void BaseCreature::CloneBody(Body *_body)
+{
+    body = _body->clone();
 }

@@ -23,6 +23,8 @@ enum LimbType
 
 };
 
+//A limb is something like an arm or a leg. Arms and legs will be implemented as subclasses of this. 
+
 class Limb
 {
     

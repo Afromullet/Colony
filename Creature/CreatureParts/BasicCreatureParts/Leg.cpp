@@ -10,6 +10,7 @@
 
 Leg::Leg()
 {
+    setLimbHealth(10);
     
 }
 

@@ -21,8 +21,9 @@ int NUMBER_OF_STEPS;
 
 sf::Font defaultFont;
 
-std::vector<TileIDData> tileIDTable;
+std::vector<TileIDData> tileIDTable; //Tile types are predefined. TODO, populate this from a file.
 
+std::vector<BaseCreature> creatureList;
 
 
 
@@ -33,6 +34,7 @@ BaseCreature player;
 
 
 
+//Tile types are predefined. TODO, populate this from a file.
 
 void InitializeTileData()
 {
@@ -78,7 +80,8 @@ void InitializeGlobals()
 {
     
     
-    
+
+    //creatureList.p
     
     if (!defaultFont.loadFromFile("tnr.ttf"))
     {

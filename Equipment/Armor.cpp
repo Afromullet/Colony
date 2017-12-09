@@ -26,8 +26,8 @@ fDamageReduction(_fDamageReduction),fMovementModifier(_fMovementModifier),enArmo
 Armor::Armor() : Equipment(),siArmorBonus(-1),fDodgeModifier(-1),fDamageReduction(-1),
 fMovementModifier(-1),enArmorClass(enUndefinedArmorClass)
 {
-    
-    
+
+    setArmorBonus(0);
 }
 
 short int Armor::siGetArmorBonus()

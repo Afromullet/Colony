@@ -75,18 +75,13 @@ int main()
     HumanoidBody hum;
     QuadrupedBody quadBody;
     
-    creat.setBody(&hum);
-    for(int i = 0; i < 10; i++)
-    {
-         creat.getBody()->AttackRandomBodyPart(5,2);
-    }
+    creat.CloneBody(&hum);
+       //creat.setBody(&hum);
+   
    
     creat.setBody(&quadBody);
     std::cout << "\n\n";
-    for(int i = 0; i < 10; i++)
-    {
-        creat.getBody()->AttackRandomBodyPart(5,3);
-    }
+ 
     
    // body = hum;
     
@@ -95,7 +90,8 @@ int main()
     
     
     InitializeTileData();
-    GenerateRandomCreatures();
+   
+    
     
     GameLoop3();
     
@@ -183,6 +179,9 @@ void GameLoop3()
 
     creat.loadCreatureTile("deep_elf_blademaster.png",32,32);
     player.loadCreatureTile("deep_elf_blademaster.png",32,32);
+    
+  
+
     HumanoidBody humanoid;
     player.setBody(&humanoid);
     player.setPosition(5, 5);
@@ -212,6 +211,17 @@ void GameLoop3()
 
     MainMap.LoadTileTexture();
     
+    GenerateRandomCreatures();
+    
+    for(int i=0; i < creatureList.size(); i++)
+    {
+        
+               
+           caMap.Map2D[creatureList.at(i).getPosition().x][creatureList.at(i).getPosition().y].SetCreatureOnTile(&creatureList.at(i));
+ 
+       
+    }
+    
     
    
         // run the main loop
@@ -239,7 +249,7 @@ void GameLoop3()
             window.draw(caMap);
        
 
-            //DrawCreatureList();
+            DrawCreatureList();
            
             
             
@@ -274,6 +284,14 @@ void GameLoop3()
       
             
            // MoveAllCreatures();
+            //For testing
+            for(int i = 0; i < creatureList.size(); i++)
+            {
+            
+                if(creatureList.at(i).isAlive)
+                    window.draw(creatureList.at(i).creatureTile);
+            }
+            
             window.draw(creat.creatureTile);
             window.draw(player.creatureTile);
             window.display();
@@ -291,8 +309,22 @@ void GenerateRandomCreatures()
 {
     
     
-    
 
+    for(int i = 0; i < 10; i++)
+    {
+        BaseCreature testCreature;
+        HumanoidBody body;
+        testCreature.CloneBody(&body);
+        testCreature.loadCreatureTile("deep_elf_blademaster.png",32,32);
+        testCreature.setPosition(rand() % MAP_WIDTH, rand() % MAP_HEIGHT);
+        
+        
+        creatureList.push_back(testCreature);
+     
+
+        
+        
+    }
     
  
 
@@ -314,20 +346,20 @@ void CheckPlayerMovement(sf::Event &event, Map &map)
     {
         if(event.key.code == sf::Keyboard::Right)
         {
-            MovePlayer(Right, player,map);
+            MovePlayer(Right, player,caMap);
      
         }
         
         else if(event.key.code == sf::Keyboard::Left)
         {
-            MovePlayer(Left, player,map);
+            MovePlayer(Left, player,caMap);
         }
         
         else if(event.key.code == sf::Keyboard::Up)
         {
             
            
-            MovePlayer(Up, player,map);
+            MovePlayer(Up, player,caMap);
            // caMap = oldMap;
           //  caMap.Group2DGridTiles();
           //  caMap.LoadTileTexture();
@@ -341,7 +373,7 @@ void CheckPlayerMovement(sf::Event &event, Map &map)
         
         else if(event.key.code == sf::Keyboard::Down)
         {
-             MovePlayer(Down, player,map);
+             MovePlayer(Down, player,caMap);
             //creature.setVelocity(0, 1);
            // creature.UpdatePosition();
            // creature.setVelocity(0, 0);

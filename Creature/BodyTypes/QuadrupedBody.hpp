@@ -13,6 +13,8 @@
 #include "Body.hpp"
 #include "Leg.hpp"
 
+//Four legged creature. Wolves, tigers etc
+
 class QuadrupedBody : public Body
 {
     
@@ -24,6 +26,11 @@ private:
 public:
     QuadrupedBody();
     void AttackRandomBodyPart(int attackBonus, int damage);
+     void CalculateHealth();
+    virtual QuadrupedBody* clone() const
+    {
+        return new QuadrupedBody(*this);
+    }
 };
 
 

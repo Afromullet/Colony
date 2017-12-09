@@ -21,10 +21,13 @@ int InMapBoundaries(Map &map,int newX, int newY);
 
 void MovePlayer(MoveDirection moveDirection, BaseCreature &_creature,Map &map);
 
+
+void MoveCreatureRandomly(BaseCreature &_creature,Map &map);
+
 /*
 void MoveCreature(MoveDirection moveDirection, Creature &_creature,Map &map);
 
-void MoveCreatureRandomly(Creature &_creature,Map &map);
+
 
 void AddCreatureToMap(Map &map, Creature *_creature);
  */

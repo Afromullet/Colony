@@ -13,6 +13,7 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 
+//Handles the drawing of a single tile for things such as creatures or items. The creaturePosition variable is misleading..It can be the position of anything. TODO change that
 
 class EntityTile : public sf::Drawable, public sf::Transformable
 {

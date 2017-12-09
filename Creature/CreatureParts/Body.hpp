@@ -13,7 +13,7 @@
 #include "Chest.hpp"
 #include "Head.hpp"
 
-/*A basic body consists of a chest and head. Appendages are subclasses.
+/*A basic body consists of a chest and head. Appendages and limbs are subclasses implemented in the.
 E.X: A Basic Humanoid is a subclass with Limbs and Appendages that represent arms and legs.
  So there'll have to be a "BasicHumanoid" subclass
  */
@@ -30,9 +30,11 @@ private:
 public:
     
      ~Body(){};
-    virtual void CalculateHealth(){}; //Calculates health based on the limb and appendage setup of the creature
+    virtual void CalculateHealth() = 0; //Calculates health based on the limb and appendage setup of the creature
     
     virtual void AttackRandomBodyPart(int attackBonus, int damage) = 0; //If something attempts to attack the creature. Since there are many different body parts, this is a virtual function
+    
+    virtual Body* clone() const = 0; 
     
     void setBloodRemaining(float _bloodRemaining);
     void setHead(Head _head);

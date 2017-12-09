@@ -114,27 +114,32 @@ void MovePlayer(MoveDirection moveDirection, BaseCreature &_creature,Map &map)
             break;
     }
     
+   // std::cout << "new " << newX << "," << newY << "\n";
+    
     if(InMapBoundaries(map,newX,newY))
     {
         
         
         
-        std::cout << "bo\n";
+       
         
        
         
+        
         if(map.Map2D[newX][newY].getCreatureOnTile() == NULL)
         {
-          std::cout << "aa\n";
+          
       
 
-            
+            _creature.setPosition(newX, newY);
             
             
         }
         else
         {
             std::cout << "Attacking \n";
+            
+            map.Map2D[newX][newY].getCreatureOnTile()->getBody()->AttackRandomBodyPart(5, 1);
             //PlayerAttackCreature(_creature, *map.Map2D[newX][newY].GetCreaturesOnTile());
             // //std::cout << "\n Creature already in tile\n";
         }
@@ -142,14 +147,15 @@ void MovePlayer(MoveDirection moveDirection, BaseCreature &_creature,Map &map)
     }
     
 }
-/*
+
 //Todo better random movement generation
 //Tie this into MovementComponent for Creature
-void MoveCreatureRandomly(Map &map)
+void MoveCreatureRandomly(BaseCreature &_creature,Map &map)
 {
     
    
-    int newX, newY;
+    int newX = _creature.getPosition().x;
+    int newY = _creature.getPosition().y;
     sf::Vector2u direction(0,0);
     int plusOrMinus = rand() % 2;
     int randDirection = rand() % 2;
@@ -200,7 +206,7 @@ void MoveCreatureRandomly(Map &map)
     if(InMapBoundaries(map,newX,newY))
     {
         
-        if(map.Map2D[newX][newY].GetCreaturesOnTile() == NULL)
+        if(map.Map2D[newX][newY].getCreatureOnTile() == NULL)
         {
             
             
@@ -216,7 +222,7 @@ void MoveCreatureRandomly(Map &map)
     }
     
 }
-
+/*
 //Todo resolve collisions
 void AddCreatureToMap(Map &map)
 {

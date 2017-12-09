@@ -15,7 +15,7 @@ Limb::Limb()
 
 Limb::Limb(LimbType _limbType) : limbType(_limbType)
 {
-    
+    limbHealth = 10;
 }
 
 LimbType Limb::getLimbType()
