@@ -51,11 +51,7 @@ void InitializeTileData();
 
 extern std::vector<TileIDData> tileIDTable; //Tile types are predefined. TODO, populate this from a file.
 
-//extern std::vector<BaseCreature> creatureList;
 extern std::list<BaseCreature> lCreatures;
-
-extern BaseCreature creatureArray[100];
-extern int creatureArraySize;
 
 extern float CELL_CHANCETOSTARTALIVE;
 extern int DEATH_LIMIT;

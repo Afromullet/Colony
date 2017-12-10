@@ -297,14 +297,7 @@ void GameLoop3()
             }
             
             
-            /*
-            for(int i = 0; i < creatureArraySize; i++)
-            {
-                 window.draw(creatureArray[i].creatureTile);
-            }
-            
-             */
-             
+        
             
             window.draw(creat.creatureTile);
             window.draw(player.creatureTile);
@@ -340,8 +333,6 @@ void GenerateRandomCreatures()
       // creatureList.push_back(testCreature);
         lCreatures.push_back(testCreature);
 
-        creatureArray[i] = testCreature;
-        creatureArraySize++;
         
     }
     

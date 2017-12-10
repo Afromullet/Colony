@@ -1,3 +1,5 @@
+TODO, need to simplify the damage so that when someone who uses the code does not have to both apply damage to the limb and the body in whatever subclass of Bodyype they are implementing
+
 _____________________
 BaseCreature Class
 

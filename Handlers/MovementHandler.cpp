@@ -9,29 +9,20 @@
 #include "MovementHandler.hpp"
 
 
-
+/*
+ Checks the maps width and height and determines if the (x,y) pair is in the bounds of the map
+ 
+ */
 int InMapBoundaries(Map &map,int newX, int newY)
 {
     
     int retVal;
     if(newX < 0 || newX >= map.GetWidth())
-    {
-       // //std::cout << "Width out of bounds\n";
-        //creatureTile.setPosition(position.x,position.y);
         retVal = 0;
-        
-    }
     else if(newY < 0|| newY > map.GetHeight())
-    {
-        
-       // //std::cout << "Height out of bounds\n";
         retVal = 0;
-        
-    }
     else
-    {
         retVal = 1;
-    }
     
     return retVal;
 
@@ -96,9 +87,6 @@ void MovePlayer(MoveDirection moveDirection, BaseCreature &_creature,Map &map)
     int newX = _creature.getPosition().x;
     int newY = _creature.getPosition().y;
     
-
-    
-    
     switch(moveDirection)
     {
         case Up:
@@ -107,7 +95,6 @@ void MovePlayer(MoveDirection moveDirection, BaseCreature &_creature,Map &map)
         case Left:
             newX -= 1;
             break;
-            
         case Right:
             newX += 1;
             break;
@@ -116,7 +103,10 @@ void MovePlayer(MoveDirection moveDirection, BaseCreature &_creature,Map &map)
             break;
     }
     
-   // std::cout << "new " << newX << "," << newY << "\n";
+   ;
+    
+    //If the new position cannot hold a creature, there's no point in detemining further action
+    //TODO, consider removing this in the future in case you want to add some tile-manipulating actions, i.e, removing a wall.
     
     if(!map.Map2D[newX][newY].getCanHoldCreature())
         return;
@@ -130,9 +120,8 @@ void MovePlayer(MoveDirection moveDirection, BaseCreature &_creature,Map &map)
         {
             std::cout << "Attacking \n";
             
+            //Currently does not handle choosing a weapon or calculating the damage and attack bonus from creature parameters TODO change that
             map.Map2D[newX][newY].getCreatureOnTile()->getBody()->AttackRandomBodyPart(5, 1);
-            //PlayerAttackCreature(_creature, *map.Map2D[newX][newY].GetCreaturesOnTile());
-            // //std::cout << "\n Creature already in tile\n";
         }
         
     }
@@ -141,16 +130,17 @@ void MovePlayer(MoveDirection moveDirection, BaseCreature &_creature,Map &map)
 
 //Todo better random movement generation
 //Tie this into MovementComponent for Creature
+//A very random way of movement generation. Mainly for testing
 void MoveCreatureRandomly(BaseCreature *_creature,Map &map)
 {
     
    
     int newX = _creature->getPosition().x;
     int newY = _creature->getPosition().y;
-    sf::Vector2u direction(0,0);
+
+    //For random direction generation
     int plusOrMinus = rand() % 2;
     int randDirection = rand() % 2;
-    
     int X_Y_OrBoth = rand() % 3; //Horrible variable name..To determine randomly whether we adjust x, y, or both
     
     if(plusOrMinus == 0)
@@ -164,14 +154,11 @@ void MoveCreatureRandomly(BaseCreature *_creature,Map &map)
         else if(X_Y_OrBoth == 1)
         {
             newX += randDirection;
-            
         }
         else if(X_Y_OrBoth == 2)
         {
             newY += randDirection;
         }
-        
-        
     }
     else if(plusOrMinus == 1)
     {
@@ -196,12 +183,9 @@ void MoveCreatureRandomly(BaseCreature *_creature,Map &map)
         
         if(map.Map2D[newX][newY].getCreatureOnTile() == NULL)
         {
-            
-            
             map.Map2D[_creature->getPosition().x][_creature->getPosition().y].ClearCreatureOnTile(); //Clear previous tile
             _creature->setPosition(newX, newY);
             map.Map2D[_creature->getPosition().x][_creature->getPosition().y].SetCreatureOnTile(_creature);
-            
         }
         else
         {

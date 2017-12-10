@@ -1,0 +1,1 @@
+Currently, whenever a creature moves. the tile pointer to the creature has to be updated. TODO change that..This requires anyone who wants to use the code to ensure that the pointers are updated correctly. Need to avoid that, and handle it behind the scenes

@@ -45,7 +45,6 @@ void Chest::setChestHealth(short int value){health = value;}
 bool Chest::doesAttackHitChest(short int attackBonus)
 {
     return attackBonus >= armor.siGetArmorBonus();
-    
 }
 
 int Chest::damageChest(short int damage)

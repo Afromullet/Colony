@@ -17,6 +17,7 @@ BaseCreature::BaseCreature()
 
 
 /*
+ TODO copy constructor
 BaseCreature::BaseCreature(const BaseCreature &creature)
 {
     body = creature.body;

@@ -25,22 +25,10 @@ sf::Font defaultFont;
 
 std::vector<TileIDData> tileIDTable; //Tile types are predefined. TODO, populate this from a file.
 
-//std::vector<BaseCreature> creatureList;
-
-//std::vector<BaseCreature> *pCreatureList;
-
 std::list<BaseCreature> lCreatures;
-
-BaseCreature creatureArray[100];
-int creatureArraySize = 0;
-
-
 
 Map MainMap;
 BaseCreature player;
-
-
-
 
 //Tile types are predefined. TODO, populate this from a file.
 
@@ -72,11 +60,6 @@ void InitializeTileData()
     BIRTH_LIMIT = 4 ;
     NUMBER_OF_STEPS = 2;
     
-    
-   
-    
-    
-    
 }
 
 
@@ -86,20 +69,10 @@ void InitializeTileData()
 
 void InitializeGlobals()
 {
-    
-    
-
-    //creatureList.p
-    
     if (!defaultFont.loadFromFile("tnr.ttf"))
     {
         // error...
     }
-    
-  
-    
-    
-    
 }
 
 

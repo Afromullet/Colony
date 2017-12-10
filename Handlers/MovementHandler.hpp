@@ -20,8 +20,6 @@ int InMapBoundaries(Map &map,int newX, int newY);
 //whether the move is successful. Currently, not yet an object..This is a prototype. Once the basics have been worked out, I'll organize it differently
 
 void MovePlayer(MoveDirection moveDirection, BaseCreature &_creature,Map &map);
-
-
 void MoveCreatureRandomly(BaseCreature *_creature,Map &map);
 
 /*

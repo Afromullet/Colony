@@ -9,9 +9,6 @@
 #include <stdio.h>
 #include "Constants.hpp"
 
-
-
-
 const int MAP_WIDTH =  WINDOW_X / DEFAULT_TILE_SIZE;
 
 const int MAP_HEIGHT = WINDOW_Y / DEFAULT_TILE_SIZE;
