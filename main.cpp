@@ -179,36 +179,28 @@ void GameLoop3()
     
     squareMap.CreateMap(sf::Vector2u(32,32),MAP_WIDTH, MAP_HEIGHT, 0);
 
-    creat.loadCreatureTile("deep_elf_blademaster.png",32,32);
-    player.loadCreatureTile("deep_elf_blademaster.png",32,32);
+        player.loadCreatureTile("deep_elf_blademaster.png",32,32);
     
   
 
     HumanoidBody humanoid;
     player.setBody(&humanoid);
     player.setPosition(5, 5);
-
-    
-   // FillCreaturesToMap(MainMap);
-    //FillCreaturesToMap(caMap);
     
     GenerateWallOnlyMap(MainMap);
 
-    
-    
-    
-   // SetPlayerVisibleTiles();
+
     SetupTestTargestBox();
     
   //  squareMap.CreateRoom(2,1,sf::Vector2u(5,5));
    // squareMap.CreateRandomRooms(5, 1);
-    
+    //All of these map initilizations are for testing
     squareMap.BuildCorridor(10, Right, 1, sf::Vector2u(10,10));
     squareMap.LoadTileParameters();
     squareMap.Group2DGridTiles();
     squareMap.LoadTileTexture();
     
-        MainMap.LoadTileParameters();
+    MainMap.LoadTileParameters();
     MainMap.Group2DGridTiles();
 
     MainMap.LoadTileTexture();
@@ -230,24 +222,9 @@ void GameLoop3()
                 CheckPlayerMovement(event,MainMap);
             }
 
-            
-            
-      
-            
-           
-            //RandomCave();
-            //window.draw(MainMap);
-            //window.draw(caMap);
-            //window.draw(targetBodyBox);
             window.draw(caMap);
-       
-
-            DrawCreatureList();
-           
-            
-            
+    
             elapsed = globalClock.getElapsedTime();
-            
             //Only move creatures randomly every two seconds..testing
             if(elapsed.asMilliseconds() >= 1000)
             {
@@ -255,40 +232,10 @@ void GameLoop3()
                 globalClock.restart();
             }
             
-            
-           // window.draw(creat.creatureTile);
-            // MoveAllCreatures();
-           // window.display();
-           // window.clear();
-            
-            /*
-            int x1,y1,roomSize;
-            //std::cout << "Enter room size";
-            std::cin >> roomSize;
-            //std::cout << "Enter coordiantes ";
-            std::cin >> x1;
-            std::cin >> y1;
-            */
-            
-            
 
-            
-            
       
-            
-           // MoveAllCreatures();
             //For testing
             RemoveDeadCreature(caMap,lCreatures);
-            
-            /*
-            
-            for(int i = 0; i < creatureList.size(); i++)
-            {
-            
-                   // if(creatureList.at(i).isAlive)
-                      //  window.draw(creatureList.at(i).creatureTile);
-            }
-             */
             
             std::list<BaseCreature>::iterator iter;
             for(iter = lCreatures.begin(); iter != lCreatures.end(); ++iter)
@@ -297,9 +244,6 @@ void GameLoop3()
             }
             
             
-        
-            
-            window.draw(creat.creatureTile);
             window.draw(player.creatureTile);
            
             window.display();
@@ -327,28 +271,14 @@ void GenerateRandomCreatures()
         testCreature.setPosition(rand() % MAP_WIDTH, rand() % MAP_HEIGHT);
         testCreature.getBody()->CalculateHealth();
         testCreature.getBody()->setTotalHealth(31); //For testing
-        
-        
-        //lCrea.push_back(testCreature);
-      // creatureList.push_back(testCreature);
         lCreatures.push_back(testCreature);
-
-        
     }
     
     InitCreaturesOnMap(caMap,lCreatures);
     
- 
-
-    
-    
     
 }
 
-void DrawCreatureList()
-{
-
-}
 
 
 CA_Map oldMap;
@@ -369,39 +299,26 @@ void CheckPlayerMovement(sf::Event &event, Map &map)
         
         else if(event.key.code == sf::Keyboard::Up)
         {
-            
-           
+
             MovePlayer(Up, player,caMap);
-           // caMap = oldMap;
-          //  caMap.Group2DGridTiles();
-          //  caMap.LoadTileTexture();
-            
-            //creature.setVelocity(0, -1);
-            //creature.UpdatePosition();
-            //creature.setVelocity(0, 0);
-            
-            //creature.MoveCreature(0,-1);
+           
         }
         
         else if(event.key.code == sf::Keyboard::Down)
         {
              MovePlayer(Down, player,caMap);
-            //creature.setVelocity(0, 1);
-           // creature.UpdatePosition();
-           // creature.setVelocity(0, 0);
-            //creature.MoveCreature(0,1);
         }
         
     }
     
 }
 
-
+//Initializes the ruleset used for the cellular automota map
 void InitRuleset()
 {
     
     CELL_CHANCETOSTARTALIVE = 0.45f;
-    NUMBER_OF_STEPS = 2;
+    NUMBER_OF_STEPS = 5;
     BIRTH_LIMIT = 4;
     DEATH_LIMIT = 3;
     
@@ -443,16 +360,6 @@ void RandomCave()
 
 
 
-//Currently, moveCreature only works with mainmap. hardcoded until i generalize it
-
-
-
-
-
-
-
-
-
 //Uses hardcoded tile id for wall atm for testing
 void GenerateWallOnlyMap(Map &_map)
 {
@@ -471,6 +378,11 @@ void GenerateWallOnlyMap(Map &_map)
     
 }
 
+/*
+ The tile of a map must be updated to indicate that a creature is on it.
+ TODO handle this a better way. This is just for testing
+ 
+ */
 void InitCreaturesOnMap(Map &_map, std::list<BaseCreature> &_creatures)
 {
     std::list<BaseCreature>::iterator iter;
@@ -481,13 +393,16 @@ void InitCreaturesOnMap(Map &_map, std::list<BaseCreature> &_creatures)
     }
     
 }
+
+/* 
+ Testing functions. Moves creatures randomly on the map 
+ */
 void MoveAllCreatures()
 {
     std::list<BaseCreature>::iterator iter;
     for(iter = lCreatures.begin(); iter != lCreatures.end(); ++iter)
     {
         BaseCreature &creat = *iter;
-
         MoveCreatureRandomly(&creat, caMap);
     }
 }
