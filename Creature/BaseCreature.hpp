@@ -29,6 +29,7 @@ private:
 public:
     
     BaseCreature();
+   // BaseCreature(const BaseCreature &creature);
     
     EntityTile creatureTile;
     sf::Vector2u velocity; //Represents basic direction..Not used at the moment.

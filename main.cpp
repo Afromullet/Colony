@@ -37,6 +37,7 @@
 #include "HumanoidBody.hpp"
 #include "BaseCreature.hpp"
 #include "QuadrupedBody.hpp"
+#include "CreatureHandler.hpp"
 
 void GameLoop();
 void GameLoop3();
@@ -56,6 +57,7 @@ void RandomCave();
 void CreatureRandomMove(Creature &creature, Map &map);
 void MoveAllCreatures();
 void GenerateWallOnlyMap(Map &_map);
+void InitCreaturesOnMap(Map &_map, std::list<BaseCreature> &_creatures);
 
 
 BaseCreature creat;
@@ -213,17 +215,8 @@ void GameLoop3()
     
     GenerateRandomCreatures();
     
-    for(int i=0; i < creatureList.size(); i++)
-    {
-        
-               
-           caMap.Map2D[creatureList.at(i).getPosition().x][creatureList.at(i).getPosition().y].SetCreatureOnTile(&creatureList.at(i));
- 
-       
-    }
-    
-    
-   
+
+
         // run the main loop
         while (window.isOpen())
         {
@@ -258,7 +251,7 @@ void GameLoop3()
             //Only move creatures randomly every two seconds..testing
             if(elapsed.asMilliseconds() >= 1000)
             {
-                //MoveAllCreatures();
+                MoveAllCreatures();
                 globalClock.restart();
             }
             
@@ -285,15 +278,37 @@ void GameLoop3()
             
            // MoveAllCreatures();
             //For testing
+            RemoveDeadCreature(caMap,lCreatures);
+            
+            /*
+            
             for(int i = 0; i < creatureList.size(); i++)
             {
             
-                if(creatureList.at(i).isAlive)
-                    window.draw(creatureList.at(i).creatureTile);
+                   // if(creatureList.at(i).isAlive)
+                      //  window.draw(creatureList.at(i).creatureTile);
             }
+             */
+            
+            std::list<BaseCreature>::iterator iter;
+            for(iter = lCreatures.begin(); iter != lCreatures.end(); ++iter)
+            {
+                window.draw(iter->creatureTile);
+            }
+            
+            
+            /*
+            for(int i = 0; i < creatureArraySize; i++)
+            {
+                 window.draw(creatureArray[i].creatureTile);
+            }
+            
+             */
+             
             
             window.draw(creat.creatureTile);
             window.draw(player.creatureTile);
+           
             window.display();
             window.clear();
 
@@ -317,14 +332,20 @@ void GenerateRandomCreatures()
         testCreature.CloneBody(&body);
         testCreature.loadCreatureTile("deep_elf_blademaster.png",32,32);
         testCreature.setPosition(rand() % MAP_WIDTH, rand() % MAP_HEIGHT);
+        testCreature.getBody()->CalculateHealth();
+        testCreature.getBody()->setTotalHealth(31); //For testing
         
         
-        creatureList.push_back(testCreature);
-     
+        //lCrea.push_back(testCreature);
+      // creatureList.push_back(testCreature);
+        lCreatures.push_back(testCreature);
 
-        
+        creatureArray[i] = testCreature;
+        creatureArraySize++;
         
     }
+    
+    InitCreaturesOnMap(caMap,lCreatures);
     
  
 
@@ -457,5 +478,26 @@ void GenerateWallOnlyMap(Map &_map)
             
         }
     
+}
+
+void InitCreaturesOnMap(Map &_map, std::list<BaseCreature> &_creatures)
+{
+    std::list<BaseCreature>::iterator iter;
+    for(iter = _creatures.begin(); iter != _creatures.end(); ++iter)
+    {
+        BaseCreature &creat = *iter;
+        _map.Map2D[iter->getPosition().x][iter->getPosition().y].SetCreatureOnTile(&creat);
+    }
+    
+}
+void MoveAllCreatures()
+{
+    std::list<BaseCreature>::iterator iter;
+    for(iter = lCreatures.begin(); iter != lCreatures.end(); ++iter)
+    {
+        BaseCreature &creat = *iter;
+
+        MoveCreatureRandomly(&creat, caMap);
+    }
 }
 

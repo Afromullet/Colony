@@ -39,12 +39,15 @@ public:
     void setBloodRemaining(float _bloodRemaining);
     void setHead(Head _head);
     void setChest(Chest _chest);
-
-    
+    void setTotalHealth(int _health);
     
     float getBloodRemaining();
     Head getHead();
     Chest getChest();
+    int getTotalHealth();
+    
+    
+    void SubtractFromTotalHealth(int _damage);
     
 
 };

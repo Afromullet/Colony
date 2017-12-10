@@ -23,6 +23,12 @@ void Body::setChest(Chest _chest)
     chest = _chest;
 }
 
+void Body::setTotalHealth(int _health)
+{
+    health = _health;
+}
+
+
 float Body::getBloodRemaining()
 {
     return bloodRemaining;
@@ -36,4 +42,14 @@ Head Body::getHead()
 Chest Body::getChest()
 {
     return chest;
+}
+
+int Body::getTotalHealth()
+{
+    return health;
+}
+
+void Body::SubtractFromTotalHealth(int _damage)
+{
+    health -= _damage;
 }

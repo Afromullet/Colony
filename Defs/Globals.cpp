@@ -10,6 +10,8 @@
 #include "Constants.hpp"
 #include "TestData.hpp"
 #include "HumanoidBody.hpp"
+
+
 sf::RenderWindow window(sf::VideoMode(WINDOW_X, WINDOW_Y), "My window");
 
 
@@ -23,8 +25,14 @@ sf::Font defaultFont;
 
 std::vector<TileIDData> tileIDTable; //Tile types are predefined. TODO, populate this from a file.
 
-std::vector<BaseCreature> creatureList;
+//std::vector<BaseCreature> creatureList;
 
+//std::vector<BaseCreature> *pCreatureList;
+
+std::list<BaseCreature> lCreatures;
+
+BaseCreature creatureArray[100];
+int creatureArraySize = 0;
 
 
 

@@ -22,54 +22,66 @@ void HumanoidBody::AttackRandomBodyPart(int attackBonus, int damage)
     {
         case 0:
             if(attackBonus >= leftArm.getArmArmor().siGetArmorBonus())
-                
-                std::cout << "Start health\n" << leftArm.getLimbHealth();
-                std::cout << "LArm Attack\n";
+            {
                 leftArm.ApplyDamage(damage);
-                std::cout << "Health left\n" << leftArm.getLimbHealth();
+                SubtractFromTotalHealth(damage);
+            }
             break;
         case 1:
             if(attackBonus >= rightArm.getArmArmor().siGetArmorBonus())
-                std::cout << "RArm Attack\n";
-            std::cout << "Start health\n" << rightArm.getLimbHealth();
+            {
                 rightArm.ApplyDamage(damage);
-                std::cout << "Health left\n" << rightArm.getLimbHealth();
+                SubtractFromTotalHealth(damage);
+            }
+            
             break;
         case 2:
             if(attackBonus >= leftLeg.getLegArmor().siGetArmorBonus())
-                std::cout << "LLeg Attack\n";
-            std::cout << "start left\n" << leftLeg.getLimbHealth();
+            {
+      
                 leftLeg.ApplyDamage(damage);
-                std::cout << "Health left\n" << leftLeg.getLimbHealth();
+                SubtractFromTotalHealth(damage);
+            }
+            
             break;
         case 3:
             if(attackBonus >= rightLeg.getLegArmor().siGetArmorBonus())
-                std::cout << "RLeg Attack\n";
-            std::cout << "start left\n" << rightLeg.getLimbHealth();
+            {
                 rightLeg.ApplyDamage(damage);
-             std::cout << "Health left\n" << rightLeg.getLimbHealth();
+                SubtractFromTotalHealth(damage);
+            }
+            
             break;
         case 4:
             if(attackBonus >= getHead().getHeadArmor().siGetArmorBonus())
-                std::cout << "Head Attack\n";
-            std::cout << "start left\n" << getHead().getHeadHealth();
+            {
                 getHead().damageHead(damage);
-            std::cout << "Health left\n" << getHead().getHeadHealth();
+                SubtractFromTotalHealth(damage);
+            
+            }
             break;
         case 5:
             if(attackBonus >= getChest().getChestArmor().siGetArmorBonus())
-                std::cout << "Chest Attack\n";
-            std::cout << "start left\n" << getChest().getChestHealth();
+            {
                 getChest().damageChest(damage);
-            std::cout << "Health left\n" << getChest().getChestHealth();
+                SubtractFromTotalHealth(damage);
+            }
+            
             break;
     
     }
+    
+    std::cout << "Total Health left: " << getTotalHealth() << "\n";
 
     
 }
 
  void HumanoidBody::CalculateHealth()
 {
+    int totalHealth = leftArm.getLimbHealth() + rightArm.getLimbHealth() + leftLeg.getLimbHealth() + rightLeg.getLimbHealth() + getHead().getHeadHealth() + getChest().getChestHealth();
+    setTotalHealth(totalHealth);
+    
+    
+    
     
 }

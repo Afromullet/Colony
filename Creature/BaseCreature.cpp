@@ -15,6 +15,16 @@ BaseCreature::BaseCreature()
     isAlive = true;
 }
 
+
+/*
+BaseCreature::BaseCreature(const BaseCreature &creature)
+{
+    body = creature.body;
+    position = creature.position;
+    creatureTile = creature.creatureTile;
+}
+ */
+
 //TODO, ensure that the tile is loaded every time a creature is placed on a map. We do not have to load the tile until the creature has to be displayed on the map
 void BaseCreature::loadCreatureTile(const std::string& tileset, int tileXSize,int tileYSize)
 {

@@ -20,27 +20,45 @@ void QuadrupedBody::AttackRandomBodyPart(int attackBonus, int damage)
     {
         case 0:
             if(attackBonus >= fronLeftLeg.getLegArmor().siGetArmorBonus())
+            {
                 fronLeftLeg.ApplyDamage(damage);
+                SubtractFromTotalHealth(damage);
+            }
             break;
         case 1:
             if(attackBonus >= frontRightLeg.getLegArmor().siGetArmorBonus())
+            {
                 fronLeftLeg.ApplyDamage(damage);
+                SubtractFromTotalHealth(damage);
+            }
             break;
         case 2:
             if(attackBonus >= backLeftLeg.getLegArmor().siGetArmorBonus())
+            {
                 fronLeftLeg.ApplyDamage(damage);
+                SubtractFromTotalHealth(damage);
+            }
             break;
         case 3:
             if(attackBonus >= backRightLeg.getLegArmor().siGetArmorBonus())
+            {
                 fronLeftLeg.ApplyDamage(damage);
+                SubtractFromTotalHealth(damage);
+            }
             break;
         case 4:
             if(attackBonus >= getHead().getHeadArmor().siGetArmorBonus())
+            {
                 getHead().damageHead(damage);
+                SubtractFromTotalHealth(damage);
+            }
             break;
         case 5:
             if(attackBonus >= getChest().getChestArmor().siGetArmorBonus())
+            {
                 getChest().damageChest(damage);
+                SubtractFromTotalHealth(damage);
+            }
             break;
     }
     
@@ -49,6 +67,7 @@ void QuadrupedBody::AttackRandomBodyPart(int attackBonus, int damage)
 
 void QuadrupedBody::CalculateHealth()
 {
-    
+    int totalHealth = fronLeftLeg.getLimbHealth() + frontRightLeg.getLimbHealth() + backLeftLeg.getLimbHealth() + backRightLeg.getLimbHealth() + getHead().getHeadHealth() + getChest().getChestHealth();
+    setTotalHealth(totalHealth);
 }
 

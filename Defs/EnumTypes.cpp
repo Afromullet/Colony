@@ -53,7 +53,7 @@ void PrintEnumBodyPart(EnumBodyPart enBodyPart)
     else if(enBodyPart == enRightLegBodyPart)
     {
         out = "Right Leg";
-    }
+    }  
     
     else if(enBodyPart == enLeftFootBodyPart)
     {
