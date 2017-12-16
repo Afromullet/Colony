@@ -132,7 +132,58 @@ void BaseCreature::setBody(Body *_body)
     body = _body;
 }
 
+void BaseCreature::AddItemToInventory(Item item)
+{
+    creatureItems.push_back(item);
+}
+
 void BaseCreature::CloneBody(Body *_body)
 {
     body = _body->clone();
 }
+
+    //Picks up item at current position (if there is one) and adds it to the creatures inventory. TODO, determine whether there should be a class for creature and map interaction, or whether it's better to just pass the map as a reference
+void BaseCreature::PickupItem(Map &map,std::list<Item> &itemList)
+{
+    Tile *tile = &map.Map2D[position.x][position.y];
+    
+    if(tile->getItemOnTile() == NULL)
+    {
+        std::cout << "No item on tile";
+    }
+    else
+    {
+        int localID = tile->getItemOnTile()->localItemID; //So we can find it in the list
+        
+        creatureItems.push_back(*tile->getItemOnTile());
+        tile->SetItemOnTile(NULL);
+        std::list<Item>::iterator iter;
+        
+        for(iter = itemList.begin(); iter != itemList.end(); ++iter)
+        {
+            //Identify item through its local ID. TODO ensure that local ID is unique
+            //Probably pick from a bin of random numbers of all possible local ids
+            if(iter->localItemID == localID)
+            {
+                creatureItems.erase(iter);
+                break;
+            }
+            
+        }
+        std::cout << "Picking up item";
+    }
+    
+}
+
+void BaseCreature::PrintInventory()
+{
+    std::list<Item>::iterator iter;
+    
+    std::cout << "\n Printing List";
+    for(iter=creatureItems.begin(); iter != creatureItems.end(); ++iter)
+    {
+        std::cout << iter->getItemID() << "\n";
+    }
+    
+}
+

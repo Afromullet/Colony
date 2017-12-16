@@ -16,6 +16,7 @@ Tile::Tile()
     tileVertices.resize(4);
     TileID = -1;
     creature = NULL;
+    itemOnTile = NULL;
     
 }
 
@@ -89,7 +90,17 @@ void Tile::SetCreatureOnTile(BaseCreature *_creature)
     creature = _creature;
 }
 
+void Tile::SetItemOnTile(Item *item)
+{
+    itemOnTile = item;
+}
+
 BaseCreature* Tile::getCreatureOnTile()
 {
     return creature;
+}
+
+Item* Tile::getItemOnTile()
+{
+    return itemOnTile;
 }

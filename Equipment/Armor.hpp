@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include "Equipment.hpp"
 
-class Armor : public Equipment
+class Armor : public Item
 {
 private:
     short int siArmorBonus;
@@ -30,7 +30,7 @@ public:
   
     
    
-    int getEquipmentName();
+    int getItemName();
     short int siGetArmorBonus();
     float fGetDodgeModifier();
     float fGetDamageReduction();
@@ -47,7 +47,7 @@ public:
     void setMovementModifier(float value);
     void calculateMaterialBonuses();
     
-    void setEquipmentName(int value);
+    void setItemName(int value);
     void setMaterial(int value);
     void setFitsBodyPart(EnumFitsBodyPart value);
     

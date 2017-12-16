@@ -12,18 +12,18 @@
 
 
 Armor::Armor(int _material, EnumFitsBodyPart _enFitsBodyPart, int _sEquipmentName, short int _siArmorBonus, float _fDodgeModifier, float _fDamageReduction,float _fMovementModifier,EnumArmorClass _enArmorClass)
-: Equipment(_material,_enFitsBodyPart,_sEquipmentName),
+: Item(_material,_enFitsBodyPart,_sEquipmentName),
 siArmorBonus(_siArmorBonus),fDodgeModifier(_fDodgeModifier),
 fDamageReduction(_fDamageReduction),fMovementModifier(_fMovementModifier),enArmorClass(_enArmorClass)
 {}
 
 Armor::Armor(int _material,int _sEquipmentName, short int _siArmorBonus, float _fDodgeModifier, float _fDamageReduction,float _fMovementModifier,EnumArmorClass _enArmorClass)
-: Equipment(_material,enUndefinedBodyPart,_sEquipmentName),
+: Item(_material,enUndefinedBodyPart,_sEquipmentName),
 siArmorBonus(_siArmorBonus),fDodgeModifier(_fDodgeModifier),
 fDamageReduction(_fDamageReduction),fMovementModifier(_fMovementModifier),enArmorClass(_enArmorClass)
 {}
 
-Armor::Armor() : Equipment(),siArmorBonus(-1),fDodgeModifier(-1),fDamageReduction(-1),
+Armor::Armor() : Item(),siArmorBonus(-1),fDodgeModifier(-1),fDamageReduction(-1),
 fMovementModifier(-1),enArmorClass(enUndefinedArmorClass)
 {
 
@@ -53,13 +53,13 @@ float Armor::fGetMovementModifier()
 
 EnumFitsBodyPart Armor::getBodyPart()
 {
-    Equipment::getBodyPart();
+    Item::getBodyPart();
 }
 
-int Armor::getEquipmentName()
+int Armor::getItemName()
 {
  
-    return Equipment::getEquipmentName();
+    return Item::getItemName();
     
 }
 
@@ -93,21 +93,21 @@ void Armor::setMovementModifier(float value)
     fMovementModifier = value;
 }
 
-void Armor::setEquipmentName(int value)
+void Armor::setItemName(int value)
 {
 
-    Equipment::setEquipmentName(value);
+    Item::setItemName(value);
     
 }
 void Armor::setMaterial(int value)
 {
-    Equipment::setMaterial(1);
+    Item::setMaterial(1);
     
 }
 
 void Armor::setFitsBodyPart(EnumFitsBodyPart value)
 {
-    Equipment::setFitsBodyPart(value);
+    Item::setFitsBodyPart(value);
     
 }
 

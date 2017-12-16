@@ -38,6 +38,7 @@
 #include "BaseCreature.hpp"
 #include "QuadrupedBody.hpp"
 #include "CreatureHandler.hpp"
+#include "ItemGenerator.hpp"
 
 void GameLoop();
 void GameLoop3();
@@ -54,7 +55,7 @@ void GenerateRandomCreatures();
 void RandomCave();
 //void SetPlayerVisibleTiles();
 //void FillCreaturesToMap(Map &map);
-void CreatureRandomMove(Creature &creature, Map &map);
+//void CreatureRandomMove(Creature &creature, Map &map);
 void MoveAllCreatures();
 void GenerateWallOnlyMap(Map &_map);
 void InitCreaturesOnMap(Map &_map, std::list<BaseCreature> &_creatures);
@@ -188,6 +189,8 @@ void GameLoop3()
     player.setPosition(5, 5);
     
     GenerateWallOnlyMap(MainMap);
+    RandomItemGen();
+    PlaceItemsOnMap(caMap);
 
 
     SetupTestTargestBox();
@@ -243,6 +246,11 @@ void GameLoop3()
                 window.draw(iter->creatureTile);
             }
             
+            std::list<Item>::iterator itemIt;
+            for(itemIt = itemsOnMap.begin(); itemIt != itemsOnMap.end(); ++itemIt)
+            {
+                window.draw(itemIt->tile);
+            }
             
             window.draw(player.creatureTile);
            
@@ -307,6 +315,11 @@ void CheckPlayerMovement(sf::Event &event, Map &map)
         else if(event.key.code == sf::Keyboard::Down)
         {
              MovePlayer(Down, player,caMap);
+        }
+        else if(event.key.code == sf::Keyboard::G)
+        {
+            player.PickupItem(caMap,itemsOnMap);
+            player.PrintInventory();
         }
         
     }

@@ -1,0 +1,6 @@
+Handling a creatures and items position and the position of vectors separately will cause problems in the future. Handle that in a better way. For example
+
+
+There are several interactions (Between BaseCreature and Map for example). Should these interaction be broke down into a separate class? TODO, look into the most fitting design. Also find a better way to handle the cupling between a map and the creatures and items on that map
+
+How much global data do I want?

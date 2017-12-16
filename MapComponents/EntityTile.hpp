@@ -21,9 +21,13 @@ public:
     
     // bool loadCreature(const std::string& tileset, sf::Vector2u tileSize, int creatureXPosition, int creatureYPosition);
     
+    
+    //TODO rename creaturePosition since the tile can also represent an item. this will prevent confusion
     bool loadTile(const std::string& tileset, sf::Vector2u _tileSize, sf::Vector2u creaturePosition);
     
     void setPosition(int x, int y);
+
+    
     sf::Vector2u getTileSize();
     
     // std::vector<TileParameters> vecTileParams;

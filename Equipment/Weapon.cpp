@@ -11,25 +11,25 @@
 
 //todo add "Blank" weapon for when no weapon is equipped..and also something to identify a two handed weapon is equipped
 Weapon::Weapon(int _material,EnumFitsBodyPart _enFitsBodyPart, int _sEquipmentName, short int _siRange,short int _siDamage,EnumWeaponClass _enWeaponClass):
-        Equipment::Equipment(_material,_enFitsBodyPart,_sEquipmentName),
+        Item::Item(_material,_enFitsBodyPart,_sEquipmentName),
         siRange(_siRange),siDamage(_siDamage),enWeaponClass(_enWeaponClass){}
 
 
-Weapon::Weapon() : Equipment(-1,enUndefinedBodyPart,1),siRange(-1),siDamage(-1),enWeaponClass(enUndefinedWeaponClass)
+Weapon::Weapon() : Item(-1,enUndefinedBodyPart,1),siRange(-1),siDamage(-1),enWeaponClass(enUndefinedWeaponClass)
 {
     
 }
 
-int Weapon::getEquipmentName()
+int Weapon::getItemName()
 {
     
-    return Equipment::getEquipmentName();
+    return Item::getItemName();
     
 }
 
 short int Weapon::getRange(){return siRange;}
 short int Weapon::getDamage(){return siDamage;}
-EnumFitsBodyPart Weapon::getBodyPart(){ return Equipment::getBodyPart();}
+EnumFitsBodyPart Weapon::getBodyPart(){ return Item::getBodyPart();}
 EnumWeaponClass Weapon::getWeaponClass(){ return enWeaponClass;}
 
 
@@ -46,9 +46,9 @@ float Weapon::getDamageModifier()
 
 void Weapon::setRange(short int value){siRange = value;}
 void Weapon::setDamage(short int value){siDamage = value;}
-void Weapon::setEquipmentName(int value){Equipment::setEquipmentName(value);}
-void Weapon::setMaterial(int value){Equipment::setMaterial(1);}
-void Weapon::setFitsBodyPart(EnumFitsBodyPart value){Equipment::setFitsBodyPart(value);}
+void Weapon::setItemName(int value){Item::setItemName(value);}
+void Weapon::setMaterial(int value){Item::setMaterial(1);}
+void Weapon::setFitsBodyPart(EnumFitsBodyPart value){Item::setFitsBodyPart(value);}
 void Weapon::setWeaponClass(EnumWeaponClass weaponClass){enWeaponClass = weaponClass;}
 
 //Depending on the type of weapon, we want to add a different modifier to attack bonus.

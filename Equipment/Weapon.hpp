@@ -13,7 +13,7 @@
 #include "Equipment.hpp"
 
 
-class Weapon : public Equipment
+class Weapon : public Item
 {
 private:
     short int siRange;
@@ -27,7 +27,7 @@ public:
    short int _siDamage,EnumWeaponClass _enWeaponClass);
     Weapon();
     
-    int getEquipmentName();
+    int getItemName();
     
     void calculateMaterialBonuses();
     
@@ -46,7 +46,7 @@ public:
     
     void setRange(short int value);
     void setDamage(short int value);
-    void setEquipmentName(int value);
+    void setItemName(int value);
     void setMaterial(int value);
     void setFitsBodyPart(EnumFitsBodyPart value);
     void setWeaponClass(EnumWeaponClass weaponClass);

@@ -15,6 +15,7 @@
 #include <string>
 #include "EnumTypes.hpp"
 #include "BaseCreature.hpp"
+#include "Equipment.hpp"
 
 /*
  
@@ -32,8 +33,8 @@
  
  */
 
-class Creature;
 
+class BaseCreature;
 class Tile
 {
     
@@ -49,10 +50,12 @@ public:
     int getTileID();
     void SetTileTerrainType(TileTerrainType _tileTerrainType);
     void SetCreatureOnTile(BaseCreature *_creature);
+    void SetItemOnTile(Item *item);
     
     BaseCreature* getCreatureOnTile();
     
     bool getCanHoldCreature();
+    Item* getItemOnTile();
     
    
     void ClearCreatureOnTile();
@@ -74,6 +77,8 @@ private:
     bool canHoldCreature; //Determines whether or not the tile can hold a creature
  
     sf::VertexArray tileVertices; //Pairs of 4s = 1 Tile,
+    
+    Item *itemOnTile; //For now only allow one item to be on a tile.
    
 };
 
