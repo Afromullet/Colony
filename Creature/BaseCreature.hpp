@@ -33,8 +33,8 @@ private:
     short int charisma;
     short int moveSpeed; //Currently both x and y speed
     
-    //Copying the values at the moment to help get the framework in place
-    std::list<Item> creatureItems;
+   
+    std::list<Item*> creatureItems;
     
     Body *body;
 public:
@@ -66,17 +66,13 @@ public:
     void setPosition(short int x, short int y);
     void setVelocity(int x, int y);
     void setBody(Body *_body);
-    void AddItemToInventory(Item item);
+    void AddItemToInventory(Item *item);
     void CloneBody(Body *_body);
-    
+    void PrintInventory();
+    void EquipItemFromInventory(int n); //Equips item number n from inventory, n being the position in the list
     bool MoveCreature(int x, int y);
     
-    //Picks up item at current position (if there is one) and adds it to the creatures inventory. TODO, determine whether there should be a class for creature and map interaction, or whether it's better to just pass the map as a reference
-    //ItemList is the list of items the creature is selecting from
-    void PickupItem(Map &map, std::list<Item> &itemList );
-    
-    void PrintInventory();
-    
+
     bool isAlive; //For testing
 
     

@@ -18,17 +18,27 @@
 class Arm : public Limb
 {
 protected:
-    Hand hand;
+    
     Armor armor;
+    
+
+   
+    
 public:
+    
+     Hand hand; //Public right now because I don't feel like writing getter and setters
+    
     Arm();
     Arm(LimbType _limbType,AppendageType _appendageType);
     
     void setArmArmor(Armor _armor);
     void setHandArmor(Armor _armor);
-    
+
     Armor getArmArmor();
     Armor getHandArmor();
+    
+    
+    
     
 
     

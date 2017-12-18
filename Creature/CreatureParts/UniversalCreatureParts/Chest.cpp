@@ -10,18 +10,19 @@
 
 Chest::Chest(Armor _armor, short int _chestHealth) : armor(_armor), health(_chestHealth)
 {
+    bodyPart = enChestBodyPart;
     
 }
 
 
 Chest::Chest(short int _chestHealth) : health(_chestHealth)
 {
-    
+    bodyPart = enChestBodyPart;
 }
 
 Chest::Chest() : health(10)
 {
-    
+    bodyPart = enChestBodyPart;
 }
 
 

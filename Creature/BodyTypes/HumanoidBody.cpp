@@ -10,6 +10,13 @@
 
 HumanoidBody::HumanoidBody()
 {
+    leftArm.setLimbType(enArmLeft);
+    rightArm.setLimbType(enArmRight);
+    rightArm.hand.setAppendageType(enHandRight);
+    leftArm.hand.setAppendageType(enHandLeft);
+    
+    
+    
     
 }
 
@@ -80,8 +87,71 @@ void HumanoidBody::AttackRandomBodyPart(int attackBonus, int damage)
 {
     int totalHealth = leftArm.getLimbHealth() + rightArm.getLimbHealth() + leftLeg.getLimbHealth() + rightLeg.getLimbHealth() + getHead().getHeadHealth() + getChest().getChestHealth();
     setTotalHealth(totalHealth);
-    
-    
-    
-    
+}
+
+//Automatically choses the slot the item fits in.
+//Much easier to do that way, than allowing the player to choose which slot to equip it in and then checking if it is a valid slot.
+
+
+
+void HumanoidBody::EquipItem(Item *item)
+{
+    if(item->getItemType() == enArmorType)
+    {
+        Armor *arm = dynamic_cast<Armor*>(item);
+        
+        switch(arm->getBodyPart())
+        {
+            case enHead:
+                head.setHeadArmor(*arm);
+                arm->setIsEquipped(true);
+                break;
+            case enChest:
+                chest.setChestArmor(*arm);
+                arm->setIsEquipped(true);
+                break;
+            case enArms:
+                leftArm.setArmArmor(*arm);
+                rightArm.setArmArmor(*arm);
+                arm->setIsEquipped(true);
+                break;
+            case enLegs:
+                leftLeg.setLegArmor(*arm);
+                rightLeg.setLegArmor(*arm);
+                arm->setIsEquipped(true);
+                break;
+            case enHands:
+                leftArm.setHandArmor(*arm);
+                rightArm.setHandArmor(*arm);
+                arm->setIsEquipped(true);
+                break;
+            case enFeet:
+                leftLeg.setFootArmor(*arm);
+                rightLeg.setFootArmor(*arm);
+                arm->setIsEquipped(true);
+                break;
+        }
+        
+        
+    }
+    else if(item->getItemType() == enWeaponType)
+    {
+        Weapon *wep = dynamic_cast<Weapon*>(item);
+        //If weapon is two handed, need a way to identify in the second hand that the equipped weapon is two handed todo
+        switch(wep->getBodyPart())
+        {
+            case enOneHanded:
+                rightArm.hand.setWeapon(*wep);
+                wep->setIsEquipped(true);
+                break;
+            case enTwoHanded:
+                rightArm.hand.setWeapon(*wep);
+                wep->setIsEquipped(true);
+                break;
+        }
+        
+    }
+       //std::shared_ptr<Armor> der = static_pointer_cast(Item>);
+    //rightLeg.setLegArmor(item);
+ 
 }

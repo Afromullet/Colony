@@ -34,6 +34,9 @@ public:
         return new HumanoidBody(*this);
     }
     
+    void EquipItem(Item *item);
+
+    
 };
 
 

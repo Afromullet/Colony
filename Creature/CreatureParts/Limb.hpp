@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include "Appendage.hpp"
+#include "Armor.hpp"
 
 enum LimbType
 {
@@ -41,6 +42,9 @@ public:
     void setLimbType(LimbType _limbType);
     void setLimbHealth(int _limbHealth);
     void ApplyDamage(int damage);
+    
+    
+   
     
 };
 

@@ -21,12 +21,13 @@ class Body
 {
     
 private:
+
+    int health; //Health of all body parts combined
+    float bloodRemaining; //The lower this value is, the more blood the creature lost
+protected:
     
     Chest chest;
     Head head;
-    int health; //Health of all body parts combined
-    float bloodRemaining; //The lower this value is, the more blood the creature lost
-    
 public:
     
      ~Body(){};
@@ -46,9 +47,16 @@ public:
     Chest getChest();
     int getTotalHealth();
     
+ 
+    
+    
     
     void SubtractFromTotalHealth(int _damage);
     
+    //How things are equipped depends on the type of body a creature has;
+    //Something might have two arms and two legs, or four legs, so each case has to be handled
+    //In the child clas of Body. Need to do downcasting
+    virtual void EquipItem(Item *item) = 0;
 
 };
 #endif /* Body_hpp */

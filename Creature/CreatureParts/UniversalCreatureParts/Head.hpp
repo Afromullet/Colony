@@ -20,6 +20,7 @@ private:
     Armor armor;
     Weapon weapon; //A creature can have a bite attack. A bite attack is modelled as a weapon.
     short int headHealth;
+    EnumBodyPart bodyPart;
     
 public:
     Head(Armor _armor,short int _headHealth);

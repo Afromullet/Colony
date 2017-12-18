@@ -26,6 +26,13 @@ public:
     Armor(int _material,int _sEquipmentName, short int _siArmorBonus, float _fDodgeModifier, float _fDamageReduction,float _fMovementModifier,EnumArmorClass _enArmorClas);
     
     Armor();
+    
+    /*
+    virtual Armor* clone() const
+    {
+        return new Armor(*this);
+    }
+     */
    
   
     
@@ -50,6 +57,7 @@ public:
     void setItemName(int value);
     void setMaterial(int value);
     void setFitsBodyPart(EnumFitsBodyPart value);
+    void CalculateMaterialBonuses();
     
     
     

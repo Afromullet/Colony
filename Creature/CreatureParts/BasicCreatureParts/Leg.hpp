@@ -29,9 +29,12 @@ public:
     
     void setLegArmor(Armor _armor);
     void setFootArmor(Armor _armor);
+    void SetLegType(LimbType _limbType);
     
     Armor getLegArmor();
     Armor getFootArmor();
+    
+    
     
     
 };

@@ -14,10 +14,8 @@
 #include <list>
 #include "Map.hpp"
 
-extern std::list<Item> itemsOnMap;
 
-//For testing...need to get inventory and equipping items owrking
-void RandomItemGen();
-void PlaceItemsOnMap(Map &map);
+
+
 
 #endif /* ItemGenerator_hpp */

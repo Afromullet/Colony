@@ -71,3 +71,7 @@ void Weapon::calculateMaterialBonuses()
         
 }
 
+void Weapon::CalculateMaterialBonuses()
+{
+    
+}

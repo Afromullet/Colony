@@ -188,10 +188,39 @@ void GameLoop3()
     player.setBody(&humanoid);
     player.setPosition(5, 5);
     
-    GenerateWallOnlyMap(MainMap);
-    RandomItemGen();
-    PlaceItemsOnMap(caMap);
+    Item *it;
+    Armor arm;
+    Weapon wep;
+    
+ 
+    
+    arm.setItemType(enArmorType);
+    wep.setItemType(enWeaponType);
+    arm.setFitsBodyPart(enChest);
+    wep.setFitsBodyPart(enOneHanded);
+    arm.setArmorBonus(10);
+    wep.setDamage(5);
+    
 
+    Item *pArm = &arm;
+    Item *pWep = &wep;
+    
+
+    
+    
+    player.AddItemToInventory(pArm);
+    player.AddItemToInventory(pWep);
+   
+    player.PrintInventory();
+   
+    
+   // Armor armor;
+    //Item item
+    //humanoid.EquipItem(armor);
+    
+    GenerateWallOnlyMap(MainMap);
+
+   
 
     SetupTestTargestBox();
     
@@ -246,11 +275,6 @@ void GameLoop3()
                 window.draw(iter->creatureTile);
             }
             
-            std::list<Item>::iterator itemIt;
-            for(itemIt = itemsOnMap.begin(); itemIt != itemsOnMap.end(); ++itemIt)
-            {
-                window.draw(itemIt->tile);
-            }
             
             window.draw(player.creatureTile);
            
@@ -318,8 +342,27 @@ void CheckPlayerMovement(sf::Event &event, Map &map)
         }
         else if(event.key.code == sf::Keyboard::G)
         {
-            player.PickupItem(caMap,itemsOnMap);
+            //player.PickupItem(caMap,itemsOnMap);
+            
+        }
+        else if(event.key.code == sf::Keyboard::I)
+        {
             player.PrintInventory();
+        }
+        else if(event.key.code == sf::Keyboard::P)
+        {
+            
+        }
+        else if(event.key.code == sf::Keyboard::E)
+        {
+            player.PrintInventory();
+            int n;
+            std::cout << "\nEnter item index \n";
+            std::cin >> n;
+            player.EquipItemFromInventory(n);
+            std::cout << "Equipped";
+            int k = 3;
+
         }
         
     }

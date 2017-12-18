@@ -10,17 +10,17 @@
 
 Head::Head(Armor _armor,short int _headHealth) : armor(_armor),headHealth(_headHealth)
 {
-    
+    bodyPart = enChestBodyPart;
 }
 
 Head::Head(short int _headHealth) : headHealth(_headHealth)
 {
-    
+    bodyPart = enChestBodyPart;
 }
 
 Head::Head() : headHealth(10)
 {
-    
+    bodyPart = enChestBodyPart;
 }
 
 Armor Head::getHeadArmor(){return armor;}

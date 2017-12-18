@@ -38,3 +38,4 @@ Armor Leg::getFootArmor()
 {
     return foot.getFootArmor();
 }
+

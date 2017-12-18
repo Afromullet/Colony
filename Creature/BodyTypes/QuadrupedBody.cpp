@@ -10,7 +10,10 @@
 
 QuadrupedBody::QuadrupedBody()
 {
-    
+    backRightLeg.setLimbType(enLegRight);
+    backLeftLeg.setLimbType(enLegLeft);
+    frontRightLeg.setLimbType(enLegRight);
+    fronLeftLeg.setLimbType(enLegLeft);
 }
 
 void QuadrupedBody::AttackRandomBodyPart(int attackBonus, int damage)
@@ -70,4 +73,10 @@ void QuadrupedBody::CalculateHealth()
     int totalHealth = fronLeftLeg.getLimbHealth() + frontRightLeg.getLimbHealth() + backLeftLeg.getLimbHealth() + backRightLeg.getLimbHealth() + getHead().getHeadHealth() + getChest().getChestHealth();
     setTotalHealth(totalHealth);
 }
+
+void QuadrupedBody::EquipItem(Item *item)
+{
+    
+}
+
 

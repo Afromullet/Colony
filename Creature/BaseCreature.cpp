@@ -130,9 +130,10 @@ bool BaseCreature::MoveCreature(int x, int y)
 void BaseCreature::setBody(Body *_body)
 {
     body = _body;
+    
 }
 
-void BaseCreature::AddItemToInventory(Item item)
+void BaseCreature::AddItemToInventory(Item *item)
 {
     creatureItems.push_back(item);
 }
@@ -142,48 +143,35 @@ void BaseCreature::CloneBody(Body *_body)
     body = _body->clone();
 }
 
-    //Picks up item at current position (if there is one) and adds it to the creatures inventory. TODO, determine whether there should be a class for creature and map interaction, or whether it's better to just pass the map as a reference
-void BaseCreature::PickupItem(Map &map,std::list<Item> &itemList)
-{
-    Tile *tile = &map.Map2D[position.x][position.y];
-    
-    if(tile->getItemOnTile() == NULL)
-    {
-        std::cout << "No item on tile";
-    }
-    else
-    {
-        int localID = tile->getItemOnTile()->localItemID; //So we can find it in the list
-        
-        creatureItems.push_back(*tile->getItemOnTile());
-        tile->SetItemOnTile(NULL);
-        std::list<Item>::iterator iter;
-        
-        for(iter = itemList.begin(); iter != itemList.end(); ++iter)
-        {
-            //Identify item through its local ID. TODO ensure that local ID is unique
-            //Probably pick from a bin of random numbers of all possible local ids
-            if(iter->localItemID == localID)
-            {
-                creatureItems.erase(iter);
-                break;
-            }
-            
-        }
-        std::cout << "Picking up item";
-    }
-    
-}
-
 void BaseCreature::PrintInventory()
 {
-    std::list<Item>::iterator iter;
-    
-    std::cout << "\n Printing List";
-    for(iter=creatureItems.begin(); iter != creatureItems.end(); ++iter)
+    std::list<Item*>::iterator itemIt;
+    std::cout << "\nPrinting inventory\n";
+    int i = 0;
+    for(itemIt = creatureItems.begin(); itemIt != creatureItems.end(); ++itemIt)
     {
-        std::cout << iter->getItemID() << "\n";
+        std::cout << "\n" << i << ": Item Name: " << (*itemIt)->getItemType() << " Item Type" << (*itemIt)->getItemType();
+        i++;
     }
-    
 }
+
+//Equips item number n from inventory, n being the position in the list
+void BaseCreature::EquipItemFromInventory(int n)
+{
+    std::list<Item*>::iterator itemIt;
+    std::cout << "\nPrinting inventory\n";
+    int i = 0;
+    for(itemIt = creatureItems.begin(); itemIt != creatureItems.end(); ++itemIt)
+    {
+        if(i == n)
+        {
+            std::cout << "\nEquipping item number " << i << "compare to " << n;
+            body->EquipItem(*itemIt);
+            std::cout << "Equipped";
+            break;
+        }
+ 
+    }
+}
+
 

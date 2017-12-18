@@ -22,7 +22,7 @@ enum AppendageType
     enFootLeft
 };
 
-//A appendage is something like a hand or a foot. Arms and legs will be implemented as subclasses of this.
+//A appendage is something like a hand or a foot . Arms and legs will be implemented as subclasses of this.
 
 class Appendage
 {

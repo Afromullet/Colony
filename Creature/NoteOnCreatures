@@ -31,6 +31,8 @@ Currently contains the virtual function AttackRandomBodyPart, which, when implem
 
 The body parts are limbs and appendages. I've not implemented them as abstract classes. Currently, I do not see any need. (Although I should add some checking to ensure that the user does not misuse those classes). Arms and legs, for example are sublclasses of limb, and hands and feet subclasses of appendage
 
+EnumBodyPart bodyPart; //Currently uses a different enum than appendange and limb. Combine those enums sometimes in the future. Changed the way the body is handled, but the enum didn't change. need to handle it a better way than with enums
+
 _____________________
 
 TODO

@@ -111,6 +111,10 @@ void Armor::setFitsBodyPart(EnumFitsBodyPart value)
     
 }
 
+void Armor::CalculateMaterialBonuses()
+{
+    
+}
 
 
 /*

@@ -31,6 +31,9 @@ public:
     {
         return new QuadrupedBody(*this);
     }
+    
+    void EquipItem(Item *item);
+
 };
 
 

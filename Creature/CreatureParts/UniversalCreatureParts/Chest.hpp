@@ -20,6 +20,7 @@ class Chest
 private:
     Armor armor;
     short int health;
+    EnumBodyPart bodyPart; //Currently uses a different enum than appendange and limb. Combine those enums sometimes in the future. Changed the way the body is handled, but the enum didn't change. need to handle it a better way than with enums
     
     
 public:

@@ -8,13 +8,13 @@
 
 #include "Equipment.hpp"
 
-Item::Item(int _material, EnumFitsBodyPart _enFitsBodyPart, int _sEquipmentName): material(_material),enFitsBodyPart(_enFitsBodyPart),sEquipmentName(_sEquipmentName)
+Item::Item(int _material, EnumFitsBodyPart _enFitsBodyPart, int _sEquipmentName): material(_material),enFitsBodyPart(_enFitsBodyPart),sEquipmentName(_sEquipmentName),isEquipped(false)
 {
     
 }
 
 
-Item::Item() : material(1),enFitsBodyPart(enUndefinedBodyPart),sEquipmentName(2)
+Item::Item() : material(1),enFitsBodyPart(enUndefinedBodyPart),sEquipmentName(2),isEquipped(false)
 {
     
 }
@@ -60,6 +60,25 @@ void Item::setPosition(int x, int y)
     position.x = x;
     position.y = y;
     
+}
+void Item::setItemType(EnItemType itemType)
+{
+    enItemType = itemType;
+}
+
+EnItemType Item::getItemType()
+{
+    return enItemType;
+}
+
+void Item::setIsEquipped(bool _isEquipped)
+{
+    isEquipped = _isEquipped;
+}
+
+bool Item::getIsEquipped()
+{
+    return isEquipped;
 }
 
 int Item::getItemID()
