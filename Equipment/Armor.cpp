@@ -23,6 +23,16 @@ siArmorBonus(_siArmorBonus),fDodgeModifier(_fDodgeModifier),
 fDamageReduction(_fDamageReduction),fMovementModifier(_fMovementModifier),enArmorClass(_enArmorClass)
 {}
 
+Armor::Armor(std::string itemName, EnItemType _itemType) :Item(itemName,_itemType)
+{
+    
+}
+
+Armor::Armor(Armor const &)
+{
+    
+}
+
 Armor::Armor() : Item(),siArmorBonus(-1),fDodgeModifier(-1),fDamageReduction(-1),
 fMovementModifier(-1),enArmorClass(enUndefinedArmorClass)
 {
@@ -56,12 +66,15 @@ EnumFitsBodyPart Armor::getBodyPart()
     Item::getBodyPart();
 }
 
+
+/*
 int Armor::getItemName()
 {
  
     return Item::getItemName();
     
 }
+ */
 
 EnumArmorClass Armor::getArmorClass()
 {
@@ -93,12 +106,16 @@ void Armor::setMovementModifier(float value)
     fMovementModifier = value;
 }
 
+/*
 void Armor::setItemName(int value)
 {
 
     Item::setItemName(value);
     
 }
+ */
+
+
 void Armor::setMaterial(int value)
 {
     Item::setMaterial(1);

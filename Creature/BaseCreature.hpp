@@ -72,8 +72,10 @@ public:
     void EquipItemFromInventory(int n); //Equips item number n from inventory, n being the position in the list
     bool MoveCreature(int x, int y);
     
-
+    
     bool isAlive; //For testing
+    
+    void PickupItem(Map &map,std::list<Item*> itemList);
 
     
 };

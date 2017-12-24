@@ -32,7 +32,7 @@ enum EnumBodyPart{enHeadBodyPart,enLeftArmBodyPart,enRightArmBodyPart,enLeftLegB
 //Don't want to make separate classes for right and lef limbs...Maybe there's a better option than enums to distinguish between limbs. research todo
 
 //The various types of weapons
-enum EnumWeaponClass{enDagger,enShortSword,enLongSword,enGreatsword,enLongbow,enCrossbow,enUndefinedWeaponClass};
+enum EnumWeaponClass{enDagger,enShortSword,enLongSword,enGreatsword,enLongbow,enCrossbow,enMace,enHammer,enUndefinedWeaponClass};
 enum EnumBonusType{enStrengthBonus,enDexterityBonus,enUndefinedBonus};
 
 //The different armor classes

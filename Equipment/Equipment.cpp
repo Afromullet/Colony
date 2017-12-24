@@ -8,13 +8,17 @@
 
 #include "Equipment.hpp"
 
-Item::Item(int _material, EnumFitsBodyPart _enFitsBodyPart, int _sEquipmentName): material(_material),enFitsBodyPart(_enFitsBodyPart),sEquipmentName(_sEquipmentName),isEquipped(false)
+Item::Item(int _material, EnumFitsBodyPart _enFitsBodyPart, int _sEquipmentName): material(_material),enFitsBodyPart(_enFitsBodyPart),sEquipmentName("no name"),isEquipped(false)
 {
     
 }
 
+Item::Item(std::string equipmentName, EnItemType _itemType) : sEquipmentName(equipmentName), enItemType(_itemType)
+{
+    
+}
 
-Item::Item() : material(1),enFitsBodyPart(enUndefinedBodyPart),sEquipmentName(2),isEquipped(false)
+Item::Item() : material(1),enFitsBodyPart(enUndefinedBodyPart),sEquipmentName("no name"),isEquipped(false)
 {
     
 }
@@ -24,7 +28,7 @@ EnumFitsBodyPart Item::getBodyPart()
     return enFitsBodyPart;
 }
 
-int Item::getItemName()
+std::string Item::getItemName()
 {
     return sEquipmentName;
 }
@@ -35,7 +39,7 @@ sf::Vector2u Item::getPosition()
 }
 
 
-void Item::setItemName(int value)
+void Item::setItemName(std::string value)
 {
     sEquipmentName = value;
 }

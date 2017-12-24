@@ -93,7 +93,8 @@ void HumanoidBody::AttackRandomBodyPart(int attackBonus, int damage)
 //Much easier to do that way, than allowing the player to choose which slot to equip it in and then checking if it is a valid slot.
 
 
-
+//TODO, unequip item if it was stored in the equipped slot and set values accordingly
+//i.e, setisequipped of that item
 void HumanoidBody::EquipItem(Item *item)
 {
     if(item->getItemType() == enArmorType)
@@ -154,4 +155,13 @@ void HumanoidBody::EquipItem(Item *item)
        //std::shared_ptr<Armor> der = static_pointer_cast(Item>);
     //rightLeg.setLegArmor(item);
  
+}
+
+void HumanoidBody::PrintEquippedItems()
+{
+    
+    std::cout << "Head Armor " << getHead().getHeadArmor().getItemName() << getHead().getHeadArmor().getItemType() << "\n";
+    std::cout << "Chest Armor " << getChest().getChestArmor().getItemName() << getChest().getChestArmor().getItemType() << "\n";
+    std::cout << "Leg Armor " << leftLeg.getLegArmor().getItemName() << leftLeg.getLegArmor().getItemType() << "\n";
+    
 }

@@ -53,6 +53,8 @@ extern std::vector<TileIDData> tileIDTable; //Tile types are predefined. TODO, p
 
 extern std::list<BaseCreature> lCreatures;
 
+extern std::list<Item*> itemsOnMap;
+
 extern float CELL_CHANCETOSTARTALIVE;
 extern int DEATH_LIMIT;
 extern int BIRTH_LIMIT;

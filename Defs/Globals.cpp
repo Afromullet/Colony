@@ -30,6 +30,9 @@ std::list<BaseCreature> lCreatures;
 Map MainMap;
 BaseCreature player;
 
+//TODO, need a better way to handle items on a particular map. Maybe add an itemsOnMap* to the Map itself, assuming that doesn't take up too much space..Or maybe some sort of class containing pointers to a map and and items that handles all interaction between them
+std::list<Item*> itemsOnMap;
+
 //Tile types are predefined. TODO, populate this from a file.
 
 void InitializeTileData()

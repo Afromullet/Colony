@@ -41,6 +41,7 @@ public:
     void setHead(Head _head);
     void setChest(Chest _chest);
     void setTotalHealth(int _health);
+    virtual void PrintEquippedItems() = 0;
     
     float getBloodRemaining();
     Head getHead();

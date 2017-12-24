@@ -33,6 +33,7 @@ public:
     }
     
     void EquipItem(Item *item);
+    void PrintEquippedItems();
 
 };
 

@@ -10,6 +10,9 @@
 #include "Globals.hpp"
 #include "Constants.hpp"
 
+
+//todo replace raw pointers with unique ptr
+
 BaseCreature::BaseCreature()
 {
     isAlive = true;
@@ -150,7 +153,7 @@ void BaseCreature::PrintInventory()
     int i = 0;
     for(itemIt = creatureItems.begin(); itemIt != creatureItems.end(); ++itemIt)
     {
-        std::cout << "\n" << i << ": Item Name: " << (*itemIt)->getItemType() << " Item Type" << (*itemIt)->getItemType();
+        std::cout << "\n" << i << ": Item Name: " << (*itemIt)->getItemName() << " Item Type" << (*itemIt)->getItemType() << "\n";
         i++;
     }
 }
@@ -170,8 +173,49 @@ void BaseCreature::EquipItemFromInventory(int n)
             std::cout << "Equipped";
             break;
         }
+        i++;
  
     }
+}
+
+
+ //Picks up item at current position (if there is one) and adds it to the creatures inventory. TODO, determine whether there should be a class for creature and map interaction, or whether it's better to just pass the map as a reference
+void BaseCreature::PickupItem(Map &map,std::list<Item*> itemList)
+{
+ Tile *tile = &map.Map2D[position.x][position.y];
+ 
+ if(tile->getItemOnTile() == NULL)
+ {
+     std::cout << "No item on tile";
+ }
+ else
+ {
+     //TODO, need to handle removing item from itemList
+    // int localID = tile->getItemOnTile()->localItemID; //So we can find it in the list
+     //std::cout << "\nID " << localID << "\n";
+ 
+     creatureItems.push_back(tile->getItemOnTile()); //TODO, need a different way to handle pushing the itme back, because when we remove it from the itemlist, we still want it in the creatureItems..both are pointers, so we need to do some copying. Create a copy constructor that handles this
+     //tile->SetItemOnTile(NULL);
+     std::list<Item*>::iterator iter;
+ 
+     
+     for(iter = itemList.begin(); iter != itemList.end(); ++iter)
+     {
+         
+        //Identify item through its local ID. TODO ensure that local ID is unique
+         //Probably pick from a bin of random numbers of all possible local ids
+         if((*iter) == tile->getItemOnTile())
+         {
+             itemList.erase(iter);
+             std::cout << "aaa";
+             break;
+         }
+ 
+     }
+     
+     std::cout << "Picking up item";
+ }
+ 
 }
 
 

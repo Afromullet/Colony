@@ -79,4 +79,8 @@ void QuadrupedBody::EquipItem(Item *item)
     
 }
 
+void QuadrupedBody::PrintEquippedItems()
+{
+    
+}
 

@@ -27,6 +27,19 @@ public:
    short int _siDamage,EnumWeaponClass _enWeaponClass);
     Weapon();
     
+    Weapon(Weapon const &);
+    
+    Weapon* clone() const
+    {
+        return new Weapon(*this);
+    }
+    
+    Weapon  *create() const
+    {
+        return new Weapon();
+    }
+    
+
     
     /*
     virtual Weapon* clone() const
@@ -34,7 +47,7 @@ public:
         return new Weapon(*this);
     }
     */
-    int getItemName();
+    //int getItemName();
     
     void calculateMaterialBonuses();
     
@@ -53,7 +66,7 @@ public:
     
     void setRange(short int value);
     void setDamage(short int value);
-    void setItemName(int value);
+    //void setItemName(int value);
     void setMaterial(int value);
     void setFitsBodyPart(EnumFitsBodyPart value);
     void setWeaponClass(EnumWeaponClass weaponClass);

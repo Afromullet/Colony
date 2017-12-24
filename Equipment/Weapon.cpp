@@ -20,12 +20,19 @@ Weapon::Weapon() : Item(-1,enUndefinedBodyPart,1),siRange(-1),siDamage(-1),enWea
     
 }
 
+Weapon::Weapon(Weapon const &)
+{
+    
+}
+
+/*
 int Weapon::getItemName()
 {
     
     return Item::getItemName();
     
 }
+ */
 
 short int Weapon::getRange(){return siRange;}
 short int Weapon::getDamage(){return siDamage;}
@@ -46,7 +53,7 @@ float Weapon::getDamageModifier()
 
 void Weapon::setRange(short int value){siRange = value;}
 void Weapon::setDamage(short int value){siDamage = value;}
-void Weapon::setItemName(int value){Item::setItemName(value);}
+//void Weapon::setItemName(int value){Item::setItemName(value);}
 void Weapon::setMaterial(int value){Item::setMaterial(1);}
 void Weapon::setFitsBodyPart(EnumFitsBodyPart value){Item::setFitsBodyPart(value);}
 void Weapon::setWeaponClass(EnumWeaponClass weaponClass){enWeaponClass = weaponClass;}

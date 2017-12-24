@@ -14,6 +14,10 @@
 #include <list>
 #include "Map.hpp"
 
+Armor GenerateRandomArmor();
+Weapon GenerateRandomWeapon();
+void RandomItemGen();
+void PlaceItemsOnMap(Map &map);
 
 
 

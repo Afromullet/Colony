@@ -25,7 +25,24 @@ public:
     Armor(int _material, EnumFitsBodyPart _enFitsBodyPart, int _sEquipmentName, short int _siArmorBonus, float _fDodgeModifier, float _fDamageReduction,float _fMovementModifier,EnumArmorClass _enArmorClas);
     Armor(int _material,int _sEquipmentName, short int _siArmorBonus, float _fDodgeModifier, float _fDamageReduction,float _fMovementModifier,EnumArmorClass _enArmorClas);
     
+     Armor(std::string itemName, EnItemType _itemType);
+    
+    Armor(Armor const &);
+    
     Armor();
+    
+    Armor *clone() const
+    {
+        return new Armor(*this);
+    }
+    
+    Armor  *create() const
+    {
+        return new Armor();
+    }
+    
+    
+    
     
     /*
     virtual Armor* clone() const
@@ -37,7 +54,7 @@ public:
   
     
    
-    int getItemName();
+    //int getItemName();
     short int siGetArmorBonus();
     float fGetDodgeModifier();
     float fGetDamageReduction();
@@ -54,7 +71,7 @@ public:
     void setMovementModifier(float value);
     void calculateMaterialBonuses();
     
-    void setItemName(int value);
+    //void setItemName(int value);
     void setMaterial(int value);
     void setFitsBodyPart(EnumFitsBodyPart value);
     void CalculateMaterialBonuses();
