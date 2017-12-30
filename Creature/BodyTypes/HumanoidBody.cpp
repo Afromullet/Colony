@@ -8,23 +8,20 @@
 
 #include "HumanoidBody.hpp"
 
+//Set the basic parameters,,.Does not set limb health..when you create a random creature (probably a factory), ensure that you also initialize the paremeters in Body including chest health and such etc todo
 HumanoidBody::HumanoidBody()
 {
     leftArm.setLimbType(enArmLeft);
     rightArm.setLimbType(enArmRight);
     rightArm.hand.setAppendageType(enHandRight);
     leftArm.hand.setAppendageType(enHandLeft);
-    
-    
-    
-    
 }
 
+//Just using rand to determne what body part to attack. TODO, choose random body part to attacj a better way than rand()
 void HumanoidBody::AttackRandomBodyPart(int attackBonus, int damage)
 {
     
-    std::cout << "attack\n";
-    
+ 
     switch(rand() % 5)
     {
         case 0:
@@ -77,10 +74,7 @@ void HumanoidBody::AttackRandomBodyPart(int attackBonus, int damage)
             break;
     
     }
-    
-    std::cout << "Total Health left: " << getTotalHealth() << "\n";
-
-    
+        
 }
 
  void HumanoidBody::CalculateHealth()
@@ -100,36 +94,33 @@ void HumanoidBody::EquipItem(Item *item)
     if(item->getItemType() == enArmorType)
     {
         Armor *arm = dynamic_cast<Armor*>(item);
+
         
         switch(arm->getBodyPart())
         {
-            case enHead:
+            case enHeadBodyPart:
                 head.setHeadArmor(*arm);
-                arm->setIsEquipped(true);
+               // arm->setIsEquipped(true);
                 break;
-            case enChest:
+            case enChestBodyPart:
+                //chest.getChestArmor().setIsEquipped(false);
                 chest.setChestArmor(*arm);
-                arm->setIsEquipped(true);
+                //arm->setIsEquipped(true);
                 break;
-            case enArms:
-                leftArm.setArmArmor(*arm);
-                rightArm.setArmArmor(*arm);
-                arm->setIsEquipped(true);
-                break;
-            case enLegs:
+            case enLegsBodyPart:
                 leftLeg.setLegArmor(*arm);
                 rightLeg.setLegArmor(*arm);
-                arm->setIsEquipped(true);
+                //arm->setIsEquipped(true);
                 break;
-            case enHands:
+            case enHandsBodyPart:
                 leftArm.setHandArmor(*arm);
                 rightArm.setHandArmor(*arm);
-                arm->setIsEquipped(true);
+                //arm->setIsEquipped(true);
                 break;
-            case enFeet:
+            case enFeetBodyPart:
                 leftLeg.setFootArmor(*arm);
                 rightLeg.setFootArmor(*arm);
-                arm->setIsEquipped(true);
+                //arm->setIsEquipped(true);
                 break;
         }
         
@@ -141,11 +132,11 @@ void HumanoidBody::EquipItem(Item *item)
         //If weapon is two handed, need a way to identify in the second hand that the equipped weapon is two handed todo
         switch(wep->getBodyPart())
         {
-            case enOneHanded:
+            case enFitsOneHand:
                 rightArm.hand.setWeapon(*wep);
                 wep->setIsEquipped(true);
                 break;
-            case enTwoHanded:
+            case enFitsBothHands:
                 rightArm.hand.setWeapon(*wep);
                 wep->setIsEquipped(true);
                 break;
@@ -154,14 +145,23 @@ void HumanoidBody::EquipItem(Item *item)
     }
        //std::shared_ptr<Armor> der = static_pointer_cast(Item>);
     //rightLeg.setLegArmor(item);
+    std::cout << "\nName: " << chest.getChestArmor().getItemName() << "\n";
+
  
+    
 }
 
 void HumanoidBody::PrintEquippedItems()
 {
     
-    std::cout << "Head Armor " << getHead().getHeadArmor().getItemName() << getHead().getHeadArmor().getItemType() << "\n";
-    std::cout << "Chest Armor " << getChest().getChestArmor().getItemName() << getChest().getChestArmor().getItemType() << "\n";
-    std::cout << "Leg Armor " << leftLeg.getLegArmor().getItemName() << leftLeg.getLegArmor().getItemType() << "\n";
+    std::cout << "Head Armor " << getHead().getHeadArmor().getItemName() <<  "\n";
+    std::cout << "Chest Armor " << getChest().getChestArmor().getItemName() << "\n";
+    std::cout << "Leg Armor " << leftLeg.getLegArmor().getItemName() << "\n";
+    std::cout << "Hand Armor " << leftArm.getHandArmor().getItemName() << "n";
+    std::cout << "Foot Armor " << leftLeg.getFootArmor().getItemName() << "\n";
+    std::cout << "Weapon " << rightArm.hand.getWeapon().getItemName() << "\n";
+
+    
+
     
 }

@@ -15,6 +15,7 @@
 #include "EnumTypes.hpp"
 #include "EntityTile.hpp"
 
+
 //TODO rename enbodypart to something that indicates it is the body part the equipment fits to
 
 //TODO...GetEquipmentParameters. Returns a hashtable of equipment parameters. Whenever this funtion is called, it is up to the user to parse those parameters. I.E
@@ -25,22 +26,25 @@ class Item
 {
 
 private:
+    friend class Armor;
+    friend class Weapon;
     int itemID; //Need a way to identify an item of a specific kind for bookeeping and accounting
     int material;
-    EnumFitsBodyPart enFitsBodyPart;
+    EnumBodyPart enFitsBodyPart;
     EnItemType enItemType;
     std::string sEquipmentName;
     sf::Vector2u position; //Is this a good idea? The position of an object does not matter if it's on a creature. Is the space this uses worth making managing items on the map easier?
     
-    bool isEquipped;
+    
     
   
     
 public:
     
+    bool isEquipped;
     EntityTile itemTile; //Every item needs a tile for when it is represented on the map. Need to ensure that we distinguish between an item on the map and worn by the player. todo
     
-    Item(int _material, EnumFitsBodyPart _enFitsBodyPart, int _sEquipmentName);
+    Item(int _material, EnumBodyPart _enFitsBodyPart, int _sEquipmentName);
     Item(std::string equipmentName, EnItemType _itemType);
     Item();
     virtual Item *clone() const = 0;
@@ -53,12 +57,12 @@ public:
     //virtual Item* clone() const = 0;
 
     std::string getItemName();
-    EnumFitsBodyPart getBodyPart();
+    EnumBodyPart getBodyPart();
     sf::Vector2u getPosition();
     
     void setItemName(std::string value);
     void setMaterial(int value);
-    void setFitsBodyPart(EnumFitsBodyPart value);
+    void setFitsBodyPart(EnumBodyPart value);
     void setPosition(int x, int y); //For setting the position of the item when it's on the map
     void setItemID(int id);
     void setItemType(EnItemType itemType);
@@ -76,6 +80,7 @@ public:
     std::string name; //Public right now..make getters and setters later
     
     virtual void CalculateMaterialBonuses() = 0;
+    virtual void showItemStats() = 0;
     
    
 

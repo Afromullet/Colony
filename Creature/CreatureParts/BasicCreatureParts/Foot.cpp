@@ -25,5 +25,6 @@ Armor Foot::getFootArmor()
 
 void Foot::setFootArmor(Armor _armor)
 {
+    _armor.isEquipped = true;
     armor = _armor;
 }

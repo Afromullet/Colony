@@ -15,31 +15,39 @@
 
 //todo add destructors
 
+//Not much done yet. Remove this file later, this is just for testing. Radom item generation will have to be handled differently.
 Armor GenerateRandomArmor()
 {
     
-    int randNum = rand() % 3;
+    //int randNum = rand() % 3;
     Armor armor;
+    int randNum = rand() % 3;
+    std::cout << "Random number " << randNum << "\n";
     
     armor.setArmorBonus(rand() % 5);
     armor.setDodgeModifier(rand() % 2);
     armor.setDamageReduction(rand() % 2);
     armor.setMovementModifier(rand() % 2);
+    armor.setItemID(rand() % 1000);
     
     switch(randNum)
     {
         case 0:
-            armor.setFitsBodyPart(enChest);
+            armor.setItemType(enArmorType);
+            armor.setFitsBodyPart(enChestBodyPart);
             armor.setItemName("ChestArmor" + std::to_string(rand() % 100));
             break;
         case 1:
-            armor.setFitsBodyPart(enHead);
+            armor.setFitsBodyPart(enHeadBodyPart);
+            armor.setItemType(enArmorType);
             armor.setItemName("HeadArmor" + std::to_string(rand() % 100));
             break;
         case 2:
-            armor.setFitsBodyPart(enLegs);
+            armor.setFitsBodyPart(enLegsBodyPart);
+            armor.setItemType(enArmorType);
             armor.setItemName("LegArmor" + std::to_string(rand() % 100));
             break;
+            
     }
     
     return armor;
@@ -55,7 +63,6 @@ Weapon GenerateRandomWeapon()
     
     weapon.setRange(1); //Default fot melee weapons
     weapon.setDamage(rand() % 5);
-
     
     //Not dealing with two handed weapons now
     switch(randNum)
@@ -86,7 +93,6 @@ Weapon GenerateRandomWeapon()
     
 }
 
-//std::list<Item> itemsOnMap;
 
 //For testing...need to get inventory and equipping items owrking
 void RandomItemGen()
@@ -95,21 +101,6 @@ void RandomItemGen()
     for(int i = 0; i < 10; i++)
     {
         Item *item;
-        
-
-        
-
-        
-        //item.tile.loadTile("blessed_blade.png", sf::Vector2u(32,32), sf::Vector2u(randX,randY));
-        
-        //item.setPosition(randX, randY);
-        //
-        //item.tile.setPosition(randX, randY);
-        
-        //item.setItemID(rand() % 1000);
-        //item.localItemID = rand() % 500;
-        
-        
         itemsOnMap.push_back(item);
     }
     
@@ -122,10 +113,14 @@ void RandomItemGen()
        
         //A lot of redunancy in the code below..just testing for now
         Armor arm = GenerateRandomArmor();
+
+        
         *itemIt = arm.clone();
-        std::string name = "Armor";
-        name + std::to_string(counter);
-        (*itemIt)->setItemName(arm.getItemName());
+        
+        //std::cout << "\nInside random item gen after cast " << (* << "\n";
+        
+       // (*itemIt)->setItemName(arm.getItemName());
+        std::cout << "\nRandom item gen item armor name " << (*itemIt)->getItemName() << "\n";
         (*itemIt)->setFitsBodyPart(arm.getBodyPart());
         randX = rand() % MAP_WIDTH;
         randY = rand() % MAP_HEIGHT;
@@ -134,7 +129,7 @@ void RandomItemGen()
         counter++;
     }
     
-    std::cout << "\n";
+
 }
 
 

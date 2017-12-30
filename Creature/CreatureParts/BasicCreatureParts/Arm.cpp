@@ -21,11 +21,13 @@ Arm::Arm(LimbType _limbType,AppendageType _appendageType) : Limb(_limbType), han
 
 void Arm::setArmArmor(Armor _armor)
 {
+    _armor.isEquipped = true;
     armor = _armor;
 }
 
 void Arm::setHandArmor(Armor _armor)
 {
+    _armor.isEquipped = true;
     hand.setHandArmor(_armor);
 }
 
@@ -39,6 +41,7 @@ Armor Arm::getHandArmor()
 {
     return hand.getHandArmor();
 }
+
 
 
 

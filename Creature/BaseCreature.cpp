@@ -153,10 +153,23 @@ void BaseCreature::PrintInventory()
     int i = 0;
     for(itemIt = creatureItems.begin(); itemIt != creatureItems.end(); ++itemIt)
     {
-        std::cout << "\n" << i << ": Item Name: " << (*itemIt)->getItemName() << " Item Type" << (*itemIt)->getItemType() << "\n";
+        //(*itemIt)->showItemStats();
+        
+        /*
+        if(!(*itemIt)->getIsEquipped() == false)
+        {
+            i++;
+            continue;
+        }
+         */
+        
+        
+        std::cout << "\n" << i << ": Item Name: " << (*itemIt)->getItemName() << " Item Type " << (*itemIt)->getItemType() << "\n";
         i++;
     }
 }
+
+
 
 //Equips item number n from inventory, n being the position in the list
 void BaseCreature::EquipItemFromInventory(int n)
@@ -170,7 +183,10 @@ void BaseCreature::EquipItemFromInventory(int n)
         {
             std::cout << "\nEquipping item number " << i << "compare to " << n;
             body->EquipItem(*itemIt);
-            std::cout << "Equipped";
+          
+            //Here suddenly the value of armor is not maintained
+           // (*itemIt)->showItemStats();
+ ;
             break;
         }
         i++;
@@ -180,7 +196,7 @@ void BaseCreature::EquipItemFromInventory(int n)
 
 
  //Picks up item at current position (if there is one) and adds it to the creatures inventory. TODO, determine whether there should be a class for creature and map interaction, or whether it's better to just pass the map as a reference
-void BaseCreature::PickupItem(Map &map,std::list<Item*> itemList)
+void BaseCreature::PickupItem(Map &map,std::list<Item*> &itemList)
 {
  Tile *tile = &map.Map2D[position.x][position.y];
  
@@ -199,18 +215,25 @@ void BaseCreature::PickupItem(Map &map,std::list<Item*> itemList)
      std::list<Item*>::iterator iter;
  
      
+     int count = 0;
      for(iter = itemList.begin(); iter != itemList.end(); ++iter)
      {
+         
          
         //Identify item through its local ID. TODO ensure that local ID is unique
          //Probably pick from a bin of random numbers of all possible local ids
          if((*iter) == tile->getItemOnTile())
          {
-             itemList.erase(iter);
-             std::cout << "aaa";
+             
+         
+            itemList.erase(iter);
+             map.Map2D[position.x][position.y].SetItemOnTile(NULL);
+             
+             
              break;
          }
  
+         ++count;
      }
      
      std::cout << "Picking up item";

@@ -15,6 +15,7 @@
 class Armor : public Item
 {
 private:
+    friend class Item;
     short int siArmorBonus;
     float fDodgeModifier;
     float fDamageReduction;
@@ -22,14 +23,16 @@ private:
     EnumArmorClass enArmorClass;
     
 public:
-    Armor(int _material, EnumFitsBodyPart _enFitsBodyPart, int _sEquipmentName, short int _siArmorBonus, float _fDodgeModifier, float _fDamageReduction,float _fMovementModifier,EnumArmorClass _enArmorClas);
+    Armor(int _material, EnumBodyPart _enFitsBodyPart, int _sEquipmentName, short int _siArmorBonus, float _fDodgeModifier, float _fDamageReduction,float _fMovementModifier,EnumArmorClass _enArmorClas);
     Armor(int _material,int _sEquipmentName, short int _siArmorBonus, float _fDodgeModifier, float _fDamageReduction,float _fMovementModifier,EnumArmorClass _enArmorClas);
     
      Armor(std::string itemName, EnItemType _itemType);
     
-    Armor(Armor const &);
+    Armor(const Armor &armor);
+    Armor(Armor &armor);
     
     Armor();
+    
     
     Armor *clone() const
     {
@@ -41,8 +44,7 @@ public:
         return new Armor();
     }
     
-    
-    
+
     
     /*
     virtual Armor* clone() const
@@ -59,7 +61,7 @@ public:
     float fGetDodgeModifier();
     float fGetDamageReduction();
     float fGetMovementModifier();
-    EnumFitsBodyPart getBodyPart();
+    EnumBodyPart getBodyPart();
     EnumArmorClass getArmorClass();
 
     
@@ -73,8 +75,11 @@ public:
     
     //void setItemName(int value);
     void setMaterial(int value);
-    void setFitsBodyPart(EnumFitsBodyPart value);
+    void setFitsBodyPart(EnumBodyPart value);
     void CalculateMaterialBonuses();
+    
+    void PrintArmorStatistics();
+    void showItemStats();
     
     
     

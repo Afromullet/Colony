@@ -16,6 +16,7 @@
 class Weapon : public Item
 {
 private:
+    friend class Item;
     short int siRange;
     short int siDamage;
     EnumWeaponClass enWeaponClass;
@@ -23,12 +24,15 @@ private:
     
 public:
     //todo getters and setters
-    Weapon(int _material,EnumFitsBodyPart _enFitsBodyPart, int _sEquipmentName, short int _siRange,
+    Weapon(int _material,EnumBodyPart _enFitsBodyPart, int _sEquipmentName, short int _siRange,
    short int _siDamage,EnumWeaponClass _enWeaponClass);
     Weapon();
     
-    Weapon(Weapon const &);
+    Weapon(const Weapon &weapon);
+    Weapon(Weapon &weapon);
+
     
+    //Once you get armor working, implement this just like you did with armor
     Weapon* clone() const
     {
         return new Weapon(*this);
@@ -54,7 +58,7 @@ public:
     short int getRange();
     short int getDamage();
     float getDamageModifier();
-    EnumFitsBodyPart getBodyPart();
+    EnumBodyPart getBodyPart();
     EnumWeaponClass getWeaponClass();
     EnumBonusType getAttackBonusType();
 
@@ -68,9 +72,14 @@ public:
     void setDamage(short int value);
     //void setItemName(int value);
     void setMaterial(int value);
-    void setFitsBodyPart(EnumFitsBodyPart value);
+    void setFitsBodyPart(EnumBodyPart value);
     void setWeaponClass(EnumWeaponClass weaponClass);
     void CalculateMaterialBonuses();
+    void showItemStats();
+    
+    
+    
+   
     
     
     

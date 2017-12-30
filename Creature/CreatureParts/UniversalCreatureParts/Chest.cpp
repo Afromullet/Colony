@@ -31,13 +31,17 @@ short int Chest::getChestHealth(){return health;}
 
 void Chest::setChestArmor(Armor value)
 {
-    if(value.getBodyPart() == enChest)
+    if(value.getBodyPart() == enChestBodyPart)
     {
+        
+       // std::cout << "init value " << value.getItemName() << "\n";
         armor = value;
+       std::cout << "Final " << armor.getItemName() <<  "and armor bonus " << armor.siGetArmorBonus() << "\n";
+        
     }
     else
     {
-        //std::cout << armor.getEquipmentName() << " does not fit into chest armor slot";
+        std::cout << " does not fit into chest armor slot\n";
     }
 }
 void Chest::setChestHealth(short int value){health = value;}

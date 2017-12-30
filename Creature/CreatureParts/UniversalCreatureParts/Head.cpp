@@ -30,7 +30,9 @@ void  Head::setHeadArmor(Armor value)
 {
     if(value.getBodyPart() == enHead)
     {
+        value.isEquipped = true;
         armor = value;
+        
     }
     else
     {

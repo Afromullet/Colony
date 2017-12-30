@@ -11,18 +11,18 @@
 
 /*
  Checks the maps width and height and determines if the (x,y) pair is in the bounds of the map
- 
+ Does not work correctly atm, fix that todo, low priority, for current testing I am doing it doesn't make a difference
  */
-int InMapBoundaries(Map &map,int newX, int newY)
+bool InMapBoundaries(Map &map,int newX, int newY)
 {
     
-    int retVal;
+    bool retVal;
     if(newX < 0 || newX >= map.GetWidth())
-        retVal = 0;
+        retVal = false;
     else if(newY < 0|| newY > map.GetHeight())
-        retVal = 0;
+        retVal = false;
     else
-        retVal = 1;
+        retVal = true;
     
     return retVal;
 
@@ -80,12 +80,16 @@ void MoveCreature(MoveDirection moveDirection, Map &map)
 }
 */
 
-
+//TODO fix bounary checking
 void MovePlayer(MoveDirection moveDirection, BaseCreature &_creature,Map &map)
 {
     sf::Vector2u direction(0,0);
     int newX = _creature.getPosition().x;
     int newY = _creature.getPosition().y;
+    
+    
+    if(!InMapBoundaries(map, newX, newY))
+        return;
     
     switch(moveDirection)
     {
@@ -142,6 +146,8 @@ void MoveCreatureRandomly(BaseCreature *_creature,Map &map)
     int plusOrMinus = rand() % 2;
     int randDirection = rand() % 2;
     int X_Y_OrBoth = rand() % 3; //Horrible variable name..To determine randomly whether we adjust x, y, or both
+    
+    
     
     if(plusOrMinus == 0)
     {

@@ -69,13 +69,14 @@ public:
     void AddItemToInventory(Item *item);
     void CloneBody(Body *_body);
     void PrintInventory();
+    
     void EquipItemFromInventory(int n); //Equips item number n from inventory, n being the position in the list
     bool MoveCreature(int x, int y);
     
     
     bool isAlive; //For testing
     
-    void PickupItem(Map &map,std::list<Item*> itemList);
+    void PickupItem(Map &map,std::list<Item*> &itemList);
 
     
 };

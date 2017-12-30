@@ -49,6 +49,7 @@ short int randRangeWeaponRange()
     return rand() & 50;
 }
 
+/*
 Weapon generateRandomWeapon()
 {
     short int randWeaponClass = rand() % 6;
@@ -127,6 +128,7 @@ Armor GenerateArmor(EnumFitsBodyPart bodyPart)
     
     return armor;
 }
+ */
 
 Chest generateChest()
 {

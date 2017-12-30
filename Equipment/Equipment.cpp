@@ -8,7 +8,7 @@
 
 #include "Equipment.hpp"
 
-Item::Item(int _material, EnumFitsBodyPart _enFitsBodyPart, int _sEquipmentName): material(_material),enFitsBodyPart(_enFitsBodyPart),sEquipmentName("no name"),isEquipped(false)
+Item::Item(int _material, EnumBodyPart _enFitsBodyPart, int _sEquipmentName): material(_material),enFitsBodyPart(_enFitsBodyPart),sEquipmentName("no name"),isEquipped(false)
 {
     
 }
@@ -18,18 +18,19 @@ Item::Item(std::string equipmentName, EnItemType _itemType) : sEquipmentName(equ
     
 }
 
-Item::Item() : material(1),enFitsBodyPart(enUndefinedBodyPart),sEquipmentName("no name"),isEquipped(false)
+Item::Item() : material(1),enFitsBodyPart(enUndefinedPart),sEquipmentName("no name"),isEquipped(false)
 {
     
 }
 
-EnumFitsBodyPart Item::getBodyPart()
+EnumBodyPart Item::getBodyPart()
 {
     return enFitsBodyPart;
 }
 
 std::string Item::getItemName()
 {
+    //std::cout << "Inside item name " << sEquipmentName;
     return sEquipmentName;
 }
  
@@ -51,7 +52,7 @@ void Item::setMaterial(int value)
     
 }
 
-void Item::setFitsBodyPart(EnumFitsBodyPart value)
+void Item::setFitsBodyPart(EnumBodyPart value)
 {
     enFitsBodyPart = value;
     

@@ -60,6 +60,95 @@ void MoveAllCreatures();
 void GenerateWallOnlyMap(Map &_map);
 void InitCreaturesOnMap(Map &_map, std::list<BaseCreature> &_creatures);
 
+void GenerateTestEquipment();
+
+
+Armor tHeadArmor;
+Armor tChestArmor;
+Armor tLegArmor;
+Armor tHandArmor;
+Armor tFootArmor;
+
+Weapon tOneHnaded;
+Weapon tTwoHanded;
+
+//Generate one set of armor for each slot the armor can fit
+void GenerateTestEquipment()
+{
+    Armor armor;
+    armor.setArmorBonus(rand() % 5);
+    armor.setDodgeModifier(rand() % 2);
+    armor.setDamageReduction(rand() % 2);
+    armor.setMovementModifier(rand() % 2);
+    armor.setItemID(rand() % 1000);
+    armor.setItemType(enArmorType);
+    
+    armor.setFitsBodyPart(enHeadBodyPart);
+    armor.setItemName("HeadArmorTest");
+    tHeadArmor = armor;
+    
+    armor.setArmorBonus(rand() % 5);
+    armor.setDodgeModifier(rand() % 2);
+    armor.setDamageReduction(rand() % 2);
+    armor.setMovementModifier(rand() % 2);
+    armor.setItemID(rand() % 1000);
+    
+    armor.setFitsBodyPart(enChestBodyPart);
+    armor.setItemName("ChestArmorTest");
+    tChestArmor = armor;
+    
+    armor.setArmorBonus(rand() % 5);
+    armor.setDodgeModifier(rand() % 2);
+    armor.setDamageReduction(rand() % 2);
+    armor.setMovementModifier(rand() % 2);
+    armor.setItemID(rand() % 1000);
+    
+    armor.setFitsBodyPart(enLegsBodyPart);
+    armor.setItemName("LegArmorTest");
+    tLegArmor = armor;
+    
+    armor.setArmorBonus(rand() % 5);
+    armor.setDodgeModifier(rand() % 2);
+    armor.setDamageReduction(rand() % 2);
+    armor.setMovementModifier(rand() % 2);
+    armor.setItemID(rand() % 1000);
+    
+    armor.setFitsBodyPart(enHandsBodyPart);
+    armor.setItemName("HandArmorTest");
+    tHandArmor = armor;
+    
+    armor.setArmorBonus(rand() % 5);
+    armor.setDodgeModifier(rand() % 2);
+    armor.setDamageReduction(rand() % 2);
+    armor.setMovementModifier(rand() % 2);
+    armor.setItemID(rand() % 1000);
+    
+    armor.setFitsBodyPart(enFeetBodyPart);
+    armor.setItemName("FootArmorTest");
+    tFootArmor = armor;
+    
+    Weapon weapon;
+    weapon.setItemType(enWeaponType);
+    weapon.setFitsBodyPart(enFitsBothHands);
+    weapon.setItemName("TwoHandedWep");
+    weapon.setRange(1);
+    weapon.setDamage(10);
+    tTwoHanded = weapon;
+    
+    weapon.setFitsBodyPart(enFitsOneHand);
+    weapon.setItemName("OneHandedWep");
+    weapon.setRange(1);
+    weapon.setDamage(5);
+    tOneHnaded = weapon;
+    
+    
+    
+    //Weapon.setFi
+    
+
+}
+
+
 
 BaseCreature creat;
 
@@ -196,8 +285,8 @@ void GameLoop3()
     
     arm.setItemType(enArmorType);
     wep.setItemType(enWeaponType);
-    arm.setFitsBodyPart(enChest);
-    wep.setFitsBodyPart(enOneHanded);
+    arm.setFitsBodyPart(enChestBodyPart);
+    //wep.setFitsBodyPart(enOneHanded);
     arm.setArmorBonus(10);
     wep.setDamage(5);
     wep.setItemName("weapon1");
@@ -213,12 +302,31 @@ void GameLoop3()
     Item *testItem = arm2.clone();
     testItem->setItemName("asdsd");
     //Item *testItem = &arm2;
+    
+    GenerateTestEquipment();
+    Item *testHA = &tHeadArmor;
+    Item *testCA = &tChestArmor;
+    Item *testLA = &tLegArmor;
+    Item *testFA = &tFootArmor;
+    Item *testHnd = &tHandArmor;
+    Item *testOneHanded = &tOneHnaded;
+    Item *testTwoHanded = &tTwoHanded;
+    
+    
+    player.AddItemToInventory(testHA);
+    player.AddItemToInventory(testCA);
+    player.AddItemToInventory(testLA);
+    player.AddItemToInventory(testFA);
+    player.AddItemToInventory(testHnd);
+    player.AddItemToInventory(testOneHanded);
+    player.AddItemToInventory(testTwoHanded);
+    
 
     
     
-    player.AddItemToInventory(pArm);
-    player.AddItemToInventory(pWep);
-    player.AddItemToInventory(testItem);
+    //player.AddItemToInventory(pArm);
+   // player.AddItemToInventory(pWep);
+    //player.AddItemToInventory(testItem);
    
     player.PrintInventory();
    
@@ -286,8 +394,10 @@ void GameLoop3()
             }
             
             std::list<Item*>::iterator itemIterator;
+            
             for(itemIterator = itemsOnMap.begin(); itemIterator != itemsOnMap.end(); ++itemIterator)
             {
+                
                 window.draw((*itemIterator)->tile);
             }
             

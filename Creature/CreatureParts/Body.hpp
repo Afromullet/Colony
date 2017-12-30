@@ -26,10 +26,11 @@ private:
     float bloodRemaining; //The lower this value is, the more blood the creature lost
 protected:
     
-    Chest chest;
+    
     Head head;
 public:
     
+    Chest chest; //Make private later
      ~Body(){};
     virtual void CalculateHealth() = 0; //Calculates health based on the limb and appendage setup of the creature
     

@@ -20,11 +20,13 @@ Hand::Hand(AppendageType _appendageType) : Appendage(_appendageType)
 
 void Hand::setHandArmor(Armor _armor)
 {
+    _armor.isEquipped = true;
     armor = _armor;
 }
 
 void Hand::setWeapon(Weapon _weapon)
 {
+    _weapon.setIsEquipped(true);
     weapon = _weapon;
 }
 

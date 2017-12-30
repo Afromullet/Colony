@@ -9,11 +9,14 @@
 #ifndef MovementHandler_hpp
 #define MovementHandler_hpp
 
+
+//Handles creature movement..maybe in the future, I should define interaction between a creture and a map in another class or file where the functions describe the interactions between the classes
+
 #include <stdio.h>
 
 #include "Map.hpp"
 #include "BaseCreature.hpp"
-int InMapBoundaries(Map &map,int newX, int newY);
+bool InMapBoundaries(Map &map,int newX, int newY);
 
 
 //Whenever a creature moves, it has to go through this handler to determine

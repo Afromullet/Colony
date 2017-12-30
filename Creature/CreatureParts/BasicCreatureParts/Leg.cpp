@@ -21,11 +21,13 @@ Leg::Leg(LimbType _limbType, AppendageType _appendageType) : Limb(_limbType), fo
 
 void Leg::setLegArmor(Armor _armor)
 {
+    _armor.isEquipped = true;
     armor = _armor;
 }
 
 void Leg::setFootArmor(Armor _armor)
 {
+    _armor.isEquipped = true;
     foot.setFootArmor(_armor);
 }
 

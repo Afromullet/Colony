@@ -10,25 +10,46 @@
 
 
 //todo add "Blank" weapon for when no weapon is equipped..and also something to identify a two handed weapon is equipped
-Weapon::Weapon(int _material,EnumFitsBodyPart _enFitsBodyPart, int _sEquipmentName, short int _siRange,short int _siDamage,EnumWeaponClass _enWeaponClass):
+Weapon::Weapon(int _material,EnumBodyPart _enFitsBodyPart, int _sEquipmentName, short int _siRange,short int _siDamage,EnumWeaponClass _enWeaponClass):
         Item::Item(_material,_enFitsBodyPart,_sEquipmentName),
         siRange(_siRange),siDamage(_siDamage),enWeaponClass(_enWeaponClass){}
 
 
-Weapon::Weapon() : Item(-1,enUndefinedBodyPart,1),siRange(-1),siDamage(-1),enWeaponClass(enUndefinedWeaponClass)
+Weapon::Weapon() : Item(-1,enUndefinedPart,1),siRange(-1),siDamage(-1),enWeaponClass(enUndefinedWeaponClass)
 {
     
 }
 
-Weapon::Weapon(Weapon const &)
+Weapon::Weapon(const Weapon &weapon)
 {
+    enFitsBodyPart = weapon.enFitsBodyPart;
+    position = weapon.position;
+    itemID = weapon.itemID;
+    sEquipmentName = weapon.sEquipmentName;
+    enItemType = weapon.enItemType;
+    siRange = weapon.siRange;
+    siDamage = weapon.siDamage;
+    enWeaponClass = weapon.enWeaponClass;
+    
     
 }
+Weapon::Weapon(Weapon &weapon)
+{
+    enFitsBodyPart = weapon.enFitsBodyPart;
+    position = weapon.position;
+    itemID = weapon.itemID;
+    sEquipmentName = weapon.sEquipmentName;
+    enItemType = weapon.enItemType;
+    siRange = weapon.siRange;
+    siDamage = weapon.siDamage;
+    enWeaponClass = weapon.enWeaponClass;
+}
+
 
 /*
 int Weapon::getItemName()
 {
-    
+ 
     return Item::getItemName();
     
 }
@@ -36,7 +57,7 @@ int Weapon::getItemName()
 
 short int Weapon::getRange(){return siRange;}
 short int Weapon::getDamage(){return siDamage;}
-EnumFitsBodyPart Weapon::getBodyPart(){ return Item::getBodyPart();}
+EnumBodyPart Weapon::getBodyPart(){ return Item::getBodyPart();}
 EnumWeaponClass Weapon::getWeaponClass(){ return enWeaponClass;}
 
 
@@ -55,7 +76,7 @@ void Weapon::setRange(short int value){siRange = value;}
 void Weapon::setDamage(short int value){siDamage = value;}
 //void Weapon::setItemName(int value){Item::setItemName(value);}
 void Weapon::setMaterial(int value){Item::setMaterial(1);}
-void Weapon::setFitsBodyPart(EnumFitsBodyPart value){Item::setFitsBodyPart(value);}
+void Weapon::setFitsBodyPart(EnumBodyPart value){Item::setFitsBodyPart(value);}
 void Weapon::setWeaponClass(EnumWeaponClass weaponClass){enWeaponClass = weaponClass;}
 
 //Depending on the type of weapon, we want to add a different modifier to attack bonus.
@@ -80,5 +101,15 @@ void Weapon::calculateMaterialBonuses()
 
 void Weapon::CalculateMaterialBonuses()
 {
+    
+}
+
+void Weapon::showItemStats()
+{
+    
+    std::cout << "Item Name" << getItemName()<< "\n";
+    std::cout << "Damage" << siDamage << "\n";
+    std::cout << "Range" <<  siRange<< "\n";
+
     
 }
