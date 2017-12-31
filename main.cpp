@@ -28,7 +28,7 @@
 #include "EntityTile.hpp"
 #include "Map.hpp"
 #include "CAMap.hpp"
-
+#include "TileReader.hpp"
 #include "MovementHandler.hpp"
 #include "MapUtil.hpp"
 #include "SquareDiggingMap.hpp"
@@ -180,9 +180,10 @@ int main()
     
     HumanoidBody humanoid;
     
-    
+    ParseTileFile();
+    BasicTileRuleset();
     InitializeTileData();
-   
+    
     
     
     GameLoop3();
@@ -341,13 +342,23 @@ void GameLoop3()
 
     SetupTestTargestBox();
     
-  //  squareMap.CreateRoom(2,1,sf::Vector2u(5,5));
-   // squareMap.CreateRandomRooms(5, 1);
+    /*
+    squareMap.CreateRoom(2,1,sf::Vector2u(5,5));
+    squareMap.CreateRandomRooms(5, 1);
     //All of these map initilizations are for testing
     squareMap.BuildCorridor(10, Right, 1, sf::Vector2u(10,10));
     squareMap.LoadTileParameters();
     squareMap.Group2DGridTiles();
     squareMap.LoadTileTexture();
+     */
+    
+    
+    squareMap.Map2D[0][0].setTileID(1); //Mark initial cell as visited
+    squareMap.CreatePassage(0, 0);
+    squareMap.LoadTileParameters();
+    squareMap.Group2DGridTiles();
+    squareMap.LoadTileTexture();
+    
     
     MainMap.LoadTileParameters();
     MainMap.Group2DGridTiles();
@@ -372,6 +383,7 @@ void GameLoop3()
                 CheckPlayerMovement(event,MainMap);
             }
 
+            //window.draw(caMap);
             window.draw(caMap);
     
             elapsed = globalClock.getElapsedTime();
@@ -426,6 +438,7 @@ void GenerateRandomCreatures()
         BaseCreature testCreature;
         HumanoidBody body;
         testCreature.CloneBody(&body);
+        
         testCreature.loadCreatureTile("deep_elf_blademaster.png",32,32);
         testCreature.setPosition(rand() % MAP_WIDTH, rand() % MAP_HEIGHT);
         testCreature.getBody()->CalculateHealth();

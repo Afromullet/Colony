@@ -38,6 +38,9 @@ public:
     
     void CorridorBetweenPoints(sf::Vector2u origin, sf::Vector2u  endPoint);
     
+    void RecursiveMazeMap();
+    void CreatePassage(int xDir, int yDir);
+    
     
 };
 

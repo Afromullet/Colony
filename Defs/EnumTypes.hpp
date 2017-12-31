@@ -13,7 +13,7 @@
  
  */
 
-enum TileTerrainType{enGrass1,enSnow1,enSwamp1,enFloor1,enWall1};
+enum TileTerrainType{enGrass1,enSnow1,enSwamp1,enFloor1,enWall1,enUndefinedTerrain};
 
 enum Behaviors
 {

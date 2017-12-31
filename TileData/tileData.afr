@@ -1,0 +1,12 @@
+{
+TerrainType:enWall1
+TextureLocation:marble_wall1.png
+}
+{
+TerrainType:Floor1
+TextureLocation:pebble_brown0.png
+}
+{
+TerrainType:enSnow1
+TextureLocation:ice0.png
+}

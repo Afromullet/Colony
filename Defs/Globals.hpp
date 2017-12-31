@@ -23,6 +23,7 @@
 #include "BaseCreature.hpp"
 #include <list>
 
+
 #define MAX_CREATURES_PER_MAP 100
 
 //Matches up a tile ID with a tile type, texture, etc.

@@ -34,6 +34,10 @@ typedef struct MapTileParameters
 }MapTileParams;
 
 
+#define NOT_VISITED_TILE_ID 0
+#define VISITED_TILE_ID 1
+
+
 class Tile;
 
 class Map : public sf::Drawable, public sf::Transformable

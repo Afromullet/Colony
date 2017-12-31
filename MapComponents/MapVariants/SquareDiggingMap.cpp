@@ -111,3 +111,76 @@ void SqureDiggingMap::CorridorBetweenPoints(sf::Vector2u origin, sf::Vector2u  e
     
     
 }
+
+//Doesn't work as intended
+void SqureDiggingMap::CreatePassage(int xDir, int yDir)
+{
+    //Inefficeint..handle the direction list outside the function after testing is complete
+    //So that it is not recreated every recursive call
+    std::vector<sf::Vector2u> vDirections;
+    sf::Vector2u pos;
+    
+    
+    std::cout << "\n Infinite loop \n";
+    
+    //North
+    pos.x = 0;
+    pos.y = -1;
+    vDirections.push_back(pos);
+    
+    //South
+    pos.x = 0;
+    pos.y = 1;
+    vDirections.push_back(pos);
+    
+    //West
+    pos.x = -1;
+    pos.y = 0;
+    vDirections.push_back(pos);
+    
+    //East
+    pos.x = 1;
+    pos.y = 0;
+    vDirections.push_back(pos);
+    
+
+    std::random_shuffle(vDirections.begin(), vDirections.end());
+    sf::Vector2u newPosition;
+    for(int i = 0; i < vDirections.size(); i++)
+    {
+        newPosition.x = vDirections.at(i).x + xDir;
+        newPosition.y = vDirections.at(i).y + yDir;
+        
+        std::cout << "\n new (X,Y) " << newPosition.x << "," << newPosition.y << "\n";
+        
+        
+        if(!isInBounds(newPosition))
+            continue;
+        
+        if(Map2D[newPosition.x][newPosition.y].getTileID() == NOT_VISITED_TILE_ID)
+        {
+           int xOpposite = newPosition.x * -1;
+            int yOpposite = newPosition.y * -1;
+             std::cout << "\n X Opposite (X,Y) " << xOpposite << "," << yOpposite << "\n";
+            Map2D[newPosition.x][newPosition.y].setTileID(VISITED_TILE_ID);
+            //CreatePassage(newPosition.x,newPosition.y);
+            CreatePassage(newPosition.x,newPosition.y);
+            break;
+
+            
+            
+        }
+        if(Map2D[newPosition.x][newPosition.y].getTileID() == VISITED_TILE_ID)
+        {
+
+            
+            
+        }
+        
+    }
+    
+    //0=north, 1 = West, 2 = East 3 = South
+    
+    
+    
+}

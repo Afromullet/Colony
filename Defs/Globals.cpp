@@ -37,31 +37,22 @@ std::list<Item*> itemsOnMap;
 
 void InitializeTileData()
 {
-    TileIDData idData;
     
-    idData.enTileTerrainType = enWall1;
-    idData.ID = 0;
-    idData.textureFileName = "marble_wall1.png";
-    idData.canHoldCreature = true;
-    tileIDTable.push_back(idData);
+    //A messy way to do this right now, coyping the data generated from TileReader
+    //Nothing to ensure yet that the method has been called..rename the variable later
     
-    idData.enTileTerrainType = enFloor1;
-    idData.ID = 1;
-    idData.textureFileName = "pebble_brown0.png";
-    idData.canHoldCreature = true;
-    tileIDTable.push_back(idData);
-
     
-    idData.enTileTerrainType = enSnow1;
-    idData.ID = 2;
-    idData.textureFileName = "ice0.png";
-    idData.canHoldCreature = true;
-    tileIDTable.push_back(idData);
+    
+    //TileIDData idData;
+  
+    
+    //Todo, I have no idea why it needs 3 tiles to work. Can't remember the way the map is implemented enough, todo investigate later
     
      CELL_CHANCETOSTARTALIVE = 0.45;
     DEATH_LIMIT = 3;
     BIRTH_LIMIT = 4 ;
     NUMBER_OF_STEPS = 2;
+    
     
 }
 
