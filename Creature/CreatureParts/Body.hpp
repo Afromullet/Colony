@@ -12,6 +12,16 @@
 #include <stdio.h>
 #include "Chest.hpp"
 #include "Head.hpp"
+#include <list>
+
+//Contains all of the information needed for an attack
+typedef struct _AttackParameters
+{
+    int attackBonus;
+    int damage;
+    Weapon *weapon;
+    
+}AttackParameters;
 
 /*A basic body consists of a chest and head. Appendages and limbs are subclasses implemented in the.
 E.X: A Basic Humanoid is a subclass with Limbs and Appendages that represent arms and legs.
@@ -36,7 +46,10 @@ public:
     
     virtual void AttackRandomBodyPart(int attackBonus, int damage) = 0; //If something attempts to attack the creature. Since there are many different body parts, this is a virtual function
     
-    virtual Body* clone() const = 0; 
+   
+    virtual Body* clone() const = 0;
+    virtual Body* create() const = 0;
+    virtual std::list<AttackParameters> getAttacks() = 0; //Each creature has different parts that it can attack with. This functions is intended to return a list of all of those attacks
     
     void setBloodRemaining(float _bloodRemaining);
     void setHead(Head _head);

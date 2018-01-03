@@ -39,3 +39,8 @@ Weapon Hand::getWeapon()
 {
     return weapon;
 }
+
+Weapon& Hand::getWeaponRef()
+{
+    return weapon;
+}

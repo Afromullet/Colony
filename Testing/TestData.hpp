@@ -34,7 +34,7 @@
 short int randBonus();
 short int randRangeWeaponRange();
 
-Armor GenerateArmor(EnumFitsBodyPart bodyPart);
+
 
 Chest generateChest();
 Head generateHead();
@@ -44,9 +44,9 @@ EnumWeaponClass randomWeaponClass();
 EnumArmorClass randArmorClass();
 
 
-void printFitsBodypart(EnumFitsBodyPart enFitsBodyPart);
+
 void printWeaponClass(EnumWeaponClass weaponClass);
-std::string getFitsBodyPartString(EnumFitsBodyPart enFitsBodyPart);
+
 std::string getWeaponClassString(EnumWeaponClass weaponClass);
 
 

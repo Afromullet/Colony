@@ -26,6 +26,11 @@ typedef struct _CARuleset
     
 }CA_RuleSet;
 
+extern float CELL_CHANCETOSTARTALIVE;
+extern int DEATH_LIMIT;
+extern int BIRTH_LIMIT;
+extern int NUMBER_OF_STEPS;
+
 class CA_Map : public Map
 {
     

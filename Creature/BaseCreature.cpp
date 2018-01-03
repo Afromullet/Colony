@@ -16,6 +16,7 @@
 BaseCreature::BaseCreature()
 {
     isAlive = true;
+    
 }
 
 
@@ -35,6 +36,38 @@ void BaseCreature::loadCreatureTile(const std::string& tileset, int tileXSize,in
     creatureTile.loadTile(tileset,  sf::Vector2u(tileXSize, tileYSize), sf::Vector2u(position.x, position.y));
 }
 
+void BaseCreature::CalculateAttackParameters()
+{
+    
+    creatureWeaponAttacks = body->getAttacks();
+    std::list<AttackParameters>::iterator attacksIt;
+    std::cout << "\n Strength: " << strength;
+    std::cout << "\n Agility: " << agility;
+    int counter = 0;
+    for(attacksIt = creatureWeaponAttacks.begin(); attacksIt != creatureWeaponAttacks.end(); ++attacksIt)
+    {
+        std::cout << "\nAttack number " << counter << "\n";
+        std::cout << "\n Weapon Name " << attacksIt->weapon->getItemName() << "\n";
+        std::cout << "\n Base Damage: " << attacksIt->damage << "," << attacksIt->weapon->getDamage() << "\n";
+        if(attacksIt->weapon->isRangedWeapon())
+        {
+            attacksIt->damage += agility;
+            attacksIt->attackBonus = getRangedAttackValue();
+        }
+        else
+        {
+            attacksIt->damage += strength;
+            attacksIt->attackBonus = getMeleeAttackValue();
+            
+        }
+        
+        std::cout << "\n New Damage " << attacksIt->damage << "\n";
+        std::cout << "\n Attack Value " << attacksIt->attackBonus << "\n";
+        counter++;
+    }
+    
+}
+
 short int BaseCreature::getAttackValue()
 {
     return attackValue;
@@ -49,7 +82,6 @@ short int BaseCreature::getRangedAttackValue()
 {
     return attackValue + agility;
 }
-
 
 short int BaseCreature::getStrength()
 {
@@ -136,6 +168,16 @@ void BaseCreature::setBody(Body *_body)
     
 }
 
+void BaseCreature::setStrength(int _strength)
+{
+    strength = _strength;
+}
+
+void BaseCreature::setAgility(int _agility)
+{
+    agility = _agility;
+}
+
 void BaseCreature::AddItemToInventory(Item *item)
 {
     creatureItems.push_back(item);
@@ -153,17 +195,7 @@ void BaseCreature::PrintInventory()
     int i = 0;
     for(itemIt = creatureItems.begin(); itemIt != creatureItems.end(); ++itemIt)
     {
-        //(*itemIt)->showItemStats();
-        
-        /*
-        if(!(*itemIt)->getIsEquipped() == false)
-        {
-            i++;
-            continue;
-        }
-         */
-        
-        
+  
         std::cout << "\n" << i << ": Item Name: " << (*itemIt)->getItemName() << " Item Type " << (*itemIt)->getItemType() << "\n";
         i++;
     }
@@ -177,6 +209,7 @@ void BaseCreature::EquipItemFromInventory(int n)
     std::list<Item*>::iterator itemIt;
     std::cout << "\nPrinting inventory\n";
     int i = 0;
+    
     for(itemIt = creatureItems.begin(); itemIt != creatureItems.end(); ++itemIt)
     {
         if(i == n)

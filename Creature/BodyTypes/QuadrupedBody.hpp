@@ -27,11 +27,18 @@ public:
     QuadrupedBody();
     void AttackRandomBodyPart(int attackBonus, int damage);
      void CalculateHealth();
-    virtual QuadrupedBody* clone() const
+    
+    QuadrupedBody* clone() const
     {
         return new QuadrupedBody(*this);
     }
     
+    QuadrupedBody *create() const
+    {
+        return new QuadrupedBody();
+    }
+    
+    std::list<AttackParameters> getAttacks();
     void EquipItem(Item *item);
     void PrintEquippedItems();
 

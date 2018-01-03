@@ -7,6 +7,7 @@
 //
 
 #include "HumanoidBody.hpp"
+#include <typeinfo>
 
 //Set the basic parameters,,.Does not set limb health..when you create a random creature (probably a factory), ensure that you also initialize the paremeters in Body including chest health and such etc todo
 HumanoidBody::HumanoidBody()
@@ -15,6 +16,63 @@ HumanoidBody::HumanoidBody()
     rightArm.setLimbType(enArmRight);
     rightArm.hand.setAppendageType(enHandRight);
     leftArm.hand.setAppendageType(enHandLeft);
+}
+
+//Doesn't have an attack bonus yet since that is calculated based on creature attacks
+std::list<AttackParameters> HumanoidBody::getAttacks()
+{
+    std::list<AttackParameters> attackParameters;
+    AttackParameters tempAttackParams;
+    
+    Hand tempHand = rightArm.hand;
+    
+    tempAttackParams.damage = tempHand.getWeapon().getDamage();
+    std::cout << "\nDamage " << tempAttackParams.damage << "\n";
+    
+
+    
+    
+    //Need to handle this another way..Need to figure out why the pointer is not copying correctly into weapon if I use the reference, i,e tempAttackParams.weapon = &tempHand.getWeaponRef();
+    tempAttackParams.weapon = tempHand.getWeapon().clone(); //Is this inefficient? The item now exists twice in memory..todo investigate IMPORTANT
+    
+    std::cout << "\n Ref Damage " << tempAttackParams.weapon->getDamage() << "\n";
+    
+    //If right hand is unarmed, just use that..For now, two handed weapons are always equipped in the right hand
+    
+    if(tempHand.getWeapon().getWeaponClass() == enUnarmed)
+    {
+        attackParameters.push_back(tempAttackParams);
+    }
+    
+    else if(tempHand.getWeapon().getBodyPart() == enFitsOneHand)
+    {
+        
+        attackParameters.push_back(tempAttackParams);
+        std::cout << "\n Ref Damage " << tempAttackParams.weapon->getDamage() << "\n";
+        std::cout << "\n Ref2 Damage " << attackParameters.front().weapon->getDamage() << "\n";
+        
+        //Check the other hand
+        
+        tempHand = leftArm.hand;
+        //Only get second attack if there's a weapon in the second hand
+        if(tempHand.getWeapon().getWeaponClass() != enUnarmed)
+        {
+            tempAttackParams.damage = tempHand.getWeapon().getDamage();
+            attackParameters.push_back(tempAttackParams);
+        }
+    }
+    else if(tempHand.getWeapon().getBodyPart() == enFitsBothHands)
+    {
+        attackParameters.push_back(tempAttackParams);
+    }
+    
+    
+    std::list<AttackParameters>::iterator atIt;
+    std::cout << "\n End Damage " << attackParameters.front().weapon->getDamage() << "\n";
+    
+
+    return attackParameters;
+    
 }
 
 //Just using rand to determne what body part to attack. TODO, choose random body part to attacj a better way than rand()
@@ -129,15 +187,17 @@ void HumanoidBody::EquipItem(Item *item)
     else if(item->getItemType() == enWeaponType)
     {
         Weapon *wep = dynamic_cast<Weapon*>(item);
-        //If weapon is two handed, need a way to identify in the second hand that the equipped weapon is two handed todo
+        //If weapon is two handed, set fist weapon in other hand
         switch(wep->getBodyPart())
         {
             case enFitsOneHand:
                 rightArm.hand.setWeapon(*wep);
+                leftArm.hand.setWeapon(FIST_WEAPON);
                 wep->setIsEquipped(true);
                 break;
             case enFitsBothHands:
                 rightArm.hand.setWeapon(*wep);
+                leftArm.hand.setWeapon(FIST_WEAPON);
                 wep->setIsEquipped(true);
                 break;
         }

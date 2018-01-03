@@ -29,11 +29,17 @@ public:
     void AttackRandomBodyPart(int attackBonus, int damage);
      void CalculateHealth();
    
-    virtual HumanoidBody* clone() const
+    HumanoidBody* clone() const
     {
         return new HumanoidBody(*this);
     }
     
+    HumanoidBody *create() const
+    {
+        return new HumanoidBody();
+    }
+    
+    std::list<AttackParameters> getAttacks();
     void EquipItem(Item *item);
     void PrintEquippedItems();
 

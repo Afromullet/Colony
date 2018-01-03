@@ -16,6 +16,11 @@ QuadrupedBody::QuadrupedBody()
     fronLeftLeg.setLimbType(enLegLeft);
 }
 
+std::list<AttackParameters> QuadrupedBody::getAttacks()
+{
+    
+}
+
 void QuadrupedBody::AttackRandomBodyPart(int attackBonus, int damage)
 {
     

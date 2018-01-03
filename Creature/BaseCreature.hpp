@@ -34,6 +34,12 @@ private:
     short int moveSpeed; //Currently both x and y speed
     
    
+    sf::Vector2u velocity; //Represents basic direction..Not used at the moment.
+    sf::Vector2u position;
+    sf::Vector2u prevPosition; //Not used at the moment
+    std::list<AttackParameters> creatureWeaponAttacks; //Holds data on all of the creature attacks so we don't have to recalculate it every time. Filled by body virtual function getAttacks
+    
+    
     std::list<Item*> creatureItems;
     
     Body *body;
@@ -43,12 +49,12 @@ public:
    // BaseCreature(const BaseCreature &creature);
     
     EntityTile creatureTile;
-    sf::Vector2u velocity; //Represents basic direction..Not used at the moment.
-    sf::Vector2u position;
-    sf::Vector2u prevPosition; //Not used at the moment
+
     
     //TODO add some check to ensure the creature tile is initialized
     void loadCreatureTile(const std::string& tileset, int tileXSize,int tileYSize);
+    
+    void CalculateAttackParameters();
     
     //Getters
     short int getAttackValue();
@@ -66,6 +72,8 @@ public:
     void setPosition(short int x, short int y);
     void setVelocity(int x, int y);
     void setBody(Body *_body);
+    void setStrength(int _strength);
+    void setAgility(int _agility);
     void AddItemToInventory(Item *item);
     void CloneBody(Body *_body);
     void PrintInventory();

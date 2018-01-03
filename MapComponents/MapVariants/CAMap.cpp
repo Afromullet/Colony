@@ -10,6 +10,13 @@
 #include "Globals.hpp"
 
 
+
+float CELL_CHANCETOSTARTALIVE;
+int DEATH_LIMIT;
+int BIRTH_LIMIT;
+int NUMBER_OF_STEPS;
+
+
 CA_Map::CA_Map()
 {
     

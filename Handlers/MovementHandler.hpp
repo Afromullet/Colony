@@ -16,6 +16,8 @@
 
 #include "Map.hpp"
 #include "BaseCreature.hpp"
+#include "CombatHandler.cpp"
+
 bool InMapBoundaries(Map &map,int newX, int newY);
 
 

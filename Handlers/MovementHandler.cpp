@@ -126,6 +126,8 @@ void MovePlayer(MoveDirection moveDirection, BaseCreature &_creature,Map &map)
             
             //Currently does not handle choosing a weapon or calculating the damage and attack bonus from creature parameters TODO change that
             map.Map2D[newX][newY].getCreatureOnTile()->getBody()->AttackRandomBodyPart(5, 1);
+            //AttackCreature(_creature, *map.Map2D[newX][newY].getCreatureOnTile());
+            
         }
         
     }

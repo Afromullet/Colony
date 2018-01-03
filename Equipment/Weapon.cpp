@@ -8,6 +8,7 @@
 
 #include "Weapon.hpp"
 
+Weapon FIST_WEAPON(1,enFitsOneHand,1,1,1,enUnarmed);
 
 //todo add "Blank" weapon for when no weapon is equipped..and also something to identify a two handed weapon is equipped
 Weapon::Weapon(int _material,EnumBodyPart _enFitsBodyPart, int _sEquipmentName, short int _siRange,short int _siDamage,EnumWeaponClass _enWeaponClass):
@@ -19,6 +20,11 @@ Weapon::Weapon() : Item(-1,enUndefinedPart,1),siRange(-1),siDamage(-1),enWeaponC
 {
     
 }
+
+
+
+
+
 
 Weapon::Weapon(const Weapon &weapon)
 {
@@ -111,5 +117,15 @@ void Weapon::showItemStats()
     std::cout << "Damage" << siDamage << "\n";
     std::cout << "Range" <<  siRange<< "\n";
 
+    
+}
+
+bool Weapon::isRangedWeapon()
+{
+    if(enWeaponClass == enLongbow || enWeaponClass == enCrossbow)
+        return true;
+    
+    return false;
+        
     
 }

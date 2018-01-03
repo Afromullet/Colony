@@ -13,6 +13,8 @@
 #include "Equipment.hpp"
 
 
+
+
 class Weapon : public Item
 {
 private:
@@ -61,6 +63,7 @@ public:
     EnumBodyPart getBodyPart();
     EnumWeaponClass getWeaponClass();
     EnumBonusType getAttackBonusType();
+    bool isRangedWeapon();
 
 
     //EnumBodyParts getBodyPart();
@@ -80,11 +83,24 @@ public:
     
     
    
-    
+    void operator = (const Weapon &weapon ) {
+        siRange = weapon.siRange;
+        siDamage = weapon.siDamage;
+        enWeaponClass = weapon.enWeaponClass;
+        itemID = weapon.itemID;
+        material = weapon.material;
+        enFitsBodyPart = weapon.enFitsBodyPart;
+        enItemType = weapon.enItemType;
+        sEquipmentName = weapon.sEquipmentName;
+        position = weapon.position;
+        //inches = D.inches;
+    }
     
     
     
     
 };
+
+extern Weapon FIST_WEAPON;
 
 #endif /* Weapon_hpp */

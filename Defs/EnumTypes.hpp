@@ -24,15 +24,17 @@ enum Behaviors
 
 enum EnItemType {enArmorType,enWeaponType};
 //For equipment, to let us know what slot it fits it
-enum EnumFitsBodyPart {enHead,enChest,enFeet,enLegs,enHands,enOneHanded,enTwoHanded,enUndefinedBodyPart,enArms};
+//enum EnumFitsBodyPart {enHead,enChest,enFeet,enLegs,enHands,enOneHanded,enTwoHanded,enUndefinedBodyPart,enArms};
 
 //For specific body parts.
-enum EnumBodyPart{enHeadBodyPart,enLeftArmBodyPart,enRightArmBodyPart,enLeftLegBodyPart,enRightLegBodyPart,enLeftFootBodyPart,enRightFootBodyPart,enChestBodyPart,enLeftHandBodyPart,enRightHandBodyPart,enUndefinedPart,enLegsBodyPart,enArmsBodyPart,enHandsBodyPart,enFeetBodyPart,enFitsOneHand,enFitsBothHands};
+enum EnumBodyPart{enHead,enHeadBodyPart,enLeftArmBodyPart,enRightArmBodyPart,enLeftLegBodyPart,enRightLegBodyPart,enLeftFootBodyPart,enRightFootBodyPart,enChestBodyPart,enLeftHandBodyPart,enRightHandBodyPart,enUndefinedPart,enLegsBodyPart,enArmsBodyPart,enHandsBodyPart,enFeetBodyPart,enFitsOneHand,enFitsBothHands};
 
 //Don't want to make separate classes for right and lef limbs...Maybe there's a better option than enums to distinguish between limbs. research todo
 
 //The various types of weapons
-enum EnumWeaponClass{enDagger,enShortSword,enLongSword,enGreatsword,enLongbow,enCrossbow,enMace,enHammer,enUndefinedWeaponClass};
+enum EnumWeaponClass{enDagger,enShortSword,enLongSword,enGreatsword,enLongbow,enCrossbow,enMace,enHammer,enUndefinedWeaponClass,enUnarmed};
+
+
 enum EnumBonusType{enStrengthBonus,enDexterityBonus,enUndefinedBonus};
 
 //The different armor classes

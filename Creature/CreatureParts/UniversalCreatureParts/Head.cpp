@@ -10,17 +10,17 @@
 
 Head::Head(Armor _armor,short int _headHealth) : armor(_armor),headHealth(_headHealth)
 {
-    bodyPart = enChestBodyPart;
+    bodyPart = enHeadBodyPart;
 }
 
 Head::Head(short int _headHealth) : headHealth(_headHealth)
 {
-    bodyPart = enChestBodyPart;
+    bodyPart = enHeadBodyPart;
 }
 
 Head::Head() : headHealth(10)
 {
-    bodyPart = enChestBodyPart;
+    bodyPart = enHeadBodyPart;
 }
 
 Armor Head::getHeadArmor(){return armor;}
@@ -28,7 +28,7 @@ short int  Head::getHeadHealth(){return headHealth;}
 
 void  Head::setHeadArmor(Armor value)
 {
-    if(value.getBodyPart() == enHead)
+    if(value.getBodyPart() == enHeadBodyPart)
     {
         value.isEquipped = true;
         armor = value;

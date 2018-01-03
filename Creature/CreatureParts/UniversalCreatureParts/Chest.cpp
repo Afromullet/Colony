@@ -33,18 +33,17 @@ void Chest::setChestArmor(Armor value)
 {
     if(value.getBodyPart() == enChestBodyPart)
     {
-        
-       // std::cout << "init value " << value.getItemName() << "\n";
+        value.isEquipped = true;
         armor = value;
-       std::cout << "Final " << armor.getItemName() <<  "and armor bonus " << armor.siGetArmorBonus() << "\n";
-        
     }
     else
-    {
         std::cout << " does not fit into chest armor slot\n";
-    }
+    
 }
-void Chest::setChestHealth(short int value){health = value;}
+void Chest::setChestHealth(short int value)
+{
+    health = value;
+}
 
 //Returns true if hit succeeded, returns false if not
 bool Chest::doesAttackHitChest(short int attackBonus)

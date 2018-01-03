@@ -30,6 +30,7 @@ public:
     
     Armor getHandArmor();
     Weapon getWeapon();
+    Weapon& getWeaponRef();
     
 };
 
