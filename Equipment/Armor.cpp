@@ -11,6 +11,7 @@
 //todo add "Blank" armor for when no armor is equipped or when we have something like leg armor
 
 
+
 Armor::Armor(int _material, EnumBodyPart _enFitsBodyPart, int _sEquipmentName, short int _siArmorBonus, float _fDodgeModifier, float _fDamageReduction,float _fMovementModifier,EnumArmorClass _enArmorClass)
 : Item(_material,_enFitsBodyPart,_sEquipmentName),
 siArmorBonus(_siArmorBonus),fDodgeModifier(_fDodgeModifier),

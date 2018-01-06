@@ -22,12 +22,12 @@ enum Behaviors
 };
 
 
-enum EnItemType {enArmorType,enWeaponType};
+enum EnItemType {enArmorType,enWeaponType,enArmor,enWeapon};
 //For equipment, to let us know what slot it fits it
 //enum EnumFitsBodyPart {enHead,enChest,enFeet,enLegs,enHands,enOneHanded,enTwoHanded,enUndefinedBodyPart,enArms};
 
 //For specific body parts.
-enum EnumBodyPart{enHead,enHeadBodyPart,enLeftArmBodyPart,enRightArmBodyPart,enLeftLegBodyPart,enRightLegBodyPart,enLeftFootBodyPart,enRightFootBodyPart,enChestBodyPart,enLeftHandBodyPart,enRightHandBodyPart,enUndefinedPart,enLegsBodyPart,enArmsBodyPart,enHandsBodyPart,enFeetBodyPart,enFitsOneHand,enFitsBothHands};
+enum EnumBodyPart{enHead,enHeadBodyPart,enLeftArmBodyPart,enRightArmBodyPart,enLeftLegBodyPart,enRightLegBodyPart,enLeftFootBodyPart,enRightFootBodyPart,enChestBodyPart,enLeftHandBodyPart,enRightHandBodyPart,enUndefinedPart,enLegsBodyPart,enArmsBodyPart,enHandsBodyPart,enFeetBodyPart,enFitsOneHand,enFitsBothHands,enAnyBodyPart,enFootBodyPart};
 
 //Don't want to make separate classes for right and lef limbs...Maybe there's a better option than enums to distinguish between limbs. research todo
 

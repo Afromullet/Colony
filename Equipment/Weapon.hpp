@@ -28,6 +28,7 @@ public:
     //todo getters and setters
     Weapon(int _material,EnumBodyPart _enFitsBodyPart, int _sEquipmentName, short int _siRange,
    short int _siDamage,EnumWeaponClass _enWeaponClass);
+    
     Weapon();
     
     Weapon(const Weapon &weapon);
@@ -101,6 +102,6 @@ public:
     
 };
 
-extern Weapon FIST_WEAPON;
+
 
 #endif /* Weapon_hpp */

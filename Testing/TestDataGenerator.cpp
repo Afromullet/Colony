@@ -8,7 +8,7 @@
 
 #include "TestDataGenerator.hpp"
 #include "BaseCreature.hpp"
-#include "HumanoidBody.hpp"
+
 #include "ItemGenerator.hpp"
 #include "CAMap.hpp"
 #include "SquareDiggingMap.hpp"
@@ -32,13 +32,10 @@ void CreateRandomCreatures(MapData &mapdata)
     for(int i = 0; i < 10; i++)
     {
         BaseCreature testCreature;
-        HumanoidBody body;
-        testCreature.CloneBody(&body);
-        
+  
+    
         testCreature.loadCreatureTile("deep_elf_blademaster.png",32,32);
         testCreature.setPosition(rand() % mapdata.map->GetWidth(), rand() % mapdata.map->GetHeight());
-        testCreature.getBody()->CalculateHealth();
-        testCreature.getBody()->setTotalHealth(31); //For testing
         mapdata.AddCreatureToMap(testCreature);
         //tempCreatureList.push_back(testCreature);
     }
@@ -94,7 +91,7 @@ void GenerateTestEquipment()
     armor.setDamageReduction(rand() % 2);
     armor.setMovementModifier(rand() % 2);
     armor.setItemID(rand() % 1000);
-    armor.setItemType(enArmorType);
+    armor.setItemType(enArmor);
     
     armor.setFitsBodyPart(enHeadBodyPart);
     armor.setItemName("HeadArmorTest");
@@ -141,7 +138,7 @@ void GenerateTestEquipment()
     tFootArmor = armor;
     
     Weapon weapon;
-    weapon.setItemType(enWeaponType);
+    weapon.setItemType(enWeapon);
     weapon.setFitsBodyPart(enFitsBothHands);
     weapon.setItemName("TwoHandedWep");
     weapon.setRange(1);

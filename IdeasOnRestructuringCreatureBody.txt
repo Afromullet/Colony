@@ -1,0 +1,151 @@
+Rather than having a separate class for each body part (I.E, arm, hand,head,leg,chest,etc), use a class like this:
+
+
+_________________________________________________________
+
+
+#ifndef BodyPart_hpp
+#define BodyPart_hpp
+
+#include <stdio.h>
+#include "Weapon.hpp"
+#include "Armor.hpp"
+
+class BodyPart
+{
+
+public:
+Armor armor;
+Weapon weapon;
+
+private:
+int bodyPartHealth;
+bool canHoldArmor;
+bool canHoldWeapon;
+EnumBodyPart enBodyPartType;
+void EquipArmor(Armor &newArmor);
+void EquipWeapon(Weapon &newWeapon);
+
+
+BodyPart(bool _canHoldArmor, bool _canHoldWeapon, EnumBodyPart _enBodyPartType);
+};
+
+#endif /* BodyPart_hpp */
+
+
+_________________________________________________________
+
+Now the question to answer is how to generalize it in a way that allows different creature body types to be created.
+Body types such as quadrupeds, bipeds, and various other creatures that can consist of -any- part, such as six legs, a scorpion like stinger, and six arms
+
+
+Stingers have to be treated differently than hands, legs different than arms..The question is on how to properly implement that behavior. Here are some options
+
+
+1) A hash table, where the key is enumBodyPart and the value is a new class I will create, BodyPartEffects
+
+The bodyparteffects class will describe all the possible actions a creature can perform with it. walking, attacking, wielding an item, etc
+
+2) Creating a subclass for each specific kind of body Part
+
+
+
+
+Option two will be harder to manage. Option one may be so general that it will be difficult to add depth to the different body parts..So there has to be some sort of intermediate -
+
+All the creatures parameters will be affected by the body part..No movement speed without some form of locomotion (not just legs, different kinds of movement need to be represnted)
+
+
+These are the parameters of BaseCreature that will need to be modified based on what kinds of body parts it has
+
+attackValue
+strength
+agility
+endurance
+mind
+will
+charisma
+movespeed
+
+
+A creature wnts to:
+
+
+
+Move (unless it's a kind of creature that doesn't move..Giant flytrap for example, but that's a special case')
+Interact with the world
+
+Attack
+
+handled by having a weapon in the body part, bcanHoldWeapon variable determines that
+
+Interact with objects
+
+________
+
+Added two new variables to bodypart to deal with moving and interacting
+
+bool canInteract; //If the limb can be used to interact with the world. open door, grab things, throw things, etc
+bool allowsMovement; //If the part can be used to move. Legs to walk, wings to fly
+
+
+With all the different bonuses and effects, we need a way to apply them to the creature. Should be easy enough, just iterate over all body parts, add to values
+
+
+Now on to how to redefine a creature
+
+Just have a vector of body parts
+
+For calculating anything related to the creatures body..Weapons, armor, health, whether it can move, iterate through the part body list and apply the data from the BodyPartEffects (now renamed BodyPartProperties)class
+
+
+//Removing the boll canDoXAction variables from the main body part class and moving them to the body part effects
+class BodyPartProperties
+    canHoldWeapon
+    canHoldArmor
+    canInteract
+    canMoveCreature
+    std::string bodyPartName
+    int movementBonus
+
+    //Other variables..like apply strength bonus, etc
+
+
+
+
+void WarnUser()
+{
+
+    loop through bodyparts..
+        warn user if none of the body parts allow weapons,armor,interaction,or movement
+
+}
+
+
+in class Creature
+
+Creature(BodyPartProperties, enumBodyPartType)
+
+void ApplyEffects
+(
+
+    for every bodypart in bodypartlist
+
+    if(canHoldWeapon)
+        setCanHoldWeapon in BodyPart class
+    if(canHoldArmr)
+        setHoldWeapon
+    if(movementBonus)
+        add to movement speed
+
+    set body part name
+    
+
+
+
+
+
+)
+
+No..I'll just keep the behavior in the main class.no need to have an additional class to define behavior necessary for the base class
+

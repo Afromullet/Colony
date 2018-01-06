@@ -18,6 +18,8 @@ Item::Item(std::string equipmentName, EnItemType _itemType) : sEquipmentName(equ
     
 }
 
+
+
 Item::Item() : material(1),enFitsBodyPart(enUndefinedPart),sEquipmentName("no name"),isEquipped(false)
 {
     

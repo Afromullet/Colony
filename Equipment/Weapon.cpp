@@ -8,17 +8,25 @@
 
 #include "Weapon.hpp"
 
-Weapon FIST_WEAPON(1,enFitsOneHand,1,1,1,enUnarmed);
+
 
 //todo add "Blank" weapon for when no weapon is equipped..and also something to identify a two handed weapon is equipped
 Weapon::Weapon(int _material,EnumBodyPart _enFitsBodyPart, int _sEquipmentName, short int _siRange,short int _siDamage,EnumWeaponClass _enWeaponClass):
         Item::Item(_material,_enFitsBodyPart,_sEquipmentName),
-        siRange(_siRange),siDamage(_siDamage),enWeaponClass(_enWeaponClass){}
+        siRange(_siRange),siDamage(_siDamage),enWeaponClass(_enWeaponClass)
+{
+
+    std::cout << "\nWep class " << enWeaponClass;
 
 
-Weapon::Weapon() : Item(-1,enUndefinedPart,1),siRange(-1),siDamage(-1),enWeaponClass(enUndefinedWeaponClass)
+}
+
+
+Weapon::Weapon() : Item(-1,enFitsOneHand,1),siRange(-1),siDamage(-1),enWeaponClass(enUndefinedWeaponClass)
 {
     
+    sEquipmentName = "No Weapon";
+   
 }
 
 

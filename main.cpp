@@ -32,16 +32,15 @@
 #include "MovementHandler.hpp"
 #include "MapUtil.hpp"
 #include "SquareDiggingMap.hpp"
-#include "Arm.hpp"
-#include "Leg.hpp"
-#include "HumanoidBody.hpp"
+
 #include "BaseCreature.hpp"
-#include "QuadrupedBody.hpp"
+
 #include "CreatureHandler.hpp"
 #include "ItemGenerator.hpp"
 #include "MapData.hpp"
 #include "TestDataGenerator.hpp"
 #include "PlayerControls.hpp"
+
 
 
 void GameLoop3();
@@ -109,7 +108,19 @@ void GameLoop3()
 
    
 
-    player.EquipItemFromInventory(5);
+    //player.EquipItemFromInventory(5);
+    
+    /*
+    std::cout << "Adaj name " << tHeadArmor.getItemName();
+    player.Equip(&tHeadArmor);
+    player.Equip(&tChestArmor);
+    player.Equip(&tLegArmor);
+    player.Equip(&tHandArmor);
+    player.Equip(&tFootArmor);
+     */
+    player.Equip(&FIST_WEAPON);
+    
+   // player.Equip(&tHeadArmor);
     // run the main loop
     while (window.isOpen())
     {
@@ -118,7 +129,11 @@ void GameLoop3()
         while (window.pollEvent(event))
         {
             if(event.type == sf::Event::Closed)
+            {
                 window.close();
+                errorLog.closeFile();
+                
+            }
             
             HandlePlayerInput(event,mapdata,player);
             
@@ -199,13 +214,35 @@ void SetupGameData(Map *map)
     InitializeMaps();
     SetupCurrentMap(map);
     GenerateTestEquipment();
+    InitializeGlobalBodyParts();
     
     player.loadCreatureTile("deep_elf_blademaster.png",32,32);
-    HumanoidBody humanoidBody;
-    player.setBody(humanoidBody.clone());
+
     player.setPosition(5, 5);
     player.setStrength(3);
     player.setAgility(3);
+    
+    
+    std::list<BaseCreature>::iterator creatIt;
+    for(creatIt = mapdata.creaturesOnMap.begin(); creatIt != mapdata.creaturesOnMap.end(); ++creatIt)
+    {
+        (*creatIt).addBodyPart(humanoidBodySchema);
+        (*creatIt).CalculateAttackParameters();
+        (*creatIt).CalculateTotalHealth();
+        
+    }
+    
+    
+   
+    
+   
+    
+    player.addBodyPart(humanoidBodySchema);
+    player.CalculateAttackParameters();
+    player.CalculateTotalHealth();
+    
+    player.PrintEquipment();
+    player.PrintEquipment();
     
     
 }

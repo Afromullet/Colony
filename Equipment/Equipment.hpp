@@ -45,6 +45,7 @@ public:
     EntityTile itemTile; //Every item needs a tile for when it is represented on the map. Need to ensure that we distinguish between an item on the map and worn by the player. todo
     
     Item(int _material, EnumBodyPart _enFitsBodyPart, int _sEquipmentName);
+    
     Item(std::string equipmentName, EnItemType _itemType);
     Item();
     virtual Item *clone() const = 0;

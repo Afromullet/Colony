@@ -12,6 +12,8 @@
 #include <stdio.h>
 #include "Equipment.hpp"
 
+
+
 class Armor : public Item
 {
 private:
@@ -88,5 +90,7 @@ public:
     
     
 };
+
+
 
 #endif /* Armor_hpp */

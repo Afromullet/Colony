@@ -15,10 +15,26 @@
 
 BaseCreature::BaseCreature()
 {
+    totalHealth = 0;
     isAlive = true;
     
 }
 
+void BaseCreature::addBodyPart(BodyPart bodyPart)
+{
+    bodyPartSchema.push_back(&bodyPart);
+}
+
+//Copies an entire schema to the creatures bodyParts.
+void BaseCreature::addBodyPart(std::vector<BodyPart> &bodyPartVector)
+{
+    //Probably a better way to do this todo
+    for(int i = 0; i < bodyPartVector.size(); i++)
+        bodyPartSchema.push_back(&bodyPartVector.at(i));
+    
+    
+
+}
 
 /*
  TODO copy constructor
@@ -39,16 +55,11 @@ void BaseCreature::loadCreatureTile(const std::string& tileset, int tileXSize,in
 void BaseCreature::CalculateAttackParameters()
 {
     
-    creatureWeaponAttacks = body->getAttacks();
+    creatureWeaponAttacks = getAttacks();
     std::list<AttackParameters>::iterator attacksIt;
-    std::cout << "\n Strength: " << strength;
-    std::cout << "\n Agility: " << agility;
     int counter = 0;
     for(attacksIt = creatureWeaponAttacks.begin(); attacksIt != creatureWeaponAttacks.end(); ++attacksIt)
     {
-        std::cout << "\nAttack number " << counter << "\n";
-        std::cout << "\n Weapon Name " << attacksIt->weapon->getItemName() << "\n";
-        std::cout << "\n Base Damage: " << attacksIt->damage << "," << attacksIt->weapon->getDamage() << "\n";
         if(attacksIt->weapon->isRangedWeapon())
         {
             attacksIt->damage += agility;
@@ -58,13 +69,20 @@ void BaseCreature::CalculateAttackParameters()
         {
             attacksIt->damage += strength;
             attacksIt->attackBonus = getMeleeAttackValue();
-            
         }
-        
-        std::cout << "\n New Damage " << attacksIt->damage << "\n";
-        std::cout << "\n Attack Value " << attacksIt->attackBonus << "\n";
         counter++;
     }
+    
+}
+
+void BaseCreature::CalculateTotalHealth()
+{
+    
+    for(int i = 0; i < bodyPartSchema.size(); i++)
+    {
+        totalHealth += bodyPartSchema.at(i)->getHealth();
+    }
+    
     
 }
 
@@ -93,7 +111,6 @@ short int BaseCreature::getAgility()
     return agility;
 }
 
-
 sf::Vector2u  BaseCreature::getPosition()
 {
     return position;
@@ -109,10 +126,33 @@ sf::Vector2u BaseCreature::getVelocity()
     return velocity;
 }
 
-Body* BaseCreature::getBody()
+//Doesn't have an attack bonus yet since that is calculated based on creature attacks
+//TODO,  make the initialization of attackParameters simpler
+std::list<AttackParameters> BaseCreature::getAttacks()
 {
-    return body;
+    std::list<AttackParameters> attackParameters;
+    AttackParameters tempAttackParams;
+    
+    
+    for(int i = 0; i < bodyPartSchema.size(); i++)
+    {
+        
+        // if(bodyPartSchema.at(i))
+        
+        tempAttackParams.damage = bodyPartSchema.at(i)->weapon.getDamage();
+        tempAttackParams.weapon = bodyPartSchema.at(i)->weapon.clone();
+        
+        if(tempAttackParams.weapon->getWeaponClass() == enUndefinedWeaponClass)
+            continue;
+        
+        ///Need to implement checks, and handle weapon fitting to a body part slot a better way
+        attackParameters.push_back(tempAttackParams);
+    }
+    
+    return attackParameters;
+    
 }
+
 
 //Need to update both the creatures logical position and the position of its texture
 void BaseCreature::setPosition(short int x, short int y)
@@ -128,6 +168,16 @@ void BaseCreature::setVelocity(int x, int y)
 {
     velocity.x = x;
     velocity.y = y;
+}
+
+void BaseCreature::setStrength(int _strength)
+{
+    strength = _strength;
+}
+
+void BaseCreature::setAgility(int _agility)
+{
+    agility = _agility;
 }
 
 //Does bound checking against the global MAP_WIDTH and MAP_HEIGHT
@@ -162,30 +212,9 @@ bool BaseCreature::MoveCreature(int x, int y)
     
 }
 
-void BaseCreature::setBody(Body *_body)
-{
-    body = _body;
-    
-}
-
-void BaseCreature::setStrength(int _strength)
-{
-    strength = _strength;
-}
-
-void BaseCreature::setAgility(int _agility)
-{
-    agility = _agility;
-}
-
 void BaseCreature::AddItemToInventory(Item *item)
 {
     creatureItems.push_back(item);
-}
-
-void BaseCreature::CloneBody(Body *_body)
-{
-    body = _body->clone();
 }
 
 void BaseCreature::PrintInventory()
@@ -202,6 +231,26 @@ void BaseCreature::PrintInventory()
 }
 
 
+void BaseCreature::PrintEquipment()
+{
+    for(int i = 0; i < bodyPartSchema.size(); i++)
+    {
+        std::cout << "\nBody Part Name: " << bodyPartSchema.at(i)->bodyPartName << " Armor Name: " << bodyPartSchema.at(i)->armor.getItemName() << "  Weapon Name: " << bodyPartSchema.at(i)->weapon.getItemName() << "\n";
+    }
+}
+
+
+void BaseCreature::Equip(Item *item)
+{
+    for(int i = 0; i < bodyPartSchema.size(); i++)
+    {
+        if(bodyPartSchema.at(i)->enBodyPartType == item->getBodyPart())
+        {
+            bodyPartSchema.at(i)->EquipItem(item);
+            break;
+        }
+    }
+}
 
 //Equips item number n from inventory, n being the position in the list
 void BaseCreature::EquipItemFromInventory(int n)
@@ -214,17 +263,14 @@ void BaseCreature::EquipItemFromInventory(int n)
     {
         if(i == n)
         {
-            std::cout << "\nEquipping item number " << i << "compare to " << n;
-            body->EquipItem(*itemIt);
-          
-            //Here suddenly the value of armor is not maintained
-           // (*itemIt)->showItemStats();
- ;
+            Equip(*itemIt);
             break;
         }
         i++;
  
     }
+    
+
 }
 
 
@@ -272,6 +318,31 @@ void BaseCreature::PickupItem(Map &map,std::list<Item*> &itemList)
      std::cout << "Picking up item";
  }
  
+}
+
+
+
+
+
+
+//Just using rand to determne what body part to attack. TODO, choose random body part to attacj a better way than rand()
+void BaseCreature::AttackCreature(int attackBonus, int damage)
+{
+    
+    
+    int randNum = rand() % bodyPartSchema.size();
+    
+    if(attackBonus >= bodyPartSchema.at(randNum)->getArmor().siGetArmorBonus())
+    {
+        std::cout << "Hit";
+        bodyPartSchema.at(randNum)->ApplyDamage(damage);
+        totalHealth -= damage;
+        std::cout << "\nTotal health left " << totalHealth;
+    }
+    else
+    {
+        std::cout << "Miss";
+    }
 }
 
 

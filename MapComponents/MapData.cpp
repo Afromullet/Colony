@@ -42,7 +42,7 @@ void MapData::RemoveDeadCreature()
     std::list<BaseCreature>::iterator i = creaturesOnMap.begin();
     while (i != creaturesOnMap.end())
     {
-        if(i->getBody()->getTotalHealth() < 30)
+        if(i->totalHealth <= 0)
         {
             map->Map2D[i->getPosition().x][i->getPosition().y].ClearCreatureOnTile();
             creaturesOnMap.erase(i++);  // alternatively, i = items.erase(i);

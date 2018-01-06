@@ -11,11 +11,21 @@
 
 #include <stdio.h>
 #include "EntityTile.hpp"
-#include "Body.hpp"
+
 #include "Map.hpp"
 #include <Unordered_Map>
 #include "Equipment.hpp"
 #include <list>
+#include "BodyPart.hpp"
+
+//Contains all of the information needed for an attack
+typedef struct _AttackParameters
+{
+    int attackBonus;
+    int damage;
+    Weapon *weapon;
+    
+}AttackParameters;
 
 
 class Map;
@@ -42,10 +52,17 @@ private:
     
     std::list<Item*> creatureItems;
     
-    Body *body;
+    
 public:
     
     BaseCreature();
+    int totalHealth;
+    std::vector<BodyPart*> bodyPartSchema; //I.E, a humanoid body, a quadruped body. Need to organize the bodyPartSchema in a hierachy so we know what is connected to what. TODO
+    
+    void addBodyPart(BodyPart bodyPart);
+    void addBodyPart(std::vector<BodyPart> &bodyPartVector);
+   
+    
    // BaseCreature(const BaseCreature &creature);
     
     EntityTile creatureTile;
@@ -54,7 +71,9 @@ public:
     //TODO add some check to ensure the creature tile is initialized
     void loadCreatureTile(const std::string& tileset, int tileXSize,int tileYSize);
     
+    //For calculating creature attributes and attacks
     void CalculateAttackParameters();
+    void CalculateTotalHealth();
     
     //Getters
     short int getAttackValue();
@@ -65,26 +84,30 @@ public:
     sf::Vector2u  getPosition();
     sf::Vector2u  getPrevePosition();
     sf::Vector2u getVelocity();
-    Body* getBody();
-    
+    std::list<AttackParameters> getAttacks();
     
     //Setters
     void setPosition(short int x, short int y);
     void setVelocity(int x, int y);
-    void setBody(Body *_body);
     void setStrength(int _strength);
     void setAgility(int _agility);
-    void AddItemToInventory(Item *item);
-    void CloneBody(Body *_body);
-    void PrintInventory();
     
-    void EquipItemFromInventory(int n); //Equips item number n from inventory, n being the position in the list
+    //Movement related
     bool MoveCreature(int x, int y);
     
+    //Inventory management
+    void AddItemToInventory(Item *item);
+    void PrintInventory();
+    void PrintEquipment();
+    void Equip(Item *item);
+    void EquipItemFromInventory(int n); //Equips item number n from inventory, n being the position in the list
+    void PickupItem(Map &map,std::list<Item*> &itemList);
     
+   
     bool isAlive; //For testing
     
-    void PickupItem(Map &map,std::list<Item*> &itemList);
+    //Combat related
+    void AttackCreature(int attackBonus, int damage);
 
     
 };
