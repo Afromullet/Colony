@@ -123,12 +123,14 @@ void HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
             
             //Don't want to allow target square to be pressed twice and count vertices twice...add check to see if we are currently targetting
             
-            targettingSquare.setSquare(creature.getPosition(), 1);
-            targettingSquare.vertices = mapdata.map->getVertices(targettingSquare.tilePositions);
-            targettingSquare.setColor(sf::Color::Yellow);
-            targettingSquare.setID(AssignEffectID());
-            mapdata.map->AddEffect(targettingSquare.id, targettingSquare.vertices);
-            
+            if(usingTargetSquare == false)
+            {
+                targettingSquare.setSquare(creature.getPosition(), 1);
+                targettingSquare.vertices = mapdata.map->getVertices(targettingSquare.tilePositions);
+                targettingSquare.setColor(sf::Color::Yellow);
+                targettingSquare.setID(AssignEffectID());
+                mapdata.map->AddEffect(targettingSquare.id, targettingSquare.vertices);
+            }
             
           
             
@@ -164,6 +166,11 @@ void HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
         {
             if(usingTargetSquare)
             {
+                //Can't reduce any further
+                if(targettingSquare.squareSize == 1)
+                {
+                    return;
+                }
                 mapdata.map->RemoveEffect(targettingSquare);
                 
                 targettingSquare.setSquare(targettingSquare.tilePositions.at(0), targettingSquare.squareSize -= 1);
@@ -177,12 +184,15 @@ void HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
 
         else if(event.key.code == sf::Keyboard::RBracket)
         {
-            mapdata.map->RemoveEffect(targettingSquare);
-            targettingSquare.setSquare(targettingSquare.tilePositions.at(0), targettingSquare.squareSize += 1);
-            targettingSquare.vertices = mapdata.map->getVertices(targettingSquare.tilePositions);
-            targettingSquare.setColor(sf::Color::Yellow);
-            targettingSquare.setID(AssignEffectID());
-            mapdata.map->AddEffect(targettingSquare.id, targettingSquare.vertices);
+            if(usingTargetSquare)
+            {
+                mapdata.map->RemoveEffect(targettingSquare);
+                targettingSquare.setSquare(targettingSquare.tilePositions.at(0), targettingSquare.squareSize += 1);
+                targettingSquare.vertices = mapdata.map->getVertices(targettingSquare.tilePositions);
+                targettingSquare.setColor(sf::Color::Yellow);
+                targettingSquare.setID(AssignEffectID());
+                mapdata.map->AddEffect(targettingSquare.id, targettingSquare.vertices);
+            }
         
         }
         else if(event.key.code == sf::Keyboard::L)

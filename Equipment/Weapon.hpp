@@ -11,11 +11,11 @@
 
 #include <stdio.h>
 #include "Equipment.hpp"
+#include "Throwable.hpp"
 
 
 
-
-class Weapon : public Item
+class Weapon : public Item, public Throwable
 {
 private:
     friend class Item;

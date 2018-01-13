@@ -18,6 +18,8 @@
 extern sf::VertexArray EMPTY_VERTEXARAY;
 extern std::vector<sf::Vector2i> EMPTY_TILEPOSITION;
 
+enum Shape{enSquare};
+
 class MapEffect
 {
     
