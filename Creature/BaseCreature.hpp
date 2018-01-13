@@ -87,12 +87,14 @@ public:
     sf::Vector2i  getPrevePosition();
     sf::Vector2i getVelocity();
     std::list<AttackParameters> getAttacks();
+    std::vector<BodyPart*> getBodyPartSchema();
     
     //Setters
     void setPosition(short int x, short int y);
     void setVelocity(int x, int y);
     void setStrength(int _strength);
     void setAgility(int _agility);
+    
     
     //Movement related
     bool MoveCreature(int x, int y);
@@ -104,12 +106,14 @@ public:
     void Equip(Item *item);
     void EquipItemFromInventory(int n); //Equips item number n from inventory, n being the position in the list
     void PickupItem(Map &map,std::list<Item*> &itemList);
-    
+    std::list<Item*> getInventory();
+
    
     bool isAlive; //For testing
     
     //Combat related
     void AttackCreature(int attackBonus, int damage);
+    
 
     
 };

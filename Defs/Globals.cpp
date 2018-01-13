@@ -67,6 +67,7 @@ void InitializeGlobals()
 {
     if (!defaultFont.loadFromFile("tnr.ttf"))
     {
+        std::cout << "\n Error initializing global font";
         // error...
     }
     

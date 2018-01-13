@@ -44,6 +44,8 @@
 #include <boost/graph/adjacency_list.hpp>
 #include "MapEffect.hpp"
 
+#include "DataWindow.hpp"
+
 void GameLoop3();
 
 void MoveAllCreatures();
@@ -141,6 +143,30 @@ int main()
     mapdata.SetWindow(&window);
     SetupGameData(&caMap);
     
+    
+    
+    
+    
+
+
+    /*
+     //textComponents.clear();
+     sf::Text text;
+     text.setFont(font);
+     
+     
+     text.setString("abcdefg");
+     text.setCharacterSize(24);
+     text.setColor(sf::Color::Red);
+     textComponents.push_back(text);
+     
+     text.setString("vyydasdr");
+     text.setPosition(100, 100);
+     text.setCharacterSize(24);
+     text.setColor(sf::Color::Red);
+     textComponents.push_back(text);
+
+     */
     
     
     
@@ -316,6 +342,8 @@ void SetupCurrentMap(Map *map)
 
 void SetupGameData(Map *map)
 {
+    
+    InitializeGlobals();
     InitializeMaps();
     SetupCurrentMap(map);
     GenerateTestEquipment();
@@ -326,7 +354,7 @@ void SetupGameData(Map *map)
     player.setPosition(5, 5);
     player.setStrength(3);
     player.setAgility(3);
-    
+    InitializeInventoryWindow();
     
     std::list<BaseCreature>::iterator creatIt;
     for(creatIt = mapdata.creaturesOnMap.begin(); creatIt != mapdata.creaturesOnMap.end(); ++creatIt)
@@ -354,6 +382,8 @@ void SetupGameData(Map *map)
 
 void DrawEverything(MapData _mapdata)
 {
+    
+    
     mapdata.window->draw(*mapdata.map);
     mapdata.window->draw(player.creatureTile);
     elapsed = globalClock.getElapsedTime();
@@ -367,9 +397,25 @@ void DrawEverything(MapData _mapdata)
     _mapdata.DrawCreaturesOnMap();
     _mapdata.DrawItemsOnMap();
     
+
+    
+    
+    
+   
+    
+    if(isInventoryWindowOpen)
+        mapdata.window->draw(inventoryWindow);
+        
+    
+    
+    if(isEquipmentWindowOpen)
+        mapdata.window->draw(equipmentWindow);
+    
+    
     
     mapdata.window->display();
     mapdata.window->clear();
+    
     
     
     

@@ -11,9 +11,13 @@
 
 
 bool usingTargetSquare = false;
+bool isInventoryWindowOpen = false;
+bool isEquipmentWindowOpen = false;
+
 std::vector<sf::Vector2i> square;
 MapEffect targettingSquare;
-
+DataWindow inventoryWindow;
+DataWindow equipmentWindow;
 void HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creature)
 {
     
@@ -88,23 +92,46 @@ void HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
         }
         else if(event.key.code == sf::Keyboard::I)
         {
+           
+           // mapdata.window->draw(invWindow);
+            if(!isInventoryWindowOpen)
+            {
+                AddItemsToInventoryWindow(creature);
+                isInventoryWindowOpen = true;
+            }
+            
             creature.PrintInventory();
         }
         else if(event.key.code == sf::Keyboard::P)
         {
             //creature.getBody()->PrintEquippedItems();
             creature.PrintEquipment();
+            if(!isEquipmentWindowOpen)
+            {
+                AddToEquipmentWindow(creature);
+                isEquipmentWindowOpen = true;
+            }
             
         }
         else if(event.key.code == sf::Keyboard::E)
         {
-            creature.PrintInventory();
+            // mapdata.window->draw(invWindow);
+            if(!isInventoryWindowOpen)
+            {
+                
+                AddItemsToInventoryWindow(creature);
+                isInventoryWindowOpen = true;
+            }
+   
+            
+        
             int n;
             std::cout << "\nEnter item index \n";
             std::cin >> n;
             creature.EquipItemFromInventory(n);
             std::cout << "Equipped";
             int k = 3;
+            
             
         }
         else if(event.key.code == sf::Keyboard::F)
@@ -155,8 +182,18 @@ void HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
         {
         
             mapdata.map->RemoveEffect(targettingSquare);
-            usingTargetSquare = false;
-            
+            if(usingTargetSquare)
+                usingTargetSquare = false;
+            if(isInventoryWindowOpen)
+            {
+                isInventoryWindowOpen = false;
+                inventoryWindow.clearTextComponents();
+            }
+            if(isEquipmentWindowOpen)
+            {
+                isEquipmentWindowOpen = false;
+                equipmentWindow.clearTextComponents();
+            }
          
             
         }
@@ -244,3 +281,73 @@ void ControlTargetSquare(MoveDirection moveDir,MapData &mapdata)
     mapdata.map->setEffectColor(targettingSquare.getID(), sf::Color::Yellow);
     mapdata.map->UpdateEffect(targettingSquare);
 }
+
+void InitializeInventoryWindow()
+{
+    inventoryWindow.setWindowPosition(sf::Vector2f(0,0));
+    inventoryWindow.setWindowSize(sf::Vector2f(WINDOW_X, WINDOW_Y));
+    inventoryWindow.setFont("tnr.ttf");
+    inventoryWindow.setTextSize(50);
+    
+    equipmentWindow.setWindowPosition(sf::Vector2f(0,0));
+    equipmentWindow.setWindowSize(sf::Vector2f(WINDOW_X, WINDOW_Y));
+    equipmentWindow.setFont("tnr.ttf");
+    equipmentWindow.setTextSize(25);
+    
+    
+    
+    /*
+    inventoryWindow.AddText("abc");
+    inventoryWindow.AddText("xyz");
+    inventoryWindow.setTextColor(sf::Color::Red);
+     */
+}
+
+void AddItemsToInventoryWindow(BaseCreature &creature)
+{
+    std::list<Item*>::iterator itemIt;
+    std::list<Item*> items = creature.getInventory();
+    std::string tempString;
+    int i = 0;
+    for(itemIt = items.begin(); itemIt != items.end(); ++itemIt)
+    {
+        tempString = std::to_string(i);
+        tempString.append(" ");
+        tempString.append((*itemIt)->getItemName());
+       
+        inventoryWindow.AddText(tempString);
+        i++;
+     
+    }
+    
+    inventoryWindow.setTextColor(sf::Color::Red);
+}
+
+//Prints only the equipped items
+void AddToEquipmentWindow(BaseCreature &creature)
+{
+    std::vector<BodyPart*> bodyPartSchema = creature.getBodyPartSchema();
+    
+    std::string outString;
+
+    for(int i = 0; i < bodyPartSchema.size(); i++)
+    {
+        outString = bodyPartSchema.at(i)->bodyPartName + " - Armor: " + bodyPartSchema.at(i)->armor.getItemName() + " Weapon: " + bodyPartSchema.at(i)->weapon.getItemName();
+
+ 
+        equipmentWindow.AddText(outString);
+    }
+    
+   
+
+    equipmentWindow.setTextColor(sf::Color::Red);
+    
+
+}
+
+/*
+ 
+
+ *
+ */
+

@@ -153,6 +153,10 @@ std::list<AttackParameters> BaseCreature::getAttacks()
     
 }
 
+std::vector<BodyPart*> BaseCreature::getBodyPartSchema()
+{
+    return bodyPartSchema;
+}
 
 //Need to update both the creatures logical position and the position of its texture
 void BaseCreature::setPosition(short int x, short int y)
@@ -321,6 +325,10 @@ void BaseCreature::PickupItem(Map &map,std::list<Item*> &itemList)
 }
 
 
+std::list<Item*> BaseCreature::getInventory()
+{
+    return creatureItems;
+}
 
 
 

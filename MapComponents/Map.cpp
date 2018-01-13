@@ -323,6 +323,7 @@ void Map::draw(sf::RenderTarget& target, sf::RenderStates states) const
         
     }
     
+    //Make effects their own drawable later
     for(int i = 0; i < effects.size(); i++)
     {
         //sf::Transform transform;
