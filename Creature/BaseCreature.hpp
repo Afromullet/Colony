@@ -44,13 +44,15 @@ private:
     short int moveSpeed; //Currently both x and y speed
     
    
-    sf::Vector2u velocity; //Represents basic direction..Not used at the moment.
-    sf::Vector2u position;
-    sf::Vector2u prevPosition; //Not used at the moment
+    sf::Vector2i velocity; //Represents basic direction..Not used at the moment.
+    sf::Vector2i position;
+    sf::Vector2i prevPosition; //Not used at the moment
     std::list<AttackParameters> creatureWeaponAttacks; //Holds data on all of the creature attacks so we don't have to recalculate it every time. Filled by body virtual function getAttacks
     
     
     std::list<Item*> creatureItems;
+    
+    
     
     
 public:
@@ -81,9 +83,9 @@ public:
     short int getRangedAttackValue();
     short int getStrength();
     short int getAgility();
-    sf::Vector2u  getPosition();
-    sf::Vector2u  getPrevePosition();
-    sf::Vector2u getVelocity();
+    sf::Vector2i  getPosition();
+    sf::Vector2i  getPrevePosition();
+    sf::Vector2i getVelocity();
     std::list<AttackParameters> getAttacks();
     
     //Setters

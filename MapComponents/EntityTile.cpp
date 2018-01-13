@@ -10,7 +10,7 @@
 
 
 //Need to draw a creature withn the bounds of a tile
-bool EntityTile::loadTile(const std::string& tileset, sf::Vector2u _tileSize, sf::Vector2u creaturePosition)
+bool EntityTile::loadTile(const std::string& tileset, sf::Vector2i _tileSize, sf::Vector2i creaturePosition)
 {
     // load the tileset texture
     if (!m_tileset.loadFromFile(tileset))
@@ -72,8 +72,8 @@ void EntityTile::setPosition(int x, int y)
     m_vertices.setPrimitiveType(sf::Quads);
     m_vertices.resize(4);
     int tileNumber = 0;
-    sf::Vector2u creaturePosition(x,y);
-    //sf::Vector2u tileSize(32,32);
+    sf::Vector2i creaturePosition(x,y);
+    //sf::Vector2i tileSize(32,32);
     sf::Vertex * quad = &m_vertices[tileNumber];
     
     
@@ -110,7 +110,7 @@ void EntityTile::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
 
 
-sf::Vector2u EntityTile::getTileSize()
+sf::Vector2i EntityTile::getTileSize()
 {
     return tileSize;
 }

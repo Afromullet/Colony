@@ -45,6 +45,25 @@ void CreateRandomCreatures(MapData &mapdata)
     
 }
 
+void CreateTargetCreatures(MapData &mapdata)
+{
+    
+    for(int i = 0; i < 10; i++)
+    {
+        for(int j = 0; j < 10; j++)
+        {
+            BaseCreature testCreature;
+        
+        
+            testCreature.loadCreatureTile("deep_elf_blademaster.png",32,32);
+            testCreature.setPosition(i, j);
+            mapdata.AddCreatureToMap(testCreature);
+        //tempCreatureList.push_back(testCreature);
+        }
+    }
+    
+}
+
 //Generates random items and places them on the map
 void GenerateRandomItems(MapData &mapdata, int numberOfItems)
 {
@@ -187,5 +206,5 @@ void GenerateRandomCave()
     ruleset.chanceToStartAlive = CELL_CHANCETOSTARTALIVE;
     ruleset.deathLimit = DEATH_LIMIT;
     caMap.SetRuleSet(ruleset);
-    caMap.Generate_CA_MAP(sf::Vector2u(32,32), MAP_WIDTH,MAP_HEIGHT,ruleset);
+    caMap.Generate_CA_MAP(sf::Vector2i(32,32), MAP_WIDTH,MAP_HEIGHT,ruleset);
 }

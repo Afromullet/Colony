@@ -8,10 +8,10 @@
 
 #include "MapUtil.hpp"
 
-#include "Map.hpp"
 
 
-void CreateRoom(Map &map,int roomSize, int roomTileID, sf::Vector2u startingPoint)
+
+void CreateRoom(Map &map,int roomSize, int roomTileID, sf::Vector2i startingPoint)
 {
     int newX,newY;
     
@@ -28,7 +28,7 @@ void CreateRoom(Map &map,int roomSize, int roomTileID, sf::Vector2u startingPoin
             
            // map.Map2D[newX][newY].setTileID(roomTileID);
 
-            if(map.isInBounds(sf::Vector2u(newX,newY)))
+            if(map.isInBounds(sf::Vector2i(newX,newY)))
             {
                 map.Map2D[newX][newY].setTileID(roomTileID);
 

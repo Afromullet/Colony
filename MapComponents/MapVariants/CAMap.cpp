@@ -53,7 +53,7 @@ void CA_Map::SetInitialState()
 
 }
 
-void CA_Map::Generate_CA_MAP(sf::Vector2u _tileSize,unsigned int _width, unsigned int _height,CA_RuleSet _ruleset)
+void CA_Map::Generate_CA_MAP(sf::Vector2i _tileSize,unsigned int _width, unsigned int _height,CA_RuleSet _ruleset)
 {
     Generate2DMap(_tileSize, _width,_height );
     
@@ -71,8 +71,12 @@ void CA_Map::Generate_CA_MAP(sf::Vector2u _tileSize,unsigned int _width, unsigne
     //Do the cellular automota steps
     //Simulation Step/TestRuleset iterate over every cell, determine the surrounding neighbors, and decide what the cell state is from that
     for(int i = 0; i < ruleset.numberOfSteps; i++)
+    {
         SimulationStep();
-       
+     
+        //CaveSimulationStep();
+    }
+    
     
     
     
@@ -119,6 +123,42 @@ void CA_Map::SimulationStep()
     }
     Map2D = newMap;
 
+    
+}
+
+void CA_Map::CaveSimulationStep()
+{
+    std::vector<std::vector<Tile> > newMap = Map2D;
+    //Loop over each row and column of the map
+    for(int x=0; x<Map2D.size(); x++){
+        for(int y=0; y<Map2D[0].size(); y++){
+            int livingNeighbors = GetLivingNeighbors(ruleset.aliveTileID, ruleset.deadTileID,x, y);
+            
+            //Ned to set the TILE ID so we knwo waht kind of tile it is
+            //TODO add list of parameters for each part of rueleset
+            if(Map2D[x][y].getTileID() == ruleset.aliveTileID){
+                if(livingNeighbors < 2 || livingNeighbors > 5){
+                    newMap[x][y].setTileID(ruleset.deadTileID);
+                }
+                
+                else if(livingNeighbors == 2 || livingNeighbors == 3)
+                {
+                    newMap[x][y].setTileID(ruleset.aliveTileID); //Just to be safe...
+                }
+                else{
+                    newMap[x][y].setTileID(ruleset.aliveTileID);
+                }
+            } //Otherwise, if the cell is dead now, check if it has the right number of neighbours to be 'born'
+            else{
+                if(livingNeighbors == 3){
+                    newMap[x][y].setTileID(ruleset.aliveTileID);
+                }
+               
+            }
+        }
+    }
+    Map2D = newMap;
+    
     
 }
 

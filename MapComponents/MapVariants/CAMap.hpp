@@ -23,6 +23,7 @@ typedef struct _CARuleset
     int numberOfSteps;
     int birthLimit;
     int deathLimit;
+    int numToStayAliveLimit;
     
 }CA_RuleSet;
 
@@ -40,12 +41,13 @@ public:
     
     CA_Map();
     
-    void Generate_CA_MAP(sf::Vector2u _tileSize,unsigned int _width, unsigned int _height,CA_RuleSet _ruleset);
+    void Generate_CA_MAP(sf::Vector2i _tileSize,unsigned int _width, unsigned int _height,CA_RuleSet _ruleset);
     
     
     void SetInitialState();
     void SetRuleSet(CA_RuleSet _ruleset);
     void SimulationStep();
+    void CaveSimulationStep();
     int GetLivingNeighbors(int aliveTileID, int deadTileID,int x, int y);
     
     void TestRuleset();

@@ -12,13 +12,13 @@
 
 
 
-Armor::Armor(int _material, EnumBodyPart _enFitsBodyPart, int _sEquipmentName, short int _siArmorBonus, float _fDodgeModifier, float _fDamageReduction,float _fMovementModifier,EnumArmorClass _enArmorClass)
+Armor::Armor(int _material, EnumBodyPart _enFitsBodyPart, std::string _sEquipmentName, short int _siArmorBonus, float _fDodgeModifier, float _fDamageReduction,float _fMovementModifier,EnumArmorClass _enArmorClass)
 : Item(_material,_enFitsBodyPart,_sEquipmentName),
 siArmorBonus(_siArmorBonus),fDodgeModifier(_fDodgeModifier),
 fDamageReduction(_fDamageReduction),fMovementModifier(_fMovementModifier),enArmorClass(_enArmorClass)
 {}
 
-Armor::Armor(int _material,int _sEquipmentName, short int _siArmorBonus, float _fDodgeModifier, float _fDamageReduction,float _fMovementModifier,EnumArmorClass _enArmorClass)
+Armor::Armor(int _material,std::string _sEquipmentName, short int _siArmorBonus, float _fDodgeModifier, float _fDamageReduction,float _fMovementModifier,EnumArmorClass _enArmorClass)
 : Item(_material,enUndefinedPart,_sEquipmentName),
 siArmorBonus(_siArmorBonus),fDodgeModifier(_fDodgeModifier),
 fDamageReduction(_fDamageReduction),fMovementModifier(_fMovementModifier),enArmorClass(_enArmorClass)

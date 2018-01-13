@@ -18,8 +18,9 @@
 
 
 #include "Tile.hpp"
-#include <unordered_map>
 
+#include <unordered_map>
+#include "MapEffect.hpp"
 
 //Groups tile vertices by a tile ID
 //Todo make vertexarray a reference so we do not contain the vertices twice
@@ -38,7 +39,10 @@ typedef struct MapTileParameters
 #define VISITED_TILE_ID 1
 
 
+
+
 class Tile;
+class BaseCreature;
 
 class Map : public sf::Drawable, public sf::Transformable
 {
@@ -47,16 +51,16 @@ public:
     
      std::vector<MapTileParams> tileGroups;
     
-    void BasicRandom2DMap(sf::Vector2u _tileSize,unsigned int _width, unsigned int _height);
-    bool Generate2DMap(sf::Vector2u _tileSize, unsigned int _width, unsigned int _height);
+    void BasicRandom2DMap(sf::Vector2i _tileSize,unsigned int _width, unsigned int _height);
+    bool Generate2DMap(sf::Vector2i _tileSize, unsigned int _width, unsigned int _height);
     void Group2DGridTiles();
     void LoadTileTexture();
     void GenerateRandom2DTiles();
     void LoadTileParameters();
-    sf::Vector2u getTileSize();
+    sf::Vector2i getTileSize();
     unsigned int GetWidth();
     unsigned int GetHeight();
-    bool isInBounds(sf::Vector2u position);
+    bool isInBounds(sf::Vector2i position);
     void FloodFill(int x, int y, int targetTileID, int replacementTileID);
     void FloodFill(int x, int y, int targetTileID, int replacementTileID, int blockSize);
     
@@ -64,19 +68,48 @@ public:
     
     
     
+    
+    //Gets square of size n, returns a list of indices of all squares in the area
+    sf::VertexArray getVertices(std::vector<sf::Vector2i> tilePositions);
+    std::vector<BaseCreature*> getCreatures(std::vector<sf::Vector2i> tilePositions);
+    
+    
+    
+    //std::vector<sf::Vector2i> moveSquare(std::vector<sf::Vector2i> tilePositions,MoveDirection movDirection);
+   // void setSquareColor(std::vector<sf::Vector2i> tilePositions,sf::Color color); //Draw a square..
+    //void clearSquareColor(std::vector<sf::Vector2i> tilePositions); ///Clears the squares colors
+    
+    
+    void AddEffect(int effectId, sf::VertexArray vertArray);
+    void UpdateEffect(MapEffect newEffect);
+    void RemoveEffect(MapEffect oldEffect);
+    
+    void setEffectColor(int effectId, sf::Color color); //Sets the color of effect id
+    
+    sf::VertexArray m_vertices; //Pairs of 4s = 1 Tile
+    
+    sf::VertexArray effectsOnMap; //Pairs of 4s = 1 Tile
+    std::vector<MapEffect> effects;
+    
+  
+    
+   
+    
    
     
 private:
     
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     
-    sf::Vector2u tileSize;
+    sf::Vector2i tileSize;
     unsigned int width;
     unsigned int height;
     
+   
+    
     //Tiles stores the position of the tiles, m_vertices.
     //This vector is basically a bag of vertices we can use to create the map
-    sf::VertexArray m_vertices; //Pairs of 4s = 1 Tile
+    
     
     
 };

@@ -49,7 +49,7 @@ BaseCreature::BaseCreature(const BaseCreature &creature)
 //TODO, ensure that the tile is loaded every time a creature is placed on a map. We do not have to load the tile until the creature has to be displayed on the map
 void BaseCreature::loadCreatureTile(const std::string& tileset, int tileXSize,int tileYSize)
 {
-    creatureTile.loadTile(tileset,  sf::Vector2u(tileXSize, tileYSize), sf::Vector2u(position.x, position.y));
+    creatureTile.loadTile(tileset,  sf::Vector2i(tileXSize, tileYSize), sf::Vector2i(position.x, position.y));
 }
 
 void BaseCreature::CalculateAttackParameters()
@@ -111,17 +111,17 @@ short int BaseCreature::getAgility()
     return agility;
 }
 
-sf::Vector2u  BaseCreature::getPosition()
+sf::Vector2i  BaseCreature::getPosition()
 {
     return position;
 }
 
-sf::Vector2u BaseCreature::getPrevePosition()
+sf::Vector2i BaseCreature::getPrevePosition()
 {
     return prevPosition;
 }
 
-sf::Vector2u BaseCreature::getVelocity()
+sf::Vector2i BaseCreature::getVelocity()
 {
     return velocity;
 }

@@ -21,6 +21,8 @@
 
 #define TERRAIN_TYPE_TOKEN "TerrainType"
 #define TEXTURE_LOCATION_TOKEN "TextureLocation"
+#define CAN_HOLD_CREATURE_TOKEN "CanHoldCreature"
+
 #define KEY_VALUE_DELIMITER_TOKEN ":"
 #define START_OF_BLOCK_TOKEN "{"
 #define END_OF_BLOCK_TOKEN "}"

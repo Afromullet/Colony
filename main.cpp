@@ -41,7 +41,8 @@
 #include "TestDataGenerator.hpp"
 #include "PlayerControls.hpp"
 
-
+#include <boost/graph/adjacency_list.hpp>
+#include "MapEffect.hpp"
 
 void GameLoop3();
 
@@ -57,13 +58,89 @@ sf::Time elapsed;
 
 
 
+
+
+
+typedef boost::property<int, int> noProperty;
+typedef boost::adjacency_list<boost::vecS,boost::vecS,boost::directedS, BodyPart,noProperty> BodyGraph;
+typedef boost::graph_traits<BodyGraph>::vertex_descriptor Vertex;
+typedef boost::graph_traits<BodyGraph>::edge_descriptor CustomEdge;
+typedef std::pair<Vertex,Vertex> Edge;
+
+
+
+
+
+BodyGraph humanoidBodyGraph;
+//Can just be a list of max number of vertices for purposes of generalizing
+Vertex headVertex = boost::add_vertex(headBodyPart,humanoidBodyGraph);
+Vertex chestVertex = boost::add_vertex(headBodyPart,humanoidBodyGraph);
+Vertex leftArmVertex = boost::add_vertex(headBodyPart,humanoidBodyGraph);
+Vertex rightArmVertex = boost::add_vertex(headBodyPart,humanoidBodyGraph);
+Vertex leftLegVertex = boost::add_vertex(headBodyPart,humanoidBodyGraph);
+Vertex rightLegVertex = boost::add_vertex(headBodyPart,humanoidBodyGraph);
+Vertex leftHandVertex = boost::add_vertex(headBodyPart,humanoidBodyGraph);
+Vertex rightHandVertex = boost::add_vertex(headBodyPart,humanoidBodyGraph);
+Vertex leftFootVertex = boost::add_vertex(headBodyPart,humanoidBodyGraph);
+Vertex rightfootVertex = boost::add_vertex(headBodyPart,humanoidBodyGraph);
+
+
+
+
+
+
+Edge edge_array[] =
+{
+    Edge(headVertex,chestVertex),
+    
+    Edge(chestVertex,leftLegVertex),
+    Edge(chestVertex,rightLegVertex),
+    Edge(chestVertex,leftArmVertex),
+    Edge(chestVertex,rightArmVertex),
+    
+    
+    Edge(rightLegVertex,rightfootVertex),
+    Edge(leftLegVertex,leftFootVertex),
+    
+    Edge(rightArmVertex,rightHandVertex),
+    Edge(leftArmVertex,leftHandVertex)
+};
+
+
+
+
+const int num_edges = sizeof(edge_array)/sizeof(edge_array[0]);
+
+const int num_of_vertices = 10; //For humanoid body
+const int num_of_edges = 8;
+
+using namespace boost;
+
 int main()
 {
+    
+    
+   // add_edge(headVertex,chestVertex,humanoidBodyGraph);
+  
+    
+  
+
+    MapEffect ef1;
+    MapEffect ef2;
+    MapEffect ef3;
+    
+    ef1.setID(1);
+    ef2.setID(2);
+    ef3.setID(1);
+    
+
+    
     ParseTileFile();
     BasicTileRuleset();
     window.setKeyRepeatEnabled(false);
     mapdata.SetWindow(&window);
     SetupGameData(&caMap);
+    
     
     
     
@@ -120,6 +197,25 @@ void GameLoop3()
      */
     player.Equip(&FIST_WEAPON);
     
+   // std::vector<sf::Vector2i> tempSquare = mapdata.map->getSquare(sf::Vector2i(5,1), 2);
+   
+    
+    
+    
+    
+
+    
+ 
+    
+    
+    
+    
+
+
+
+
+    
+
    // player.Equip(&tHeadArmor);
     // run the main loop
     while (window.isOpen())
@@ -135,17 +231,26 @@ void GameLoop3()
                 
             }
             
-            HandlePlayerInput(event,mapdata,player);
+           HandlePlayerInput(event,mapdata,player);
             
             
         }
 
         DrawEverything(mapdata);
+        window.clear();
+    
         
+     
+       // window.display();
         
+
         
         }
-        
+    
+    
+
+    
+    
         return 0;
     
     
@@ -183,26 +288,26 @@ void InitializeMaps()
 {
     
     
-    MainMap.BasicRandom2DMap(sf::Vector2u(DEFAULT_TILE_SIZE,DEFAULT_TILE_SIZE), MAP_WIDTH, MAP_HEIGHT);
-    squareMap.CreateMap(sf::Vector2u(DEFAULT_TILE_SIZE,DEFAULT_TILE_SIZE),MAP_WIDTH, MAP_HEIGHT, 0);
+    MainMap.BasicRandom2DMap(sf::Vector2i(DEFAULT_TILE_SIZE,DEFAULT_TILE_SIZE), MAP_WIDTH, MAP_HEIGHT);
+    squareMap.CreateMap(sf::Vector2i(DEFAULT_TILE_SIZE,DEFAULT_TILE_SIZE),MAP_WIDTH, MAP_HEIGHT, 0);
     //Just a random ruleset
-    CELL_CHANCETOSTARTALIVE = 0.45f;
-    NUMBER_OF_STEPS = 10;
+    CELL_CHANCETOSTARTALIVE = 0.65f;
+    NUMBER_OF_STEPS = 5;
     BIRTH_LIMIT = 3;
-    DEATH_LIMIT = 8;
+    DEATH_LIMIT = 4;
     ruleset.aliveTileID = 1;
     ruleset.deadTileID = 0;
     ruleset.birthLimit = BIRTH_LIMIT;
     ruleset.chanceToStartAlive = CELL_CHANCETOSTARTALIVE;
     ruleset.deathLimit = DEATH_LIMIT;
     caMap.SetRuleSet(ruleset);
-    caMap.Generate_CA_MAP(sf::Vector2u(32,32), MAP_WIDTH,MAP_HEIGHT,ruleset);
+    caMap.Generate_CA_MAP(sf::Vector2i(32,32), MAP_WIDTH,MAP_HEIGHT,ruleset);
 }
 
 void SetupCurrentMap(Map *map)
 {
     mapdata.setMap(map);
-    CreateRandomCreatures(mapdata);
+    CreateTargetCreatures(mapdata);
     GenerateRandomItems(mapdata,10);
     mapdata.PlaceCreaturesOnMap();
     mapdata.PlaceItemsOnMap();
@@ -216,7 +321,7 @@ void SetupGameData(Map *map)
     GenerateTestEquipment();
     InitializeGlobalBodyParts();
     
-    player.loadCreatureTile("deep_elf_blademaster.png",32,32);
+    player.loadCreatureTile("daeva.png",32,32);
 
     player.setPosition(5, 5);
     player.setStrength(3);
@@ -255,7 +360,7 @@ void DrawEverything(MapData _mapdata)
     //Only move creatures randomly every two seconds..testing
     if(elapsed.asMilliseconds() >= 1000)
     {
-        MoveAllCreatures();
+        //MoveAllCreatures();
         globalClock.restart();
     }
     _mapdata.RemoveDeadCreature();

@@ -33,16 +33,22 @@
  
  */
 
+#define BOTTOM_LEFT 0
+#define TOP_LEFT 1
+#define TOP_RIGHT 2
+#define BOTTOM_RIGHT 3
 
 class BaseCreature;
 class Tile
 {
     
     
+
+
 public:
     Tile();
     
-    void SetTileVertices(int xOffset, int yOffset,sf::Vector2u tileSize);
+    void SetTileVertices(int xOffset, int yOffset,sf::Vector2i tileSize);
     sf::VertexArray getTileVertices();
     sf::VertexArray& getTileVerticesRef();
     void setTileID(int tileTypeID);

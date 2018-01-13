@@ -85,9 +85,14 @@ extern sf::Font defaultFont;
 
 void InitializeGlobals();
 
+extern sf::Color yellow;
 
 
+extern std::vector<int> allEffectIDs;
 
+bool doesEffectIDExist(int id);
+
+int AssignEffectID();
 
 
 //extern std::list<Item*> itemsOnMap;

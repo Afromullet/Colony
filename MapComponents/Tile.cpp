@@ -42,7 +42,7 @@ void Tile::ClearCreatureOnTile()
     creature = NULL;
 }
 
-void Tile::SetTileVertices(int xOffset, int yOffset,sf::Vector2u tileSize)
+void Tile::SetTileVertices(int xOffset, int yOffset,sf::Vector2i tileSize)
 {
     
     sf::Vertex * quad = &tileVertices[0];;

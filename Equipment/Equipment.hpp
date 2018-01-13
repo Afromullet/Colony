@@ -33,7 +33,7 @@ private:
     EnumBodyPart enFitsBodyPart;
     EnItemType enItemType;
     std::string sEquipmentName;
-    sf::Vector2u position; //Is this a good idea? The position of an object does not matter if it's on a creature. Is the space this uses worth making managing items on the map easier?
+    sf::Vector2i position; //Is this a good idea? The position of an object does not matter if it's on a creature. Is the space this uses worth making managing items on the map easier?
     
     
     
@@ -44,7 +44,7 @@ public:
     bool isEquipped;
     EntityTile itemTile; //Every item needs a tile for when it is represented on the map. Need to ensure that we distinguish between an item on the map and worn by the player. todo
     
-    Item(int _material, EnumBodyPart _enFitsBodyPart, int _sEquipmentName);
+    Item(int _material, EnumBodyPart _enFitsBodyPart, std::string _sEquipmentName);
     
     Item(std::string equipmentName, EnItemType _itemType);
     Item();
@@ -59,7 +59,7 @@ public:
 
     std::string getItemName();
     EnumBodyPart getBodyPart();
-    sf::Vector2u getPosition();
+    sf::Vector2i getPosition();
     
     void setItemName(std::string value);
     void setMaterial(int value);

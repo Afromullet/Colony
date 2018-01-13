@@ -51,7 +51,7 @@ public:
     
     BodyPart(bool _canHoldWeapon, bool _canHoldArmor, bool _canInteract, bool _canMoveCreature,std::string _bodyPartName, int _health);
     
-    BodyPart(const BodyPart& bp);
+    BodyPart(const BodyPart &bp);
   
     //Use a tree to represent body parts..Well, do that later, when we want to describe a hieracy of what body part is connected to what
 

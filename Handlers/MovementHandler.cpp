@@ -16,14 +16,10 @@
 bool InMapBoundaries(Map &map,int newX, int newY)
 {
     
-    bool retVal;
-    if(newX < 0 || newX >= map.GetWidth())
+    bool retVal = true;
+    if(newX < 0 || newX >= map.GetWidth() || newY < 0|| newY > map.GetHeight())
         retVal = false;
-    else if(newY < 0|| newY > map.GetHeight())
-        retVal = false;
-    else
-        retVal = true;
-    
+
     return retVal;
 
 }
@@ -33,7 +29,7 @@ bool InMapBoundaries(Map &map,int newX, int newY)
 /*
 void MoveCreature(MoveDirection moveDirection, Map &map)
 {
-    sf::Vector2u direction(0,0);
+    sf::Vector2i direction(0,0);
     int newX,newY;
     
     switch(moveDirection)
@@ -83,7 +79,7 @@ void MoveCreature(MoveDirection moveDirection, Map &map)
 //TODO fix bounary checking
 void MovePlayer(MoveDirection moveDirection, BaseCreature &_creature,Map &map)
 {
-    sf::Vector2u direction(0,0);
+    sf::Vector2i direction(0,0);
     int newX = _creature.getPosition().x;
     int newY = _creature.getPosition().y;
     
@@ -112,10 +108,13 @@ void MovePlayer(MoveDirection moveDirection, BaseCreature &_creature,Map &map)
     //If the new position cannot hold a creature, there's no point in detemining further action
     //TODO, consider removing this in the future in case you want to add some tile-manipulating actions, i.e, removing a wall.
     
-    if(!map.Map2D[newX][newY].getCanHoldCreature())
-        return;
+
     if(InMapBoundaries(map,newX,newY))
     {
+        
+        if(!map.Map2D[newX][newY].getCanHoldCreature())
+            return;
+        
         if(map.Map2D[newX][newY].getCreatureOnTile() == NULL)
         {
             _creature.setPosition(newX, newY);

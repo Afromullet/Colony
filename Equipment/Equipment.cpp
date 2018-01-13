@@ -8,7 +8,7 @@
 
 #include "Equipment.hpp"
 
-Item::Item(int _material, EnumBodyPart _enFitsBodyPart, int _sEquipmentName): material(_material),enFitsBodyPart(_enFitsBodyPart),sEquipmentName("no name"),isEquipped(false)
+Item::Item(int _material, EnumBodyPart _enFitsBodyPart, std::string _sEquipmentName): material(_material),enFitsBodyPart(_enFitsBodyPart),sEquipmentName("no name"),isEquipped(false)
 {
     
 }
@@ -36,7 +36,7 @@ std::string Item::getItemName()
     return sEquipmentName;
 }
  
-sf::Vector2u Item::getPosition()
+sf::Vector2i Item::getPosition()
 {
     return position;
 }

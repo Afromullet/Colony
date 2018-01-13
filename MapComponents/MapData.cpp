@@ -83,7 +83,7 @@ void MapData::PlaceItemsOnMap()
     {
         //TODO...Do some research on whether setting a pointer with a list iterator like that is a bad idea
         
-        (*itemit)->tile.loadTile("blessed_blade.png", sf::Vector2u(32,32), sf::Vector2u((*itemit)->getPosition().x,(*itemit)->getPosition().y));
+        (*itemit)->tile.loadTile("blessed_blade.png", sf::Vector2i(32,32), sf::Vector2i((*itemit)->getPosition().x,(*itemit)->getPosition().y));
         map->Map2D[(*itemit)->getPosition().x][(*itemit)->getPosition().y].SetItemOnTile(*itemit);
     }
 }

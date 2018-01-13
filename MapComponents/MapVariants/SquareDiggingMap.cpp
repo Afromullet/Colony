@@ -9,7 +9,7 @@
 #include "SquareDiggingMap.hpp"
 
 //Todo for every room, set up the corners and push it into room vector
-void SqureDiggingMap::CreateMap(sf::Vector2u _tileSize,unsigned int _width, unsigned int _height, int wallTileID)
+void SqureDiggingMap::CreateMap(sf::Vector2i _tileSize,unsigned int _width, unsigned int _height, int wallTileID)
 {
     Generate2DMap(_tileSize, _width,_height );
     
@@ -25,7 +25,7 @@ void SqureDiggingMap::CreateMap(sf::Vector2u _tileSize,unsigned int _width, unsi
     //Generate2DGrid();
 }
 
-void SqureDiggingMap::CreateRoom(int roomSize, int roomTileID, sf::Vector2u startingPoint)
+void SqureDiggingMap::CreateRoom(int roomSize, int roomTileID, sf::Vector2i startingPoint)
 {
     int newX,newY;
     
@@ -43,7 +43,7 @@ void SqureDiggingMap::CreateRoom(int roomSize, int roomTileID, sf::Vector2u star
             // map.Map2D[newX][newY].setTileID(roomTileID);
             
             
-            if(isInBounds(sf::Vector2u(newX,newY)))
+            if(isInBounds(sf::Vector2i(newX,newY)))
             {
                 Map2D[newX][newY].setTileID(roomTileID);
                 
@@ -63,7 +63,7 @@ void SqureDiggingMap::CreateRandomRooms(int numberOfRooms, int roomTileID)
         randX = rand() % GetWidth();
         randY = rand() % GetHeight();
         roomSize =  rand() % MAX_ROOM_SIZE + 1;
-        CreateRoom(roomSize,roomTileID, sf::Vector2u(randX,randY));
+        CreateRoom(roomSize,roomTileID, sf::Vector2i(randX,randY));
     }
     
     LoadTileParameters();
@@ -73,18 +73,18 @@ void SqureDiggingMap::CreateRandomRooms(int numberOfRooms, int roomTileID)
     
 }
 
-void SqureDiggingMap::BuildCorridor(int corridorLength, MoveDirection direction, int corridorTileID,sf::Vector2u origin)
+void SqureDiggingMap::BuildCorridor(int corridorLength, MoveDirection direction, int corridorTileID,sf::Vector2i origin)
 {
     
-    sf::Vector2u corDir;
+    sf::Vector2i corDir;
     if(direction == Up)
-        corDir = sf::Vector2u(0,-1);
+        corDir = sf::Vector2i(0,-1);
     else if(direction == Down)
-        corDir= sf::Vector2u(0,1);
+        corDir= sf::Vector2i(0,1);
     else if(direction == Left)
-        corDir = sf::Vector2u(-1,0);
+        corDir = sf::Vector2i(-1,0);
     else if(direction == Right)
-       corDir =  sf::Vector2u(1,0);
+       corDir =  sf::Vector2i(1,0);
     
     int curX = origin.x;
     int curY = origin.y;
@@ -94,7 +94,7 @@ void SqureDiggingMap::BuildCorridor(int corridorLength, MoveDirection direction,
         curY += corDir.y;
         //std::cout << "\nX,y" << curX << "," << curY;
         
-        if (isInBounds(sf::Vector2u(curX,curY)))
+        if (isInBounds(sf::Vector2i(curX,curY)))
         {
             Map2D[curX][curY].setTileID(corridorTileID);
         }
@@ -102,9 +102,9 @@ void SqureDiggingMap::BuildCorridor(int corridorLength, MoveDirection direction,
     }
 }
 
-void SqureDiggingMap::CorridorBetweenPoints(sf::Vector2u origin, sf::Vector2u  endPoint)
+void SqureDiggingMap::CorridorBetweenPoints(sf::Vector2i origin, sf::Vector2i  endPoint)
 {
-    sf::Vector2u difVec(origin.x - endPoint.x,origin.y - endPoint.y);
+    sf::Vector2i difVec(origin.x - endPoint.x,origin.y - endPoint.y);
  
     
   
@@ -117,8 +117,8 @@ void SqureDiggingMap::CreatePassage(int xDir, int yDir)
 {
     //Inefficeint..handle the direction list outside the function after testing is complete
     //So that it is not recreated every recursive call
-    std::vector<sf::Vector2u> vDirections;
-    sf::Vector2u pos;
+    std::vector<sf::Vector2i> vDirections;
+    sf::Vector2i pos;
     
     
     std::cout << "\n Infinite loop \n";
@@ -145,7 +145,7 @@ void SqureDiggingMap::CreatePassage(int xDir, int yDir)
     
 
     std::random_shuffle(vDirections.begin(), vDirections.end());
-    sf::Vector2u newPosition;
+    sf::Vector2i newPosition;
     for(int i = 0; i < vDirections.size(); i++)
     {
         newPosition.x = vDirections.at(i).x + xDir;

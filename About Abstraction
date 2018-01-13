@@ -1,0 +1,68 @@
+The importance of abstraction..I need to generalize the following:
+
+The way a creature interacts with the world
+The way an item interacts in the world
+
+what do we have in the world?
+
+Tiles
+Items
+Creature
+
+There isn't any need to break it down into smaller categories right now
+
+Mutual interaction
+
+Tile<--->Creature Both change their state based one the interaction
+
+Should there be an Action and an Interaction class?
+
+No...just an interaction will be fine, the class just needs to store the objects that are interacting
+
+Uses entity component system for that..Will make it much easier to make it extensible..Need to decide if I can describe interaction in a way where it can be just a single class modifying parameters
+
+
+
+class Interaction
+
+//Since all three may interact at a time, want to store all three
+
+Item
+Creature
+Tile
+
+When a creature does an interaction it needs an interactee
+
+Creature peforms action
+
+
+Action handles the communication between interaction and interactee
+
+
+Action class
+
+Acquires the state that needs to be manipulated
+
+Interaction class
+
+Manipulates the state
+
+But then again..Is there any need Interaction can't acquire the data it needs
+
+That depends on how creature performs the Interaction
+
+It needs a way to select it..but let's worry about that later. All I need to know right now is that a creature calls an interaction -
+
+    An interaction looks at a tile, and gets the data on that tile. Items, creatures, whatever else. Anything that can be derived from a tile
+
+    So Interaction is instatiated with Tile
+
+Maybe use Observer pattern? No..I don't want to be chained by design patterns..better if I just use them as a concept..as inspiration, not as guidelines
+
+An action has to trigger an interaction..Otherwise, the interaction won't know what to do. Need to have at least some high level idea what kind of actions there are, so the interaction can be defined
+
+
+Look
+Grab
+Attack
+

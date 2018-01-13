@@ -19,9 +19,9 @@ FileLogger errorLog("errors.txt");
 sf::Font defaultFont;
 
 std::vector<TileIDData> tileIDTable; //Tile types are predefined. TODO, populate this from a file.
-Armor NO_ARMOR(1,enAnyBodyPart,1,0,0,0,0,enLight);
-Weapon FIST_WEAPON(1,enFitsOneHand,1,1,1,enUnarmed);
-Weapon NO_WEAPON(1,enFitsOneHand,0,0,0,enUndefinedWeaponClass);
+Armor NO_ARMOR(1,enAnyBodyPart,"No armor",0,0,0,0,enLight);
+Weapon FIST_WEAPON(1,enFitsOneHand,"Fist Weapon",1,1,enUnarmed);
+Weapon NO_WEAPON(1,enFitsOneHand,"No weapon",0,0,enUndefinedWeaponClass);
 
 std::string leftArmString = "Left Arm";
 std::string rightArmString = "Right Arm";
@@ -59,8 +59,8 @@ BaseCreature player;
 
 
 
-
-
+sf::Color yellow = sf::Color::Yellow;
+std::vector<int> allEffectIDs;
 
 
 void InitializeGlobals()
@@ -69,9 +69,33 @@ void InitializeGlobals()
     {
         // error...
     }
+    
+    //yellow.a = 1;
 }
 
+bool doesEffectIDExist(int id)
+{
+    for(int i = 0; i < allEffectIDs.size(); i++)
+    {
+        if(id == allEffectIDs.at(i))
+            return true;
+    }
+    
+    return false;
+}
 
+int AssignEffectID()
+{
+    //Assign a random ID
+    //There shouldn't ever be that many effects, so there is no need for a timeout...or is there? todo
+    int id = rand() & 100000000;
+    while(doesEffectIDExist(id))
+        id = rand() & 100000000;
+    
+    return id;
+    
+ 
+}
 
 
 

@@ -26,6 +26,7 @@ extern Weapon tTwoHanded;
 
 
 void CreateRandomCreatures(MapData &mapdata);
+void CreateTargetCreatures(MapData &mapdata);
 void GenerateRandomItems(MapData &mapdata, int numberOfItems);
 void GenerateTestEquipment();
 void GenerateRandomCave();

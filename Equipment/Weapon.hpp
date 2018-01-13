@@ -26,7 +26,7 @@ private:
     
 public:
     //todo getters and setters
-    Weapon(int _material,EnumBodyPart _enFitsBodyPart, int _sEquipmentName, short int _siRange,
+    Weapon(int _material,EnumBodyPart _enFitsBodyPart, std::string _sEquipmentName, short int _siRange,
    short int _siDamage,EnumWeaponClass _enWeaponClass);
     
     Weapon();

@@ -13,6 +13,7 @@
 #include <unordered_map>
 #include "Globals.hpp"
 #include "Constants.hpp"
+#include <math.h>
 
 
 /*
@@ -82,8 +83,10 @@
  */
 
 
-void Map::BasicRandom2DMap(sf::Vector2u _tileSize,unsigned int _width, unsigned int _height)
+void Map::BasicRandom2DMap(sf::Vector2i _tileSize,unsigned int _width, unsigned int _height)
 {
+    
+    //effectsOnMap.setPrimitiveType(sf::Quads);
     Generate2DMap(_tileSize, _width,_height );
     GenerateRandom2DTiles();
     LoadTileParameters();
@@ -93,7 +96,7 @@ void Map::BasicRandom2DMap(sf::Vector2u _tileSize,unsigned int _width, unsigned 
 }
 
 //Generates the verticles for the map. They are not yet tetured, that will be done later
-bool Map::Generate2DMap(sf::Vector2u _tileSize, unsigned int _width, unsigned int _height)
+bool Map::Generate2DMap(sf::Vector2i _tileSize, unsigned int _width, unsigned int _height)
 {
  
     
@@ -115,6 +118,8 @@ bool Map::Generate2DMap(sf::Vector2u _tileSize, unsigned int _width, unsigned in
     // resize the vertex array to fit the level size
     m_vertices.setPrimitiveType(sf::Quads);
     m_vertices.resize(width * height * 4); //We need four vertices for every tile
+    //effectsOnMap.setPrimitiveType(sf::Quads);
+    //effectsOnMap.resize(width * height * 4);
     
     // populate the vertex array, with one quad per tile
     
@@ -129,7 +134,7 @@ bool Map::Generate2DMap(sf::Vector2u _tileSize, unsigned int _width, unsigned in
             // get the current tile number..harcoded right now
             int tileNumber = 0;
             // find its position in the tileset texture
-            //hardcoded atm
+            //hardcoded atm...The original example this was used in uses this to load the texture from a texture sheet
             int tu = tileNumber % (32 / 32);
             int tv = tileNumber / (32 / 32);
             
@@ -309,11 +314,29 @@ void Map::draw(sf::RenderTarget& target, sf::RenderStates states) const
        // texture0 =
        // texture0.loadFromFile("dirt_e.png");
       
-        states.texture = &tileGroups.at(i).m_tileset;;
+        
+        states.texture = &tileGroups.at(i).m_tileset;
+
         target.draw(tileGroups.at(i).m_vertices, states);
+        //target.draw(effectsOnMap, states);
 
         
     }
+    
+    for(int i = 0; i < effects.size(); i++)
+    {
+        //sf::Transform transform;
+    
+        //states.transform *= getTransform();
+        //states.transform.translate(tileSize.x, 0);
+        target.draw(effects.at(i).vertices, states);
+        //target.draw
+    }
+    
+    
+    
+   // std::cout << "\n New size " <<  effectsOnMap.getVertexCount();
+   // target.draw(effectsOnMap);
  
 }
 
@@ -327,10 +350,13 @@ unsigned int Map::GetHeight()
     return height;
 }
 
-bool Map::isInBounds(sf::Vector2u position)
+bool Map::isInBounds(sf::Vector2i position)
 {
-    if((position.x < 0 || position.x >= width) || (position.y < 0 || position.y > height))
+    if((position.x < 0 || position.x >= width))
         return false;
+    else if(position.y < 0 || position.y >= height)
+        return false;
+     
     
     return true;
     
@@ -378,3 +404,151 @@ void Map::FloodFill(int x, int y, int targetTileID, int replacementTileID)
     FloodFill(x+1,y,targetTileID,replacementTileID); //East
 }
 
+//The vertices don't matter. we just need the indices of the tiles
+//Only returns position of tile if it's in bounds of the map (still need to test this)
+//The drawing takes care of the vertices
+
+
+
+
+sf::VertexArray Map::getVertices(std::vector<sf::Vector2i> tilePositions)
+{
+    sf::VertexArray vertArray;
+    vertArray.setPrimitiveType(sf::Quads);
+    vertArray.resize(tilePositions.size() * 4); //*4 because it's a square
+    Tile tempTile;
+    
+    sf::VertexArray tempAr;
+    int vertexCounter = 0; //Initially forgot this..I was using the tilePosition iterator as the verteArray index...
+    for(int i = 0; i < tilePositions.size(); i++)
+    {
+        
+        
+        if(!isInBounds(tilePositions.at(i)))
+           continue;
+        tempAr = Map2D[tilePositions.at(i).x][tilePositions.at(i).y].getTileVertices();
+        
+        vertArray[vertexCounter] = tempAr[0];
+        vertArray[vertexCounter+1] = tempAr[1];
+        vertArray[vertexCounter+2] = tempAr[2];
+        vertArray[vertexCounter+3] = tempAr[3];
+        
+
+        
+        vertexCounter += 4;
+        
+    }
+    
+    return vertArray;
+    
+    
+}
+
+
+
+std::vector<BaseCreature*> Map::getCreatures(std::vector<sf::Vector2i> tilePositions)
+{
+    
+    std::vector<BaseCreature*> tempCreatures;
+    
+    
+
+    
+    BaseCreature *tempCreat;
+    int vertexCounter = 0; //Initially forgot this..I was using the tilePosition iterator as the verteArray index...
+    for(int i = 0; i < tilePositions.size(); i++)
+    {
+        
+        
+        if(!isInBounds(tilePositions.at(i)))
+            continue;
+        
+        tempCreat = Map2D[tilePositions.at(i).x][tilePositions.at(i).y].getCreatureOnTile();
+        
+        if(NULL != tempCreat)
+            tempCreatures.push_back(tempCreat);
+        
+    }
+    
+    return tempCreatures;
+    
+}
+
+
+void Map::AddEffect(int effectId, sf::VertexArray vertArray)
+{
+    //Don't need the vertices yet...
+    MapEffect tempEffect;
+    tempEffect.setID(effectId);
+    
+    bool exists = false;
+    
+    for(int i = 0; i < effects.size(); i++)
+    {
+        if(effectId == effects.at(i).getID())
+        {
+            exists = true;
+            
+        }
+    }
+    
+    
+    if(!exists)
+    {
+        
+        tempEffect.vertices = vertArray;
+        effects.push_back(tempEffect);
+       
+        std::cout << "\nEffect does not exist";
+    }
+    else
+    {
+        std::cout << "\nEffect exists";
+    }
+
+}
+
+void Map::UpdateEffect(MapEffect newEffect)
+{
+    //Don't need the vertices yet...
+    
+    for(int i = 0; i < effects.size(); i++)
+    {
+        if(newEffect.getID() == effects.at(i).getID())
+        {
+            effects.at(i).tilePositions = newEffect.tilePositions;
+            effects.at(i).vertices = newEffect.vertices;
+            effects.at(i).setColor(newEffect.color);
+            
+        }
+    }
+    
+    
+
+    
+    
+    
+}
+
+void Map::RemoveEffect(MapEffect oldEffect)
+{
+    std::vector<MapEffect>::iterator effectIt;
+    for(effectIt = effects.begin(); effectIt != effects.end(); ++effectIt)
+    {
+        if(effectIt->getID() == oldEffect.getID())
+        {
+            effects.erase(effectIt);
+            return;
+        }
+    }
+}
+
+
+//Sets the color of effect id
+void Map::setEffectColor(int effectId, sf::Color color)
+{
+    for(int i = 0; i < effects.size(); i++)
+    {
+        effects.at(i).setColor(color);
+    }
+}

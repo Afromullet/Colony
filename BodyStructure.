@@ -1,0 +1,64 @@
+The body needs to be represented in a hierarchy
+
+A full body is symmetrical. using a human body as a basic example
+
+head
+torso: two grabbing limbs, two movement limbs
+
+limbs have appendage
+
+
+
+
+
+
+It consists of a:
+
+head
+
+torso---limbs
+
+limb--->appendage
+
+
+
+We need a way to represent a valid anatomy..Don't want that to be hardcoded'
+
+want to be able to read anatomy types from a file
+
+need some hierarchy to represent it. the hierarchy will let us orient creatures in spatial dimensions if ever needed..By knowing where its limbs, heads and such are, it'll be much easier to represent'
+
+
+
+read bodyschema types from a file and store them into a list
+
+the file describes the anatomy of a creature. the anatomy is a tree
+
+the tree needs a list of rules in regards to how parent and children node are oriented
+
+each node, at initiliation, needs to know what enBodyPart it is.
+
+each nody is a body part
+
+root: = generally a head, but it could technically be anything, with the way this is implemented. The creature may not function as intended unless I also allow body parts to be created in a file
+
+wait, no, a tree doesn't work
+
+need a graph, each node a body part
+
+each body part has a set of actions it does..like if it can move, hold weapons, interact wih the world...
+
+the graph has a root node..A creature can be just a root node. If that root node is destroyed, the creature dies
+
+
+
+
+
+
+A valid creature has
+
+head: root node
+
+torso: child node of head
+
+
