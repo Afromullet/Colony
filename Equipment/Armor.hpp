@@ -65,7 +65,7 @@ public:
     float fGetMovementModifier();
     EnumBodyPart getBodyPart();
     EnumArmorClass getArmorClass();
-
+    std::string getItemExamineString();
     
 
     

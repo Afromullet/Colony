@@ -29,14 +29,16 @@ void DataWindow::draw(sf::RenderTarget& target, sf::RenderStates states) const
     
    }
 
-DataWindow::DataWindow(): rectangle(sf::Vector2f(0,0))
+DataWindow::DataWindow(): rectangle(sf::Vector2f(0,0)),windowType(enUndefinedWindow)
 {
     rectangle.setSize(sf::Vector2f(20,20));
+    isHighlightOpen = false;
     
 }
 
 DataWindow::DataWindow(sf::Vector2f position,sf::Vector2f size) : rectangle(position)
 {
+    isHighlightOpen = false;
     rectangle.setSize(size);
     
 }
@@ -75,6 +77,7 @@ void DataWindow::setTextColor(sf::Color color)
         textComponents.at(i).setColor(color);
     }
 }
+/*
 void DataWindow::AddText(std::string const &dataString)
 {
     
@@ -100,8 +103,44 @@ void DataWindow::AddText(std::string const &dataString)
     
 
 }
+*/
 
+void DataWindow::AddText(std::string const &dataString)
+{
+    
+    
+    //textComponents.clear();
+    int xPosition = 0;
+    int yPosition = 0;
+    sf::Text text;
+    
+    //If there are no entries, the text starts at the top left corner
+    sf::Vector2f textPos = rectangle.getPosition();
+    
+    if(textComponents.size() > 0)
+        text.setPosition(rectangle.getPosition().x, textSize * textComponents.size() + rectangle.getPosition().y);
+    else
+        text.setPosition(rectangle.getPosition().x, rectangle.getPosition().y);
 
+    
+    
+   
+    
+    
+    text.setFont(font);
+    text.setString(dataString);
+    
+    text.setCharacterSize(textSize);
+    textComponents.push_back(text);
+    
+    
+}
+
+void DataWindow::AddTextInBounds(std::string const &dataString)
+{
+    
+
+}
 
 void DataWindow::setFont(std::string fontName)
 {
@@ -160,8 +199,10 @@ void DataWindow::clearTextComponents()
 void DataWindow::initBasicHighlightSquare()
 {
   
-    highlighter.setSize(sf::Vector2f(WINDOW_X,textSize));
+ 
+    highlighter.setSize(sf::Vector2f(rectangle.getSize().x,textSize));
     highlighter.setFillColor(sf::Color::Yellow);
+    highlighter.setPosition(rectangle.getPosition().x, rectangle.getPosition().y);
     highlightPosition = 0;
     
     isHighlightOpen  = true;
@@ -170,6 +211,7 @@ void DataWindow::initBasicHighlightSquare()
 //Moves the rectangle from the origin to the offset..the offset is calculated from the text size
 void DataWindow::MoveHighlightSquare(int yOffset)
 {
-    highlighter.setPosition(0, textSize * yOffset);
+    int newY = textSize * yOffset + rectangle.getPosition().y; //will use later
+    highlighter.setPosition(rectangle.getPosition().x,newY);
     highlightPosition = yOffset;
 }

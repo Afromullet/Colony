@@ -85,6 +85,16 @@ float Weapon::getDamageModifier()
     
 }
 
+std::string Weapon::getItemExamineString()
+{
+    std::string tempString;
+    tempString = "\nItem Name: "  + sEquipmentName;
+    tempString = "\Damage: "  + siDamage;
+    tempString = "\nRange "  + siRange;
+    
+    return tempString; 
+    
+}
 
 void Weapon::setRange(short int value){siRange = value;}
 void Weapon::setDamage(short int value){siDamage = value;}

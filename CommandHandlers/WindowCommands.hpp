@@ -40,8 +40,16 @@ public:
     DataWindow& selectWindow(EnDataWindowType windowType);
     void setAllWindowsToClose();
     void clearWindowText(EnDataWindowType windowType);
-    void HandleWindowCommand(sf::Keyboard::Key key,EnDataWindowType windowType);
-    void SelectWindowCommand(sf::Keyboard::Key key);
+   
+   
+    
+    void handleOpenWindowCommand(sf::Keyboard::Key key);
+    void handleOpenWindowAction(EnDataWindowType windowType,sf::Keyboard::Key key);
+    void handleInventoryWindowAction(DataWindow& _dataWindow,sf::Keyboard::Key key);
+    void handleEquipmentWindowAction(DataWindow& _dataWindow,sf::Keyboard::Key key);
+    void handleSelectionWindowAction(DataWindow& _dataWindow,sf::Keyboard::Key key);
+    void handleInventorySelectionWindowAction(DataWindow& _dataWindow,sf::Keyboard::Key key);
+    
     
     bool isAnyWindowOpen();
  

@@ -60,6 +60,7 @@ public:
     std::string getItemName();
     EnumBodyPart getBodyPart();
     sf::Vector2i getPosition();
+    virtual std::string getItemExamineString() = 0;
     
     void setItemName(std::string value);
     void setMaterial(int value);
@@ -82,6 +83,8 @@ public:
     
     virtual void CalculateMaterialBonuses() = 0;
     virtual void showItemStats() = 0;
+    
+    
     
    
 

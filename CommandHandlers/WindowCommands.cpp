@@ -17,6 +17,7 @@ void WindowCommands::addDataWindow(DataWindow _dataWindow, EnDataWindowType wind
     tempWindow.setFont("tnr.ttf");
     tempWindow.setTextSize(25);
     tempWindow.setWindowType(windowType);
+    tempWindow.isHighlightOpen = false;
     
     dataWindows.push_back(tempWindow); //TODO add check to make sure multiple windows of the same type can't be added
 }
@@ -36,11 +37,22 @@ void WindowCommands::GetWindowData(BaseCreature &creature,EnDataWindowType windo
     {
         getInventoryData(creature,selectWindow(enInventoryWindow));
     }
-    if(windowType == enEquipmentWindow)
+    else if(windowType == enEquipmentWindow)
     {
         getEquipmentData(creature,selectWindow(enEquipmentWindow));
     }
-    
+    else if(windowType == enInventorySelectWindow)
+    {
+        //This can just be added at window initialization.
+        DataWindow &dataWindow = selectWindow(enInventorySelectWindow);
+        
+        dataWindow.AddText("x) Examine");
+        dataWindow.AddText("e) Equip");
+        dataWindow.AddText("t) Throw");
+        dataWindow.setTextColor(sf::Color::Red);
+        
+        
+    }
 }
 
 void WindowCommands::getInventoryData(BaseCreature &creature,DataWindow &dataWindow)
@@ -48,7 +60,6 @@ void WindowCommands::getInventoryData(BaseCreature &creature,DataWindow &dataWin
     
     if(dataWindow.getWindowType() != enInventoryWindow)
         return;
-    
     
     std::list<Item*>::iterator itemIt;
     std::list<Item*> items = creature.getInventory();
@@ -121,37 +132,146 @@ void WindowCommands::clearWindowText(EnDataWindowType windowType)
     }
 }
 
-void WindowCommands::HandleWindowCommand(sf::Keyboard::Key key,EnDataWindowType windowType)
+
+
+void WindowCommands::handleOpenWindowCommand(sf::Keyboard::Key key)
+{
+    EnDataWindowType windowType;
+    
+    if(key == sf::Keyboard::I)
+    {
+        DataWindow &dataWindow = selectWindow(enInventoryWindow);
+        dataWindow.isOpen = true;
+    }
+    else if(key == sf::Keyboard::P)
+    {
+        DataWindow &dataWindow = selectWindow(enEquipmentWindow);
+        dataWindow.isOpen = true;
+    }
+}
+
+void WindowCommands::handleOpenWindowAction(EnDataWindowType windowType,sf::Keyboard::Key key)
 {
     DataWindow &tempWindow = selectWindow(windowType);
     
-    if(!tempWindow.isOpen)
+    if(tempWindow.getWindowType() == enInventoryWindow)
+        handleInventoryWindowAction(tempWindow, key);
+    else if(tempWindow.getWindowType() == enEquipmentWindow)
+    {
+        handleEquipmentWindowAction(tempWindow, key);
+    }
+    if(tempWindow.getWindowType() == enInventorySelectWindow)
+    {
+        handleInventorySelectionWindowAction(tempWindow, key);
+    }
+    
+    
+}
+//Handle Equipment and Inventory action handle the actions when the window is open
+//The movemet actions for a window can eventually be handled alltogether, no need to have one function for each window to handle it
+void WindowCommands::handleInventoryWindowAction(DataWindow& _dataWindow,sf::Keyboard::Key key)
+{
+    
+    if(_dataWindow.getWindowType() != enInventoryWindow)
         return;
     
     
+   DataWindow &tempWindow = selectWindow(enInventorySelectWindow);
     
-    if(windowType == enInventoryWindow || enEquipmentWindow)
+    //To be extra safe
+    if(!_dataWindow.isOpen)
+        return;
+    
+    if(tempWindow.isOpen == false)
     {
         if(key == sf::Keyboard::Down)
         {
-            tempWindow.MoveHighlightSquare(tempWindow.highlightPosition + 1);
+            _dataWindow.MoveHighlightSquare(_dataWindow.highlightPosition + 1);
             //tempWindow.setYTextOffset(1);
         }
         else if(key == sf::Keyboard::Up)
         {
-            tempWindow.MoveHighlightSquare(tempWindow.highlightPosition - 1);
+            _dataWindow.MoveHighlightSquare(_dataWindow.highlightPosition - 1);
             //tempWindow.setYTextOffset(1);
-
+        
         }
     }
+    
+    
+    if(key == sf::Keyboard::Space)
+    {
+        tempWindow.isHighlightOpen = false;
+        handleSelectionWindowAction(tempWindow,key);
+    }
+ 
+
 }
 
-void WindowCommands::SelectWindowCommand(sf::Keyboard::Key key)
+void WindowCommands::handleEquipmentWindowAction(DataWindow& _dataWindow,sf::Keyboard::Key key)
 {
-    for(int i =0; i < dataWindows.size(); i++)
+    
+    if(_dataWindow.getWindowType() != enEquipmentWindow)
+        return;
+    
+    
+    
+    
+    //To be extra safe
+    if(!_dataWindow.isOpen)
+        return;
+    
+    if(key == sf::Keyboard::Down)
     {
-        HandleWindowCommand(key, dataWindows.at(i).getWindowType());
+        _dataWindow.MoveHighlightSquare(_dataWindow.highlightPosition + 1);
+        //tempWindow.setYTextOffset(1);
     }
+    else if(key == sf::Keyboard::Up)
+    {
+        _dataWindow.MoveHighlightSquare(_dataWindow.highlightPosition - 1);
+        //tempWindow.setYTextOffset(1);
+        
+    }
+    
+    
+}
+
+void WindowCommands::handleSelectionWindowAction(DataWindow& _dataWindow,sf::Keyboard::Key key)
+{
+    
+    //Also add equipmentSelectWindow
+    if(_dataWindow.getWindowType() != enInventorySelectWindow)
+        return;
+    
+
+
+   
+    if(_dataWindow.getWindowType() == enInventorySelectWindow)
+        handleInventorySelectionWindowAction(_dataWindow, key);
+    
+    
+}
+
+void WindowCommands::handleInventorySelectionWindowAction(DataWindow& _dataWindow,sf::Keyboard::Key key)
+{
+    if(_dataWindow.getWindowType() != enInventorySelectWindow)
+        return;
+    
+    //To be extra safe
+    _dataWindow.isOpen = true;
+     _dataWindow.isHighlightOpen = true;
+    
+    if(key == sf::Keyboard::Down)
+    {
+        _dataWindow.MoveHighlightSquare(_dataWindow.highlightPosition + 1);
+        //tempWindow.setYTextOffset(1);
+    }
+    else if(key == sf::Keyboard::Up)
+    {
+        _dataWindow.MoveHighlightSquare(_dataWindow.highlightPosition - 1);
+        //tempWindow.setYTextOffset(1);
+        
+    }
+    
 }
 
 //Returns true if at least one window is open
@@ -165,3 +285,4 @@ bool WindowCommands::isAnyWindowOpen()
     
     return false;
 }
+

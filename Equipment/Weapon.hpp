@@ -65,7 +65,9 @@ public:
     EnumWeaponClass getWeaponClass();
     EnumBonusType getAttackBonusType();
     bool isRangedWeapon();
-
+    std::string getItemExamineString();
+    
+    
 
     //EnumBodyParts getBodyPart();
     
@@ -96,6 +98,7 @@ public:
         position = weapon.position;
         //inches = D.inches;
     }
+    
     
     
     

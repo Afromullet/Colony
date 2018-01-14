@@ -119,6 +119,20 @@ EnumBodyPart Armor::getBodyPart()
     return Item::getBodyPart();
 }
 
+std::string Armor::getItemExamineString()
+{
+    std::string tempString;
+    tempString = "Item Name: ";
+    tempString = "\nArmor Bonus: "  + std::to_string(siArmorBonus);
+    tempString = "\nDodge Modifier: "  + std::to_string(fDodgeModifier);
+    tempString = "\nDamage Reduction:  "  + std::to_string(fDamageReduction);
+    tempString = "\nMovemement Modifier "  + std::to_string(fMovementModifier);
+    
+    return tempString;
+    
+
+    
+}
 
 /*
 int Armor::getItemName()
