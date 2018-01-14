@@ -403,8 +403,8 @@ void DrawEverything(MapData _mapdata)
     
     for(int i = 0; i < playerWindowCommands.dataWindows.size(); i++)
     {
-        if(playerWindowCommands.dataWindows.at(i).isOpen)
-            mapdata.window->draw(playerWindowCommands.dataWindows.at(i));
+        
+        mapdata.window->draw(playerWindowCommands.dataWindows.at(i));
     }
     
 

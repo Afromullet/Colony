@@ -120,3 +120,48 @@ void WindowCommands::clearWindowText(EnDataWindowType windowType)
             dataWindows.at(i).clearTextComponents();
     }
 }
+
+void WindowCommands::HandleWindowCommand(sf::Keyboard::Key key,EnDataWindowType windowType)
+{
+    DataWindow &tempWindow = selectWindow(windowType);
+    
+    if(!tempWindow.isOpen)
+        return;
+    
+    
+    
+    if(windowType == enInventoryWindow || enEquipmentWindow)
+    {
+        if(key == sf::Keyboard::Down)
+        {
+            tempWindow.MoveHighlightSquare(tempWindow.highlightPosition + 1);
+            //tempWindow.setYTextOffset(1);
+        }
+        else if(key == sf::Keyboard::Up)
+        {
+            tempWindow.MoveHighlightSquare(tempWindow.highlightPosition - 1);
+            //tempWindow.setYTextOffset(1);
+
+        }
+    }
+}
+
+void WindowCommands::SelectWindowCommand(sf::Keyboard::Key key)
+{
+    for(int i =0; i < dataWindows.size(); i++)
+    {
+        HandleWindowCommand(key, dataWindows.at(i).getWindowType());
+    }
+}
+
+//Returns true if at least one window is open
+bool WindowCommands::isAnyWindowOpen()
+{
+    for(int i = 0; i < dataWindows.size(); i++)
+    {
+        if(dataWindows.at(i).isOpen)
+            return true;
+    }
+    
+    return false;
+}

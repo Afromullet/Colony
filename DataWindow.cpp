@@ -10,23 +10,21 @@
 #include <iostream>
 void DataWindow::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
+    
+    if(!isOpen)
+        return;
     states.transform *= getTransform();
-    
-    
-    
-    // apply the tileset texture
-
-    //std::vector<TileParameters>::iterator tileIt;
-    //std::vector<TileParameters>::iterator tileIt;
-    //tileIt = vecTileParams.begin();
-    
-    // draw the vertex array
     target.draw(rectangle, states);
+    target.draw(highlighter);
     for(int i = 0; i < textComponents.size(); i++)
     {
         target.draw(textComponents.at(i));
     }
+    
+    
     //states.transform *= getTransform();
+    
+    
   
     
    }
@@ -156,4 +154,22 @@ EnDataWindowType DataWindow::getWindowType()
 void DataWindow::clearTextComponents()
 {
     textComponents.clear();
+}
+
+//Basic highlight rectangle is the dimension of the text, top right of the screen
+void DataWindow::initBasicHighlightSquare()
+{
+  
+    highlighter.setSize(sf::Vector2f(WINDOW_X,textSize));
+    highlighter.setFillColor(sf::Color::Yellow);
+    highlightPosition = 0;
+    
+    isHighlightOpen  = true;
+}
+
+//Moves the rectangle from the origin to the offset..the offset is calculated from the text size
+void DataWindow::MoveHighlightSquare(int yOffset)
+{
+    highlighter.setPosition(0, textSize * yOffset);
+    highlightPosition = yOffset;
 }

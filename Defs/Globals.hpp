@@ -94,6 +94,7 @@ bool doesEffectIDExist(int id);
 
 int AssignEffectID();
 
+extern sf::Color BasicHighlightColor;
 
 //extern std::list<Item*> itemsOnMap;
 

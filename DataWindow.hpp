@@ -12,6 +12,8 @@
 #include <stdio.h>
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include "Constants.hpp"
+#include "Globals.hpp"
 
 enum EnDataWindowType{enInventoryWindow,enEquipmentWindow};
 
@@ -20,7 +22,7 @@ class DataWindow : public sf::Drawable, sf::Transformable
 private:
     sf::RectangleShape rectangle;
     sf::Font font;
-       float yYextOffset; //The y offset between each text Component
+    float yYextOffset; //The y offset between each text Component
     int textSize;
     std::vector<sf::Text> textComponents;
     EnDataWindowType windowType;
@@ -28,10 +30,13 @@ private:
     sf::RectangleShape highlighter; //The rectangle highlights parts of the window, I.E, selecting equipment
     
     
+    
 public:
     
     
     bool isOpen;
+    bool isHighlightOpen;
+    int highlightPosition; //Determines y position
 
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     DataWindow();
@@ -47,10 +52,11 @@ public:
     void setWindowType(EnDataWindowType _windowType);
     EnDataWindowType getWindowType();
     void clearTextComponents();
-    
+    void initBasicHighlightSquare();
     
     
     void PrintTextToConsole();
+    void MoveHighlightSquare(int yOffset);
     
 };
 

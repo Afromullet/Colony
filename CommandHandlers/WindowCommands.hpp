@@ -40,6 +40,11 @@ public:
     DataWindow& selectWindow(EnDataWindowType windowType);
     void setAllWindowsToClose();
     void clearWindowText(EnDataWindowType windowType);
+    void HandleWindowCommand(sf::Keyboard::Key key,EnDataWindowType windowType);
+    void SelectWindowCommand(sf::Keyboard::Key key);
+    
+    bool isAnyWindowOpen();
+ 
     
    
     

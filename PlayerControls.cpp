@@ -25,9 +25,13 @@ void HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
     
     //Target square starts at player origin
     
+    //playerWindowCommands.h
+    
     
     if (event.type == sf::Event::KeyPressed)
     {
+  
+        playerWindowCommands.SelectWindowCommand(event.key.code);
         if(event.key.code == sf::Keyboard::Right)
         {
             if(usingTargetSquare)
@@ -66,6 +70,10 @@ void HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
             {
                 ControlTargetSquare(Up,mapdata);
             }
+            else if(playerWindowCommands.isAnyWindowOpen())
+            {
+                //todo
+            }
             else
             {
                 MovePlayer(Up, creature,*mapdata.map);
@@ -79,6 +87,10 @@ void HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
             if(usingTargetSquare)
             {
                 ControlTargetSquare(Down,mapdata);
+            }
+            else if(playerWindowCommands.isAnyWindowOpen())
+            {
+                //todo
             }
             else
             {
@@ -323,6 +335,14 @@ void InitializeInventoryWindow()
     
     playerWindowCommands.addDataWindow(inventoryWindow);
     playerWindowCommands.addDataWindow(equipmentWindow);
+    
+    for(int i =0; i < playerWindowCommands.dataWindows.size(); i++)
+    {
+        playerWindowCommands.dataWindows.at(i).initBasicHighlightSquare();
+        //playerWindowCommands.dataWindows.at(i).MoveHighlightSquare(5);
+    }
+    
+    
     
     
     /*
