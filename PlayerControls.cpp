@@ -14,6 +14,8 @@ bool usingTargetSquare = false;
 bool isInventoryWindowOpen = false;
 bool isEquipmentWindowOpen = false;
 
+WindowCommands playerWindowCommands;
+
 std::vector<sf::Vector2i> square;
 MapEffect targettingSquare;
 DataWindow inventoryWindow;
@@ -92,7 +94,15 @@ void HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
         }
         else if(event.key.code == sf::Keyboard::I)
         {
+            
+            DataWindow window = playerWindowCommands.selectWindow(enInventoryWindow);
            
+            if(!window.isOpen)
+            {
+                playerWindowCommands.GetWindowData(creature, enInventoryWindow);
+                playerWindowCommands.setIsWindowOpen(enInventoryWindow, true);
+            }
+            /*
            // mapdata.window->draw(invWindow);
             if(!isInventoryWindowOpen)
             {
@@ -101,20 +111,25 @@ void HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
             }
             
             creature.PrintInventory();
+             */
         }
         else if(event.key.code == sf::Keyboard::P)
         {
-            //creature.getBody()->PrintEquippedItems();
-            creature.PrintEquipment();
-            if(!isEquipmentWindowOpen)
+     
+            DataWindow window = playerWindowCommands.selectWindow(enEquipmentWindow);
+            if(!window.isOpen)
             {
-                AddToEquipmentWindow(creature);
-                isEquipmentWindowOpen = true;
+                playerWindowCommands.GetWindowData(creature, enEquipmentWindow);
+                playerWindowCommands.setIsWindowOpen(enEquipmentWindow, true);
             }
+          
             
         }
         else if(event.key.code == sf::Keyboard::E)
         {
+            
+            
+            
             // mapdata.window->draw(invWindow);
             if(!isInventoryWindowOpen)
             {
@@ -181,6 +196,14 @@ void HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
         else if(event.key.code == sf::Keyboard::Escape)
         {
         
+  
+            playerWindowCommands.setAllWindowsToClose();
+            
+            //Inefficient..todo, clear window only when data has changed..or append only what's missing
+            for(int i =0; i < playerWindowCommands.dataWindows.size(); i++)
+            {
+                playerWindowCommands.dataWindows.at(i).clearTextComponents();
+            }
             mapdata.map->RemoveEffect(targettingSquare);
             if(usingTargetSquare)
                 usingTargetSquare = false;
@@ -288,12 +311,18 @@ void InitializeInventoryWindow()
     inventoryWindow.setWindowSize(sf::Vector2f(WINDOW_X, WINDOW_Y));
     inventoryWindow.setFont("tnr.ttf");
     inventoryWindow.setTextSize(50);
+    inventoryWindow.setWindowType(enInventoryWindow);
+    inventoryWindow.isOpen = false;
     
     equipmentWindow.setWindowPosition(sf::Vector2f(0,0));
     equipmentWindow.setWindowSize(sf::Vector2f(WINDOW_X, WINDOW_Y));
     equipmentWindow.setFont("tnr.ttf");
     equipmentWindow.setTextSize(25);
+    equipmentWindow.setWindowType(enEquipmentWindow);
+    equipmentWindow.isOpen = false;
     
+    playerWindowCommands.addDataWindow(inventoryWindow);
+    playerWindowCommands.addDataWindow(equipmentWindow);
     
     
     /*
@@ -327,19 +356,13 @@ void AddItemsToInventoryWindow(BaseCreature &creature)
 void AddToEquipmentWindow(BaseCreature &creature)
 {
     std::vector<BodyPart*> bodyPartSchema = creature.getBodyPartSchema();
-    
     std::string outString;
-
     for(int i = 0; i < bodyPartSchema.size(); i++)
     {
         outString = bodyPartSchema.at(i)->bodyPartName + " - Armor: " + bodyPartSchema.at(i)->armor.getItemName() + " Weapon: " + bodyPartSchema.at(i)->weapon.getItemName();
-
- 
         equipmentWindow.AddText(outString);
     }
     
-   
-
     equipmentWindow.setTextColor(sf::Color::Red);
     
 

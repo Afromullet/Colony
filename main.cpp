@@ -401,16 +401,13 @@ void DrawEverything(MapData _mapdata)
     
     
     
-   
+    for(int i = 0; i < playerWindowCommands.dataWindows.size(); i++)
+    {
+        if(playerWindowCommands.dataWindows.at(i).isOpen)
+            mapdata.window->draw(playerWindowCommands.dataWindows.at(i));
+    }
     
-    if(isInventoryWindowOpen)
-        mapdata.window->draw(inventoryWindow);
-        
-    
-    
-    if(isEquipmentWindowOpen)
-        mapdata.window->draw(equipmentWindow);
-    
+
     
     
     mapdata.window->display();

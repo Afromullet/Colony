@@ -133,6 +133,11 @@ void DataWindow::setFont(std::string fontName)
     
 }
 
+void DataWindow::setWindowType(EnDataWindowType _windowType)
+{
+    windowType = _windowType;
+}
+
 void DataWindow::PrintTextToConsole()
 {
     for(int i=0; i < textComponents.size(); i++)
@@ -141,6 +146,11 @@ void DataWindow::PrintTextToConsole()
         std::string tempString = textComponents.at(i).getString();
         std::cout << "\n" << tempString;
     }
+}
+
+EnDataWindowType DataWindow::getWindowType()
+{
+    return windowType;
 }
 
 void DataWindow::clearTextComponents()

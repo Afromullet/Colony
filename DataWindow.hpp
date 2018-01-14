@@ -13,6 +13,8 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 
+enum EnDataWindowType{enInventoryWindow,enEquipmentWindow};
+
 class DataWindow : public sf::Drawable, sf::Transformable
 {
 private:
@@ -21,11 +23,15 @@ private:
        float yYextOffset; //The y offset between each text Component
     int textSize;
     std::vector<sf::Text> textComponents;
+    EnDataWindowType windowType;
+    
+    sf::RectangleShape highlighter; //The rectangle highlights parts of the window, I.E, selecting equipment
+    
     
 public:
     
     
-
+    bool isOpen;
 
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     DataWindow();
@@ -38,7 +44,8 @@ public:
     void setFont(std::string fontName);
     void setTextSize(int newTextSize);
     void setTextColor(sf::Color color);
-    
+    void setWindowType(EnDataWindowType _windowType);
+    EnDataWindowType getWindowType();
     void clearTextComponents();
     
     

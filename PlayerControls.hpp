@@ -15,7 +15,7 @@
 #include "MapData.hpp"
 #include "EnumTypes.hpp"
 #include "DataWindow.hpp"
-
+#include "WindowCommands.hpp"
 
 
 
@@ -24,6 +24,9 @@
 extern bool usingTargetSquare;
 extern bool isInventoryWindowOpen;
 extern bool isEquipmentWindowOpen;
+
+
+extern WindowCommands playerWindowCommands;
 
 extern DataWindow inventoryWindow;
 extern DataWindow equipmentWindow;
