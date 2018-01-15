@@ -13,8 +13,12 @@ void DataWindow::draw(sf::RenderTarget& target, sf::RenderStates states) const
     
     if(!isOpen)
         return;
-    states.transform *= getTransform();
-    target.draw(rectangle, states);
+
+    states.blendMode = sf::BlendAlpha;
+    
+    target.draw(rectangle,states);
+    //target.draw(rectangle);
+    
     
     
     target.draw(highlighter);
@@ -28,13 +32,18 @@ void DataWindow::draw(sf::RenderTarget& target, sf::RenderStates states) const
         
         if(!subWindows.at(i).isOpen)
             continue;
-        states.transform *= getTransform();
-        target.draw(subWindows.at(i));
-        target.draw(subWindows.at(i).highlighter);
+        
+        //target.draw(subWindows.at(i));
+        //target.draw(subWindows.at(i).highlighter);
+        target.draw(subWindows.at(i),states);
+        if(subWindows.at(i).isHighlightOpen)
+            target.draw(subWindows.at(i).highlighter,states);
+
         for(int j = 0; j > subWindows.at(i).textComponents.size(); i++)
         {
-            target.draw(subWindows.at(i).textComponents.at(i));
+            target.draw(subWindows.at(i).textComponents.at(i),states);
         }
+    
         
     }
     
@@ -204,7 +213,7 @@ void DataWindow::initBasicHighlightSquare()
   
  
     highlighter.setSize(sf::Vector2f(rectangle.getSize().x,textSize));
-    highlighter.setFillColor(sf::Color::Yellow);
+    highlighter.setFillColor(BasicHighlightColor);
     highlighter.setPosition(rectangle.getPosition().x, rectangle.getPosition().y);
     highlightPosition = 0;
     
@@ -221,7 +230,7 @@ void DataWindow::initBasicHighlightSquare(EnDataWindowType _windowType)
             DataWindow &tempWindow = subWindows.at(i);
             
             tempWindow.highlighter.setSize(sf::Vector2f(tempWindow.rectangle.getSize().x,tempWindow.textSize));
-            tempWindow.highlighter.setFillColor(sf::Color::Yellow);
+            tempWindow.highlighter.setFillColor(BasicHighlightColor);
             tempWindow.highlighter.setPosition(tempWindow.rectangle.getPosition().x, tempWindow.rectangle.getPosition().y);
             tempWindow.highlightPosition = 0;
             tempWindow.isHighlightOpen  = true;

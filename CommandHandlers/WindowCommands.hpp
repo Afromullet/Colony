@@ -47,8 +47,8 @@ public:
 
     void handleWindowHighlighter(DataWindow& _dataWindow,sf::Keyboard::Key key);
     void handleOpenMainWindow(sf::Keyboard::Key key);
-    void handleMainWindowAction(BaseCreature &creature, EnDataWindowType windowType,sf::Keyboard::Key key);
-    void handleSubWindowAction(BaseCreature &Creature, EnDataWindowType windowType,sf::Keyboard::Key key);
+    void handleMainWindowAction(BaseCreature &creature, DataWindow &dataWindow,sf::Keyboard::Key key);
+       void handleSubWindowAction(BaseCreature &Creature, DataWindow &mainWindow,sf::Keyboard::Key key);
     
     
    

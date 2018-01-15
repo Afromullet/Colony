@@ -11,8 +11,8 @@
 
 
 //Size of the window
-#define WINDOW_X 800
-#define WINDOW_Y 600
+#define WINDOW_X 1920
+#define WINDOW_Y 1080
 
 #define TEST_WINDOW_X 1500
 #define TEST_WINDOW_Y 1500
@@ -22,7 +22,7 @@
 
 #define PI 3.14
 
-#define DEFAULT_TILE_SIZE 32 //The default size of any tile, be it map or a creature
+#define DEFAULT_TILE_SIZE 8 //The default size of any tile, be it map or a creature
 
 //Will have to be initialized since these values depend on several variables (Windows size and default tile size
 extern const int MAP_WIDTH;

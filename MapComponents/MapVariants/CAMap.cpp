@@ -8,7 +8,7 @@
 
 #include "CAMap.hpp"
 #include "Globals.hpp"
-
+#include <time.h>
 
 
 float CELL_CHANCETOSTARTALIVE;
@@ -21,12 +21,12 @@ CA_Map::CA_Map()
 {
     
     //Default Ruleset
-    ruleset.aliveTileID = 1;
-    ruleset.deadTileID = 0;
+    ruleset.aliveTileID = 4;
+    ruleset.deadTileID = 2;
     ruleset.birthLimit = 3;
     ruleset.chanceToStartAlive = 0.7;
     ruleset.deathLimit = 5;
-    ruleset.numberOfSteps = 3;
+    ruleset.numberOfSteps = 20;
 
 }
 
@@ -36,20 +36,37 @@ void CA_Map::SetInitialState()
     
     float r;
     int randNum;
+    int numAlive = 0;
+    int numDead = 0;
     
     for (unsigned int i = 0; i < GetWidth(); ++i)
     {
         
         for (unsigned int j = 0; j < GetHeight(); ++j)
         {
-            r = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-            if(r < ruleset.chanceToStartAlive)
+           // r = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+           //
+            r = static_cast <float>((rand() / (float)RAND_MAX ));
+
+         
+            if(r <= ruleset.chanceToStartAlive)
+            {
+                numAlive++;
                 Map2D[i][j].setTileID(ruleset.aliveTileID);
+            }
             else
+            {
+                numDead++;
                 Map2D[i][j].setTileID(ruleset.deadTileID);
+            }
         }
         
     }
+    
+    /*
+    std::cout << "\n Alive,Dead: " << numAlive << "," << numDead;
+    std::cout << "\n Alive,Dead: " << numAlive << "," << numDead;
+     */
 
 }
 
@@ -108,11 +125,11 @@ void CA_Map::SimulationStep()
                     newMap[x][y].setTileID(ruleset.deadTileID);
                 }
                 else{
-                    newMap[x][y].setTileID(ruleset.aliveTileID);
+                    newMap[x][y].setTileID(ruleset.aliveTileID); //Stay alive
                 }
             } //Otherwise, if the cell is dead now, check if it has the right number of neighbours to be 'born'
             else{
-                if(livingNeighbors > ruleset.birthLimit){
+                if(livingNeighbors >= ruleset.birthLimit){
                     newMap[x][y].setTileID(ruleset.aliveTileID);
                 }
                 else{

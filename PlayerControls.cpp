@@ -42,9 +42,11 @@ void HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
                 playerWindowCommands.GetWindowData(creature, playerWindowCommands.dataWindows.at(i).getWindowType(),playerWindowCommands.dataWindows.at(i));
             
                 
-                playerWindowCommands.handleMainWindowAction(creature,playerWindowCommands.dataWindows.at(i).getWindowType(), event.key.code);
+                playerWindowCommands.handleMainWindowAction(creature,playerWindowCommands.dataWindows.at(i), event.key.code);
                // playerWindowCommands.handleOpenWindowAction(creature,playerWindowCommands.dataWindows.at(i).getWindowType(), event.key.code);
             }
+            
+            
         }
          
         
@@ -318,6 +320,8 @@ void InitializeInventoryWindow()
     inventoryWindow.AddText("xyz");
     inventoryWindow.setTextColor(sf::Color::Red);
      */
+    
+    BasicHighlightColor.a = 90;
 }
 
 void AddItemsToInventoryWindow(BaseCreature &creature)

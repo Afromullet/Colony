@@ -181,38 +181,52 @@ void WindowCommands::handleOpenMainWindow(sf::Keyboard::Key key)
     
 }
 
-void WindowCommands::handleMainWindowAction(BaseCreature &creature, EnDataWindowType windowType,sf::Keyboard::Key key)
+void WindowCommands::handleMainWindowAction(BaseCreature &creature, DataWindow &dataWindow,sf::Keyboard::Key key)
 {
-    DataWindow &tempWindow = selectWindow(windowType);
+
     
-    if(!tempWindow.anySubWindowsOpen() && tempWindow.isOpen)
+    //If only the main window is open
+    if(!dataWindow.anySubWindowsOpen() && dataWindow.isOpen)
     {
-        handleWindowHighlighter(tempWindow,key);
+        handleWindowHighlighter(dataWindow,key);
         
         if(key == CLOSE_WINDOW_KEY)
-            tempWindow.isOpen = false;
+            dataWindow.isOpen = false;
         else if(key == SELECT_ACTION_KEY)
         {
-            std::cout << "\n Offset " << tempWindow.highlightPosition;
+            std::cout << "\n Offset " << dataWindow.highlightPosition;
         }
         
     }
     
-    handleSubWindowAction(creature,windowType,key);
+    
+
+    
+    handleSubWindowAction(creature,dataWindow,key); //Each window handles its own subwindow
+    
+    
     
     
 }
 
-void WindowCommands::handleSubWindowAction(BaseCreature &Creature, EnDataWindowType windowType,sf::Keyboard::Key key)
+
+//Window type is the window whose subwindows we are selecting
+//The logic the sub windows currently follow is based on the hardcoded hierachy when initializing all window types
+//I'm just checking a windows sub window and deciding on a list of known actions
+void WindowCommands::handleSubWindowAction(BaseCreature &Creature, DataWindow &mainWindow,sf::Keyboard::Key key)
 {
-    DataWindow &tempWindow = selectWindow(windowType);
-    DataWindow &subWindow = tempWindow.getSubWindow(enInventorySelectWindow);
-    DataWindow &subSubWindow = subWindow.getSubWindow(enExamineItemWindow);
-  
+    
+    
+    
+       DataWindow &subWindow = mainWindow.getSubWindow(enInventorySelectWindow);
+    
         
-    //Open the correct sub window and handle behavior
-    if(tempWindow.getWindowType() == enInventoryWindow && tempWindow.isOpen)
+    //If the main window is an inventory window, then we can
+    //Control the highlighter and select something from the inventory
+    //The inventory window currently only has one subwindow sub window
+    if(mainWindow.getWindowType() == enInventoryWindow && mainWindow.isOpen)
     {
+        //Subwindows not yet opened
         if(key == OPEN_SELECTION_WINDOW_KEY && !subWindow.isOpen)
         {
             
@@ -222,35 +236,35 @@ void WindowCommands::handleSubWindowAction(BaseCreature &Creature, EnDataWindowT
             subWindow.initBasicHighlightSquare();
             
         }
+        
         else if(subWindow.isOpen)
         {
-            if(key == CLOSE_WINDOW_KEY)
-                subWindow.isOpen = false;
-            else if(key == SELECT_ACTION_KEY)
+            if(subWindow.getWindowType() == enInventorySelectWindow)
             {
-                //Hardcoded based on the values set in GetWindowData..todo change
-                if(subWindow.highlightPosition == 0)
+                mainWindow.isHighlightOpen = false;
+                if(key == CLOSE_WINDOW_KEY)
+                    subWindow.isOpen = false;
+                else if(key == SELECT_ACTION_KEY)
                 {
-                    
-                    subSubWindow.isOpen = true;
-                    subSubWindow.initBasicHighlightSquare();
-                    
-                    
-                    
+                    //Hardcoded based on the values set in GetWindowData..todo change
+                    if(subWindow.highlightPosition == 0)
+                    {
+                        DataWindow &examineWindow = subWindow.getSubWindow(enExamineItemWindow);
+
+                        examineWindow.isOpen = true;
+                        examineWindow.initBasicHighlightSquare();
+                    }
                 }
-                std::cout << "\n Offset " << subWindow.highlightPosition;
             }
-            
-            
         }
-        
         
     }
     
-    if(tempWindow.anySubWindowsOpen() && tempWindow.isOpen)
+    if(mainWindow.anySubWindowsOpen() && mainWindow.isOpen)
     {
         handleWindowHighlighter(subWindow,key);
     }
+    
     
     
 }

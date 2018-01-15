@@ -126,7 +126,7 @@ int main()
   
     
   
-
+srand(time(NULL));
     MapEffect ef1;
     MapEffect ef2;
     MapEffect ef3;
@@ -317,15 +317,16 @@ void InitializeMaps()
     MainMap.BasicRandom2DMap(sf::Vector2i(DEFAULT_TILE_SIZE,DEFAULT_TILE_SIZE), MAP_WIDTH, MAP_HEIGHT);
     squareMap.CreateMap(sf::Vector2i(DEFAULT_TILE_SIZE,DEFAULT_TILE_SIZE),MAP_WIDTH, MAP_HEIGHT, 0);
     //Just a random ruleset
-    CELL_CHANCETOSTARTALIVE = 0.65f;
-    NUMBER_OF_STEPS = 5;
-    BIRTH_LIMIT = 3;
-    DEATH_LIMIT = 4;
+    CELL_CHANCETOSTARTALIVE = 0.55f;
+    NUMBER_OF_STEPS = 1;
+    BIRTH_LIMIT = 5;
+    DEATH_LIMIT = 3;
     ruleset.aliveTileID = 1;
     ruleset.deadTileID = 0;
     ruleset.birthLimit = BIRTH_LIMIT;
     ruleset.chanceToStartAlive = CELL_CHANCETOSTARTALIVE;
     ruleset.deathLimit = DEATH_LIMIT;
+    ruleset.numberOfSteps = NUMBER_OF_STEPS;
     caMap.SetRuleSet(ruleset);
     caMap.Generate_CA_MAP(sf::Vector2i(32,32), MAP_WIDTH,MAP_HEIGHT,ruleset);
 }
