@@ -105,6 +105,7 @@ public:
     void PrintEquipment();
     void Equip(Item *item);
     void EquipItemFromInventory(int n); //Equips item number n from inventory, n being the position in the list
+    std::string GetItemInfo(int n);
     void PickupItem(Map &map,std::list<Item*> &itemList);
     std::list<Item*> getInventory();
 

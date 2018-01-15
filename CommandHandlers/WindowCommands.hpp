@@ -14,6 +14,7 @@
 #include "BaseCreature.hpp"
 #include "DataWindow.hpp"
 #include <vector>
+#include "KeyDefinitions.hpp"
 
 
 //The EnDataWindow identifies what sort of data we display in the window
@@ -31,27 +32,26 @@ public:
     std::vector<DataWindow> dataWindows;
     
     
-    void addDataWindow(DataWindow _dataWindow, EnDataWindowType windowType);
     void addDataWindow(DataWindow _dataWindow);
-    void GetWindowData(BaseCreature &creature,EnDataWindowType windowType);
+    void GetWindowData(BaseCreature &creature,EnDataWindowType windowType,DataWindow &dataWindow);
     void getInventoryData(BaseCreature &creature,DataWindow &dataWindow);
     void getEquipmentData(BaseCreature &creature,DataWindow &dataWindow);
-    void setIsWindowOpen(EnDataWindowType windowType, bool truthValue);
+    bool isAnyWindowOpen();
+    
     DataWindow& selectWindow(EnDataWindowType windowType);
+    DataWindow& selectWindow(EnDataWindowType mainWindowType,EnDataWindowType subWindowType);
     void setAllWindowsToClose();
     void clearWindowText(EnDataWindowType windowType);
    
    
-    
-    void handleOpenWindowCommand(sf::Keyboard::Key key);
-    void handleOpenWindowAction(EnDataWindowType windowType,sf::Keyboard::Key key);
-    void handleInventoryWindowAction(DataWindow& _dataWindow,sf::Keyboard::Key key);
-    void handleEquipmentWindowAction(DataWindow& _dataWindow,sf::Keyboard::Key key);
-    void handleSelectionWindowAction(DataWindow& _dataWindow,sf::Keyboard::Key key);
-    void handleInventorySelectionWindowAction(DataWindow& _dataWindow,sf::Keyboard::Key key);
+
+    void handleWindowHighlighter(DataWindow& _dataWindow,sf::Keyboard::Key key);
+    void handleOpenMainWindow(sf::Keyboard::Key key);
+    void handleMainWindowAction(BaseCreature &creature, EnDataWindowType windowType,sf::Keyboard::Key key);
+    void handleSubWindowAction(BaseCreature &Creature, EnDataWindowType windowType,sf::Keyboard::Key key);
     
     
-    bool isAnyWindowOpen();
+   
  
     
    

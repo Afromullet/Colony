@@ -17,6 +17,8 @@
 
 enum EnDataWindowType{enInventoryWindow,enEquipmentWindow,enInventorySelectWindow,enExamineItemWindow,enUndefinedWindow};
 
+//Isn't this basically a DataWindow tree?
+
 class DataWindow : public sf::Drawable, sf::Transformable
 {
 private:
@@ -27,6 +29,8 @@ private:
     std::vector<sf::Text> textComponents;
     EnDataWindowType windowType;
     
+    
+    
     sf::RectangleShape highlighter; //The rectangle highlights parts of the window, I.E, selecting equipment
     
     
@@ -34,17 +38,21 @@ private:
 public:
     
     DataWindow();
+    DataWindow(const DataWindow& newWindow);
+    //DataWindow();
     sf::RectangleShape rectangle;
-    
+    std::vector<DataWindow> subWindows;
     bool isOpen;
     bool isHighlightOpen;
     int highlightPosition; //Determines y position
 
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+    
   
     DataWindow(sf::Vector2f position,sf::Vector2f size);
     void AddText(std::string const &dataString);
     void AddTextInBounds(std::string const &dataString);
+    void AddSubWindow(DataWindow _dataWindow);
     
     void setYTextOffset(float offset);
     void setWindowColor(sf::Color color);
@@ -57,7 +65,12 @@ public:
     EnDataWindowType getWindowType();
     void clearTextComponents();
     void initBasicHighlightSquare();
+    void initBasicHighlightSquare(EnDataWindowType _windowType);
+    void OpenSubWindow(EnDataWindowType _windowType);
+    bool anySubWindowsOpen();
+    void closeSubWindow(EnDataWindowType _windowType);
     
+    DataWindow& getSubWindow(EnDataWindowType windowType);
     
     void PrintTextToConsole();
     void MoveHighlightSquare(int yOffset);

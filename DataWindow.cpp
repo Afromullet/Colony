@@ -15,12 +15,28 @@ void DataWindow::draw(sf::RenderTarget& target, sf::RenderStates states) const
         return;
     states.transform *= getTransform();
     target.draw(rectangle, states);
+    
+    
     target.draw(highlighter);
     for(int i = 0; i < textComponents.size(); i++)
     {
         target.draw(textComponents.at(i));
     }
     
+    for(int i = 0; i < subWindows.size(); i++)
+    {
+        
+        if(!subWindows.at(i).isOpen)
+            continue;
+        states.transform *= getTransform();
+        target.draw(subWindows.at(i));
+        target.draw(subWindows.at(i).highlighter);
+        for(int j = 0; j > subWindows.at(i).textComponents.size(); i++)
+        {
+            target.draw(subWindows.at(i).textComponents.at(i));
+        }
+        
+    }
     
     //states.transform *= getTransform();
     
@@ -42,6 +58,26 @@ DataWindow::DataWindow(sf::Vector2f position,sf::Vector2f size) : rectangle(posi
     rectangle.setSize(size);
     
 }
+
+
+DataWindow::DataWindow(const DataWindow& newWindow)
+{
+    font = newWindow.font;
+    yYextOffset = newWindow.yYextOffset;
+    textSize = newWindow.textSize;
+    
+
+    textComponents = newWindow.textComponents;
+    windowType = newWindow.windowType;
+    subWindows = newWindow.subWindows;
+    rectangle = newWindow.rectangle;
+    highlighter = newWindow.highlighter;
+    subWindows = newWindow.subWindows;
+    isOpen = newWindow.isOpen;
+    isHighlightOpen = newWindow.isHighlightOpen;
+    highlightPosition = newWindow.highlightPosition;
+}
+ 
 
 void DataWindow::setWindowColor(sf::Color color)
 {
@@ -77,33 +113,7 @@ void DataWindow::setTextColor(sf::Color color)
         textComponents.at(i).setColor(color);
     }
 }
-/*
-void DataWindow::AddText(std::string const &dataString)
-{
-    
-    
-    //textComponents.clear();
-    int xPosition = 0;
-    int yPosition = 0;
-    sf::Text text;
-    
-    //If there are no entries, the text starts at the top left corner
-    if(textComponents.size() > 0)
-        text.setPosition(0, textSize * textComponents.size());
-    else
-        text.setPosition(0, 0);
 
-    
-    
-    text.setFont(font);
-    text.setString(dataString);
-    
-    text.setCharacterSize(textSize);
-    textComponents.push_back(text);
-    
-
-}
-*/
 
 void DataWindow::AddText(std::string const &dataString)
 {
@@ -142,6 +152,11 @@ void DataWindow::AddTextInBounds(std::string const &dataString)
 
 }
 
+void DataWindow::AddSubWindow(DataWindow _dataWindow)
+{
+    subWindows.push_back(_dataWindow);
+}
+
 void DataWindow::setFont(std::string fontName)
 {
     if(!font.loadFromFile(fontName))
@@ -154,19 +169,7 @@ void DataWindow::setFont(std::string fontName)
     //textComponents.clear();
     sf::Text text;
     text.setFont(font);
-    
-    /*
-    text.setString("abcdefg");
-    text.setCharacterSize(24);
-    text.setColor(sf::Color::Red);
-    textComponents.push_back(text);
-    
-    text.setString("vyydasdr");
-    text.setPosition(100, 100);
-    text.setCharacterSize(24);
-    text.setColor(sf::Color::Red);
-    textComponents.push_back(text);
-     */
+
     
 }
 
@@ -208,10 +211,91 @@ void DataWindow::initBasicHighlightSquare()
     isHighlightOpen  = true;
 }
 
+//Handles highlighte for subwindows
+void DataWindow::initBasicHighlightSquare(EnDataWindowType _windowType)
+{
+    for(int i=0; i < subWindows.size(); i++)
+    {
+        if(subWindows.at(i).getWindowType() == _windowType)
+        {
+            DataWindow &tempWindow = subWindows.at(i);
+            
+            tempWindow.highlighter.setSize(sf::Vector2f(tempWindow.rectangle.getSize().x,tempWindow.textSize));
+            tempWindow.highlighter.setFillColor(sf::Color::Yellow);
+            tempWindow.highlighter.setPosition(tempWindow.rectangle.getPosition().x, tempWindow.rectangle.getPosition().y);
+            tempWindow.highlightPosition = 0;
+            tempWindow.isHighlightOpen  = true;
+            break;
+            
+         
+        }
+    }
+    
+    /*
+    highlighter.setSize(sf::Vector2f(rectangle.getSize().x,textSize));
+    highlighter.setFillColor(sf::Color::Yellow);
+    highlighter.setPosition(rectangle.getPosition().x, rectangle.getPosition().y);
+    highlightPosition = 0;
+    isHighlightOpen  = true;
+     */
+}
+
 //Moves the rectangle from the origin to the offset..the offset is calculated from the text size
 void DataWindow::MoveHighlightSquare(int yOffset)
 {
     int newY = textSize * yOffset + rectangle.getPosition().y; //will use later
     highlighter.setPosition(rectangle.getPosition().x,newY);
     highlightPosition = yOffset;
+}
+
+DataWindow& DataWindow::getSubWindow(EnDataWindowType windowType)
+{
+    for(int i = 0; i < subWindows.size(); i++)
+    {
+        if(subWindows.at(i).getWindowType() == windowType)
+        {
+           
+            
+           
+            return subWindows.at(i);
+        }
+    }
+    
+    printf("\nCould not find shit\n");
+    
+    //TODO handle window not found
+}
+
+void DataWindow::OpenSubWindow(EnDataWindowType _windowType)
+{
+    for(int i = 0; i < subWindows.size(); i++)
+    {
+        if(subWindows.at(i).getWindowType() == _windowType)
+        {
+            subWindows.at(i).isOpen = true;
+        }
+    }
+}
+
+bool DataWindow::anySubWindowsOpen()
+{
+    for(int i=0; i < subWindows.size(); i++)
+    {
+        if(subWindows.at(i).isOpen)
+            return true;
+    }
+    
+    return false;
+}
+
+void DataWindow::closeSubWindow(EnDataWindowType _windowType)
+{
+    for(int i = 0; i < subWindows.size(); i++)
+    {
+        if(subWindows.at(i).getWindowType() == _windowType)
+        {
+            subWindows.at(i).isOpen = false;
+            break;
+        }
+    }
 }

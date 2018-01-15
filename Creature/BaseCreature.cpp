@@ -277,6 +277,30 @@ void BaseCreature::EquipItemFromInventory(int n)
 
 }
 
+//Equips item number n from inventory, n being the position in the list
+std::string BaseCreature::GetItemInfo(int n)
+{
+    std::list<Item*>::iterator itemIt;
+    std::cout << "\nPrinting inventory\n";
+    int i = 0;
+    std::string tempString = "" ;
+    for(itemIt = creatureItems.begin(); itemIt != creatureItems.end(); ++itemIt)
+    {
+        if(i == n)
+        {
+            
+            tempString = (*itemIt)->getItemExamineString();
+            
+            break;
+        }
+        i++;
+        
+    }
+    
+    return tempString;
+    
+    
+}
 
  //Picks up item at current position (if there is one) and adds it to the creatures inventory. TODO, determine whether there should be a class for creature and map interaction, or whether it's better to just pass the map as a reference
 void BaseCreature::PickupItem(Map &map,std::list<Item*> &itemList)
