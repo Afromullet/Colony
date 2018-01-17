@@ -9,6 +9,7 @@
 #include "CAMap.hpp"
 #include "Globals.hpp"
 #include <time.h>
+#include <math.h>
 
 
 float CELL_CHANCETOSTARTALIVE;
@@ -38,7 +39,7 @@ void CA_Map::SetInitialState()
     int randNum;
     int numAlive = 0;
     int numDead = 0;
-    
+    srand(time(NULL));
     for (unsigned int i = 0; i < GetWidth(); ++i)
     {
         
@@ -96,8 +97,9 @@ void CA_Map::Generate_CA_MAP(sf::Vector2i _tileSize,unsigned int _width, unsigne
     
     
     
-    
+        //PlacementTest();
     Group2DGridTiles();
+
     LoadTileParameters();
     LoadTileTexture();
     for(int i = 0; i < GetWidth(); i++)
@@ -107,8 +109,10 @@ void CA_Map::Generate_CA_MAP(sf::Vector2i _tileSize,unsigned int _width, unsigne
             Map2D[i][j].SetCreatureOnTile(NULL);
         }
     }
+    
+    
 
-    int i;
+    
 }
 
 void CA_Map::SimulationStep()
@@ -118,7 +122,7 @@ void CA_Map::SimulationStep()
     for(int x=0; x<Map2D.size(); x++){
         for(int y=0; y<Map2D[0].size(); y++){
             int livingNeighbors = GetLivingNeighbors(ruleset.aliveTileID, ruleset.deadTileID,x, y);
-            
+            //allNumOfNeighbors.push_back(livingNeighbors);
             //Ned to set the TILE ID so we knwo waht kind of tile it is
             if(Map2D[x][y].getTileID() == ruleset.aliveTileID){
                 if(livingNeighbors < ruleset.deathLimit){
@@ -136,7 +140,10 @@ void CA_Map::SimulationStep()
                     newMap[x][y].setTileID(ruleset.deadTileID);
                 }
             }
+            
         }
+        
+        
     }
     Map2D = newMap;
 
@@ -269,4 +276,170 @@ void CA_Map::TestRuleset()
 void CA_Map::SetRuleSet(CA_RuleSet _ruleset)
 {
     ruleset = _ruleset;
+}
+
+
+//Places features on dead tiles that have only living surrounding cells
+void CA_Map::PlacementTest()
+{
+    int x,y;
+    
+    
+    //Because the map changed , need to recalculate the number of neighbors..Storing it in a vector because I need to
+    //Know the total number of cells with only one living neigbor before making any decisio
+
+    
+    
+    std::cout << "\nNum of " << allNumOfNeighbors.size();
+    
+    std::vector<std::vector<Tile> > newMap = Map2D;
+    newMap = Map2D;
+
+    for(int i=0; i<newMap.size(); i++)
+    {
+        for(int j=0; j<newMap[0].size(); j++)
+        {
+            //aliveTileID
+            //deadTileID
+            int n = 0;
+            if(newMap[i][j].getTileID() == ruleset.deadTileID)
+            {
+                n = GetLivingNeighbors(ruleset.aliveTileID, ruleset.aliveTileID,i, j);
+            }
+            
+            if(n == 8)
+            {
+                sf::Vector2i roomPos(i,j);
+                CreateRoom(newMap,3, roomPos, 1, 2);
+            }
+          
+            allNumOfNeighbors.push_back(GetLivingNeighbors(ruleset.deadTileID, ruleset.aliveTileID,i, j));
+        } 
+    }
+    
+    Map2D = newMap;
+    
+    /*
+    for(int i = 0; i < allNumOfNeighbors.size(); i++)
+    {
+        
+        x = floor(i / GetWidth()); //Can't remember if C++ rounds up or down, so using floor to be safe
+        y = i % GetWidth(); //Modulo gets the Y
+        
+        
+        if(allNumOfNeighbors.at(i) == 0)
+        {
+            Map2D[x][y].setTileID(2);
+        }
+        
+    }
+     */
+}
+
+void CA_Map::CaveTunnelMap()
+{
+    int x,y;
+    
+    
+    //Because the map changed , need to recalculate the number of neighbors..Storing it in a vector because I need to
+    //Know the total number of cells with only one living neigbor before making any decisio
+    
+    
+    
+    std::cout << "\nNum of " << allNumOfNeighbors.size();
+    
+    std::vector<std::vector<Tile> > newMap = Map2D;
+    newMap = Map2D;
+    
+    for(int i=0; i<newMap.size(); i++)
+    {
+        for(int j=0; j<newMap[0].size(); j++)
+        {
+            int n = GetLivingNeighbors(ruleset.aliveTileID, ruleset.deadTileID,i, j);
+            
+            if(n == 8)
+            {
+             
+                newMap[i][j].setTileID(0);
+               
+                
+            }
+            
+            allNumOfNeighbors.push_back(GetLivingNeighbors(ruleset.deadTileID, ruleset.aliveTileID,i, j));
+        }
+    }
+    
+    Map2D = newMap;
+    
+    /*
+     for(int i = 0; i < allNumOfNeighbors.size(); i++)
+     {
+     
+     x = floor(i / GetWidth()); //Can't remember if C++ rounds up or down, so using floor to be safe
+     y = i % GetWidth(); //Modulo gets the Y
+     
+     
+     if(allNumOfNeighbors.at(i) == 0)
+     {
+     Map2D[x][y].setTileID(2);
+     }
+     
+     }
+     */
+    
+    
+    
+}
+
+//Move to parent class later
+void CA_Map::CreateRoom(std::vector<std::vector<Tile> > &newMap,int roomSize, sf::Vector2i startingPoint, int floorTileID, int wallTileID)
+{
+    int newX,newY;
+    
+    //roomSize = 0;
+    int iterations = 0;
+    for(int i = -roomSize; i < roomSize; i++)
+    {
+        for(int j = -roomSize; j < roomSize; j++)
+        {
+            newX = startingPoint.x + i;
+            newY = startingPoint.y + j;
+            
+            
+            // map.Map2D[newX][newY].setTileID(roomTileID);
+            
+            
+            if(isInBounds(sf::Vector2i(newX,newY)))
+            {
+                newMap[newX][newY].setTileID(wallTileID);
+                
+            }
+        }
+    }
+    
+    //Now hollow out the rooms
+    //Hollowing out is almost same as getting bounding rectangle
+    
+    //Doing this in a very inelegant way. Work on later, for now I just want to get a basic implementation
+    //Explicitly going over every edge todo rest
+
+    for(int i = 0; i < roomSize; i++)
+    {
+        
+        int x = startingPoint.x - i - (floor(roomSize/2));
+        int y = startingPoint.y + (roomSize/2 + 1);
+        
+        if(isInBounds(sf::Vector2i(x,y)))
+            newMap[x][y].setTileID(0);
+        
+         x = startingPoint.x + i + 1 - (floor(roomSize/2));
+         y = startingPoint.y + (roomSize/2 + 1);
+        
+        if(isInBounds(sf::Vector2i(x,y)))
+            newMap[x][y].setTileID(0);
+    }
+    
+
+    
+
 }

@@ -18,6 +18,7 @@
 extern sf::VertexArray EMPTY_VERTEXARAY;
 extern std::vector<sf::Vector2i> EMPTY_TILEPOSITION;
 
+//An effect has a tile position and a vertices position. it's essentially another layer on top of the map
 enum Shape{enSquare};
 
 class MapEffect

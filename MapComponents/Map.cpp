@@ -131,7 +131,7 @@ bool Map::Generate2DMap(sf::Vector2i _tileSize, unsigned int _width, unsigned in
         
         for (unsigned int j = 0; j < height; ++j)
         {
-            // get the current tile number..harcoded right now
+            // get the current tile number..harcoded right nofw
             int tileNumber = 0;
             // find its position in the tileset texture
             //hardcoded atm...The original example this was used in uses this to load the texture from a texture sheet
@@ -199,6 +199,7 @@ void Map::Group2DGridTiles()
                     
                     newVert.position = tile.getTileVertices()[0].position;
                     newVert.texCoords = tile.getTileVertices()[0].texCoords;
+                    
                     tileGroups.at(k).m_vertices.append(newVert);
                         
                     newVert.position = tile.getTileVertices()[1].position;
@@ -211,6 +212,9 @@ void Map::Group2DGridTiles()
                         
                     newVert.position = tile.getTileVertices()[3].position;
                     newVert.texCoords = tile.getTileVertices()[3].texCoords;
+                    
+                    
+                    
                     tileGroups.at(k).m_vertices.append(newVert);
                     break;
                 }
@@ -241,6 +245,9 @@ void Map::Group2DGridTiles()
                 newVert.position = tile.getTileVertices()[3].position;
                 newVert.texCoords = tile.getTileVertices()[3].texCoords;
                 groupParams.m_vertices.append(newVert);
+                
+                
+                
                 tileGroups.push_back(groupParams);
                 
                 
@@ -274,6 +281,7 @@ void Map::LoadTileTexture()
             if(tileIDTable.at(j).ID == tileGroups.at(i).TileID)
             {
                 tileGroups.at(i).m_tileset.loadFromFile(tileIDTable.at(j).textureFileName);
+                
                 
                 break;
 
@@ -314,6 +322,7 @@ void Map::draw(sf::RenderTarget& target, sf::RenderStates states) const
        // texture0 =
        // texture0.loadFromFile("dirt_e.png");
       
+        
         
         states.texture = &tileGroups.at(i).m_tileset;
 

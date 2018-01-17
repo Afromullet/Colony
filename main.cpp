@@ -265,6 +265,8 @@ void GameLoop3()
         DrawEverything(mapdata);
         window.clear();
     
+       
+    
         
      
        // window.display();
@@ -316,11 +318,16 @@ void InitializeMaps()
     
     MainMap.BasicRandom2DMap(sf::Vector2i(DEFAULT_TILE_SIZE,DEFAULT_TILE_SIZE), MAP_WIDTH, MAP_HEIGHT);
     squareMap.CreateMap(sf::Vector2i(DEFAULT_TILE_SIZE,DEFAULT_TILE_SIZE),MAP_WIDTH, MAP_HEIGHT, 0);
-    //Just a random ruleset
+    //Just a random ruleset]]
+    
+    
     CELL_CHANCETOSTARTALIVE = 0.55f;
     NUMBER_OF_STEPS = 1;
     BIRTH_LIMIT = 5;
-    DEATH_LIMIT = 3;
+    DEATH_LIMIT = 2;
+    
+    
+    
     ruleset.aliveTileID = 1;
     ruleset.deadTileID = 0;
     ruleset.birthLimit = BIRTH_LIMIT;
@@ -334,7 +341,7 @@ void InitializeMaps()
 void SetupCurrentMap(Map *map)
 {
     mapdata.setMap(map);
-    CreateTargetCreatures(mapdata);
+    //CreateTargetCreatures(mapdata);
     GenerateRandomItems(mapdata,10);
     mapdata.PlaceCreaturesOnMap();
     mapdata.PlaceItemsOnMap();
@@ -352,7 +359,11 @@ void SetupGameData(Map *map)
     
     player.loadCreatureTile("daeva.png",32,32);
 
-    player.setPosition(5, 5);
+ 
+    
+    //Place player on first open tile
+
+    //player.setPosition(5, 5);
     player.setStrength(3);
     player.setAgility(3);
     InitializeInventoryWindow();

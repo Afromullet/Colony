@@ -170,6 +170,7 @@ bool LoadTileTerrainType(const std::string &s)
     tempString.replace(0, sizeof(KEY_VALUE_DELIMITER_TOKEN)-1, "");//Removes the token
    
     //Starting after the token..So we ignore the first
+    std::cout << "Tempstring is " << tempString;
     for(int i = 1; i < terrainTypeTable.size(); i++)
     {
         if(tempString == terrainTypeTable.at(i))
@@ -314,28 +315,44 @@ void BasicTileRuleset()
 {
     for(int i = 0; i < tileDataTable.size(); i++)
     {
-        std::cout << "\nTerrain type " << tileDataTable.at(i).enTileTerrainType << "\n";
-        switch(tileDataTable.at(i).enTileTerrainType)
+    
+        
+        if(tileDataTable.at(i).enTileTerrainType == enWall1)
         {
-            case enGrass1:
-                tileDataTable.at(i).canHoldCreature = true;
-                break;
-            case enSnow1:
-                tileDataTable.at(i).canHoldCreature = true;
-                break;
-            case enSwamp1:
-                tileDataTable.at(i).canHoldCreature = true;
-                break;
-            case enFloor1:
-                tileDataTable.at(i).canHoldCreature = true;
-                break;
-            case enWall1:
-                tileDataTable.at(i).canHoldCreature = true;
-                break;
-            case enUndefinedTerrain:
-                tileDataTable.at(i).canHoldCreature = true;
-                break;
+            tileDataTable.at(i).canHoldCreature = false;
         }
+        else if(tileDataTable.at(i).enTileTerrainType == enFloor1)
+        {
+            
+             tileDataTable.at(i).canHoldCreature = true;
+        }
+        else if(tileDataTable.at(i).enTileTerrainType == enGrass1)
+        {
+            
+        }
+        else if(tileDataTable.at(i).enTileTerrainType == enSnow1)
+        {
+            
+            tileDataTable.at(i).canHoldCreature = true;
+        }
+        else if(tileDataTable.at(i).enTileTerrainType == enSwamp1)
+        {
+            
+        }
+        else if(tileDataTable.at(i).enTileTerrainType == enSnow1)
+        {
+            
+            tileDataTable.at(i).canHoldCreature = true;
+        }
+        else if(tileDataTable.at(i).enTileTerrainType == enUndefinedTerrain)
+        {
+            
+        }
+      
+        
+   
+
+
         
     }
     

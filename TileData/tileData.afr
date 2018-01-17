@@ -1,10 +1,10 @@
 {
 TerrainType:enWall1
-TextureLocation:marble_wall1.png
+TextureLocation:tomb0.png
 }
 {
-TerrainType:Floor1
-TextureLocation:pebble_brown0.png
+TerrainType:enFloor1
+TextureLocation:tomb1.png
 }
 {
 TerrainType:enSnow1

@@ -51,12 +51,19 @@ public:
     int GetLivingNeighbors(int aliveTileID, int deadTileID,int x, int y);
     
     void TestRuleset();
+    
+    void PlacementTest();
+    void CaveTunnelMap();
+    void CreateRoom(std::vector<std::vector<Tile> > &newMap,int roomSize,sf::Vector2i startingPoint, int floorTileID, int wallTileID);
+    
+    
 
     
     
 private:
     
     CA_RuleSet ruleset;
+    std::vector<int> allNumOfNeighbors; //Num of neighbors in each cell. In same order as MAP2D. the map offset into map2d is
     
 };
 
