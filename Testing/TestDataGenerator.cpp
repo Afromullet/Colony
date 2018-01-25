@@ -23,6 +23,24 @@ Armor tFootArmor;
 Weapon tOneHnaded;
 Weapon tTwoHanded;
 
+
+BaseCreature basicGoblin;
+BaseCreature basicOrc;
+BaseCreature basicPulser;
+
+void InitializeCreatureTypes()
+{
+    basicGoblin.addBodyPart(humanoidBodySchema);
+    basicOrc.addBodyPart(humanoidBodySchema);
+    basicPulser.addBodyPart(humanoidBodySchema);
+    
+    basicGoblin.loadCreatureTile("goblin.png",32,32);
+    basicPulser.loadCreatureTile("pulsating_lump.png",32,32);
+    basicOrc.loadCreatureTile("orc_warrior.png",32,32);
+    
+  
+}
+
 //Places creatures randomly on the map
 void CreateRandomCreatures(MapData &mapdata)
 {
@@ -32,9 +50,24 @@ void CreateRandomCreatures(MapData &mapdata)
     for(int i = 0; i < 10; i++)
     {
         BaseCreature testCreature;
+        
+        int randNum = rand() % 3;
+        
+        switch(randNum)
+        {
+            case 0:
+                testCreature = basicGoblin;
+                break;
+            case 1:
+                testCreature = basicOrc;
+                break;
+            case 2:
+                testCreature = basicPulser;
+                break;
+        }
   
     
-        testCreature.loadCreatureTile("deep_elf_blademaster.png",32,32);
+        
         testCreature.setPosition(rand() % mapdata.map->GetWidth(), rand() % mapdata.map->GetHeight());
         mapdata.AddCreatureToMap(testCreature);
         //tempCreatureList.push_back(testCreature);
@@ -53,16 +86,31 @@ void CreateTargetCreatures(MapData &mapdata)
         for(int j = 0; j < 10; j++)
         {
             BaseCreature testCreature;
+            int  randNum = rand() % 3;
+            
+            switch(randNum)
+            {
+                case 0:
+                    testCreature = basicGoblin;
+                    break;
+                case 1:
+                    testCreature = basicOrc;
+                    break;
+                case 2:
+                    testCreature = basicPulser;
+                    break;
+            }
         
         
-            testCreature.loadCreatureTile("deep_elf_blademaster.png",32,32);
-            testCreature.setPosition(i, j);
+          
+            testCreature.setPosition(0, 0);
             mapdata.AddCreatureToMap(testCreature);
         //tempCreatureList.push_back(testCreature);
         }
     }
     
 }
+
 
 //Generates random items and places them on the map
 void GenerateRandomItems(MapData &mapdata, int numberOfItems)

@@ -82,6 +82,65 @@
  
  */
 
+void Map::draw(sf::RenderTarget& target, sf::RenderStates states) const
+{
+    // apply the transform
+    //states.transform.scale(tileScale, tileScale);
+    
+    
+    
+    
+    states.transform *= getTransform();
+    
+    
+    
+    for(int i = 0; i < tileGroups.size(); i++)
+    {
+        
+        
+        // texture0 =
+        // texture0.loadFromFile("dirt_e.png");
+        
+        sf::RenderStates initialState = states;
+        initialState.transform *= getTransform();
+        initialState.blendMode = sf::BlendMultiply;
+
+        
+
+        
+        states.texture = &tileGroups.at(i).m_tileset;
+        target.draw(tileGroups.at(i).m_vertices, states);
+        
+    
+       // target.draw(tileGroups.at(i).m_vertices,initialState);
+
+        
+        
+        //target.draw(effectsOnMap, states);
+        
+        
+    }
+    
+    //Make effects their own drawable later
+    for(int i = 0; i < effects.size(); i++)
+    {
+        //sf::Transform transform;
+        
+        //states.transform *= getTransform();
+        //states.transform.translate(tileSize.x, 0);
+        
+        target.draw(effects.at(i).vertices, states);
+        //target.draw
+    }
+    
+    
+    
+    // std::cout << "\n New size " <<  effectsOnMap.getVertexCount();
+    // target.draw(effectsOnMap);
+    
+}
+
+
 
 void Map::BasicRandom2DMap(sf::Vector2i _tileSize,unsigned int _width, unsigned int _height)
 {
@@ -92,6 +151,12 @@ void Map::BasicRandom2DMap(sf::Vector2i _tileSize,unsigned int _width, unsigned 
     LoadTileParameters();
     Group2DGridTiles();
     LoadTileTexture();
+    
+    for(int i =0; i < tileGroups.size(); i++)
+    {
+        tileGroups.at(i).sprite.setColor(sf::Color::Red);
+        
+    }
     //Generate2DGrid();
 }
 
@@ -152,6 +217,21 @@ bool Map::Generate2DMap(sf::Vector2i _tileSize, unsigned int _width, unsigned in
             quad[1].texCoords = sf::Vector2f( tileSize.x, 0);
             quad[2].texCoords = sf::Vector2f(tileSize.x, tileSize.y);
             quad[3].texCoords = sf::Vector2f(0, tileSize.y);
+            
+            quad[0].color = sf::Color::Black;
+            quad[1].color = sf::Color::Black;
+            quad[2].color = sf::Color::Black;
+            quad[3].color = sf::Color::Black;
+            
+            quad[0].color.a = 10;
+            quad[1].color.a = 10;
+            quad[2].color.a = 10;
+            quad[3].color.a = 10;
+
+            
+                   
+            
+          
             
             tempTile.SetTileVertices(i, j,tileSize);
             Map2D[i][j] = tempTile;
@@ -281,6 +361,9 @@ void Map::LoadTileTexture()
             if(tileIDTable.at(j).ID == tileGroups.at(i).TileID)
             {
                 tileGroups.at(i).m_tileset.loadFromFile(tileIDTable.at(j).textureFileName);
+                tileGroups.at(i).sprite.setTexture(tileGroups.at(i).m_tileset);
+                tileGroups.at(i).sprite.setColor(sf::Color::Red);
+                
                 
                 
                 break;
@@ -303,52 +386,6 @@ void Map::GenerateRandom2DTiles()
 }
 
 
-void Map::draw(sf::RenderTarget& target, sf::RenderStates states) const
-{
-    // apply the transform
-    //states.transform.scale(tileScale, tileScale);
-    
-    
-    
-
-    states.transform *= getTransform();
-   
-
-    
-    for(int i = 0; i < tileGroups.size(); i++)
-    {
-        
-        
-       // texture0 =
-       // texture0.loadFromFile("dirt_e.png");
-      
-        
-        
-        states.texture = &tileGroups.at(i).m_tileset;
-
-        target.draw(tileGroups.at(i).m_vertices, states);
-        //target.draw(effectsOnMap, states);
-
-        
-    }
-    
-    //Make effects their own drawable later
-    for(int i = 0; i < effects.size(); i++)
-    {
-        //sf::Transform transform;
-    
-        //states.transform *= getTransform();
-        //states.transform.translate(tileSize.x, 0);
-        target.draw(effects.at(i).vertices, states);
-        //target.draw
-    }
-    
-    
-    
-   // std::cout << "\n New size " <<  effectsOnMap.getVertexCount();
-   // target.draw(effectsOnMap);
- 
-}
 
 
 unsigned int Map::GetWidth()
@@ -553,6 +590,11 @@ void Map::RemoveEffect(MapEffect oldEffect)
     }
 }
 
+void Map::setupFogOfWar()
+{
+    fogOfWar = m_vertices;
+    
+}
 
 //Sets the color of effect id
 void Map::setEffectColor(int effectId, sf::Color color)

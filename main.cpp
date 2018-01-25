@@ -42,9 +42,12 @@
 #include "PlayerControls.hpp"
 
 #include <boost/graph/adjacency_list.hpp>
+#include <boost/graph/graphviz.hpp>
 #include "MapEffect.hpp"
 
 #include "DataWindow.hpp"
+
+#include "Vision.hpp"
 
 void GameLoop3();
 
@@ -144,12 +147,52 @@ srand(time(NULL));
     SetupGameData(&caMap);
     
     
+    // create a typedef for the Graph type
+
     
+    
+    BaseCreature cr1;
+    BaseCreature cr2;
+    BaseCreature cr3;
+    BaseCreature cr4;
+    BaseCreature cr5;
+    BaseCreature cr6;
+    
+    // create a typedef for the Graph type
+    typedef adjacency_list<vecS, vecS, bidirectionalS,BaseCreature> CustomGraph;
+    typedef graph_traits<CustomGraph>::vertex_descriptor CustomVertex;
+    typedef boost::graph_traits<CustomGraph>::edge_descriptor CustomEdge;
+    
+    CustomGraph customGraph;
+    
+    CustomVertex v0 = boost::add_vertex(cr1, customGraph);
+    CustomVertex v1 = boost::add_vertex(cr2, customGraph);
+    CustomVertex v2 = boost::add_vertex(cr3, customGraph);
+    CustomVertex v3 = boost::add_vertex(cr4, customGraph);
+    
+    // Make convenient labels for the vertices
+    
+    CustomEdge edge;
+    bool edgeExists;
+    
+    //boost::tie(edge, edgeExists) = boost::edge(v0 , v1, customGraph);
+   // boost::tie(edge, edgeExists) = boost::edge(v2 , v3, customGraph);
+   // boost::tie(edge, edgeExists) = boost::edge(v0 , v3, customGraph);
+    //if(!edgeExists)
+        boost::add_edge(v0 , v1, customGraph);
+    
+    //if(!edgeExists)
+        boost::add_edge(v2 , v3, customGraph);
+    
+ 
     
     
 
+    
+    boost::write_graphviz(std::cout, customGraph);
 
     /*
+
      //textComponents.clear();
      sf::Text text;
      text.setFont(font);
@@ -202,6 +245,26 @@ srand(time(NULL));
 sf::Clock globalClock;
 
 
+sf::VertexArray v(sf::Lines,11);
+
+void drawLine(int x0, int y0, int x1, int y1)
+{
+    int dx =  abs(x1-x0), sx = x0<x1 ? 1 : -1;
+    int dy = -abs(y1-y0), sy = y0<y1 ? 1 : -1;
+    int err = dx+dy, e2; /* error value e_xy */
+    
+    int i = 0;
+    for(;;){  /* loop */
+        std::cout << x0 <<  "," << y0 << "\n";
+        v[i].position = sf::Vector2f(x0+100,y0+100);
+        v[i].color = sf::Color::Red;
+        if (x0==x1 && y0==y1) break;
+        e2 = 2*err;
+        if (e2 >= dy) { err += dy; x0 += sx; } /* e_xy+e_x > 0 */
+        if (e2 <= dx) { err += dx; y0 += sy; } /* e_xy+e_y < 0 */
+        i++;
+    }
+}
 
 
 void GameLoop3()
@@ -209,6 +272,7 @@ void GameLoop3()
     
     
 
+    drawLine(0,0,10,10);
    
 
     //player.EquipItemFromInventory(5);
@@ -231,15 +295,12 @@ void GameLoop3()
     
 
     
- 
-    
-    
-    
-    
 
 
 
 
+
+    
     
 
    // player.Equip(&tHeadArmor);
@@ -261,15 +322,59 @@ void GameLoop3()
             
             
         }
+        
+     
+       /*
+        sf::VertexArray var;
+        sf::Vertex v1;
+        sf::Vertex v2;
+        
+        v1.position = sf::Vector2f(0,0);
+        v2.position = sf::Vector2f(10,10);
+        
+        v1.color = sf::Color::Red;
+        v2.color = sf::Color::Red;
+        
+        
+        
+        
+        var.append(v1);
+        var.append(v2);
+        
+        
+        window.draw(var);
+        */
+        
+  
+     
 
+        
+        
+        //window.clear();
+      
+        
+        Vision vision;
+        vision.UpdateVision(*mapdata.map,player.getPosition());
+        vision.getVisibleCreatures(*mapdata.map);
+        
         DrawEverything(mapdata);
-        window.clear();
+     //   player.vision.UpdateVision(player.getPosition());
+       // player.vision.getVisibleCreatures(*mapdata.map);
+        
+   
+        
+        
+        
+       // window.display();
+        
     
        
     
         
      
-       // window.display();
+       
+         
+        
         
 
         
@@ -321,11 +426,14 @@ void InitializeMaps()
     //Just a random ruleset]]
     
     
+    
     CELL_CHANCETOSTARTALIVE = 0.55f;
     NUMBER_OF_STEPS = 1;
     BIRTH_LIMIT = 5;
     DEATH_LIMIT = 2;
     
+    
+
     
     
     ruleset.aliveTileID = 1;
@@ -336,12 +444,13 @@ void InitializeMaps()
     ruleset.numberOfSteps = NUMBER_OF_STEPS;
     caMap.SetRuleSet(ruleset);
     caMap.Generate_CA_MAP(sf::Vector2i(32,32), MAP_WIDTH,MAP_HEIGHT,ruleset);
+  // caMap.CaveTunnelMap()
 }
 
 void SetupCurrentMap(Map *map)
 {
     mapdata.setMap(map);
-    //CreateTargetCreatures(mapdata);
+    CreateTargetCreatures(mapdata);
     GenerateRandomItems(mapdata,10);
     mapdata.PlaceCreaturesOnMap();
     mapdata.PlaceItemsOnMap();
@@ -350,14 +459,15 @@ void SetupCurrentMap(Map *map)
 
 void SetupGameData(Map *map)
 {
-    
+    InitializeGlobalBodyParts();
+    InitializeCreatureTypes();
     InitializeGlobals();
     InitializeMaps();
     SetupCurrentMap(map);
     GenerateTestEquipment();
-    InitializeGlobalBodyParts();
+
     
-    player.loadCreatureTile("daeva.png",32,32);
+
 
  
     
@@ -377,11 +487,42 @@ void SetupGameData(Map *map)
         
     }
     
+    std::list<BaseCreature>::iterator creatureIt;
     
-   
     
-   
+    bool positionFound = false;
+    int randXPos,randYPos;
+    for(creatureIt=mapdata.creaturesOnMap.begin(); creatureIt != mapdata.creaturesOnMap.end();++creatureIt)
+    {
+        
+        randXPos = rand() % mapdata.map->GetWidth();
+        randYPos = rand() % mapdata.map->GetHeight();
+       
+        
+        while (positionFound == false)
+        {
+            randXPos = rand() % mapdata.map->GetWidth();
+            randYPos = rand() % mapdata.map->GetHeight();
+            std::cout << "\n" << randXPos;
+            
+            if(mapdata.map->Map2D[randXPos][randYPos].getCanHoldCreature() == true)
+            {
+                (creatureIt)->setPosition(randXPos, randYPos);
+            
+               mapdata.map->Map2D[randXPos][randYPos].SetCreatureOnTile(&(*creatureIt));
+                positionFound = true;
+            }
+        }
+        
+        positionFound = false;
+ 
+        
+        
+        
+    }
     
+    player.loadCreatureTile("daeva.png", 32, 32);
+    player.setPosition(0, 10);
     player.addBodyPart(humanoidBodySchema);
     player.CalculateAttackParameters();
     player.CalculateTotalHealth();
@@ -402,9 +543,24 @@ void DrawEverything(MapData _mapdata)
     //Only move creatures randomly every two seconds..testing
     if(elapsed.asMilliseconds() >= 1000)
     {
-        //MoveAllCreatures();
+        MoveAllCreatures();
+   
+
         globalClock.restart();
     }
+    
+    
+    
+    sf::VertexArray bigSquare = mapdata.map->m_vertices;
+    
+    
+    
+    bigSquare.setPrimitiveType(sf::Quads);
+    bigSquare.resize(4);
+    
+    
+    
+    
     _mapdata.RemoveDeadCreature();
     _mapdata.DrawCreaturesOnMap();
     _mapdata.DrawItemsOnMap();

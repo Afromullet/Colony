@@ -45,6 +45,19 @@ void MapEffect::setTilePositions(std::vector<sf::Vector2i> newPositions)
     tilePositions = newPositions;
 }
 
+void MapEffect::addTilePositions(std::vector<sf::Vector2i> newPositions)
+{
+    for(int i=0; i < newPositions.size(); i++)
+    {
+        tilePositions.push_back(newPositions.at(i));
+    }
+}
+
+void MapEffect::addTilePositions(sf::Vector2i newPosition)
+{
+    tilePositions.push_back(newPosition);
+}
+
 std::vector<sf::Vector2i> MapEffect::getSquare(sf::Vector2i position,int n)
 {
     
@@ -98,6 +111,8 @@ void MapEffect::setSquare(sf::Vector2i position,int n)
     
 }
 
+
+
 //Sets the x and y position of the square itself, not the vertices. The function creates a square of size n
 //The vertices have to be set separately..Need to ensure a way the vertices are set before the class is used
 void MapEffect::setLine(sf::Vector2i position,int n,MoveDirection movDirection)
@@ -150,6 +165,123 @@ void MapEffect::setLine(sf::Vector2i position,int n,MoveDirection movDirection)
     
 }
 
+
+void MapEffect::setLine(int x0, int y0, int x1, int y1)
+{
+    int dx =  abs(x1-x0);
+    int sx = x0<x1 ? 1 : -1;
+    int dy = -abs(y1-y0);
+    int sy = y0<y1 ? 1 : -1;
+    int err = dx+dy;
+    int e2; /* error value e_xy */
+    
+    tilePositions.clear();
+    std::vector<sf::Vector2i> tempVec;
+    sf::Vector2i tempPos;
+    
+    int i = 0;
+    for(;;){  /* loop */
+        std::cout << x0 <<  "," << y0 << "\n";
+        
+        
+        tempPos.x = x0;
+        tempPos.y = y0;
+        tilePositions.push_back(tempPos);
+
+   
+        if (x0==x1 && y0==y1) break;
+        e2 = 2*err;
+        if (e2 >= dy)
+        {
+            err += dy;
+            x0 += sx;
+        }
+        
+        if (e2 <= dx)
+        {   err += dx;
+            y0 += sy;
+        } /* e_xy+e_y < 0 */
+        i++;
+    }
+    
+}
+
+void MapEffect::setCircle(int xm, int ym, int r)
+{
+    int x = -r;
+    int y = 0;
+    tilePositions.clear();
+    std::vector<sf::Vector2i> tempVec;
+    sf::Vector2i tempPos;
+    
+    
+    
+    int err = 2-2*r; /* II. Quadrant */
+    do {
+        
+        tempPos.x = xm-x;
+        tempPos.y = ym+y;
+        tilePositions.push_back(tempPos);
+        
+        tempPos.x = xm-y;
+        tempPos.y = ym-x;
+        tilePositions.push_back(tempPos);
+        
+        tempPos.x = xm+x;
+        tempPos.y = ym-y;
+        tilePositions.push_back(tempPos);
+        
+        tempPos.x = xm+y;
+        tempPos.y = ym+x;
+        tilePositions.push_back(tempPos);
+       
+    
+        r = err;
+        if (r <= y) err += ++y*2+1;           /* e_xy+e_y < 0 */
+        if (r > x || err > y) err += ++x*2+1; /* e_xy+e_x > 0 or no 2nd y-step */
+    } while (x < 0);
+}
+
+std::vector<sf::Vector2i> MapEffect::getLine(int x0, int y0, int x1, int y1)
+{
+    int dx =  abs(x1-x0);
+    int sx = x0<x1 ? 1 : -1;
+    int dy = -abs(y1-y0);
+    int sy = y0<y1 ? 1 : -1;
+    int err = dx+dy;
+    int e2; /* error value e_xy */
+    
+    std::vector<sf::Vector2i> tempPoints;
+ 
+    sf::Vector2i tempPos;
+    
+    int i = 0;
+    for(;;){  /* loop */
+        std::cout << x0 <<  "," << y0 << "\n";
+        
+        
+        tempPos.x = x0;
+        tempPos.y = y0;
+        tempPoints.push_back(tempPos);
+        
+        
+        if (x0==x1 && y0==y1) break;
+        e2 = 2*err;
+        if (e2 >= dy)
+        {
+            err += dy;
+            x0 += sx;
+        }
+        
+        if (e2 <= dx)
+        {   err += dx;
+            y0 += sy;
+        } /* e_xy+e_y < 0 */
+        i++;
+    }
+    
+    return tempPoints;
+}
 
 //Doesn't get the vertices right now, those have to be set separetely 
 void MapEffect::MoveSquare(int xOffset,int yOffset)

@@ -151,6 +151,7 @@ void HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
             
             if(usingTargetSquare == false)
             {
+                
                 targettingSquare.setSquare(creature.getPosition(), 1);
                 targettingSquare.vertices = mapdata.map->getVertices(targettingSquare.tilePositions);
                 targettingSquare.setColor(sf::Color::Yellow);
@@ -213,12 +214,88 @@ void HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
         }
         else if(event.key.code == sf::Keyboard::L)
         {
-            mapdata.map->RemoveEffect(targettingSquare);
-            targettingSquare.setLine(targettingSquare.tilePositions.at(0), 1,Up);
+            //mapdata.map->RemoveEffect(targettingSquare);
+            if(usingTargetSquare == false)
+            {
+                
+                //targettingSquare.addTilePositions(targettingSquare.getLine(0, 0, 0, 10));
+                
+                for(int i=0; i < 12; i++)
+                {
+                 
+                    // targettingSquare.addTilePositions(targettingSquare.getLine(i, i, 10, i));
+                    //targettingSquare.addTilePositions(targettingSquare.getLine(creature.getPosition().x, creature.getPosition().y, creature.getPosition().x+i, creature.getPosition().y+i));
+                }
+            
+  
+                int pX = creature.getPosition().x;
+                int pY = creature.getPosition().y;
+                
+                int nX; //= pX;// + 4;
+                int nY; // = pY + 4;
+                //targettingSquare.addTilePositions(sf::Vector2i(nX,nY));
+                double angle;
+                
+                
+            
+                
+                
+                
+                int xDistance = 6;
+                int yDistance = 6;
+                
+                
+                int xOrg = creature.getPosition().x;
+                int yOrg = creature.getPosition().y;
+                
+                //Origin of the cone's base
+                int x0Base = xOrg+xDistance;
+                int y0Base = yOrg+yDistance;
+                
+                //End point of the base
+                int x1Base = xOrg+xDistance;
+                int y1Base = yOrg-yDistance;
+                
+                //End point of the first side..The start point is the origin
+                int x1Side0 = xOrg+xDistance;
+                int y1Side0 = yOrg + yDistance;
+                
+                //End point of the second side..The start point is the origin
+                int x1Side1 = xOrg+xDistance;
+                int y1Side1 = yOrg-yDistance;
+                
+                std::cout << "\nOrigin: " << xOrg << "," << yOrg;
+                
+                std::cout << "\nBase Start " << x0Base << "," << y0Base;
+                std::cout << "\nBase End " << x1Base << "," << y1Base;
+                
+                std::cout << "\nSide0 End " << x1Side0 << "," << y1Side0;
+                std::cout << "\nSide1 End " << x1Side1 << "," << y1Side1;
+                
+             
+
+                
+                
+                targettingSquare.addTilePositions(targettingSquare.getLine(xOrg, yOrg, x1Side0, y1Side0));
+                
+                targettingSquare.addTilePositions(targettingSquare.getLine(xOrg, yOrg, x1Side1, y1Side1));
+                
+                 targettingSquare.addTilePositions(targettingSquare.getLine(x0Base, y0Base, x1Base, y1Base));
+
+
+              
+
+
+               
+               
+                
+               // targettingSquare.setCircle(10, 10, 10);
+            //targettingSquare.setLine(creature.getPosition(), 2,Up);
             targettingSquare.vertices = mapdata.map->getVertices(targettingSquare.tilePositions);
             targettingSquare.setColor(sf::Color::Yellow);
             targettingSquare.setID(AssignEffectID());
             mapdata.map->AddEffect(targettingSquare.id, targettingSquare.vertices);
+            }
             
         }
         

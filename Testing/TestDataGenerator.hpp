@@ -25,6 +25,12 @@ extern Weapon tOneHnaded;
 extern Weapon tTwoHanded;
 
 
+//Some creature types for testing
+extern BaseCreature basicGoblin;
+extern BaseCreature basicOrc;
+extern BaseCreature basicPulser;
+
+void InitializeCreatureTypes();
 void CreateRandomCreatures(MapData &mapdata);
 void CreateTargetCreatures(MapData &mapdata);
 void GenerateRandomItems(MapData &mapdata, int numberOfItems);

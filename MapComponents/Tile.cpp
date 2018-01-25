@@ -17,6 +17,7 @@ Tile::Tile()
     TileID = -1;
     creature = NULL;
     itemOnTile = NULL;
+    hasFogOfWar = true;
     
 }
 
@@ -95,8 +96,20 @@ void Tile::SetItemOnTile(Item *item)
     itemOnTile = item;
 }
 
+void Tile::setFogOfWar(bool hasFog)
+{
+    hasFogOfWar = hasFog;
+}
+
+
+bool Tile::getHasFogOfWar()
+{
+    return hasFogOfWar;
+}
+
 BaseCreature* Tile::getCreatureOnTile()
 {
+    
     return creature;
 }
 
@@ -104,3 +117,4 @@ Item* Tile::getItemOnTile()
 {
     return itemOnTile;
 }
+

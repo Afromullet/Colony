@@ -28,6 +28,7 @@ typedef struct MapTileParameters
 {
     sf::VertexArray m_vertices; //Pairs of 4s = 1 Tile
     sf::Texture m_tileset;
+    sf::Sprite sprite;
     int TileID; //ID should match with those in a lookup table so we can load anything useful
    
   
@@ -84,12 +85,19 @@ public:
     void UpdateEffect(MapEffect newEffect);
     void RemoveEffect(MapEffect oldEffect);
     
+    void setupFogOfWar();
+    
     void setEffectColor(int effectId, sf::Color color); //Sets the color of effect id
     
     sf::VertexArray m_vertices; //Pairs of 4s = 1 Tile
+    sf::VertexArray fogOfWar;
     
     sf::VertexArray effectsOnMap; //Pairs of 4s = 1 Tile
     std::vector<MapEffect> effects;
+    
+    //void clearFogOfWar()
+    
+    
     
   
     

@@ -189,7 +189,7 @@ void MoveCreatureRandomly(BaseCreature *_creature,Map &map)
     if(InMapBoundaries(map,newX,newY))
     {
         
-        if(map.Map2D[newX][newY].getCreatureOnTile() == NULL)
+        if(map.Map2D[newX][newY].getCreatureOnTile() == NULL && map.Map2D[newX][newY].getCanHoldCreature())
         {
             map.Map2D[_creature->getPosition().x][_creature->getPosition().y].ClearCreatureOnTile(); //Clear previous tile
             _creature->setPosition(newX, newY);

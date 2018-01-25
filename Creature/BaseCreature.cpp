@@ -17,6 +17,18 @@ BaseCreature::BaseCreature()
 {
     totalHealth = 0;
     isAlive = true;
+    attackValue = 0;
+    strength = 10;
+    agility = 10;
+    endurance = 10;
+    mind = 10;
+    will = 10;
+    charisma = 10;
+    moveSpeed = 1;
+    
+    velocity.x = 0;
+    velocity.y = 0;
+   
     
 }
 

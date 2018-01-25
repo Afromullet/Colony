@@ -49,12 +49,23 @@ public:
     void setColor(sf::Color newColor);
     void setID(int _id);
     void setTilePositions(std::vector<sf::Vector2i> newPositions);
+    void addTilePositions(std::vector<sf::Vector2i> newPositions);
+    void addTilePositions(sf::Vector2i newPosition);
     
     
     std::vector<sf::Vector2i> getSquare(sf::Vector2i position,int n);
    
     void setSquare(sf::Vector2i position,int n);
     void setLine(sf::Vector2i position,int n,MoveDirection movDirection);
+    void setLine(int x0, int y0, int x1, int y1);
+    void setCircle(int xm, int ym, int r);
+    
+    std::vector<sf::Vector2i> getLine(int x0, int y0, int x1, int y1);
+    
+    
+    
+    
+    
     //Removes out of bounds tiles
     void RemoveOOBTiles();
     

@@ -1,6 +1,6 @@
 {
 TerrainType:enWall1
-TextureLocation:tomb0.png
+TextureLocation:marble_wall1.png
 }
 {
 TerrainType:enFloor1

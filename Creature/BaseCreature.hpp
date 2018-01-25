@@ -6,6 +6,8 @@
 //  Copyright © 2017 Afromullet. All rights reserved.
 //
 
+
+
 #ifndef AbstractCreature_hpp
 #define AbstractCreature_hpp
 
@@ -18,6 +20,7 @@
 #include <list>
 #include "BodyPart.hpp"
 
+
 //Contains all of the information needed for an attack
 typedef struct _AttackParameters
 {
@@ -29,6 +32,7 @@ typedef struct _AttackParameters
 
 
 class Map;
+
 
 //todo rename..not abstract anymore
 class BaseCreature
@@ -56,6 +60,9 @@ private:
     
     
 public:
+    
+   // Vision w;
+    
     
     BaseCreature();
     int totalHealth;

@@ -66,6 +66,11 @@ public:
    
     void ClearCreatureOnTile();
     
+    void setFogOfWar(bool hasFog);
+    bool getHasFogOfWar();
+    
+    
+    bool isCreatureOnTile();
 
     
 
@@ -81,6 +86,8 @@ private:
     BaseCreature *creature; //Holds info on the creature on the tile. Only one creature can be on a tile
     TileTerrainType enTileTerrainType;
     bool canHoldCreature; //Determines whether or not the tile can hold a creature
+    
+    bool hasFogOfWar;
  
     sf::VertexArray tileVertices; //Pairs of 4s = 1 Tile,
     
