@@ -6,13 +6,15 @@
 //  Copyright © 2017 Afromullet. All rights reserved.
 //
 
-#ifndef Head_hpp
-#define Head_hpp
-
 #include <stdio.h>
 
 #include "Armor.hpp"
 #include "Weapon.hpp"
+
+#ifndef Head_hpp
+#define Head_hpp
+
+
 
 class Head
 {

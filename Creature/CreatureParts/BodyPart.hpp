@@ -6,9 +6,6 @@
 //  Copyright © 2018 Afromullet. All rights reserved.
 //
 
-#ifndef BodyPart_hpp
-#define BodyPart_hpp
-
 #include <stdio.h>
 #include "Weapon.hpp"
 #include "Armor.hpp"
@@ -16,7 +13,12 @@
 #include "EnumTypes.hpp"
 #include <string>
 #include <vector>
-#
+
+
+#ifndef BodyPart_hpp
+#define BodyPart_hpp
+
+
 
 
 

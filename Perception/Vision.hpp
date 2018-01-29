@@ -6,11 +6,13 @@
 //  Copyright © 2018 Afromullet. All rights reserved.
 //
 
+#include "Map.hpp"
+
 #ifndef Vision_hpp
 #define Vision_hpp
 
 #include <stdio.h>
-#include "Map.hpp"
+
 
 
 class Vision
@@ -29,9 +31,9 @@ public:
     
     
     
-    std::vector<Tile*> getVisibleTiles(Map &map);
+    std::vector<Tile> getVisibleTiles(Map &map);
     std::vector<BaseCreature> getVisibleCreatures(Map &map);
-    std::vector<BaseCreature> getVisibleItems(Map &map);
+    std::vector<Item*> getVisibleItems(Map &map);
     
     
     void UpdateVision(Map &map,sf::Vector2i newOrigin); //If origin changes, vision area must also be updated

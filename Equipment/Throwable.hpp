@@ -6,12 +6,16 @@
 //  Copyright © 2018 Afromullet. All rights reserved.
 //
 
-#ifndef Throwable_hpp
-#define Throwable_hpp
 
 #include <stdio.h>
 #include <vector>
 #include <SFML/Graphics.hpp>
+
+
+#ifndef Throwable_hpp
+#define Throwable_hpp
+
+
 class Throwable
 {
     

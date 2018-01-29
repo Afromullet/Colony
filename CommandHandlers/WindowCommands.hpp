@@ -6,15 +6,17 @@
 //  Copyright © 2018 Afromullet. All rights reserved.
 //
 
-#ifndef WindowCommands_hpp
-#define WindowCommands_hpp
-
 #include <stdio.h>
 #include <SFML/Graphics.hpp>
 #include "BaseCreature.hpp"
 #include "DataWindow.hpp"
 #include <vector>
 #include "KeyDefinitions.hpp"
+
+#ifndef WindowCommands_hpp
+#define WindowCommands_hpp
+
+
 
 
 //The EnDataWindow identifies what sort of data we display in the window

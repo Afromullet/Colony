@@ -6,14 +6,16 @@
 //  Copyright © 2017 Afromullet. All rights reserved.
 //
 
-#ifndef Equipment_hpp
-#define Equipment_hpp
-
 #include <stdio.h>
 #include <string>
 #include <iostream>
 #include "EnumTypes.hpp"
 #include "EntityTile.hpp"
+
+
+#ifndef Equipment_hpp
+#define Equipment_hpp
+
 
 
 //TODO rename enbodypart to something that indicates it is the body part the equipment fits to

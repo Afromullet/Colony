@@ -6,11 +6,6 @@
 //  Copyright © 2016 Afromullet. All rights reserved.
 //
 
-
-
-#ifndef Globals_hpp
-#define Globals_hpp
-
 #include <stdio.h>
 #include <SFML/Graphics.hpp>
 
@@ -26,6 +21,11 @@
 #include "CaMap.hpp"
 #include "Constants.hpp"
 #include "Filelogger.hpp"
+
+#ifndef Globals_hpp
+#define Globals_hpp
+
+
 
 #define MAX_CREATURES_PER_MAP 100
 

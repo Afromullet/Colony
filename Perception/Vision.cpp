@@ -35,10 +35,28 @@ Vision::Vision(sf::Vector2i _origin)
 }
 
 
+//Todo return only the indexes into the map
+std::vector<Tile> Vision::getVisibleTiles(Map &map)
+{
+    std::vector<Tile> tempTiles;
+    for(int i=0; i < visionArea.size(); i++)
+    {
+        
+        
+        if(map.Map2D[visionArea.at(i).x][visionArea.at(i).y].getCreatureOnTile() != NULL)
+        {
+            tempTiles.push_back(map.Map2D[visionArea.at(i).x][visionArea.at(i).y]);
+        }
+        
+    }
+    
 
-
-//std::vector<Tile*> getVisibleTiles(Map &map);
-//Todo use pointer
+    
+    
+    return tempTiles;
+    
+}
+//Todo maybe return indices into creaturesOnMap rather than copying everything
 std::vector<BaseCreature> Vision::getVisibleCreatures(Map &map)
 {
     
@@ -54,10 +72,8 @@ std::vector<BaseCreature> Vision::getVisibleCreatures(Map &map)
         
     }
     
-    if(tempCreatures.size() > 0)
-        std::cout << "\nCreatures nearby";
-    else
-        std::cout << "\n No creatures nearby";
+    
+
     
     return tempCreatures;
 
@@ -65,8 +81,24 @@ std::vector<BaseCreature> Vision::getVisibleCreatures(Map &map)
 
 
 
-std::vector<BaseCreature> Vision::getVisibleItems(Map &map)
+std::vector<Item*> Vision::getVisibleItems(Map &map)
 {
+    std::vector<Item*> tempItems;
+    for(int i=0; i < visionArea.size(); i++)
+    {
+        
+        
+        if(map.Map2D[visionArea.at(i).x][visionArea.at(i).y].getItemOnTile() != NULL)
+        {
+            tempItems.push_back(map.Map2D[visionArea.at(i).x][visionArea.at(i).y].getItemOnTile());
+        }
+        
+    }
+    
+
+    
+    
+    return tempItems;
     
 }
 
@@ -79,8 +111,8 @@ void Vision::UpdateVision(Map &map,sf::Vector2i newOrigin)
     visionArea.clear();
     
     int count = 0;
-    for(int i=-1; i<2; i++)
-        for(int j=-1; j<2; j++)
+    for(int i=-1; i<5; i++)
+        for(int j=-1; j<5; j++)
         {
             if(map.isInBounds(sf::Vector2i(origin.x+ i,origin.y+j)))
                visionArea.push_back(sf::Vector2i(origin.x+ i,origin.y+j));

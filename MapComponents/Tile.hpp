@@ -6,16 +6,17 @@
 //  Copyright © 2017 Afromullet. All rights reserved.
 //
 
-#ifndef Tile_hpp
-#define Tile_hpp
-
 #include <stdio.h>
-
 #include <SFML/Graphics.hpp>
 #include <string>
 #include "EnumTypes.hpp"
 #include "BaseCreature.hpp"
 #include "Equipment.hpp"
+
+#ifndef Tile_hpp
+#define Tile_hpp
+
+
 
 /*
  
@@ -47,6 +48,7 @@ class Tile
 
 public:
     Tile();
+     bool visited;
     
     void SetTileVertices(int xOffset, int yOffset,sf::Vector2i tileSize);
     sf::VertexArray getTileVertices();

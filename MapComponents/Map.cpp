@@ -399,6 +399,7 @@ unsigned int Map::GetHeight()
 
 bool Map::isInBounds(sf::Vector2i position)
 {
+    
     if((position.x < 0 || position.x >= width))
         return false;
     else if(position.y < 0 || position.y >= height)
@@ -455,6 +456,16 @@ void Map::FloodFill(int x, int y, int targetTileID, int replacementTileID)
 //Only returns position of tile if it's in bounds of the map (still need to test this)
 //The drawing takes care of the vertices
 
+void Map::ResetVisited()
+{
+    for(int i = 0; i < width; i++)
+    {
+        for(int j = 0; j < height; j++)
+        {
+            Map2D[i][j].visited = false;
+        }
+    }
+}
 
 
 

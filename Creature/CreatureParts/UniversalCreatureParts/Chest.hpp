@@ -6,12 +6,14 @@
 //  Copyright © 2017 Afromullet. All rights reserved.
 //
 
+
+#include "Armor.hpp"
+
+
 #ifndef Chest_hpp
 #define Chest_hpp
 
 #include <stdio.h>
-
-#include "Armor.hpp"
 
 
 

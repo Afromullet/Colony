@@ -7,6 +7,7 @@
 //
 
 #include "PlayerControls.hpp"
+#include "Pathfinding.hpp"
 #include "Globals.hpp"
 
 
@@ -297,6 +298,28 @@ void HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
             mapdata.map->AddEffect(targettingSquare.id, targettingSquare.vertices);
             }
             
+        }
+        else if(event.key.code == sf::Keyboard::B)
+        {
+            
+            sf::Vector2i destination(5,0);
+            std::vector<sf::Vector2i> path =  GetBasicPath(sf::Vector2i(player.getPosition().x,player.getPosition().y),destination,*mapdata.map);
+            
+            for(int i=0; i < path.size(); i++)
+            {
+               
+                
+                if(path.at(i).x == destination.x && path.at(i).y == destination.y)
+                {
+                     std::cout << "\nmoving to " << path.at(i).x << "," << path.at(i).y;
+                    creature.MoveCreature(path.at(i).x, path.at(i).y);
+                   break;
+                }
+                
+                
+                
+               
+            }
         }
         
     

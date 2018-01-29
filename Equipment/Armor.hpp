@@ -6,11 +6,13 @@
 //  Copyright © 2017 Afromullet. All rights reserved.
 //
 
+#include <stdio.h>
+#include "Equipment.hpp"
+
+
 #ifndef Armor_hpp
 #define Armor_hpp
 
-#include <stdio.h>
-#include "Equipment.hpp"
 
 
 

@@ -7,18 +7,22 @@
 //
 
 
+#include <stdio.h>
+#include <list>
+#include <Unordered_Map>
+#include "BodyPart.hpp"
+
 
 #ifndef AbstractCreature_hpp
 #define AbstractCreature_hpp
 
-#include <stdio.h>
-#include "EntityTile.hpp"
+
 
 #include "Map.hpp"
-#include <Unordered_Map>
-#include "Equipment.hpp"
-#include <list>
-#include "BodyPart.hpp"
+#include "Vision.hpp"
+
+
+
 
 
 //Contains all of the information needed for an attack
@@ -61,7 +65,7 @@ private:
     
 public:
     
-   // Vision w;
+    Vision vision;
     
     
     BaseCreature();

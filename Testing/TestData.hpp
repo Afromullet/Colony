@@ -6,11 +6,6 @@
 //  Copyright © 2017 Afromullet. All rights reserved.
 //
 
-#ifndef TestData_hpp
-#define TestData_hpp
-
-
-#
 
 #include <stdio.h>
 
@@ -20,6 +15,14 @@
 #include <vector>
 #include "Chest.hpp"
 #include "Head.hpp"
+
+
+#ifndef TestData_hpp
+#define TestData_hpp
+
+
+
+
 
 
 

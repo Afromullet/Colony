@@ -6,13 +6,15 @@
 //  Copyright © 2018 Afromullet. All rights reserved.
 //
 
-#ifndef BodyGraph_hpp
-#define BodyGraph_hpp
-
 #include <stdio.h>
 #include <vector>
 #include <list>
 #include "BodyPart.hpp"
+
+#ifndef BodyGraph_hpp
+#define BodyGraph_hpp
+
+
 class BodyGraph
 {
     std::vector< std::list< std::pair<BodyPart, BodyPart> > > graph;

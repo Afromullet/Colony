@@ -1,0 +1,41 @@
+AI Based on Ant COloby
+
+Creature - emits pheromone
+
+Pheromone can be smelled by creatures within n tiles
+
+Pherome types - Dancer, food sources, other resource
+
+Creature types - different creatures respond differently to different pheromes
+
+
+
+
+
+Genetic Algorithm for Creatures
+
+Use the basic stats
+
+Creature keeps track of - how much damage it has taken, how much damage it dealt per turn, how many items player has used since combat started
+etc
+
+The genes determine attributes
+
+
+
+
+
+
+
+Allow elergent behavior, everything mush have an interaction defined..items, creatures, tile effects..
+
+
+
+
+
+
+
+
+Inventory stem
+
+Contain random items for random effects throwable consuambles etcHey there

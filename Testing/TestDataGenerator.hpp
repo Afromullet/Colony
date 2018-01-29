@@ -6,14 +6,16 @@
 //  Copyright © 2018 Afromullet. All rights reserved.
 //
 
-#ifndef TestDataGenerator_hpp
-#define TestDataGenerator_hpp
-
 #include <stdio.h>
 #include "CaMap.hpp"
 #include "MapData.hpp"
 #include "Globals.hpp"
 #include "Constants.hpp"
+
+#ifndef TestDataGenerator_hpp
+#define TestDataGenerator_hpp
+
+
 
 extern Armor tHeadArmor;
 extern Armor tChestArmor;

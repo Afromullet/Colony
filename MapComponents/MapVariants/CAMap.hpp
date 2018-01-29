@@ -6,11 +6,13 @@
 //  Copyright © 2017 Afromullet. All rights reserved.
 //
 
+
+#include "Map.hpp"
+#include <stdio.h>
 #ifndef CAMap_hpp
 #define CAMap_hpp
 
-#include <stdio.h>
-#include "Map.hpp"
+
 
 
 //Map build through cellular automota

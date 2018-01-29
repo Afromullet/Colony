@@ -6,12 +6,14 @@
 //  Copyright © 2017 Afromullet. All rights reserved.
 //
 
-#ifndef Weapon_hpp
-#define Weapon_hpp
-
 #include <stdio.h>
 #include "Equipment.hpp"
 #include "Throwable.hpp"
+
+#ifndef Weapon_hpp
+#define Weapon_hpp
+
+
 
 
 

@@ -6,11 +6,13 @@
 //  Copyright © 2018 Afromullet. All rights reserved.
 //
 
-#ifndef KeyDefinitions_hpp
-#define KeyDefinitions_hpp
 
 #include <stdio.h>
 #include <SFML/Graphics.hpp>
+
+#ifndef KeyDefinitions_hpp
+#define KeyDefinitions_hpp
+
 
 
 //They aren't constants because I don't want to have to reload the game to change key configurations. Still using all caps though

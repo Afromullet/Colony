@@ -18,6 +18,7 @@ Tile::Tile()
     creature = NULL;
     itemOnTile = NULL;
     hasFogOfWar = true;
+    visited = false;
     
 }
 

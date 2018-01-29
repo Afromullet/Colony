@@ -8,19 +8,16 @@
 
 
 
+#include <stdio.h>
+#include "Tile.hpp"
+#include <unordered_map>
+#include "MapEffect.hpp"
 
 
 
 #ifndef Map_hpp
 #define Map_hpp
 
-#include <stdio.h>
-
-
-#include "Tile.hpp"
-
-#include <unordered_map>
-#include "MapEffect.hpp"
 
 //Groups tile vertices by a tile ID
 //Todo make vertexarray a reference so we do not contain the vertices twice
@@ -51,6 +48,7 @@ public:
     
     
      std::vector<MapTileParams> tileGroups;
+   
     
     void BasicRandom2DMap(sf::Vector2i _tileSize,unsigned int _width, unsigned int _height);
     bool Generate2DMap(sf::Vector2i _tileSize, unsigned int _width, unsigned int _height);
@@ -64,6 +62,7 @@ public:
     bool isInBounds(sf::Vector2i position);
     void FloodFill(int x, int y, int targetTileID, int replacementTileID);
     void FloodFill(int x, int y, int targetTileID, int replacementTileID, int blockSize);
+    void ResetVisited();
     
     std::vector<std::vector<Tile> > Map2D;
     

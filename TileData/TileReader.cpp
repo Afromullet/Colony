@@ -319,7 +319,7 @@ void BasicTileRuleset()
         
         if(tileDataTable.at(i).enTileTerrainType == enWall1)
         {
-            tileDataTable.at(i).canHoldCreature = false;
+            tileDataTable.at(i).canHoldCreature = true;
         }
         else if(tileDataTable.at(i).enTileTerrainType == enFloor1)
         {

@@ -23,6 +23,7 @@
 
 
 
+#include "Vision.hpp"
 
 #include "TestData.hpp"
 #include "EntityTile.hpp"
@@ -46,8 +47,7 @@
 #include "MapEffect.hpp"
 
 #include "DataWindow.hpp"
-
-#include "Vision.hpp"
+#include "Pathfinding.hpp"
 
 void GameLoop3();
 
@@ -294,7 +294,7 @@ void GameLoop3()
     
     
 
-    
+    //GetBasicPath(sf::Vector2i(10,10),sf::Vector2i(15,10),*mapdata.map);
 
 
 
@@ -352,10 +352,11 @@ void GameLoop3()
         
         //window.clear();
       
-        
-        Vision vision;
-        vision.UpdateVision(*mapdata.map,player.getPosition());
-        vision.getVisibleCreatures(*mapdata.map);
+        player.vision.UpdateVision(*mapdata.map,player.getPosition());
+        player.vision.getVisibleCreatures(*mapdata.map);
+        player.vision.getVisibleItems(*mapdata.map);
+
+       
         
         DrawEverything(mapdata);
      //   player.vision.UpdateVision(player.getPosition());
