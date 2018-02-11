@@ -20,6 +20,7 @@
 
 #include "Map.hpp"
 #include "Vision.hpp"
+#include <queue>
 
 
 
@@ -51,6 +52,7 @@ private:
     short int charisma;
     short int moveSpeed; //Currently both x and y speed
     
+    
    
     sf::Vector2i velocity; //Represents basic direction..Not used at the moment.
     sf::Vector2i position;
@@ -60,6 +62,7 @@ private:
     
     std::list<Item*> creatureItems;
     
+    std::queue<sf::Vector2i> path; //A queue holding the path a creature walks
     
     
     
@@ -125,6 +128,9 @@ public:
     
     //Combat related
     void AttackCreature(int attackBonus, int damage);
+    
+    void AddToPath(sf::Vector2i point);
+    void WalkPath(Map &map);
     
 
     

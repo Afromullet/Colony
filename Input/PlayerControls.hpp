@@ -34,7 +34,7 @@ extern DataWindow equipmentWindow;
 extern MapEffect targettingSquare;
 
 extern std::vector<sf::Vector2i> square;
-void HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creature);
+bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creature);
 void ControlTargetSquare(MoveDirection moveDir,MapData &mapdata);
 void InitializeInventoryWindow();
 void AddItemsToInventoryWindow(BaseCreature &creature);

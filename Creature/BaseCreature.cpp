@@ -389,4 +389,56 @@ void BaseCreature::AttackCreature(int attackBonus, int damage)
     }
 }
 
+void BaseCreature::AddToPath(sf::Vector2i point)
+{
+    path.emplace(point);
+}
+
+
+//Every time this is called, pops a point off the queue and moves the creature
+//Does not currently handle movement if a creature is on the tile or if it cannot hold a creature
+void BaseCreature::WalkPath(Map &map)
+{
+    
+    if(path.size() == 0)
+        return;
+    
+    sf::Vector2i tempPoint = path.front();
+    
+    
+
+    
+    
+    
+  
+    if(!map.isInBounds(tempPoint))
+        return;
+    
+    if(!map.canHoldCreature(tempPoint))
+       return;
+    
+    if(map.isCreatureOnTile(tempPoint))
+        return;
+    
+    path.pop();
+    
+    map.Map2D[position.x][position.y].ClearCreatureOnTile();
+    
+    std::cout << "\n newpos" << tempPoint.x << "," << tempPoint.y;
+    setPosition(tempPoint.x, tempPoint.y);
+    map.Map2D[position.x][position.y].SetCreatureOnTile(this);
+    
+   
+    
+    
+    
+     
+       
+       
+    
+    
+    
+    
+    
+}
 

@@ -19,6 +19,7 @@ Tile::Tile()
     itemOnTile = NULL;
     hasFogOfWar = true;
     visited = false;
+    movementCost = 1;
     
 }
 
@@ -119,3 +120,11 @@ Item* Tile::getItemOnTile()
     return itemOnTile;
 }
 
+bool Tile::isCreatureOnTile()
+{
+    if(NULL == creature)
+        return false;
+    
+    return true;
+    
+}

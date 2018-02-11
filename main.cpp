@@ -121,6 +121,9 @@ const int num_of_edges = 8;
 
 using namespace boost;
 
+
+std::vector<sf::Text> testStrings;
+ sf::Text tempText;
 int main()
 {
     
@@ -145,6 +148,7 @@ srand(time(NULL));
     window.setKeyRepeatEnabled(false);
     mapdata.SetWindow(&window);
     SetupGameData(&caMap);
+   
     
     
     // create a typedef for the Graph type
@@ -190,6 +194,11 @@ srand(time(NULL));
 
     
     boost::write_graphviz(std::cout, customGraph);
+    
+    sf::Vector2i vec1;
+    sf::Vector2i vec2;
+    
+ 
 
     /*
 
@@ -212,9 +221,54 @@ srand(time(NULL));
      */
     
     
+   
+    
+    Map mapstuff = *mapdata.map;
+    
+    int fontSize = 25;
+    tempText.setFont(defaultFont);
+    tempText.setCharacterSize(fontSize);
+    tempText.setColor(sf::Color::Red);
+    //tempText.setString("0");
+  
+   // tempText.setPosition(100, 100);
+    testStrings.push_back(tempText);
+    
+    
+    for(int i=0; i < mapstuff.GetWidth(); i++)
+    {
+        for(int j = 0; j < mapstuff.GetHeight(); j++)
+        {
+            
+            
+               tempText.setString(std::to_string(mapstuff.Map2D[i][j].index));
+               tempText.setPosition(i*fontSize*2, j*fontSize*2);
+                testStrings.push_back(tempText);
+            
+            
+        }
+    }
+     
+     
+    
+    
+    
+
+    
+
     
     
     GameLoop3();
+    
+   
+    sf::Font fnt;
+    
+
+    
+    
+   
+    
+
     
     return 0;
 }
@@ -290,37 +344,79 @@ void GameLoop3()
    // std::vector<sf::Vector2i> tempSquare = mapdata.map->getSquare(sf::Vector2i(5,1), 2);
    
     
+    GridLocation start,end;
+    start.x = 5;
+    start.y = 3;
+    
+    end.x = 23;
+    end.y = 10;
+    
+   std::map<GridLocation,GridLocation> cameFrom =  aStarSearch(caMap,  start,  end);
+    std::vector<GridLocation> path = recontructPath(start,end, cameFrom);
+    // aStarSearch(caMap,  start,  end);
+    std::vector<sf::Vector2i> walkPath;
+    
+    for(int i =0; i < path.size(); i++)
+    {
+        
+        player.AddToPath(sf::Vector2i(path.at(i).x,path.at(i).y));
+     
+    }
     
     
     
+   
+    
+
 
     //GetBasicPath(sf::Vector2i(10,10),sf::Vector2i(15,10),*mapdata.map);
+    
+    
+
 
 
 
 
 
     
-    
 
+    for(int i =0; i < 10; i++)
+    {
+      // player.AddToPath(sf::Vector2i(i+1,i));
+    }
    // player.Equip(&tHeadArmor);
     // run the main loop
     while (window.isOpen())
     {
         // handle events
         sf::Event event;
-        while (window.pollEvent(event))
+        
+        while(!PlayerActionTaken)
         {
-            if(event.type == sf::Event::Closed)
+            while (window.pollEvent(event))
             {
-                window.close();
-                errorLog.closeFile();
+                if(event.type == sf::Event::Closed)
+                {
+                    window.close();
+                    errorLog.closeFile();
                 
+                }
+            
+           
+            
+            
+                if(event.type == sf::Event::KeyPressed)
+                {
+                    HandlePlayerInput(event,mapdata,player);
+              
+                }
+           
+            
+            
+         
+            
+            
             }
-            
-           HandlePlayerInput(event,mapdata,player);
-            
-            
         }
         
      
@@ -351,6 +447,8 @@ void GameLoop3()
         
         
         //window.clear();
+        
+    
       
         player.vision.UpdateVision(*mapdata.map,player.getPosition());
         player.vision.getVisibleCreatures(*mapdata.map);
@@ -359,6 +457,11 @@ void GameLoop3()
        
         
         DrawEverything(mapdata);
+        
+        std::cout << "\nPlayerActionTaken " << PlayerActionTaken;
+        
+        PlayerActionTaken = false;
+       
      //   player.vision.UpdateVision(player.getPosition());
        // player.vision.getVisibleCreatures(*mapdata.map);
         
@@ -451,7 +554,7 @@ void InitializeMaps()
 void SetupCurrentMap(Map *map)
 {
     mapdata.setMap(map);
-    CreateTargetCreatures(mapdata);
+  // CreateTargetCreatures(mapdata);
     GenerateRandomItems(mapdata,10);
     mapdata.PlaceCreaturesOnMap();
     mapdata.PlaceItemsOnMap();
@@ -541,15 +644,18 @@ void DrawEverything(MapData _mapdata)
     mapdata.window->draw(*mapdata.map);
     mapdata.window->draw(player.creatureTile);
     elapsed = globalClock.getElapsedTime();
-    //Only move creatures randomly every two seconds..testing
+    //Only move creatures randomly every  second..testing
+    /*
     if(elapsed.asMilliseconds() >= 1000)
     {
-        MoveAllCreatures();
+      
    
 
         globalClock.restart();
     }
+    */
     
+      MoveAllCreatures();
     
     
     sf::VertexArray bigSquare = mapdata.map->m_vertices;
@@ -577,8 +683,14 @@ void DrawEverything(MapData _mapdata)
     }
     
 
+    /*
+    for(int i = 0; i < testStrings.size(); i++)
+    {
+        window.draw(testStrings.at(i));
+    }
+     */
     
-    
+    mapdata.window->draw(testStrings.at(0));
     mapdata.window->display();
     mapdata.window->clear();
     

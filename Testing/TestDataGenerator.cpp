@@ -83,30 +83,12 @@ void CreateTargetCreatures(MapData &mapdata)
     
     for(int i = 0; i < 10; i++)
     {
-        for(int j = 0; j < 10; j++)
-        {
-            BaseCreature testCreature;
-            int  randNum = rand() % 3;
-            
-            switch(randNum)
-            {
-                case 0:
-                    testCreature = basicGoblin;
-                    break;
-                case 1:
-                    testCreature = basicOrc;
-                    break;
-                case 2:
-                    testCreature = basicPulser;
-                    break;
-            }
-        
-        
-          
-            testCreature.setPosition(0, 0);
+        BaseCreature testCreature;
+         testCreature = basicOrc;
+ 
             mapdata.AddCreatureToMap(testCreature);
         //tempCreatureList.push_back(testCreature);
-        }
+        
     }
     
 }

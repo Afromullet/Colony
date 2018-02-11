@@ -191,6 +191,8 @@ bool Map::Generate2DMap(sf::Vector2i _tileSize, unsigned int _width, unsigned in
    
     Tile tempTile;
     ////std::cout << "\n" << iterations << "its and tiles=" << tiles.size() << "\n" ;
+    
+    int ind = 0;
     for (unsigned int i = 0; i < width; ++i)
     {
         
@@ -235,6 +237,8 @@ bool Map::Generate2DMap(sf::Vector2i _tileSize, unsigned int _width, unsigned in
             
             tempTile.SetTileVertices(i, j,tileSize);
             Map2D[i][j] = tempTile;
+            Map2D[i][j].index = ind;
+            ind++;
             
             
         }
@@ -400,13 +404,16 @@ unsigned int Map::GetHeight()
 bool Map::isInBounds(sf::Vector2i position)
 {
     
-    if((position.x < 0 || position.x >= width))
-        return false;
+
+    bool retVal = true;
+  
+    if(position.x < 0 || position.x >= width)
+        retVal = false;
     else if(position.y < 0 || position.y >= height)
-        return false;
+        retVal = false;
      
-    
-    return true;
+  
+    return retVal;
     
     
 }
@@ -613,5 +620,63 @@ void Map::setEffectColor(int effectId, sf::Color color)
     for(int i = 0; i < effects.size(); i++)
     {
         effects.at(i).setColor(color);
+    }
+}
+
+//The indices will make pathfinding easier..There's no easy way to define the relational operator for vector2i...avoiding pain
+void Map::InitializeTileIndices()
+{
+    int ind = 0;
+    for(int i=0; i<width; i++)
+        for(int j = 0; j < height; i++)
+        {
+            Map2D[i][j].index = ind;
+            ind++;
+        }
+}
+
+sf::Vector2i Map::getCoordinates(int index)
+{
+    for(int i=0; i < width; i++)
+    {
+        for(int j = 0; j < height; j++)
+        {
+            if(Map2D[i][j].index == index)
+                return sf::Vector2i(i,j);
+        }
+    }
+    
+    return sf::Vector2i(-1,-1); //Failure conditon;
+}
+
+
+
+bool Map::isCreatureOnTile(sf::Vector2i point)
+{
+    
+    std::cout << point.x << "," << point.y;
+   if(NULL == Map2D[point.x][point.y].getCreatureOnTile())
+       return false;
+    
+    
+    return true;
+}
+
+bool Map::canHoldCreature(sf::Vector2i point)
+{
+    return Map2D[point.x][point.y].getCanHoldCreature();
+    
+    
+}
+
+Tile& Map::getByIndex(int index)
+{
+    for(int i=0; i < width; i++)
+    {
+        for(int j = 0; j < height; j++)
+        {
+            if(Map2D[i][j].index == index)
+                return Map2D[i][j];
+        }
     }
 }

@@ -10,7 +10,7 @@
 #include "Constants.hpp"
 #include "TestData.hpp"
 
-
+bool PlayerActionTaken = false;
 
 sf::RenderWindow window(sf::VideoMode(WINDOW_X, WINDOW_Y), "My window");
 
@@ -71,6 +71,10 @@ void InitializeGlobals()
     {
         std::cout << "\n Error initializing global font";
         // error...
+    }
+    else
+    {
+        std::cout << "\n Font loaded";
     }
     
     //yellow.a = 1;

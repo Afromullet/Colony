@@ -21,7 +21,7 @@ std::vector<sf::Vector2i> square;
 MapEffect targettingSquare;
 DataWindow inventoryWindow;
 DataWindow equipmentWindow;
-void HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creature)
+bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creature)
 {
     
     //Target square starts at player origin
@@ -29,8 +29,12 @@ void HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
     //playerWindowCommands.h
     
     
+    while(!PlayerActionTaken)
+    {
+    
     if (event.type == sf::Event::KeyPressed)
     {
+        PlayerActionTaken = true;
   
        //playerWindowCommands.handleOpenWindowCommand(event.key.code);
         playerWindowCommands.handleOpenMainWindow(event.key.code);
@@ -302,9 +306,32 @@ void HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
         else if(event.key.code == sf::Keyboard::B)
         {
             
-            sf::Vector2i destination(5,0);
-            std::vector<sf::Vector2i> path =  GetBasicPath(sf::Vector2i(player.getPosition().x,player.getPosition().y),destination,*mapdata.map);
+            sf::Vector2i destination;
+            destination.x = 10;
+            destination.y = 0;
+           // std::vector<sf::Vector2i> path =  GetBasicPath(sf::Vector2i(player.getPosition().x,player.getPosition().y),destination,*mapdata.map);
             
+            std::vector<PosPair> dest =  DA(sf::Vector2i(player.getPosition().x,player.getPosition().y),destination,*mapdata.map);
+            
+            int newIndex = dest.back().destination;
+            std::cout << "\n New Index" << newIndex;
+            
+            sf::Vector2i newPos = mapdata.map->getCoordinates(newIndex);
+      
+            
+          //  creature.MoveCreature(newPos.x, newPos.y);
+            
+            for(int i =0; i < dest.size(); i++)
+            {
+                
+                newIndex = dest.at(i).destination;
+                newPos = mapdata.map->getCoordinates(newIndex);
+                creature.AddToPath(newPos);
+                //dest.push_back(dest.at(i).destination);
+            }
+            
+        
+            /*
             for(int i=0; i < path.size(); i++)
             {
                
@@ -320,11 +347,20 @@ void HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
                 
                
             }
+             */
         }
+        else if(event.key.code == sf::Keyboard::W)
+         {
+             creature.WalkPath(*mapdata.map);
+         }
+        
         
     
     
     
+    }
+    
+    return true;
     }
     
 }

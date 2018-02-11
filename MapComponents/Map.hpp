@@ -64,6 +64,8 @@ public:
     void FloodFill(int x, int y, int targetTileID, int replacementTileID, int blockSize);
     void ResetVisited();
     
+    void InitializeTileIndices();
+    
     std::vector<std::vector<Tile> > Map2D;
     
     
@@ -94,7 +96,15 @@ public:
     sf::VertexArray effectsOnMap; //Pairs of 4s = 1 Tile
     std::vector<MapEffect> effects;
     
+    sf::Vector2i getCoordinates(int index);
+    
     //void clearFogOfWar()
+    
+    
+    bool isCreatureOnTile(sf::Vector2i point);
+    bool canHoldCreature(sf::Vector2i point);
+    
+    Tile& getByIndex(int index);
     
     
     

@@ -50,6 +50,8 @@ public:
     Tile();
      bool visited;
     
+    int index;
+    
     void SetTileVertices(int xOffset, int yOffset,sf::Vector2i tileSize);
     sf::VertexArray getTileVertices();
     sf::VertexArray& getTileVerticesRef();
@@ -73,6 +75,8 @@ public:
     
     
     bool isCreatureOnTile();
+    
+    int movementCost;
 
     
 

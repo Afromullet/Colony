@@ -40,7 +40,8 @@ typedef struct TileIdentificationData
     std::string textureFileName;
     
 }TileIDData;
- 
+
+extern bool PlayerActionTaken;
 
 extern FileLogger errorLog;
 extern std::vector<TileIDData> tileIDTable; 
