@@ -248,15 +248,26 @@ srand(time(NULL));
             
         }
     }
-     
+    
+
+
+    
      
     
     
     
 
     
-
+    std::vector<sf::Vector2i> neighbors;
+    neighbors = GetNeighbors(sf::Vector2i(5,5),caMap);
+    for(int i =0; i < neighbors.size(); i++)
+    {
+        std::cout << " " << caMap.Map2D[neighbors.at(i).x][neighbors.at(i).y].index;
+        
+    }
     
+   
+    std::cout << "\n";
     
     GameLoop3();
     
@@ -345,13 +356,15 @@ void GameLoop3()
    
     
     GridLocation start,end;
-    start.x = 5;
-    start.y = 3;
+    start.x = 11;
+    start.y = 5;
     
-    end.x = 23;
-    end.y = 10;
+    end.x = 11;
+    end.y = 20;
     
    std::map<GridLocation,GridLocation> cameFrom =  aStarSearch(caMap,  start,  end);
+   
+    
     std::vector<GridLocation> path = recontructPath(start,end, cameFrom);
     // aStarSearch(caMap,  start,  end);
     std::vector<sf::Vector2i> walkPath;
@@ -419,28 +432,7 @@ void GameLoop3()
             }
         }
         
-     
-       /*
-        sf::VertexArray var;
-        sf::Vertex v1;
-        sf::Vertex v2;
-        
-        v1.position = sf::Vector2f(0,0);
-        v2.position = sf::Vector2f(10,10);
-        
-        v1.color = sf::Color::Red;
-        v2.color = sf::Color::Red;
-        
-        
-        
-        
-        var.append(v1);
-        var.append(v2);
-        
-        
-        window.draw(var);
-        */
-        
+  
   
      
 
@@ -451,19 +443,22 @@ void GameLoop3()
     
       
         player.vision.UpdateVision(*mapdata.map,player.getPosition());
-        player.vision.getVisibleCreatures(*mapdata.map);
+         std::vector<BaseCreature> visible =  player.vision.getVisibleCreatures(*mapdata.map);
         player.vision.getVisibleItems(*mapdata.map);
 
+        std::cout << visible.size() << "\n";
+       
+        if(visible.size() > 1)
+            std::cout << "\n New";
        
         
         DrawEverything(mapdata);
         
-        std::cout << "\nPlayerActionTaken " << PlayerActionTaken;
+     
         
         PlayerActionTaken = false;
        
-     //   player.vision.UpdateVision(player.getPosition());
-       // player.vision.getVisibleCreatures(*mapdata.map);
+       // player.vision.UpdateVision(player.getPosition());
         
    
         
@@ -554,7 +549,7 @@ void InitializeMaps()
 void SetupCurrentMap(Map *map)
 {
     mapdata.setMap(map);
-  // CreateTargetCreatures(mapdata);
+   CreateTargetCreatures(mapdata);
     GenerateRandomItems(mapdata,10);
     mapdata.PlaceCreaturesOnMap();
     mapdata.PlaceItemsOnMap();
@@ -645,7 +640,7 @@ void DrawEverything(MapData _mapdata)
     mapdata.window->draw(player.creatureTile);
     elapsed = globalClock.getElapsedTime();
     //Only move creatures randomly every  second..testing
-    /*
+    
     if(elapsed.asMilliseconds() >= 1000)
     {
       
@@ -653,7 +648,7 @@ void DrawEverything(MapData _mapdata)
 
         globalClock.restart();
     }
-    */
+    
     
       MoveAllCreatures();
     
@@ -683,12 +678,14 @@ void DrawEverything(MapData _mapdata)
     }
     
 
+    
     /*
     for(int i = 0; i < testStrings.size(); i++)
     {
         window.draw(testStrings.at(i));
     }
      */
+     
     
     mapdata.window->draw(testStrings.at(0));
     mapdata.window->display();

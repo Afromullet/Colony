@@ -407,13 +407,16 @@ bool Map::isInBounds(sf::Vector2i position)
 
     bool retVal = true;
   
-    if(position.x < 0 || position.x >= width)
-        retVal = false;
-    else if(position.y < 0 || position.y >= height)
-        retVal = false;
-     
+
+    if(position.x < 0 || position.y < 0)
+        return false;
+    else if(position.x >= width || position.y >= height)
+        return false;
+ 
+    //std::cout << "\n x y" << position.x << "," << position.y;
+  //  std::cout << "\n Retval " << retVal;
   
-    return retVal;
+    return true;
     
     
 }

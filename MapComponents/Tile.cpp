@@ -20,6 +20,8 @@ Tile::Tile()
     hasFogOfWar = true;
     visited = false;
     movementCost = 1;
+    movementCost = rand() % 100;
+        //std::cout << "\nMov " << movementCost;
     
 }
 

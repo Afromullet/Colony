@@ -306,48 +306,7 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
         else if(event.key.code == sf::Keyboard::B)
         {
             
-            sf::Vector2i destination;
-            destination.x = 10;
-            destination.y = 0;
-           // std::vector<sf::Vector2i> path =  GetBasicPath(sf::Vector2i(player.getPosition().x,player.getPosition().y),destination,*mapdata.map);
-            
-            std::vector<PosPair> dest =  DA(sf::Vector2i(player.getPosition().x,player.getPosition().y),destination,*mapdata.map);
-            
-            int newIndex = dest.back().destination;
-            std::cout << "\n New Index" << newIndex;
-            
-            sf::Vector2i newPos = mapdata.map->getCoordinates(newIndex);
-      
-            
-          //  creature.MoveCreature(newPos.x, newPos.y);
-            
-            for(int i =0; i < dest.size(); i++)
-            {
-                
-                newIndex = dest.at(i).destination;
-                newPos = mapdata.map->getCoordinates(newIndex);
-                creature.AddToPath(newPos);
-                //dest.push_back(dest.at(i).destination);
-            }
-            
         
-            /*
-            for(int i=0; i < path.size(); i++)
-            {
-               
-                
-                if(path.at(i).x == destination.x && path.at(i).y == destination.y)
-                {
-                     std::cout << "\nmoving to " << path.at(i).x << "," << path.at(i).y;
-                    creature.MoveCreature(path.at(i).x, path.at(i).y);
-                   break;
-                }
-                
-                
-                
-               
-            }
-             */
         }
         else if(event.key.code == sf::Keyboard::W)
          {

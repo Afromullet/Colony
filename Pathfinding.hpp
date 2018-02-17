@@ -57,14 +57,9 @@ bool searchCostSoFar(std::map<GridLocation,int> &costSoFarMap, sf::Vector2i posi
 int getCost(std::map<GridLocation,int> &costSoFarMap, sf::Vector2i position);
 int getCostBetween(GridLocation a, GridLocation b, Map &map);
 
-std::vector<PosPair> BFS(sf::Vector2i startPoint,sf::Vector2i endPoint,Map &map);
-std::vector<PosPair> DA(sf::Vector2i startPoint,sf::Vector2i endPoint,Map &map);
-void BreadthFirstSearch(sf::Vector2i startPoint,Map &map);
-std::vector<sf::Vector2i> GetBasicPath(sf::Vector2i startPoint,sf::Vector2i endPoint,Map &map);
 
-std::vector<sf::Vector2i> GetNeighbors(sf::Vector2i startPoint);
 
-std::vector<int> GetNeighborIndices(int i,Map &map);
+
 
 std::vector<sf::Vector2i> GetNeighbors(sf::Vector2i startPoint, Map &map,bool getNonPassable = true); //Returns the indices of the neighboring cells, with cells that are not in bounds removed. Optional argument is to determine whether to select tiles creature can pass
 
