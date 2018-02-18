@@ -10,7 +10,8 @@
 #include "Pathfinding.hpp"
 #include "Globals.hpp"
 
-
+#include "TestData.hpp"
+#include "BasicBehavior.hpp"
 bool usingTargetSquare = false;
 bool isInventoryWindowOpen = false;
 bool isEquipmentWindowOpen = false;
@@ -306,12 +307,67 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
         else if(event.key.code == sf::Keyboard::B)
         {
             
+            int x,y;
+            std::cout << "Enter x\n";
+            std::cin >> x;
+            std::cout << "Enter y;";
+            std::cin >> y;
+            
+            
+            
+            
+            GridLocation start,end;
+            start.x = creature.getPosition().x;
+            start.y = creature.getPosition().y;
+            
+            if(!mapdata.map->Map2D[x][y].getCanHoldCreature())
+            {
+                std::cout << "Selected tile cannot hold creature";
+                return true;
+            }
+            
+            end.x = x;
+            end.y = y;
+            
+            std::map<GridLocation,GridLocation> cameFrom =  aStarSearch(caMap,  start,  end);
+            
+            
+            std::vector<GridLocation> path = recontructPath(start,end, cameFrom);
+            // aStarSearch(caMap,  start,  end);
+            std::vector<sf::Vector2i> walkPath;
+            
+            for(int i =0; i < path.size(); i++)
+            {
+                
+                creature.AddToPath(sf::Vector2i(path.at(i).x,path.at(i).y));
+                
+            }
+
+
         
         }
         else if(event.key.code == sf::Keyboard::W)
          {
              creature.WalkPath(*mapdata.map);
          }
+        else if(event.key.code == sf::Keyboard::X)
+        {
+            
+            std::cout << "\n Target location " << testCreature1.getPosition().x << "," << testCreature1.getPosition().y;
+           ApproachCreature(*mapdata.map, creature, testCreature1);
+             ApproachCreature(*mapdata.map, creature, mapdata.creaturesOnMap.front());
+        }
+        else if(event.key.code == sf::Keyboard::Space)
+        {
+            std::list<Item*> items = mapdata.itemsOnMap;
+            std::list<Item*>::iterator itemIt;
+            
+            std::cout << "\n Items on map size " << items.size();
+            
+            
+            
+           
+        }
         
         
     

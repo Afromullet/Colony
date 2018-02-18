@@ -81,6 +81,7 @@ std::vector<BaseCreature> Vision::getVisibleCreatures(Map &map)
 
 
 
+
 std::vector<Item*> Vision::getVisibleItems(Map &map)
 {
     std::vector<Item*> tempItems;
@@ -100,6 +101,17 @@ std::vector<Item*> Vision::getVisibleItems(Map &map)
     
     return tempItems;
     
+}
+
+std::vector<sf::Vector2i> Vision::getVisibleCoordinates(Map &map)
+{
+    std::vector<sf::Vector2i> tempVec;
+    for(int i=0; i < visionArea.size(); i++)
+    {
+        tempVec.push_back(sf::Vector2i(visionArea.at(i).x,visionArea.at(i).y));
+    }
+    
+    return tempVec;
 }
 
 //If origin changes, vision area must also be updated

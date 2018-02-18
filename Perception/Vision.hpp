@@ -34,6 +34,7 @@ public:
     std::vector<Tile> getVisibleTiles(Map &map);
     std::vector<BaseCreature> getVisibleCreatures(Map &map);
     std::vector<Item*> getVisibleItems(Map &map);
+    std::vector<sf::Vector2i> getVisibleCoordinates(Map &map);
     
     
     void UpdateVision(Map &map,sf::Vector2i newOrigin); //If origin changes, vision area must also be updated

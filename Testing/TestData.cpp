@@ -7,6 +7,7 @@
 //
 
 #include "TestData.hpp"
+#include "TestDataGenerator.hpp"
 #include <cstdlib>
 
 #ifdef DEBUG_OUTPUT
@@ -20,6 +21,16 @@
  
  
  */
+
+
+BaseCreature testCreature1;
+
+void setupTestCreatures()
+{
+    
+    testCreature1 = basicOrc;
+    testCreature1.setPosition(5, 5);
+}
 
 EnumArmorClass randArmorClass()
 {

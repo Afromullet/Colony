@@ -30,6 +30,8 @@ class Item
 private:
     friend class Armor;
     friend class Weapon;
+    
+    
     int itemID; //Need a way to identify an item of a specific kind for bookeeping and accounting
     int material;
     EnumBodyPart enFitsBodyPart;

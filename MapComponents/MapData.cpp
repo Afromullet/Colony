@@ -70,6 +70,7 @@ void MapData::PlaceCreaturesOnMap()
     for(iter = creaturesOnMap.begin(); iter != creaturesOnMap.end(); ++iter)
     {
         BaseCreature &creat = *iter;
+     
         map->Map2D[iter->getPosition().x][iter->getPosition().y].SetCreatureOnTile(&creat);
     }
     

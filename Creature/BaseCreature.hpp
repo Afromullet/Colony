@@ -21,6 +21,7 @@
 #include "Map.hpp"
 #include "Vision.hpp"
 #include <queue>
+#include "Pathfinding.hpp"
 
 
 
@@ -54,9 +55,9 @@ private:
     
     
    
-    sf::Vector2i velocity; //Represents basic direction..Not used at the moment.
+    
     sf::Vector2i position;
-    sf::Vector2i prevPosition; //Not used at the moment
+
     std::list<AttackParameters> creatureWeaponAttacks; //Holds data on all of the creature attacks so we don't have to recalculate it every time. Filled by body virtual function getAttacks
     
     
@@ -92,14 +93,14 @@ public:
     void CalculateTotalHealth();
     
     //Getters
-    short int getAttackValue();
+
     short int getMeleeAttackValue();
     short int getRangedAttackValue();
     short int getStrength();
     short int getAgility();
     sf::Vector2i  getPosition();
-    sf::Vector2i  getPrevePosition();
-    sf::Vector2i getVelocity();
+
+
     std::list<AttackParameters> getAttacks();
     std::vector<BodyPart*> getBodyPartSchema();
     
@@ -131,7 +132,9 @@ public:
     
     void AddToPath(sf::Vector2i point);
     void WalkPath(Map &map);
+    void clearPath();
     
+    GridLocation getGridLocation();
 
     
 };

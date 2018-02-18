@@ -42,13 +42,15 @@
 #include "TestDataGenerator.hpp"
 #include "PlayerControls.hpp"
 
+#include "TestData.hpp"
+
 #include <boost/graph/adjacency_list.hpp>
 #include <boost/graph/graphviz.hpp>
 #include "MapEffect.hpp"
 
 #include "DataWindow.hpp"
 #include "Pathfinding.hpp"
-
+#include "BasicBehavior.hpp"
 void GameLoop3();
 
 void MoveAllCreatures();
@@ -259,7 +261,7 @@ srand(time(NULL));
 
     
     std::vector<sf::Vector2i> neighbors;
-    neighbors = GetNeighbors(sf::Vector2i(5,5),caMap);
+    neighbors = GetPNeighbors(sf::Vector2i(5,5),caMap);
     for(int i =0; i < neighbors.size(); i++)
     {
         std::cout << " " << caMap.Map2D[neighbors.at(i).x][neighbors.at(i).y].index;
@@ -372,7 +374,7 @@ void GameLoop3()
     for(int i =0; i < path.size(); i++)
     {
         
-        player.AddToPath(sf::Vector2i(path.at(i).x,path.at(i).y));
+        //player.AddToPath(sf::Vector2i(path.at(i).x,path.at(i).y));
      
     }
     
@@ -445,6 +447,8 @@ void GameLoop3()
         player.vision.UpdateVision(*mapdata.map,player.getPosition());
          std::vector<BaseCreature> visible =  player.vision.getVisibleCreatures(*mapdata.map);
         player.vision.getVisibleItems(*mapdata.map);
+       // GetItemBehavior(*mapdata.map, player);
+       // player.WalkPath(*mapdata.map);
 
         std::cout << visible.size() << "\n";
        
@@ -549,7 +553,9 @@ void InitializeMaps()
 void SetupCurrentMap(Map *map)
 {
     mapdata.setMap(map);
+ setupTestCreatures();
    CreateTargetCreatures(mapdata);
+    
     GenerateRandomItems(mapdata,10);
     mapdata.PlaceCreaturesOnMap();
     mapdata.PlaceItemsOnMap();
@@ -591,6 +597,8 @@ void SetupGameData(Map *map)
     
     bool positionFound = false;
     int randXPos,randYPos;
+    
+    /*
     for(creatureIt=mapdata.creaturesOnMap.begin(); creatureIt != mapdata.creaturesOnMap.end();++creatureIt)
     {
         
@@ -619,6 +627,7 @@ void SetupGameData(Map *map)
         
         
     }
+     */
     
     player.loadCreatureTile("daeva.png", 32, 32);
     player.setPosition(0, 10);

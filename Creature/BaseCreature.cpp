@@ -25,13 +25,11 @@ BaseCreature::BaseCreature()
     will = 10;
     charisma = 10;
     moveSpeed = 1;
-    
-    velocity.x = 0;
-    velocity.y = 0;
-   
-    
 }
 
+/*
+ TODO this is only temporary. Bodyschemas have to be defined in another way, because the arrangement of the body parts determines how things can be equipped.
+ */
 void BaseCreature::addBodyPart(BodyPart bodyPart)
 {
     bodyPartSchema.push_back(&bodyPart);
@@ -40,23 +38,10 @@ void BaseCreature::addBodyPart(BodyPart bodyPart)
 //Copies an entire schema to the creatures bodyParts.
 void BaseCreature::addBodyPart(std::vector<BodyPart> &bodyPartVector)
 {
-    //Probably a better way to do this todo
     for(int i = 0; i < bodyPartVector.size(); i++)
         bodyPartSchema.push_back(&bodyPartVector.at(i));
-    
-    
-
 }
 
-/*
- TODO copy constructor
-BaseCreature::BaseCreature(const BaseCreature &creature)
-{
-    body = creature.body;
-    position = creature.position;
-    creatureTile = creature.creatureTile;
-}
- */
 
 //TODO, ensure that the tile is loaded every time a creature is placed on a map. We do not have to load the tile until the creature has to be displayed on the map
 void BaseCreature::loadCreatureTile(const std::string& tileset, int tileXSize,int tileYSize)
@@ -64,6 +49,11 @@ void BaseCreature::loadCreatureTile(const std::string& tileset, int tileXSize,in
     creatureTile.loadTile(tileset,  sf::Vector2i(tileXSize, tileYSize), sf::Vector2i(position.x, position.y));
 }
 
+/*
+ This calculates the creatures attack bonus. Ranged weapons use agility, melee weapons use strength.
+ */
+
+//TODO, add some depth to the calculation of attack parameters. Weapon material and enchantment should also affect this value
 void BaseCreature::CalculateAttackParameters()
 {
     
@@ -87,21 +77,21 @@ void BaseCreature::CalculateAttackParameters()
     
 }
 
+/*
+ The creatures health is the sum of the health of all of its body parts health.
+ 
+ */
 void BaseCreature::CalculateTotalHealth()
 {
     
     for(int i = 0; i < bodyPartSchema.size(); i++)
-    {
         totalHealth += bodyPartSchema.at(i)->getHealth();
-    }
+    
     
     
 }
 
-short int BaseCreature::getAttackValue()
-{
-    return attackValue;
-}
+
 
 short int BaseCreature::getMeleeAttackValue()
 {
@@ -128,15 +118,9 @@ sf::Vector2i  BaseCreature::getPosition()
     return position;
 }
 
-sf::Vector2i BaseCreature::getPrevePosition()
-{
-    return prevPosition;
-}
 
-sf::Vector2i BaseCreature::getVelocity()
-{
-    return velocity;
-}
+
+
 
 //Doesn't have an attack bonus yet since that is calculated based on creature attacks
 //TODO,  make the initialization of attackParameters simpler
@@ -180,11 +164,7 @@ void BaseCreature::setPosition(short int x, short int y)
     
 }
 
-void BaseCreature::setVelocity(int x, int y)
-{
-    velocity.x = x;
-    velocity.y = y;
-}
+
 
 void BaseCreature::setStrength(int _strength)
 {
@@ -201,16 +181,11 @@ void BaseCreature::setAgility(int _agility)
 //On outside values
 bool BaseCreature::MoveCreature(int x, int y)
 {
-    
-    
-    //Not used at the moment, so don't pay attention to this.
-    prevPosition.x = position.x;
-    prevPosition.y = position.y;
-    
     int newX = position.x + x;
     int newY = position.y + y;
     bool retVal = 1;
     
+    //Is the bound checking really needed? Boundary checking should be done outside the class
     if(newX < 0 || newX >= MAP_WIDTH)
         retVal = 0;
     else if(newY < 0|| newY > MAP_HEIGHT)
@@ -424,7 +399,7 @@ void BaseCreature::WalkPath(Map &map)
     
     map.Map2D[position.x][position.y].ClearCreatureOnTile();
     
-    std::cout << "\n newpos" << tempPoint.x << "," << tempPoint.y;
+   
     setPosition(tempPoint.x, tempPoint.y);
     map.Map2D[position.x][position.y].SetCreatureOnTile(this);
     
@@ -442,3 +417,20 @@ void BaseCreature::WalkPath(Map &map)
     
 }
 
+GridLocation BaseCreature::getGridLocation()
+{
+    
+    GridLocation tempLoc;
+    tempLoc.x  = position.x;
+    tempLoc.y = position.y;
+    
+    return tempLoc;
+}
+
+void BaseCreature::clearPath()
+{
+    while(!path.empty())
+    {
+        path.pop();
+    }
+}

@@ -24,8 +24,11 @@
 
 
 
+#include "BaseCreature.hpp"
 
+extern BaseCreature testCreature1;
 
+void setupTestCreatures();
 
 
 

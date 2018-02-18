@@ -8,7 +8,7 @@
 
 #include "TestDataGenerator.hpp"
 #include "BaseCreature.hpp"
-
+#include "TestData.hpp"
 #include "ItemGenerator.hpp"
 #include "CAMap.hpp"
 #include "SquareDiggingMap.hpp"
@@ -83,8 +83,12 @@ void CreateTargetCreatures(MapData &mapdata)
     
     BaseCreature testCreature;
     testCreature = basicOrc;
-    testCreature.setPosition(5, 5);
-    mapdata.AddCreatureToMap(testCreature);
+    testCreature.setPosition(1, 1);
+   mapdata.AddCreatureToMap(testCreature);
+    
+    mapdata.AddCreatureToMap(testCreature1);
+    
+    
     
     /*
     for(int i = 0; i < 10; i++)
