@@ -17,7 +17,7 @@
 #include "Map.hpp"
 #include "BaseCreature.hpp"
 #include <list>
-#include "SquareDiggingMap.hpp"
+
 #include "CaMap.hpp"
 #include "Constants.hpp"
 #include "Filelogger.hpp"
@@ -47,7 +47,7 @@ extern FileLogger errorLog;
 extern std::vector<TileIDData> tileIDTable; 
 extern sf::RenderWindow window;
 extern Map MainMap; //No need to have more than one main map (At least for now)
-extern SqureDiggingMap squareMap;
+
 extern CA_Map caMap;
 
 extern BaseCreature player; //Maybe sometimes in the future there'll be more than one player. For now, having a player as a global var makes things easier for me

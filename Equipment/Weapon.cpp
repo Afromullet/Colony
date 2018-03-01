@@ -8,7 +8,18 @@
 
 #include "Weapon.hpp"
 
-
+bool Weapon::operator==(const Weapon &other) const
+{
+    if(siRange == other.siRange && siDamage == other.siDamage && enWeaponClass == other.enWeaponClass)
+    {
+        if(enFitsBodyPart == other.enFitsBodyPart && enItemType == other.enItemType)
+        {
+            //TODO add string comparison
+            return true;
+        }
+    }
+    return false;
+}
 
 //todo add "Blank" weapon for when no weapon is equipped..and also something to identify a two handed weapon is equipped
 Weapon::Weapon(int _material,EnumBodyPart _enFitsBodyPart, std::string _sEquipmentName, short int _siRange,short int _siDamage,EnumWeaponClass _enWeaponClass):
@@ -16,7 +27,7 @@ Weapon::Weapon(int _material,EnumBodyPart _enFitsBodyPart, std::string _sEquipme
         siRange(_siRange),siDamage(_siDamage),enWeaponClass(_enWeaponClass)
 {
 
-    std::cout << "\nWep class " << enWeaponClass;
+
 
 
 }
@@ -25,7 +36,7 @@ Weapon::Weapon(int _material,EnumBodyPart _enFitsBodyPart, std::string _sEquipme
 Weapon::Weapon() : Item(-1,enFitsOneHand,"No Weapon"),siRange(-1),siDamage(-1),enWeaponClass(enUndefinedWeaponClass)
 {
     
-    sEquipmentName = "No Weapon";
+   
    
 }
 
@@ -38,7 +49,7 @@ Weapon::Weapon(const Weapon &weapon)
 {
     enFitsBodyPart = weapon.enFitsBodyPart;
     position = weapon.position;
-    itemID = weapon.itemID;
+   
     sEquipmentName = weapon.sEquipmentName;
     enItemType = weapon.enItemType;
     siRange = weapon.siRange;
@@ -51,7 +62,7 @@ Weapon::Weapon(Weapon &weapon)
 {
     enFitsBodyPart = weapon.enFitsBodyPart;
     position = weapon.position;
-    itemID = weapon.itemID;
+ 
     sEquipmentName = weapon.sEquipmentName;
     enItemType = weapon.enItemType;
     siRange = weapon.siRange;
@@ -60,14 +71,7 @@ Weapon::Weapon(Weapon &weapon)
 }
 
 
-/*
-int Weapon::getItemName()
-{
- 
-    return Item::getItemName();
-    
-}
- */
+
 
 short int Weapon::getRange(){return siRange;}
 short int Weapon::getDamage(){return siDamage;}

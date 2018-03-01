@@ -11,7 +11,7 @@
 #include "TestData.hpp"
 #include "ItemGenerator.hpp"
 #include "CAMap.hpp"
-#include "SquareDiggingMap.hpp"
+
 
 //Armor and weapons for the player
 Armor tHeadArmor;
@@ -150,7 +150,7 @@ void GenerateTestEquipment()
     armor.setDodgeModifier(rand() % 2);
     armor.setDamageReduction(rand() % 2);
     armor.setMovementModifier(rand() % 2);
-    armor.setItemID(rand() % 1000);
+
     armor.setItemType(enArmor);
     
     armor.setFitsBodyPart(enHeadBodyPart);
@@ -161,7 +161,6 @@ void GenerateTestEquipment()
     armor.setDodgeModifier(rand() % 2);
     armor.setDamageReduction(rand() % 2);
     armor.setMovementModifier(rand() % 2);
-    armor.setItemID(rand() % 1000);
     
     armor.setFitsBodyPart(enChestBodyPart);
     armor.setItemName("ChestArmorTest");
@@ -171,7 +170,7 @@ void GenerateTestEquipment()
     armor.setDodgeModifier(rand() % 2);
     armor.setDamageReduction(rand() % 2);
     armor.setMovementModifier(rand() % 2);
-    armor.setItemID(rand() % 1000);
+   
     
     armor.setFitsBodyPart(enLegsBodyPart);
     armor.setItemName("LegArmorTest");
@@ -181,7 +180,7 @@ void GenerateTestEquipment()
     armor.setDodgeModifier(rand() % 2);
     armor.setDamageReduction(rand() % 2);
     armor.setMovementModifier(rand() % 2);
-    armor.setItemID(rand() % 1000);
+    
     
     armor.setFitsBodyPart(enHandsBodyPart);
     armor.setItemName("HandArmorTest");
@@ -191,7 +190,7 @@ void GenerateTestEquipment()
     armor.setDodgeModifier(rand() % 2);
     armor.setDamageReduction(rand() % 2);
     armor.setMovementModifier(rand() % 2);
-    armor.setItemID(rand() % 1000);
+  
     
     armor.setFitsBodyPart(enFeetBodyPart);
     armor.setItemName("FootArmorTest");
@@ -199,13 +198,15 @@ void GenerateTestEquipment()
     
     Weapon weapon;
     weapon.setItemType(enWeapon);
-    weapon.setFitsBodyPart(enFitsBothHands);
+    weapon.setWeaponClass(enLongSword);
+    weapon.setFitsBodyPart(enHandsBodyPart);
     weapon.setItemName("TwoHandedWep");
     weapon.setRange(1);
     weapon.setDamage(10);
     tTwoHanded = weapon;
     
-    weapon.setFitsBodyPart(enFitsOneHand);
+    weapon.setFitsBodyPart(enHandsBodyPart);
+    weapon.setWeaponClass(enLongSword);
     weapon.setItemName("OneHandedWep");
     weapon.setRange(1);
     weapon.setDamage(5);

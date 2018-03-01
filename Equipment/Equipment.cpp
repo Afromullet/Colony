@@ -32,7 +32,6 @@ EnumBodyPart Item::getBodyPart()
 
 std::string Item::getItemName()
 {
-    //std::cout << "Inside item name " << sEquipmentName;
     return sEquipmentName;
 }
  
@@ -88,12 +87,5 @@ bool Item::getIsEquipped()
     return isEquipped;
 }
 
-int Item::getItemID()
-{
-    return itemID;
-}
 
-void Item::setItemID(int id)
-{
-    itemID = id;
-}
+

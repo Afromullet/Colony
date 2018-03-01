@@ -28,7 +28,7 @@ Armor GenerateRandomArmor()
     armor.setDodgeModifier(rand() % 2);
     armor.setDamageReduction(rand() % 2);
     armor.setMovementModifier(rand() % 2);
-    armor.setItemID(rand() % 1000);
+   
     
     switch(randNum)
     {

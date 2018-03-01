@@ -7,7 +7,7 @@
 //
 
 #include "MovementHandler.hpp"
-
+#include "WeaponAttackHandler.hpp"
 
 /*
  Checks the maps width and height and determines if the (x,y) pair is in the bounds of the map
@@ -125,7 +125,8 @@ void MovePlayer(MoveDirection moveDirection, BaseCreature &_creature,Map &map)
             
             //Currently does not handle choosing a weapon or calculating the damage and attack bonus from creature parameters TODO change that
             //map.Map2D[newX][newY].getCreatureOnTile()->getBody()->AttackRandomBodyPart(5, 1);
-            map.Map2D[newX][newY].getCreatureOnTile()->AttackCreature(10, 5);
+            //map.Map2D[newX][newY].getCreatureOnTile()->AttackCreature(10, 5);
+            FullAttack(_creature,*map.Map2D[newX][newY].getCreatureOnTile());
             //AttackCreature(_creature, *map.Map2D[newX][newY].getCreatureOnTile());
             
         }

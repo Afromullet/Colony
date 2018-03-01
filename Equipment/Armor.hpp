@@ -27,6 +27,9 @@ private:
     EnumArmorClass enArmorClass;
     
 public:
+    
+    bool operator==(const Armor &other) const;
+    
     Armor(int _material, EnumBodyPart _enFitsBodyPart, std::string _sEquipmentName, short int _siArmorBonus, float _fDodgeModifier, float _fDamageReduction,float _fMovementModifier,EnumArmorClass _enArmorClas);
     Armor(int _material,std::string _sEquipmentName, short int _siArmorBonus, float _fDodgeModifier, float _fDamageReduction,float _fMovementModifier,EnumArmorClass _enArmorClas);
     

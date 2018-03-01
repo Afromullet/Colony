@@ -359,10 +359,7 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
         }
         else if(event.key.code == sf::Keyboard::Space)
         {
-            std::list<Item*> items = mapdata.itemsOnMap;
-            std::list<Item*>::iterator itemIt;
-            
-            std::cout << "\n Items on map size " << items.size();
+            creature.setWeaponAttackSchema();
             
             
             

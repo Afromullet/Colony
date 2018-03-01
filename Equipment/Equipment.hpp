@@ -32,11 +32,11 @@ private:
     friend class Weapon;
     
     
-    int itemID; //Need a way to identify an item of a specific kind for bookeeping and accounting
+   
     int material;
     EnumBodyPart enFitsBodyPart;
     EnItemType enItemType;
-    std::string sEquipmentName;
+    
     sf::Vector2i position; //Is this a good idea? The position of an object does not matter if it's on a creature. Is the space this uses worth making managing items on the map easier?
     
     
@@ -44,9 +44,12 @@ private:
   
     
 public:
-    
+    std::string sEquipmentName;
     bool isEquipped;
-    EntityTile itemTile; //Every item needs a tile for when it is represented on the map. Need to ensure that we distinguish between an item on the map and worn by the player. todo
+    EntityTile itemTile; //The texture of this item
+    
+    EnFitsBodyPart enFitsType;
+    
     
     Item(int _material, EnumBodyPart _enFitsBodyPart, std::string _sEquipmentName);
     
@@ -55,12 +58,6 @@ public:
     virtual Item *clone() const = 0;
     virtual Item *create() const  = 0;
     
-    
-    //virtual ~Item(){};
-    //virtual void calculateMaterialBonuses() = 0;
-    
-    //virtual Item* clone() const = 0;
-
     std::string getItemName();
     EnumBodyPart getBodyPart();
     sf::Vector2i getPosition();
@@ -70,19 +67,18 @@ public:
     void setMaterial(int value);
     void setFitsBodyPart(EnumBodyPart value);
     void setPosition(int x, int y); //For setting the position of the item when it's on the map
-    void setItemID(int id);
+    
     void setItemType(EnItemType itemType);
     void setIsEquipped(bool _isEquipped);
     
     bool getIsEquipped();
     EnItemType getItemType();
-    int getItemID();
+
     EntityTile &getTile();
     
     EntityTile tile;
     
-    //int localItemID; //ItemID is the unique key identifying an item of a particular type. localItemID helps us identify the instance of the item. Public data field for testing. todo remove
-    
+      
     std::string name; //Public right now..make getters and setters later
     
     virtual void CalculateMaterialBonuses() = 0;

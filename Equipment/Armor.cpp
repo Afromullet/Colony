@@ -10,7 +10,20 @@
 
 //todo add "Blank" armor for when no armor is equipped or when we have something like leg armor
 
-
+bool Armor::operator==(const Armor &other) const
+{
+    if(siArmorBonus == other.siArmorBonus && fDodgeModifier == other.fDodgeModifier && fDamageReduction == other.fDamageReduction && fMovementModifier == other.fMovementModifier && enArmorClass == other.enArmorClass)
+    {
+        
+        return true;
+        if(enFitsBodyPart == other.enFitsBodyPart && enItemType == other.enItemType)
+        {
+            //TODO add string comparison
+            return true;
+        }
+    }
+    return false;
+}
 
 Armor::Armor(int _material, EnumBodyPart _enFitsBodyPart, std::string _sEquipmentName, short int _siArmorBonus, float _fDodgeModifier, float _fDamageReduction,float _fMovementModifier,EnumArmorClass _enArmorClass)
 : Item(_material,_enFitsBodyPart,_sEquipmentName),
@@ -50,7 +63,7 @@ Armor::Armor(const Armor &armor)
     
     enFitsBodyPart = armor.enFitsBodyPart;
     position = armor.position;
-    itemID = armor.itemID;
+   
     
     enItemType = armor.enItemType;
     fDodgeModifier = armor.fDodgeModifier;
@@ -73,7 +86,7 @@ Armor::Armor(Armor &armor)
     
     enFitsBodyPart = armor.enFitsBodyPart;
     position = armor.position;
-    itemID = armor.itemID;
+   
     
     enItemType = armor.enItemType;
     fDodgeModifier = armor.fDodgeModifier;

@@ -38,16 +38,16 @@ BodyPart LeftArmBodyPart(enArmsBodyPart,false,true,false,false,leftArmString,10)
 BodyPart RightArmBodyPart(enArmsBodyPart,false,true,false,false,rightArmString,10);
 BodyPart LeftLegBodyPart(enLegsBodyPart,false,true,false,false,leftLegString,10);
 BodyPart RightLegBodyPart(enLegsBodyPart,false,true,false,false,rightLegString,10);
-BodyPart leftHandBodyPart(enHandsBodyPart,true,true,true,false,leftHandString,10);
-BodyPart rightHandBodyPart(enHandsBodyPart,true,true,true,false,rightHandString,10);
-BodyPart leftFootBodypart(enFeetBodyPart,false,true,false,true,leftFootString,10);
-BodyPart rightFootBodyPart(enFeetBodyPart,false,true,false,true,rightFootString,10);
+BodyPart leftHandBodyPart(enLeftHandBodyPart,true,true,true,false,leftHandString,10);
+BodyPart rightHandBodyPart(enRightHandBodyPart,true,true,true,false,rightHandString,10);
+BodyPart leftFootBodypart(enFootBodyPart,false,true,false,true,leftFootString,10);
+BodyPart rightFootBodyPart(enFootBodyPart,false,true,false,true,rightFootString,10);
 BodyPart headBodyPart(enHeadBodyPart,false,true,false,false,headString,10);
 BodyPart chestBodyPart(enChestBodyPart,false,true,false,false,chestString,10);
 
 
 //The maps used for testing
-SqureDiggingMap squareMap;
+
 CA_Map caMap;
 Map MainMap;
 BaseCreature player;

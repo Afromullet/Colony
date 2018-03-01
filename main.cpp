@@ -32,11 +32,11 @@
 #include "TileReader.hpp"
 #include "MovementHandler.hpp"
 #include "MapUtil.hpp"
-#include "SquareDiggingMap.hpp"
+
 
 #include "BaseCreature.hpp"
 
-#include "CreatureHandler.hpp"
+
 #include "ItemGenerator.hpp"
 #include "MapData.hpp"
 #include "TestDataGenerator.hpp"
@@ -46,11 +46,15 @@
 
 #include <boost/graph/adjacency_list.hpp>
 #include <boost/graph/graphviz.hpp>
+#include <boost/graph/breadth_first_search.hpp>
+#include <boost/range/irange.hpp>
 #include "MapEffect.hpp"
 
 #include "DataWindow.hpp"
 #include "Pathfinding.hpp"
 #include "BasicBehavior.hpp"
+#include "BodyGraph.hpp"
+#include <string>
 void GameLoop3();
 
 void MoveAllCreatures();
@@ -66,7 +70,7 @@ sf::Time elapsed;
 
 
 
-
+/*
 
 typedef boost::property<int, int> noProperty;
 typedef boost::adjacency_list<boost::vecS,boost::vecS,boost::directedS, BodyPart,noProperty> BodyGraph;
@@ -120,7 +124,7 @@ const int num_edges = sizeof(edge_array)/sizeof(edge_array[0]);
 
 const int num_of_vertices = 10; //For humanoid body
 const int num_of_edges = 8;
-
+*/
 using namespace boost;
 
 
@@ -150,57 +154,69 @@ srand(time(NULL));
     window.setKeyRepeatEnabled(false);
     mapdata.SetWindow(&window);
     SetupGameData(&caMap);
+    
    
-    
-    
-    // create a typedef for the Graph type
+  
 
-    
-    
-    BaseCreature cr1;
-    BaseCreature cr2;
-    BaseCreature cr3;
-    BaseCreature cr4;
-    BaseCreature cr5;
-    BaseCreature cr6;
-    
-    // create a typedef for the Graph type
-    typedef adjacency_list<vecS, vecS, bidirectionalS,BaseCreature> CustomGraph;
-    typedef graph_traits<CustomGraph>::vertex_descriptor CustomVertex;
-    typedef boost::graph_traits<CustomGraph>::edge_descriptor CustomEdge;
-    
-    CustomGraph customGraph;
-    
-    CustomVertex v0 = boost::add_vertex(cr1, customGraph);
-    CustomVertex v1 = boost::add_vertex(cr2, customGraph);
-    CustomVertex v2 = boost::add_vertex(cr3, customGraph);
-    CustomVertex v3 = boost::add_vertex(cr4, customGraph);
-    
-    // Make convenient labels for the vertices
-    
-    CustomEdge edge;
-    bool edgeExists;
-    
-    //boost::tie(edge, edgeExists) = boost::edge(v0 , v1, customGraph);
-   // boost::tie(edge, edgeExists) = boost::edge(v2 , v3, customGraph);
-   // boost::tie(edge, edgeExists) = boost::edge(v0 , v3, customGraph);
-    //if(!edgeExists)
-        boost::add_edge(v0 , v1, customGraph);
-    
-    //if(!edgeExists)
-        boost::add_edge(v2 , v3, customGraph);
-    
  
     
+    BodyGraph gr;
+    gr.AddArmPairToChest(LeftArmBodyPart, RightArmBodyPart,leftHandBodyPart, rightHandBodyPart);
+    gr.AddArmPairToChest(LeftArmBodyPart, RightArmBodyPart,leftHandBodyPart, rightHandBodyPart);
+    gr.AddLegPairToChest(LeftLegBodyPart, RightLegBodyPart,leftFootBodypart, rightFootBodyPart);
+    
+
+    int currentID = 0;
+    
+
+
+
+        
+    
+    
+    //Tomorrow todo, add edges to the return values of getVerticesByType
+    //I.E, adding hands, adding feet..etc
+    
+    //Also ad a function for adding just a single body part to the graph
+    ///And a function to print all of the body parts
+    //Also a function to print the body parts and the edges between them
+    
+    gr.InitializeHandPairs();
+   
+  
+    gr.EquipArmor(&tChestArmor);
+    gr.EquipArmor(&tHeadArmor);
+    gr.EquipArmor(&tLegArmor);
+    gr.EquipArmor(&tHandArmor);
+    gr.EquipArmor(&tFootArmor);
+    
+     IndexMap indMap = get(vertex_index, gr.anatomyGraph);
+    for(std::pair<anatomyVertexIt,anatomyVertexIt> it = boost::vertices(gr.anatomyGraph); it.first != it.second; ++it.first)
+    {
+        AnatomyVertex v = *it.first;
+        std::cout << indMap[v] <<  " ";
+    }
+    
+    anatomyEdgeIt ei,ei_end;
+    for (boost::tie(ei, ei_end) = edges(gr.anatomyGraph); ei != ei_end; ++ei)
+        std::cout << "(" << indMap[source(*ei, gr.anatomyGraph)]
+        << "," << indMap[target(*ei, gr.anatomyGraph)] << ") ";
+    
+    
+    
+    gr.printBody();
+    
+    
+    gr.EquipArmor(&tLegArmor);
+    gr.EquipArmor(&tHandArmor);
+    gr.EquipArmor(&tFootArmor);
+    
+     gr.printBody();
     
 
     
-    boost::write_graphviz(std::cout, customGraph);
-    
-    sf::Vector2i vec1;
-    sf::Vector2i vec2;
-    
- 
+
+
 
     /*
 
@@ -525,7 +541,7 @@ void InitializeMaps()
     
     
     MainMap.BasicRandom2DMap(sf::Vector2i(DEFAULT_TILE_SIZE,DEFAULT_TILE_SIZE), MAP_WIDTH, MAP_HEIGHT);
-    squareMap.CreateMap(sf::Vector2i(DEFAULT_TILE_SIZE,DEFAULT_TILE_SIZE),MAP_WIDTH, MAP_HEIGHT, 0);
+   
     //Just a random ruleset]]
     
     
@@ -570,6 +586,8 @@ void SetupGameData(Map *map)
     InitializeMaps();
     SetupCurrentMap(map);
     GenerateTestEquipment();
+    
+    
 
     
 
@@ -705,3 +723,107 @@ void DrawEverything(MapData _mapdata)
     
     
 }
+
+/*
+ 
+ Examples of graph manipulation
+ 
+ 
+ BodyGraph gr;
+ gr.AddArmPairToChest(LeftArmBodyPart, RightArmBodyPart,leftHandBodyPart, rightHandBodyPart);
+ gr.AddArmPairToChest(LeftArmBodyPart, RightArmBodyPart,leftHandBodyPart, rightHandBodyPart);
+ 
+ int currentID = 0;
+ 
+ 
+ 
+ IndexMap indMap = get(vertex_index, gr.anatomyGraph);
+ anatomyEdgeIt ei,ei_end;
+ 
+ Anatomy_BFS_Visitor vis;
+ breadth_first_search(gr.anatomyGraph, vertex(0, gr.anatomyGraph), visitor(vis));
+ 
+ boost::shared_ptr<std::vector<AnatomyVertex>> aVex = vis.getVector();
+ std::cout << "\n\n" << aVex->size();
+ 
+ std::string armstr = "leg";
+ boost::shared_ptr<std::vector<AnatomyVertex>> aVec = gr.getVertices();
+ 
+ //Accessing of a function of the bodypart in teh graph
+ for(AnatomyVertex aVert : *aVec)
+ gr.anatomyGraph[aVert].ApplyDamage(5);
+ 
+ 
+ 
+ 
+ std::vector<int> nVec;
+ 
+ for(int i=0; i < nVec.size(); i++)
+ std::cout << "\nName and Health " <<  gr.anatomyGraph[nVec.at(i)].bodyPartName << " " << gr.anatomyGraph[nVec.at(i)].getHealth();
+ 
+ 
+ 
+ nVec = gr.getVerticesOfType("arm");
+ for(int i=0; i < nVec.size(); i++)
+ {
+ std::cout << "\nName and Health " <<  gr.anatomyGraph[nVec.at(i)].bodyPartName << " " << gr.anatomyGraph[nVec.at(i)].getHealth();
+ 
+ gr.anatomyGraph[nVec.at(i)].ApplyDamage(5);
+ 
+ }
+ 
+ nVec = gr.getVerticesOfType("hand");
+ for(int i=0; i < nVec.size(); i++)
+ std::cout << "\nName and Health " <<  gr.anatomyGraph[nVec.at(i)].bodyPartName << " " << gr.anatomyGraph[nVec.at(i)].getHealth();
+ 
+ for(AnatomyVertex aVert : *aVec)
+ std::cout << "\nName and Health " <<  gr.anatomyGraph[aVert].bodyPartName << " " << gr.anatomyGraph[aVert].getHealth();
+ 
+ for(AnatomyVertex aVert : *aVec)
+ gr.anatomyGraph[aVert].ApplyDamage(5);
+ 
+ 
+ 
+ //Tomorrow todo, add edges to the return values of getVerticesByType
+ //I.E, adding hands, adding feet..etc
+ 
+ //Also ad a function for adding just a single body part to the graph
+ ///And a function to print all of the body parts
+ //Also a function to print the body parts and the edges between them
+ 
+ gr.InitializeHandPairs();
+ gr.printBody();
+ 
+ for(AnatomyVertex aVert : *aVec)
+ std::cout << "\nName and Health " <<  gr.anatomyGraph[aVert].bodyPartName << " " << gr.anatomyGraph[aVert].getHealth();
+ 
+ 
+ 
+ 
+ //Access them when displaying edges:
+ for(std::pair<anatomyVertexIt,anatomyVertexIt> it = boost::vertices(gr.anatomyGraph); it.first != it.second; ++it.first)
+ {
+ AnatomyVertex v = *it.first;
+ std::cout << indMap[v] <<  " ";
+ }
+ 
+ for (boost::tie(ei, ei_end) = edges(gr.anatomyGraph); ei != ei_end; ++ei)
+ std::cout << "(" << indMap[source(*ei, gr.anatomyGraph)]
+ << "," << indMap[target(*ei, gr.anatomyGraph)] << ") ";
+ 
+ 
+ 
+ for(std::pair<anatomyVertexIt,anatomyVertexIt> it = boost::vertices(gr.anatomyGraph); it.first != it.second; ++it.first)
+ {
+ std::cout << gr.anatomyGraph[*it.first].bodyPartName << std::endl;
+ }
+ 
+ for(std::pair<anatomyVertexIt,anatomyVertexIt> it = boost::vertices(gr.anatomyGraph); it.first != it.second; ++it.first)
+ {
+ std::cout << gr.anatomyGraph[*it.first].bodyPartName << std::endl;
+ }
+ 
+ 
+
+ 
+ */

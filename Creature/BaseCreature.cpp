@@ -25,6 +25,8 @@ BaseCreature::BaseCreature()
     will = 10;
     charisma = 10;
     moveSpeed = 1;
+   
+    
 }
 
 /*
@@ -300,9 +302,7 @@ void BaseCreature::PickupItem(Map &map,std::list<Item*> &itemList)
  }
  else
  {
-     //TODO, need to handle removing item from itemList
-    // int localID = tile->getItemOnTile()->localItemID; //So we can find it in the list
-     //std::cout << "\nID " << localID << "\n";
+
  
      creatureItems.push_back(tile->getItemOnTile()); //TODO, need a different way to handle pushing the itme back, because when we remove it from the itemlist, we still want it in the creatureItems..both are pointers, so we need to do some copying. Create a copy constructor that handles this
      //tile->SetItemOnTile(NULL);
@@ -433,4 +433,14 @@ void BaseCreature::clearPath()
     {
         path.pop();
     }
+}
+
+ short int BaseCreature::getAttackValue()
+{
+    return attackValue;
+}
+
+void BaseCreature::setWeaponAttackSchema()
+{
+    weaponAttackSchema.setSchema(*this);
 }

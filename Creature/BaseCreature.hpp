@@ -23,6 +23,7 @@
 #include <queue>
 #include "Pathfinding.hpp"
 
+#include "WeaponAttackSchema.hpp"
 
 
 
@@ -54,6 +55,7 @@ private:
     short int moveSpeed; //Currently both x and y speed
     
     
+    
    
     
     sf::Vector2i position;
@@ -75,6 +77,10 @@ public:
     BaseCreature();
     int totalHealth;
     std::vector<BodyPart*> bodyPartSchema; //I.E, a humanoid body, a quadruped body. Need to organize the bodyPartSchema in a hierachy so we know what is connected to what. TODO
+    WeaponAttackSchema weaponAttackSchema;
+    
+    
+    
     
     void addBodyPart(BodyPart bodyPart);
     void addBodyPart(std::vector<BodyPart> &bodyPartVector);
@@ -98,6 +104,7 @@ public:
     short int getRangedAttackValue();
     short int getStrength();
     short int getAgility();
+    short int getAttackValue();
     sf::Vector2i  getPosition();
 
 
@@ -135,6 +142,7 @@ public:
     void clearPath();
     
     GridLocation getGridLocation();
+    void setWeaponAttackSchema();
 
     
 };

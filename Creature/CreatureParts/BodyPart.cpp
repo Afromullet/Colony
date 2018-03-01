@@ -73,6 +73,24 @@ void InitializeGlobalBodyParts()
 
  */
 
+
+std::ostream& operator<<(std::ostream& os, const BodyPart& bp)
+{
+    os << "\nBodypart Name " << bp.bodyPartName << "\nHealth " << bp.health << "\nCan Hold Armor " << bp.canHoldArmor << "\nCan Hold Weapon " << bp.canHoldWeapon << "\nCan Interact " << bp.canInteract << "\nArmor Name " << bp.armor.sEquipmentName;
+    return os;
+    
+}
+
+BodyPart::BodyPart() : armor(NO_ARMOR),weapon(NO_WEAPON)
+{
+    canHoldArmor = true;
+    canHoldWeapon = true;
+    enBodyPartType = enUndefinedPart;
+    health = 1;
+    bodyPartName = "No part";
+    
+}
+
 BodyPart::BodyPart(EnumBodyPart _bodypartType,bool _canHoldWeapon, bool _canHoldArmor, bool _canInteract, bool _canMoveCreature,std::string _bodyPartName, int _health) : canHoldArmor(_canHoldArmor),canHoldWeapon(_canHoldWeapon),enBodyPartType(_bodypartType), armor(NO_ARMOR),weapon(NO_WEAPON),health(1), bodyPartName(_bodyPartName)
 {
     
@@ -133,6 +151,31 @@ void BodyPart::EquipItem(Item *item)
     }
 }
 
+void BodyPart::EquipArmor(Item *item)
+{
+    
+    if(item->getBodyPart() != enBodyPartType)
+    {
+        std::cout << "\n Equipment Name " << item->getItemName();
+        std::cout << "\n" << item->getBodyPart() <<  " vs " << enBodyPartType;
+        std::cout << "Doesn't fit into slot";
+    }
+    else if(item->getItemType() == enArmor && canHoldArmor)
+    {
+        
+        Armor *arm = dynamic_cast<Armor*>(item);
+        arm->isEquipped = true;
+        armor = *arm;
+        
+    }
+    else
+    {
+        errorLog.writeToFile("Error equipping item of type\n");
+        
+    }
+    
+}
+
 
 
 
@@ -160,4 +203,9 @@ Weapon BodyPart::getWeapon()
 void BodyPart::ApplyDamage(int damage)
 {
     health -= damage;
+}
+bool BodyPart::hasWeapon()
+{
+    
+    return true;
 }

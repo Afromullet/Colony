@@ -27,6 +27,9 @@ private:
     
     
 public:
+    
+    bool operator==(const Weapon &other) const;
+    
     //todo getters and setters
     Weapon(int _material,EnumBodyPart _enFitsBodyPart, std::string _sEquipmentName, short int _siRange,
    short int _siDamage,EnumWeaponClass _enWeaponClass);
@@ -50,13 +53,7 @@ public:
     
 
     
-    /*
-    virtual Weapon* clone() const
-    {
-        return new Weapon(*this);
-    }
-    */
-    //int getItemName();
+
     
     void calculateMaterialBonuses();
     
@@ -86,13 +83,17 @@ public:
     void showItemStats();
     
     
+    bool hasWeapon();
+    
+    
+    
     
    
     void operator = (const Weapon &weapon ) {
         siRange = weapon.siRange;
         siDamage = weapon.siDamage;
         enWeaponClass = weapon.enWeaponClass;
-        itemID = weapon.itemID;
+     
         material = weapon.material;
         enFitsBodyPart = weapon.enFitsBodyPart;
         enItemType = weapon.enItemType;

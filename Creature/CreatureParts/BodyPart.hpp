@@ -19,6 +19,10 @@
 #define BodyPart_hpp
 
 
+#define ARM_STRING "arm"
+#define LEG_STRING "leg"
+#define FOOT_STRING "foot"
+#define HAND_STRING "hand"
 
 
 
@@ -33,6 +37,8 @@
  
  
  */
+
+//TODO, whatever can be private, make private
 class BodyPart
 {
     
@@ -41,14 +47,18 @@ private:
     
 public:
     
+    
+    friend std::ostream& operator<<(std::ostream& os, const BodyPart& bp);
+    
     //TODO make data fields private
+    int id;
     int health;
     bool canHoldWeapon;
     bool canHoldArmor;
     bool canInteract;
     bool canMoveCreature; //Determines whether this part can be used for locomotion
     std::string bodyPartName;
-    
+    BodyPart();
     BodyPart(EnumBodyPart _bodypartType,bool _canHoldWeapon, bool _canHoldArmor, bool _canInteract, bool _canMoveCreature,std::string _bodyPartName, int _health);
     
     BodyPart(bool _canHoldWeapon, bool _canHoldArmor, bool _canInteract, bool _canMoveCreature,std::string _bodyPartName, int _health);
@@ -65,6 +75,8 @@ public:
     //by the canHoldWeapon and canHoldArmor. The additional space used by Armor and Weapon for every creature that may not even be able to use them is worth managing everything more easily
     
     void EquipItem(Item *item);
+    
+    void EquipArmor(Item *item);
 
     void setBodyPartType(EnumBodyPart _bodyPartType);
     Armor getArmor();
@@ -73,6 +85,8 @@ public:
     int getHealth();
     
     void ApplyDamage(int damage);
+    
+    bool hasWeapon();
     
     
     
