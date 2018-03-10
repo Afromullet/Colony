@@ -1,0 +1,37 @@
+
+//The beginning of the file lists all of the identifies body the body parts.
+//When the body part is referenced, it uses this token
+<bptokenlist>
+    <bptoken>chest</bptoken>
+    <bptoken>head</bptoken>
+    <bptoken>leftarm</bptoken>
+    <bptoken>rightarm</bptoken>
+    <bptoken>lefthand</bptoken>
+    <bptoken>righthand</bptoken>
+    <bptoken>leftleg</bptoken>
+    <bptoken>rightleg</bptoken>
+    <bptoken>leftfoot</bptoken>
+    <bptoken>rightfoot</bptoken>
+</bptokenlist>
+
+/Used fo constructing a body part. The bptoken tag must match one of the elements in the bptokenlist
+<bodyparts>
+    <bpdescription>
+        <bptoken>chest</bptoken>
+        <bodypartname>Chest</bodypartname>
+        <canholdweapon>false</canholdweapon>
+        <canholdarmor>true</canholdarmor>
+
+    </bpdescription>
+</bodyparts>
+
+
+
+<bodypartconnections>
+<bodypart>
+<bptoken>head</bptoken>
+<connectsto>chest</connectsto> //Must be a valid bptoken value
+<connectiontype>type</connectiontype> //direct,left,right
+</bodypart>
+
+</bodypartconnections>

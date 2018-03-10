@@ -1,0 +1,310 @@
+
+//These notes only apply to bidirectional graphs. Haven't used directed graphs yet.
+
+
+typedef boost::adjacency_list<vecS, vecS, bidirectionalS,BodyPart,GraphConnection> AnatomyGraph; //Bodypart is the Vertex Property
+
+//The verted and edge descriptor identify the vertices and edges.
+typedef boost::graph_traits<AnatomyGraph>::vertex_descriptor AnatomyVertex;
+typedef boost::graph_traits<AnatomyGraph>::edge_descriptor AnatomyEdge;
+
+//Defining the iterators
+typedef boost::graph_traits <AnatomyGraph>::edge_iterator AnatomyEdgeIt;
+typedef boost::graph_traits<AnatomyGraph>::vertex_iterator AnatomyVertexIt
+
+//This is a map. With this particular map we can get the index by passing a vertex as a parameter.
+typedef boost::property_map<AnatomyGraph, vertex_index_t>::type AnatomyIndexMap;
+
+
+______________________________________________________________________________
+
+//Here we are using bundled properties, where BodyPart is the vertex property and GraphConnection is the Edge Property.
+
+typedef boost::adjacency_list<vecS, vecS, bidirectionalS,BodyPart,GraphConnection> AnatomyGraph; //
+______________________________________________________________________________
+
+EXAMPLE OF ITERATING OVER GRAPH VERTICES AND ACCESSING THE DATA
+
+
+//Below is an example of using a vertex iterator and index map.
+ AnatomyIndexMap indMap = get(vertex_index, gr.anatomyGraph);
+
+
+typedef boost::property_map<AnatomyGraph, vertex_index_t>::type AnatomyIndexMap; //Associating a vertex with its index
+
+AnatomyVertexIt anatIt;
+std::pair<AnatomyVertexIt,AnatomyVertexIt> ap;
+for(ap = vertices(gr.anatomyGraph); ap.first != ap.second; ++ap.first)
+{
+
+
+
+
+    AnatomyVertex av = *ap.first;
+
+    std::cout << indMap[av]; //Prints the index of the vertex
+
+    std::cout << gr.anatomyGraph[av]; //Prints the content of the vertex (Body part here)
+
+    int index = indMap[*ap.first];
+
+    std::cout << gr.anatomyGraph[index]; //Prints the contents of the vertex (Body part here)
+
+    std::cout << indMap[*ap.first]; //Same as indMap[av] only that we're dereferencing the iterator, so print sthe index
+
+    std::cout << gr.anatomyGraph[*ap.first]; //Same as anatomyGraph[av], but using the iterator
+}
+
+std::pair<AnatomyVertexIt,AnatomyVertexIt> ap = vertices(gr.anatomyGraph); //Initializing an iterator. vertices(graph) returns std::pair
+
+indMap[vertex] //Getting an index
+gr.anatomyGraph[vertex] //Getting vertex details with a vertex
+gr.anatomyGraph[index] //Getting vertex details with an index
+
+
+
+
+____________________________________________________________________________________________________
+
+
+
+EXAMPLE OF ITERATING OVER GRAPH VERTICES AND ACCESSING THE DATA
+
+
+//This isn't all too different from iterating over the graph vertices. The method of access is
+//Slightly different. Since the edge iterator returns edges, source and target get the source and target vertices
+//Which can be used to access graph data. The example below uses mainly source(), but target works just the same
+
+typedef boost::graph_traits <AnatomyGraph>::edge_iterator AnatomyEdgeIt;
+AnatomyEdgeIt ei,ei_end;
+for (boost::tie(ei, ei_end) = edges(gr.anatomyGraph); ei != ei_end; ++ei)
+{
+
+
+    //This is one new operation we can perform now that we have an edge, accessing the edge properties.
+    //Connection is a struct I defined in BodyGraph.hpp, so the .connection is not significant in terms of
+    //being some "Connection" of a graphs instrinsic properties, simply the name of a data field
+    //in the bundled property
+    std:: cout <<  gr.anatomyGraph[*ei].connection;
+
+    std::cout << "(" << indMap[source(*ei, gr.anatomyGraph)]
+    << "," << indMap[target(*ei, gr.anatomyGraph)] << ") ";
+
+    std::cout << gr.anatomyGraph[source(*ei,gr.anatomyGraph)]; //Prints the vertex property, the body part
+
+
+    AnatomyVertex av = source(*ei, gr.anatomyGraph);
+
+    std::cout << indMap[av]; //Prints the index of the vertex
+
+    std::cout << gr.anatomyGraph[av]; //Prints the content of the vertex (Body part here)
+
+    int index = indMap[source(*ei, gr.anatomyGraph)];
+
+    std::cout << gr.anatomyGraph[index]; //Prints the contents of the vertex (Body part here)
+
+    std::cout << indMap[source(*ei, gr.anatomyGraph)]; //Same as indMap[av] only that we're dereferencing the iterator, so print sthe index
+
+    std::cout << gr.anatomyGraph[source(*ei, gr.anatomyGraph)]; //Same as anatomyGraph[av], but using the iterator
+}
+
+SAME THING, JUST NOT USING boost::tie
+
+std::pair<AnatomyEdgeIt, AnatomyEdgeIt> edgeIteratorRange = boost::edges(gr.anatomyGraph);
+for(AnatomyEdgeIt edgeIterator = edgeIteratorRange.first; edgeIterator != edgeIteratorRange.second; ++edgeIterator)
+{
+    std::cout << gr.anatomyGraph[*edgeIterator].connection << "\n";
+    std::cout << gr.anatomyGraph[source(*edgeIterator,gr.anatomyGraph)];
+}
+
+____________________________________________________________________________________________________
+
+
+//Here we are using an out edge iterator. It's similar to using a regular edge iterator, other than
+//Needing to start from a vertex, and using out_edges rather than edges
+
+AnatomyVertex vert1 = indMap[0];
+AnatomyVertex vert2 = indMap[1];
+
+
+typedef boost::graph_traits <AnatomyGraph>::out_edge_iterator NewEdgeIt;
+NewEdgeIt ei,ei_end;
+for (boost::tie(ei, ei_end) = out_edges(vert1,gr.anatomyGraph); ei != ei_end; ++ei)
+{
+
+std::cout << "(" << indMap[source(*ei, gr.anatomyGraph)]
+<< "," << indMap[target(*ei, gr.anatomyGraph)] << ") ";
+}
+
+//And an in edge iterator, same concept
+typedef boost::graph_traits <AnatomyGraph>::in_edge_iterator NewEdgeIt;
+NewEdgeIt ei,ei_end;
+for (boost::tie(ei, ei_end) = in_edges(vert2,gr.anatomyGraph); ei != ei_end; ++ei)
+{
+
+std::cout << "(" << indMap[source(*ei, gr.anatomyGraph)]
+<< "," << indMap[target(*ei, gr.anatomyGraph)] << ") ";
+}
+
+
+
+____________________________________________________________________________________________________
+
+
+AN EXAMPLE OF GETTING A VERTEX FROM THE INDEX MAP
+
+AnatomyIndexMap indMap = get(vertex_index, gr.anatomyGraph); //Getting a proeprty map.
+
+AnatomyVertex vert1 = indMap[0];
+AnatomyVertex vert2 = indMap[1];
+
+So indMap[vert1] == 0 and indMap[vert2] == 1;
+
+
+____________________________________________________________________________________________________
+
+
+//Check if an edge exists. Not sure why it uses .second, still need to figure that out
+
+boost::edge(vert1, vert2, gr.anatomyGraph).second;
+
+____________________________________________________________________________________________________
+
+AnatomyIndexMap indMap = get(vertex_index, gr.anatomyGraph); //Getting a proeprty map.
+
+indMap[av]; //Gets the index of a vertex
+
+ gr.anatomyGraph[*vertexIterator] //Access vertex properties
+ gr.anatomyGraph[*edgeIterator] //Access edge properties
+gr.anatomyGraph[*edgeIterator] //Access edge properties
+gr.anatomyGraph[source(*edgeIterator,gr.anatomyGraph)]; //Vertex source properties using edge iterator
+gr.anatomyGraph[target(*edgeIterator,gr.anatomyGraph)]; //Vertex target properties using edge iterator
+
+indMap[0]; //Gets the Vertex Descriptor
+
+____________________________________________________________________________________________________
+
+
+//Here is an example of using non bundled properties
+
+typedef boost::property < boost::edge_weight_t, double> GraphEdgeWeightProp;
+typedef boost::property < boost::vertex_name_t, std::string> GraphVertNameProp;
+
+typedef boost::adjacency_list<vecS, vecS, bidirectionalS,GraphVertNameProp,GraphEdgeWeightProp> TestGraph;
+
+typedef boost::graph_traits<TestGraph>::vertex_descriptor tVertex;
+typedef boost::graph_traits<TestGraph>::edge_descriptor tEdge;
+//Defining the iterators
+
+typedef boost::graph_traits <TestGraph>::edge_iterator tEdgeIt;
+typedef boost::graph_traits<TestGraph>::vertex_iterator tVertexIt;
+
+typedef boost::property_map<TestGraph,boost::edge_weight_t>::type WeightMap;
+typedef boost::property_map<TestGraph,boost::vertex_name_t>::type NameMap;
+
+
+TestGraph graph;
+
+
+tVertex v1 = boost::add_vertex(graph);
+tVertex v2 = boost::add_vertex(graph);
+tVertex v3 = boost::add_vertex(graph);
+tVertex v4 = boost::add_vertex(graph);
+
+//Seems as if for vertex properties, we have to use a property map to assign the values
+NameMap nameMap = get(vertex_name,graph);
+nameMap[v1] = std::string("Name 1");
+nameMap[v2] = std::string("Name 2");
+nameMap[v3] = std::string("Name 3");
+nameMap[v4] = std::string("Name 4");
+
+//An edge property can be assigned when creating the edge
+GraphEdgeWeightProp pr;
+pr = 3;
+boost::add_edge(v1,v2,pr,graph);
+pr = 5;
+boost::add_edge(v3,v4,pr,graph);
+
+
+tVertexIt vi,vi_end;
+
+//Printing the properties
+for(boost::tie(vi,vi_end) = vertices(graph); vi != vi_end; ++vi)
+{
+    std::cout << nameMap[*vi] << "\n";
+
+}
+
+
+
+
+WeightMap weightMap = get(edge_weight_t(),graph);
+tEdgeIt ei,ei_end;
+for (boost::tie(ei, ei_end) = edges(graph); ei != ei_end; ++ei)
+{
+    std::cout << weightMap[*ei] << " ";
+    weightMap[*ei]  = 11; //Can also change the property
+    std::cout << weightMap[*ei] << " ";
+}
+____________________________________________________________________________________________________
+
+
+//When using multiple vertex properties, access is as follows
+
+//Declaration is different
+typedef boost::property < boost::vertex_name_t, std::string,boost::property<vertex_color_t,int>> GraphVertNameProp;
+
+//Need a map for both properties
+typedef boost::property_map<TestGraph,boost::vertex_name_t>::type NameMap;
+typedef boost::property_map<TestGraph,boost::vertex_color_t>::type ColorMap;
+
+nameMap[v1] = std::string("Name 1");
+nameMap[v2] = std::string("Name 2");
+nameMap[v3] = std::string("Name 3");
+nameMap[v4] = std::string("Name 4");
+
+ColorMap colorMap = get(vertex_color,graph);
+colorMap[v1] = 1;
+colorMap[v2] = 2;
+colorMap[v3] = 3;
+colorMap[v4] = 4;
+
+nameMap[*vi]
+olorMap[*vi]
+
+____________________________________________________________________________________________________
+
+Multiple edge properties
+
+typedef boost::property < boost::edge_weight_t, double,boost::property<edge_capacity_t,int>> GraphEdgeWeightProp;
+
+
+typedef boost::property_map<TestGraph,boost::edge_weight_t>::type WeightMap;
+typedef boost::property_map<TestGraph,boost::edge_capacity_t>::type CapacityMap;
+
+WeightMap weightMap = get(edge_weight_t(),graph);
+CapacityMap capacityMap = get(edge_capacity_t(),graph);
+
+tEdgeIt ei,ei_end;
+for (boost::tie(ei, ei_end) = edges(graph); ei != ei_end; ++ei)
+{
+
+    //Assigning the properties
+    weightMap[*ei] = rand() % 100;
+    capacityMap[*ei] = rand() % 100;
+
+
+
+
+}
+
+
+//Here, the properties are assigned when creating the edge. Access is still the same in terms of the map
+GraphEdgeWeightProp edgeProp = GraphEdgeWeightProp(7,3);
+boost::add_edge(v1,v2,edgeProp,graph);
+
+edgeProp = GraphEdgeWeightProp(9,11);
+boost::add_edge(v3,v4,edgeProp,graph);
+
+
+

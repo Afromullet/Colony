@@ -1,0 +1,135 @@
+<bptokenlist>
+    <bptoken>chest</bptoken>
+    <bptoken>head</bptoken>
+    <bptoken>leftarm</bptoken>
+    <bptoken>rightarm</bptoken>
+    <bptoken>lefthand</bptoken>
+    <bptoken>righthand</bptoken>
+    <bptoken>leftleg</bptoken>
+    <bptoken>rightleg</bptoken>
+    <bptoken>leftfoot</bptoken>
+    <bptoken>rightfoot</bptoken>
+</bptokenlist>
+
+
+<bodyparts>
+    <bpdescription>
+        <bptoken>chest</bptoken>
+        <bodypartname>Chest</bodypartname>
+        <canholdweapon>false</canholdweapon>
+        <canholdarmor>true</canholdarmor>
+        <caninteract>false</caninteract>
+
+    </bpdescription>
+    
+    <bpdescription>
+        <bptoken>head</bptoken>
+        <bodypartname>Head</bodypartname>
+        <canholdweapon>false</canholdweapon>
+        <canholdarmor>true</canholdarmor>
+        <caninteract>false</caninteract>
+    </bpdescription>
+    
+    <bpdescription>
+        <bptoken>leftarm</bptoken>
+        <bodypartname>LeftArm</bodypartname>
+        <canholdweapon>false</canholdweapon>
+        <canholdarmor>true</canholdarmor>
+        <caninteract>false</caninteract>
+    </bpdescription>
+    
+    <bpdescription>
+        <bptoken>rightarm</bptoken>
+        <bodypartname>RightArm</bodypartname>
+        <canholdweapon>false</canholdweapon>
+        <canholdarmor>true</canholdarmor>
+        <caninteract>false</caninteract>
+    </bpdescription>
+    
+    <bpdescription>
+        <bptoken>lefthand</bptoken>
+        <bodypartname>LeftHand</bodypartname>
+        <canholdweapon>true</canholdweapon>
+        <canholdarmor>true</canholdarmor>
+        <caninteract>true</caninteract>
+    </bpdescription>
+    
+    <bpdescription>
+        <bptoken>righthand</bptoken>
+        <bodypartname>RightHand</bodypartname>
+        <canholdweapon>true</canholdweapon>
+        <canholdarmor>true</canholdarmor>
+        <caninteract>true</caninteract>
+    </bpdescription>
+    
+    <bpdescription>
+        <bptoken>leftleg</bptoken>
+        <bodypartname>LeftLeg</bodypartname>
+        <canholdweapon>false</canholdweapon>
+        <canholdarmor>true</canholdarmor>
+        <caninteract>false</caninteract>
+    </bpdescription>
+    
+    <bpdescription>
+        <bptoken>rightleg</bptoken>
+        <bodypartname>RightLeg</bodypartname>
+        <canholdweapon>false</canholdweapon>
+        <canholdarmor>true</canholdarmor>
+        <caninteract>false</caninteract>
+    </bpdescription>
+    
+    <bpdescription>
+        <bptoken>leftfoot</bptoken>
+        <bodypartname>LeftFoot</bodypartname>
+        <canholdweapon>false</canholdweapon>
+        <canholdarmor>true</canholdarmor>
+        <caninteract>false</caninteract>
+    </bpdescription>
+    
+    <bpdescription>
+        <bptoken>rightfoot</bptoken>
+        <bodypartname>RightFoot</bodypartname>
+        <canholdweapon>false</canholdweapon>
+        <canholdarmor>true</canholdarmor>
+        <caninteract>false</caninteract>
+    </bpdescription>
+    
+
+    
+</bodyparts>
+
+
+<bodypartconnections>
+    <bodypart>
+        <bptoken>head</bptoken>
+        <connectsto>chest</connectsto>
+        <connectiontype>direct</connectiontype>
+    </bodypart>
+
+    <bodypart>
+        <bptoken>leftarm</bptoken>
+        <connectsto>chest</connectsto>
+        <connectiontype>left</connectiontype>
+    </bodypart>
+
+    <bodypart>
+        <bptoken>rightarm</bptoken>
+        <connectsto>chest</connectsto>
+        <connectiontype>right</connectiontype>
+    </bodypart>
+
+    <bodypart>
+        <bptoken>lefthand</bptoken>
+        <connectsto>leftarm</connectsto>
+        <connectiontype>left</connectiontype>
+    </bodypart>
+    
+    <bodypart>
+        <bptoken>righthand</bptoken>
+        <connectsto>rightarm</connectsto>
+        <connectiontype>right</connectiontype>
+    </bodypart>
+
+
+
+</bodypartconnections>

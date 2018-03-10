@@ -15,6 +15,8 @@
 #include <boost/graph/breadth_first_search.hpp>
 #include <boost/pending/indirect_cmp.hpp>
 #include <boost/range/irange.hpp>
+#include <boost/graph/filtered_graph.hpp>
+#include <boost/graph/graph_utility.hpp>
 #include <string>
 #include "Globals.hpp"
 
@@ -24,31 +26,54 @@ using namespace boost;
 
 
 
-enum EnConnectionType {enSymmetric,enDirect};
+
+enum EnConnectionType {enSymmetric,enDirect,enLeftConnection,enRightConnection};
+
+typedef boost::property < boost::edge_weight_t, double> EdgeWeightProp;
 
 typedef struct _GraphConnection
 {
     EnConnectionType connection;
+    EdgeWeightProp weightProperty;
 }GraphConnection;
 
 extern BodyPart defaultHeadBodyPart;
 extern BodyPart defaultChestBodyPart;
-typedef boost::adjacency_list<vecS, vecS, bidirectionalS,BodyPart,GraphConnection> AnatomyGraph; //Bodypart is the Vertex Property
+extern BodyPart defaultEmptyBodyPart;
+
+
+
+
+
+typedef boost::adjacency_list<vecS, vecS, bidirectionalS,BodyPart,GraphConnection,EdgeWeightProp> AnatomyGraph; //Bodypart is the Vertex Property
 
 typedef boost::graph_traits<AnatomyGraph>::vertex_descriptor AnatomyVertex;
 typedef boost::graph_traits<AnatomyGraph>::edge_descriptor AnatomyEdge;
 
-typedef boost::graph_traits <AnatomyGraph>::edge_iterator anatomyEdgeIt;
-typedef boost::graph_traits<AnatomyGraph>::vertex_iterator anatomyVertexIt;
+typedef boost::graph_traits <AnatomyGraph>::edge_iterator AnatomyEdgeIt;
+typedef boost::graph_traits<AnatomyGraph>::vertex_iterator AnatomyVertexIt;
 
 
 
-typedef std::map<AnatomyVertex,AnatomyVertex> AnatomyMap;
+//typedef std::map<AnatomyVertex,AnatomyVertex> AnatomyMap;
 
-typedef boost::property_map<AnatomyGraph, vertex_index_t>::type IndexMap;
+typedef boost::property_map<AnatomyGraph, vertex_index_t>::type AnatomyIndexMap;
 
 
+class edge_predicate_c {
+public:
+    edge_predicate_c() : graph_m(0) {}
+    edge_predicate_c(AnatomyGraph& graph) : graph_m(&graph) {}
+    bool operator()(const AnatomyEdge& edge_id) const {
+        EnConnectionType type = (*graph_m)[edge_id].connection;
+        return (type == enLeftConnection);
+    }
+private:
+    AnatomyGraph* graph_m;
+};
 
+
+//Todo get all arm vertices and their connection etc for all other limbs
 
 class Anatomy_BFS_Visitor : public boost::default_bfs_visitor
 {
@@ -62,6 +87,8 @@ public:
         anatomyVerts->push_back(u);
     }
     
+    
+    
     boost::shared_ptr<std::vector<AnatomyVertex>> getVector()
     {
         return anatomyVerts;
@@ -72,7 +99,42 @@ private:
     boost::shared_ptr<std::vector<AnatomyVertex>> anatomyVerts;
     };
 
+class Anatomy_DFS_Visitor : public boost::default_dfs_visitor
+{
+public:
+    
+    Anatomy_DFS_Visitor(): anatomyVerts(new std::vector<AnatomyVertex>()){}
+    void discover_vertex(AnatomyVertex u, const AnatomyGraph & g) const
+    {
+     //   std::cout << u << std::endl;
+        
+       // std::cout << g[u];
+        anatomyVerts->push_back(u);
+    }
+    
+    void tree_edge(AnatomyEdge e, const AnatomyGraph& g)
+    {
+        std::cout << e;
+    }
+    
+    
+    
+    
+    boost::shared_ptr<std::vector<AnatomyVertex>> getVector()
+    {
+        return anatomyVerts;
+    }
+    
+private:
+    boost::shared_ptr<std::vector<AnatomyVertex>> anatomyVerts;
+    
+    
+    
+};
 
+
+//Returns the vertex index
+int GetVerticesWithToken(std::string bptoken, const AnatomyGraph &graph);
 
 class BodyGraph
 {
@@ -101,21 +163,16 @@ public:
 
 
     
+
     
-    //Two hands, two legs, etc
-    void AddPartsToChest(BodyPart p1,BodyPart p2);
-    void AddArmPairToChest(BodyPart LeftArm,BodyPart RightArm,BodyPart LeftHand,BodyPart RightHand);
-    void AddLegPairToChest(BodyPart LeftLeg,BodyPart RightLeg,BodyPart LeftFoot,BodyPart RightFoot);
+    
+ 
     
     
     boost::shared_ptr<std::vector<AnatomyVertex>> getVertices();
-  
-
-    std::vector<int>  getVerticesOfType(const std::string &partName);
-    
-    void printBody();
-    void InitializeHandPairs();
-    void EquipArmor(Item *item);
+    void AddSymmetricPairToChest(BodyPart leftPart, BodyPart rightPart);
+    void AddSymmetricPairToChest(BodyPart part);
+    void AddPartToChest(BodyPart part,GraphConnection leftOrRight);
     
     
     
@@ -129,3 +186,5 @@ public:
  
 
 #endif /* BodyGraph_hpp */
+
+
