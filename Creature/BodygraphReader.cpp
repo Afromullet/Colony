@@ -42,6 +42,8 @@ void BodyTypeReader::GenerateVertices()
         if(v.first == "bpdescription")
         {
             bptoken = v.second.get<std::string>("bptoken");
+            
+        
             bpname = v.second.get<std::string>("bodypartname");
             holdsWeapon = convertTruthValue(v.second.get<std::string>("canholdweapon"));
             holdsArmor = convertTruthValue(v.second.get<std::string>("canholdarmor"));
@@ -54,23 +56,50 @@ void BodyTypeReader::GenerateVertices()
                 return;
             }
             
+         
+            BodyPart bp(bptoken,bpname,holdsWeapon,holdsArmor,canInteract);
+  
             
-             boost::add_vertex(BodyPart(bptoken,bpname,holdsWeapon,holdsArmor,canInteract),anatomyGraph);
+             boost::add_vertex(bp,anatomyGraph);
             
         }
 
     }
+    
+
+
+
 }
 
 void BodyTypeReader::GenerateEdges()
 {
     //BOOST_FOREACH(pt::ptree::value_type &v, tree.get_child("main.cats"))
+    
+
+    int bp1Index,bp2Index;
+    GraphConnection conType;
+    AnatomyIndexMap indMap = get(vertex_index, anatomyGraph); //Getting a proeprty map.
     BOOST_FOREACH(pt::ptree::value_type &v, tree.get_child("bodypartconnections"))
     {
         if(v.first == "bodypart")
         {
-            std::cout << v.second.get<std::string>("bptoken") << "\n";
-            std::cout << v.second.get<std::string>("connection") << "\n";
+         
+            
+            bp1Index = GetVerticesWithToken(v.second.get<std::string>("bptoken"),anatomyGraph);
+            bp2Index = GetVerticesWithToken(v.second.get<std::string>("connectsto"),anatomyGraph);
+            
+     
+            //conType = convertConnectionType(v.second.get<std::string>("connectiontype"));
+            conType.connection = convertConnectionType(v.second.get<std::string>("connectiontype"));
+            
+            boost::add_edge(indMap[bp1Index], indMap[bp2Index],conType, anatomyGraph);
+            
+          
+            
+      
+            
+   
+            
             
         }
         // The data function is used to access the data stored in a node.
@@ -96,7 +125,8 @@ void BodyTypeReader::load()
         if(v.first == "bodypart")
         {
             std::cout << v.second.get<std::string>("bptoken") << "\n";
-            std::cout << v.second.get<std::string>("connection") << "\n";
+            std::cout << v.second.get<std::string>("connectsto") << "\n";
+            std::cout << v.second.get<std::string>("connectiontype") << "\n";
             
         }
         // The data function is used to access the data stored in a node.
@@ -131,3 +161,4 @@ int BodyTypeReader::convertTruthValue(std::string truthVal)
     std::cout << "\n Invalid truth val";
     return -1;
 }
+

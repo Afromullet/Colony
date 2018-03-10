@@ -117,6 +117,7 @@ BodyPart::BodyPart(const BodyPart& bp)
     canInteract = bp.canInteract;
     canMoveCreature = bp.canMoveCreature;
     bodyPartName = bp.bodyPartName;
+    bodyPartToken = bp.bodyPartToken;
     
     enBodyPartType = bp.enBodyPartType;
     armor = bp.armor;

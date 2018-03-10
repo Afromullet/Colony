@@ -68,7 +68,7 @@ ________________________________________________________________________________
 
 
 
-EXAMPLE OF ITERATING OVER GRAPH VERTICES AND ACCESSING THE DATA
+EXAMPLE OF ITERATING OVER GRAPH EDGES AND ACCESSING THE DATA
 
 
 //This isn't all too different from iterating over the graph vertices. The method of access is

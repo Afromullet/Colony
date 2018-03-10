@@ -255,6 +255,8 @@ srand(time(NULL));
     bReader.readBodyTokenList();
     bReader.GenerateVertices();
     bReader.GenerateEdges();
+    printBodyGraphEdges(bReader.anatomyGraph);
+    
 
     bReader.load();
     

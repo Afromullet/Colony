@@ -27,7 +27,7 @@ using namespace boost;
 
 
 
-enum EnConnectionType {enSymmetric,enDirect,enLeftConnection,enRightConnection};
+enum EnConnectionType {enSymmetric,enDirect,enLeftConnection,enRightConnection,enInvalidConnection};
 
 typedef boost::property < boost::edge_weight_t, double> EdgeWeightProp;
 
@@ -134,7 +134,9 @@ private:
 
 
 //Returns the vertex index
-int GetVerticesWithToken(std::string bptoken, const AnatomyGraph &graph);
+int GetVerticesWithToken(std::string bptoken,  AnatomyGraph &graph);
+EnConnectionType convertConnectionType(std::string conType);
+void printBodyGraphEdges(const AnatomyGraph &graph);
 
 class BodyGraph
 {

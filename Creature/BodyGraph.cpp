@@ -9,6 +9,7 @@
 #include "BodyGraph.hpp"
 #include <boost/algorithm/string.hpp>  
 #include <boost/type_index.hpp>
+#include <string>
 
 BodyPart defaultHeadBodyPart(enHeadBodyPart,false,true,false,false,"Head",10);
 BodyPart defaultChestBodyPart(enChestBodyPart,false,true,false,false,"Chest",10);
@@ -16,7 +17,7 @@ BodyPart defaultEmptyBodyPart(enEmptyBodyPart,false,true,false,false,"Empty",10)
 
 
 //Returns the vertex index
-int GetVerticesWithToken(std::string bptoken, const AnatomyGraph &graph)
+int GetVerticesWithToken(std::string bptoken, AnatomyGraph &graph)
 {
     
     AnatomyIndexMap indMap = get(vertex_index, graph);
@@ -24,6 +25,8 @@ int GetVerticesWithToken(std::string bptoken, const AnatomyGraph &graph)
 
     for(int i=0; i < num_vertices(graph); i++)
     {
+    
+   
         if(graph[i].bodyPartToken == bptoken)
         {
             return i;
@@ -36,6 +39,50 @@ int GetVerticesWithToken(std::string bptoken, const AnatomyGraph &graph)
     
     
 }
+
+
+EnConnectionType convertConnectionType(std::string conType)
+{
+    std::transform(conType.begin(), conType.end(), conType.begin(), ::tolower);
+    EnConnectionType con;
+    
+    if(conType == "direct")
+    {
+        con = enDirect;
+        
+    }
+    else if(conType == "left")
+    {
+        con = enLeftConnection;
+    }
+    else if(conType == "right")
+    {
+        con = enRightConnection;
+    }
+    else
+    {
+        con = enInvalidConnection;
+    }
+    
+    return con;
+    
+
+    
+}
+
+void printBodyGraphEdges(const AnatomyGraph &graph)
+{
+    
+    AnatomyEdgeIt ei,ei_end;
+    AnatomyIndexMap indMap = get(vertex_index, graph); //Getting a proeprty map.
+    for (boost::tie(ei, ei_end) = edges(graph); ei != ei_end; ++ei)
+    {
+        std::cout << "(" << graph[source(*ei, graph)].bodyPartName
+        << "," << graph[target(*ei, graph)].bodyPartName << ") ";
+        
+    }
+}
+
 
 using boost::typeindex::type_id_with_cvr;
 BodyGraph::BodyGraph()

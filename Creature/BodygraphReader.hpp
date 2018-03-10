@@ -30,11 +30,14 @@ struct BodyTypeReader
     
     void GenerateVertices();
     void GenerateEdges();
+    
  
     void load();
     void openBodyTypeFile(const std::string &fileName);
     void readBodyTokenList();
     int convertTruthValue(std::string truthVal);
+    
+   
     
 };
 
