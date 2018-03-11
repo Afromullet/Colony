@@ -255,6 +255,8 @@ srand(time(NULL));
     bReader.readBodyTokenList();
     bReader.GenerateVertices();
     bReader.GenerateEdges();
+    bReader.GenerateOrganVertices();
+    bReader.GenerateOrganEdges();
     printBodyGraphEdges(bReader.anatomyGraph);
     
 
@@ -292,9 +294,7 @@ srand(time(NULL));
 
 
     
-    gr.AddSymmetricPairToChest(LeftArmBodyPart, RightArmBodyPart);
-    gr.AddSymmetricPairToChest(LeftArmBodyPart, RightArmBodyPart);
-    
+
 
     
     Anatomy_BFS_Visitor vis;

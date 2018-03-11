@@ -35,9 +35,6 @@ int GetVerticesWithToken(std::string bptoken, AnatomyGraph &graph)
     }
     
     return -1;
-    
-    
-    
 }
 
 
@@ -59,15 +56,81 @@ EnConnectionType convertConnectionType(std::string conType)
     {
         con = enRightConnection;
     }
+    else if(conType == "internal")
+    {
+        con = enInternal;
+    }
+    else if(conType == "internalleft")
+    {
+        con = enInternalLeft;
+    }
+    else if(conType == "internalright")
+    {
+        con = enInternalRight;
+    }
+    else if(conType == "external")
+    {
+        con = enExternal;
+    }
+    else if(conType == "externalright")
+    {
+        con = enExternalRight;
+    }
+    else if(conType == "externalleft")
+    {
+        con = enExternalLeft;
+    }
     else
     {
         con = enInvalidConnection;
     }
     
     return con;
-    
+}
 
-    
+void printConnectionType(GraphConnection con)
+{
+    if(con.connection == enExternalLeft)
+    {
+        std::cout << "External Left";
+    }
+    else if(con.connection == enExternalRight)
+    {
+        std::cout << "External Right";
+    }
+    else if(con.connection == enExternal)
+    {
+        std::cout << "External";
+    }
+    else if(con.connection == enInternalLeft)
+    {
+        std::cout << "Internal Left";
+    }
+    else if(con.connection == enInternalRight)
+    {
+        std::cout << "Internal Right";
+    }
+    else if(con.connection == enInternal)
+    {
+        std::cout << "Internal";
+    }
+    else if(con.connection == enLeftConnection)
+    {
+        std::cout << "Left Connection";
+    }
+    else if(con.connection == enRightConnection)
+    {
+        std::cout << "Right connection";
+    }
+    else if(con.connection == enDirect)
+    {
+        std::cout << "Direct connection";
+    }
+    else if(con.connection == enSymmetric)
+    {
+        std::cout << "Symmetric connection";
+    }
+
 }
 
 void printBodyGraphEdges(const AnatomyGraph &graph)
@@ -78,7 +141,9 @@ void printBodyGraphEdges(const AnatomyGraph &graph)
     for (boost::tie(ei, ei_end) = edges(graph); ei != ei_end; ++ei)
     {
         std::cout << "(" << graph[source(*ei, graph)].bodyPartName
-        << "," << graph[target(*ei, graph)].bodyPartName << ") ";
+        << "," << graph[target(*ei, graph)].bodyPartName << ") " << " ";
+        printConnectionType(graph[*ei]);
+        std::cout << "\n";
         
     }
 }
@@ -87,11 +152,7 @@ void printBodyGraphEdges(const AnatomyGraph &graph)
 using boost::typeindex::type_id_with_cvr;
 BodyGraph::BodyGraph()
 {
-    chestVertex = boost::add_vertex(defaultChestBodyPart,anatomyGraph);
-    headVertex  = boost::add_vertex(defaultHeadBodyPart,anatomyGraph);
-    
-    boost::add_edge(chestVertex,headVertex,anatomyGraph);
-    numOfVertices = 2;
+
 }
 
 
@@ -112,91 +173,3 @@ boost::shared_ptr<std::vector<AnatomyVertex>> BodyGraph::getVertices()
  
 
 
-//Adds the left part and right part to the chest and creates a symmetric connection between the left and right part
-void BodyGraph::AddSymmetricPairToChest(BodyPart leftPart, BodyPart rightPart)
-{
-    
-    
-    AnatomyVertex leftVert = boost::add_vertex(leftPart,anatomyGraph);
-    AnatomyVertex rightVert = boost::add_vertex(rightPart,anatomyGraph);
-
-    
-    
-    GraphConnection con;
-    con.connection = enSymmetric;
-    
-    boost::add_edge(leftVert, rightVert, con, anatomyGraph);
-
-    
-    con.connection = enLeftConnection;
-    boost::add_edge(leftVert, chestVertex, con, anatomyGraph);
-    boost::add_edge(rightVert, chestVertex, con, anatomyGraph);
-}
-
-//Creates two vertices, both created from "part", and creates a symmetric conenction between them
-void BodyGraph::AddSymmetricPairToChest(BodyPart part)
-{
-    AnatomyVertex leftVert = boost::add_vertex(part,anatomyGraph);
-    AnatomyVertex rightVert = boost::add_vertex(part,anatomyGraph);
-    
-    GraphConnection con;
-    
-    con.connection = enSymmetric;
-    boost::add_edge(leftVert, rightVert, con, anatomyGraph);
-    
-    con.connection = enLeftConnection;
-    boost::add_edge(leftVert, chestVertex, con, anatomyGraph);
-    
-    con.connection = enRightConnection;
-    boost::add_edge(rightVert, chestVertex, con, anatomyGraph);
-
-    
-
-    
-    
-  
-}
-
-//Adds the part as a left or right part, and then creates an empty symmetric equivalent
-//Left or right identifies the non empty part
-void BodyGraph::AddPartToChest(BodyPart part,GraphConnection leftOrRight)
-{
-    AnatomyVertex vert;
-    AnatomyVertex emptyVert;
-    GraphConnection con;
-    
-    vert = boost::add_vertex(part,anatomyGraph);
-    emptyVert = boost::add_vertex(defaultEmptyBodyPart,anatomyGraph);
-    
-    if(leftOrRight.connection == enRightConnection)
-    {
-        con.connection = enRightConnection;
-        boost::add_edge(vert, chestVertex, con, anatomyGraph);
-        
-        con.connection = enLeftConnection;
-        boost::add_edge(emptyVert, chestVertex, con, anatomyGraph);
-   
-        
-    }
-    else if(leftOrRight.connection == enLeftConnection)
-    {
-        
-        
-        con.connection = enRightConnection;
-        boost::add_edge(emptyVert, chestVertex, con, anatomyGraph);
-        con.connection = enLeftConnection;
-        boost::add_edge(vert, chestVertex, con, anatomyGraph);
-       
-    }
-   
-    
-    
-    
-    con.connection = enSymmetric;
-    boost::add_edge(vert, emptyVert, con, anatomyGraph);
-    
-
-
-
-    
-}

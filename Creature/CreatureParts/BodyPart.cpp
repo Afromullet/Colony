@@ -102,7 +102,7 @@ BodyPart::BodyPart(bool _canHoldWeapon, bool _canHoldArmor, bool _canInteract, b
 }
 
 
-BodyPart::BodyPart(std::string bptoken,std::string bpname,bool _canHoldWeapon,bool _canHoldArmor,bool _canInteract) : bodyPartToken(bptoken),bodyPartName(bpname),canHoldWeapon(_canHoldWeapon),canHoldArmor(_canHoldArmor),canInteract(_canInteract)
+BodyPart::BodyPart(std::string bptoken,std::string bpname) : bodyPartToken(bptoken),bodyPartName(bpname)
 {
     health = 10;
 }

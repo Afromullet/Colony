@@ -54,17 +54,28 @@ public:
     int id;
     int health;
     std::string bodyPartToken;
+    std::string region;
     bool canHoldWeapon;
     bool canHoldArmor;
     bool canInteract;
     bool canMoveCreature; //Determines whether this part can be used for locomotion
+    bool canSee;
+    bool canSmell;
+    bool canBreathe;
+    
+    
     std::string bodyPartName;
+    
+    
+    
+    
+    
     BodyPart();
     BodyPart(EnumBodyPart _bodypartType,bool _canHoldWeapon, bool _canHoldArmor, bool _canInteract, bool _canMoveCreature,std::string _bodyPartName, int _health);
     
     BodyPart(bool _canHoldWeapon, bool _canHoldArmor, bool _canInteract, bool _canMoveCreature,std::string _bodyPartName, int _health);
     
-    BodyPart(std::string bptoken,std::string bpname,bool _canHoldWeapon,bool _canHoldArmor,bool _canInteract);
+    BodyPart(std::string bptoken,std::string bpname);
     
     BodyPart(const BodyPart &bp);
   

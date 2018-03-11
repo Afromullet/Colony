@@ -9,6 +9,9 @@
     <bptoken>rightleg</bptoken>
     <bptoken>leftfoot</bptoken>
     <bptoken>rightfoot</bptoken>
+    <bptoken>nose</bptoken>
+    <bptoken>lefteye</bptoken>
+    <bptoken>righteye</bptoken>
 </bptokenlist>
 
 
@@ -18,8 +21,6 @@
         <bodypartname>Chest</bodypartname>
         <canholdweapon>false</canholdweapon>
         <canholdarmor>true</canholdarmor>
-        <caninteract>false</caninteract>
-
     </bpdescription>
     
     <bpdescription>
@@ -27,7 +28,6 @@
         <bodypartname>Head</bodypartname>
         <canholdweapon>false</canholdweapon>
         <canholdarmor>true</canholdarmor>
-        <caninteract>false</caninteract>
     </bpdescription>
     
     <bpdescription>
@@ -35,7 +35,6 @@
         <bodypartname>LeftArm</bodypartname>
         <canholdweapon>false</canholdweapon>
         <canholdarmor>true</canholdarmor>
-        <caninteract>false</caninteract>
     </bpdescription>
     
     <bpdescription>
@@ -43,7 +42,6 @@
         <bodypartname>RightArm</bodypartname>
         <canholdweapon>false</canholdweapon>
         <canholdarmor>true</canholdarmor>
-        <caninteract>false</caninteract>
     </bpdescription>
     
     <bpdescription>
@@ -51,7 +49,6 @@
         <bodypartname>LeftHand</bodypartname>
         <canholdweapon>true</canholdweapon>
         <canholdarmor>true</canholdarmor>
-        <caninteract>true</caninteract>
     </bpdescription>
     
     <bpdescription>
@@ -59,7 +56,6 @@
         <bodypartname>RightHand</bodypartname>
         <canholdweapon>true</canholdweapon>
         <canholdarmor>true</canholdarmor>
-        <caninteract>true</caninteract>
     </bpdescription>
     
     <bpdescription>
@@ -67,7 +63,6 @@
         <bodypartname>LeftLeg</bodypartname>
         <canholdweapon>false</canholdweapon>
         <canholdarmor>true</canholdarmor>
-        <caninteract>false</caninteract>
     </bpdescription>
     
     <bpdescription>
@@ -75,7 +70,6 @@
         <bodypartname>RightLeg</bodypartname>
         <canholdweapon>false</canholdweapon>
         <canholdarmor>true</canholdarmor>
-        <caninteract>false</caninteract>
     </bpdescription>
     
     <bpdescription>
@@ -83,7 +77,6 @@
         <bodypartname>LeftFoot</bodypartname>
         <canholdweapon>false</canholdweapon>
         <canholdarmor>true</canholdarmor>
-        <caninteract>false</caninteract>
     </bpdescription>
     
     <bpdescription>
@@ -91,13 +84,71 @@
         <bodypartname>RightFoot</bodypartname>
         <canholdweapon>false</canholdweapon>
         <canholdarmor>true</canholdarmor>
-        <caninteract>false</caninteract>
     </bpdescription>
     
-
-    
+    <bpdescription>
+        <bptoken>nose</bptoken>
+        <bodypartname>Nose</bodypartname>
+        <canholdweapon>false</canholdweapon>
+        <canholdarmor>false</canholdarmor>
+        <cansmell>true</cansmell>
+    </bpdescription>
 </bodyparts>
 
+
+<organs>
+    <bpdescription>
+        <bptoken>rightlung</bptoken>
+        <bodypartname>RightLung</bodypartname>
+        <canbreathe>true</canbreathe>
+    </bpdescription>
+
+    <bpdescription>
+        <bptoken>leftlung</bptoken>
+        <bodypartname>LeftLung</bodypartname>
+        <canbreathe>true</canbreathe>
+    </bpdescription>
+    
+    <bpdescription>
+        <bptoken>leftlung</bptoken>
+        <bodypartname>LeftLung</bodypartname>
+        <canbreathe>true</canbreathe>
+    </bpdescription>
+    
+    <bpdescription>
+        <bptoken>brain</bptoken>
+        <bodypartname>Brain</bodypartname>
+    </bpdescription>
+    
+    <bpdescription>
+        <bptoken>lefteye</bptoken>
+        <bodypartname>LeftEye</bodypartname>
+        <cansee>true</cansee>
+    </bpdescription>
+    
+    <bpdescription>
+        <bptoken>righteye</bptoken>
+        <bodypartname>RightEye</bodypartname>
+        <cansee>true</cansee>
+    </bpdescription>
+    
+    <bpdescription>
+        <bptoken>kidney</bptoken>
+        <bodypartname>Kidney</bodypartname>
+    </bpdescription>
+    
+    <bpdescription>
+        <bptoken>kidney</bptoken>
+        <bodypartname>Kidney</bodypartname>
+    </bpdescription>
+    
+    <bpdescription>
+        <bptoken>intestines</bptoken>
+        <bodypartname>Intestines</bodypartname>
+    </bpdescription>
+    
+    
+</organs>
 
 <bodypartconnections>
     <bodypart>
@@ -109,27 +160,80 @@
     <bodypart>
         <bptoken>leftarm</bptoken>
         <connectsto>chest</connectsto>
-        <connectiontype>left</connectiontype>
+        <connectiontype>externalleft</connectiontype>
     </bodypart>
 
     <bodypart>
         <bptoken>rightarm</bptoken>
         <connectsto>chest</connectsto>
-        <connectiontype>right</connectiontype>
+        <connectiontype>externalright</connectiontype>
     </bodypart>
 
     <bodypart>
         <bptoken>lefthand</bptoken>
         <connectsto>leftarm</connectsto>
-        <connectiontype>left</connectiontype>
+        <connectiontype>externalleft</connectiontype>
     </bodypart>
     
     <bodypart>
         <bptoken>righthand</bptoken>
         <connectsto>rightarm</connectsto>
-        <connectiontype>right</connectiontype>
+        <connectiontype>externalright</connectiontype>
     </bodypart>
-
-
-
+    
+    <bodypart>
+        <bptoken>nose</bptoken>
+        <connectsto>head</connectsto>
+        <connectiontype>direct</connectiontype>
+    </bodypart>
 </bodypartconnections>
+
+
+<organsconnections>
+    <organconnection>
+        <bptoken>chest</bptoken>
+        <connectsto>leftlung</connectsto>
+        <connectiontype>internalleft</connectiontype>
+    </organconnection>
+    
+    <organconnection>
+        <bptoken>chest</bptoken>
+        <connectsto>rightlung</connectsto>
+        <connectiontype>internalright</connectiontype>
+    </organconnection>
+    
+    <organconnection>
+        <bptoken>head</bptoken>
+        <connectsto>brain</connectsto>
+        <connectiontype>internal</connectiontype>
+    </organconnection>
+    
+    <organconnection>
+        <bptoken>head</bptoken>
+        <connectsto>lefteye</connectsto>
+        <connectiontype>externalleft</connectiontype>
+    </organconnection>
+    
+    <organconnection>
+        <bptoken>head</bptoken>
+        <connectsto>righteye</connectsto>
+        <connectiontype>externalleft</connectiontype>
+    </organconnection>
+    
+    <organconnection>
+        <bptoken>chest</bptoken>
+        <connectsto>kidney</connectsto>
+        <connectiontype>internal</connectiontype>
+    </organconnection>
+    
+    <organconnection>
+        <bptoken>chest</bptoken>
+        <connectsto>intestines</connectsto>
+        <connectiontype>internal</connectiontype>
+    </organconnection>
+    
+
+
+</organconnections>
+
+

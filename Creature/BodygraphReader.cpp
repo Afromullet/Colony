@@ -36,7 +36,7 @@ void BodyTypeReader::GenerateVertices()
     
     //Declaring the variables to make this more readable
     std::string bptoken,bpname;
-    int holdsWeapon,holdsArmor,canInteract;
+    int holdsWeapon,holdsArmor,canInteract,canSee,canSmell;
     BOOST_FOREACH(pt::ptree::value_type &v, tree.get_child("bodyparts"))
     {
         if(v.first == "bpdescription")
@@ -47,17 +47,41 @@ void BodyTypeReader::GenerateVertices()
             bpname = v.second.get<std::string>("bodypartname");
             holdsWeapon = convertTruthValue(v.second.get<std::string>("canholdweapon"));
             holdsArmor = convertTruthValue(v.second.get<std::string>("canholdarmor"));
-            canInteract = convertTruthValue(v.second.get<std::string>("caninteract"));
     
-           
-            if(holdsWeapon == -1 || holdsArmor == -1 || canInteract == -1)
+            
+            
+            //These exceptions are here because the user doesn't have to define these for a body part. Defining a body part will be much less painful if some less important parts can be left out
+            try
             {
-                std::cout << "\n Invalid Hold weapon, hold armor or can interact\n";
-                return;
+                canSee = convertTruthValue(v.second.get<std::string>("cansee"));
+            }
+            catch(pt::ptree_bad_path)
+            {
+                canSee = false;
             }
             
+            try
+            {
+                canSmell = convertTruthValue(v.second.get<std::string>("cansmell"));
+            }
+            catch(pt::ptree_bad_path)
+            {
+                canSmell = false;
+            }
+            
+          
+  
+    
+           
+   
          
-            BodyPart bp(bptoken,bpname,holdsWeapon,holdsArmor,canInteract);
+            BodyPart bp(bptoken,bpname);
+            
+            bp.canHoldArmor = holdsArmor;
+            bp.canHoldWeapon = holdsWeapon;
+            bp.canSmell = canSmell;
+            bp.canSee = canSee;
+            
   
             
              boost::add_vertex(bp,anatomyGraph);
@@ -69,6 +93,97 @@ void BodyTypeReader::GenerateVertices()
 
 
 
+}
+
+void BodyTypeReader::GenerateOrganVertices()
+{
+    //BOOST_FOREACH(pt::ptree::value_type &v, tree.get_child("main.cats"))
+    
+    //Declaring the variables to make this more readable
+    std::string bptoken,bpname;
+    int holdsWeapon,holdsArmor,canInteract,canSee,canSmell,canBreathe;
+    BOOST_FOREACH(pt::ptree::value_type &v, tree.get_child("organs"))
+    {
+        if(v.first == "bpdescription")
+        {
+            bptoken = v.second.get<std::string>("bptoken");
+            
+            
+            bpname = v.second.get<std::string>("bodypartname");
+ 
+            
+            
+            
+            //These exceptions are here because the user doesn't have to define these for a body part. Defining a body part will be much less painful if some less important parts can be left out
+            
+            
+            try
+            {
+                holdsArmor = convertTruthValue(v.second.get<std::string>("canholdarmor"));
+            }
+            catch(pt::ptree_bad_path)
+            {
+                holdsArmor = false;
+            }
+            
+            try
+            {
+                holdsWeapon = convertTruthValue(v.second.get<std::string>("canholdweapon"));
+            }
+            catch(pt::ptree_bad_path)
+            {
+                holdsWeapon = false;
+            }
+            
+            
+            try
+            {
+                canSee = convertTruthValue(v.second.get<std::string>("cansee"));
+            }
+            catch(pt::ptree_bad_path)
+            {
+                canSee = false;
+            }
+            
+            try
+            {
+                canSmell = convertTruthValue(v.second.get<std::string>("cansmell"));
+            }
+            catch(pt::ptree_bad_path)
+            {
+                canSmell = false;
+            }
+            
+            try
+            {
+                canBreathe = convertTruthValue(v.second.get<std::string>("canbreathe"));
+            }
+            catch(pt::ptree_bad_path)
+            {
+                canBreathe = false;
+            }
+
+            
+            
+            
+            
+            
+            BodyPart bp(bptoken,bpname);
+            
+            bp.canHoldArmor = holdsArmor;
+            bp.canHoldWeapon = holdsWeapon;
+            bp.canSmell = canSmell;
+            bp.canSee = canSee;
+            bp.canBreathe = canBreathe;
+            
+            
+            
+            boost::add_vertex(bp,anatomyGraph);
+            
+        }
+        
+    }
+    
 }
 
 void BodyTypeReader::GenerateEdges()
@@ -106,6 +221,43 @@ void BodyTypeReader::GenerateEdges()
         std::cout << v.first << "\n";
     }
 
+    
+}
+
+void BodyTypeReader::GenerateOrganEdges()
+{
+    //BOOST_FOREACH(pt::ptree::value_type &v, tree.get_child("main.cats"))
+    
+    
+    int bp1Index,bp2Index;
+    GraphConnection conType;
+    AnatomyIndexMap indMap = get(vertex_index, anatomyGraph); //Getting a proeprty map.
+    BOOST_FOREACH(pt::ptree::value_type &v, tree.get_child("organsconnections"))
+    {
+        if(v.first == "organconnection")
+        {
+            
+            
+            bp1Index = GetVerticesWithToken(v.second.get<std::string>("bptoken"),anatomyGraph);
+            bp2Index = GetVerticesWithToken(v.second.get<std::string>("connectsto"),anatomyGraph);
+            
+            
+            conType.connection = convertConnectionType(v.second.get<std::string>("connectiontype"));
+            
+            boost::add_edge(indMap[bp1Index], indMap[bp2Index],conType, anatomyGraph);
+            
+            
+            
+            
+            
+            
+            
+            
+        }
+        // The data function is used to access the data stored in a node.
+        std::cout << v.first << "\n";
+    }
+    
     
 }
 

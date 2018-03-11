@@ -29,7 +29,10 @@ struct BodyTypeReader
  
     
     void GenerateVertices();
+    void GenerateOrganVertices();
     void GenerateEdges();
+    void GenerateOrganEdges();
+    
     
  
     void load();

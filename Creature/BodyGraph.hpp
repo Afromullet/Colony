@@ -27,7 +27,9 @@ using namespace boost;
 
 
 
-enum EnConnectionType {enSymmetric,enDirect,enLeftConnection,enRightConnection,enInvalidConnection};
+//Internal edge means that it is "inside" of the body part. Don't want to have a graph with both directed and non directed edges
+//So the second of the values in the ordered pair is the part that is internal. (Chest,Lung) with enInternal edge property means that the lung is internal. TODO check if boost graph always adds edges in the order that the function is called , add_edge(a,b) creating (a,b) and never (b,a)
+enum EnConnectionType {enSymmetric,enDirect,enLeftConnection,enRightConnection,enInvalidConnection,enInternal,enInternalLeft,enInternalRight,enExternalLeft,enExternalRight,enExternal};
 
 typedef boost::property < boost::edge_weight_t, double> EdgeWeightProp;
 
@@ -137,20 +139,14 @@ private:
 int GetVerticesWithToken(std::string bptoken,  AnatomyGraph &graph);
 EnConnectionType convertConnectionType(std::string conType);
 void printBodyGraphEdges(const AnatomyGraph &graph);
-
+void printConnectionType(GraphConnection con);
 class BodyGraph
 {
     
 private:
     
     //Every body needs a head and a chest
-    AnatomyVertex headVertex;
-    AnatomyVertex chestVertex;
-    
-    //Keeping tracks of hands makes things easier for purposes of weapons
-    std::vector<BodyPart*> leftHands;
-    std::vector<BodyPart*> rightHands;
-    
+
 public:
 
 
@@ -172,9 +168,7 @@ public:
     
     
     boost::shared_ptr<std::vector<AnatomyVertex>> getVertices();
-    void AddSymmetricPairToChest(BodyPart leftPart, BodyPart rightPart);
-    void AddSymmetricPairToChest(BodyPart part);
-    void AddPartToChest(BodyPart part,GraphConnection leftOrRight);
+
     
     
     
