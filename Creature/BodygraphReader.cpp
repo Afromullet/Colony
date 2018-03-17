@@ -7,6 +7,8 @@
 //
 
 #include "BodygraphReader.hpp"
+#include "BodyGraphGetters.hpp"
+#include "Globals.hpp"
 
 void BodyTypeReader::openBodyTypeFile(const std::string &fileName)
 {
@@ -35,8 +37,8 @@ void BodyTypeReader::GenerateVertices()
     //BOOST_FOREACH(pt::ptree::value_type &v, tree.get_child("main.cats"))
     
     //Declaring the variables to make this more readable
-    std::string bptoken,bpname;
-    int holdsWeapon,holdsArmor,canInteract,canSee,canSmell;
+    std::string bptoken,bpname,section;
+    int holdsWeapon,holdsArmor,canInteract,canSee,canSmell,canBreathe;
     BOOST_FOREACH(pt::ptree::value_type &v, tree.get_child("bodyparts"))
     {
         if(v.first == "bpdescription")
@@ -45,12 +47,27 @@ void BodyTypeReader::GenerateVertices()
             
         
             bpname = v.second.get<std::string>("bodypartname");
-            holdsWeapon = convertTruthValue(v.second.get<std::string>("canholdweapon"));
-            holdsArmor = convertTruthValue(v.second.get<std::string>("canholdarmor"));
-    
+            section = v.second.get<std::string>("section");
+            try
+            {
+                holdsArmor = convertTruthValue(v.second.get<std::string>("canholdarmor"));
+            }
+            catch(pt::ptree_bad_path)
+            {
+                holdsArmor = false;
+            }
+            
+      
+            try
+            {
+                holdsWeapon = convertTruthValue(v.second.get<std::string>("canholdweapon"));
+            }
+            catch(pt::ptree_bad_path)
+            {
+                holdsWeapon = false;
+            }
             
             
-            //These exceptions are here because the user doesn't have to define these for a body part. Defining a body part will be much less painful if some less important parts can be left out
             try
             {
                 canSee = convertTruthValue(v.second.get<std::string>("cansee"));
@@ -69,6 +86,28 @@ void BodyTypeReader::GenerateVertices()
                 canSmell = false;
             }
             
+            try
+            {
+                canBreathe = convertTruthValue(v.second.get<std::string>("canbreathe"));
+            }
+            catch(pt::ptree_bad_path)
+            {
+                canBreathe = false;
+            }
+            
+            try
+            {
+                canSmell = convertTruthValue(v.second.get<std::string>("cansmell"));
+            }
+            catch(pt::ptree_bad_path)
+            {
+                canSmell = false;
+            }
+            
+            
+            
+            
+
           
   
     
@@ -81,6 +120,8 @@ void BodyTypeReader::GenerateVertices()
             bp.canHoldWeapon = holdsWeapon;
             bp.canSmell = canSmell;
             bp.canSee = canSee;
+            bp.section = section;
+            bp.armor = NO_ARMOR;
             
   
             
@@ -100,7 +141,7 @@ void BodyTypeReader::GenerateOrganVertices()
     //BOOST_FOREACH(pt::ptree::value_type &v, tree.get_child("main.cats"))
     
     //Declaring the variables to make this more readable
-    std::string bptoken,bpname;
+    std::string bptoken,bpname,section;
     int holdsWeapon,holdsArmor,canInteract,canSee,canSmell,canBreathe;
     BOOST_FOREACH(pt::ptree::value_type &v, tree.get_child("organs"))
     {
@@ -108,7 +149,7 @@ void BodyTypeReader::GenerateOrganVertices()
         {
             bptoken = v.second.get<std::string>("bptoken");
             
-            
+            section = v.second.get<std::string>("section");
             bpname = v.second.get<std::string>("bodypartname");
  
             
@@ -162,6 +203,16 @@ void BodyTypeReader::GenerateOrganVertices()
             {
                 canBreathe = false;
             }
+            
+            try
+            {
+                canSmell = convertTruthValue(v.second.get<std::string>("cansmell"));
+            }
+            catch(pt::ptree_bad_path)
+            {
+                canSmell = false;
+            }
+            
 
             
             
@@ -175,6 +226,7 @@ void BodyTypeReader::GenerateOrganVertices()
             bp.canSmell = canSmell;
             bp.canSee = canSee;
             bp.canBreathe = canBreathe;
+            bp.section = section;
             
             
             
@@ -313,4 +365,89 @@ int BodyTypeReader::convertTruthValue(std::string truthVal)
     std::cout << "\n Invalid truth val";
     return -1;
 }
+
+
+void BodyTypeReader::Equip(Item *item)
+{
+    
+    for(int i =0; i < item->sections.size(); i++)
+    {
+        Anatomy_DFS_Section_Visitor vis(item->sections.at(i));
+        depth_first_search(anatomyGraph,visitor(vis));
+        std::vector<int> indices = vis.getVertexIndices();
+        
+        for(int j =0; j < indices.size(); j++)
+        {
+            if(item->getItemType() == enArmorType)
+                anatomyGraph[indices.at(j)].EquipArmor(item);
+        }
+        
+        
+        
+    }
+}
+
+void BodyTypeReader::EquipWeapon(Item *item)
+{
+    std::vector<int> indices = getVerticesThatCanHoldWeapons(anatomyGraph);
+    
+    if(item->getItemType() == enWeaponType)
+    {
+        Weapon *wep = dynamic_cast<Weapon*>(item);
+        if(wep->enWeaponSize == enLargeWeapon)
+        {
+            //Need at least two hands
+            if(indices.size() < 2)
+            {
+                std::cout << "\n Don't have two free hands.";
+            }
+            else
+            {
+                //Equip in the first available slots
+                anatomyGraph[indices.at(0)].EquipWeapon(item);
+                anatomyGraph[indices.at(1)].EquipWeapon(&WEAPON_SLOT_FILLED); //Ne
+                
+            }
+            
+                
+            
+        }
+        else
+        {
+            for(int i = 0; i < indices.size(); i++)
+            {
+                if(anatomyGraph[i].weapon == NO_WEAPON)
+                {
+                    anatomyGraph[indices.at(i)].EquipWeapon(item);
+                    break;
+                    
+                }//Change equip weapon function later so it just takes a weapon pointer
+            }
+            
+        }
+        
+        //wep->isEquipped = true;
+        //armor = *arm;
+    }
+    
+    
+    
+}
+
+void BodyTypeReader::AddWeapon(Weapon _weapon)
+{
+    weapons.push_back(_weapon);
+}
+
+void BodyTypeReader::InitializeBodypartEquipment()
+{
+    for(int i=0; i < num_vertices(anatomyGraph); i++)
+    {
+        anatomyGraph[i].EquipWeapon(&NO_WEAPON);
+        anatomyGraph[i].EquipArmor(&NO_ARMOR);
+        
+    }
+}
+
+
 

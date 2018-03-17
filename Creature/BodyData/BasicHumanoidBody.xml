@@ -21,6 +21,7 @@
         <bodypartname>Chest</bodypartname>
         <canholdweapon>false</canholdweapon>
         <canholdarmor>true</canholdarmor>
+        <section>upperbodysection</section>
     </bpdescription>
     
     <bpdescription>
@@ -28,6 +29,7 @@
         <bodypartname>Head</bodypartname>
         <canholdweapon>false</canholdweapon>
         <canholdarmor>true</canholdarmor>
+        <section>headsection</section>
     </bpdescription>
     
     <bpdescription>
@@ -35,6 +37,7 @@
         <bodypartname>LeftArm</bodypartname>
         <canholdweapon>false</canholdweapon>
         <canholdarmor>true</canholdarmor>
+        <section>armsection</section>
     </bpdescription>
     
     <bpdescription>
@@ -42,6 +45,7 @@
         <bodypartname>RightArm</bodypartname>
         <canholdweapon>false</canholdweapon>
         <canholdarmor>true</canholdarmor>
+        <section>armsection</section>
     </bpdescription>
     
     <bpdescription>
@@ -49,6 +53,7 @@
         <bodypartname>LeftHand</bodypartname>
         <canholdweapon>true</canholdweapon>
         <canholdarmor>true</canholdarmor>
+        <section>handsection</section>
     </bpdescription>
     
     <bpdescription>
@@ -56,6 +61,7 @@
         <bodypartname>RightHand</bodypartname>
         <canholdweapon>true</canholdweapon>
         <canholdarmor>true</canholdarmor>
+        <section>handsection</section>
     </bpdescription>
     
     <bpdescription>
@@ -63,6 +69,7 @@
         <bodypartname>LeftLeg</bodypartname>
         <canholdweapon>false</canholdweapon>
         <canholdarmor>true</canholdarmor>
+        <section>legsection</section>
     </bpdescription>
     
     <bpdescription>
@@ -70,6 +77,7 @@
         <bodypartname>RightLeg</bodypartname>
         <canholdweapon>false</canholdweapon>
         <canholdarmor>true</canholdarmor>
+        <section>legsection</section>
     </bpdescription>
     
     <bpdescription>
@@ -77,6 +85,7 @@
         <bodypartname>LeftFoot</bodypartname>
         <canholdweapon>false</canholdweapon>
         <canholdarmor>true</canholdarmor>
+        <section>footsection</section>
     </bpdescription>
     
     <bpdescription>
@@ -84,6 +93,7 @@
         <bodypartname>RightFoot</bodypartname>
         <canholdweapon>false</canholdweapon>
         <canholdarmor>true</canholdarmor>
+        <section>footsection</section>
     </bpdescription>
     
     <bpdescription>
@@ -92,6 +102,7 @@
         <canholdweapon>false</canholdweapon>
         <canholdarmor>false</canholdarmor>
         <cansmell>true</cansmell>
+        <section>headsection</section>
     </bpdescription>
 </bodyparts>
 
@@ -101,50 +112,46 @@
         <bptoken>rightlung</bptoken>
         <bodypartname>RightLung</bodypartname>
         <canbreathe>true</canbreathe>
+        <section>upperbodyinternalsection</section>
     </bpdescription>
 
     <bpdescription>
         <bptoken>leftlung</bptoken>
         <bodypartname>LeftLung</bodypartname>
         <canbreathe>true</canbreathe>
-    </bpdescription>
-    
-    <bpdescription>
-        <bptoken>leftlung</bptoken>
-        <bodypartname>LeftLung</bodypartname>
-        <canbreathe>true</canbreathe>
+        <section>upperbodyinternalsection</section>
     </bpdescription>
     
     <bpdescription>
         <bptoken>brain</bptoken>
         <bodypartname>Brain</bodypartname>
+         <section>headinternalsection</section>
     </bpdescription>
     
     <bpdescription>
         <bptoken>lefteye</bptoken>
         <bodypartname>LeftEye</bodypartname>
         <cansee>true</cansee>
+        <section>headexternalsection</section>
     </bpdescription>
     
     <bpdescription>
         <bptoken>righteye</bptoken>
         <bodypartname>RightEye</bodypartname>
         <cansee>true</cansee>
+        <section>headexternalsection</section>
     </bpdescription>
     
     <bpdescription>
         <bptoken>kidney</bptoken>
         <bodypartname>Kidney</bodypartname>
-    </bpdescription>
-    
-    <bpdescription>
-        <bptoken>kidney</bptoken>
-        <bodypartname>Kidney</bodypartname>
+        <section>chestinternalsection</section>
     </bpdescription>
     
     <bpdescription>
         <bptoken>intestines</bptoken>
         <bodypartname>Intestines</bodypartname>
+        <section>chestinternalsection</section>
     </bpdescription>
     
     

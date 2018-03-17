@@ -48,12 +48,15 @@ public:
     bool isEquipped;
     EntityTile itemTile; //The texture of this item
     
-    EnFitsBodyPart enFitsType;
+    std::vector<std::string> sections; //The sections this armor covers
     
+    EnFitsBodyPart enFitsType;
+    std::string section;
     
     Item(int _material, EnumBodyPart _enFitsBodyPart, std::string _sEquipmentName);
     
     Item(std::string equipmentName, EnItemType _itemType);
+    Item(std::string equipmentName, std::string _section);
     Item();
     virtual Item *clone() const = 0;
     virtual Item *create() const  = 0;
@@ -73,6 +76,9 @@ public:
     
     bool getIsEquipped();
     EnItemType getItemType();
+    
+    
+    bool isValidSection(std::string _section);
 
     EntityTile &getTile();
     

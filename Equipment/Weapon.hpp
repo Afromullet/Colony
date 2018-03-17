@@ -15,7 +15,7 @@
 
 
 
-
+enum EnWeaponSize{enSmallWeapon,enMediumWeapon,enLargeWeapon};
 
 class Weapon : public Item, public Throwable
 {
@@ -24,6 +24,7 @@ private:
     short int siRange;
     short int siDamage;
     EnumWeaponClass enWeaponClass;
+    
     
     
 public:
@@ -38,6 +39,10 @@ public:
     
     Weapon(const Weapon &weapon);
     Weapon(Weapon &weapon);
+    Weapon(std::string _itemname,std::string _section);
+    
+    bool isTwohanded;
+    EnWeaponSize enWeaponSize;
 
     
     //Once you get armor working, implement this just like you did with armor
@@ -64,6 +69,8 @@ public:
     EnumWeaponClass getWeaponClass();
     EnumBonusType getAttackBonusType();
     bool isRangedWeapon();
+    
+    
     std::string getItemExamineString();
     
     

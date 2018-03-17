@@ -42,6 +42,11 @@ Armor::Armor(std::string itemName, EnItemType _itemType) :Item(itemName,_itemTyp
     
 }
 
+Armor::Armor(std::string itemName, std::string _section) :Item(itemName,_section)
+{
+    
+}
+
 //Ah..the bug was here. It wasn't copying the data needed because I thought it was using the Armor &armor() constructor, but it calls this oen instead Armor::Armor(const Armor &armor)
 Armor::Armor(const Armor &armor)
 {
@@ -70,6 +75,7 @@ Armor::Armor(const Armor &armor)
     fDamageReduction = armor.fDamageReduction;
     fMovementModifier = armor.fMovementModifier;
     enArmorClass = armor.enArmorClass;
+    section = armor.section;
     
 
     

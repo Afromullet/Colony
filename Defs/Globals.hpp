@@ -54,6 +54,7 @@ extern BaseCreature player; //Maybe sometimes in the future there'll be more tha
 
 extern Weapon FIST_WEAPON;
 extern Weapon NO_WEAPON;
+extern Weapon WEAPON_SLOT_FILLED;
 extern Armor NO_ARMOR;
 
 //Read these from a file later and store in a vector of strings

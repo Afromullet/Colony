@@ -54,7 +54,7 @@ public:
     int id;
     int health;
     std::string bodyPartToken;
-    std::string region;
+    std::string section;
     bool canHoldWeapon;
     bool canHoldArmor;
     bool canInteract;
@@ -91,6 +91,7 @@ public:
     void EquipItem(Item *item);
     
     void EquipArmor(Item *item);
+    void EquipWeapon(Item *item);
 
     void setBodyPartType(EnumBodyPart _bodyPartType);
     Armor getArmor();

@@ -19,6 +19,12 @@ Item::Item(std::string equipmentName, EnItemType _itemType) : sEquipmentName(equ
 }
 
 
+Item::Item(std::string equipmentName, std::string _section) : sEquipmentName(equipmentName), section(_section)
+{
+    
+}
+
+
 
 Item::Item() : material(1),enFitsBodyPart(enUndefinedPart),sEquipmentName("no name"),isEquipped(false)
 {
@@ -87,5 +93,15 @@ bool Item::getIsEquipped()
     return isEquipped;
 }
 
+bool Item::isValidSection(std::string _section)
+{
+    for(int i =0 ; i < sections.size(); i++)
+    {
+        if(sections.at(i) == _section)
+            return true;
+    }
+    
+    return false;
+}
 
 

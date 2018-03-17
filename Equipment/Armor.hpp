@@ -24,6 +24,7 @@ private:
     float fDodgeModifier;
     float fDamageReduction;
     float fMovementModifier;
+    
     EnumArmorClass enArmorClass;
     
 public:
@@ -34,6 +35,7 @@ public:
     Armor(int _material,std::string _sEquipmentName, short int _siArmorBonus, float _fDodgeModifier, float _fDamageReduction,float _fMovementModifier,EnumArmorClass _enArmorClas);
     
      Armor(std::string itemName, EnItemType _itemType);
+    Armor(std::string itemName, std::string _section);
     
     Armor(const Armor &armor);
     Armor(Armor &armor);

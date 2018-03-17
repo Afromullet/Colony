@@ -76,7 +76,7 @@ void InitializeGlobalBodyParts()
 
 std::ostream& operator<<(std::ostream& os, const BodyPart& bp)
 {
-    os << "\nBodypart Name " << bp.bodyPartName << "\nHealth " << bp.health << "\nCan Hold Armor " << bp.canHoldArmor << "\nCan Hold Weapon " << bp.canHoldWeapon << "\nCan Interact " << bp.canInteract << "\nArmor Name " << bp.armor.sEquipmentName;
+    os << "\nBodypart Name " << bp.bodyPartName << "\nHealth " << bp.health << "\nCan Hold Armor " << bp.canHoldArmor << "\nCan Hold Weapon " << bp.canHoldWeapon << "\nCan Interact " << bp.canInteract << "\nArmor Name " << bp.armor.sEquipmentName << "\nCan Breathe " << bp.canBreathe << "\nCan See " << bp.canSee << "\n Can smell " << bp.canSmell << "\n Token " << bp.bodyPartToken << "\n Section " << bp.section << "\nWeapon Name " << bp.weapon.sEquipmentName  << "\n\n";
     return os;
     
 }
@@ -112,12 +112,18 @@ BodyPart::BodyPart(std::string bptoken,std::string bpname) : bodyPartToken(bptok
 BodyPart::BodyPart(const BodyPart& bp)
 {
     health = bp.health;
+    
     canHoldWeapon = bp.canHoldWeapon;
     canHoldArmor = bp.canHoldArmor;
+    canBreathe = bp.canBreathe;
     canInteract = bp.canInteract;
     canMoveCreature = bp.canMoveCreature;
+    canSmell = bp.canSmell;
+    
+    
     bodyPartName = bp.bodyPartName;
     bodyPartToken = bp.bodyPartToken;
+    section = bp.section;
     
     enBodyPartType = bp.enBodyPartType;
     armor = bp.armor;
@@ -160,26 +166,24 @@ void BodyPart::EquipItem(Item *item)
 void BodyPart::EquipArmor(Item *item)
 {
     
-    if(item->getBodyPart() != enBodyPartType)
+    if(item->isValidSection(section))
     {
-        std::cout << "\n Equipment Name " << item->getItemName();
-        std::cout << "\n" << item->getBodyPart() <<  " vs " << enBodyPartType;
-        std::cout << "Doesn't fit into slot";
-    }
-    else if(item->getItemType() == enArmor && canHoldArmor)
-    {
-        
-        Armor *arm = dynamic_cast<Armor*>(item);
-        arm->isEquipped = true;
-        armor = *arm;
+        if(item->getItemType() == enArmorType && canHoldArmor)
+        {
+            Armor *arm = dynamic_cast<Armor*>(item);
+            arm->isEquipped = true;
+            armor = *arm;
+        }
         
     }
-    else
-    {
-        errorLog.writeToFile("Error equipping item of type\n");
-        
-    }
-    
+}
+
+void BodyPart::EquipWeapon(Item *item)
+{
+    Weapon *wep = dynamic_cast<Weapon*>(item);
+    wep->isEquipped = true;
+    weapon = *wep;
+
 }
 
 

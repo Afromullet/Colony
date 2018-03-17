@@ -60,7 +60,7 @@
 #include "BodyGraph.hpp"
 #include <string>
 #include "BodyGraphReader.hpp"
-
+#include "BodyGraphGetters.hpp"
 void GameLoop3();
 
 void MoveAllCreatures();
@@ -258,11 +258,75 @@ srand(time(NULL));
     bReader.GenerateOrganVertices();
     bReader.GenerateOrganEdges();
     printBodyGraphEdges(bReader.anatomyGraph);
+    printBodyGraphVertices(bReader.anatomyGraph);
+
     
 
     bReader.load();
+    bReader.InitializeBodypartEquipment();
+    
+    Anatomy_DFS_Section_Visitor vis("armsection");
+    depth_first_search(bReader.anatomyGraph,visitor(vis));
+    boost::shared_ptr<std::vector<AnatomyVertex>> aVec = vis.getVector();
+    std::vector<int> vectorIndices;
+    vectorIndices = vis.getVertexIndices();
     
     
+    for(int i = 0; i < vectorIndices.size(); i++)
+    {
+        std::cout << bReader.anatomyGraph[vectorIndices.at(i)];
+    }
+    
+    for(int i=0; i < aVec->size(); i++)
+    {
+       ;
+        bReader.anatomyGraph[vectorIndices.at(i)].ApplyDamage(5);
+    }
+    
+    for(int i=0; i < num_vertices(bReader.anatomyGraph); i++)
+    {
+        std::cout << bReader.anatomyGraph[i];
+    }
+    
+    
+    std::cout << "\n\n\n\n New";
+    
+    
+    
+    Armor testArmor;
+    testArmor.setItemName("TestArmor1");
+    testArmor.sections.push_back("upperbodysection");
+    testArmor.sections.push_back("armsection");
+    
+    
+    Weapon testWeapon;
+    testWeapon.enWeaponSize = enLargeWeapon;
+    testWeapon.sEquipmentName = "TestWeapon";
+    testWeapon.setItemType(enWeaponType);
+    
+    bReader.Equip(&testArmor);
+    bReader.EquipWeapon(&testWeapon);
+    
+    for(int i = 0; i < num_vertices(bReader.anatomyGraph); i++)
+    {
+        std::cout << "\n" << bReader.anatomyGraph[i];
+    }
+    
+    
+    getVerticesThatCanHoldWeapons(bReader.anatomyGraph);
+    int b = getFirstUnequippedFromSection(bReader.anatomyGraph,"armsection");
+    std::cout << "\n B = " << b;
+    std::cout << bReader.anatomyGraph[b];
+    
+    std::cout << "\n\n\n\n New 1";
+    
+    b = getFirstUnequippedFromSection(bReader.anatomyGraph,"legsection");
+    std::cout << "\n B = " << b;
+    std::cout << bReader.anatomyGraph[b];
+    
+    b = getFirstUnequippedFromSection(bReader.anatomyGraph,"footsection");
+    std::cout << "\n B = " << b;
+    std::cout << bReader.anatomyGraph[b];
 
   
     WeightMap wMap = get(edge_weight,graph);
@@ -297,11 +361,11 @@ srand(time(NULL));
 
 
     
-    Anatomy_BFS_Visitor vis;
+    //Anatomy_BFS_Visitor vis;
     //breadth_first_search(gr.anatomyGraph, vertex(0, gr.anatomyGraph), visitor(vis));
-    boost::shared_ptr<std::vector<AnatomyVertex>> aVec = gr.getVertices();
+  //  boost::shared_ptr<std::vector<AnatomyVertex>> aVec = gr.getVertices();
     boost::shared_ptr<std::vector<AnatomyVertex>> nVec;
-    
+    /*
     std::cout << "\n A Vec size" << aVec->size();
     
  
@@ -316,7 +380,7 @@ srand(time(NULL));
         std::cout << gr.anatomyGraph[aVec->at(i)];
        // std::cout << gr.anatomyGraph[aVec->at(i)];
     }
-    
+    */
     /*
     std::cout << "distances and parents:" << std::endl;
     tVertexIt  vi, vend;

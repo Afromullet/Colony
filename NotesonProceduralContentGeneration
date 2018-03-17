@@ -1,0 +1,25 @@
+
+Things I want to generate
+
+Levels
+Environment
+Weather
+Anatomy
+Items
+
+
+First, determine what sort of content I want to generate proceduraly. Then, what are the constraits for that? Since the engine is intended to deal with a variety of settings, the constraits will vary based on what sort of setting the player creates. For example, level design will be different for a sci-fi game compared to a medieval game. A sci-fi game will have a greater number of ranged weapons, which will impact level design and enemy placement. Enemies bunched together will result in different gameplay effects if the player has swords and bows compared to grenades and rocket launchers.
+
+IMPORTANT NOTE
+
+Mainly, I want the player to interact with the world in various ways, and for the environment to interact with itself. For example, a methane geyser + a fire spell, lightning causing a forest fire, burning more trees and increasing surrounding temperature.
+
+So I will need to model climate somehow, weather, natural features.
+
+
+IMPORTANT NOTE END
+
+What part of the content should be hand generated? Should the inputs to the procedural generation algorithms be hand generated? All of the input, just part of it?
+
+
+For each piece of content that is procedural generated, I need a set of rules and guides

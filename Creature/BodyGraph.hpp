@@ -62,6 +62,8 @@ typedef boost::graph_traits<AnatomyGraph>::vertex_iterator AnatomyVertexIt;
 typedef boost::property_map<AnatomyGraph, vertex_index_t>::type AnatomyIndexMap;
 
 
+
+
 class edge_predicate_c {
 public:
     edge_predicate_c() : graph_m(0) {}
@@ -108,9 +110,6 @@ public:
     Anatomy_DFS_Visitor(): anatomyVerts(new std::vector<AnatomyVertex>()){}
     void discover_vertex(AnatomyVertex u, const AnatomyGraph & g) const
     {
-     //   std::cout << u << std::endl;
-        
-       // std::cout << g[u];
         anatomyVerts->push_back(u);
     }
     
@@ -118,9 +117,6 @@ public:
     {
         std::cout << e;
     }
-    
-    
-    
     
     boost::shared_ptr<std::vector<AnatomyVertex>> getVector()
     {
@@ -135,11 +131,7 @@ private:
 };
 
 
-//Returns the vertex index
-int GetVerticesWithToken(std::string bptoken,  AnatomyGraph &graph);
-EnConnectionType convertConnectionType(std::string conType);
-void printBodyGraphEdges(const AnatomyGraph &graph);
-void printConnectionType(GraphConnection con);
+
 class BodyGraph
 {
     

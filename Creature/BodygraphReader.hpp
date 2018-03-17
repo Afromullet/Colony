@@ -19,6 +19,7 @@
 
 namespace pt = boost::property_tree;
 
+//Rename class..just use this as the bodygraph later
 
 struct BodyTypeReader
 {
@@ -26,12 +27,18 @@ struct BodyTypeReader
     pt::ptree tree;
     std::string m_file;
     std::vector<std::string> bodyTokenList;
+    
+    std::vector<Weapon> weapons; //Need to handle weapons differently because of things such as two handed weapons and what not. EquipWeapon inside BodyPart won't work because two handed weapons require two hands, and a BodyPart only knows about itself
+    
  
     
     void GenerateVertices();
     void GenerateOrganVertices();
     void GenerateEdges();
     void GenerateOrganEdges();
+    void AddWeapon(Weapon _weapon);
+    
+    void InitializeBodypartEquipment();
     
     
  
@@ -39,6 +46,9 @@ struct BodyTypeReader
     void openBodyTypeFile(const std::string &fileName);
     void readBodyTokenList();
     int convertTruthValue(std::string truthVal);
+    
+    void Equip(Item *item);
+    void EquipWeapon(Item *item);
     
    
     

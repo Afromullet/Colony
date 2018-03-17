@@ -22,6 +22,7 @@ std::vector<TileIDData> tileIDTable; //Tile types are predefined. TODO, populate
 Armor NO_ARMOR(1,enAnyBodyPart,"No armor",0,0,0,0,enLight);
 Weapon FIST_WEAPON(1,enFitsOneHand,"Fist Weapon",1,1,enUnarmed);
 Weapon NO_WEAPON(1,enFitsOneHand,"No weapon",0,0,enUndefinedWeaponClass);
+Weapon WEAPON_SLOT_FILLED(1,enFitsOneHand,"Weapon Slot Filled",0,0,enUndefinedWeaponClass);
 
 std::string leftArmString = "Left Arm";
 std::string rightArmString = "Right Arm";

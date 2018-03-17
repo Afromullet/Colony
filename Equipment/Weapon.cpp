@@ -41,7 +41,9 @@ Weapon::Weapon() : Item(-1,enFitsOneHand,"No Weapon"),siRange(-1),siDamage(-1),e
 }
 
 
-
+Weapon::Weapon(std::string _itemname,std::string _section) : Item(_itemname,_section) {
+    
+}
 
 
 
