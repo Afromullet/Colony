@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include "Pathfinding.hpp"
 #include <boost/property_map/property_map.hpp>
-enum POIType{enWeaponPOI,enArmorPOI,enFoodPOI,enWaterPOI,enAllyPOI,enEnemyPOI,enItemPOI};
+enum POIType{enWeaponPOI,enArmorPOI,enFoodPOI,enWaterPOI,enAllyPOI,enEnemyPOI,enItemPOI,enCreaturePOI};
 
 struct PointOfInterest
 {

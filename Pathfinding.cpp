@@ -128,7 +128,7 @@ std::map<GridLocation,GridLocation> aStarSearch(Map &map, GridLocation start, Gr
     endLocation.x = end.x;
     endLocation.y = end.y;
     
- std::cout << "\nCost so far size " << costSoFar.size();
+ //std::cout << "\nCost so far size " << costSoFar.size();
     while(!frontier.empty())
     {
         AStarNode current = frontier.top();

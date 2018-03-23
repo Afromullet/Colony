@@ -35,6 +35,7 @@ public:
     std::vector<BaseCreature> getVisibleCreatures(Map &map);
     std::vector<Item*> getVisibleItems(Map &map);
     std::vector<GridLocation> getVisibleItemLocation(Map &map);
+    std::vector<GridLocation> getVisibleCreatureLocation(Map &map);
     std::vector<sf::Vector2i> getVisibleCoordinates(Map &map);
     
     

@@ -21,16 +21,24 @@ namespace pt = boost::property_tree;
 
 //Rename class..just use this as the bodygraph later
 
-struct CreatureBody
+class CreatureBody
 {
-    AnatomyGraph anatomyGraph;
+    
+private:
     pt::ptree tree;
     std::string m_file;
     std::vector<std::string> bodyTokenList;
     
+public:
+    
+    AnatomyGraph anatomyGraph;
+
+    
     std::vector<Weapon> weapons; //Need to handle weapons differently because of things such as two handed weapons and what not. EquipWeapon inside BodyPart won't work because two handed weapons require two hands, and a BodyPart only knows about itself
     
  
+    
+    CreatureBody();
     
     void GenerateVertices();
     void GenerateOrganVertices();

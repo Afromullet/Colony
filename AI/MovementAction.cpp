@@ -14,7 +14,8 @@
 
 BasicMovementAction::BasicMovementAction(Map &_map,BaseCreature &_creature) : AbstractAction(_map,_creature)
 {
-    
+    actionType = enMoveAction;
+    actionName = "BasicMoveAction";
 }
 
 
@@ -46,6 +47,8 @@ bool BasicMovementAction::PrepareAction()
         
     }
     
+    return true;
+    
   
    
 }
@@ -60,38 +63,8 @@ bool BasicMovementAction::PerformAction()
 {
     
     creature.WalkPath(map);
-    /*
- 
-     std::cout << "\n New Movement Path Size " << movementPath.size();
-    if(movementPath.size() == 0)
-    {
-        std::cout << "\n mov path 0";
-        return false;
-        
-    }
-    
-    sf::Vector2i tempPoint;
-    tempPoint.x = AbstractMovementAction::getDestination(0).x;
-    tempPoint.y = AbstractMovementAction::getDestination(0).y;
-    
-    if(!map.isInBounds(tempPoint) || !map.canHoldCreature(tempPoint) ||map.isCreatureOnTile(tempPoint) )
-        return false;
-    
-
-    
-    map.Map2D[creature.getPosition().x][creature.getPosition().y].ClearCreatureOnTile();
-    
-    
-    
-    
-    creature.setPosition(tempPoint.x, tempPoint.y);
-    map.Map2D[tempPoint.x][tempPoint.y].SetCreatureOnTile(&creature);
-    
-    */
-    
-    
-    //AbstractMovementAction::getDestinationsSize()
-    
+    return true;
+       
     
     
 }

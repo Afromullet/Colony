@@ -10,6 +10,11 @@
 #include "BodyGraphGetters.hpp"
 #include "Globals.hpp"
 
+CreatureBody::CreatureBody()
+{
+    
+}
+
 void CreatureBody::openBodyTypeFile(const std::string &fileName)
 {
    

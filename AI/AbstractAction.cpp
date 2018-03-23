@@ -14,6 +14,11 @@ AbstractAction::AbstractAction(Map &_map,BaseCreature &_creature) : map(_map),cr
     
 }
 
+void AbstractAction::AddPOI(PointOfInterest poi)
+{
+    pointsOfInterest.addPointOfInterest(poi);
+}
+
 void AbstractAction::AddDestination(GridLocation loc)
 {
     destinations.push_back(loc);
@@ -46,4 +51,7 @@ GridLocation AbstractAction::getDestination(int index)
     return destinations.at(index);
 }
 
-
+void AbstractAction::clearPath()
+{
+    creature.clearPath();
+}

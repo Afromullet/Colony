@@ -1,0 +1,3 @@
+The need hierarchy describes the relationship between needs
+
+For example, to fulfill enWeaponNeed,the enWeaponLocationNeed has to be fulfilled

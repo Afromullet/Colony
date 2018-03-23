@@ -61,6 +61,11 @@
 #include <string>
 #include "BodyGraphReader.hpp"
 #include "BodyGraphGetters.hpp"
+#include "Task.hpp"
+#include "MovementAction.hpp"
+#include "ExamineAction.hpp"
+
+
 void GameLoop3();
 
 void MoveAllCreatures();
@@ -176,6 +181,13 @@ srand(time(NULL));
     
 
     int currentID = 0;
+    
+    BasicMovementAction movementAction(caMap,player);
+    BasicExamineSurroundingAction examineAction(caMap,player);
+    
+    Task task;
+    task.AddEdge(&movementAction);
+    task.AddEdge(&examineAction);
     
 
 
@@ -761,7 +773,7 @@ void SetupCurrentMap(Map *map)
  setupTestCreatures();
    CreateTargetCreatures(mapdata);
     
-    GenerateRandomItems(mapdata,10);
+    GenerateRandomItems(mapdata,30);
     mapdata.PlaceCreaturesOnMap();
     mapdata.PlaceItemsOnMap();
     

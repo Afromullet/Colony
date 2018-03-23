@@ -14,7 +14,7 @@
 #include "BasicBehavior.hpp"
 #include "ScoutingBehavior.hpp"
 #include "MovementAction.hpp"
-
+#include "ExamineAction.hpp"
 bool usingTargetSquare = false;
 bool isInventoryWindowOpen = false;
 bool isEquipmentWindowOpen = false;
@@ -34,6 +34,8 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
     
     ScoutingBehavior sBehavior;
     BasicMovementAction movementAction(*mapdata.map,creature);
+    BasicExamineSurroundingAction examineAction(*mapdata.map,creature);
+    
     //movementAction.setCreature(creature);
     while(!PlayerActionTaken)
     {
@@ -382,6 +384,7 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
             loc.y = 15;
             movementAction.AddDestination(loc);
             movementAction.PrepareAction();
+            examineAction.PerformAction();
            // sBehavior.SelectRandomSearchLocation(mapdata.map->GetWidth(), mapdata.map->GetHeight(),*mapdata.map);
             
             
