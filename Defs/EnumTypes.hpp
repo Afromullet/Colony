@@ -15,37 +15,23 @@
 
 enum TileTerrainType{enGrass1,enSnow1,enSwamp1,enFloor1,enWall1,enUndefinedTerrain};
 
-enum Behaviors
-{
-    SEEK=0,
-    RANDOM_MOVE=1
-};
 
 
 enum EnItemType {enArmorType,enWeaponType,enArmor,enWeapon};
 //For equipment, to let us know what slot it fits it
 //enum EnumFitsBodyPart {enHead,enChest,enFeet,enLegs,enHands,enOneHanded,enTwoHanded,enUndefinedBodyPart,enArms};
 
-//For specific body parts.
-enum EnumBodyPart{enHead,enHeadBodyPart,enLeftArmBodyPart,enRightArmBodyPart,enLeftLegBodyPart,enRightLegBodyPart,enLeftFootBodyPart,enRightFootBodyPart,enChestBodyPart,enLeftHandBodyPart,enRightHandBodyPart,enUndefinedPart,enLegsBodyPart,enArmsBodyPart,enHandsBodyPart,enFeetBodyPart,enFitsOneHand,enFitsBothHands,enAnyBodyPart,enFootBodyPart,enHandPart,enLegPart,enFootPart,enEmptyBodyPart
-};
 
 //Don't want to make separate classes for right and lef limbs...Maybe there's a better option than enums to distinguish between limbs. research todo
 
-enum EnFitsBodyPart{
-    enFitsHead,enFitsChest,enFitsArm,enFitsHand,enFitsLeg,enFitsFoot
-};
-
-//The various types of weapons
-enum EnumWeaponClass{enDagger,enShortSword,enLongSword,enGreatsword,enLongbow,enCrossbow,enMace,enHammer,enUndefinedWeaponClass,enUnarmed};
 
 
-enum EnumBonusType{enStrengthBonus,enDexterityBonus,enUndefinedBonus};
 
-//The different armor classes
-enum EnumArmorClass{enLight,enMedium,enHeavy,enBuckler,enLightShield,enHeavyShield,enUndefinedArmorClass};
 
-void PrintEnumBodyPart(EnumBodyPart enBodyPart);
+
+
+
+
 
 enum MoveDirection{Up,Left,Right,Down};
 

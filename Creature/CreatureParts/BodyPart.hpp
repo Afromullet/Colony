@@ -71,9 +71,9 @@ public:
     
     
     BodyPart();
-    BodyPart(EnumBodyPart _bodypartType,bool _canHoldWeapon, bool _canHoldArmor, bool _canInteract, bool _canMoveCreature,std::string _bodyPartName, int _health);
-    
     BodyPart(bool _canHoldWeapon, bool _canHoldArmor, bool _canInteract, bool _canMoveCreature,std::string _bodyPartName, int _health);
+    
+
     
     BodyPart(std::string bptoken,std::string bpname);
     
@@ -83,7 +83,7 @@ public:
 
     Armor armor;
     Weapon weapon;
-    EnumBodyPart enBodyPartType;
+  
     
     //Don't want a separate class for body parts that can equip weapons and armor, so just fill the data as determined
     //by the canHoldWeapon and canHoldArmor. The additional space used by Armor and Weapon for every creature that may not even be able to use them is worth managing everything more easily
@@ -93,7 +93,7 @@ public:
     void EquipArmor(Item *item);
     void EquipWeapon(Item *item);
 
-    void setBodyPartType(EnumBodyPart _bodyPartType);
+
     Armor getArmor();
     Weapon getWeapon();
     

@@ -8,7 +8,7 @@
 
 #include <stdio.h>
 #include "Equipment.hpp"
-#include "Throwable.hpp"
+
 
 #ifndef Weapon_hpp
 #define Weapon_hpp
@@ -17,13 +17,13 @@
 
 enum EnWeaponSize{enSmallWeapon,enMediumWeapon,enLargeWeapon};
 
-class Weapon : public Item, public Throwable
+class Weapon : public Item
 {
 private:
     friend class Item;
     short int siRange;
     short int siDamage;
-    EnumWeaponClass enWeaponClass;
+  
     
     
     
@@ -32,8 +32,8 @@ public:
     bool operator==(const Weapon &other) const;
     
     //todo getters and setters
-    Weapon(int _material,EnumBodyPart _enFitsBodyPart, std::string _sEquipmentName, short int _siRange,
-   short int _siDamage,EnumWeaponClass _enWeaponClass);
+    Weapon(int _material, std::string _sEquipmentName, short int _siRange,
+   short int _siDamage);
     
     Weapon();
     
@@ -65,9 +65,9 @@ public:
     short int getRange();
     short int getDamage();
     float getDamageModifier();
-    EnumBodyPart getBodyPart();
-    EnumWeaponClass getWeaponClass();
-    EnumBonusType getAttackBonusType();
+   
+  
+ 
     bool isRangedWeapon();
     
     
@@ -84,8 +84,8 @@ public:
     void setDamage(short int value);
     //void setItemName(int value);
     void setMaterial(int value);
-    void setFitsBodyPart(EnumBodyPart value);
-    void setWeaponClass(EnumWeaponClass weaponClass);
+
+
     void CalculateMaterialBonuses();
     void showItemStats();
     
@@ -99,10 +99,9 @@ public:
     void operator = (const Weapon &weapon ) {
         siRange = weapon.siRange;
         siDamage = weapon.siDamage;
-        enWeaponClass = weapon.enWeaponClass;
+        
      
         material = weapon.material;
-        enFitsBodyPart = weapon.enFitsBodyPart;
         enItemType = weapon.enItemType;
         sEquipmentName = weapon.sEquipmentName;
         position = weapon.position;

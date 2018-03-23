@@ -45,11 +45,8 @@ private:
     short int moveSpeed; //Currently both x and y speed
     int totalHealth;
     
+    
     sf::Vector2i position;
-
-
-    
-    
     std::list<Item*> creatureItems;
     
     std::queue<sf::Vector2i> path; //A queue holding the path a creature walks
@@ -58,9 +55,9 @@ private:
     
 public:
     
+    
+    
     Vision vision;
-    
-    
     BaseCreature();
 
   
@@ -123,7 +120,7 @@ public:
     void WalkPath(Map &map);
     void clearPath();
     
-    GridLocation getGridLocation();
+
     
     void setTotalHealth(int _health);
     int getTotalHealth();

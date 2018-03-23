@@ -25,15 +25,14 @@ private:
     float fDamageReduction;
     float fMovementModifier;
     
-    EnumArmorClass enArmorClass;
+  
     
 public:
     
     bool operator==(const Armor &other) const;
     
-    Armor(int _material, EnumBodyPart _enFitsBodyPart, std::string _sEquipmentName, short int _siArmorBonus, float _fDodgeModifier, float _fDamageReduction,float _fMovementModifier,EnumArmorClass _enArmorClas);
-    Armor(int _material,std::string _sEquipmentName, short int _siArmorBonus, float _fDodgeModifier, float _fDamageReduction,float _fMovementModifier,EnumArmorClass _enArmorClas);
-    
+    Armor(int _material,std::string _sEquipmentName, short int _siArmorBonus, float _fDodgeModifier, float _fDamageReduction,float _fMovementModifier);
+
      Armor(std::string itemName, EnItemType _itemType);
     Armor(std::string itemName, std::string _section);
     
@@ -70,8 +69,8 @@ public:
     float fGetDodgeModifier();
     float fGetDamageReduction();
     float fGetMovementModifier();
-    EnumBodyPart getBodyPart();
-    EnumArmorClass getArmorClass();
+
+  
     std::string getItemExamineString();
     
 
@@ -84,7 +83,7 @@ public:
     
     //void setItemName(int value);
     void setMaterial(int value);
-    void setFitsBodyPart(EnumBodyPart value);
+   
     void CalculateMaterialBonuses();
     
     void PrintArmorStatistics();

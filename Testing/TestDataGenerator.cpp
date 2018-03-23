@@ -130,7 +130,7 @@ void GenerateRandomItems(MapData &mapdata, int numberOfItems)
         
         // (*itemIt)->setItemName(arm.getItemName());
         std::cout << "\nRandom item gen item armor name " << (*itemIt)->getItemName() << "\n";
-        (*itemIt)->setFitsBodyPart(arm.getBodyPart());
+       
         randX = rand() % mapdata.map->GetWidth();
         randY = rand() % mapdata.map->GetHeight();
         (*itemIt)->setPosition(randX, randY);
@@ -151,7 +151,7 @@ void GenerateTestEquipment()
 
     armor.setItemType(enArmor);
     
-    armor.setFitsBodyPart(enHeadBodyPart);
+
     armor.setItemName("HeadArmorTest");
     tHeadArmor = armor;
     
@@ -160,7 +160,7 @@ void GenerateTestEquipment()
     armor.setDamageReduction(rand() % 2);
     armor.setMovementModifier(rand() % 2);
     
-    armor.setFitsBodyPart(enChestBodyPart);
+
     armor.setItemName("ChestArmorTest");
     tChestArmor = armor;
     
@@ -170,7 +170,7 @@ void GenerateTestEquipment()
     armor.setMovementModifier(rand() % 2);
    
     
-    armor.setFitsBodyPart(enLegsBodyPart);
+
     armor.setItemName("LegArmorTest");
     tLegArmor = armor;
     
@@ -180,7 +180,7 @@ void GenerateTestEquipment()
     armor.setMovementModifier(rand() % 2);
     
     
-    armor.setFitsBodyPart(enHandsBodyPart);
+;
     armor.setItemName("HandArmorTest");
     tHandArmor = armor;
     
@@ -190,21 +190,21 @@ void GenerateTestEquipment()
     armor.setMovementModifier(rand() % 2);
   
     
-    armor.setFitsBodyPart(enFeetBodyPart);
+
     armor.setItemName("FootArmorTest");
     tFootArmor = armor;
     
     Weapon weapon;
     weapon.setItemType(enWeapon);
-    weapon.setWeaponClass(enLongSword);
-    weapon.setFitsBodyPart(enHandsBodyPart);
+
+
     weapon.setItemName("TwoHandedWep");
     weapon.setRange(1);
     weapon.setDamage(10);
     tTwoHanded = weapon;
     
-    weapon.setFitsBodyPart(enHandsBodyPart);
-    weapon.setWeaponClass(enLongSword);
+
+  
     weapon.setItemName("OneHandedWep");
     weapon.setRange(1);
     weapon.setDamage(5);

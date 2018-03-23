@@ -34,7 +34,7 @@ private:
     
    
     int material;
-    EnumBodyPart enFitsBodyPart;
+  
     EnItemType enItemType;
     sf::Vector2i position; //Is this a good idea? The position of an object does not matter if it's on a creature. Is the space this uses worth making managing items on the map easier?
     
@@ -50,10 +50,10 @@ public:
     
     std::vector<std::string> sections; //The sections this armor covers
     
-    EnFitsBodyPart enFitsType;
+ 
     std::string section;
     
-    Item(int _material, EnumBodyPart _enFitsBodyPart, std::string _sEquipmentName);
+    Item(int _material,std::string _sEquipmentName);
     
     Item(std::string equipmentName, EnItemType _itemType);
     Item(std::string equipmentName, std::string _section);
@@ -62,13 +62,12 @@ public:
     virtual Item *create() const  = 0;
     
     std::string getItemName();
-    EnumBodyPart getBodyPart();
     sf::Vector2i getPosition();
     virtual std::string getItemExamineString() = 0;
     
     void setItemName(std::string value);
     void setMaterial(int value);
-    void setFitsBodyPart(EnumBodyPart value);
+
     void setPosition(int x, int y); //For setting the position of the item when it's on the map
     
     void setItemType(EnItemType itemType);

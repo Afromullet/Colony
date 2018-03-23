@@ -12,30 +12,22 @@
 
 bool Armor::operator==(const Armor &other) const
 {
-    if(siArmorBonus == other.siArmorBonus && fDodgeModifier == other.fDodgeModifier && fDamageReduction == other.fDamageReduction && fMovementModifier == other.fMovementModifier && enArmorClass == other.enArmorClass)
+    if(siArmorBonus == other.siArmorBonus && fDodgeModifier == other.fDodgeModifier && fDamageReduction == other.fDamageReduction && fMovementModifier == other.fMovementModifier )
     {
         
         return true;
-        if(enFitsBodyPart == other.enFitsBodyPart && enItemType == other.enItemType)
-        {
-            //TODO add string comparison
-            return true;
-        }
+     
     }
     return false;
 }
 
-Armor::Armor(int _material, EnumBodyPart _enFitsBodyPart, std::string _sEquipmentName, short int _siArmorBonus, float _fDodgeModifier, float _fDamageReduction,float _fMovementModifier,EnumArmorClass _enArmorClass)
-: Item(_material,_enFitsBodyPart,_sEquipmentName),
+Armor::Armor(int _material, std::string _sEquipmentName, short int _siArmorBonus, float _fDodgeModifier, float _fDamageReduction,float _fMovementModifier)
+: Item(_material,_sEquipmentName),
 siArmorBonus(_siArmorBonus),fDodgeModifier(_fDodgeModifier),
-fDamageReduction(_fDamageReduction),fMovementModifier(_fMovementModifier),enArmorClass(_enArmorClass)
+fDamageReduction(_fDamageReduction),fMovementModifier(_fMovementModifier)
 {}
 
-Armor::Armor(int _material,std::string _sEquipmentName, short int _siArmorBonus, float _fDodgeModifier, float _fDamageReduction,float _fMovementModifier,EnumArmorClass _enArmorClass)
-: Item(_material,enUndefinedPart,_sEquipmentName),
-siArmorBonus(_siArmorBonus),fDodgeModifier(_fDodgeModifier),
-fDamageReduction(_fDamageReduction),fMovementModifier(_fMovementModifier),enArmorClass(_enArmorClass)
-{}
+
 
 Armor::Armor(std::string itemName, EnItemType _itemType) :Item(itemName,_itemType)
 {
@@ -51,22 +43,12 @@ Armor::Armor(std::string itemName, std::string _section) :Item(itemName,_section
 Armor::Armor(const Armor &armor)
 {
     
-    /*
-    
-    //std::cout << "Item type " << armor.enItemType << "\n";
-   sEquipmentName = armor.sEquipmentName;
-   
-    
-    siArmorBonus = armor.siArmorBonus;
-   // sEquipmentName = armor
-    enFitsBodyPart = armor.enFitsBodyPart;
-     */
-    
+
     
     siArmorBonus = armor.siArmorBonus;
     sEquipmentName = armor.sEquipmentName;
     
-    enFitsBodyPart = armor.enFitsBodyPart;
+ 
     position = armor.position;
    
     
@@ -74,7 +56,7 @@ Armor::Armor(const Armor &armor)
     fDodgeModifier = armor.fDodgeModifier;
     fDamageReduction = armor.fDamageReduction;
     fMovementModifier = armor.fMovementModifier;
-    enArmorClass = armor.enArmorClass;
+
     section = armor.section;
     
 
@@ -90,7 +72,7 @@ Armor::Armor(Armor &armor)
     siArmorBonus = armor.siArmorBonus;
     sEquipmentName = armor.sEquipmentName;
     
-    enFitsBodyPart = armor.enFitsBodyPart;
+   
     position = armor.position;
    
     
@@ -98,7 +80,7 @@ Armor::Armor(Armor &armor)
     fDodgeModifier = armor.fDodgeModifier;
     fDamageReduction = armor.fDamageReduction;
     fMovementModifier = armor.fMovementModifier;
-    enArmorClass = armor.enArmorClass;
+
 
    // std::cout << "\n Name " << sEquipmentName << "\n" << "adsdas " << armor.siGetArmorBonus() << "\n";
     //armor.setItemName(armor.getItemName());
@@ -106,7 +88,7 @@ Armor::Armor(Armor &armor)
 }
 
 Armor::Armor() : Item(),siArmorBonus(-1),fDodgeModifier(-1),fDamageReduction(-1),
-fMovementModifier(-1),enArmorClass(enUndefinedArmorClass)
+fMovementModifier(-1)
 {
 
     setArmorBonus(0);
@@ -133,10 +115,6 @@ float Armor::fGetMovementModifier()
     return fMovementModifier;
 }
 
-EnumBodyPart Armor::getBodyPart()
-{
-    return Item::getBodyPart();
-}
 
 std::string Armor::getItemExamineString()
 {
@@ -162,10 +140,7 @@ int Armor::getItemName()
 }
  */
 
-EnumArmorClass Armor::getArmorClass()
-{
-    return enArmorClass;
-}
+
 
 void Armor::calculateMaterialBonuses()
 {
@@ -210,11 +185,6 @@ void Armor::setMaterial(int value)
     
 }
 
-void Armor::setFitsBodyPart(EnumBodyPart value)
-{
-    Item::setFitsBodyPart(value);
-    
-}
 
 void Armor::CalculateMaterialBonuses()
 {

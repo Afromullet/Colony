@@ -19,10 +19,10 @@ FileLogger errorLog("errors.txt");
 sf::Font defaultFont;
 
 std::vector<TileIDData> tileIDTable; //Tile types are predefined. TODO, populate this from a file.
-Armor NO_ARMOR(1,enAnyBodyPart,"No armor",0,0,0,0,enLight);
-Weapon FIST_WEAPON(1,enFitsOneHand,"Fist Weapon",1,1,enUnarmed);
-Weapon NO_WEAPON(1,enFitsOneHand,"No weapon",0,0,enUndefinedWeaponClass);
-Weapon WEAPON_SLOT_FILLED(1,enFitsOneHand,"Weapon Slot Filled",0,0,enUndefinedWeaponClass);
+Armor NO_ARMOR(1,"No armor",0,0,0,0);
+Weapon FIST_WEAPON(1,"Fist Weapon",1,1);
+Weapon NO_WEAPON(1,"No weapon",0,0);
+Weapon WEAPON_SLOT_FILLED(1,"Weapon Slot Filled",0,0);
 
 std::string leftArmString = "Left Arm";
 std::string rightArmString = "Right Arm";
@@ -35,16 +35,16 @@ std::string leftFootString = "Left Foot";
 std::string headString = "Head";
 std::string chestString = "Chest";
 
-BodyPart LeftArmBodyPart(enArmsBodyPart,false,true,false,false,leftArmString,10);
-BodyPart RightArmBodyPart(enArmsBodyPart,false,true,false,false,rightArmString,10);
-BodyPart LeftLegBodyPart(enLegsBodyPart,false,true,false,false,leftLegString,10);
-BodyPart RightLegBodyPart(enLegsBodyPart,false,true,false,false,rightLegString,10);
-BodyPart leftHandBodyPart(enLeftHandBodyPart,true,true,true,false,leftHandString,10);
-BodyPart rightHandBodyPart(enRightHandBodyPart,true,true,true,false,rightHandString,10);
-BodyPart leftFootBodypart(enFootBodyPart,false,true,false,true,leftFootString,10);
-BodyPart rightFootBodyPart(enFootBodyPart,false,true,false,true,rightFootString,10);
-BodyPart headBodyPart(enHeadBodyPart,false,true,false,false,headString,10);
-BodyPart chestBodyPart(enChestBodyPart,false,true,false,false,chestString,10);
+BodyPart LeftArmBodyPart(false,true,false,false,leftArmString,10);
+BodyPart RightArmBodyPart(false,true,false,false,rightArmString,10);
+BodyPart LeftLegBodyPart(false,true,false,false,leftLegString,10);
+BodyPart RightLegBodyPart(false,true,false,false,rightLegString,10);
+BodyPart leftHandBodyPart(true,true,true,false,leftHandString,10);
+BodyPart rightHandBodyPart(true,true,true,false,rightHandString,10);
+BodyPart leftFootBodypart(false,true,false,true,leftFootString,10);
+BodyPart rightFootBodyPart(false,true,false,true,rightFootString,10);
+BodyPart headBodyPart(false,true,false,false,headString,10);
+BodyPart chestBodyPart(false,true,false,false,chestString,10);
 
 
 //The maps used for testing

@@ -34,16 +34,15 @@ Armor GenerateRandomArmor()
     {
         case 0:
             armor.setItemType(enArmorType);
-            armor.setFitsBodyPart(enChestBodyPart);
             armor.setItemName("ChestArmor" + std::to_string(rand() % 100));
             break;
         case 1:
-            armor.setFitsBodyPart(enHeadBodyPart);
+
             armor.setItemType(enArmorType);
             armor.setItemName("HeadArmor" + std::to_string(rand() % 100));
             break;
         case 2:
-            armor.setFitsBodyPart(enLegsBodyPart);
+      
             armor.setItemType(enArmorType);
             armor.setItemName("LegArmor" + std::to_string(rand() % 100));
             break;
@@ -68,23 +67,23 @@ Weapon GenerateRandomWeapon()
     switch(randNum)
     {
         case 0:
-            weapon.setWeaponClass(enDagger);
+            
             weapon.setItemName("Dagger" + std::to_string(rand() % 100));
             break;
         case 1:
-             weapon.setWeaponClass(enShortSword);
+            
             weapon.setItemName("Shortsword" + std::to_string(rand() % 100));
             break;
         case 2:
-            weapon.setWeaponClass(enLongSword);
+            
             weapon.setItemName("Longsword" + std::to_string(rand() % 100));
             break;
         case 3:
-            weapon.setWeaponClass(enMace);
+            
             weapon.setItemName("Mace" + std::to_string(rand() % 100));
             break;
         case 4:
-            weapon.setWeaponClass(enDagger);
+            
             weapon.setItemName("enHammer" + std::to_string(rand() % 100));
             break;
     }

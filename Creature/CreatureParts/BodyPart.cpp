@@ -85,21 +85,17 @@ BodyPart::BodyPart() : armor(NO_ARMOR),weapon(NO_WEAPON)
 {
     canHoldArmor = true;
     canHoldWeapon = true;
-    enBodyPartType = enUndefinedPart;
+
     health = 1;
     bodyPartName = "No part";
     
 }
 
-BodyPart::BodyPart(EnumBodyPart _bodypartType,bool _canHoldWeapon, bool _canHoldArmor, bool _canInteract, bool _canMoveCreature,std::string _bodyPartName, int _health) : canHoldArmor(_canHoldArmor),canHoldWeapon(_canHoldWeapon),enBodyPartType(_bodypartType), armor(NO_ARMOR),weapon(NO_WEAPON),health(1), bodyPartName(_bodyPartName)
+BodyPart::BodyPart(bool _canHoldWeapon, bool _canHoldArmor, bool _canInteract, bool _canMoveCreature,std::string _bodyPartName, int _health) : canHoldArmor(_canHoldArmor),canHoldWeapon(_canHoldWeapon),armor(NO_ARMOR),weapon(NO_WEAPON),health(1), bodyPartName(_bodyPartName)
 {
     
 }
 
-BodyPart::BodyPart(bool _canHoldWeapon, bool _canHoldArmor, bool _canInteract, bool _canMoveCreature,std::string _bodyPartName, int _health) : canHoldArmor(_canHoldArmor),canHoldWeapon(_canHoldWeapon), armor(NO_ARMOR),weapon(NO_WEAPON),health(1), bodyPartName(_bodyPartName)
-{
-    
-}
 
 
 BodyPart::BodyPart(std::string bptoken,std::string bpname) : bodyPartToken(bptoken),bodyPartName(bpname)
@@ -125,43 +121,14 @@ BodyPart::BodyPart(const BodyPart& bp)
     bodyPartToken = bp.bodyPartToken;
     section = bp.section;
     
-    enBodyPartType = bp.enBodyPartType;
+  
     armor = bp.armor;
     weapon = bp.weapon;
    
     
 }
 
-void BodyPart::EquipItem(Item *item)
-{
-    
-    if(item->getBodyPart() != enBodyPartType)
-    {
-        std::cout << "\n Equipment Name " << item->getItemName();
-        std::cout << "\n" << item->getBodyPart() <<  " vs " << enBodyPartType;
-        std::cout << "Doesn't fit into slot";
-    }
-    else if(item->getItemType() == enArmor && canHoldArmor)
-    {
-    
-        Armor *arm = dynamic_cast<Armor*>(item);
-        arm->isEquipped = true;
-        armor = *arm;
-        
-    }
-    else if(item->getItemType() == enWeapon && canHoldWeapon)
-    {
-        //todo handle two handed equippment correctly.
-        Weapon *wep = dynamic_cast<Weapon*>(item);
-        wep->isEquipped = true;
-        weapon = *wep;
-    }
-    else
-    {
-        errorLog.writeToFile("Error equipping item of type\n");
-    
-    }
-}
+
 
 void BodyPart::EquipArmor(Item *item)
 {
@@ -189,10 +156,6 @@ void BodyPart::EquipWeapon(Item *item)
 
 
 
-void BodyPart::setBodyPartType(EnumBodyPart _bodyPartType)
-{
-    enBodyPartType = _bodyPartType;
-}
 
 int BodyPart::getHealth()
 {

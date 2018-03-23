@@ -17,6 +17,9 @@
 #include <boost/range/irange.hpp>
 #include <boost/graph/filtered_graph.hpp>
 #include <boost/graph/graph_utility.hpp>
+#include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/xml_parser.hpp>
+#include <boost/foreach.hpp>
 #include <string>
 #include "Globals.hpp"
 
@@ -62,116 +65,55 @@ typedef boost::graph_traits<AnatomyGraph>::vertex_iterator AnatomyVertexIt;
 typedef boost::property_map<AnatomyGraph, vertex_index_t>::type AnatomyIndexMap;
 
 
+namespace pt = boost::property_tree;
 
+//Rename class..just use this as the bodygraph later
 
-class edge_predicate_c {
-public:
-    edge_predicate_c() : graph_m(0) {}
-    edge_predicate_c(AnatomyGraph& graph) : graph_m(&graph) {}
-    bool operator()(const AnatomyEdge& edge_id) const {
-        EnConnectionType type = (*graph_m)[edge_id].connection;
-        return (type == enLeftConnection);
-    }
-private:
-    AnatomyGraph* graph_m;
-};
-
-
-//Todo get all arm vertices and their connection etc for all other limbs
-
-class Anatomy_BFS_Visitor : public boost::default_bfs_visitor
-{
-
-public:
-    
-     Anatomy_BFS_Visitor(): anatomyVerts(new std::vector<AnatomyVertex>()){}
-    void discover_vertex(AnatomyVertex u, const AnatomyGraph & g) const
-    {
-        std::cout << u << std::endl;
-        anatomyVerts->push_back(u);
-    }
-    
-    
-    
-    boost::shared_ptr<std::vector<AnatomyVertex>> getVector()
-    {
-        return anatomyVerts;
-    }
-
-    
-private:
-    boost::shared_ptr<std::vector<AnatomyVertex>> anatomyVerts;
-    };
-
-class Anatomy_DFS_Visitor : public boost::default_dfs_visitor
-{
-public:
-    
-    Anatomy_DFS_Visitor(): anatomyVerts(new std::vector<AnatomyVertex>()){}
-    void discover_vertex(AnatomyVertex u, const AnatomyGraph & g) const
-    {
-        anatomyVerts->push_back(u);
-    }
-    
-    void tree_edge(AnatomyEdge e, const AnatomyGraph& g)
-    {
-        std::cout << e;
-    }
-    
-    boost::shared_ptr<std::vector<AnatomyVertex>> getVector()
-    {
-        return anatomyVerts;
-    }
-    
-private:
-    boost::shared_ptr<std::vector<AnatomyVertex>> anatomyVerts;
-    
-    
-    
-};
-
-
-
-class BodyGraph
+class CreatureBody
 {
     
 private:
+    pt::ptree tree;
+    std::string m_file;
+    std::vector<std::string> bodyTokenList;
     
-    //Every body needs a head and a chest
-
 public:
-
-
-    
-    BodyGraph();
     
     AnatomyGraph anatomyGraph;
     
- 
     
-
-
-
-    
-
-    
-    
- 
-    
-    
-    boost::shared_ptr<std::vector<AnatomyVertex>> getVertices();
-
+    std::vector<Weapon> weapons; //Need to handle weapons differently because of things such as two handed weapons and what not. EquipWeapon inside BodyPart won't work because two handed weapons require two hands, and a BodyPart only knows about itself
     
     
     
-     int numOfVertices;
+    CreatureBody();
     
-
-   
-   
-
+    void GenerateVertices();
+    void GenerateOrganVertices();
+    void GenerateEdges();
+    void GenerateOrganEdges();
+    void AddWeapon(Weapon _weapon);
+    
+    void InitializeBodypartEquipment();
+    
+    
+    
+    void load();
+    void openBodyTypeFile(const std::string &fileName);
+    void readBodyTokenList();
+    int convertTruthValue(std::string truthVal);
+    
+    void Equip(Item *item);
+    void EquipWeapon(Item *item);
+    
+    
+    
 };
- 
+
+
+
+
+
 
 #endif /* BodyGraph_hpp */
 

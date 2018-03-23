@@ -13,8 +13,7 @@
 #include <iostream>
 
 #include <vector>
-#include "Chest.hpp"
-#include "Head.hpp"
+
 
 
 #ifndef TestData_hpp
@@ -42,18 +41,13 @@ short int randRangeWeaponRange();
 
 
 
-Chest generateChest();
-Head generateHead();
+
 Weapon generateRandomWeapon();
-EnumWeaponClass randomWeaponClass();
-
-EnumArmorClass randArmorClass();
 
 
 
-void printWeaponClass(EnumWeaponClass weaponClass);
 
-std::string getWeaponClassString(EnumWeaponClass weaponClass);
+
 
 
 

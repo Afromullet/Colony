@@ -36,20 +36,6 @@ void BaseCreature::loadCreatureTile(const std::string& tileset, int tileXSize,in
     creatureTile.loadTile(tileset,  sf::Vector2i(tileXSize, tileYSize), sf::Vector2i(position.x, position.y));
 }
 
-/*
-
-
-//TODO, ensure that the tile is loaded every time a creature is placed on a map. We do not have to load the tile until the creature has to be displayed on the map
-void BaseCreature::loadCreatureTile(const std::string& tileset, int tileXSize,int tileYSize)
-{
-    creatureTile.loadTile(tileset,  sf::Vector2i(tileXSize, tileYSize), sf::Vector2i(position.x, position.y));
-}
-
-
- This calculates the creatures attack bonus. Ranged weapons use agility, melee weapons use strength.
- */
-
-
 short int BaseCreature::getMeleeAttackValue()
 {
     return attackValue + strength;
@@ -74,12 +60,6 @@ sf::Vector2i  BaseCreature::getPosition()
 {
     return position;
 }
-
-
-
-
-
-
 
 //Need to update both the creatures logical position and the position of its texture
 void BaseCreature::setPosition(short int x, short int y)
@@ -323,15 +303,7 @@ void BaseCreature::WalkPath(Map &map)
     
 }
 
-GridLocation BaseCreature::getGridLocation()
-{
-    
-    GridLocation tempLoc;
-    tempLoc.x  = position.x;
-    tempLoc.y = position.y;
-    
-    return tempLoc;
-}
+
 
 void BaseCreature::clearPath()
 {

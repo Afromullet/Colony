@@ -11,8 +11,8 @@
 #include "Globals.hpp"
 
 #include "TestData.hpp"
-#include "BasicBehavior.hpp"
-#include "ScoutingBehavior.hpp"
+
+
 #include "MovementAction.hpp"
 #include "ExamineAction.hpp"
 bool usingTargetSquare = false;
@@ -32,7 +32,7 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
     
     //playerWindowCommands.h
     
-    ScoutingBehavior sBehavior;
+
     BasicMovementAction movementAction(*mapdata.map,creature);
     BasicExamineSurroundingAction examineAction(*mapdata.map,creature);
     
@@ -364,9 +364,7 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
         else if(event.key.code == sf::Keyboard::X)
         {
             
-            std::cout << "\n Target location " << testCreature1.getPosition().x << "," << testCreature1.getPosition().y;
-           ApproachCreature(*mapdata.map, creature, testCreature1);
-             ApproachCreature(*mapdata.map, creature, mapdata.creaturesOnMap.front());
+        
         }
         else if(event.key.code == sf::Keyboard::Space)
         {

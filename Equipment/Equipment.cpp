@@ -8,7 +8,7 @@
 
 #include "Equipment.hpp"
 
-Item::Item(int _material, EnumBodyPart _enFitsBodyPart, std::string _sEquipmentName): material(_material),enFitsBodyPart(_enFitsBodyPart),sEquipmentName("no name"),isEquipped(false)
+Item::Item(int _material, std::string _sEquipmentName): material(_material),sEquipmentName("no name"),isEquipped(false)
 {
     
 }
@@ -26,15 +26,12 @@ Item::Item(std::string equipmentName, std::string _section) : sEquipmentName(equ
 
 
 
-Item::Item() : material(1),enFitsBodyPart(enUndefinedPart),sEquipmentName("no name"),isEquipped(false)
+Item::Item() : material(1),sEquipmentName("no name"),isEquipped(false)
 {
     
 }
 
-EnumBodyPart Item::getBodyPart()
-{
-    return enFitsBodyPart;
-}
+
 
 std::string Item::getItemName()
 {
@@ -59,11 +56,7 @@ void Item::setMaterial(int value)
     
 }
 
-void Item::setFitsBodyPart(EnumBodyPart value)
-{
-    enFitsBodyPart = value;
-    
-}
+
 
 //For setting the position of the item when it's on the map
 void Item::setPosition(int x, int y)
