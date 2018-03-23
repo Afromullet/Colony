@@ -12,6 +12,9 @@
 
 #include "TestData.hpp"
 #include "BasicBehavior.hpp"
+#include "ScoutingBehavior.hpp"
+#include "MovementAction.hpp"
+
 bool usingTargetSquare = false;
 bool isInventoryWindowOpen = false;
 bool isEquipmentWindowOpen = false;
@@ -29,7 +32,9 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
     
     //playerWindowCommands.h
     
-    
+    ScoutingBehavior sBehavior;
+    BasicMovementAction movementAction(*mapdata.map,creature);
+    //movementAction.setCreature(creature);
     while(!PlayerActionTaken)
     {
     
@@ -148,7 +153,7 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
         else if(event.key.code == sf::Keyboard::A)
         {
          
-            creature.CalculateAttackParameters();
+            //creature.CalculateAttackParameters();
         }
         else if(event.key.code == sf::Keyboard::T)
         {
@@ -179,7 +184,7 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
             {
                 std::cout << "\nPosition: " << vecCreatures.at(i)->getPosition().x << "," << vecCreatures.at(i)->getPosition().y;
                 
-                vecCreatures.at(i)->totalHealth = 0;
+                vecCreatures.at(i)->setTotalHealth(0);
             }
            
             std::cout << "\n";
@@ -348,7 +353,11 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
         }
         else if(event.key.code == sf::Keyboard::W)
          {
-             creature.WalkPath(*mapdata.map);
+             
+             
+             //creature.WalkPath(*mapdata.map);
+             movementAction.PerformAction();
+             ///sBehavior.ExamineSurroundingTask(creature, *mapdata.map);
          }
         else if(event.key.code == sf::Keyboard::X)
         {
@@ -359,11 +368,28 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
         }
         else if(event.key.code == sf::Keyboard::Space)
         {
-            creature.setWeaponAttackSchema();
+            //creature.setWeaponAttackSchema();
             
             
             
            
+        }
+        else if(event.key.code == sf::Keyboard::M)
+        {
+            
+            GridLocation loc;
+            loc.x = 15;
+            loc.y = 15;
+            movementAction.AddDestination(loc);
+            movementAction.PrepareAction();
+           // sBehavior.SelectRandomSearchLocation(mapdata.map->GetWidth(), mapdata.map->GetHeight(),*mapdata.map);
+            
+            
+           // sBehavior.AddLocationToPath(creature, *mapdata.map, 0);
+          //  sBehavior.RemoveLocationFromPath(0);
+            
+            
+            
         }
         
         
@@ -495,6 +521,7 @@ void AddItemsToInventoryWindow(BaseCreature &creature)
 //Prints only the equipped items
 void AddToEquipmentWindow(BaseCreature &creature)
 {
+    /*
     std::vector<BodyPart*> bodyPartSchema = creature.getBodyPartSchema();
     std::string outString;
     for(int i = 0; i < bodyPartSchema.size(); i++)
@@ -504,7 +531,7 @@ void AddToEquipmentWindow(BaseCreature &creature)
     }
     
     equipmentWindow.setTextColor(sf::Color::Red);
-    
+    */
 
 }
 

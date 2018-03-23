@@ -103,6 +103,32 @@ std::vector<Item*> Vision::getVisibleItems(Map &map)
     
 }
 
+
+std::vector<GridLocation> Vision::getVisibleItemLocation(Map &map)
+{
+    std::vector<GridLocation> tempItems;
+    GridLocation loc;
+    for(int i=0; i < visionArea.size(); i++)
+    {
+        
+        
+        if(map.Map2D[visionArea.at(i).x][visionArea.at(i).y].getItemOnTile() != NULL)
+        {
+            loc.x = visionArea.at(i).x;
+            loc.y = visionArea.at(i).y;
+            tempItems.push_back(loc);
+        }
+        
+    }
+    
+    
+    
+    
+    return tempItems;
+    
+}
+
+
 std::vector<sf::Vector2i> Vision::getVisibleCoordinates(Map &map)
 {
     std::vector<sf::Vector2i> tempVec;

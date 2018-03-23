@@ -36,8 +36,8 @@ private:
     int material;
     EnumBodyPart enFitsBodyPart;
     EnItemType enItemType;
-    
     sf::Vector2i position; //Is this a good idea? The position of an object does not matter if it's on a creature. Is the space this uses worth making managing items on the map easier?
+    
     
     
     

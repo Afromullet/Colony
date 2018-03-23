@@ -21,7 +21,7 @@ namespace pt = boost::property_tree;
 
 //Rename class..just use this as the bodygraph later
 
-struct BodyTypeReader
+struct CreatureBody
 {
     AnatomyGraph anatomyGraph;
     pt::ptree tree;

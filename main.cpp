@@ -249,7 +249,7 @@ srand(time(NULL));
 
 
 
-    BodyTypeReader bReader;
+    CreatureBody bReader;
     //bReader.load("/Users/Afromullet/Documents/SFML/Colony2/Colony/Creature/BodyData/TestFile.xml");
     bReader.openBodyTypeFile("/Users/Afromullet/Documents/SFML/Colony2/Colony/Creature/BodyData/BasicHumanoidBody.xml");
     bReader.readBodyTokenList();
@@ -557,7 +557,7 @@ void GameLoop3()
     player.Equip(&tHandArmor);
     player.Equip(&tFootArmor);
      */
-    player.Equip(&FIST_WEAPON);
+    //player.Equip(&FIST_WEAPON);
     
    // std::vector<sf::Vector2i> tempSquare = mapdata.map->getSquare(sf::Vector2i(5,1), 2);
    
@@ -790,15 +790,7 @@ void SetupGameData(Map *map)
     player.setAgility(3);
     InitializeInventoryWindow();
     
-    std::list<BaseCreature>::iterator creatIt;
-    for(creatIt = mapdata.creaturesOnMap.begin(); creatIt != mapdata.creaturesOnMap.end(); ++creatIt)
-    {
-        (*creatIt).addBodyPart(humanoidBodySchema);
-        (*creatIt).CalculateAttackParameters();
-        (*creatIt).CalculateTotalHealth();
-        
-    }
-    
+  
     std::list<BaseCreature>::iterator creatureIt;
     
     
@@ -838,13 +830,9 @@ void SetupGameData(Map *map)
     
     player.loadCreatureTile("daeva.png", 32, 32);
     player.setPosition(0, 10);
-    player.addBodyPart(humanoidBodySchema);
-    player.CalculateAttackParameters();
-    player.CalculateTotalHealth();
+
     
-    player.PrintEquipment();
-    player.PrintEquipment();
-    
+
     
 }
 

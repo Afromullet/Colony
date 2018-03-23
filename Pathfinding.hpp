@@ -15,6 +15,9 @@
 #ifndef Pathfinding_hpp
 #define Pathfinding_hpp
 
+
+
+
 struct GridLocation
 {
     int x;

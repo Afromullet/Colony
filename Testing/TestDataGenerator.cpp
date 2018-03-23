@@ -30,9 +30,7 @@ BaseCreature basicPulser;
 
 void InitializeCreatureTypes()
 {
-    basicGoblin.addBodyPart(humanoidBodySchema);
-    basicOrc.addBodyPart(humanoidBodySchema);
-    basicPulser.addBodyPart(humanoidBodySchema);
+
     
     basicGoblin.loadCreatureTile("goblin.png",32,32);
     basicPulser.loadCreatureTile("pulsating_lump.png",32,32);

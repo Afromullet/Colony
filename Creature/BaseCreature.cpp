@@ -29,21 +29,6 @@ BaseCreature::BaseCreature()
     
 }
 
-/*
- TODO this is only temporary. Bodyschemas have to be defined in another way, because the arrangement of the body parts determines how things can be equipped.
- */
-void BaseCreature::addBodyPart(BodyPart bodyPart)
-{
-    bodyPartSchema.push_back(&bodyPart);
-}
-
-//Copies an entire schema to the creatures bodyParts.
-void BaseCreature::addBodyPart(std::vector<BodyPart> &bodyPartVector)
-{
-    for(int i = 0; i < bodyPartVector.size(); i++)
-        bodyPartSchema.push_back(&bodyPartVector.at(i));
-}
-
 
 //TODO, ensure that the tile is loaded every time a creature is placed on a map. We do not have to load the tile until the creature has to be displayed on the map
 void BaseCreature::loadCreatureTile(const std::string& tileset, int tileXSize,int tileYSize)
@@ -52,47 +37,17 @@ void BaseCreature::loadCreatureTile(const std::string& tileset, int tileXSize,in
 }
 
 /*
+
+
+//TODO, ensure that the tile is loaded every time a creature is placed on a map. We do not have to load the tile until the creature has to be displayed on the map
+void BaseCreature::loadCreatureTile(const std::string& tileset, int tileXSize,int tileYSize)
+{
+    creatureTile.loadTile(tileset,  sf::Vector2i(tileXSize, tileYSize), sf::Vector2i(position.x, position.y));
+}
+
+
  This calculates the creatures attack bonus. Ranged weapons use agility, melee weapons use strength.
  */
-
-//TODO, add some depth to the calculation of attack parameters. Weapon material and enchantment should also affect this value
-void BaseCreature::CalculateAttackParameters()
-{
-    
-    creatureWeaponAttacks = getAttacks();
-    std::list<AttackParameters>::iterator attacksIt;
-    int counter = 0;
-    for(attacksIt = creatureWeaponAttacks.begin(); attacksIt != creatureWeaponAttacks.end(); ++attacksIt)
-    {
-        if(attacksIt->weapon->isRangedWeapon())
-        {
-            attacksIt->damage += agility;
-            attacksIt->attackBonus = getRangedAttackValue();
-        }
-        else
-        {
-            attacksIt->damage += strength;
-            attacksIt->attackBonus = getMeleeAttackValue();
-        }
-        counter++;
-    }
-    
-}
-
-/*
- The creatures health is the sum of the health of all of its body parts health.
- 
- */
-void BaseCreature::CalculateTotalHealth()
-{
-    
-    for(int i = 0; i < bodyPartSchema.size(); i++)
-        totalHealth += bodyPartSchema.at(i)->getHealth();
-    
-    
-    
-}
-
 
 
 short int BaseCreature::getMeleeAttackValue()
@@ -124,37 +79,7 @@ sf::Vector2i  BaseCreature::getPosition()
 
 
 
-//Doesn't have an attack bonus yet since that is calculated based on creature attacks
-//TODO,  make the initialization of attackParameters simpler
-std::list<AttackParameters> BaseCreature::getAttacks()
-{
-    std::list<AttackParameters> attackParameters;
-    AttackParameters tempAttackParams;
-    
-    
-    for(int i = 0; i < bodyPartSchema.size(); i++)
-    {
-        
-        // if(bodyPartSchema.at(i))
-        
-        tempAttackParams.damage = bodyPartSchema.at(i)->weapon.getDamage();
-        tempAttackParams.weapon = bodyPartSchema.at(i)->weapon.clone();
-        
-        if(tempAttackParams.weapon->getWeaponClass() == enUndefinedWeaponClass)
-            continue;
-        
-        ///Need to implement checks, and handle weapon fitting to a body part slot a better way
-        attackParameters.push_back(tempAttackParams);
-    }
-    
-    return attackParameters;
-    
-}
 
-std::vector<BodyPart*> BaseCreature::getBodyPartSchema()
-{
-    return bodyPartSchema;
-}
 
 //Need to update both the creatures logical position and the position of its texture
 void BaseCreature::setPosition(short int x, short int y)
@@ -224,26 +149,6 @@ void BaseCreature::PrintInventory()
 }
 
 
-void BaseCreature::PrintEquipment()
-{
-    for(int i = 0; i < bodyPartSchema.size(); i++)
-    {
-        std::cout << "\nBody Part Name: " << bodyPartSchema.at(i)->bodyPartName << " Armor Name: " << bodyPartSchema.at(i)->armor.getItemName() << "  Weapon Name: " << bodyPartSchema.at(i)->weapon.getItemName() << "\n";
-    }
-}
-
-
-void BaseCreature::Equip(Item *item)
-{
-    for(int i = 0; i < bodyPartSchema.size(); i++)
-    {
-        if(bodyPartSchema.at(i)->enBodyPartType == item->getBodyPart())
-        {
-            bodyPartSchema.at(i)->EquipItem(item);
-            break;
-        }
-    }
-}
 
 //Equips item number n from inventory, n being the position in the list
 void BaseCreature::EquipItemFromInventory(int n)
@@ -256,7 +161,7 @@ void BaseCreature::EquipItemFromInventory(int n)
     {
         if(i == n)
         {
-            Equip(*itemIt);
+          //  Equip(*itemIt);
             break;
         }
         i++;
@@ -348,7 +253,7 @@ std::list<Item*> BaseCreature::getInventory()
 void BaseCreature::AttackCreature(int attackBonus, int damage)
 {
     
-    
+    /*
     int randNum = rand() % bodyPartSchema.size();
     
     if(attackBonus >= bodyPartSchema.at(randNum)->getArmor().siGetArmorBonus())
@@ -362,6 +267,7 @@ void BaseCreature::AttackCreature(int attackBonus, int damage)
     {
         std::cout << "Miss";
     }
+     */
 }
 
 void BaseCreature::AddToPath(sf::Vector2i point)
@@ -440,7 +346,14 @@ void BaseCreature::clearPath()
     return attackValue;
 }
 
-void BaseCreature::setWeaponAttackSchema()
+
+void BaseCreature::setTotalHealth(int _health)
 {
-    weaponAttackSchema.setSchema(*this);
+    totalHealth = _health;
 }
+
+int BaseCreature::getTotalHealth()
+{
+    return totalHealth;
+}
+

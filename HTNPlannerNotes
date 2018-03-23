@@ -1,0 +1,20 @@
+Sensor
+
+Primitive Task, Compounds Tasks, operator
+
+Primitive Task
+    Operator - atomic action that NPC can do
+        Efects - changes world state
+
+
+Compound Task
+    Method - conditions validated against the world state
+        Subtask - how the method is being performed (primitive tasks or compound)
+
+    Example
+
+    Compound Task [AttackEnemy]
+        Method 0 [WsHasTreeTrunk == true]
+            Subtasks [NavigateTo(EnemyLoc). DoTrunkSlam()]
+        Method 1 [WsHasTreeTrunk == false]
+            Subtasks [Li BoulderFromGround().  rowBoulderAt(EnemyLoc)]

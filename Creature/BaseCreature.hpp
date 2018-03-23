@@ -23,19 +23,9 @@
 #include <queue>
 #include "Pathfinding.hpp"
 
-#include "WeaponAttackSchema.hpp"
 
 
 
-
-//Contains all of the information needed for an attack
-typedef struct _AttackParameters
-{
-    int attackBonus;
-    int damage;
-    Weapon *weapon;
-    
-}AttackParameters;
 
 
 class Map;
@@ -53,14 +43,11 @@ private:
     short int will;
     short int charisma;
     short int moveSpeed; //Currently both x and y speed
-    
-    
-    
-   
+    int totalHealth;
     
     sf::Vector2i position;
 
-    std::list<AttackParameters> creatureWeaponAttacks; //Holds data on all of the creature attacks so we don't have to recalculate it every time. Filled by body virtual function getAttacks
+
     
     
     std::list<Item*> creatureItems;
@@ -75,15 +62,11 @@ public:
     
     
     BaseCreature();
-    int totalHealth;
-    std::vector<BodyPart*> bodyPartSchema; //I.E, a humanoid body, a quadruped body. Need to organize the bodyPartSchema in a hierachy so we know what is connected to what. TODO
-    WeaponAttackSchema weaponAttackSchema;
+
+  
     
     
-    
-    
-    void addBodyPart(BodyPart bodyPart);
-    void addBodyPart(std::vector<BodyPart> &bodyPartVector);
+
    
     
    // BaseCreature(const BaseCreature &creature);
@@ -95,7 +78,7 @@ public:
     void loadCreatureTile(const std::string& tileset, int tileXSize,int tileYSize);
     
     //For calculating creature attributes and attacks
-    void CalculateAttackParameters();
+   
     void CalculateTotalHealth();
     
     //Getters
@@ -108,8 +91,7 @@ public:
     sf::Vector2i  getPosition();
 
 
-    std::list<AttackParameters> getAttacks();
-    std::vector<BodyPart*> getBodyPartSchema();
+
     
     //Setters
     void setPosition(short int x, short int y);
@@ -142,7 +124,9 @@ public:
     void clearPath();
     
     GridLocation getGridLocation();
-    void setWeaponAttackSchema();
+    
+    void setTotalHealth(int _health);
+    int getTotalHealth();
 
     
 };

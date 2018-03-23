@@ -10,7 +10,7 @@
 #include "BodyGraphGetters.hpp"
 #include "Globals.hpp"
 
-void BodyTypeReader::openBodyTypeFile(const std::string &fileName)
+void CreatureBody::openBodyTypeFile(const std::string &fileName)
 {
    
     pt::read_xml(fileName, tree);
@@ -18,7 +18,7 @@ void BodyTypeReader::openBodyTypeFile(const std::string &fileName)
 
 
 //Thi
-void BodyTypeReader::readBodyTokenList()
+void CreatureBody::readBodyTokenList()
 {
     //BOOST_FOREACH(pt::ptree::value_type &v, tree.get_child("main.cats"))
     BOOST_FOREACH(pt::ptree::value_type &v, tree.get_child("bptokenlist"))
@@ -32,7 +32,7 @@ void BodyTypeReader::readBodyTokenList()
 }
 
 //Reads the Body Part section of the file..Generates the body parts and the vertices
-void BodyTypeReader::GenerateVertices()
+void CreatureBody::GenerateVertices()
 {
     //BOOST_FOREACH(pt::ptree::value_type &v, tree.get_child("main.cats"))
     
@@ -136,7 +136,7 @@ void BodyTypeReader::GenerateVertices()
 
 }
 
-void BodyTypeReader::GenerateOrganVertices()
+void CreatureBody::GenerateOrganVertices()
 {
     //BOOST_FOREACH(pt::ptree::value_type &v, tree.get_child("main.cats"))
     
@@ -238,7 +238,7 @@ void BodyTypeReader::GenerateOrganVertices()
     
 }
 
-void BodyTypeReader::GenerateEdges()
+void CreatureBody::GenerateEdges()
 {
     //BOOST_FOREACH(pt::ptree::value_type &v, tree.get_child("main.cats"))
     
@@ -276,7 +276,7 @@ void BodyTypeReader::GenerateEdges()
     
 }
 
-void BodyTypeReader::GenerateOrganEdges()
+void CreatureBody::GenerateOrganEdges()
 {
     //BOOST_FOREACH(pt::ptree::value_type &v, tree.get_child("main.cats"))
     
@@ -314,7 +314,7 @@ void BodyTypeReader::GenerateOrganEdges()
 }
 
 
-void BodyTypeReader::load()
+void CreatureBody::load()
 {
   
 
@@ -347,7 +347,7 @@ void BodyTypeReader::load()
 
 //Can't use a boolean because -1 indicates that the truth value being passed is not the correct format
 //Can just make this a function not in the scope of BodyTypeReader, since it'll be used in multiple places outside of the body type reader
-int BodyTypeReader::convertTruthValue(std::string truthVal)
+int CreatureBody::convertTruthValue(std::string truthVal)
 {
     std::transform(truthVal.begin(), truthVal.end(), truthVal.begin(), ::tolower);
     
@@ -367,7 +367,7 @@ int BodyTypeReader::convertTruthValue(std::string truthVal)
 }
 
 
-void BodyTypeReader::Equip(Item *item)
+void CreatureBody::Equip(Item *item)
 {
     
     for(int i =0; i < item->sections.size(); i++)
@@ -387,7 +387,7 @@ void BodyTypeReader::Equip(Item *item)
     }
 }
 
-void BodyTypeReader::EquipWeapon(Item *item)
+void CreatureBody::EquipWeapon(Item *item)
 {
     std::vector<int> indices = getVerticesThatCanHoldWeapons(anatomyGraph);
     
@@ -434,12 +434,12 @@ void BodyTypeReader::EquipWeapon(Item *item)
     
 }
 
-void BodyTypeReader::AddWeapon(Weapon _weapon)
+void CreatureBody::AddWeapon(Weapon _weapon)
 {
     weapons.push_back(_weapon);
 }
 
-void BodyTypeReader::InitializeBodypartEquipment()
+void CreatureBody::InitializeBodypartEquipment()
 {
     for(int i=0; i < num_vertices(anatomyGraph); i++)
     {

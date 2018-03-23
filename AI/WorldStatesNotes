@@ -1,0 +1,1 @@
+Each version of the world state will describe the state as needed for the behavior of that particular creature. I.E, a scout state will contain locations, paths, found items..a gatherer world state will contain resource collected so far, location of resource, etc

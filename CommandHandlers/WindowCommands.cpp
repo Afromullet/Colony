@@ -38,7 +38,7 @@ void WindowCommands::GetWindowData(BaseCreature &creature,EnDataWindowType windo
     }
     else if(windowType == enEquipmentWindow)
     {
-        getEquipmentData(creature,selectWindow(enEquipmentWindow));
+       // getEquipmentData(creature,selectWindow(enEquipmentWindow));
     }
 
 }
@@ -64,23 +64,7 @@ void WindowCommands::getInventoryData(BaseCreature &creature,DataWindow &dataWin
     dataWindow.setTextColor(sf::Color::Red);
 }
 
-void WindowCommands::getEquipmentData(BaseCreature &creature,DataWindow &dataWindow)
-{
-    
-    if(dataWindow.getWindowType() != enEquipmentWindow)
-        return;
-    
-    
-    std::vector<BodyPart*> bodyPartSchema = creature.getBodyPartSchema();
-    std::string outString;
-    for(int i = 0; i < bodyPartSchema.size(); i++)
-    {
-        outString = bodyPartSchema.at(i)->bodyPartName + " - Armor: " + bodyPartSchema.at(i)->armor.getItemName() + " Weapon: " + bodyPartSchema.at(i)->weapon.getItemName();
-        dataWindow.AddText(outString);
-    }
-    
-    dataWindow.setTextColor(sf::Color::Red);
-}
+
 
 bool WindowCommands::isAnyWindowOpen()
 {

@@ -12,7 +12,7 @@
 #define Vision_hpp
 
 #include <stdio.h>
-
+#include "Pathfinding.hpp"
 
 
 class Vision
@@ -34,6 +34,7 @@ public:
     std::vector<Tile> getVisibleTiles(Map &map);
     std::vector<BaseCreature> getVisibleCreatures(Map &map);
     std::vector<Item*> getVisibleItems(Map &map);
+    std::vector<GridLocation> getVisibleItemLocation(Map &map);
     std::vector<sf::Vector2i> getVisibleCoordinates(Map &map);
     
     
