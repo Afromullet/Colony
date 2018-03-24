@@ -123,7 +123,7 @@ void BaseCreature::PrintInventory()
     for(itemIt = creatureItems.begin(); itemIt != creatureItems.end(); ++itemIt)
     {
   
-        std::cout << "\n" << i << ": Item Name: " << (*itemIt)->getItemName() << " Item Type " << (*itemIt)->getItemType() << "\n";
+        std::cout << "\n" << i << ": Item Name: " << (*itemIt)->getItemName() << " Item Type " << "\n";
         i++;
     }
 }

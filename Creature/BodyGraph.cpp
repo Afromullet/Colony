@@ -383,7 +383,7 @@ int CreatureBody::convertTruthValue(std::string truthVal)
 }
 
 
-void CreatureBody::Equip(Item *item)
+void CreatureBody::EquipArmor(Item *item)
 {
     
     for(int i =0; i < item->sections.size(); i++)
@@ -394,7 +394,7 @@ void CreatureBody::Equip(Item *item)
         
         for(int j =0; j < indices.size(); j++)
         {
-            if(item->getItemType() == enArmorType)
+       
                 anatomyGraph[indices.at(j)].EquipArmor(item);
         }
         
@@ -407,8 +407,8 @@ void CreatureBody::EquipWeapon(Item *item)
 {
     std::vector<int> indices = getVerticesThatCanHoldWeapons(anatomyGraph);
     
-    if(item->getItemType() == enWeaponType)
-    {
+    //if(item->getItemType() == enWeaponType)
+   // {
         Weapon *wep = dynamic_cast<Weapon*>(item);
         if(wep->enWeaponSize == enLargeWeapon)
         {
@@ -428,6 +428,8 @@ void CreatureBody::EquipWeapon(Item *item)
             
             
         }
+        
+        
         else
         {
             for(int i = 0; i < indices.size(); i++)
@@ -444,16 +446,13 @@ void CreatureBody::EquipWeapon(Item *item)
         
         //wep->isEquipped = true;
         //armor = *arm;
-    }
+    
     
     
     
 }
 
-void CreatureBody::AddWeapon(Weapon _weapon)
-{
-    weapons.push_back(_weapon);
-}
+
 
 void CreatureBody::InitializeBodypartEquipment()
 {

@@ -149,7 +149,7 @@ void GenerateTestEquipment()
     armor.setDamageReduction(rand() % 2);
     armor.setMovementModifier(rand() % 2);
 
-    armor.setItemType(enArmor);
+
     
 
     armor.setItemName("HeadArmorTest");
@@ -195,7 +195,7 @@ void GenerateTestEquipment()
     tFootArmor = armor;
     
     Weapon weapon;
-    weapon.setItemType(enWeapon);
+  
 
 
     weapon.setItemName("TwoHandedWep");

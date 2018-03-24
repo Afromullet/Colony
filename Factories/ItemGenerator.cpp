@@ -33,17 +33,17 @@ Armor GenerateRandomArmor()
     switch(randNum)
     {
         case 0:
-            armor.setItemType(enArmorType);
+           
             armor.setItemName("ChestArmor" + std::to_string(rand() % 100));
             break;
         case 1:
 
-            armor.setItemType(enArmorType);
+           
             armor.setItemName("HeadArmor" + std::to_string(rand() % 100));
             break;
         case 2:
       
-            armor.setItemType(enArmorType);
+       
             armor.setItemName("LegArmor" + std::to_string(rand() % 100));
             break;
             

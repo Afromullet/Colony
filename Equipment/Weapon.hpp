@@ -102,7 +102,6 @@ public:
         
      
         material = weapon.material;
-        enItemType = weapon.enItemType;
         sEquipmentName = weapon.sEquipmentName;
         position = weapon.position;
         //inches = D.inches;

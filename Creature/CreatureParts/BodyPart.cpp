@@ -13,7 +13,7 @@
 
 
 
-std::vector<BodyPart> humanoidBodySchema;
+
 
 
 void InitializeGlobalBodyParts()
@@ -25,53 +25,8 @@ void InitializeGlobalBodyParts()
     NO_ARMOR.setItemName("No Armor");
     
     
-    LeftArmBodyPart.weapon = NO_WEAPON;
-    LeftArmBodyPart.armor = NO_ARMOR;
-    RightArmBodyPart.weapon = NO_WEAPON;
-    RightArmBodyPart.armor = NO_ARMOR;
-    LeftLegBodyPart.weapon = NO_WEAPON;
-    LeftLegBodyPart.armor = NO_ARMOR;
-    RightLegBodyPart.weapon = NO_WEAPON;
-    RightLegBodyPart.armor = NO_ARMOR;
-    leftHandBodyPart.weapon = NO_WEAPON;
-    leftHandBodyPart.armor = NO_ARMOR;
-    rightHandBodyPart.weapon = FIST_WEAPON;
-    rightHandBodyPart.armor = NO_ARMOR;
-    
-    leftFootBodypart.weapon = NO_WEAPON;
-    leftFootBodypart.armor = NO_ARMOR;
-    rightFootBodyPart.weapon = NO_WEAPON;
-    rightFootBodyPart.armor = NO_ARMOR;
-    headBodyPart.weapon = NO_WEAPON;
-    headBodyPart.armor = NO_ARMOR;
-    chestBodyPart.weapon = NO_WEAPON;
-    chestBodyPart.armor = NO_ARMOR;
-    
-    
-
-    humanoidBodySchema.push_back(LeftArmBodyPart);
-    humanoidBodySchema.push_back(RightArmBodyPart);
-    humanoidBodySchema.push_back(LeftLegBodyPart);
-    humanoidBodySchema.push_back(RightLegBodyPart);
-    humanoidBodySchema.push_back(leftHandBodyPart);
-    humanoidBodySchema.push_back(rightHandBodyPart);
-    humanoidBodySchema.push_back(leftFootBodypart);
-    humanoidBodySchema.push_back(rightFootBodyPart);
-    humanoidBodySchema.push_back(headBodyPart);
-    humanoidBodySchema.push_back(chestBodyPart);
-
-    
 }
 
-/*
- BodyPart LegBodyPart = "
- BodyPart HeadBodyPart;
- BodyPart ChestBodyPart;
- BodyPart FootBodyPart;
- BodyPart HandBodyPart;
-
-
- */
 
 
 std::ostream& operator<<(std::ostream& os, const BodyPart& bp)
@@ -135,7 +90,9 @@ void BodyPart::EquipArmor(Item *item)
     
     if(item->isValidSection(section))
     {
-        if(item->getItemType() == enArmorType && canHoldArmor)
+        if(canHoldArmor)
+
+        //if(item->getItemType() == enArmorType && canHoldArmor)
         {
             Armor *arm = dynamic_cast<Armor*>(item);
             arm->isEquipped = true;

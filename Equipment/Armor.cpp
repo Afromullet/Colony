@@ -29,7 +29,7 @@ fDamageReduction(_fDamageReduction),fMovementModifier(_fMovementModifier)
 
 
 
-Armor::Armor(std::string itemName, EnItemType _itemType) :Item(itemName,_itemType)
+Armor::Armor(std::string itemName) :Item(itemName)
 {
     
 }
@@ -52,7 +52,7 @@ Armor::Armor(const Armor &armor)
     position = armor.position;
    
     
-    enItemType = armor.enItemType;
+
     fDodgeModifier = armor.fDodgeModifier;
     fDamageReduction = armor.fDamageReduction;
     fMovementModifier = armor.fMovementModifier;
@@ -76,7 +76,7 @@ Armor::Armor(Armor &armor)
     position = armor.position;
    
     
-    enItemType = armor.enItemType;
+
     fDodgeModifier = armor.fDodgeModifier;
     fDamageReduction = armor.fDamageReduction;
     fMovementModifier = armor.fMovementModifier;

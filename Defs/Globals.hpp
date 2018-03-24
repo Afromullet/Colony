@@ -59,28 +59,9 @@ extern Armor NO_ARMOR;
 
 //Read these from a file later and store in a vector of strings
 //That way it can be customized easily by reading from files
-extern std::string leftArmString;
-extern std::string rightArmString;
-extern std::string leftHandString;
-extern std::string rightHandString;
-extern std::string leftLegString;
-extern std::string rightLegString;
-extern std::string rightFootString;
-extern std::string leftFootString;
-extern std::string headString;
-extern std::string chestString;
-extern BodyPart LeftArmBodyPart;
-extern BodyPart RightArmBodyPart;
-extern BodyPart LeftLegBodyPart;
-extern BodyPart RightLegBodyPart;
-extern BodyPart leftHandBodyPart;
-extern BodyPart rightHandBodyPart;
-extern BodyPart leftFootBodypart;
-extern BodyPart rightFootBodyPart;
-extern BodyPart headBodyPart;
-extern BodyPart chestBodyPart;
 
-extern std::vector<BodyPart> humanoidBodySchema;
+
+
 
 
 extern sf::Font defaultFont;

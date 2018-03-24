@@ -13,7 +13,7 @@ Item::Item(int _material, std::string _sEquipmentName): material(_material),sEqu
     
 }
 
-Item::Item(std::string equipmentName, EnItemType _itemType) : sEquipmentName(equipmentName), enItemType(_itemType)
+Item::Item(std::string equipmentName) : sEquipmentName(equipmentName)
 {
     
 }
@@ -66,15 +66,8 @@ void Item::setPosition(int x, int y)
     position.y = y;
     
 }
-void Item::setItemType(EnItemType itemType)
-{
-    enItemType = itemType;
-}
 
-EnItemType Item::getItemType()
-{
-    return enItemType;
-}
+
 
 void Item::setIsEquipped(bool _isEquipped)
 {

@@ -35,7 +35,7 @@ private:
    
     int material;
   
-    EnItemType enItemType;
+ 
     sf::Vector2i position; //Is this a good idea? The position of an object does not matter if it's on a creature. Is the space this uses worth making managing items on the map easier?
     
     
@@ -55,7 +55,7 @@ public:
     
     Item(int _material,std::string _sEquipmentName);
     
-    Item(std::string equipmentName, EnItemType _itemType);
+    Item(std::string equipmentName);
     Item(std::string equipmentName, std::string _section);
     Item();
     virtual Item *clone() const = 0;
@@ -70,11 +70,11 @@ public:
 
     void setPosition(int x, int y); //For setting the position of the item when it's on the map
     
-    void setItemType(EnItemType itemType);
+
     void setIsEquipped(bool _isEquipped);
     
     bool getIsEquipped();
-    EnItemType getItemType();
+
     
     
     bool isValidSection(std::string _section);

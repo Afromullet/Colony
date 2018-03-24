@@ -35,16 +35,7 @@ std::string leftFootString = "Left Foot";
 std::string headString = "Head";
 std::string chestString = "Chest";
 
-BodyPart LeftArmBodyPart(false,true,false,false,leftArmString,10);
-BodyPart RightArmBodyPart(false,true,false,false,rightArmString,10);
-BodyPart LeftLegBodyPart(false,true,false,false,leftLegString,10);
-BodyPart RightLegBodyPart(false,true,false,false,rightLegString,10);
-BodyPart leftHandBodyPart(true,true,true,false,leftHandString,10);
-BodyPart rightHandBodyPart(true,true,true,false,rightHandString,10);
-BodyPart leftFootBodypart(false,true,false,true,leftFootString,10);
-BodyPart rightFootBodyPart(false,true,false,true,rightFootString,10);
-BodyPart headBodyPart(false,true,false,false,headString,10);
-BodyPart chestBodyPart(false,true,false,false,chestString,10);
+
 
 
 //The maps used for testing

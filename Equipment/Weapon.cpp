@@ -50,7 +50,6 @@ Weapon::Weapon(const Weapon &weapon)
     position = weapon.position;
    
     sEquipmentName = weapon.sEquipmentName;
-    enItemType = weapon.enItemType;
     siRange = weapon.siRange;
     siDamage = weapon.siDamage;
  
@@ -63,7 +62,6 @@ Weapon::Weapon(Weapon &weapon)
     position = weapon.position;
  
     sEquipmentName = weapon.sEquipmentName;
-    enItemType = weapon.enItemType;
     siRange = weapon.siRange;
     siDamage = weapon.siDamage;
 

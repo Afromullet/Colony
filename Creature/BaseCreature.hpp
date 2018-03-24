@@ -22,6 +22,7 @@
 #include "Vision.hpp"
 #include <queue>
 #include "Pathfinding.hpp"
+#include "Bodygraph.hpp"
 
 
 
@@ -58,6 +59,8 @@ public:
     
     
     Vision vision;
+    CreatureBody body;
+    
     BaseCreature();
 
   

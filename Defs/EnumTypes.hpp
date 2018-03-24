@@ -17,12 +17,6 @@ enum TileTerrainType{enGrass1,enSnow1,enSwamp1,enFloor1,enWall1,enUndefinedTerra
 
 
 
-enum EnItemType {enArmorType,enWeaponType,enArmor,enWeapon};
-//For equipment, to let us know what slot it fits it
-//enum EnumFitsBodyPart {enHead,enChest,enFeet,enLegs,enHands,enOneHanded,enTwoHanded,enUndefinedBodyPart,enArms};
-
-
-//Don't want to make separate classes for right and lef limbs...Maybe there's a better option than enums to distinguish between limbs. research todo
 
 
 

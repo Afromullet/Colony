@@ -81,18 +81,13 @@ public:
     
     AnatomyGraph anatomyGraph;
     
-    
-    std::vector<Weapon> weapons; //Need to handle weapons differently because of things such as two handed weapons and what not. EquipWeapon inside BodyPart won't work because two handed weapons require two hands, and a BodyPart only knows about itself
-    
-    
-    
     CreatureBody();
     
     void GenerateVertices();
     void GenerateOrganVertices();
     void GenerateEdges();
     void GenerateOrganEdges();
-    void AddWeapon(Weapon _weapon);
+    
     
     void InitializeBodypartEquipment();
     
@@ -103,7 +98,7 @@ public:
     void readBodyTokenList();
     int convertTruthValue(std::string truthVal);
     
-    void Equip(Item *item);
+    void EquipArmor(Item *item);
     void EquipWeapon(Item *item);
     
     

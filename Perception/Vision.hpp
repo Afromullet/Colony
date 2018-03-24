@@ -20,10 +20,6 @@ class Vision
 private:
     sf::Vector2i origin; //Vision needs an origin point from which it is calculated.
     std::vector<sf::Vector2i> visionArea; //Need to define a set of basic shapes..The vision area are coordinates on a 2d grid (tile positions)
-    
-    
-    
-    
 public:
     Vision();
     Vision(sf::Vector2i _origin);
