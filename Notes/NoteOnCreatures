@@ -1,0 +1,27 @@
+
+_____________________
+BaseCreature Class
+
+
+The BaseCreature class will allow various kinds of creatures to be added with different body types. The  class contains the data we need to draw the class (Entitytile, which handles all drawing) and creature statistics. The body on the other hand defines what limbs the creature consists of. There's no need to add the Base Creature as an abstract class, as the only thing which will vary is the body.
+
+    EntityTile has its own position. The creature position must match up with the EntityTile, so both are updated whenever the creature move. TODO, remove that behavior
+
+
+TODO
+Add checks to ensure the body is initialized
+
+    Body is the abstract class.
+_____________________
+EntityTile Class
+
+
+
+Handles everyhing related to drawing. This includes the vertices and the texture
+
+
+_____________________
+
+TODO
+
+To model health..each body part should have a "HealthComponent". Implement as a abstract class so it can be easily expanded

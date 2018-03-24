@@ -24,17 +24,6 @@ Weapon FIST_WEAPON(1,"Fist Weapon",1,1);
 Weapon NO_WEAPON(1,"No weapon",0,0);
 Weapon WEAPON_SLOT_FILLED(1,"Weapon Slot Filled",0,0);
 
-std::string leftArmString = "Left Arm";
-std::string rightArmString = "Right Arm";
-std::string leftHandString = "Left Hand";
-std::string rightHandString = "Right Hand";
-std::string leftLegString = " Left Leg";
-std::string rightLegString = "Right Leg";
-std::string rightFootString = "Right Foot";
-std::string leftFootString = "Left Foot";
-std::string headString = "Head";
-std::string chestString = "Chest";
-
 
 
 

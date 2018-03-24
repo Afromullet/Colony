@@ -42,10 +42,6 @@ typedef struct _GraphConnection
     EdgeWeightProp weightProperty;
 }GraphConnection;
 
-extern BodyPart defaultHeadBodyPart;
-extern BodyPart defaultChestBodyPart;
-extern BodyPart defaultEmptyBodyPart;
-
 
 
 

@@ -12,10 +12,6 @@
 #include "BodyGraphGetters.hpp"
 #include <string>
 
-BodyPart defaultHeadBodyPart(false,true,false,false,"Head",10);
-BodyPart defaultChestBodyPart(false,true,false,false,"Chest",10);
-BodyPart defaultEmptyBodyPart(false,true,false,false,"Empty",10);
-
 
 
 using boost::typeindex::type_id_with_cvr;
@@ -243,6 +239,7 @@ void CreatureBody::GenerateOrganVertices()
             bp.canSee = canSee;
             bp.canBreathe = canBreathe;
             bp.section = section;
+            
             
             
             

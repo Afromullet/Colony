@@ -202,3 +202,45 @@ std::vector<int> getVerticesThatCanHoldWeapons(const AnatomyGraph &graph)
     
     return newIndices;
 }
+
+std::vector<int> getExternalBodyParts(const AnatomyGraph &graph)
+{
+    
+    std::vector<int> indices;
+    AnatomyEdgeIt ei,ei_end;
+    AnatomyIndexMap indMap = get(vertex_index, graph); //Getting a proeprty map.
+    for (boost::tie(ei, ei_end) = edges(graph); ei != ei_end; ++ei)
+    {
+         printConnectionType(graph[*ei]);
+        
+        if(graph[*ei].connection == enExternal || graph[*ei].connection == enExternalLeft || graph[*ei].connection == enExternalRight)
+        {
+            if(std::find(indices.begin(),indices.end(),indMap[source(*ei, graph)]) == indices.end())
+            {
+                indices.push_back(indMap[source(*ei, graph)]);
+            }
+            
+            if(std::find(indices.begin(),indices.end(),indMap[target(*ei, graph)]) == indices.end())
+            {
+                indices.push_back(indMap[target(*ei, graph)]);
+            }
+        }
+    }
+    
+    return indices;
+    
+  
+}
+
+//For randomly attacking a body part
+int getRandomExternalBodyParts(const AnatomyGraph &graph)
+{
+    AnatomyEdgeIt ei,ei_end;
+    AnatomyIndexMap indMap = get(vertex_index, graph); //Getting a proeprty map.
+
+    std::vector<int> indices = getExternalBodyParts(graph);
+    
+    return indices.at(rand() % indices.size());
+    
+    
+}

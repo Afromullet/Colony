@@ -25,26 +25,8 @@
 
 BaseCreature testCreature1;
 
-void setupTestCreatures()
-{
-    
-    testCreature1 = basicOrc;
-    testCreature1.setPosition(5, 5);
-}
 
 
-//To save myself some typing
-short int randBonus()
-{
-    return rand() % 10;
-    
-}
-
-//Need a longer range for ranged weapons...used for random ranged weapon generation
-short int randRangeWeaponRange()
-{
-    return rand() & 50;
-}
 
 
 

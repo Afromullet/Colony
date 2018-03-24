@@ -79,26 +79,23 @@ void CreateRandomCreatures(MapData &mapdata)
 void CreateTargetCreatures(MapData &mapdata)
 {
     
-    BaseCreature testCreature;
-    testCreature = basicOrc;
-    testCreature.setPosition(1, 1);
-   mapdata.AddCreatureToMap(testCreature);
+
     
-    mapdata.AddCreatureToMap(testCreature1);
+   
     
     
     
-    /*
+    
     for(int i = 0; i < 10; i++)
     {
         BaseCreature testCreature;
          testCreature = basicOrc;
+        testCreature.setPosition(rand() % MAP_WIDTH, rand() % MAP_HEIGHT);
  
             mapdata.AddCreatureToMap(testCreature);
-        //tempCreatureList.push_back(testCreature);
         
     }
-     */
+    
     
 }
 

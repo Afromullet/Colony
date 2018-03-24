@@ -27,7 +27,6 @@
 
 extern BaseCreature testCreature1;
 
-void setupTestCreatures();
 
 
 
@@ -36,8 +35,6 @@ void setupTestCreatures();
 
 
 
-short int randBonus();
-short int randRangeWeaponRange();
 
 
 

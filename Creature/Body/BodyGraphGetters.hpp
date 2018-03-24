@@ -115,6 +115,10 @@ EnConnectionType convertConnectionType(std::string conType);
 void printBodyGraphEdges(const AnatomyGraph &graph);
 void printConnectionType(GraphConnection con);
 void printBodyGraphVertices(const AnatomyGraph &graph);
+
+std::vector<int> getExternalBodyParts(const AnatomyGraph &graph);
+int getRandomExternalBodyParts(const AnatomyGraph &graph);
+
 int getFirstUnequippedFromSection(const AnatomyGraph &graph, const std::string &section);
 std::vector<int> getVerticesThatCanHoldWeapons(const AnatomyGraph &graph);
 

@@ -15,7 +15,7 @@
 
 BaseCreature::BaseCreature()
 {
-    totalHealth = 0;
+    totalHealth = 50;
     isAlive = true;
     attackValue = 0;
     strength = 10;

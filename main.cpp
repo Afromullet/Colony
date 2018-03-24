@@ -120,6 +120,7 @@ srand(time(NULL));
     player.body.GenerateOrganEdges();
     printBodyGraphEdges(player.body.anatomyGraph);
     printBodyGraphVertices(player.body.anatomyGraph);
+    getExternalBodyParts(player.body.anatomyGraph);
 
     
 
@@ -423,7 +424,7 @@ void InitializeMaps()
 void SetupCurrentMap(Map *map)
 {
     mapdata.setMap(map);
- setupTestCreatures();
+
    CreateTargetCreatures(mapdata);
     
     GenerateRandomItems(mapdata,30);
