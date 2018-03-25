@@ -407,6 +407,8 @@ void CreatureBody::EquipWeapon(Item *item)
     //if(item->getItemType() == enWeaponType)
    // {
         Weapon *wep = dynamic_cast<Weapon*>(item);
+    
+    std::cout << "\n Damage and range " << wep->getDamage() << ", " << wep->isRangedWeapon();
         if(wep->enWeaponSize == enLargeWeapon)
         {
             //Need at least two hands
@@ -419,6 +421,8 @@ void CreatureBody::EquipWeapon(Item *item)
                 //Equip in the first available slots
                 anatomyGraph[indices.at(0)].EquipWeapon(item);
                 anatomyGraph[indices.at(1)].EquipWeapon(&WEAPON_SLOT_FILLED); //Ne
+                
+                
                 
             }
             

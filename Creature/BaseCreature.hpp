@@ -26,6 +26,13 @@
 
 
 
+struct AttackStats
+{
+    int damage;
+    int range;
+    int attackValue;
+    bool isRangedAttack;
+};
 
 
 
@@ -54,12 +61,15 @@ private:
     
     
     
+    
+    
 public:
     
     
     
     Vision vision;
     CreatureBody body;
+    std::vector<AttackStats> attacks;
     
     BaseCreature();
 
@@ -123,10 +133,13 @@ public:
     void WalkPath(Map &map);
     void clearPath();
     
+    
 
     
     void setTotalHealth(int _health);
     int getTotalHealth();
+    
+    void calculateAttackParameters();
 
     
 };

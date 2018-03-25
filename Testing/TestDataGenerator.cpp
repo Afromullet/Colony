@@ -8,7 +8,7 @@
 
 #include "TestDataGenerator.hpp"
 #include "BaseCreature.hpp"
-#include "TestData.hpp"
+
 #include "ItemGenerator.hpp"
 #include "CAMap.hpp"
 
@@ -198,6 +198,7 @@ void GenerateTestEquipment()
     weapon.setItemName("TwoHandedWep");
     weapon.setRange(1);
     weapon.setDamage(10);
+    weapon.enWeaponSize = enLargeWeapon;
     tTwoHanded = weapon;
     
 
@@ -205,6 +206,7 @@ void GenerateTestEquipment()
     weapon.setItemName("OneHandedWep");
     weapon.setRange(1);
     weapon.setDamage(5);
+    weapon.enWeaponSize = enSmallWeapon;
     tOneHnaded = weapon;
     
 

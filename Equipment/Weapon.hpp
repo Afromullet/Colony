@@ -42,6 +42,7 @@ public:
     Weapon(std::string _itemname,std::string _section);
     
     bool isTwohanded;
+    bool isRanged;
     EnWeaponSize enWeaponSize;
 
     
@@ -104,6 +105,8 @@ public:
         material = weapon.material;
         sEquipmentName = weapon.sEquipmentName;
         position = weapon.position;
+        isRanged = weapon.isRanged;
+        
         //inches = D.inches;
     }
     

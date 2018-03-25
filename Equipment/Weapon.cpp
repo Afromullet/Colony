@@ -10,7 +10,7 @@
 
 bool Weapon::operator==(const Weapon &other) const
 {
-    if(siRange == other.siRange && siDamage == other.siDamage)
+    if(siRange == other.siRange && siDamage == other.siDamage && sEquipmentName == other.sEquipmentName && position == other.position && isRanged == other.isRanged)
     {
        
         return true;
@@ -64,6 +64,7 @@ Weapon::Weapon(Weapon &weapon)
     sEquipmentName = weapon.sEquipmentName;
     siRange = weapon.siRange;
     siDamage = weapon.siDamage;
+    isRanged = weapon.isRanged;
 
 }
 
@@ -94,7 +95,10 @@ void Weapon::setDamage(short int value){siDamage = value;}
 //void Weapon::setItemName(int value){Item::setItemName(value);}
 void Weapon::setMaterial(int value){Item::setMaterial(1);}
 
-
+bool Weapon::isRangedWeapon()
+{
+    return isRanged;
+}
 
 
 void Weapon::calculateMaterialBonuses()

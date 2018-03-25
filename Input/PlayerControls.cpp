@@ -10,7 +10,7 @@
 #include "Pathfinding.hpp"
 #include "Globals.hpp"
 
-#include "TestData.hpp"
+
 
 
 #include "MovementAction.hpp"
@@ -166,6 +166,7 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
             {
                 
                 targettingSquare.setSquare(creature.getPosition(), 1);
+                //targettingSquare.setCircle(10,10,5);
                 targettingSquare.vertices = mapdata.map->getVertices(targettingSquare.tilePositions);
                 targettingSquare.setColor(sf::Color::Yellow);
                 targettingSquare.setID(AssignEffectID());

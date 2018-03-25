@@ -15,7 +15,7 @@
 
 
 
-#include "TestData.hpp"
+
 
 
 #include "CAMap.hpp"
@@ -32,7 +32,6 @@
 #include "TestDataGenerator.hpp"
 #include "PlayerControls.hpp"
 
-#include "TestData.hpp"
 
 
 
@@ -40,6 +39,8 @@
 #include <string>
 
 #include "BodyGraphGetters.hpp"
+#include "AttackHandler.hpp"
+
 
 
 
@@ -111,6 +112,9 @@ srand(time(NULL));
 
 
     CreatureBody bReader;
+    
+    BaseCreature target;
+    
     //bReader.load("/Users/Afromullet/Documents/SFML/Colony2/Colony/Creature/BodyData/TestFile.xml");
     player.body.openBodyTypeFile("/Users/Afromullet/Documents/SFML/Colony2/Colony/Creature/BodyData/BasicHumanoidBody.xml");
     player.body.readBodyTokenList();
@@ -118,40 +122,16 @@ srand(time(NULL));
     player.body.GenerateEdges();
     player.body.GenerateOrganVertices();
     player.body.GenerateOrganEdges();
-    printBodyGraphEdges(player.body.anatomyGraph);
-    printBodyGraphVertices(player.body.anatomyGraph);
-    getExternalBodyParts(player.body.anatomyGraph);
-
-    
-
-    player.body.load();
     player.body.InitializeBodypartEquipment();
     
-    Anatomy_DFS_Section_Visitor vis("armsection");
-    depth_first_search(player.body.anatomyGraph,visitor(vis));
-    boost::shared_ptr<std::vector<AnatomyVertex>> aVec = vis.getVector();
-    std::vector<int> vectorIndices;
-    vectorIndices = vis.getVertexIndices();
-    
-    
-    for(int i = 0; i < vectorIndices.size(); i++)
-    {
-        std::cout << player.body.anatomyGraph[vectorIndices.at(i)];
-    }
-    
-    for(int i=0; i < aVec->size(); i++)
-    {
-       ;
-        player.body.anatomyGraph[vectorIndices.at(i)].ApplyDamage(5);
-    }
-    
-    for(int i=0; i < num_vertices(player.body.anatomyGraph); i++)
-    {
-        std::cout << player.body.anatomyGraph[i];
-    }
-    
-    
-    std::cout << "\n\n\n\n New";
+    //bReader.load("/Users/Afromullet/Documents/SFML/Colony2/Colony/Creature/BodyData/TestFile.xml");
+    target.body.openBodyTypeFile("/Users/Afromullet/Documents/SFML/Colony2/Colony/Creature/BodyData/BasicHumanoidBody.xml");
+    target.body.readBodyTokenList();
+    target.body.GenerateVertices();
+    target.body.GenerateEdges();
+    target.body.GenerateOrganVertices();
+    target.body.GenerateOrganEdges();
+    target.body.InitializeBodypartEquipment();
     
     
     
@@ -164,32 +144,32 @@ srand(time(NULL));
     Weapon testWeapon;
     testWeapon.enWeaponSize = enLargeWeapon;
     testWeapon.sEquipmentName = "TestWeapon";
+    testWeapon.isRanged = true;
+    testWeapon.setRange(5);
+    testWeapon.setDamage(10);
+    
+    player.setPosition(10, 10);
+    target.setPosition(11, 11);
  
     
     player.body.EquipArmor(&testArmor);
     player.body.EquipWeapon(&testWeapon);
+    printBodyGraphVertices(player.body.anatomyGraph);
+    std::cout << "\n Is Ranged " << testWeapon.isRangedWeapon();
     
-    for(int i = 0; i < num_vertices(player.body.anatomyGraph); i++)
+    for(int i =0; i < 10; i++)
     {
-        std::cout << "\n" << player.body.anatomyGraph[i];
+        
+        //AttackCreature_Melee(player,target);
+       AttackCreature_Ranged(player,target);
+        target.setPosition(target.getPosition().x + 1,target.getPosition().y + 1);
+        
     }
     
+   
     
-    getVerticesThatCanHoldWeapons(player.body.anatomyGraph);
-    int b = getFirstUnequippedFromSection(player.body.anatomyGraph,"armsection");
-    std::cout << "\n B = " << b;
-    std::cout << player.body.anatomyGraph[b];
     
-    std::cout << "\n\n\n\n New 1";
-    
-    b = getFirstUnequippedFromSection(player.body.anatomyGraph,"legsection");
-    std::cout << "\n B = " << b;
-    std::cout << player.body.anatomyGraph[b];
-    
-    b = getFirstUnequippedFromSection(player.body.anatomyGraph,"footsection");
-    std::cout << "\n B = " << b;
-    std::cout << player.body.anatomyGraph[b];
-
+ 
   
   
     

@@ -105,8 +105,12 @@ void BodyPart::EquipArmor(Item *item)
 void BodyPart::EquipWeapon(Item *item)
 {
     Weapon *wep = dynamic_cast<Weapon*>(item);
+    std::cout << "\n Damage and range " << wep->getDamage() << ", " << wep->isRangedWeapon();
     wep->isEquipped = true;
     weapon = *wep;
+    
+    std::cout << "\n Damage and range " << weapon.getDamage() << ", " << weapon.isRangedWeapon();
+    
 
 }
 
@@ -137,5 +141,5 @@ void BodyPart::ApplyDamage(int damage)
 bool BodyPart::hasWeapon()
 {
     
-    return true;
+    //return true;
 }

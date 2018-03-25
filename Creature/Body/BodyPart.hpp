@@ -62,7 +62,7 @@ public:
     bool canSee;
     bool canSmell;
     bool canBreathe;
-    bool isInternal; //I.E, organs
+    bool isInternal;
     
     
     std::string bodyPartName;
