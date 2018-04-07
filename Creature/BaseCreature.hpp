@@ -11,6 +11,7 @@
 #include <list>
 #include <Unordered_Map>
 #include "BodyPart.hpp"
+#include "EnumTypes.hpp"
 
 
 #ifndef AbstractCreature_hpp
@@ -26,15 +27,15 @@
 
 
 
-struct AttackStats
+
+
+struct DefenseStats
 {
-    int damage;
-    int range;
-    int attackValue;
-    bool isRangedAttack;
+    int vertexIndex; //So we know what to apply to the body part under the armor
+    std::string section;
+    Armor &armor;
+    
 };
-
-
 
 class Map;
 
@@ -140,6 +141,9 @@ public:
     int getTotalHealth();
     
     void calculateAttackParameters();
+    float CalculateMeleeAttackForce(Weapon &weapon);
+    
+
 
     
 };

@@ -112,8 +112,10 @@ private:
 //Returns the vertex index
 int GetVerticesWithToken(std::string bptoken,  AnatomyGraph &graph);
 EnConnectionType convertConnectionType(std::string conType);
+EnConnectionProperty convertConnectionPropertyType(std::string conType);
 void printBodyGraphEdges(const AnatomyGraph &graph);
 void printConnectionType(GraphConnection con);
+void printConnectionProperty(GraphConnection con);
 void printBodyGraphVertices(const AnatomyGraph &graph);
 
 std::vector<int> getExternalBodyParts(const AnatomyGraph &graph);

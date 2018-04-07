@@ -81,6 +81,27 @@ EnConnectionType convertConnectionType(std::string conType)
     return con;
 }
 
+EnConnectionProperty convertConnectionPropertyType(std::string conType)
+{
+    std::transform(conType.begin(), conType.end(), conType.begin(), ::tolower);
+    EnConnectionProperty con;
+    
+    if(conType == "bone")
+    {
+        con = enBone;
+        
+    }
+    else if(conType == "joint")
+    {
+        con = enJoint;
+    }
+    else if(conType == "connectivetissue")
+    {
+        con = enConnectiveTissue;
+    }
+    
+}
+
 void printConnectionType(GraphConnection con)
 {
     if(con.connection == enExternalLeft)
@@ -122,6 +143,23 @@ void printConnectionType(GraphConnection con)
     else if(con.connection == enSymmetric)
     {
         std::cout << "Symmetric connection";
+    }
+    
+}
+
+void printConnectionProperty(GraphConnection con)
+{
+    if(con.connectionProperty == enBone)
+    {
+        std::cout << "Bone";
+    }
+    else if(con.connectionProperty == enJoint)
+    {
+        std::cout << "Joint";
+    }
+    else if(con.connectionProperty == enConnectiveTissue)
+    {
+        std::cout << "Connective Tissue";
     }
     
 }

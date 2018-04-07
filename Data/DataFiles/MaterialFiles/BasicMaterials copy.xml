@@ -1,0 +1,74 @@
+<material>
+    <Name>Flesh</Name>
+    <Density>10</Density>
+    <CompressionFractureStrength>10</CompressionFractureStrength>
+    <ImpactDeformationStrength>10</ImpactDeformationStrength>
+    <TensileDeformationStrength>10/<TensileDeformationStrength>
+        <TorsionDeformationStrength>10</TorsionDeformationStrength>
+        <ShearDeformationStrength>10</ShearDeformationStrength>
+        <CompressionFractureStrength>10</CompressionFractureStrength>
+        <ImpactFractureStrength>10</ImpactFractureStrength>
+        <TensileFractureStrength>10</TensileFractureStrength>
+        <TorsionFractureStrength>10</TorsionFractureStrength>
+        <ShearFractureStrength>10</ShearFractureStrength>
+    </material>
+
+<material>
+    <Name>Fat</Name>
+    <Density>11</Density>
+    <CompressionFractureStrength>11</CompressionFractureStrength>
+    <ImpactDeformationStrength>11</ImpactDeformationStrength>
+    <TensileDeformationStrength>11/<TensileDeformationStrength>
+        <TorsionDeformationStrength>11</TorsionDeformationStrength>
+        <ShearDeformationStrength>11</ShearDeformationStrength>
+        <CompressionFractureStrength>11</CompressionFractureStrength>
+        <ImpactFractureStrength>11</ImpactFractureStrength>
+        <TensileFractureStrength>11</TensileFractureStrength>
+        <TorsionFractureStrength>11</TorsionFractureStrength>
+        <ShearFractureStrength>11</ShearFractureStrength>
+    </material>
+
+<material>
+    <Name>Wood</Name>
+    <Density>12</Density>
+    <CompressionFractureStrength>12</CompressionFractureStrength>
+    <ImpactDeformationStrength>12</ImpactDeformationStrength>
+    <TensileDeformationStrength>12/<TensileDeformationStrength>
+        <TorsionDeformationStrength>12</TorsionDeformationStrength>
+        <ShearDeformationStrength>12</ShearDeformationStrength>
+        <CompressionFractureStrength>12</CompressionFractureStrength>
+        <ImpactFractureStrength>12</ImpactFractureStrength>
+        <TensileFractureStrength>12</TensileFractureStrength>
+        <TorsionFractureStrength>12</TorsionFractureStrength>
+        <ShearFractureStrength>12</ShearFractureStrength>
+    </material>
+
+<material>
+    <Name>Iron</Name>
+    <Density>13</Density>
+    <CompressionFractureStrength>13</CompressionFractureStrength>
+    <ImpactDeformationStrength>13</ImpactDeformationStrength>
+    <TensileDeformationStrength>13/<TensileDeformationStrength>
+        <TorsionDeformationStrength>13</TorsionDeformationStrength>
+        <ShearDeformationStrength>13</ShearDeformationStrength>
+        <CompressionFractureStrength>13</CompressionFractureStrength>
+        <ImpactFractureStrength>13</ImpactFractureStrength>
+        <TensileFractureStrength>13</TensileFractureStrength>
+        <TorsionFractureStrength>13</TorsionFractureStrength>
+        <ShearFractureStrength>13</ShearFractureStrength>
+    </material>
+
+<material>
+    <Name>Steel</Name>
+    <Density>14</Density>
+    <CompressionFractureStrength>14</CompressionFractureStrength>
+    <ImpactDeformationStrength>14</ImpactDeformationStrength>
+    <TensileDeformationStrength>14/<TensileDeformationStrength>
+        <TorsionDeformationStrength>14</TorsionDeformationStrength>
+        <ShearDeformationStrength>14</ShearDeformationStrength>
+        <CompressionFractureStrength>14</CompressionFractureStrength>
+        <ImpactFractureStrength>14</ImpactFractureStrength>
+        <TensileFractureStrength>14</TensileFractureStrength>
+        <TorsionFractureStrength>14</TorsionFractureStrength>
+        <ShearFractureStrength>14</ShearFractureStrength>
+    </material>

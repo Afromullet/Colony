@@ -21,7 +21,7 @@ bool Armor::operator==(const Armor &other) const
     return false;
 }
 
-Armor::Armor(int _material, std::string _sEquipmentName, short int _siArmorBonus, float _fDodgeModifier, float _fDamageReduction,float _fMovementModifier)
+Armor::Armor(Material _material, std::string _sEquipmentName, short int _siArmorBonus, float _fDodgeModifier, float _fDamageReduction,float _fMovementModifier)
 : Item(_material,_sEquipmentName),
 siArmorBonus(_siArmorBonus),fDodgeModifier(_fDodgeModifier),
 fDamageReduction(_fDamageReduction),fMovementModifier(_fMovementModifier)
@@ -179,17 +179,14 @@ void Armor::setItemName(int value)
  */
 
 
-void Armor::setMaterial(int value)
+void Armor::setMaterial(Material value)
 {
-    Item::setMaterial(1);
+    Item::setMaterial(value);
     
 }
 
 
-void Armor::CalculateMaterialBonuses()
-{
-    
-}
+
 
 void Armor::showItemStats()
 {

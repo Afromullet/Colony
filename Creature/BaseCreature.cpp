@@ -366,6 +366,8 @@ void BaseCreature::calculateAttackParameters()
             
             attackStats.damage += getStrength();
             attackStats.isRangedAttack = false;
+            attackStats.force = CalculateMeleeAttackForce(body.anatomyGraph[verts.at(i)].weapon);
+            attackStats.size = body.anatomyGraph[verts.at(i)].weapon.size;
         }
         
        
@@ -378,6 +380,31 @@ void BaseCreature::calculateAttackParameters()
     {
         std::cout << "\n Damage at the end " << attacks.at(i).damage;
     }
+    
+}
+
+/*
+ Acceleration Calculation:
+ 
+ Melee attack velocity, unlike ranged attacks, is not calculated. It would be far too much trouble to worry about an objects changing velocity
+    so I'll calculate acceleraton differently (acceleration being derived from velocity)
+ 
+ Heavier weapiers are harder to swing.
+ 
+
+ 
+ */
+float BaseCreature::CalculateMeleeAttackForce(Weapon &weapon)
+{
+    float force;
+    float acceleration;
+    
+    //A smaller weapon can be swung faster, that's why we divide by size
+    acceleration = (strength + weapon.material.getDensity());
+    
+    force = weapon.mass * acceleration;
+    
+    
     
 }
 

@@ -13,17 +13,19 @@
 #include "EnumTypes.hpp"
 #include <string>
 #include <vector>
-
+#include "Tissue.hpp"
 
 #ifndef BodyPart_hpp
 #define BodyPart_hpp
+
+
+
 
 
 #define ARM_STRING "arm"
 #define LEG_STRING "leg"
 #define FOOT_STRING "foot"
 #define HAND_STRING "hand"
-
 
 
 
@@ -63,7 +65,7 @@ public:
     bool canSmell;
     bool canBreathe;
     bool isInternal;
-    
+    std::vector<Tissue> tissues;
     
     std::string bodyPartName;
     
@@ -103,6 +105,8 @@ public:
     void ApplyDamage(int damage);
     
     bool hasWeapon();
+    
+    void ApplyAttack(AttackStats params);
     
     
     

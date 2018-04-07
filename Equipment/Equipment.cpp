@@ -8,7 +8,7 @@
 
 #include "Equipment.hpp"
 
-Item::Item(int _material, std::string _sEquipmentName): material(_material),sEquipmentName("no name"),isEquipped(false)
+Item::Item(Material _material, std::string _sEquipmentName): material(_material),sEquipmentName("no name"),isEquipped(false)
 {
     
 }
@@ -26,7 +26,7 @@ Item::Item(std::string equipmentName, std::string _section) : sEquipmentName(equ
 
 
 
-Item::Item() : material(1),sEquipmentName("no name"),isEquipped(false)
+Item::Item() : material(),sEquipmentName("no name"),isEquipped(false)
 {
     
 }
@@ -50,7 +50,7 @@ void Item::setItemName(std::string value)
 }
  
 
-void Item::setMaterial(int value)
+void Item::setMaterial(Material value)
 {
     material = value;
     
@@ -89,5 +89,13 @@ bool Item::isValidSection(std::string _section)
     
     return false;
 }
+
+void Item::CalculateMaterialBonuses()
+{
+    
+    mass = material.getDensity() * size; //Density = mass * volume
+}
+
+
 
 

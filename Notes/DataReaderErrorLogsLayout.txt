@@ -1,0 +1,4 @@
+<materia>
+<materialname></materialname>
+<duplicatename></duplicatename>
+<listofvariousstrenghtsthathadanerror</same>

@@ -8,6 +8,7 @@
 
 #include "Globals.hpp"
 #include "Constants.hpp"
+#include "Material.hpp"
 
 bool PlayerActionTaken = false;
 
@@ -18,10 +19,10 @@ FileLogger errorLog("errors.txt");
 sf::Font defaultFont;
 
 std::vector<TileIDData> tileIDTable; //Tile types are predefined. TODO, populate this from a file.
-Armor NO_ARMOR(1,"No armor",0,0,0,0);
-Weapon FIST_WEAPON(1,"Fist Weapon",1,1);
-Weapon NO_WEAPON(1,"No weapon",0,0);
-Weapon WEAPON_SLOT_FILLED(1,"Weapon Slot Filled",0,0);
+Armor NO_ARMOR(Material(),"No armor",0,0,0,0);
+Weapon FIST_WEAPON(Material(),"Fist Weapon",1,1);
+Weapon NO_WEAPON(Material(),"No weapon",0,0);
+Weapon WEAPON_SLOT_FILLED(Material(),"Weapon Slot Filled",0,0);
 
 
 

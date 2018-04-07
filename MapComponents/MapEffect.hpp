@@ -19,7 +19,7 @@ extern sf::VertexArray EMPTY_VERTEXARAY;
 extern std::vector<sf::Vector2i> EMPTY_TILEPOSITION;
 
 //An effect has a tile position and a vertices position. it's essentially another layer on top of the map
-enum Shape{enSquare};
+enum Shape{enSquare,enCircle,enLine};
 
 class MapEffect
 {
@@ -27,7 +27,7 @@ class MapEffect
 private:
    
     
-    
+    Shape enShape;
    
     
 public:
@@ -53,7 +53,7 @@ public:
     void addTilePositions(sf::Vector2i newPosition);
     
     
-    std::vector<sf::Vector2i> getSquare(sf::Vector2i position,int n);
+    std::vector<sf::Vector2i> getShape(sf::Vector2i position,int n);
    
     void setSquare(sf::Vector2i position,int n);
     void setLine(sf::Vector2i position,int n,MoveDirection movDirection);
@@ -72,7 +72,7 @@ public:
     
     
         
-    void MoveSquare(int xOffset,int yOffset);
+    void MoveShape(int xOffset,int yOffset);
     void MoveLine(int xOffset,int yOffset);
     
     

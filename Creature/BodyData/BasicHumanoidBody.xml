@@ -162,36 +162,42 @@
         <bptoken>head</bptoken>
         <connectsto>chest</connectsto>
         <connectiontype>direct</connectiontype>
+        <connectionproperty>bone</connectionproperty>
     </bodypart>
 
     <bodypart>
         <bptoken>leftarm</bptoken>
         <connectsto>chest</connectsto>
         <connectiontype>externalleft</connectiontype>
+        <connectionproperty>bone</connectionproperty>
     </bodypart>
 
     <bodypart>
         <bptoken>rightarm</bptoken>
         <connectsto>chest</connectsto>
         <connectiontype>externalright</connectiontype>
+        <connectionproperty>bone</connectionproperty>
     </bodypart>
 
     <bodypart>
         <bptoken>lefthand</bptoken>
         <connectsto>leftarm</connectsto>
         <connectiontype>externalleft</connectiontype>
+        <connectionproperty>bone</connectionproperty>
     </bodypart>
     
     <bodypart>
         <bptoken>righthand</bptoken>
         <connectsto>rightarm</connectsto>
         <connectiontype>externalright</connectiontype>
+        <connectionproperty>bone</connectionproperty>
     </bodypart>
     
     <bodypart>
         <bptoken>nose</bptoken>
         <connectsto>head</connectsto>
         <connectiontype>direct</connectiontype>
+        <connectionproperty>bone</connectionproperty>
     </bodypart>
 </bodypartconnections>
 
@@ -201,42 +207,49 @@
         <bptoken>chest</bptoken>
         <connectsto>leftlung</connectsto>
         <connectiontype>internalleft</connectiontype>
+        <connectionproperty>connectivetissue</connectionproperty>
     </organconnection>
     
     <organconnection>
         <bptoken>chest</bptoken>
         <connectsto>rightlung</connectsto>
         <connectiontype>internalright</connectiontype>
+        <connectionproperty>connectivetissue</connectionproperty>
     </organconnection>
     
     <organconnection>
         <bptoken>head</bptoken>
         <connectsto>brain</connectsto>
         <connectiontype>internal</connectiontype>
+        <connectionproperty>connectivetissue</connectionproperty>
     </organconnection>
     
     <organconnection>
         <bptoken>head</bptoken>
         <connectsto>lefteye</connectsto>
         <connectiontype>externalleft</connectiontype>
+        <connectionproperty>connectivetissue</connectionproperty>
     </organconnection>
     
     <organconnection>
         <bptoken>head</bptoken>
         <connectsto>righteye</connectsto>
         <connectiontype>externalleft</connectiontype>
+        <connectionproperty>connectivetissue</connectionproperty>
     </organconnection>
     
     <organconnection>
         <bptoken>chest</bptoken>
         <connectsto>kidney</connectsto>
         <connectiontype>internal</connectiontype>
+        <connectionproperty>connectivetissue</connectionproperty>
     </organconnection>
     
     <organconnection>
         <bptoken>chest</bptoken>
         <connectsto>intestines</connectsto>
         <connectiontype>internal</connectiontype>
+        <connectionproperty>connectivetissue</connectionproperty>
     </organconnection>
     
 

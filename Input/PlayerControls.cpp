@@ -162,11 +162,22 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
             
             //Don't want to allow target square to be pressed twice and count vertices twice...add check to see if we are currently targetting
             
+            std::cout << "\n Choose Shape: 0 = Circle, 1 = Square, 2 = Line";
+            int selection;
+            
             if(usingTargetSquare == false)
             {
                 
-                targettingSquare.setSquare(creature.getPosition(), 1);
-                //targettingSquare.setCircle(10,10,5);
+                std::cin >> selection;
+                
+                if(selection == 0)
+                    targettingSquare.setCircle(10,10,5);
+                else if(selection == 1)
+                    targettingSquare.setSquare(creature.getPosition(), 1);
+                    
+                    
+                //
+                
                 targettingSquare.vertices = mapdata.map->getVertices(targettingSquare.tilePositions);
                 targettingSquare.setColor(sf::Color::Yellow);
                 targettingSquare.setID(AssignEffectID());
@@ -177,6 +188,11 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
             
             usingTargetSquare = true;
             //Target square
+        }
+        else if(event.key.code == sf::Keyboard::C)
+        {
+            mapdata.map->RemoveEffect(targettingSquare);
+            usingTargetSquare = false;
         }
         else if(event.key.code == sf::Keyboard::S)
         {
@@ -414,20 +430,20 @@ void ControlTargetSquare(MoveDirection moveDir,MapData &mapdata)
     if(moveDir == Up)
     {
     
-        targettingSquare.MoveSquare(0, -1);
+        targettingSquare.MoveShape(0, -1);
 
     }
     else if(moveDir == Down)
     {
-        targettingSquare.MoveSquare(0, 1);
+        targettingSquare.MoveShape(0, 1);
     }
     else if(moveDir == Left)
     {
-        targettingSquare.MoveSquare(-1, 0);
+        targettingSquare.MoveShape(-1, 0);
     }
     else if(moveDir == Right)
     {
-        targettingSquare.MoveSquare(1, 0);
+        targettingSquare.MoveShape(1, 0);
     }
     
     //mapdata.map->setEffectColor(targettingSquare.getID(), sf::Color::Yellow);

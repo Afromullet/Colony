@@ -25,13 +25,15 @@ private:
     float fDamageReduction;
     float fMovementModifier;
     
+
+    
   
     
 public:
     
     bool operator==(const Armor &other) const;
     
-    Armor(int _material,std::string _sEquipmentName, short int _siArmorBonus, float _fDodgeModifier, float _fDamageReduction,float _fMovementModifier);
+    Armor(Material _material,std::string _sEquipmentName, short int _siArmorBonus, float _fDodgeModifier, float _fDamageReduction,float _fMovementModifier);
 
      Armor(std::string itemName);
     Armor(std::string itemName, std::string _section);
@@ -82,9 +84,9 @@ public:
     void calculateMaterialBonuses();
     
     //void setItemName(int value);
-    void setMaterial(int value);
+    void setMaterial(Material value);
    
-    void CalculateMaterialBonuses();
+
     
     void PrintArmorStatistics();
     void showItemStats();

@@ -143,3 +143,8 @@ bool BodyPart::hasWeapon()
     
     //return true;
 }
+
+void BodyPart::ApplyAttack(AttackStats params)
+{
+    
+}

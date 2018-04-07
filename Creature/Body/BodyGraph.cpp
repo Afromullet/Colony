@@ -272,6 +272,11 @@ void CreatureBody::GenerateEdges()
             //conType = convertConnectionType(v.second.get<std::string>("connectiontype"));
             conType.connection = convertConnectionType(v.second.get<std::string>("connectiontype"));
             
+            conType.connectionProperty = convertConnectionPropertyType(v.second.get<std::string>("connectionproperty"));
+            
+            
+            
+            
             boost::add_edge(indMap[bp1Index], indMap[bp2Index],conType, anatomyGraph);
             
             
@@ -360,6 +365,7 @@ void CreatureBody::load()
 
 //Can't use a boolean because -1 indicates that the truth value being passed is not the correct format
 //Can just make this a function not in the scope of BodyTypeReader, since it'll be used in multiple places outside of the body type reader
+//Need to move this outside the class
 int CreatureBody::convertTruthValue(std::string truthVal)
 {
     std::transform(truthVal.begin(), truthVal.end(), truthVal.begin(), ::tolower);

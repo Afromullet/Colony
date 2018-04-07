@@ -58,7 +58,7 @@ void MapEffect::addTilePositions(sf::Vector2i newPosition)
     tilePositions.push_back(newPosition);
 }
 
-std::vector<sf::Vector2i> MapEffect::getSquare(sf::Vector2i position,int n)
+std::vector<sf::Vector2i> MapEffect::getShape(sf::Vector2i position,int n)
 {
     
     
@@ -107,6 +107,7 @@ void MapEffect::setSquare(sf::Vector2i position,int n)
         
     }
     
+    enShape = enCircle;
     squareSize = n;
     
 }
@@ -162,6 +163,7 @@ void MapEffect::setLine(sf::Vector2i position,int n,MoveDirection movDirection)
     }
     
     squareSize = n;
+    enShape = enLine;
     
 }
 
@@ -204,6 +206,8 @@ void MapEffect::setLine(int x0, int y0, int x1, int y1)
         i++;
     }
     
+    enShape = enLine;
+    
 }
 
 void MapEffect::setCircle(int xm, int ym, int r)
@@ -240,6 +244,8 @@ void MapEffect::setCircle(int xm, int ym, int r)
         if (r <= y) err += ++y*2+1;           /* e_xy+e_y < 0 */
         if (r > x || err > y) err += ++x*2+1; /* e_xy+e_x > 0 or no 2nd y-step */
     } while (x < 0);
+    
+    enShape = enCircle;;
 }
 
 std::vector<sf::Vector2i> MapEffect::getLine(int x0, int y0, int x1, int y1)
@@ -284,7 +290,7 @@ std::vector<sf::Vector2i> MapEffect::getLine(int x0, int y0, int x1, int y1)
 }
 
 //Doesn't get the vertices right now, those have to be set separetely 
-void MapEffect::MoveSquare(int xOffset,int yOffset)
+void MapEffect::MoveShape(int xOffset,int yOffset)
 {
 
     //TODO, don't hardcode the 32..Supposed to be default_tile_size

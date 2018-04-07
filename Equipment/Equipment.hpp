@@ -11,6 +11,7 @@
 #include <iostream>
 #include "EnumTypes.hpp"
 #include "EntityTile.hpp"
+#include "Material.hpp"
 
 
 #ifndef Equipment_hpp
@@ -33,7 +34,7 @@ private:
     
     
    
-    int material;
+
   
  
     sf::Vector2i position; //Is this a good idea? The position of an object does not matter if it's on a creature. Is the space this uses worth making managing items on the map easier?
@@ -44,16 +45,23 @@ private:
   
     
 public:
+    
+
+
     std::string sEquipmentName;
     bool isEquipped;
     EntityTile itemTile; //The texture of this item
+    
+    Material material;
+    float size; //Volume
+    float mass;
     
     std::vector<std::string> sections; //The sections this armor covers
     
  
     std::string section;
     
-    Item(int _material,std::string _sEquipmentName);
+    Item(Material _material,std::string _sEquipmentName);
     
     Item(std::string equipmentName);
     Item(std::string equipmentName, std::string _section);
@@ -66,7 +74,7 @@ public:
     virtual std::string getItemExamineString() = 0;
     
     void setItemName(std::string value);
-    void setMaterial(int value);
+    void setMaterial(Material value);
 
     void setPosition(int x, int y); //For setting the position of the item when it's on the map
     
@@ -86,9 +94,12 @@ public:
       
     std::string name; //Public right now..make getters and setters later
     
-    virtual void CalculateMaterialBonuses() = 0;
+    void CalculateMaterialBonuses();
     virtual void showItemStats() = 0;
     
+    float getMass();
+   
+  
     
     
    

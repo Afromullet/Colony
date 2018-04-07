@@ -17,12 +17,15 @@
 
 enum EnWeaponSize{enSmallWeapon,enMediumWeapon,enLargeWeapon};
 
+
 class Weapon : public Item
 {
 private:
     friend class Item;
     short int siRange;
     short int siDamage;
+    int contactArea;
+
   
     
     
@@ -32,7 +35,7 @@ public:
     bool operator==(const Weapon &other) const;
     
     //todo getters and setters
-    Weapon(int _material, std::string _sEquipmentName, short int _siRange,
+    Weapon(Material _material, std::string _sEquipmentName, short int _siRange,
    short int _siDamage);
     
     Weapon();
@@ -84,10 +87,10 @@ public:
     void setRange(short int value);
     void setDamage(short int value);
     //void setItemName(int value);
-    void setMaterial(int value);
+    void setMaterial(Material value);
 
 
-    void CalculateMaterialBonuses();
+
     void showItemStats();
     
     

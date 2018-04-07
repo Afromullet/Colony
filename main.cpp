@@ -40,7 +40,8 @@
 
 #include "BodyGraphGetters.hpp"
 #include "AttackHandler.hpp"
-
+#include "DataReaders.hpp"
+#include "DataStorage.hpp"
 
 
 
@@ -415,10 +416,17 @@ void SetupCurrentMap(Map *map)
 
 void SetupGameData(Map *map)
 {
+    
+    ReadMaterialFile("/Users/Afromullet/Documents/SFML/Colony2/Colony/Data/DataFiles/MaterialFiles/BasicMaterials.xml");
+    printMaterials();
+    
+    
     InitializeGlobalBodyParts();
     InitializeCreatureTypes();
     InitializeGlobals();
     InitializeMaps();
+    
+    
     SetupCurrentMap(map);
     GenerateTestEquipment();
     

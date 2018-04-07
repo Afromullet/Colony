@@ -19,7 +19,7 @@ bool Weapon::operator==(const Weapon &other) const
 }
 
 //todo add "Blank" weapon for when no weapon is equipped..and also something to identify a two handed weapon is equipped
-Weapon::Weapon(int _material, std::string _sEquipmentName, short int _siRange,short int _siDamage):
+Weapon::Weapon(Material _material, std::string _sEquipmentName, short int _siRange,short int _siDamage):
         Item::Item(_material,_sEquipmentName),
         siRange(_siRange),siDamage(_siDamage)
 {
@@ -30,7 +30,7 @@ Weapon::Weapon(int _material, std::string _sEquipmentName, short int _siRange,sh
 }
 
 
-Weapon::Weapon() : Item(-1,"No Weapon"),siRange(-1),siDamage(-1)
+Weapon::Weapon() : Item(Material(),"No Weapon"),siRange(-1),siDamage(-1)
 {
     
    
@@ -93,7 +93,7 @@ std::string Weapon::getItemExamineString()
 void Weapon::setRange(short int value){siRange = value;}
 void Weapon::setDamage(short int value){siDamage = value;}
 //void Weapon::setItemName(int value){Item::setItemName(value);}
-void Weapon::setMaterial(int value){Item::setMaterial(1);}
+void Weapon::setMaterial(Material value){Item::setMaterial(value);}
 
 bool Weapon::isRangedWeapon()
 {
@@ -106,10 +106,7 @@ void Weapon::calculateMaterialBonuses()
         
 }
 
-void Weapon::CalculateMaterialBonuses()
-{
-    
-}
+
 
 void Weapon::showItemStats()
 {

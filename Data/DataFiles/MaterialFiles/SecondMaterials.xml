@@ -1,0 +1,14 @@
+<material>
+    <Name>Stone</Name>
+    <Density>10</Density>
+    <CompressionDeformationStrenth>10</CompressionDeformationStrenth>
+    <ImpactDeformationStrength>10</ImpactDeformationStrength>
+    <TensileDeformationStrength>10/<TensileDeformationStrength>
+        <TorsionDeformationStrength>10</TorsionDeformationStrength>
+        <ShearDeformationStrength>10</ShearDeformationStrength>
+        <CompressionFractureStrength>10</CompressionFractureStrength>
+        <ImpactFractureStrength>10</ImpactFractureStrength>
+        <TensileFractureStrength>10</TensileFractureStrength>
+        <TorsionFractureStrength>10</TorsionFractureStrength>
+        <ShearFractureStrength>10</ShearFractureStrength>
+    </material>

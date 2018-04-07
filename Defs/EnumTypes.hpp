@@ -13,13 +13,27 @@
  
  */
 
+
 enum TileTerrainType{enGrass1,enSnow1,enSwamp1,enFloor1,enWall1,enUndefinedTerrain};
 
 
+enum AttackForceType{enCompression,enImpact,enTensile,enTorsion,enShear};
 
 
 
 
+//TODO find a better place for this
+struct AttackStats
+{
+    int damage;
+    int range;
+    int attackValue;
+    bool isRangedAttack;
+    float force; //The force applied by this attack
+    float size; //The size of the object used to attack. Used in stress calculation
+    AttackForceType enAttackForceType;
+    
+};
 
 
 

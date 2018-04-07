@@ -32,13 +32,25 @@ using namespace boost;
 
 //Internal edge means that it is "inside" of the body part. Don't want to have a graph with both directed and non directed edges
 //So the second of the values in the ordered pair is the part that is internal. (Chest,Lung) with enInternal edge property means that the lung is internal. TODO check if boost graph always adds edges in the order that the function is called , add_edge(a,b) creating (a,b) and never (b,a)
-enum EnConnectionType {enSymmetric,enDirect,enLeftConnection,enRightConnection,enInvalidConnection,enInternal,enInternalLeft,enInternalRight,enExternalLeft,enExternalRight,enExternal};
+enum EnConnectionType {enSymmetric,enDirect,enLeftConnection,enRightConnection,enInvalidConnection,enInternal,enInternalLeft,enInternalRight,enExternalLeft,enExternalRight,enExternal,enExternalLeftFront,enExternalRightFront};
+
+enum EnConnectionProperty
+{
+    enBone,enJoint,enConnectiveTissue
+};
+
+enum BodyPartPosition
+{
+    enFrontPosition,enBackPosition,enLeftPosition,enRightPosition
+    
+};
 
 typedef boost::property < boost::edge_weight_t, double> EdgeWeightProp;
 
 typedef struct _GraphConnection
 {
     EnConnectionType connection;
+    EnConnectionProperty connectionProperty;
     EdgeWeightProp weightProperty;
 }GraphConnection;
 
@@ -96,6 +108,10 @@ public:
     
     void EquipArmor(Item *item);
     void EquipWeapon(Item *item);
+    
+   
+    
+    
     
     
     
