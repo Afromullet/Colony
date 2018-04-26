@@ -7,3 +7,8 @@
 //
 
 #include "Tissue.hpp"
+
+std::vector<AppliedForceEffect>& Tissue::getTissueMaterialEffects()
+{
+    return material.getAppliedForceEffects();
+}

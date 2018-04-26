@@ -79,6 +79,8 @@ BodyPart::BodyPart(const BodyPart& bp)
   
     armor = bp.armor;
     weapon = bp.weapon;
+    relativeSize = bp.relativeSize;
+    wounds = bp.wounds;
    
     
 }
@@ -134,6 +136,17 @@ Weapon BodyPart::getWeapon()
     return weapon;
 }
 
+std::vector<AppliedForceEffect>& BodyPart::getArmorMaterialEffects()
+{
+    return armor.material.getAppliedForceEffects();
+}
+
+//Calculates the body parts size in units based on the total size passed as a parameter. RelativeSize is a percent
+float BodyPart::getBodyPartSize(float totalBodySize)
+{
+    return totalBodySize * relativeSize;
+}
+
 void BodyPart::ApplyDamage(int damage)
 {
     health -= damage;
@@ -144,7 +157,24 @@ bool BodyPart::hasWeapon()
     //return true;
 }
 
-void BodyPart::ApplyAttack(AttackStats params)
+//Applies an attack to this body part
+std::vector<AppliedForceEffect> BodyPart::ApplyAttack(AttackStats params)
 {
     
+    std::vector<AppliedForceEffect> effects;
+    armor.material.SetupForce(params.force, params.contactArea, params.enAttackForceType,params.attackType);
+    armor.material.CalculateForcePenentration();
+    effects = getArmorMaterialEffects();
+    
+    return effects;
+    
+    
 }
+
+void BodyPart::AddWound(WoundType woundType)
+{
+    wounds.push_back(woundType);
+}
+
+
+

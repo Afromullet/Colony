@@ -11,5 +11,5 @@
 
 void ApplyAttackToArmor(AttackStats params, Armor &armor)
 {
-    float areaForce = params.force / params.size;
+    float areaForce = params.force / params.contactArea;
 }

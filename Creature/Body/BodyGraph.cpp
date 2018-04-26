@@ -51,6 +51,7 @@ void CreatureBody::GenerateVertices()
     //Declaring the variables to make this more readable
     std::string bptoken,bpname,section;
     int holdsWeapon,holdsArmor,canInteract,canSee,canSmell,canBreathe;
+    float relativeSize;
     BOOST_FOREACH(pt::ptree::value_type &v, tree.get_child("bodyparts"))
     {
         if(v.first == "bpdescription")
@@ -117,6 +118,15 @@ void CreatureBody::GenerateVertices()
             }
             
             
+            try
+            {
+                relativeSize = std::stof(v.second.get<std::string>("relativesize"));
+            }
+            catch(pt::ptree_bad_path)
+            {
+                relativeSize = 10;
+            }
+            
             
             
             
@@ -127,7 +137,7 @@ void CreatureBody::GenerateVertices()
             
             
             BodyPart bp(bptoken,bpname);
-            
+            bp.relativeSize = relativeSize;
             bp.canHoldArmor = holdsArmor;
             bp.canHoldWeapon = holdsWeapon;
             bp.canSmell = canSmell;
@@ -155,6 +165,7 @@ void CreatureBody::GenerateOrganVertices()
     //Declaring the variables to make this more readable
     std::string bptoken,bpname,section;
     int holdsWeapon,holdsArmor,canInteract,canSee,canSmell,canBreathe;
+    float relativeSize;
     BOOST_FOREACH(pt::ptree::value_type &v, tree.get_child("organs"))
     {
         if(v.first == "bpdescription")
@@ -226,13 +237,21 @@ void CreatureBody::GenerateOrganVertices()
             }
             
             
+            try
+            {
+                relativeSize = std::stof(v.second.get<std::string>("relativesize"));
+            }
+            catch(pt::ptree_bad_path)
+            {
+                relativeSize = 10;
+            }
             
             
             
             
             
             BodyPart bp(bptoken,bpname);
-            
+            bp.relativeSize = relativeSize;
             bp.canHoldArmor = holdsArmor;
             bp.canHoldWeapon = holdsWeapon;
             bp.canSmell = canSmell;
@@ -471,3 +490,20 @@ void CreatureBody::InitializeBodypartEquipment()
     }
 }
 
+//N is the index of the node
+/*
+ What's the problem I need to solve here? Need to find a way to convert the force applied to a body part
+ A function to map force to the vertices that force affects
+ 
+ Blunt = Weighted with mass and desnity
+ 
+ Maybe identify the kinds of wounds that a body can suffer from and then tie damage to that
+ */
+void CreatureBody::ApplyAttack(AttackStats attackStats, int n)
+{
+  
+    
+    std::vector<AppliedForceEffect> effects = anatomyGraph[n].ApplyAttack(attackStats);
+    
+    
+}

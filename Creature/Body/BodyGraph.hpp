@@ -22,6 +22,8 @@
 #include <boost/foreach.hpp>
 #include <string>
 #include "Globals.hpp"
+#include "EnumTypes.hpp"
+
 
 using namespace boost;
 #ifndef BodyGraph_hpp
@@ -44,6 +46,8 @@ enum BodyPartPosition
     enFrontPosition,enBackPosition,enLeftPosition,enRightPosition
     
 };
+
+
 
 typedef boost::property < boost::edge_weight_t, double> EdgeWeightProp;
 
@@ -84,6 +88,8 @@ private:
     pt::ptree tree;
     std::string m_file;
     std::vector<std::string> bodyTokenList;
+    float bodySize;
+    
     
 public:
     
@@ -108,6 +114,8 @@ public:
     
     void EquipArmor(Item *item);
     void EquipWeapon(Item *item);
+    
+    void ApplyAttack(AttackStats attackStats, int n);
     
    
     

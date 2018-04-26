@@ -123,5 +123,6 @@ int getRandomExternalBodyParts(const AnatomyGraph &graph);
 
 int getFirstUnequippedFromSection(const AnatomyGraph &graph, const std::string &section);
 std::vector<int> getVerticesThatCanHoldWeapons(const AnatomyGraph &graph);
+std::vector<int> getInternalVertices(int n,AnatomyGraph &graph);
 
 #endif /* BodyGraphGetters_hpp */

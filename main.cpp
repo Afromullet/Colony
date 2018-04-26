@@ -42,7 +42,16 @@
 #include "AttackHandler.hpp"
 #include "DataReaders.hpp"
 #include "DataStorage.hpp"
+#include "Wound.hpp"
 
+//-----Unit testing Part------
+
+
+
+
+
+
+//--Unit Testing end
 
 
 void GameLoop3();
@@ -156,17 +165,80 @@ srand(time(NULL));
     player.body.EquipArmor(&testArmor);
     player.body.EquipWeapon(&testWeapon);
     printBodyGraphVertices(player.body.anatomyGraph);
-    std::cout << "\n Is Ranged " << testWeapon.isRangedWeapon();
+
+    Material iron;
+    iron.setDeformationStrenghts(10,10,10,10,10);
+    iron.setFractureStrength(10,10,10,10,10);
+    iron.setMaterialName("Iron");
     
-    for(int i =0; i < 10; i++)
+
+    
+    iron.setFractureStrength(10,10,10,10,10);
+    iron.setDensity(10);
+
+    
+    iron.clearAppliedMaterialEffects();
+    std::vector<AppliedForceEffect>& effects = iron.getAppliedForceEffects();
+    
+    for(int i =0; i < effects.size(); i++)
     {
-        
-        //AttackCreature_Melee(player,target);
-       AttackCreature_Ranged(player,target);
-        target.setPosition(target.getPosition().x + 1,target.getPosition().y + 1);
-        
+        std::cout << effects.at(i);
     }
     
+    
+    iron.clearAppliedMaterialEffects();
+    iron.PerformMaterialCalculations(1000,2,enImpact,enSlash);
+    
+    
+   effects = iron.getAppliedForceEffects();
+    
+    for(int i =0; i < effects.size(); i++)
+    {
+        std::cout << effects.at(i);
+    }
+    
+    iron.clearAppliedMaterialEffects();
+    iron.PerformMaterialCalculations(100,2,enShear,enSlash);
+    
+    
+    effects = iron.getAppliedForceEffects();
+    
+    for(int i =0; i < effects.size(); i++)
+    {
+        std::cout << effects.at(i);
+    }
+    
+    iron.clearAppliedMaterialEffects();
+    iron.PerformMaterialCalculations(5,2,enShear,enSlash);
+   
+    effects = iron.getAppliedForceEffects();
+    
+    for(int i =0; i < effects.size(); i++)
+    {
+        std::cout << effects.at(i);
+    }
+    
+    
+    AppliedForceEffect effect;
+    effect.ratio = 100;
+    effect.effect = enImpactFracEffect;
+    effect.woundSeverity = enMinorWound;
+    effect.attackType = enSlash;
+    
+    WoundCalculations woundCalcs(0);
+    woundCalcs.ApplyImpactWound(effect,player.body.anatomyGraph);
+    
+    effect.woundSeverity = enModerateWound;
+    woundCalcs.ApplyImpactWound(effect,player.body.anatomyGraph);
+    
+    effect.woundSeverity = enMajorWound;
+    woundCalcs.ApplyImpactWound(effect,player.body.anatomyGraph);
+
+
+    
+    
+    
+ 
    
     
     
@@ -209,17 +281,9 @@ srand(time(NULL));
     
 
     
-    std::vector<sf::Vector2i> neighbors;
-    neighbors = GetPNeighbors(sf::Vector2i(5,5),caMap);
-    for(int i =0; i < neighbors.size(); i++)
-    {
-        std::cout << " " << caMap.Map2D[neighbors.at(i).x][neighbors.at(i).y].index;
-        
-    }
-    
+
    
-    std::cout << "\n";
-    
+
     GameLoop3();
     
    

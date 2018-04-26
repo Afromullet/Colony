@@ -15,12 +15,16 @@
 
 class Tissue
 {
+    
+public:
+    
     std::string name;
     int thickness;
     int bleedingRate;
     bool hasArteries;
     Material material;
     
+    std::vector<AppliedForceEffect> &getTissueMaterialEffects();
     
     
 };

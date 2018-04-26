@@ -22,6 +22,7 @@
         <canholdweapon>false</canholdweapon>
         <canholdarmor>true</canholdarmor>
         <section>upperbodysection</section>
+        <relativesize>50</relativesize>
     </bpdescription>
     
     <bpdescription>
@@ -30,6 +31,7 @@
         <canholdweapon>false</canholdweapon>
         <canholdarmor>true</canholdarmor>
         <section>headsection</section>
+        <relativesize>10</relativesize>
     </bpdescription>
     
     <bpdescription>
@@ -38,6 +40,7 @@
         <canholdweapon>false</canholdweapon>
         <canholdarmor>true</canholdarmor>
         <section>armsection</section>
+        <relativesize>10</relativesize>
     </bpdescription>
     
     <bpdescription>
@@ -46,6 +49,7 @@
         <canholdweapon>false</canholdweapon>
         <canholdarmor>true</canholdarmor>
         <section>armsection</section>
+        <relativesize>10</relativesize>
     </bpdescription>
     
     <bpdescription>
@@ -54,6 +58,7 @@
         <canholdweapon>true</canholdweapon>
         <canholdarmor>true</canholdarmor>
         <section>handsection</section>
+        <relativesize>5</relativesize>
     </bpdescription>
     
     <bpdescription>
@@ -62,6 +67,7 @@
         <canholdweapon>true</canholdweapon>
         <canholdarmor>true</canholdarmor>
         <section>handsection</section>
+        <relativesize>5</relativesize>
     </bpdescription>
     
     <bpdescription>
@@ -70,6 +76,7 @@
         <canholdweapon>false</canholdweapon>
         <canholdarmor>true</canholdarmor>
         <section>legsection</section>
+        <relativesize>15</relativesize>
     </bpdescription>
     
     <bpdescription>
@@ -78,6 +85,7 @@
         <canholdweapon>false</canholdweapon>
         <canholdarmor>true</canholdarmor>
         <section>legsection</section>
+        <relativesize>15</relativesize>
     </bpdescription>
     
     <bpdescription>
@@ -86,6 +94,7 @@
         <canholdweapon>false</canholdweapon>
         <canholdarmor>true</canholdarmor>
         <section>footsection</section>
+        <relativesize>5</relativesize>
     </bpdescription>
     
     <bpdescription>
@@ -94,6 +103,7 @@
         <canholdweapon>false</canholdweapon>
         <canholdarmor>true</canholdarmor>
         <section>footsection</section>
+        <relativesize>5</relativesize>
     </bpdescription>
     
     <bpdescription>
@@ -103,6 +113,7 @@
         <canholdarmor>false</canholdarmor>
         <cansmell>true</cansmell>
         <section>headsection</section>
+        <relativesize>3</relativesize>
     </bpdescription>
 </bodyparts>
 
@@ -113,6 +124,7 @@
         <bodypartname>RightLung</bodypartname>
         <canbreathe>true</canbreathe>
         <section>upperbodyinternalsection</section>
+        <relativesize>10</relativesize>
     </bpdescription>
 
     <bpdescription>
@@ -120,12 +132,14 @@
         <bodypartname>LeftLung</bodypartname>
         <canbreathe>true</canbreathe>
         <section>upperbodyinternalsection</section>
+        <relativesize>10</relativesize>
     </bpdescription>
     
     <bpdescription>
         <bptoken>brain</bptoken>
         <bodypartname>Brain</bodypartname>
          <section>headinternalsection</section>
+         <relativesize>5</relativesize>
     </bpdescription>
     
     <bpdescription>
@@ -133,6 +147,7 @@
         <bodypartname>LeftEye</bodypartname>
         <cansee>true</cansee>
         <section>headexternalsection</section>
+        <relativesize>3</relativesize>
     </bpdescription>
     
     <bpdescription>
@@ -140,18 +155,21 @@
         <bodypartname>RightEye</bodypartname>
         <cansee>true</cansee>
         <section>headexternalsection</section>
+        <relativesize>3</relativesize>
     </bpdescription>
     
     <bpdescription>
         <bptoken>kidney</bptoken>
         <bodypartname>Kidney</bodypartname>
         <section>chestinternalsection</section>
+        <relativesize>5</relativesize>
     </bpdescription>
     
     <bpdescription>
         <bptoken>intestines</bptoken>
         <bodypartname>Intestines</bodypartname>
         <section>chestinternalsection</section>
+        <relativesize>10</relativesize>
     </bpdescription>
     
     

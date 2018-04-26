@@ -18,9 +18,24 @@ enum TileTerrainType{enGrass1,enSnow1,enSwamp1,enFloor1,enWall1,enUndefinedTerra
 
 
 enum AttackForceType{enCompression,enImpact,enTensile,enTorsion,enShear};
+enum AttackType{enBlunt,enSlash,enPierce};
+
+/*
+ Fracture - bone Breaks
+ Puctures - Piercing wounds. Severe punctures can damage organs
+ Cut - Severity determines how much tissue and muscle is lost. Very severe cuts can remove limbs
+ */
+enum WoundType
+{
+    enMinorFracture,enModerateFracture,enMajorFracture, enMinorPuncture,enModeratePuncture,enMajorPuncture,enMinorCut,enModerateCut,enMajorCut,enMinorBruise,enModerateBruise,enMajorBruise,enRupture,enDismember
+};
 
 
 
+enum WoundSeverity
+{
+    enMinorWound,enModerateWound,enMajorWound
+};
 
 //TODO find a better place for this
 struct AttackStats
@@ -30,8 +45,10 @@ struct AttackStats
     int attackValue;
     bool isRangedAttack;
     float force; //The force applied by this attack
-    float size; //The size of the object used to attack. Used in stress calculation
+    float contactArea; //The size of the object used to attack. Used in stress calculation..This is the contact area
     AttackForceType enAttackForceType;
+    AttackType attackType;
+  
     
 };
 

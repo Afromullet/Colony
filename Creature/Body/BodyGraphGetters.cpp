@@ -282,3 +282,42 @@ int getRandomExternalBodyParts(const AnatomyGraph &graph)
     
     
 }
+
+//Gets the internal edges of a specific vertex
+std::vector<int> getInternalVertices(int n,AnatomyGraph &graph)
+{
+    
+    std::vector<int> tempVec;
+    //Not in bounds
+    if(n >= num_vertices(graph))
+        return tempVec;
+    
+    AnatomyEdgeIt ei,ei_end;
+
+
+    AnatomyIndexMap indMap = get(vertex_index, graph); //Getting a proeprty map.
+    for (boost::tie(ei, ei_end) = edges(graph); ei != ei_end; ++ei)
+    {
+        
+        if(graph[*ei].connection == enInternal || graph[*ei].connection == enInternalLeft ||
+           graph[*ei].connection == enInternalRight)
+        {
+            
+            //Only want the vertex it connects to
+            if(indMap[source(*ei,graph)] == n)
+            {
+                tempVec.push_back(indMap[target(*ei,graph)]);
+                std::cout << graph[indMap[target(*ei,graph)]];
+                
+            }
+            
+           // std::cout << "(" << indMap[source(*ei, graph)];
+
+        }
+        
+    }
+    
+    return tempVec;
+
+    
+}

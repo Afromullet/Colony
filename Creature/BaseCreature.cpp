@@ -367,7 +367,7 @@ void BaseCreature::calculateAttackParameters()
             attackStats.damage += getStrength();
             attackStats.isRangedAttack = false;
             attackStats.force = CalculateMeleeAttackForce(body.anatomyGraph[verts.at(i)].weapon);
-            attackStats.size = body.anatomyGraph[verts.at(i)].weapon.size;
+            attackStats.contactArea = body.anatomyGraph[verts.at(i)].weapon.size; //TODO get size based on attack type
         }
         
        

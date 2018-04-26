@@ -65,9 +65,11 @@ public:
     bool canSmell;
     bool canBreathe;
     bool isInternal;
+    float relativeSize; //How large this part is in relation to the whole body. A percent..I.E, .53 is 53%
     std::vector<Tissue> tissues;
     
     std::string bodyPartName;
+    std::vector<WoundType> wounds;
     
     
     
@@ -99,15 +101,18 @@ public:
 
     Armor getArmor();
     Weapon getWeapon();
-    
     int getHealth();
+    std::vector<AppliedForceEffect> &getArmorMaterialEffects();
+    float getBodyPartSize(float totalBodySize);
     
     void ApplyDamage(int damage);
     
     bool hasWeapon();
     
-    void ApplyAttack(AttackStats params);
+    void AddWound(WoundType woundType);
     
+    std::vector<AppliedForceEffect> ApplyAttack(AttackStats params);
+   
     
     
 };
