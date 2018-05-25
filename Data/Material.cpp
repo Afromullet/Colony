@@ -11,7 +11,20 @@
 #include <iostream>
 Material::Material()
 {
+     compDefStrength= 10 ;
+     impactDefStrength= 10 ;
+     tensileDefStrength= 10 ;
+     torsionDefStrenght= 10 ;
+     shearDefStrength= 10 ;
     
+    density = 20;
+    
+
+     compFractStrength= 22 ;
+     impactFractStrength= 22 ;
+     tensileFractStrength= 22 ;
+     torsionFractStrenght= 22 ;
+     shearFractStrength= 22 ;
 }
 
 std::ostream& operator<<(std::ostream& os, const Material& mat)
@@ -51,12 +64,17 @@ std::ostream& operator<<(std::ostream& os, const AppliedForceEffect& mat)
     float ratio; //The ratio between start and end force..gives us an idea of how much force has been absorbed, and how severe the wound will be. The higher the number, the more damage
     WoundSeverity woundSeverity; //The kind of wound this attack causes
      */
+    
+    return os;
 }
 
+//Although material effects is an array, currently only one effect if applied per attack
+//Wound severity is calculated as part of the force calculation
 void Material::PerformMaterialCalculations(float force,float size, AttackForceType enAttackForceType,AttackType attackType)
 {
-    SetupForce(force, size, enAttackForceType, attackType);
-    CalculateForcePenentration();
+    effectsOnMaterial.clear();
+    SetupForce(force, size, enAttackForceType, attackType); //Calculates what kind of deformation the material suffers from
+    CalculateForcePenentration(); //Calculates how much force the material absorbs
     DetermineWoundSeverity();
 }
 
@@ -99,7 +117,7 @@ void Material::SetupImpactForce(float force,float size,AttackType attackType)
     effect.startForce = force;
     effect.attackType = attackType;
     
-    std::cout << "\nSize " << effect.size;
+
     
     if(stress > impactDefStrength)
     {
@@ -245,19 +263,15 @@ void Material::CalculateForcePenentration()
 void Material::ApplyForcePenentration(AppliedForceEffect &effect,float materialStrength)
 {
     float stress = effect.startForce;// / effect.size;
-    std::cout << "\n Material Strength " << materialStrength;
-    std::cout << "\n Size " << effect.size;
-    std::cout << "\n Density " << density;
-    std::cout << "\n Stress " << stress;
-    std::cout << "\n Numerator calculation " << (materialStrength * (density * 0.420));
-    std::cout << "\n Denominator " << effect.startForce;
 
-    effect.endForce = (materialStrength * (density )) / (effect.startForce ); //0.773 is an arbitrary value
-    effect.ratio = effect.startForce / effect.endForce;
+
+
     
-    std::cout << "\n StartForce, endforce " << effect.startForce << "," << effect.endForce;
-    std::cout << "\n Ratio " << effect. ratio;
+    effect.endForce = (materialStrength * density)  / effect.startForce ; //0.773 is an arbitrary value
+    effect.ratio = effect.endForce / effect.startForce;
     
+
+  
     
     //If it is just a deformation effect, further reduce the damage, as the armor wasn't penetrated
     if(effect.effect == enShearDefEffect || effect.effect == enCompDefEffect || effect.effect == enTorsionDefEffect || effect.effect == enTensileDefEffect || effect.effect == enImpactDefEffect)

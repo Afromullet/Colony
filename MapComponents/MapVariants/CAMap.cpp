@@ -28,7 +28,7 @@ CA_Map::CA_Map()
     ruleset.chanceToStartAlive = 0.7;
     ruleset.deathLimit = 5;
     ruleset.numberOfSteps = 20;
-
+    
 }
 
 
@@ -45,11 +45,11 @@ void CA_Map::SetInitialState()
         
         for (unsigned int j = 0; j < GetHeight(); ++j)
         {
-           // r = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-           //
+            // r = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+            //
             r = static_cast <float>((rand() / (float)RAND_MAX ));
-
-         
+            
+            
             if(r <= ruleset.chanceToStartAlive)
             {
                 numAlive++;
@@ -65,10 +65,10 @@ void CA_Map::SetInitialState()
     }
     
     /*
-    std::cout << "\n Alive,Dead: " << numAlive << "," << numDead;
-    std::cout << "\n Alive,Dead: " << numAlive << "," << numDead;
+     std::cout << "\n Alive,Dead: " << numAlive << "," << numDead;
+     std::cout << "\n Alive,Dead: " << numAlive << "," << numDead;
      */
-
+    
 }
 
 void CA_Map::Generate_CA_MAP(sf::Vector2i _tileSize,unsigned int _width, unsigned int _height,CA_RuleSet _ruleset)
@@ -80,8 +80,8 @@ void CA_Map::Generate_CA_MAP(sf::Vector2i _tileSize,unsigned int _width, unsigne
     
     float r;
     int randNum;
-
-
+    
+    
     SetInitialState();
     
     
@@ -91,15 +91,15 @@ void CA_Map::Generate_CA_MAP(sf::Vector2i _tileSize,unsigned int _width, unsigne
     for(int i = 0; i < ruleset.numberOfSteps; i++)
     {
         SimulationStep();
-     
+        
         //CaveSimulationStep();
     }
     
     
     
-        //PlacementTest();
+    //PlacementTest();
     Group2DGridTiles();
-
+    
     LoadTileParameters();
     LoadTileTexture();
     for(int i = 0; i < GetWidth(); i++)
@@ -111,7 +111,7 @@ void CA_Map::Generate_CA_MAP(sf::Vector2i _tileSize,unsigned int _width, unsigne
     }
     
     
-
+    
     
 }
 
@@ -146,7 +146,7 @@ void CA_Map::SimulationStep()
         
     }
     Map2D = newMap;
-
+    
     
 }
 
@@ -177,7 +177,7 @@ void CA_Map::CaveSimulationStep()
                 if(livingNeighbors == 3){
                     newMap[x][y].setTileID(ruleset.aliveTileID);
                 }
-               
+                
             }
         }
     }
@@ -287,14 +287,14 @@ void CA_Map::PlacementTest()
     
     //Because the map changed , need to recalculate the number of neighbors..Storing it in a vector because I need to
     //Know the total number of cells with only one living neigbor before making any decisio
-
+    
     
     
     std::cout << "\nNum of " << allNumOfNeighbors.size();
     
     std::vector<std::vector<Tile> > newMap = Map2D;
     newMap = Map2D;
-
+    
     for(int i=0; i<newMap.size(); i++)
     {
         for(int j=0; j<newMap[0].size(); j++)
@@ -312,27 +312,27 @@ void CA_Map::PlacementTest()
                 sf::Vector2i roomPos(i,j);
                 CreateRoom(newMap,3, roomPos, 1, 2);
             }
-          
+            
             allNumOfNeighbors.push_back(GetLivingNeighbors(ruleset.deadTileID, ruleset.aliveTileID,i, j));
-        } 
+        }
     }
     
     Map2D = newMap;
     
     /*
-    for(int i = 0; i < allNumOfNeighbors.size(); i++)
-    {
-        
-        x = floor(i / GetWidth()); //Can't remember if C++ rounds up or down, so using floor to be safe
-        y = i % GetWidth(); //Modulo gets the Y
-        
-        
-        if(allNumOfNeighbors.at(i) == 0)
-        {
-            Map2D[x][y].setTileID(2);
-        }
-        
-    }
+     for(int i = 0; i < allNumOfNeighbors.size(); i++)
+     {
+     
+     x = floor(i / GetWidth()); //Can't remember if C++ rounds up or down, so using floor to be safe
+     y = i % GetWidth(); //Modulo gets the Y
+     
+     
+     if(allNumOfNeighbors.at(i) == 0)
+     {
+     Map2D[x][y].setTileID(2);
+     }
+     
+     }
      */
 }
 
@@ -359,9 +359,9 @@ void CA_Map::CaveTunnelMap()
             
             if(n == 8)
             {
-             
+                
                 newMap[i][j].setTileID(0);
-               
+                
                 
             }
             
@@ -422,7 +422,7 @@ void CA_Map::CreateRoom(std::vector<std::vector<Tile> > &newMap,int roomSize, sf
     
     //Doing this in a very inelegant way. Work on later, for now I just want to get a basic implementation
     //Explicitly going over every edge todo rest
-
+    
     for(int i = 0; i < roomSize; i++)
     {
         
@@ -432,14 +432,14 @@ void CA_Map::CreateRoom(std::vector<std::vector<Tile> > &newMap,int roomSize, sf
         if(isInBounds(sf::Vector2i(x,y)))
             newMap[x][y].setTileID(0);
         
-         x = startingPoint.x + i + 1 - (floor(roomSize/2));
-         y = startingPoint.y + (roomSize/2 + 1);
+        x = startingPoint.x + i + 1 - (floor(roomSize/2));
+        y = startingPoint.y + (roomSize/2 + 1);
         
         if(isInBounds(sf::Vector2i(x,y)))
             newMap[x][y].setTileID(0);
     }
     
-
     
-
+    
+    
 }

@@ -38,7 +38,7 @@ enum EnConnectionType {enSymmetric,enDirect,enLeftConnection,enRightConnection,e
 
 enum EnConnectionProperty
 {
-    enBone,enJoint,enConnectiveTissue
+    enBone,enJoint,enConnectiveTissue,enInvalidEdgeConnection
 };
 
 enum BodyPartPosition
@@ -116,6 +116,7 @@ public:
     void EquipWeapon(Item *item);
     
     void ApplyAttack(AttackStats attackStats, int n);
+    void PrintWounds();
     
    
     

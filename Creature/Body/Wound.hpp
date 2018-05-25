@@ -26,6 +26,10 @@ struct WoundRule
 #define RUPTURE_CHANCE 30
 #define DISMEMBER_CHANCE 30
 
+#define MIN_IMPACT_VERTNUM 1
+#define MOD_IMPACT_VERTNUM 2
+#define MAJ_IMPACT_VERTNUM 3
+
 
 
 extern std::vector<WoundRule> shearWoundRuleset;
@@ -37,18 +41,24 @@ void SetupWoundRuleset();
 
 std::vector<int> DetermineWoundTargets(int origin,AppliedForceEffect &effect, AnatomyGraph &graph);
 
+void PrintWoundType(WoundType type);
+
 
 class WoundCalculations
 {
 private:
     WoundType woundType;
     int origin; //Index for the origin of the wound in the graph
+    bool woundEffectActive;
     
 public:
     WoundCalculations(int _origin);
+    WoundCalculations();
     
-    void ApplySlashingShearWound(AppliedForceEffect &effect,AnatomyGraph &graph);
-    void ApplyPiercingShearWound(AppliedForceEffect &effect,AnatomyGraph &graph);
-    void ApplyImpactWound(AppliedForceEffect &effect,AnatomyGraph &graph);
+    std::vector<int> ApplySlashingShearWound(AppliedForceEffect &effect,AnatomyGraph &graph);
+    std::vector<int> ApplyPiercingShearWound(AppliedForceEffect &effect,AnatomyGraph &graph);
+    std::vector<int> ApplyImpactWound(AppliedForceEffect &effect,AnatomyGraph &graph);
+    void ApplyWound(AppliedForceEffect &effect, AnatomyGraph &graph);
+   
 };
 #endif /* Wound_hpp */

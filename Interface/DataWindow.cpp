@@ -273,6 +273,8 @@ DataWindow& DataWindow::getSubWindow(EnDataWindowType windowType)
     printf("\nCould not find shit\n");
     
     //TODO handle window not found
+    
+    return subWindows.at(0);
 }
 
 void DataWindow::OpenSubWindow(EnDataWindowType _windowType)

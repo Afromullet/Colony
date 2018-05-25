@@ -216,7 +216,7 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
                 //Can't reduce any further
                 if(targettingSquare.squareSize == 1)
                 {
-                    return;
+                    break;
                 }
                 mapdata.map->RemoveEffect(targettingSquare);
                 
@@ -419,6 +419,7 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
     return true;
     }
     
+    return true;
 }
 
 /*

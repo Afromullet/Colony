@@ -109,7 +109,9 @@ public:
     
     bool hasWeapon();
     
+    void ShowWounds();
     void AddWound(WoundType woundType);
+    void ClearWounds();
     
     std::vector<AppliedForceEffect> ApplyAttack(AttackStats params);
    

@@ -106,6 +106,8 @@ DataWindow& WindowCommands::selectWindow(EnDataWindowType windowType)
             return dataWindows.at(i);
     }
     
+    return dataWindows.at(0);
+    
 }
 
 //Returns the sub window of a particual type
@@ -125,6 +127,10 @@ DataWindow& WindowCommands::selectWindow(EnDataWindowType mainWindowType,EnDataW
         
     }
     
+    //fix this temporary
+    DataWindow &tempWindow = dataWindows.at(0);
+     return tempWindow.getSubWindow(subWindowType);
+    
 }
 void WindowCommands::setAllWindowsToClose()
 {
@@ -132,6 +138,8 @@ void WindowCommands::setAllWindowsToClose()
     {
         dataWindows.at(i).isOpen = false;
     }
+    
+    
 }
 
 void WindowCommands::clearWindowText(EnDataWindowType windowType)

@@ -9,6 +9,26 @@
 #include "AttackHandler.hpp"
 #include "BodyGraphGetters.hpp"
 #include <iostream>
+#include "Wound.hpp"
+
+void Single_Attack_Melee(AttackStats attack, BaseCreature &defender)
+{
+    int target = getRandomExternalBodyParts(defender.body.anatomyGraph);
+    defender.body.anatomyGraph[target].armor.material.PerformMaterialCalculations(attack.force,attack.contactArea,attack.enAttackForceType,attack.attackType);
+    
+    std::vector<AppliedForceEffect> &effects = defender.body.anatomyGraph[target].armor.material.getAppliedForceEffects();
+    
+    WoundCalculations woundCalcs(target);
+    
+    for(int i=0;i<effects.size();i++)
+    {
+        woundCalcs.ApplyWound(effects.at(i),defender.body.anatomyGraph);
+    }
+    
+    
+    
+    
+}
 
 void AttackCreature_Melee(BaseCreature &attacker,BaseCreature &defender)
 {
@@ -23,7 +43,7 @@ void AttackCreature_Melee(BaseCreature &attacker,BaseCreature &defender)
         if(!attacker.attacks.at(i).isRangedAttack)
         {
             
-            std::cout << "\n Attack Value, Armor Bonus: " << attacker.attacks.at(i).attackValue << "," << defender.body.anatomyGraph[target].getArmor().siGetArmorBonus() << "\Damage " << attacker.attacks.at(i).damage;
+       
             if(attacker.attacks.at(i).attackValue > defender.body.anatomyGraph[target].getArmor().siGetArmorBonus())
             {
                 std::cout << "\n Hit";
@@ -38,8 +58,7 @@ void AttackCreature_Melee(BaseCreature &attacker,BaseCreature &defender)
                 
             }
             
-            std::cout << "\n Remaining health" <<  defender.body.anatomyGraph[target].getHealth();
-            std::cout << "\n Remaining total health " << defender.getTotalHealth();
+
         }
            
         //if(attackers.attacks.at(i).attackValue > )
@@ -96,4 +115,12 @@ void AttackCreature_Ranged(BaseCreature &attacker,BaseCreature &defender)
         
     }
 
+}
+
+//Performs the attack calculations for attacking a body part
+void AttackBodyPart(AttackStats stats,int index,AnatomyGraph &graph)
+{
+    std::vector<AppliedForceEffect> effects = graph[index].ApplyAttack(stats); //For now only apply the first effect
+    WoundCalculations woundCalcs(index);
+    woundCalcs.ApplyWound(effects.at(0),graph);
 }

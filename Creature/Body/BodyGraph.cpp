@@ -11,6 +11,7 @@
 #include <boost/type_index.hpp>
 #include "BodyGraphGetters.hpp"
 #include <string>
+#include "Wound.hpp"
 
 
 
@@ -307,7 +308,7 @@ void CreatureBody::GenerateEdges()
             
         }
         // The data function is used to access the data stored in a node.
-        std::cout << v.first << "\n";
+    
     }
     
     
@@ -344,7 +345,7 @@ void CreatureBody::GenerateOrganEdges()
             
         }
         // The data function is used to access the data stored in a node.
-        std::cout << v.first << "\n";
+     
     }
     
     
@@ -358,20 +359,20 @@ void CreatureBody::load()
     
     
     
-    std::cout << "\n Starting schema";
+ 
     
     //BOOST_FOREACH(pt::ptree::value_type &v, tree.get_child("main.cats"))
     BOOST_FOREACH(pt::ptree::value_type &v, tree.get_child("bodypartconnections"))
     {
         if(v.first == "bodypart")
         {
-            std::cout << v.second.get<std::string>("bptoken") << "\n";
-            std::cout << v.second.get<std::string>("connectsto") << "\n";
-            std::cout << v.second.get<std::string>("connectiontype") << "\n";
+             v.second.get<std::string>("bptoken");
+             v.second.get<std::string>("connectsto");
+             v.second.get<std::string>("connectiontype");
             
         }
         // The data function is used to access the data stored in a node.
-        std::cout << v.first << "\n";
+        
     }
     
     
@@ -391,16 +392,16 @@ int CreatureBody::convertTruthValue(std::string truthVal)
     
     if(truthVal == "false")
     {
-        std::cout << "\n False";
+        
         return 0;
     }
     else if(truthVal == "true")
     {
-        std::cout << "\n true";
+        
         return 1;
     }
     
-    std::cout << "\n Invalid truth val";
+    
     return -1;
 }
 
@@ -433,7 +434,7 @@ void CreatureBody::EquipWeapon(Item *item)
    // {
         Weapon *wep = dynamic_cast<Weapon*>(item);
     
-    std::cout << "\n Damage and range " << wep->getDamage() << ", " << wep->isRangedWeapon();
+ //   std::cout << "\n Damage and range " << wep->getDamage() << ", " << wep->isRangedWeapon();
         if(wep->enWeaponSize == enLargeWeapon)
         {
             //Need at least two hands
@@ -505,5 +506,29 @@ void CreatureBody::ApplyAttack(AttackStats attackStats, int n)
     
     std::vector<AppliedForceEffect> effects = anatomyGraph[n].ApplyAttack(attackStats);
     
+    
+}
+
+void CreatureBody::PrintWounds()
+{
+    for(int i=0; i < num_vertices(anatomyGraph); i++)
+    {
+        
+        if(anatomyGraph[i].wounds.size() == 0)
+            continue;
+        
+        std::cout << "Body Part: " << anatomyGraph[i].bodyPartName << "\n";
+        for(int j=0; j < anatomyGraph[i].wounds.size(); j++)
+        {
+            
+            std::cout << "Wound: ";
+            PrintWoundType(anatomyGraph[i].wounds.at(j));
+            std::cout << "\n";
+        
+            
+        }
+        
+        std::cout << "\n";
+    }
     
 }

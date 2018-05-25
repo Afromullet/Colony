@@ -147,9 +147,9 @@ std::ostream& operator<<(std::ostream& os, const AppliedForceEffect& mat);
  
  */
 
-#define MINOR_DAMAGE_LIMIT 20
-#define MEDIUM_DAMAGE_LIMIT 30
-#define MAJOR_DAMAGE_LIMIT 50
+#define MINOR_DAMAGE_LIMIT .20
+#define MEDIUM_DAMAGE_LIMIT .30
+#define MAJOR_DAMAGE_LIMIT .50
 
 
 class Material

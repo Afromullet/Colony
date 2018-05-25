@@ -16,10 +16,11 @@ BasicScoutAction::BasicScoutAction(Map &_map,BaseCreature &_creature) : Abstract
 
 bool BasicScoutAction::PrepareAction()
 {
+    return true;
     
 }
 
 bool BasicScoutAction::PerformAction()
 {
-    
+    return true;
 }

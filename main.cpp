@@ -43,6 +43,9 @@
 #include "DataReaders.hpp"
 #include "DataStorage.hpp"
 #include "Wound.hpp"
+#include "FastNoise.h"
+#include "NoiseMap.hpp"
+
 
 //-----Unit testing Part------
 
@@ -87,12 +90,15 @@ std::vector<sf::Text> testStrings;
 
 
 
+NoiseMap noiseMap;
+
 int main()
 {
     
     
    // add_edge(headVertex,chestVertex,humanoidBodyGraph);
   
+   // GenerateNoiseArea(800,600);
     
   
 srand(time(NULL));
@@ -104,7 +110,16 @@ srand(time(NULL));
     BasicTileRuleset();
     window.setKeyRepeatEnabled(false);
     mapdata.SetWindow(&window);
-    SetupGameData(&caMap);
+    //SetupGameData(&caMap);
+    SetupGameData(&noiseMap);
+    
+    for(int i = 0; i < noiseMap.GetWidth(); i++)
+    {
+        for(int j =0; j < noiseMap.GetHeight(); j++)
+        {
+            //std::cout << "\n New Elevation " << noiseMap.Map2D[i][j].elevation;
+        }
+    }
     
    
   
@@ -142,9 +157,7 @@ srand(time(NULL));
     target.body.GenerateOrganVertices();
     target.body.GenerateOrganEdges();
     target.body.InitializeBodypartEquipment();
-    
-    
-    
+  
     Armor testArmor;
     testArmor.setItemName("TestArmor1");
     testArmor.sections.push_back("upperbodysection");
@@ -165,74 +178,97 @@ srand(time(NULL));
     player.body.EquipArmor(&testArmor);
     player.body.EquipWeapon(&testWeapon);
     printBodyGraphVertices(player.body.anatomyGraph);
-
-    Material iron;
-    iron.setDeformationStrenghts(10,10,10,10,10);
-    iron.setFractureStrength(10,10,10,10,10);
-    iron.setMaterialName("Iron");
+    
+    AttackStats stats;
+    
+    /*
+     
+     //TODO find a better place for this
+     struct AttackStats
+     {
+     int damage;
+     int range;
+     int attackValue;
+     bool isRangedAttack;
+     float force; //The force applied by this attack
+     float contactArea; //The size of the object used to attack. Used in stress calculation..This is the contact area
+     AttackForceType enAttackForceType;
+     AttackType attackType;
+     
+     
+     };
+     
+     */
+    
+    /*
+    stats.enAttackForceType = enImpact;
+    stats.force = 100;
+    stats.contactArea = 5;
+   stats.attackType = enBlunt;
+    Single_Attack_Melee(stats,target);
+    
+    //target.body.PrintWounds();
+    
+    
+    stats.enAttackForceType = enImpact;
+    stats.force = 100;
+    stats.contactArea = 5;
+    stats.attackType = enBlunt;
+    Single_Attack_Melee(stats,target);
+    
+   // target.body.PrintWounds();
+    
+    
+    
+    stats.enAttackForceType = enImpact;
+    stats.force = 100;
+    stats.contactArea = 1;
+    stats.attackType = enBlunt;
+    Single_Attack_Melee(stats,target);
+    
+   // target.body.PrintWounds();
+     
+     stats.enAttackForceType = enShear;
+     stats.force = 100;
+     stats.contactArea = 1;
+     stats.attackType = enSlash;
+     Single_Attack_Melee(stats,target);
+    
+ 
+    
+    stats.enAttackForceType = enShear;
+    stats.force = 100;
+    stats.contactArea = 1;
+    stats.attackType = enPierce;
+    Single_Attack_Melee(stats,target);
+    
+    //target.body.PrintWounds();
+    
+    stats.enAttackForceType = enShear;
+    stats.force = 100;
+    stats.contactArea = 5;
+    stats.attackType = enPierce;
+    Single_Attack_Melee(stats,target);
+    
+    //target.body.PrintWounds();
+    
+    
+    stats.enAttackForceType = enShear;
+    stats.force = 1000;
+    stats.contactArea = 1;
+    stats.attackType = enPierce;
+    Single_Attack_Melee(stats,target);
+    
     
 
     
-    iron.setFractureStrength(10,10,10,10,10);
-    iron.setDensity(10);
-
+    target.body.PrintWounds();
     
-    iron.clearAppliedMaterialEffects();
-    std::vector<AppliedForceEffect>& effects = iron.getAppliedForceEffects();
+     target.body.PrintWounds();
     
-    for(int i =0; i < effects.size(); i++)
-    {
-        std::cout << effects.at(i);
-    }
+       */
     
     
-    iron.clearAppliedMaterialEffects();
-    iron.PerformMaterialCalculations(1000,2,enImpact,enSlash);
-    
-    
-   effects = iron.getAppliedForceEffects();
-    
-    for(int i =0; i < effects.size(); i++)
-    {
-        std::cout << effects.at(i);
-    }
-    
-    iron.clearAppliedMaterialEffects();
-    iron.PerformMaterialCalculations(100,2,enShear,enSlash);
-    
-    
-    effects = iron.getAppliedForceEffects();
-    
-    for(int i =0; i < effects.size(); i++)
-    {
-        std::cout << effects.at(i);
-    }
-    
-    iron.clearAppliedMaterialEffects();
-    iron.PerformMaterialCalculations(5,2,enShear,enSlash);
-   
-    effects = iron.getAppliedForceEffects();
-    
-    for(int i =0; i < effects.size(); i++)
-    {
-        std::cout << effects.at(i);
-    }
-    
-    
-    AppliedForceEffect effect;
-    effect.ratio = 100;
-    effect.effect = enImpactFracEffect;
-    effect.woundSeverity = enMinorWound;
-    effect.attackType = enSlash;
-    
-    WoundCalculations woundCalcs(0);
-    woundCalcs.ApplyImpactWound(effect,player.body.anatomyGraph);
-    
-    effect.woundSeverity = enModerateWound;
-    woundCalcs.ApplyImpactWound(effect,player.body.anatomyGraph);
-    
-    effect.woundSeverity = enMajorWound;
-    woundCalcs.ApplyImpactWound(effect,player.body.anatomyGraph);
 
 
     
@@ -463,6 +499,7 @@ void InitializeMaps()
     ruleset.numberOfSteps = NUMBER_OF_STEPS;
     caMap.SetRuleSet(ruleset);
     caMap.Generate_CA_MAP(sf::Vector2i(32,32), MAP_WIDTH,MAP_HEIGHT,ruleset);
+    noiseMap.Generate_NoiseMap(sf::Vector2i(32,32), MAP_WIDTH,MAP_HEIGHT);
   // caMap.CaveTunnelMap()
 }
 

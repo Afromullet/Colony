@@ -404,7 +404,7 @@ float BaseCreature::CalculateMeleeAttackForce(Weapon &weapon)
     
     force = weapon.mass * acceleration;
     
-    
+    return force;
     
 }
 

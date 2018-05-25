@@ -104,16 +104,16 @@ void Map::draw(sf::RenderTarget& target, sf::RenderStates states) const
         sf::RenderStates initialState = states;
         initialState.transform *= getTransform();
         initialState.blendMode = sf::BlendMultiply;
-
         
-
+        
+        
         
         states.texture = &tileGroups.at(i).m_tileset;
         target.draw(tileGroups.at(i).m_vertices, states);
         
-    
-       // target.draw(tileGroups.at(i).m_vertices,initialState);
-
+        
+        // target.draw(tileGroups.at(i).m_vertices,initialState);
+        
         
         
         //target.draw(effectsOnMap, states);
@@ -163,7 +163,7 @@ void Map::BasicRandom2DMap(sf::Vector2i _tileSize,unsigned int _width, unsigned 
 //Generates the verticles for the map. They are not yet tetured, that will be done later
 bool Map::Generate2DMap(sf::Vector2i _tileSize, unsigned int _width, unsigned int _height)
 {
- 
+    
     
     //Allocate necessary space
     //Map2D.resize(MAP_WIDTH);
@@ -171,10 +171,10 @@ bool Map::Generate2DMap(sf::Vector2i _tileSize, unsigned int _width, unsigned in
     height = _height;
     
     Map2D.resize(width);
-
+    
     for (int i = 0; i <= MAP_WIDTH-1; ++i)
         Map2D[i].resize(height);
-        //Map2D[i].resize(MAP_HEIGHT);
+    //Map2D[i].resize(MAP_HEIGHT);
     
     
     tileSize = _tileSize;
@@ -188,7 +188,7 @@ bool Map::Generate2DMap(sf::Vector2i _tileSize, unsigned int _width, unsigned in
     
     // populate the vertex array, with one quad per tile
     
-   
+    
     Tile tempTile;
     ////std::cout << "\n" << iterations << "its and tiles=" << tiles.size() << "\n" ;
     
@@ -229,11 +229,11 @@ bool Map::Generate2DMap(sf::Vector2i _tileSize, unsigned int _width, unsigned in
             quad[1].color.a = 10;
             quad[2].color.a = 10;
             quad[3].color.a = 10;
-
             
-                   
             
-          
+            
+            
+            
             
             tempTile.SetTileVertices(i, j,tileSize);
             Map2D[i][j] = tempTile;
@@ -247,7 +247,7 @@ bool Map::Generate2DMap(sf::Vector2i _tileSize, unsigned int _width, unsigned in
     
     
     
- 
+    
 }
 
 void Map::Group2DGridTiles()
@@ -259,7 +259,7 @@ void Map::Group2DGridTiles()
     MapTileParams groupParams;
     Tile tile;
     sf::Vertex newVert;
-
+    
     tileGroups.clear();
     for (unsigned int i = 0; i < width; ++i)
     {
@@ -276,24 +276,24 @@ void Map::Group2DGridTiles()
                 if(Map2D[i][j].getTileID() == tileGroups.at(k).TileID)
                 {
                     
-                   
+                    
                     foundTile = true;
-                        
+                    
                     tile = Map2D[i][j];
                     
                     newVert.position = tile.getTileVertices()[0].position;
                     newVert.texCoords = tile.getTileVertices()[0].texCoords;
                     
                     tileGroups.at(k).m_vertices.append(newVert);
-                        
+                    
                     newVert.position = tile.getTileVertices()[1].position;
                     newVert.texCoords = tile.getTileVertices()[1].texCoords;
                     tileGroups.at(k).m_vertices.append(newVert);
-                        
+                    
                     newVert.position = tile.getTileVertices()[2].position;
                     newVert.texCoords = tile.getTileVertices()[2].texCoords;
                     tileGroups.at(k).m_vertices.append(newVert);
-                        
+                    
                     newVert.position = tile.getTileVertices()[3].position;
                     newVert.texCoords = tile.getTileVertices()[3].texCoords;
                     
@@ -338,7 +338,7 @@ void Map::Group2DGridTiles()
             }
             
             
-
+            
             
             
         }
@@ -364,6 +364,7 @@ void Map::LoadTileTexture()
         {
             if(tileIDTable.at(j).ID == tileGroups.at(i).TileID)
             {
+                std::cout << "\n Text file name " << tileIDTable.at(j).textureFileName;
                 tileGroups.at(i).m_tileset.loadFromFile(tileIDTable.at(j).textureFileName);
                 tileGroups.at(i).sprite.setTexture(tileGroups.at(i).m_tileset);
                 tileGroups.at(i).sprite.setColor(sf::Color::Red);
@@ -371,7 +372,7 @@ void Map::LoadTileTexture()
                 
                 
                 break;
-
+                
             }
         }
     }
@@ -404,18 +405,18 @@ unsigned int Map::GetHeight()
 bool Map::isInBounds(sf::Vector2i position)
 {
     
-
+    
     bool retVal = true;
-  
-
+    
+    
     if(position.x < 0 || position.y < 0)
         return false;
     else if(position.x >= width || position.y >= height)
         return false;
- 
+    
     //std::cout << "\n x y" << position.x << "," << position.y;
-  //  std::cout << "\n Retval " << retVal;
-  
+    //  std::cout << "\n Retval " << retVal;
+    
     return true;
     
     
@@ -449,7 +450,7 @@ void Map::FloodFill(int x, int y, int targetTileID, int replacementTileID)
         return;
     }
     
- 
+    
     else if(Map2D[x][y].getTileID() != targetTileID)
     {
         return;
@@ -493,7 +494,7 @@ sf::VertexArray Map::getVertices(std::vector<sf::Vector2i> tilePositions)
         
         
         if(!isInBounds(tilePositions.at(i)))
-           continue;
+            continue;
         tempAr = Map2D[tilePositions.at(i).x][tilePositions.at(i).y].getTileVertices();
         
         vertArray[vertexCounter] = tempAr[0];
@@ -501,7 +502,7 @@ sf::VertexArray Map::getVertices(std::vector<sf::Vector2i> tilePositions)
         vertArray[vertexCounter+2] = tempAr[2];
         vertArray[vertexCounter+3] = tempAr[3];
         
-
+        
         
         vertexCounter += 4;
         
@@ -520,7 +521,7 @@ std::vector<BaseCreature*> Map::getCreatures(std::vector<sf::Vector2i> tilePosit
     std::vector<BaseCreature*> tempCreatures;
     
     
-
+    
     
     BaseCreature *tempCreat;
     int vertexCounter = 0; //Initially forgot this..I was using the tilePosition iterator as the verteArray index...
@@ -566,14 +567,14 @@ void Map::AddEffect(int effectId, sf::VertexArray vertArray)
         
         tempEffect.vertices = vertArray;
         effects.push_back(tempEffect);
-       
+        
         std::cout << "\nEffect does not exist";
     }
     else
     {
         std::cout << "\nEffect exists";
     }
-
+    
 }
 
 void Map::UpdateEffect(MapEffect newEffect)
@@ -592,7 +593,7 @@ void Map::UpdateEffect(MapEffect newEffect)
     }
     
     
-
+    
     
     
     
@@ -658,8 +659,8 @@ bool Map::isCreatureOnTile(sf::Vector2i point)
 {
     
     std::cout << point.x << "," << point.y;
-   if(NULL == Map2D[point.x][point.y].getCreatureOnTile())
-       return false;
+    if(NULL == Map2D[point.x][point.y].getCreatureOnTile())
+        return false;
     
     
     return true;

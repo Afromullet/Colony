@@ -176,6 +176,8 @@
 </organs>
 
 <bodypartconnections>
+    
+    
     <bodypart>
         <bptoken>head</bptoken>
         <connectsto>chest</connectsto>
@@ -196,6 +198,20 @@
         <connectiontype>externalright</connectiontype>
         <connectionproperty>bone</connectionproperty>
     </bodypart>
+    
+    <bodypart>
+        <bptoken>leftleg</bptoken>
+        <connectsto>chest</connectsto>
+        <connectiontype>externalleft</connectiontype>
+        <connectionproperty>bone</connectionproperty>
+    </bodypart>
+    
+    <bodypart>
+        <bptoken>rightleg</bptoken>
+        <connectsto>chest</connectsto>
+        <connectiontype>externalright</connectiontype>
+        <connectionproperty>bone</connectionproperty>
+    </bodypart>
 
     <bodypart>
         <bptoken>lefthand</bptoken>
@@ -207,6 +223,20 @@
     <bodypart>
         <bptoken>righthand</bptoken>
         <connectsto>rightarm</connectsto>
+        <connectiontype>externalright</connectiontype>
+        <connectionproperty>bone</connectionproperty>
+    </bodypart>
+    
+    <bodypart>
+        <bptoken>leftfoot</bptoken>
+        <connectsto>leftleg</connectsto>
+        <connectiontype>externalright</connectiontype>
+        <connectionproperty>bone</connectionproperty>
+    </bodypart>
+    
+    <bodypart>
+        <bptoken>rightfoot</bptoken>
+        <connectsto>rightleg</connectsto>
         <connectiontype>externalright</connectiontype>
         <connectionproperty>bone</connectionproperty>
     </bodypart>

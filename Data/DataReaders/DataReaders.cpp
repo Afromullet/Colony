@@ -26,6 +26,7 @@ void ReadMaterialFile(const std::string fileName)
     pt::ptree tree;
     Material material;
     float compression,impact,tensile,torsion,shear,density;
+    std::string matName;
     
 
     try
@@ -75,6 +76,8 @@ void ReadMaterialFile(const std::string fileName)
             
             density = convertFloatVal(v.second.get<std::string>("Density"));
             
+            material.setMaterialName(v.second.get<std::string>("Name"));
+            
             material.setDensity(density);
             
             
@@ -111,6 +114,8 @@ bool ValidateMaterialFile()
             
         }
     }
+    
+    return true;
     
 }
 float convertFloatVal(std::string s)

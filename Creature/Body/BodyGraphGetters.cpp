@@ -100,6 +100,8 @@ EnConnectionProperty convertConnectionPropertyType(std::string conType)
         con = enConnectiveTissue;
     }
     
+    return con;
+    
 }
 
 void printConnectionType(GraphConnection con)
@@ -173,7 +175,7 @@ void printBodyGraphEdges(const AnatomyGraph &graph)
     {
         std::cout << "(" << graph[source(*ei, graph)].bodyPartName
         << "," << graph[target(*ei, graph)].bodyPartName << ") " << " ";
-        printConnectionType(graph[*ei]);
+        //printConnectionType(graph[*ei]);
         std::cout << "\n";
         
     }
@@ -249,7 +251,7 @@ std::vector<int> getExternalBodyParts(const AnatomyGraph &graph)
     AnatomyIndexMap indMap = get(vertex_index, graph); //Getting a proeprty map.
     for (boost::tie(ei, ei_end) = edges(graph); ei != ei_end; ++ei)
     {
-         printConnectionType(graph[*ei]);
+         //printConnectionType(graph[*ei]);
         
         if(graph[*ei].connection == enExternal || graph[*ei].connection == enExternalLeft || graph[*ei].connection == enExternalRight)
         {
@@ -278,6 +280,7 @@ int getRandomExternalBodyParts(const AnatomyGraph &graph)
 
     std::vector<int> indices = getExternalBodyParts(graph);
     
+
     return indices.at(rand() % indices.size());
     
     
@@ -320,4 +323,10 @@ std::vector<int> getInternalVertices(int n,AnatomyGraph &graph)
     return tempVec;
 
     
+}
+
+void WoundReport(AnatomyGraph &graph)
+{
+    for(int i =0; i < num_vertices(graph); i++)
+        graph[i].ShowWounds();
 }

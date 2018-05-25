@@ -14,7 +14,9 @@
  */
 
 
-enum TileTerrainType{enGrass1,enSnow1,enSwamp1,enFloor1,enWall1,enUndefinedTerrain};
+enum enBiomes{enDesertBiome,enForestBiome,enPlainsBiome,enSwampBiome,enWaterBiome,enBeachBiome,enJungleBiome,enSnowBiome};
+
+enum TileTerrainType{enGrass1,enSnow1,enSwamp1,enFloor1,enWall1,enUndefinedTerrain,enDesert1,enSea1,enForest1,enPlain1,enMountain1};
 
 
 enum AttackForceType{enCompression,enImpact,enTensile,enTorsion,enShear};

@@ -29,7 +29,7 @@ void SetupWoundRuleset()
  */
 
 
-//Determines what vertices are targetted by the wound.
+//Determines what vertices are targetted by the wound. The appliedforceeffect determines how the damage propagates
 std::vector<int> DetermineWoundTargets(int origin,AppliedForceEffect &effect, AnatomyGraph &graph)
 {
     
@@ -52,14 +52,25 @@ std::vector<int> DetermineWoundTargets(int origin,AppliedForceEffect &effect, An
         else if(effect.woundSeverity == enModerateWound)
         {
             //Choose 1 random internal vertex connected to the origin
-            targets.push_back(tempTargets[rand() % tempTargets.size()]);
+            
+            //-1 on the limit because the origin is added at the beginning
+            for(int i=0; i < MOD_IMPACT_VERTNUM - 1; i++)
+                targets.push_back(tempTargets[rand() % tempTargets.size()]);
+            
+                
+            
+           
+            
         }
         else if(effect.woundSeverity == enMajorWound)
         {
-            //Choose 2 random internal vertices connected to the origin
+            //Choose MAJ_IMPACT_VERTNUM random internal vertices connected to the origin
             //Can choose teh same vertex twice..that'll be more sever damage
-            targets.push_back(tempTargets[rand() % tempTargets.size()]);
-            targets.push_back(tempTargets[rand() % tempTargets.size()]);
+            
+            //-1 on the limit because the origin is added at the beginning
+            for(int i=0; i < MAJ_IMPACT_VERTNUM - 1; i++)
+                targets.push_back(tempTargets[rand() % tempTargets.size()]);
+         
             
         }
     }
@@ -69,6 +80,7 @@ std::vector<int> DetermineWoundTargets(int origin,AppliedForceEffect &effect, An
     }
     else if(effect.effect == enShearFracEffect)
     {
+        
         if(effect.attackType == enPierce)
         {
             
@@ -78,9 +90,17 @@ std::vector<int> DetermineWoundTargets(int origin,AppliedForceEffect &effect, An
             }
             else if(effect.woundSeverity == enModerateWound)
             {
+    
                 tempTargets = getInternalVertices(origin,graph);
+                std::cout << "\n Origin: " << graph[origin].bodyPartName;
+                for(int i =0; i < tempTargets.size(); i++)
+                {
+                    std::cout << "\n BP Name: " << graph[tempTargets.at(i)].bodyPartName;
+                }
+              
                 //Choose 1 random internal vertex connected to the origin
-                targets.push_back(tempTargets[rand() % tempTargets.size()]);
+                if(tempTargets.size() > 0)
+                    targets.push_back(tempTargets[rand() % tempTargets.size()]);
             }
             else if(effect.woundSeverity == enMajorWound)
             {
@@ -102,21 +122,107 @@ std::vector<int> DetermineWoundTargets(int origin,AppliedForceEffect &effect, An
     
 }
 
+void PrintWoundType(WoundType type)
+{
+    if(type == enMinorFracture)
+    {
+        std::cout << "Minor Fracture";
+    }
+    else if(type == enModerateFracture)
+    {
+        std::cout << "Moderate Fracture";
+    }
+    else if(type == enMajorFracture)
+    {
+        std::cout << "Major Fracture";
+    }
+    else if(type == enMinorPuncture)
+    {
+        std::cout << "Minor Pucture";
+    }
+    else if(type == enModeratePuncture)
+    {
+        std::cout << "Moderate Pucture";
+    }
+    else if(type == enMajorPuncture)
+    {
+        std::cout << "Major Pucture";
+    }
+    else if(type == enMinorCut)
+    {
+        std::cout << "Minor Cut";
+    }
+    else if(type == enModerateCut)
+    {
+        std::cout << "Moderate Cut";
+    }
+    else if(type == enMajorCut)
+    {
+        std::cout << "Major Cut";
+    }
+    else if(type == enMinorBruise)
+    {
+        std::cout << "Minor Bruise";
+    }
+    else if(type == enModerateBruise)
+    {
+        std::cout << "Moderate Bruise";
+    }
+    else if(type == enMajorBruise)
+    {
+        std::cout << "Major Bruise";
+    }
+    else if(type == enRupture)
+    {
+        std::cout << "Rupture";
+    }
+    else if(type == enDismember)
+    {
+        std::cout << "Dismember";
+    }
+
+}
 
 WoundCalculations::WoundCalculations(int _origin) : origin(_origin)
 {
     
 }
 
+WoundCalculations::WoundCalculations()
+{
+    
+}
+
+
+void WoundCalculations::ApplyWound(AppliedForceEffect &effect, AnatomyGraph &graph)
+{
+    
+    if((effect.effect == enShearDefEffect || effect.effect == enShearFracEffect) && effect.attackType == enSlash)
+    {
+        ApplySlashingShearWound(effect,graph);
+    }
+    else if((effect.effect == enShearDefEffect || effect.effect == enShearFracEffect) && effect.attackType == enPierce )
+    {
+        ApplyPiercingShearWound(effect,graph);
+    }
+    else if(effect.effect == enImpactDefEffect || effect.effect == enImpactFracEffect)
+    {
+        ApplyImpactWound(effect,graph);
+    }
+    
+}
+
 //One thing that needs to be addressed - The way the ApplyxWound functions access the vertices
 //Currently, it's coupled closely to DetermineWoundTargets in terms of how it accesses the vertices
 
-void WoundCalculations::ApplySlashingShearWound(AppliedForceEffect &effect,AnatomyGraph &graph)
+std::vector<int> WoundCalculations::ApplySlashingShearWound(AppliedForceEffect &effect,AnatomyGraph &graph)
 {
+    
+    std::vector<int> targets;
     if(effect.effect == enShearDefEffect || effect.effect == enShearFracEffect || effect.attackType == enSlash)
         
     {
-        std::vector<int> targets= DetermineWoundTargets(origin,effect,graph);
+        targets= DetermineWoundTargets(origin,effect,graph);
         //0 = origin
         if(effect.woundSeverity == enMinorWound)
         {
@@ -135,15 +241,19 @@ void WoundCalculations::ApplySlashingShearWound(AppliedForceEffect &effect,Anato
         }
     }
     
+    return targets;
+    
 }
 
-void WoundCalculations::ApplyPiercingShearWound(AppliedForceEffect &effect,AnatomyGraph &graph)
+std::vector<int> WoundCalculations::ApplyPiercingShearWound(AppliedForceEffect &effect,AnatomyGraph &graph)
 {
+    
+    std::vector<int> targets;
     if(effect.effect == enShearDefEffect || effect.effect != enShearFracEffect || effect.attackType == enPierce)
     {
         
 
-        std::vector<int> targets= DetermineWoundTargets(origin,effect,graph);
+    targets= DetermineWoundTargets(origin,effect,graph);
     //0 = origin
         if(effect.woundSeverity == enMinorWound)
         {
@@ -154,24 +264,32 @@ void WoundCalculations::ApplyPiercingShearWound(AppliedForceEffect &effect,Anato
         {
         
             graph[targets.at(0)].AddWound(enModeratePuncture);
-            graph[targets.at(1)].AddWound(enMinorPuncture);
+            
+            if(targets.size() > 1)
+                graph[targets.at(1)].AddWound(enMinorPuncture);
         }
         else if(effect.woundSeverity == enMajorWound)
         {
             graph[targets.at(0)].AddWound(enMajorPuncture);
-            graph[targets.at(0)].AddWound(enModeratePuncture);
+            
+            if(targets.size() > 1)
+                graph[targets.at(1)].AddWound(enModeratePuncture);
         }
     }
     
+    return targets;
+    
 }
 
-void WoundCalculations::ApplyImpactWound(AppliedForceEffect &effect,AnatomyGraph &graph)
+std::vector<int> WoundCalculations::ApplyImpactWound(AppliedForceEffect &effect,AnatomyGraph &graph)
 {
     
     //For some reason the negation of this condition does not work..returnign when effect != enimpacteffect or impactfraceffect
+    
+    std::vector<int> targets;
     if(effect.effect == enImpactDefEffect || effect.effect == enImpactFracEffect)
     {
-        std::vector<int> targets= DetermineWoundTargets(origin,effect,graph);
+        targets= DetermineWoundTargets(origin,effect,graph);
     
         int fractureChance = rand() % 101;
     
@@ -210,14 +328,10 @@ void WoundCalculations::ApplyImpactWound(AppliedForceEffect &effect,AnatomyGraph
             
         }
     
-        std::cout << "\n Printing wounds";
-        for(int i=0; i < targets.size(); i++)
-        {
-            for(int j=0; j < graph[targets.at(i)].wounds.size(); j++)
-            {
-                std::cout << " " << graph[targets.at(i)].wounds.at(j);
-            }
-        }
+  
 
     }
+    
+    return targets;
 }
+

@@ -27,8 +27,8 @@ typedef struct MapTileParameters
     sf::Texture m_tileset;
     sf::Sprite sprite;
     int TileID; //ID should match with those in a lookup table so we can load anything useful
-   
-  
+    
+    
     
 }MapTileParams;
 
@@ -47,8 +47,8 @@ class Map : public sf::Drawable, public sf::Transformable
 public:
     
     
-     std::vector<MapTileParams> tileGroups;
-   
+    std::vector<MapTileParams> tileGroups;
+    
     
     void BasicRandom2DMap(sf::Vector2i _tileSize,unsigned int _width, unsigned int _height);
     bool Generate2DMap(sf::Vector2i _tileSize, unsigned int _width, unsigned int _height);
@@ -78,7 +78,7 @@ public:
     
     
     //std::vector<sf::Vector2i> moveSquare(std::vector<sf::Vector2i> tilePositions,MoveDirection movDirection);
-   // void setSquareColor(std::vector<sf::Vector2i> tilePositions,sf::Color color); //Draw a square..
+    // void setSquareColor(std::vector<sf::Vector2i> tilePositions,sf::Color color); //Draw a square..
     //void clearSquareColor(std::vector<sf::Vector2i> tilePositions); ///Clears the squares colors
     
     
@@ -108,11 +108,11 @@ public:
     
     
     
-  
     
-   
     
-   
+    
+    
+    
     
 private:
     
@@ -122,7 +122,7 @@ private:
     unsigned int width;
     unsigned int height;
     
-   
+    
     
     //Tiles stores the position of the tiles, m_vertices.
     //This vector is basically a bag of vertices we can use to create the map
@@ -420,6 +420,5 @@ private:
  ***Important part end***
  
  */
-
 
 

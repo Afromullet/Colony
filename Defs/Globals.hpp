@@ -19,6 +19,7 @@
 #include <list>
 
 #include "CaMap.hpp"
+#include "NoiseMap.hpp"
 #include "Constants.hpp"
 #include "Filelogger.hpp"
 

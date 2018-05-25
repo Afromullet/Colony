@@ -78,6 +78,9 @@ public:
     
     int movementCost;
 
+   
+    double elevation;
+    enBiomes biome;
     
 
    

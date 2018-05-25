@@ -31,7 +31,9 @@ void InitializeGlobalBodyParts()
 
 std::ostream& operator<<(std::ostream& os, const BodyPart& bp)
 {
+    /*
     os << "\nBodypart Name " << bp.bodyPartName << "\nHealth " << bp.health << "\nCan Hold Armor " << bp.canHoldArmor << "\nCan Hold Weapon " << bp.canHoldWeapon << "\nCan Interact " << bp.canInteract << "\nArmor Name " << bp.armor.sEquipmentName << "\nCan Breathe " << bp.canBreathe << "\nCan See " << bp.canSee << "\n Can smell " << bp.canSmell << "\n Token " << bp.bodyPartToken << "\n Section " << bp.section << "\nWeapon Name " << bp.weapon.sEquipmentName  << "\n\n";
+     */
     return os;
     
 }
@@ -107,11 +109,11 @@ void BodyPart::EquipArmor(Item *item)
 void BodyPart::EquipWeapon(Item *item)
 {
     Weapon *wep = dynamic_cast<Weapon*>(item);
-    std::cout << "\n Damage and range " << wep->getDamage() << ", " << wep->isRangedWeapon();
+  //  std::cout << "\n Damage and range " << wep->getDamage() << ", " << wep->isRangedWeapon();
     wep->isEquipped = true;
     weapon = *wep;
     
-    std::cout << "\n Damage and range " << weapon.getDamage() << ", " << weapon.isRangedWeapon();
+  //  std::cout << "\n Damage and range " << weapon.getDamage() << ", " << weapon.isRangedWeapon();
     
 
 }
@@ -162,8 +164,7 @@ std::vector<AppliedForceEffect> BodyPart::ApplyAttack(AttackStats params)
 {
     
     std::vector<AppliedForceEffect> effects;
-    armor.material.SetupForce(params.force, params.contactArea, params.enAttackForceType,params.attackType);
-    armor.material.CalculateForcePenentration();
+    armor.material.PerformMaterialCalculations(params.force,params.contactArea,params.enAttackForceType,params.attackType);
     effects = getArmorMaterialEffects();
     
     return effects;
@@ -171,10 +172,23 @@ std::vector<AppliedForceEffect> BodyPart::ApplyAttack(AttackStats params)
     
 }
 
+void BodyPart::ShowWounds()
+{
+    std::cout << "Body Part Name: " << bodyPartName << std::endl;
+    for(int i =0; i < wounds.size(); i++)
+    {
+        std::cout << wounds.at(i) << std::endl;
+    }
+}
+
 void BodyPart::AddWound(WoundType woundType)
 {
     wounds.push_back(woundType);
 }
 
+void BodyPart::ClearWounds()
+{
+    wounds.clear();
+}
 
 

@@ -59,7 +59,7 @@ public:
     void CreateRoom(std::vector<std::vector<Tile> > &newMap,int roomSize,sf::Vector2i startingPoint, int floorTileID, int wallTileID);
     
     
-
+    
     
     
 private:

@@ -17,6 +17,7 @@ BasicExamineSurroundingAction::BasicExamineSurroundingAction(Map &_map,BaseCreat
 
 bool BasicExamineSurroundingAction::PrepareAction()
 {
+    return false;
     
 }
 
@@ -52,6 +53,7 @@ bool BasicExamineSurroundingAction::PerformAction()
     }
     
     
+    return true;
     
     
 

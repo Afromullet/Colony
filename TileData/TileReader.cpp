@@ -299,6 +299,26 @@ TileTerrainType DecodeTerrainType(const std::string &terrainTypeString)
     {
         return enWall1;
     }
+    else if(terrainTypeString == "enDesert1")
+    {
+        return enDesert1;
+    }
+    else if(terrainTypeString == "enSea1")
+    {
+        return enSea1;
+    }
+    else if(terrainTypeString == "enForest1")
+    {
+        return enForest1;
+    }
+    else if(terrainTypeString == "enPlain1")
+    {
+        return enPlain1;
+    }
+    else if(terrainTypeString == "enMountain1")
+    {
+        return enMountain1;
+    }
     else
     {
         std::cout << "\n" << "Can't find terrain type..using undefined terrain" << "\n";
@@ -337,7 +357,7 @@ void BasicTileRuleset()
         }
         else if(tileDataTable.at(i).enTileTerrainType == enSwamp1)
         {
-            
+            tileDataTable.at(i).canHoldCreature = true;
         }
         else if(tileDataTable.at(i).enTileTerrainType == enSnow1)
         {
