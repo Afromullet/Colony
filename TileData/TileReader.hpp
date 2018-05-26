@@ -27,6 +27,22 @@
 #define START_OF_BLOCK_TOKEN "{"
 #define END_OF_BLOCK_TOKEN "}"
 
+#define TREE_1_TILE 0
+#define TREE_2_TILE 1
+#define TREE_3_TILE 2
+#define FOREST_GRASS 3
+
+#define BEACH_1_SAND 4
+#define BEACH_PALM_1 5
+
+#define DESERT_TILE_1 6
+#define DESERT_CACTUS_1 7
+#define DESERT_DEAD_TREE_1 8
+
+#define SNOW_1_TILE 9
+
+#define WATER_1_TILE 10
+
 
 
 extern TileIDData tempData;

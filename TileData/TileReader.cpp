@@ -279,46 +279,52 @@ TileTerrainType DecodeTerrainType(const std::string &terrainTypeString)
 {
 
     std::cout << "Decoding terrain string " << terrainTypeString << "\n";
-    if(terrainTypeString == "enGrass1")
+    if(terrainTypeString == "enTree1")
     {
-        return enGrass1;
+        return enTree1;
     }
-    else if(terrainTypeString == "enSnow1")
+    else if(terrainTypeString == "enTree2")
     {
-        return enSnow1;
+        return enTree2;
     }
-    else if(terrainTypeString == "enSwamp1")
+    else if(terrainTypeString == "enTree3")
     {
-        return enSwamp1;
+        return enTree3;
     }
-    else if(terrainTypeString == "enFloor1")
+    else if(terrainTypeString == "enForestGrass1")
     {
-        return enFloor1;
+        return enForestGrass1;
     }
-    else if(terrainTypeString == "enWall1")
+    else if(terrainTypeString == "enBeach1")
     {
-        return enWall1;
+        return enBeach1;
+    }
+    else if(terrainTypeString == "enBeachPalm1")
+    {
+        return enBeachPalm1;
     }
     else if(terrainTypeString == "enDesert1")
     {
         return enDesert1;
     }
-    else if(terrainTypeString == "enSea1")
+    else if(terrainTypeString == "enDesertCactus1")
     {
-        return enSea1;
+        return enDesertCactus1;
     }
-    else if(terrainTypeString == "enForest1")
+    else if(terrainTypeString == "enDesertTree1")
     {
-        return enForest1;
+        return enDesertTree1;
     }
-    else if(terrainTypeString == "enPlain1")
+    else if(terrainTypeString == "enSnow1")
     {
-        return enPlain1;
+        return enSnow1;
     }
-    else if(terrainTypeString == "enMountain1")
+    else if(terrainTypeString == "enWater1")
     {
-        return enMountain1;
+        return enWater1;
     }
+ 
+ 
     else
     {
         std::cout << "\n" << "Can't find terrain type..using undefined terrain" << "\n";

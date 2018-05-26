@@ -367,7 +367,9 @@ void Map::LoadTileTexture()
                 std::cout << "\n Text file name " << tileIDTable.at(j).textureFileName;
                 tileGroups.at(i).m_tileset.loadFromFile(tileIDTable.at(j).textureFileName);
                 tileGroups.at(i).sprite.setTexture(tileGroups.at(i).m_tileset);
-                tileGroups.at(i).sprite.setColor(sf::Color::Red);
+                
+                
+                //tileGroups.at(i).sprite.setColor(sf::Color::Red);
                 
                 
                 

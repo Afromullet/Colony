@@ -16,7 +16,21 @@
 
 enum enBiomes{enDesertBiome,enForestBiome,enPlainsBiome,enSwampBiome,enWaterBiome,enBeachBiome,enJungleBiome,enSnowBiome};
 
-enum TileTerrainType{enGrass1,enSnow1,enSwamp1,enFloor1,enWall1,enUndefinedTerrain,enDesert1,enSea1,enForest1,enPlain1,enMountain1};
+enum TileTerrainType{
+    enGrass1,
+    enSnow1,
+    enSwamp1,enFloor1,enWall1,
+    enUndefinedTerrain,
+    enDesert1,enDesertCactus1,enDesertTree1,
+    enSea1,
+    enForest1,enPlain1,enMountain1,
+    enBeach1,enBeachPalm1,
+    enTree1,enTree2,enTree3,enForestGrass1,
+    enWater1
+    
+
+
+    };
 
 
 enum AttackForceType{enCompression,enImpact,enTensile,enTorsion,enShear};
