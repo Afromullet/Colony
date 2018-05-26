@@ -323,6 +323,24 @@ TileTerrainType DecodeTerrainType(const std::string &terrainTypeString)
     {
         return enWater1;
     }
+    else if(terrainTypeString == "enTundra1")
+    {
+        return enTundra1;
+    }
+    else if(terrainTypeString == "enShrubland1")
+    {
+        return enShrubland1;
+    }
+    else if(terrainTypeString == "enTaiga1")
+    {
+        return enTaiga1;
+    }
+    else if(terrainTypeString == "enJungle1")
+    {
+        return enJungle1;
+    }
+    
+    
  
  
     else

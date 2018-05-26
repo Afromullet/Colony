@@ -22,7 +22,7 @@
 
 #define PI 3.14
 
-#define DEFAULT_TILE_SIZE 4 //The default size of any tile, be it map or a creature
+#define DEFAULT_TILE_SIZE 8 //The default size of any tile, be it map or a creature
 
 //Will have to be initialized since these values depend on several variables (Windows size and default tile size
 extern const int MAP_WIDTH;

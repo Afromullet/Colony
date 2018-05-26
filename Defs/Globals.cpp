@@ -49,6 +49,15 @@ std::vector<int> allEffectIDs;
 
 void InitializeGlobals()
 {
+    
+    
+    sf::View tempView = window.getView();
+    
+    //tempView.setSize(1000, 1000);
+    //tempView.zoom(5.0f);
+    
+    
+    window.setView(tempView);
     if (!defaultFont.loadFromFile("tnr.ttf"))
     {
         std::cout << "\n Error initializing global font";

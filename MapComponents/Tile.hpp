@@ -80,6 +80,7 @@ public:
 
    
     double elevation;
+    double moisture;
     enBiomes biome;
     
 

@@ -19,9 +19,10 @@
 #include <list>
 
 #include "CaMap.hpp"
-#include "NoiseMap.hpp"
+
 #include "Constants.hpp"
 #include "Filelogger.hpp"
+
 
 #ifndef Globals_hpp
 #define Globals_hpp

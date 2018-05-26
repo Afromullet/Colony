@@ -9,7 +9,7 @@
 #include "PlayerControls.hpp"
 #include "Pathfinding.hpp"
 #include "Globals.hpp"
-
+#include "Noisemap.hpp"
 
 
 
@@ -408,6 +408,11 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
             
             
             
+        }
+        else if(event.key.code == sf::Keyboard::X)
+        {
+            
+
         }
         
         

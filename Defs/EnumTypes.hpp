@@ -26,7 +26,11 @@ enum TileTerrainType{
     enForest1,enPlain1,enMountain1,
     enBeach1,enBeachPalm1,
     enTree1,enTree2,enTree3,enForestGrass1,
-    enWater1
+    enWater1,
+    enTundra1,
+    enShrubland1,
+    enTaiga1,
+    enJungle1
     
 
 

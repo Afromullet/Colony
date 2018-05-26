@@ -42,6 +42,23 @@ TextureLocation:WorldMapTiles/SnowTiles/snowground1.png
 TerrainType:enWater1
 TextureLocation:WorldMapTiles/WaterTiles/water1.png
 }
+{
+TerrainType:enTundra1
+TextureLocation:WorldMapTiles/TundraTiles/tundra1.png
+}
+{
+TerrainType:enShrubland1
+TextureLocation:WorldMapTiles/ShrublandTiles/shrubland1.png
+}
+{
+TerrainType:enTaiga1
+TextureLocation:WorldMapTiles/TaigaTiles/taiga1.png
+}
+{
+TerrainType:enJungle1
+TextureLocation:WorldMapTiles/JungleTiles/jungle1.png
+}
+
 
 
 

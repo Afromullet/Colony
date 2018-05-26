@@ -43,7 +43,13 @@
 
 #define WATER_1_TILE 10
 
+#define TUNDRA_1_TILE 11
 
+#define SHRUBLAND_1_TILE 12
+
+#define TAIGA_1_TILE 13
+
+#define JUNGLE_1_TILE 14
 
 extern TileIDData tempData;
 extern std::vector<std::string> terrainTypeTable;

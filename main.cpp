@@ -410,6 +410,12 @@ void GameLoop3()
                 if(event.type == sf::Event::KeyPressed)
                 {
                     HandlePlayerInput(event,mapdata,player);
+                    
+                     if(event.key.code == sf::Keyboard::X)
+                    {
+                        noiseMap.Generate_NoiseMap(sf::Vector2i(32,32), MAP_WIDTH,MAP_HEIGHT);
+                        
+                    }
               
                 }
             
