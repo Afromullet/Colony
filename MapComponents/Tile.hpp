@@ -12,6 +12,7 @@
 #include "EnumTypes.hpp"
 #include "BaseCreature.hpp"
 #include "Equipment.hpp"
+#include "Biomes.hpp"
 
 #ifndef Tile_hpp
 #define Tile_hpp
@@ -61,6 +62,7 @@ public:
     void SetTileTerrainType(TileTerrainType _tileTerrainType);
     void SetCreatureOnTile(BaseCreature *_creature);
     void SetItemOnTile(Item *item);
+    void SetBiome(enBiomes _biome);
     
     BaseCreature* getCreatureOnTile();
     
@@ -81,7 +83,8 @@ public:
    
     double elevation;
     double moisture;
-    enBiomes biome;
+    enBiomes EnBiome;
+    Biome biome;
     
 
    

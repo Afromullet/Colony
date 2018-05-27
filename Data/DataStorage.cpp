@@ -8,8 +8,10 @@
 
 #include "DataStorage.hpp"
 #include <iostream>
+#include "Constants.hpp"
 
 std::vector<Material> materials;
+std::vector<Biome> vecBiome;
 
 void printMaterials()
 {
@@ -17,6 +19,31 @@ void printMaterials()
     {
         std::cout << materials.at(i);
     }
+}
+
+void printBiomes()
+{
+    for(int i=0; i < vecBiome.size(); i++)
+    {
+        std::cout << "\n Name " << vecBiome.at(i).getBiomeName() << "\n (Low Temp,High Temp): " << vecBiome.at(i).getLowTemp() << "," << vecBiome.at(i).getHighTemp();
+    }
+    
+    std::cout << "\n";
+    
+}
+
+Biome findBiome(std::string biomeString)
+{
+    for(int i =0; i < vecBiome.size(); i++)
+    {
+        if(vecBiome.at(i).getBiomeName() == biomeString)
+            return vecBiome.at(i);
+    }
+    
+   
+    return Biome();
+    
+    
 }
 
 bool allMaterialsValid()

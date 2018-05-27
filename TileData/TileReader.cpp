@@ -339,7 +339,14 @@ TileTerrainType DecodeTerrainType(const std::string &terrainTypeString)
     {
         return enJungle1;
     }
-    
+    else if(terrainTypeString == "enSnowMountain1")
+    {
+        return enSnowMountain1;
+    }
+    else if(terrainTypeString == "enGrassMountain1")
+    {
+        return enGrassMountain1;
+    }
     
  
  
@@ -359,8 +366,9 @@ void BasicTileRuleset()
 {
     for(int i = 0; i < tileDataTable.size(); i++)
     {
+        tileDataTable.at(i).canHoldCreature = true;
     
-        
+        /*
         if(tileDataTable.at(i).enTileTerrainType == enWall1)
         {
             tileDataTable.at(i).canHoldCreature = true;
@@ -392,6 +400,7 @@ void BasicTileRuleset()
         {
             
         }
+         */
       
         
    

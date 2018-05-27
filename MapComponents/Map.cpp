@@ -14,7 +14,8 @@
 #include "Globals.hpp"
 #include "Constants.hpp"
 #include <math.h>
-
+#include "Biomes.hpp"
+#include "DataStorage.hpp"
 
 /*
  
@@ -685,4 +686,75 @@ Tile& Map::getByIndex(int index)
                 return Map2D[i][j];
         }
     }
+}
+
+//Only an initial implementation while biomes are still identified by an enumerated type
+void Map::InitializeBiomeTemperatures()
+{
+    
+    Biome biome;
+    for(int i =0; i < width; i++)
+    {
+        for(int j = 0; j < height; j++)
+        {
+            
+            if(Map2D[i][j].EnBiome == enTundraBiome || Map2D[i][j].EnBiome ==  enSnowMountainBiome
+               || Map2D[i][j].EnBiome == enSnowMountainBiome)
+            {
+                biome = findBiome("Tundra");
+                
+              
+            }
+            else if(Map2D[i][j].EnBiome == enDecidiousForestBiome)
+            {
+                biome = findBiome("Temperate Decidious Forest");
+            }
+            else if(Map2D[i][j].EnBiome == enTemperateDesertBiome)
+            {
+                biome = findBiome("Temperate Desert");
+            }
+            else if(Map2D[i][j].EnBiome == enShrublandBiome)
+            {
+                biome = findBiome("Shrubland");
+               
+            }
+            else if(Map2D[i][j].EnBiome == enTaigaBiome)
+            {
+                biome = findBiome("Taiga");
+                
+            }
+            else if(Map2D[i][j].EnBiome == enGrasslandBiome)
+            {
+                biome = findBiome("Grassland");
+               
+            }
+            else if(Map2D[i][j].EnBiome == enTemperateRainForestBiome)
+            {
+                biome = findBiome("Temperate Rainforest");
+                
+            }
+            else if(Map2D[i][j].EnBiome == enSubtropicalDesertBiome)
+            {
+                biome = findBiome("Subtropical Desert");
+                
+            }
+            else if(Map2D[i][j].EnBiome == enTropicalSeasonalForest)
+            {
+                biome = findBiome("Tropical Seasonal Forest");
+                
+            }
+            else if(Map2D[i][j].EnBiome == enTropicalRainForest)
+            {
+                biome = findBiome("Tropical Rainforest");
+               
+            }
+       
+            
+
+            
+            
+            
+        }
+    }
+    
 }

@@ -110,7 +110,7 @@ srand(time(NULL));
     BasicTileRuleset();
     window.setKeyRepeatEnabled(false);
     mapdata.SetWindow(&window);
-    //SetupGameData(&caMap);
+  //  SetupGameData(&caMap);
     SetupGameData(&noiseMap);
     
     for(int i = 0; i < noiseMap.GetWidth(); i++)
@@ -497,8 +497,8 @@ void InitializeMaps()
     BIRTH_LIMIT = 5;
     DEATH_LIMIT = 2;
     
-    ruleset.aliveTileID = 1;
-    ruleset.deadTileID = 0;
+    ruleset.aliveTileID = FOREST_GRASS;
+    ruleset.deadTileID = TREE_3_TILE;
     ruleset.birthLimit = BIRTH_LIMIT;
     ruleset.chanceToStartAlive = CELL_CHANCETOSTARTALIVE;
     ruleset.deathLimit = DEATH_LIMIT;
@@ -525,7 +525,9 @@ void SetupGameData(Map *map)
 {
     
     ReadMaterialFile("/Users/Afromullet/Documents/SFML/Colony2/Colony/Data/DataFiles/MaterialFiles/BasicMaterials.xml");
+    ReadBiomeFile("/Users/Afromullet/Documents/SFML/Colony2/Colony/Data/DataFiles/BiomeFiles/BiomeData.xml");
     printMaterials();
+    printBiomes();
     
     
     InitializeGlobalBodyParts();

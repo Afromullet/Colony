@@ -1,0 +1,64 @@
+<biomelist>
+
+<biome>
+    <Name>Temperate Decidious Forest</Name>
+    <LowTemp>10</LowTemp>
+    <HighTemp>20</HighTemp>
+</biome>
+
+<biome>
+    <Name>Temperate Desert</Name>
+    <LowTemp>0</LowTemp>
+    <HighTemp>22</HighTemp>
+</biome>
+
+<biome>
+    <Name>Tundra</Name>
+    <LowTemp>-10</LowTemp>
+    <HighTemp>0</HighTemp>
+</biome>
+
+<biome>
+    <Name>Shrubland</Name>
+    <LowTemp>-5</LowTemp>
+    <HighTemp>22</HighTemp>
+</biome>
+
+<biome>
+    <Name>Taiga</Name>
+    <LowTemp>-5</LowTemp>
+    <HighTemp>10</HighTemp>
+</biome>
+
+<biome>
+    <Name>Grassland</Name>
+    <LowTemp>0</LowTemp>
+    <HighTemp>22</HighTemp>
+</biome>
+
+<biome>
+    <Name>Temperate Rainforest</Name>
+    <LowTemp>10</LowTemp>
+    <HighTemp>25</HighTemp>
+</biome>
+
+<biome>
+    <Name>Subtropical Desert</Name>
+    <LowTemp>20</LowTemp>
+    <HighTemp>30</HighTemp>
+</biome>
+
+<biome>
+    <Name>Tropical Seasonal Forest</Name>
+    <LowTemp>20</LowTemp>
+    <HighTemp>30</HighTemp>
+</biome>
+
+<biome>
+    <Name>Tropical Rainforest</Name>
+    <LowTemp>20</LowTemp>
+    <HighTemp>30</HighTemp>
+</biome>
+
+
+</biomelist>

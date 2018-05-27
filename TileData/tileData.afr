@@ -58,6 +58,15 @@ TextureLocation:WorldMapTiles/TaigaTiles/taiga1.png
 TerrainType:enJungle1
 TextureLocation:WorldMapTiles/JungleTiles/jungle1.png
 }
+{
+TerrainType:enSnowMountain1
+TextureLocation:WorldMapTiles/SnowTiles/snowMountain1.png
+}
+{
+TerrainType:enGrassMountain1
+TextureLocation:WorldMapTiles/ForestTiles/grassmountain1.png
+}
+
 
 
 

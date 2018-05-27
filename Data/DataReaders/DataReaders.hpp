@@ -20,6 +20,7 @@ extern FileLogger dataReaderErrorLog;
 void InitializeDataReaderErrorLog();
 
 void ReadMaterialFile(const std::string fileName);
+void ReadBiomeFile(const std::string fileName);
 
 bool ValidateMaterialFile();
 

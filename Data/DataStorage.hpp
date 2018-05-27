@@ -12,12 +12,17 @@
 #include <stdio.h>
 #include <vector>
 #include <Material.hpp>
-
+#include "Biomes.hpp"
 
 extern std::vector<Material> materials;
+extern std::vector<Biome> vecBiome;
+
 
 void printMaterials();
+void printBiomes();
 
 bool allMaterialsValid();
+
+Biome findBiome(std::string biomeString);
 
 #endif /* DataStorage_hpp */

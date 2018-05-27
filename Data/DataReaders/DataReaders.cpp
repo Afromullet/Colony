@@ -13,6 +13,10 @@
 #include <boost/foreach.hpp>
 #include "Material.hpp"
 #include "DataStorage.hpp"
+#include "Biomes.hpp"
+#include "Constants.hpp"
+
+
 using namespace boost;
 namespace pt = boost::property_tree;
 
@@ -31,7 +35,7 @@ void ReadMaterialFile(const std::string fileName)
 
     try
     {
-        pt::read_xml("/Users/Afromullet/Documents/SFML/Colony2/Colony/Data/DataFiles/MaterialFiles/BasicMaterials.xml", tree);
+        pt::read_xml(fileName, tree);
         
        // pt::read_xml("/Users/Afromullet/Documents/SFML/Colony2/Colony/Creature/BodyData/BasicHumanoidBody.xml", tree);
     }
@@ -88,9 +92,9 @@ void ReadMaterialFile(const std::string fileName)
         }
         catch(pt::ptree_bad_path)
         {
-            material.setDeformationStrenghts(-1,-1,-1,-1,-1);
-            material.setFractureStrength(-1,-1,-1,-1,-1);
-            material.setDensity(-1);
+            material.setDeformationStrenghts(ERROR_VALUE,ERROR_VALUE,ERROR_VALUE,ERROR_VALUE,ERROR_VALUE);
+            material.setFractureStrength(ERROR_VALUE,ERROR_VALUE,ERROR_VALUE,ERROR_VALUE,ERROR_VALUE);
+            material.setDensity(ERROR_VALUE);
             
             
         }
@@ -103,6 +107,76 @@ void ReadMaterialFile(const std::string fileName)
     
     
 }
+
+void ReadBiomeFile(const std::string fileName)
+{
+    
+    pt::ptree tree;
+    Biome biome;
+    float lowTemp,highTemp;
+    std::string biomeName;
+    
+    
+    try
+    {
+        pt::read_xml(fileName, tree);
+        
+        // pt::read_xml("/Users/Afromullet/Documents/SFML/Colony2/Colony/Creature/BodyData/BasicHumanoidBody.xml", tree);
+    }
+    catch(boost::property_tree::xml_parser::xml_parser_error& ex)
+    {
+        std::cout << "'\n Failed reading";
+        
+        
+        //std::cout <<
+    }
+    
+    BOOST_FOREACH(pt::ptree::value_type &v, tree.get_child("biomelist"))
+    {
+        
+        std::cout << v.first << "\n";
+        // The data function is used to access the data stored in a node.
+        
+        
+        //Even if just one of these values fails reading, the entire material becomes invalid, so just one try/catch is needed for hadling a batch path
+        
+        
+        try
+        {
+            
+            
+            
+            
+            lowTemp = convertFloatVal(v.second.get<std::string>("LowTemp"));
+            highTemp = convertFloatVal(v.second.get<std::string>("HighTemp"));
+         
+            
+            biome.setBiomeName(v.second.get<std::string>("Name"));
+            biome.setTemperatureLimits(lowTemp, highTemp);
+            
+
+            
+            
+            
+            
+        }
+        catch(pt::ptree_bad_path)
+        {
+      
+            biome.setBiomeName(ERROR_STRING);
+            biome.setTemperatureLimits(ERROR_VALUE, ERROR_VALUE);
+
+            
+        }
+        
+        
+        vecBiome.push_back(biome);
+        
+        //bodyTokenList.push_back(v.second.data());
+    }
+    
+}
+
 
 
 bool ValidateMaterialFile()

@@ -14,18 +14,33 @@
  */
 
 
-enum enBiomes{enDesertBiome,enForestBiome,enPlainsBiome,enSwampBiome,enWaterBiome,enBeachBiome,enJungleBiome,enSnowBiome};
+enum enBiomes{
+    enDesertBiome,enSubtropicalDesertBiome,
+    enForestBiome,enPlainsBiome,enSwampBiome,enWaterBiome,enBeachBiome,enJungleBiome,
+    enSnowBiome,enSnowMountainBiome,
+    enTemperateDesertBiome,
+    enShrublandBiome,
+    enTaigaBiome,
+    enGrasslandBiome,
+    enDecidiousForestBiome,
+    enTundraBiome,
+    enTemperateRainForestBiome,
+    enTropicalSeasonalForest,
+    enTropicalRainForest,
+    enUndefinedBiome
+
+};
 
 enum TileTerrainType{
     enGrass1,
-    enSnow1,
+    enSnow1,enSnowMountain1,
     enSwamp1,enFloor1,enWall1,
     enUndefinedTerrain,
     enDesert1,enDesertCactus1,enDesertTree1,
     enSea1,
     enForest1,enPlain1,enMountain1,
     enBeach1,enBeachPalm1,
-    enTree1,enTree2,enTree3,enForestGrass1,
+    enTree1,enTree2,enTree3,enForestGrass1,enGrassMountain1,
     enWater1,
     enTundra1,
     enShrubland1,

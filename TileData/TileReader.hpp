@@ -51,6 +51,10 @@
 
 #define JUNGLE_1_TILE 14
 
+#define SNOW_MOUNTAIN_1 15
+
+#define GRASS_MOUNTAIN_1 16
+
 extern TileIDData tempData;
 extern std::vector<std::string> terrainTypeTable;
 extern int tileTableSize;

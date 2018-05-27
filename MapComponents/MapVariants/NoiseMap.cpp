@@ -28,6 +28,8 @@ void NoiseMap::Generate_NoiseMap(sf::Vector2i _tileSize,unsigned int _width, uns
     LoadTileParameters();
     Group2DGridTiles();
     LoadTileTexture();
+    
+    InitializeBiomeTemperatures();
 }
 
 void NoiseMap::GenerateNoiseValues()
@@ -40,14 +42,19 @@ void NoiseMap::GenerateNoiseValues()
 
     myNoise.SetSeed(g1());
     myNoise.SetNoiseType(FastNoise::Simplex); // Set the desired noise type
-    myNoise.SetFrequency(0.015);
+    
     
     unsigned seed2 = std::chrono::system_clock::now().time_since_epoch().count();
     std::minstd_rand0 g2 (seed2 + seed2);
     
     myNoise2.SetSeed(g2());
     myNoise2.SetNoiseType(FastNoise::Simplex); // Set the desired noise type
+    
+    
+    myNoise.SetFrequency(0.015);
     myNoise2.SetFrequency(0.015);
+    
+
  
     double e,m;
     double nx,ny;
@@ -105,10 +112,13 @@ void NoiseMap::SetBiomes()
             if(Map2D[i][j].elevation < 0.1)
             {
                 Map2D[i][j].setTileID(WATER_1_TILE);
+                Map2D[i][j].SetBiome(enWaterBiome);
+                
             }
-            else if(Map2D[i][j].elevation < 0.12)
+            else if(Map2D[i][j].elevation < 0.16)
             {
                 Map2D[i][j].setTileID(BEACH_1_SAND);
+                Map2D[i][j].SetBiome(enBeachBiome);
             }
             
             else if(Map2D[i][j].elevation > 0.8)
@@ -116,10 +126,21 @@ void NoiseMap::SetBiomes()
                 if(Map2D[i][j].moisture < 0.5)
                 {
                     Map2D[i][j].setTileID(TUNDRA_1_TILE);
+                    Map2D[i][j].SetBiome(enTundraBiome);
                 }
                 else
                 {
-                    Map2D[i][j].setTileID(SNOW_1_TILE);
+                    if(Map2D[i][j].elevation > 0.88)
+                    {
+                        Map2D[i][j].setTileID(SNOW_MOUNTAIN_1);
+                        Map2D[i][j].SetBiome(enSnowMountainBiome); //Still a tundra for now
+                    }
+                    else
+                    {
+                        Map2D[i][j].setTileID(SNOW_1_TILE);
+                        Map2D[i][j].SetBiome(enSnowBiome); //Still a tundra for now
+                    }
+                    
                 }
                 
             }
@@ -128,15 +149,18 @@ void NoiseMap::SetBiomes()
                 
                 if(Map2D[i][j].moisture < 0.33)
                 {
-                    Map2D[i][j].setTileID(DESERT_TILE_1); //Temperate desert
+                    Map2D[i][j].setTileID(DESERT_TILE_1); //Temperate desert/Cold Desert
+                    Map2D[i][j].SetBiome(enTemperateDesertBiome);
                 }
                 else if(Map2D[i][j].moisture < 0.66)
                 {
                     Map2D[i][j].setTileID(SHRUBLAND_1_TILE);
+                    Map2D[i][j].SetBiome(enShrublandBiome);
                 }
                 else
                 {
-                    Map2D[i][j].setTileID(TAIGA_1_TILE); //Taiga
+                    Map2D[i][j].setTileID(TAIGA_1_TILE); //Taiga/Borreal forest
+                    Map2D[i][j].SetBiome(enTaigaBiome);
                 }
                 
                 
@@ -146,35 +170,45 @@ void NoiseMap::SetBiomes()
                 if(Map2D[i][j].moisture < 0.16)
                 {
                     Map2D[i][j].setTileID(DESERT_TILE_1); //Temperate desert
+                    Map2D[i][j].SetBiome(enTemperateDesertBiome);
                 }
                 else if(Map2D[i][j].moisture < 0.50)
                 {
+                    
                     Map2D[i][j].setTileID(FOREST_GRASS); //Grassland
+                    Map2D[i][j].SetBiome(enGrasslandBiome);
+                    
                 }
                 else if(Map2D[i][j].moisture < 0.83)
                 {
-                    Map2D[i][j].setTileID(TREE_3_TILE); //Temperate decidious forest
+                    Map2D[i][j].setTileID(TREE_3_TILE); //Temperate decidious forest/seasonal forest
+                    Map2D[i][j].SetBiome(enDecidiousForestBiome);
                 }
                 else
                 {
                     Map2D[i][j].setTileID(JUNGLE_1_TILE); //Temperate rain forest
+                    Map2D[i][j].SetBiome(enTemperateRainForestBiome);
                 }
             }
             else if(Map2D[i][j].moisture < 0.16)
             {
-                Map2D[i][j].setTileID(TREE_3_TILE); //Subtropical desert
+                Map2D[i][j].setTileID(DESERT_TILE_1); //Subtropical desert
+                Map2D[i][j].SetBiome(enSubtropicalDesertBiome);
             }
             else if(Map2D[i][j].moisture < 0.33)
             {
                 Map2D[i][j].setTileID(FOREST_GRASS); //Grassland
+                Map2D[i][j].SetBiome(enGrasslandBiome);
             }
             else if(Map2D[i][j].moisture < 0.66)
             {
                 Map2D[i][j].setTileID(TREE_1_TILE); //Tropical seasonal forest
+                Map2D[i][j].SetBiome(enTropicalSeasonalForest);
             }
             else
             {
                 Map2D[i][j].setTileID(JUNGLE_1_TILE); //tropical rain forest
+                Map2D[i][j].SetBiome(enTropicalRainForest);
             }
             
             

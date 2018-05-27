@@ -106,6 +106,10 @@ void Tile::setFogOfWar(bool hasFog)
     hasFogOfWar = hasFog;
 }
 
+void Tile::SetBiome(enBiomes _biome)
+{
+    EnBiome = _biome;
+}
 
 bool Tile::getHasFogOfWar()
 {

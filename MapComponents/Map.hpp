@@ -12,7 +12,7 @@
 #include "Tile.hpp"
 #include <unordered_map>
 #include "MapEffect.hpp"
-
+#include "DataStorage.hpp"
 
 
 #ifndef Map_hpp
@@ -106,6 +106,7 @@ public:
     
     Tile& getByIndex(int index);
     
+    void InitializeBiomeTemperatures();
     
     
     
