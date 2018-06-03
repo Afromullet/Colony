@@ -15,6 +15,8 @@
 extern Tree treeResource[MAX_RESOURCES_PER_GROUP];
 extern int numTreeResources;
 
+void InitializeTreeMaterials();
+
 class Tree : public Plant
 {
     
@@ -25,6 +27,12 @@ private:
     
 public:
     Tree();
+    
+    void setMaxHeight(float val);
+    void setMaxDiameter(float val);
+    
+    float getMaxHeight();
+    float getMaxDiameter();
 };
 
 #endif /* Tree_hpp */

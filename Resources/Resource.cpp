@@ -7,97 +7,11 @@
 //
 
 #include "Resource.hpp"
-Resource metalResources[MAX_RESOURCES_PER_GROUP];
-Resource stoneResource[MAX_RESOURCES_PER_GROUP];
 
 
 
-int numMetalResources = 0;
-int numStoneResources = 0;
 
 
-
-//For testing
-void GenerateTestResources()
-{
-    
-    
-    Resource res(false,enMetal,"Copper",0.5,false);
-    metalResources[numMetalResources] = res;
-    numMetalResources++;
-    
-    res.setIsRenewable(false);
-    res.setResourceName("Iron");
-    res.setResourceCategory(enMetal);
-    res.setRarity(0.5);
-    metalResources[numMetalResources] = res;
-    numMetalResources++;
-    
-    res.setIsRenewable(false);
-    res.setResourceName("Aluminum");
-    res.setResourceCategory(enMetal);
-    res.setRarity(0.5);
-    metalResources[numMetalResources] = res;
-    numMetalResources++;
-    
-    res.setIsRenewable(false);
-    res.setResourceName("Lead");
-    res.setResourceCategory(enMetal);
-    res.setRarity(0.5);
-    metalResources[numMetalResources] = res;
-    numMetalResources++;
-    
-    res.setIsRenewable(false);
-    res.setResourceName("Gold");
-    res.setResourceCategory(enMetal);
-    res.setRarity(0.5);
-    metalResources[numMetalResources] = res;
-    numMetalResources++;
-    
-    res.setIsRenewable(false);
-    res.setResourceName("Marble");
-    res.setResourceCategory(enStone);
-    res.setRarity(0.5);
-    stoneResource[numStoneResources] = res;
-    numStoneResources++;
-    
-    res.setIsRenewable(false);
-    res.setResourceName("Slade");
-    res.setResourceCategory(enStone);
-    res.setRarity(0.5);
-    stoneResource[numStoneResources] = res;
-    numStoneResources++;
-    
-    res.setIsRenewable(false);
-    res.setResourceName("Sandstone");
-    res.setResourceCategory(enStone);
-    res.setRarity(0.5);
-    stoneResource[numStoneResources] = res;
-    numStoneResources++;
-    
-    res.setIsRenewable(false);
-    res.setResourceName("Claystone");
-    res.setResourceCategory(enStone);
-    res.setRarity(0.5);
-    stoneResource[numStoneResources] = res;
-    numStoneResources++;
-    
-    res.setIsRenewable(false);
-    res.setResourceName("Alabaster");
-    res.setResourceCategory(enStone);
-    res.setRarity(0.5);
-    stoneResource[numStoneResources] = res;
-    numStoneResources++;
-    
-    
-    
-    
-    
-    
-    
-    
-    
-}
 
 Resource::Resource(bool _isRenewable,EnResourceCategory _resourceCategory,std::string _name,float _rarity,bool _isEdible) : isRenewable(_isRenewable),resourceCategory(_resourceCategory),name(_name),rarity(_rarity),isEdible(_isEdible)
 {
@@ -139,6 +53,16 @@ void Resource::setName(std::string _name)
     name = _name;
 }
 
+void Resource::setMaterial(Material _material)
+{
+    material = _material;
+}
+
+void Resource::setMaterialName(std::string str)
+{
+    material.setMaterialName(str);
+}
+
 bool Resource::getIsRenewable()
 {
     return isRenewable;
@@ -167,4 +91,14 @@ bool Resource::getIsEdible()
 std::string Resource::getName()
 {
     return name;
+}
+
+Material Resource::getMaterial()
+{
+    return material;
+}
+
+std::string Resource::getMaterialName()
+{
+    return material.getMaterialName();
 }

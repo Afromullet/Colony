@@ -529,9 +529,14 @@ void SetupGameData(Map *map)
     ReadMaterialFile("/Users/Afromullet/Documents/SFML/Colony2/Colony/Data/DataFiles/MaterialFiles/BasicMaterials.xml");
     ReadBiomeFile("/Users/Afromullet/Documents/SFML/Colony2/Colony/Data/DataFiles/BiomeFiles/BiomeData.xml");
     ReadPlantFile("/Users/Afromullet/Documents/SFML/Colony2/Colony/Data/DataFiles/PlantFiles/BasicPlants.xml");
+    ReadOreFile("/Users/Afromullet/Documents/SFML/Colony2/Colony/Data/DataFiles/OreFiles/BasicOre.xml");
+    ReadTreeFile("/Users/Afromullet/Documents/SFML/Colony2/Colony/Data/DataFiles/TreeFiles/BasicTrees.xml");
     printMaterials();
     printBiomes();
     
+    InitializePlantMaterials();
+    InitializeOreMaterials();
+    InitializeTreeMaterials();
     
     InitializeGlobalBodyParts();
     InitializeCreatureTypes();

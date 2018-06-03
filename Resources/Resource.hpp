@@ -24,13 +24,11 @@ class Resource;
 class Plant;
 class Tree;
 
-extern Resource metalResources[MAX_RESOURCES_PER_GROUP];
-extern Resource stoneResource[MAX_RESOURCES_PER_GROUP];
 
 
 
-extern int numMetalResources;
-extern int numStoneResources;
+
+
 
 extern int numWoodResources;
 
@@ -39,7 +37,7 @@ extern int numWoodResources;
 void GenerateTestResources();
 
 
-enum EnResourceCategory{enMetal,enStone,enPlant,enWood,enFood,enUndefinedResourceCategory,enErrorResourceCategory};
+enum EnResourceCategory{enMetal,enStone,enPlant,enWood,enFood,enUndefinedResourceCategory,enErrorResourceCategory,enOre,enTree};
 
 class Resource
 {
@@ -63,6 +61,8 @@ public:
     void setRarity(float _rarity);
     void setIsEdible(bool val);
     void setName(std::string _name);
+    void setMaterial(Material _material);
+    void setMaterialName(std::string str);
     
     bool getIsRenewable();
     EnResourceCategory getResourceCategory();
@@ -70,7 +70,8 @@ public:
     float getRarity();
     bool getIsEdible();
     std::string getName();
-    
+    Material getMaterial();
+    std::string getMaterialName();
     
 };
 

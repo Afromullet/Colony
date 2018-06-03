@@ -46,6 +46,21 @@
 </material>
 
 <material>
+    <Name>Copper</Name>
+    <Density>12</Density>
+    <CompressionDeformationStrenth>12</CompressionDeformationStrenth>
+    <ImpactDeformationStrength>12</ImpactDeformationStrength>
+    <TensileDeformationStrength>12</TensileDeformationStrength>
+    <TorsionDeformationStrength>12</TorsionDeformationStrength>
+    <ShearDeformationStrength>12</ShearDeformationStrength>
+    <CompressionFractureStrength>12</CompressionFractureStrength>
+    <ImpactFractureStrength>12</ImpactFractureStrength>
+    <TensileFractureStrength>12</TensileFractureStrength>
+    <TorsionFractureStrength>12</TorsionFractureStrength>
+    <ShearFractureStrength>12</ShearFractureStrength>
+</material>
+
+<material>
     <Name>Plant</Name>
     <Density>20</Density>
     <CompressionDeformationStrenth>1</CompressionDeformationStrenth>

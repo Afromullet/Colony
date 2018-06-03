@@ -15,10 +15,11 @@
 #include "DataStorage.hpp"
 #include "Biomes.hpp"
 #include "Constants.hpp"
-#include "Plant.hpp"
-#include "Resource.hpp"
+#include "Tree.hpp"
+
 #include <boost/algorithm/string.hpp>
 #include <boost/algorithm/string/split.hpp>
+
 
 
 using namespace boost;
@@ -232,6 +233,9 @@ void ReadPlantFile(const std::string fileName)
             isEdible = convertTruthValue(v.second.get<std::string>("edible"));
             rarity = convertFloatVal(v.second.get<std::string>("rarity"));
             growthRate = convertFloatVal(v.second.get<std::string>("growthrate"));
+        
+            
+
             yieldSeeds = convertTruthValue(v.second.get<std::string>("yieldseeds"));
             
             plant.setName(name);
@@ -240,6 +244,8 @@ void ReadPlantFile(const std::string fileName)
             plant.setRarity(rarity);
             plant.setIsRenewable(isEdible);
             plant.setYieldSeeds(yieldSeeds);
+            plant.setMaterialName(materialString);
+            plant.setGrowthRate(growthRate);
             
             std::vector<std::string> &biomeVec = plant.getBiomeVecRef();
             
@@ -261,6 +267,217 @@ void ReadPlantFile(const std::string fileName)
         
         
         plantResource[numPlantResources] = plant;
+        numPlantResources++;
+        
+    }
+    
+}
+
+void ReadOreFile(const std::string fileName)
+{
+    pt::ptree tree;
+    
+    
+    float rarity;
+    std::string name,materialString,oreType;
+    EnOreType EnOreType;
+  
+    
+    
+    
+    Ore ore;
+    
+
+    try
+    {
+        pt::read_xml(fileName, tree);
+        
+        // pt::read_xml("/Users/Afromullet/Documents/SFML/Colony2/Colony/Creature/BodyData/BasicHumanoidBody.xml", tree);
+    }
+    catch(boost::property_tree::xml_parser::xml_parser_error& ex)
+    {
+        std::cout << "'\n Failed reading";
+        
+        
+        //std::cout <<
+    }
+    
+    BOOST_FOREACH(pt::ptree::value_type &v, tree.get_child("orelist"))
+    {
+        
+        // std::cout << v.first << "\n";
+        // The data function is used to access the data stored in a node.
+        
+        
+        //Even if just one of these values fails reading, the entire material becomes invalid, so just one try/catch is needed for hadling a batch path
+        
+        
+        
+        try
+        {
+            
+            //float rarity;
+           // std::string name,materialString,oreType;
+            
+            ore.setIsEdible(false);
+            ore.setIsRenewable(false);
+            
+            name = v.second.get<std::string>("name");
+            materialString = v.second.get<std::string>("material");
+            rarity = convertFloatVal(v.second.get<std::string>("rarity"));
+            EnOreType = convertOreTypeVal(v.second.get<std::string>("oretype"));
+            
+            
+            
+            std::cout << "\n Name " << name;
+
+            ore.setName(name);
+            ore.setOreType(EnOreType);
+            ore.setResourceCategory(enOre);
+            ore.setRarity(rarity);
+            ore.setMaterialName(materialString);
+            
+            
+           
+            
+            
+     
+            
+           
+            
+     
+            
+          
+            
+        }
+        catch(pt::ptree_bad_path)
+        {
+            ore.setName(ERROR_STRING);
+            ore.setResourceCategory(enErrorResourceCategory);
+            ore.setIsRenewable(false);
+            ore.setRarity(ERROR_VALUE);
+            ore.setIsRenewable(false);
+            ore.setOreType(enErrorOreType);
+        
+            
+            //TODO
+            
+        }
+        
+        
+        if(ore.getOreType() == enGemOre)
+        {
+            gemResources[numGemResources] = ore;
+            numGemResources++;
+        }
+        else if(ore.getOreType() == enStoneOre)
+        {
+            stoneResources[numStoneResources] = ore;
+            numStoneResources++;
+        }
+        else if(ore.getOreType() == enMetalOre)
+        {
+            metalResources[numMetalResources] = ore;
+            numMetalResources++;
+        }
+        
+        //plantResource[numPlantResources] = plant;
+       // numPlantResources++;
+        
+    }
+    
+
+    
+}
+
+
+void ReadTreeFile(const std::string fileName)
+{
+    pt::ptree tree;
+    
+    bool isRenewable,isEdible,yieldSeeds;
+    float rarity,growthRate,maxDiameter,maxHeight;
+    std::string name,biomes;
+    std::string materialString;
+    
+    
+    std::string biomeName;
+    
+    Tree plant;
+    
+    
+    try
+    {
+        pt::read_xml(fileName, tree);
+        
+        // pt::read_xml("/Users/Afromullet/Documents/SFML/Colony2/Colony/Creature/BodyData/BasicHumanoidBody.xml", tree);
+    }
+    catch(boost::property_tree::xml_parser::xml_parser_error& ex)
+    {
+        std::cout << "'\n Failed reading";
+        
+        
+        //std::cout <<
+    }
+    
+    BOOST_FOREACH(pt::ptree::value_type &v, tree.get_child("treelist"))
+    {
+        
+        // std::cout << v.first << "\n";
+        // The data function is used to access the data stored in a node.
+        
+        
+        //Even if just one of these values fails reading, the entire material becomes invalid, so just one try/catch is needed for hadling a batch path
+        
+        
+        
+        try
+        {
+            
+            name = v.second.get<std::string>("name");
+            biomes = v.second.get<std::string>("biomes");
+            materialString = v.second.get<std::string>("material");
+            isEdible = convertTruthValue(v.second.get<std::string>("edible"));
+            rarity = convertFloatVal(v.second.get<std::string>("rarity"));
+            growthRate = convertFloatVal(v.second.get<std::string>("growthrate"));
+            maxDiameter = convertFloatVal(v.second.get<std::string>("maxdiameter"));
+            maxHeight = convertFloatVal(v.second.get<std::string>("maxheight"));
+            
+            
+            yieldSeeds = convertTruthValue(v.second.get<std::string>("yieldseeds"));
+            
+            plant.setName(name);
+            plant.setResourceCategory(enTree);
+            plant.setIsRenewable(true);
+            plant.setRarity(rarity);
+            plant.setIsRenewable(isEdible);
+            plant.setYieldSeeds(yieldSeeds);
+            plant.setMaterialName(materialString);
+            plant.setGrowthRate(growthRate);
+            plant.setMaxHeight(maxHeight);
+            plant.setMaxDiameter(maxDiameter);
+            
+            std::vector<std::string> &biomeVec = plant.getBiomeVecRef();
+            
+            boost::split(biomeVec,biomes,boost::is_any_of(","));
+            
+        }
+        catch(pt::ptree_bad_path)
+        {
+            plant.setName(ERROR_STRING);
+            plant.setResourceCategory(enErrorResourceCategory);
+            plant.setIsRenewable(true);
+            plant.setRarity(ERROR_VALUE);
+            plant.setIsRenewable(isEdible);
+            plant.setYieldSeeds(yieldSeeds);
+            
+            //TODO
+            
+        }
+        
+        
+        treeResource[numTreeResources] = plant;
+        numTreeResources++;
         
     }
     
@@ -355,4 +572,29 @@ bool convertTruthValue(std::string truthVal)
         
         return true;
     }
+}
+
+EnOreType convertOreTypeVal(std::string str)
+{
+    std::transform(str.begin(), str.end(), str.begin(), ::tolower);
+    
+    if(str == "stone")
+    {
+        
+        return enStoneOre;
+    }
+    else if(str == "metal")
+    {
+        
+        return enMetalOre;
+    }
+    else if(str == "gem")
+    {
+        return enGemOre;
+    }
+    else
+    {
+        return enErrorOreType;
+    }
+     
 }

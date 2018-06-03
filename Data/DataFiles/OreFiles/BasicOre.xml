@@ -1,0 +1,26 @@
+<orelist>
+    
+    <ore>
+        <name>Ore1</name>
+        <material>Iron</material>
+        <rarity>50</rarity>
+        <oretype>metal</oretype>
+    </ore>
+    
+    <ore>
+        <name>Ore2</name>
+        <material>Copper</material>
+        <rarity>50</rarity>
+        <oretype>stone</oretype>
+    </ore>
+    
+    <ore>
+        <name>Ore3</name>
+        <material>Copper</material>
+        <rarity>50</rarity>
+        <oretype>gem</oretype>
+    </ore>
+    
+    
+    
+</orelist>

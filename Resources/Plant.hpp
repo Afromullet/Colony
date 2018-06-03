@@ -11,10 +11,14 @@
 
 #include <stdio.h>
 #include "Resource.hpp"
+#include "DataStorage.hpp"
 
 
 extern Plant plantResource[MAX_RESOURCES_PER_GROUP];
 extern int numPlantResources;
+
+void InitializePlantMaterials();
+
 class Plant : public Resource
 {
     

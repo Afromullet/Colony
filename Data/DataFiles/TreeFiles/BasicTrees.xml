@@ -1,0 +1,27 @@
+<treelist>
+
+<tree>
+    <name>Plant1</name>
+    <biomes>Temperate Decidious Forest,Grassland</biomes>
+    <material>Plant</material>
+    <edible>true</edible>
+    <rarity>50</rarity>
+    <growthrate>50</growthrate>
+    <yieldseeds>true</yieldseeds>
+    <maxheight>10</maxheight>
+    <maxdiameter>12</maxdiameter>
+</tree>
+
+<tree>
+    <name>Plant1</name>
+    <biomes>Temperate Decidious Forest,Grassland</biomes>
+    <material>Plant</material>
+    <edible>true</edible>
+    <rarity>50</rarity>
+    <growthrate>50</growthrate>
+    <yieldseeds>true</yieldseeds>
+    <maxheight>15</maxheight>
+    <maxdiameter>17</maxdiameter>
+</tree>
+
+</treelist>

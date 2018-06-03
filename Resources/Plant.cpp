@@ -8,9 +8,32 @@
 
 #include "Plant.hpp"
 #include "Constants.hpp"
+#include <iostream>
 
 Plant plantResource[MAX_RESOURCES_PER_GROUP];
 int numPlantResources = 0;
+
+void InitializePlantMaterials()
+{
+    
+    std::string matName;
+    for(int i =0; i < numPlantResources; i++)
+    {
+        matName = plantResource[i].getMaterialName();
+        
+        
+  
+        for(int j=0;j < materials.size(); j++)
+        {
+            
+            if(matName == materials.at(j).getMaterialName())
+            {
+                plantResource[i].setMaterial(materials.at(j));
+            }
+        }
+    }
+}
+
 Plant::Plant() : Resource(false,enPlant,ERROR_STRING,50,true)
 {
     
@@ -32,6 +55,7 @@ void Plant::setYieldSeeds(bool val)
 }
 
 
+               
 void Plant::addBiome(std::string str)
 {
     biomeVec.push_back(str);
