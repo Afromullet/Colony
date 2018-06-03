@@ -4,60 +4,91 @@
     <Name>Temperate Decidious Forest</Name>
     <LowTemp>10</LowTemp>
     <HighTemp>20</HighTemp>
+    <VegetationLevel>High</VegetationLevel>
+    <TreeLevel>High</TreeLevel>
+    <WildlifeLevel>High</WildlifeLevel>
 </biome>
 
 <biome>
     <Name>Temperate Desert</Name>
     <LowTemp>0</LowTemp>
     <HighTemp>22</HighTemp>
+    <VegetationLevel>Low</VegetationLevel>
+    <TreeLevel>High</TreeLevel>
+    <WildlifeLevel>Low</WildlifeLevel>
 </biome>
 
 <biome>
     <Name>Tundra</Name>
     <LowTemp>-10</LowTemp>
     <HighTemp>0</HighTemp>
+    <VegetationLevel>Low</VegetationLevel>
+    <TreeLevel>Low</TreeLevel>
+    <WildlifeLevel>Low</WildlifeLevel>
 </biome>
 
 <biome>
     <Name>Shrubland</Name>
     <LowTemp>-5</LowTemp>
     <HighTemp>22</HighTemp>
+    <VegetationLevel>Moderate</VegetationLevel>
+    <TreeLevel>Low</TreeLevel>
+    <WildlifeLevel>Moderate</WildlifeLevel>
 </biome>
 
 <biome>
     <Name>Taiga</Name>
     <LowTemp>-5</LowTemp>
     <HighTemp>10</HighTemp>
+    <VegetationLevel>High</VegetationLevel>
+    <TreeLevel>High</TreeLevel>
+    <WildlifeLevel>High</WildlifeLevel>
+    
 </biome>
 
 <biome>
     <Name>Grassland</Name>
     <LowTemp>0</LowTemp>
     <HighTemp>22</HighTemp>
+    <VegetationLevel>Moderate</VegetationLevel>
+    <TreeLevel>Low</TreeLevel>
+    <WildlifeLevel>High</WildlifeLevel>
 </biome>
 
 <biome>
     <Name>Temperate Rainforest</Name>
     <LowTemp>10</LowTemp>
     <HighTemp>25</HighTemp>
+    <VegetationLevel>High</VegetationLevel>
+    <TreeLevel>High</TreeLevel>
+    <WildlifeLevel>High</WildlifeLevel>
 </biome>
 
 <biome>
     <Name>Subtropical Desert</Name>
     <LowTemp>20</LowTemp>
     <HighTemp>30</HighTemp>
+    <VegetationLevel>Low</VegetationLevel>
+    <TreeLevel>Low</TreeLevel>
+    <WildlifeLevel>Low</WildlifeLevel>
 </biome>
 
 <biome>
     <Name>Tropical Seasonal Forest</Name>
     <LowTemp>20</LowTemp>
     <HighTemp>30</HighTemp>
+    <VegetationLevel>High</VegetationLevel>
+    <TreeLevel>High</TreeLevel>
+    <WildlifeLevel>High</WildlifeLevel>
 </biome>
 
 <biome>
     <Name>Tropical Rainforest</Name>
     <LowTemp>20</LowTemp>
     <HighTemp>30</HighTemp>
+    <VegetationLevel>High</VegetationLevel>
+    <TreeLevel>High</TreeLevel>
+    <WildlifeLevel>High</WildlifeLevel>
 </biome>
 
 

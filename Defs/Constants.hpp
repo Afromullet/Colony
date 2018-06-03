@@ -20,6 +20,10 @@
 #define ERROR_VALUE -1
 #define ERROR_STRING "UNDEFINED STRING"
 
+#define LOW_LEVEL 1
+#define MODERATE_LEVEL 2
+#define HIGH_LEVEL 3
+
 #define RED sf::Color(255, 0, 50)
 #define GREEN sf::Color(0, 128, 0)
 

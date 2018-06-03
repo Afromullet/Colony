@@ -15,6 +15,10 @@
 #include "DataStorage.hpp"
 #include "Biomes.hpp"
 #include "Constants.hpp"
+#include "Plant.hpp"
+#include "Resource.hpp"
+#include <boost/algorithm/string.hpp>
+#include <boost/algorithm/string/split.hpp>
 
 
 using namespace boost;
@@ -113,7 +117,7 @@ void ReadBiomeFile(const std::string fileName)
     
     pt::ptree tree;
     Biome biome;
-    float lowTemp,highTemp;
+    float lowTemp,highTemp,treeLevel,vegetationLevel,wildlifeLevel;
     std::string biomeName;
     
     
@@ -149,16 +153,16 @@ void ReadBiomeFile(const std::string fileName)
             
             lowTemp = convertFloatVal(v.second.get<std::string>("LowTemp"));
             highTemp = convertFloatVal(v.second.get<std::string>("HighTemp"));
-         
-            
+            treeLevel = (float)convertLevelVal(v.second.get<std::string>("TreeLevel"));
+            vegetationLevel = (float)convertLevelVal(v.second.get<std::string>("VegetationLevel"));
+            wildlifeLevel = (float)convertLevelVal(v.second.get<std::string>("WildlifeLevel"));
+                                        
+           
             biome.setBiomeName(v.second.get<std::string>("Name"));
             biome.setTemperatureLimits(lowTemp, highTemp);
-            
-
-            
-            
-            
-            
+            biome.setVegetationLevel(vegetationLevel);
+            biome.setTreelevel(treeLevel);
+            biome.setWildlifeLevel(wildlifeLevel);
         }
         catch(pt::ptree_bad_path)
         {
@@ -172,11 +176,95 @@ void ReadBiomeFile(const std::string fileName)
         
         vecBiome.push_back(biome);
         
+      
+        
         //bodyTokenList.push_back(v.second.data());
     }
     
 }
 
+void ReadPlantFile(const std::string fileName)
+{
+    pt::ptree tree;
+    
+    bool isRenewable,isEdible,yieldSeeds;
+    float rarity,growthRate;
+    std::string name,biomes;
+    std::string materialString;
+    
+    
+    std::string biomeName;
+    
+    Plant plant;
+    
+    
+    try
+    {
+        pt::read_xml(fileName, tree);
+        
+        // pt::read_xml("/Users/Afromullet/Documents/SFML/Colony2/Colony/Creature/BodyData/BasicHumanoidBody.xml", tree);
+    }
+    catch(boost::property_tree::xml_parser::xml_parser_error& ex)
+    {
+        std::cout << "'\n Failed reading";
+        
+        
+        //std::cout <<
+    }
+    
+    BOOST_FOREACH(pt::ptree::value_type &v, tree.get_child("plantlist"))
+    {
+        
+       // std::cout << v.first << "\n";
+        // The data function is used to access the data stored in a node.
+        
+        
+        //Even if just one of these values fails reading, the entire material becomes invalid, so just one try/catch is needed for hadling a batch path
+        
+
+        
+        try
+        {
+        
+            name = v.second.get<std::string>("name");
+            biomes = v.second.get<std::string>("biomes");
+            materialString = v.second.get<std::string>("material");
+            isEdible = convertTruthValue(v.second.get<std::string>("edible"));
+            rarity = convertFloatVal(v.second.get<std::string>("rarity"));
+            growthRate = convertFloatVal(v.second.get<std::string>("growthrate"));
+            yieldSeeds = convertTruthValue(v.second.get<std::string>("yieldseeds"));
+            
+            plant.setName(name);
+            plant.setResourceCategory(enPlant);
+            plant.setIsRenewable(true);
+            plant.setRarity(rarity);
+            plant.setIsRenewable(isEdible);
+            plant.setYieldSeeds(yieldSeeds);
+            
+            std::vector<std::string> &biomeVec = plant.getBiomeVecRef();
+            
+            boost::split(biomeVec,biomes,boost::is_any_of(","));
+            
+        }
+        catch(pt::ptree_bad_path)
+        {
+            plant.setName(ERROR_STRING);
+            plant.setResourceCategory(enErrorResourceCategory);
+            plant.setIsRenewable(true);
+            plant.setRarity(ERROR_VALUE);
+            plant.setIsRenewable(isEdible);
+            plant.setYieldSeeds(yieldSeeds);
+
+            //TODO
+            
+        }
+        
+        
+        plantResource[numPlantResources] = plant;
+        
+    }
+    
+}
 
 
 bool ValidateMaterialFile()
@@ -230,4 +318,41 @@ int convertIntVal(std::string s)
     
     return retVal;
     
+}
+
+int convertLevelVal(std::string s)
+{
+    if(s=="Low")
+    {
+        return LOW_LEVEL;
+    }
+    else if(s =="Moderate")
+    {
+        return MODERATE_LEVEL;
+    }
+    else if(s == "High")
+    {
+        return HIGH_LEVEL;
+    }
+    else
+    {
+        return ERROR_VALUE;
+    }
+}
+
+//Need to handle invalid value
+bool convertTruthValue(std::string truthVal)
+{
+    std::transform(truthVal.begin(), truthVal.end(), truthVal.begin(), ::tolower);
+    
+    if(truthVal == "false")
+    {
+        
+        return false;
+    }
+    else if(truthVal == "true")
+    {
+        
+        return true;
+    }
 }

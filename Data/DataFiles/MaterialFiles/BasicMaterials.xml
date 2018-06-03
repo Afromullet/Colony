@@ -45,5 +45,21 @@
     <ShearFractureStrength>12</ShearFractureStrength>
 </material>
 
+<material>
+    <Name>Plant</Name>
+    <Density>20</Density>
+    <CompressionDeformationStrenth>1</CompressionDeformationStrenth>
+    <ImpactDeformationStrength>1</ImpactDeformationStrength>
+    <TensileDeformationStrength>1</TensileDeformationStrength>
+    <TorsionDeformationStrength>1</TorsionDeformationStrength>
+    <ShearDeformationStrength>1</ShearDeformationStrength>
+    <CompressionFractureStrength>1</CompressionFractureStrength>
+    <ImpactFractureStrength>1</ImpactFractureStrength>
+    <TensileFractureStrength>1</TensileFractureStrength>
+    <TorsionFractureStrength>1</TorsionFractureStrength>
+    <ShearFractureStrength>1</ShearFractureStrength>
+</material>
+
+
 
 </materiallist>

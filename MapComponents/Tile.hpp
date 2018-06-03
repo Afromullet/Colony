@@ -13,6 +13,7 @@
 #include "BaseCreature.hpp"
 #include "Equipment.hpp"
 #include "Biomes.hpp"
+#include "Resource.hpp"
 
 #ifndef Tile_hpp
 #define Tile_hpp

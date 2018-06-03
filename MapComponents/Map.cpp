@@ -16,7 +16,7 @@
 #include <math.h>
 #include "Biomes.hpp"
 #include "DataStorage.hpp"
-
+#include <random>
 /*
  
  An explicit example showing how to build a vertexarrays from existing vertices,
@@ -693,11 +693,14 @@ void Map::InitializeBiomeTemperatures()
 {
     
     Biome biome;
+    std::random_device rd;
+    std::mt19937 gen(rd());
     for(int i =0; i < width; i++)
     {
         for(int j = 0; j < height; j++)
         {
             
+                        
             if(Map2D[i][j].EnBiome == enTundraBiome || Map2D[i][j].EnBiome ==  enSnowMountainBiome
                || Map2D[i][j].EnBiome == enSnowMountainBiome)
             {
@@ -748,6 +751,18 @@ void Map::InitializeBiomeTemperatures()
                 biome = findBiome("Tropical Rainforest");
                
             }
+            
+            //Currently using only a basic random function. TODO use with noise after mapping noise vals to reasonable temperature value
+         
+            std::uniform_real_distribution<> dis(biome.getLowTemp(), biome.getHighTemp());
+            biome.setCurrentTemp(dis(gen));
+            
+          
+            
+            Map2D[i][j].biome = biome;
+
+            
+                       
        
             
 
@@ -756,5 +771,7 @@ void Map::InitializeBiomeTemperatures()
             
         }
     }
+    
+    
     
 }

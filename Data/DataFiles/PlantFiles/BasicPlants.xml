@@ -1,0 +1,24 @@
+<plantlist>
+
+    <plant>
+        <name>Plant1</name>
+        <biomes>Temperate Decidious Forest,Grassland</biomes>
+        <material>Plant</material>
+        <edible>true</edible>
+        <rarity>50</rarity>
+        <growthrate>50</growthrate>
+        <yieldseeds>true</yieldseeds>
+    </plant>
+    
+    <plant>
+        <name>Plant2</name>
+        <biomes>Subtropical Desert,Tropical Seasonal Forest</biome>
+        <material>Plant</material>
+        <edible>true</edible>
+        <rarity>50</rarity>
+        <growthrate>50</growthrate>
+        <yieldseeds>true</yieldseeds>
+    </plant>
+
+
+</plantlist>

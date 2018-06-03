@@ -21,10 +21,13 @@ void InitializeDataReaderErrorLog();
 
 void ReadMaterialFile(const std::string fileName);
 void ReadBiomeFile(const std::string fileName);
+void ReadPlantFile(const std::string fileName);
 
 bool ValidateMaterialFile();
 
 float convertFloatVal(std::string s);
 int convertIntVal(std::string s);
+int convertLevelVal(std::string s);
+bool convertTruthValue(std::string truthVal);
 
 #endif /* DataReaders_hpp */

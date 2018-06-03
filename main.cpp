@@ -45,6 +45,8 @@
 #include "Wound.hpp"
 #include "FastNoise.h"
 #include "NoiseMap.hpp"
+#include "Plant.hpp"
+#include "Tree.hpp"
 
 
 //-----Unit testing Part------
@@ -110,8 +112,8 @@ srand(time(NULL));
     BasicTileRuleset();
     window.setKeyRepeatEnabled(false);
     mapdata.SetWindow(&window);
-  //  SetupGameData(&caMap);
-    SetupGameData(&noiseMap);
+   //SetupGameData(&caMap);
+   SetupGameData(&noiseMap);
     
     for(int i = 0; i < noiseMap.GetWidth(); i++)
     {
@@ -526,6 +528,7 @@ void SetupGameData(Map *map)
     
     ReadMaterialFile("/Users/Afromullet/Documents/SFML/Colony2/Colony/Data/DataFiles/MaterialFiles/BasicMaterials.xml");
     ReadBiomeFile("/Users/Afromullet/Documents/SFML/Colony2/Colony/Data/DataFiles/BiomeFiles/BiomeData.xml");
+    ReadPlantFile("/Users/Afromullet/Documents/SFML/Colony2/Colony/Data/DataFiles/PlantFiles/BasicPlants.xml");
     printMaterials();
     printBiomes();
     
