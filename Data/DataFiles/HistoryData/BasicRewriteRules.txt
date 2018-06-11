@@ -1,7 +1,14 @@
-[Journey]->[Discovery][Stuff]
-[Friendly Event]->[Offer Help]
-[Hostile Event]->[Attack]
+[Journey]->[Discovery]
 
-[Social Event]->[Party][Alaga]
+[Friendly Event]->[Offer Help]
+[Friendly Event]->[Share Resources]
+[Friendly Event]->[Protect]
+
+[Hostile Event]->[Attack]
+[Hostile Event]->[Steal]
+[Hostile Event]->[Abduction]
+
+[Social Event]->[Become Allies]
+
 
 [Research Event]->[Make Discovery]
