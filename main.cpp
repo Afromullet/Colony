@@ -48,15 +48,15 @@
 #include "Plant.hpp"
 #include "Tree.hpp"
 
+#include <iostream>
+#include <string>
+#include <vector>
 
-//-----Unit testing Part------
+#include <regex>
 
-
-
-
-
-
-//--Unit Testing end
+#include <boost/regex.hpp>
+#include "GenericReaders.hpp"
+#include "HistoryTokenReader.hpp"
 
 
 void GameLoop3();
@@ -94,15 +94,22 @@ std::vector<sf::Text> testStrings;
 
 NoiseMap noiseMap;
 
+
+
+
+
+
 int main()
 {
     
     
-   // add_edge(headVertex,chestVertex,humanoidBodyGraph);
-  
-   // GenerateNoiseArea(800,600);
     
-  
+    
+
+    
+
+   
+
 srand(time(NULL));
    
     
@@ -544,9 +551,12 @@ void SetupGameData(Map *map)
     InitializeMaps();
     
     
+    ReadInitialHistoryTokens();
+    ReadFirstRewriteRules();
+    
+    
     SetupCurrentMap(map);
     GenerateTestEquipment();
-    
     
 
     

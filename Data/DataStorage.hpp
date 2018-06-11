@@ -14,8 +14,10 @@
 #include <Material.hpp>
 #include "Biomes.hpp"
 
+
 extern std::vector<Material> materials;
 extern std::vector<Biome> vecBiome;
+extern std::vector<std::string> initialHistoryTokens;
 
 
 void printMaterials();

@@ -1,0 +1,7 @@
+[Journey]->[Discovery][Stuff]
+[Friendly Event]->[Offer Help]
+[Hostile Event]->[Attack]
+
+[Social Event]->[Party][Alaga]
+
+[Research Event]->[Make Discovery]

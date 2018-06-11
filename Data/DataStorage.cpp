@@ -12,6 +12,7 @@
 
 std::vector<Material> materials;
 std::vector<Biome> vecBiome;
+std::vector<std::string> initialHistoryTokens; //The initial tokens before any rewrite rules
 
 void printMaterials()
 {
