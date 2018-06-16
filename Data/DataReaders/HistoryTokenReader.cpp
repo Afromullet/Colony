@@ -16,9 +16,12 @@
 #include <boost/regex.hpp>
 
 
-RewriteRules arRewriteRules[MAX_REWRITE_RULES];
-int numOfRewriteRules = 0;
+RewriteRules startRewriteRules[MAX_REWRITE_RULES];
+int numOfStartRewriteRules = 0;
 
+
+RewriteRules arGrammarRewriteRules[MAX_REWRITE_RULES];
+int numOfGrammarRewriteRules = 0;
 
 //Reads the initial valid tokens. There are the tokens before any rewrite is perform, the starting set
 void ReadInitialHistoryTokens()
@@ -60,6 +63,26 @@ void ReadFirstRewriteRules()
         }
         
     }
+    
+    
+    std::string validGrammarTokens (read_from_file("/Users/Afromullet/Documents/SFML/Colony2/Colony/Data/DataFiles/LanguageData/EnglishGrammarRules.txt"));
+    
+    std::stringstream ss2(validGrammarTokens);
+    std::string to2;
+    
+    
+    
+    
+    while(std::getline(ss2, line))
+    {
+        if( line != "")
+        {
+            SplitGrammarRulesOnSeperator(line);
+            
+        }
+        
+    }
+    
     
     
 
@@ -106,7 +129,7 @@ void SplitRulesOnSeperator(const std::string &str)
        
         if(rules.rewrittenRule.at(i) == L_SB_TOKEN)
         {
-            s = "";
+            s = "[";
         }
         else if(rules.rewrittenRule.at(i) != R_SB_TOKEN)
         {
@@ -114,6 +137,7 @@ void SplitRulesOnSeperator(const std::string &str)
         }
         else if(rules.rewrittenRule.at(i) == R_SB_TOKEN)
         {
+            s+= "]";
             rules.vecRewrittenRule.push_back(s);
            
         }
@@ -121,8 +145,69 @@ void SplitRulesOnSeperator(const std::string &str)
     }
     
  
-    arRewriteRules[numOfRewriteRules] = rules;
-    numOfRewriteRules++;
+    startRewriteRules[numOfStartRewriteRules] = rules;
+    numOfStartRewriteRules++;
+    
+    
+}
+
+
+//Needlessly duplicated, could just pass a reference to the array in SplitRulesOnSeperator, but I don't want to mess with it now, just working on a proof of concept
+void SplitGrammarRulesOnSeperator(const std::string &str)
+{
+    RewriteRules rules;
+    std::size_t found = FindRewriteSeperator(str);
+    std::cout << "\n Found at " << found;
+    
+    for(int i=0; i < found;i++)
+    {
+        rules.initialRule += str.at(i);
+        
+    }
+    
+    for(int i = found+REWRITE_SEPERATOR_SIZE; i < str.size(); i++)
+    {
+        rules.rewrittenRule += str.at(i);
+    }
+    
+    
+    
+    
+    
+    std::string s = "";
+    
+    
+    for(int i = 0; i < rules.rewrittenRule.size(); i++)
+    {
+        
+        if(rules.rewrittenRule.at(i) == L_SB_TOKEN)
+        {
+            s = "[";
+        }
+        else if(rules.rewrittenRule.at(i) != R_SB_TOKEN)
+        {
+            s += rules.rewrittenRule.at(i);
+        }
+        else if(rules.rewrittenRule.at(i) == R_SB_TOKEN)
+        {
+            s+= "]";
+            rules.vecRewrittenRule.push_back(s);
+            
+        }
+        //std::cout << " " << rules.rewrittenRule.at(i);
+    }
+    
+    
+    arGrammarRewriteRules[numOfGrammarRewriteRules] = rules;
+    numOfGrammarRewriteRules++;
+    
+    
+}
+
+
+//Should probably be in a better place since it could be used outside history. Then again, I probably won't use it for more than history gen
+void ReadGrammarRules()
+{
     
     
 }

@@ -57,6 +57,7 @@
 #include <boost/regex.hpp>
 #include "GenericReaders.hpp"
 #include "HistoryTokenReader.hpp"
+#include "HistoryGenerator.hpp"
 
 
 void GameLoop3();
@@ -190,106 +191,8 @@ srand(time(NULL));
     
     AttackStats stats;
     
-    /*
-     
-     //TODO find a better place for this
-     struct AttackStats
-     {
-     int damage;
-     int range;
-     int attackValue;
-     bool isRangedAttack;
-     float force; //The force applied by this attack
-     float contactArea; //The size of the object used to attack. Used in stress calculation..This is the contact area
-     AttackForceType enAttackForceType;
-     AttackType attackType;
-     
-     
-     };
-     
-     */
-    
-    /*
-    stats.enAttackForceType = enImpact;
-    stats.force = 100;
-    stats.contactArea = 5;
-   stats.attackType = enBlunt;
-    Single_Attack_Melee(stats,target);
-    
-    //target.body.PrintWounds();
-    
-    
-    stats.enAttackForceType = enImpact;
-    stats.force = 100;
-    stats.contactArea = 5;
-    stats.attackType = enBlunt;
-    Single_Attack_Melee(stats,target);
-    
-   // target.body.PrintWounds();
-    
-    
-    
-    stats.enAttackForceType = enImpact;
-    stats.force = 100;
-    stats.contactArea = 1;
-    stats.attackType = enBlunt;
-    Single_Attack_Melee(stats,target);
-    
-   // target.body.PrintWounds();
-     
-     stats.enAttackForceType = enShear;
-     stats.force = 100;
-     stats.contactArea = 1;
-     stats.attackType = enSlash;
-     Single_Attack_Melee(stats,target);
-    
- 
-    
-    stats.enAttackForceType = enShear;
-    stats.force = 100;
-    stats.contactArea = 1;
-    stats.attackType = enPierce;
-    Single_Attack_Melee(stats,target);
-    
-    //target.body.PrintWounds();
-    
-    stats.enAttackForceType = enShear;
-    stats.force = 100;
-    stats.contactArea = 5;
-    stats.attackType = enPierce;
-    Single_Attack_Melee(stats,target);
-    
-    //target.body.PrintWounds();
-    
-    
-    stats.enAttackForceType = enShear;
-    stats.force = 1000;
-    stats.contactArea = 1;
-    stats.attackType = enPierce;
-    Single_Attack_Melee(stats,target);
-    
-    
-
-    
-    target.body.PrintWounds();
-    
-     target.body.PrintWounds();
-    
-       */
-    
-    
 
 
-    
-    
-    
- 
-   
-    
-    
- 
-  
-  
     
     Map mapstuff = *mapdata.map;
     
@@ -553,6 +456,48 @@ void SetupGameData(Map *map)
     
     ReadInitialHistoryTokens();
     ReadFirstRewriteRules();
+    
+    /*
+    for(int i=0; i < numOfStartRewriteRules; i++)
+    {
+        std::cout << "\n Starting new Rule";
+        std::cout << startRewriteRules[i].initialRule << std::endl;
+        
+        std::cout << "Starting rewrite rules " << "\n";
+        for(int j = 0; j < startRewriteRules[i].vecRewrittenRule.size(); j++)
+        {
+            std::cout << startRewriteRules[i].vecRewrittenRule.at(j) << ",";
+        }
+        std::cout << "\n\n";
+    }
+     
+    
+    
+    for(int i=0; i < numOfGrammarRewriteRules; i++)
+    {
+        std::cout << "\n Starting new Rule";
+        std::cout << arGrammarRewriteRules[i].initialRule << std::endl;
+        
+        std::cout << "Starting rewrite rules " << "\n";
+        for(int j = 0; j < arGrammarRewriteRules[i].vecRewrittenRule.size(); j++)
+        {
+            std::cout << arGrammarRewriteRules[i].vecRewrittenRule.at(j) << ",";
+        }
+        std::cout << "\n\n";
+    }
+     */
+    
+    
+    RewriteRules newRules;
+    
+    /*
+    while(1)
+    {
+        newRules = SelectStartingHistoryRule();
+        ProcessRewrittenRule(newRules);
+    }
+    */
+    
     
     
     SetupCurrentMap(map);

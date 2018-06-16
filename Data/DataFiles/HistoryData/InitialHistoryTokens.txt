@@ -1,5 +1,5 @@
-Journey
-Friendly Event
-Hostile Event
-Social Event
-Research Event
+[Journey]
+[Friendly Event]
+[Hostile Event]
+[Social Event]
+

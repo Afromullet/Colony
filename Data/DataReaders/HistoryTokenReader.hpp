@@ -32,16 +32,21 @@ struct RewriteRules
     //int numOfSecondaryRules = 0;
 };
 
-extern RewriteRules arRewriteRules[MAX_REWRITE_RULES];
-extern int numOfRewriteRules;
+extern RewriteRules startRewriteRules[MAX_REWRITE_RULES];
+extern int numOfStartRewriteRules;
+
+
+extern RewriteRules arGrammarRewriteRules[MAX_REWRITE_RULES];
+extern int numOfGrammarRewriteRules;
 
 
 void ReadInitialHistoryTokens();
 void ReadFirstRewriteRules();
 std::size_t FindRewriteSeperator(const std::string &str);
 void SplitRulesOnSeperator(const std::string &str);
+void SplitGrammarRulesOnSeperator(const std::string &str);
 void SplitBySqBracket(const std::string &str);
-
+void ReadGrammarRules();
 
 
 #endif /* HistoryTokenReader_hpp */

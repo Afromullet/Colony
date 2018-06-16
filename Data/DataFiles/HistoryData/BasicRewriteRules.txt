@@ -1,14 +1,46 @@
-[Journey]->[Discovery]
+[Journey]->[Visit Town]
+[Journey]->[Visit Ruins]
+
+
 
 [Friendly Event]->[Offer Help]
-[Friendly Event]->[Share Resources]
 [Friendly Event]->[Protect]
+
+
+[Offer Help]->[Help Offered For][Helper][Helpee]
+[Protect]->[Protector][Protecting From]
+
+[Helper]->[Creature]
+[Helpee]->[Creature]
+[Protector]->[Creature]
+[Protector]->[Faction]
+[Protecting From]->[Creature]
+[Protecting From]->[Faction]
+
 
 [Hostile Event]->[Attack]
 [Hostile Event]->[Steal]
-[Hostile Event]->[Abduction]
+
+
+[Attack]->[Attacker][Defender][Attack Cause]
+[Steal]->[Stealing From][Thief][Object Stolen]
+
+
+[Attacker]->[Creature]
+[Attacker]->[Faction]
+[Defender]->[Creature]
+[Defender]->[Faction]
+[Stealing From]->[Creature]
+[Thief]->[Creature]
+
+
+
+[Object Stolen]->[Cause For Stealing]
+
 
 [Social Event]->[Become Allies]
+[Become Allies]->[First Creature][Second Creature]
+[Become Allies]->[First Faction][Second Faction]
 
 
-[Research Event]->[Make Discovery]
+
