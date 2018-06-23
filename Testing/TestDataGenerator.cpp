@@ -126,7 +126,7 @@ void GenerateRandomItems(MapData &mapdata, int numberOfItems)
         //std::cout << "\nInside random item gen after cast " << (* << "\n";
         
         // (*itemIt)->setItemName(arm.getItemName());
-        std::cout << "\nRandom item gen item armor name " << (*itemIt)->getItemName() << "\n";
+       // std::cout << "\nRandom item gen item armor name " << (*itemIt)->getItemName() << "\n";
        
         randX = rand() % mapdata.map->GetWidth();
         randY = rand() % mapdata.map->GetHeight();

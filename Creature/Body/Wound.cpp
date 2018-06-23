@@ -66,10 +66,16 @@ std::vector<int> DetermineWoundTargets(int origin,AppliedForceEffect &effect, An
         {
             //Choose MAJ_IMPACT_VERTNUM random internal vertices connected to the origin
             //Can choose teh same vertex twice..that'll be more sever damage
-            
+            int val;
             //-1 on the limit because the origin is added at the beginning
             for(int i=0; i < MAJ_IMPACT_VERTNUM - 1; i++)
-                targets.push_back(tempTargets[rand() % tempTargets.size()]);
+            {
+                
+                //May not have internal vertices
+                if(tempTargets.size() > 0)
+                    targets.push_back(tempTargets[rand() % tempTargets.size() - 1]);
+                
+            }
          
             
         }
@@ -104,9 +110,17 @@ std::vector<int> DetermineWoundTargets(int origin,AppliedForceEffect &effect, An
             }
             else if(effect.woundSeverity == enMajorWound)
             {
+             
                 tempTargets = getInternalVertices(origin,graph);
                 //Choose 1 random internal vertex connected to the origin
-                targets.push_back(tempTargets[rand() % tempTargets.size()]);
+                
+                
+                //If the size is 0, then the body part doesn't have any interal ones, so just use the origin
+                if(tempTargets.size() > 0)
+                    targets.push_back(tempTargets[rand() % tempTargets.size()]);
+                else
+                    targets.push_back(origin);
+
                 
             }
         }
@@ -309,7 +323,8 @@ std::vector<int> WoundCalculations::ApplyImpactWound(AppliedForceEffect &effect,
             if(fractureChance <= FRACTURE_CHANCE)
                 graph[targets.at(0)].AddWound(enModerateFracture);
         
-            graph[targets.at(1)].AddWound(enMinorBruise);
+            if(targets.size() > 1)
+                graph[targets.at(1)].AddWound(enMinorBruise);
         
         }
         else if(effect.woundSeverity == enMajorWound)
@@ -321,9 +336,10 @@ std::vector<int> WoundCalculations::ApplyImpactWound(AppliedForceEffect &effect,
             if(fractureChance <= FRACTURE_CHANCE)
                 graph[targets.at(0)].AddWound(enMajorFracture);
         
-            graph[targets.at(1)].AddWound(enMajorBruise);
+            if(targets.size() > 1)
+                graph[targets.at(1)].AddWound(enMajorBruise);
         
-            if(ruptureChance <= RUPTURE_CHANCE)
+            if(ruptureChance <= RUPTURE_CHANCE && targets.size() > 1)
                 graph[targets.at(1)].AddWound(enRupture);
             
         }

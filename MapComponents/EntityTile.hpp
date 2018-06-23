@@ -21,6 +21,16 @@ class EntityTile : public sf::Drawable, public sf::Transformable
 {
 public:
     
+    bool operator==(const EntityTile &other) const;
+    bool operator!=(const EntityTile &other) const;
+   // void operator=(const EntityTile &other);
+    
+    //EntityTile();
+   // EntityTile(const EntityTile &other);
+    
+    
+    
+    
     // bool loadCreature(const std::string& tileset, sf::Vector2i tileSize, int creatureXPosition, int creatureYPosition);
     
     
@@ -31,9 +41,19 @@ public:
 
     
     sf::Vector2i getTileSize();
+    static int  getEntityTileIDCounter()
+    {
+        
+        return EntityTile::entityTileIDCounter;
+    }
+    
+    int getEntityTileID();
+
     
     // std::vector<TileParameters> vecTileParams;
 private:
+    
+    static int entityTileIDCounter;
     
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     
@@ -44,6 +64,7 @@ private:
     sf::Vector2i tileSize;
     unsigned int width;
     unsigned int height;
+    int entityTileID;
     
     
     

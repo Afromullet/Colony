@@ -1,6 +1,6 @@
 #include <SFML/Graphics.hpp>
 
-
+#include "StaticVarInitializer.hpp"
 #include <iostream>
 #include <Vector>
 #include <cstdlib>
@@ -58,6 +58,8 @@
 #include "GenericReaders.hpp"
 #include "HistoryTokenReader.hpp"
 #include "HistoryGenerator.hpp"
+
+
 
 
 void GameLoop3();
@@ -133,8 +135,7 @@ srand(time(NULL));
     
    
   
-
- 
+    
     
 
 
@@ -176,7 +177,8 @@ srand(time(NULL));
     
     Weapon testWeapon;
     testWeapon.enWeaponSize = enLargeWeapon;
-    testWeapon.sEquipmentName = "TestWeapon";
+     //testWeapon.sEquipmentName = "TestWeapon";
+    testWeapon.setItemName("TestWeapon");
     testWeapon.isRanged = true;
     testWeapon.setRange(5);
     testWeapon.setDamage(10);
@@ -184,14 +186,100 @@ srand(time(NULL));
     player.setPosition(10, 10);
     target.setPosition(11, 11);
  
+
+    
     
     player.body.EquipArmor(&testArmor);
     player.body.EquipWeapon(&testWeapon);
-    printBodyGraphVertices(player.body.anatomyGraph);
+    //printBodyGraphVertices(target.body.anatomyGraph);
+    
+    
+    for(int i =0; i < num_vertices(player.body.anatomyGraph); i++)
+    {
+        std::cout << player.body.anatomyGraph[i].bodyPartName << "," << player.body.anatomyGraph[i].armor.sEquipmentName << "\n";
+    }
+    
+   
     
     AttackStats stats;
     
 
+    std::cout << "\n Num Vertices " << num_vertices(target.body.anatomyGraph);
+
+
+    
+         stats.enAttackForceType = enImpact;
+         stats.force = 100;
+         stats.contactArea = 5;
+        stats.attackType = enBlunt;
+         Single_Attack_Melee(stats,target);
+    
+         target.body.PrintWounds();
+   
+         stats.enAttackForceType = enImpact;
+         stats.force = 100;
+         stats.contactArea = 5;
+         stats.attackType = enBlunt;
+         Single_Attack_Melee(stats,target);
+     
+         target.body.PrintWounds();
+     
+   
+
+
+         stats.enAttackForceType = enImpact;
+         stats.force = 100;
+         stats.contactArea = 1;
+         stats.attackType = enBlunt;
+         Single_Attack_Melee(stats,target);
+     
+         target.body.PrintWounds();
+
+          stats.enAttackForceType = enShear;
+          stats.force = 100;
+          stats.contactArea = 1;
+          stats.attackType = enSlash;
+          Single_Attack_Melee(stats,target);
+    
+    target.body.PrintWounds();
+     
+  
+     
+     
+        //This breaks
+         stats.enAttackForceType = enShear;
+         stats.force = 100;
+         stats.contactArea = 1;
+         stats.attackType = enPierce;
+         Single_Attack_Melee(stats,target);
+     
+
+  
+     
+         stats.enAttackForceType = enShear;
+         stats.force = 100;
+         stats.contactArea = 5;
+         stats.attackType = enPierce;
+         Single_Attack_Melee(stats,target);
+     
+         target.body.PrintWounds();
+     
+     
+         stats.enAttackForceType = enShear;
+         stats.force = 1000;
+         stats.contactArea = 1;
+         stats.attackType = enPierce;
+         Single_Attack_Melee(stats,target);
+         
+         
+     
+         
+         target.body.PrintWounds();
+         
+          target.body.PrintWounds();
+        
+               
+      
 
     
     Map mapstuff = *mapdata.map;
@@ -230,6 +318,7 @@ srand(time(NULL));
 
     
 
+    std::cout << "\n Tile ID " << EntityTile::getEntityTileIDCounter();
    
 
     GameLoop3();
@@ -444,6 +533,33 @@ void SetupGameData(Map *map)
     printMaterials();
     printBiomes();
     
+    if(materials.at(1) == materials.at(1))
+    {
+        std::cout << "\n0 and 1 equals";
+    }
+    
+    if(materials.at(0) == materials.at(0))
+    {
+        std::cout << "\n0 and 0 equals";
+    }
+    
+    
+    if(materials.at(3) == materials.at(3))
+    {
+        std::cout << "\n3 and 3 equals";
+    }
+    
+    if(materials.at(2) != materials.at(3))
+    {
+        std::cout << "\n2 and 3 not equals";
+    }
+    
+    
+    if(materials.at(1) != materials.at(2))
+    {
+        std::cout << "\n2 and 1 not equals";
+    }
+    
     InitializePlantMaterials();
     InitializeOreMaterials();
     InitializeTreeMaterials();
@@ -494,9 +610,11 @@ void SetupGameData(Map *map)
     while(1)
     {
         newRules = SelectStartingHistoryRule();
+        std::cout << "\n Starting Rule " << newRules.initialRule;
         ProcessRewrittenRule(newRules);
     }
-    */
+     */
+    
     
     
     

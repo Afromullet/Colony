@@ -21,6 +21,15 @@ bool Armor::operator==(const Armor &other) const
     return false;
 }
 
+bool Armor::operator=(const Armor &other) 
+{
+    siArmorBonus = other.siArmorBonus;
+    fDodgeModifier = other.fDodgeModifier;
+    fDamageReduction = other.fDamageReduction;
+    fMovementModifier = other.fMovementModifier;
+    sEquipmentName = other.sEquipmentName;
+}
+
 Armor::Armor(Material _material, std::string _sEquipmentName, short int _siArmorBonus, float _fDodgeModifier, float _fDamageReduction,float _fMovementModifier)
 : Item(_material,_sEquipmentName),
 siArmorBonus(_siArmorBonus),fDodgeModifier(_fDodgeModifier),
@@ -64,28 +73,7 @@ Armor::Armor(const Armor &armor)
 }
 
 
-Armor::Armor(Armor &armor)
-{
 
-   // std::cout << "\nnmam" << armor.getItemName() << "n";
-    
-    siArmorBonus = armor.siArmorBonus;
-    sEquipmentName = armor.sEquipmentName;
-    
-   
-    position = armor.position;
-   
-    
-
-    fDodgeModifier = armor.fDodgeModifier;
-    fDamageReduction = armor.fDamageReduction;
-    fMovementModifier = armor.fMovementModifier;
-
-
-   // std::cout << "\n Name " << sEquipmentName << "\n" << "adsdas " << armor.siGetArmorBonus() << "\n";
-    //armor.setItemName(armor.getItemName());
-    
-}
 
 Armor::Armor() : Item(),siArmorBonus(-1),fDodgeModifier(-1),fDamageReduction(-1),
 fMovementModifier(-1)

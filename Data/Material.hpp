@@ -150,12 +150,14 @@ std::ostream& operator<<(std::ostream& os, const AppliedForceEffect& mat);
 #define MINOR_DAMAGE_LIMIT .20
 #define MEDIUM_DAMAGE_LIMIT .30
 #define MAJOR_DAMAGE_LIMIT .50
-
+#define DEFAULT_MATERIAL_VALUE 10
 
 class Material
 {
 private:
     std::vector<AppliedForceEffect> effectsOnMaterial; //Stores the effects on materials so that we know how to damage the material
+   
+    
     
     
     //Past this point, the object starts plastic deformation (elastic limit)
@@ -182,39 +184,35 @@ private:
      std::string materialName;
     
     
-    
-public:
-    Material();
-    
-    friend std::ostream& operator<<(std::ostream& os, const Material& mat);
-    
-
-    void PerformMaterialCalculations(float force,float size, AttackForceType enAttackForceType,AttackType attackType);
-    
-    //Perofrms the calculations to determine what kind of force is applied
     void SetupForce(float force,float size, AttackForceType enAttackForceType,AttackType attackType);
+    //Perofrms the calculations to determine what kind of force is applied
+    
     void SetupShearForce(float force,float size,AttackType attackType);
     void SetupImpactForce(float force,float size,AttackType attackType);
     void SetupCompressionForce(float force,float size,AttackType attackType);
     void SetupTensileForce(float force,float size,AttackType attackType);
     void SetupTorsionForce(float force,float size,AttackType attackType);
     
-    
-    
-     //Performs the calculations for the effect of a force
-
+    //Performs the calculations for the effect of a force
     void CalculateForcePenentration(AppliedForceEffect &effect);
     void CalculateForcePenentration();
-    
     void ApplyForcePenentration(AppliedForceEffect &effect,float materialStrength);
     void DetermineWoundSeverity();
-   
     
     
     
+public:
+    bool operator==(const Material &other) const;
+    bool operator!=(const Material &other ) const;
+    void operator=(const Material &other) ;
     
     
+    friend std::ostream& operator<<(std::ostream& os, const Material& mat);
     
+    Material();
+    Material(const Material &other);
+    
+    bool PerformMaterialCalculations(float force,float size, AttackForceType enAttackForceType,AttackType attackType);
     void setDeformationStrenghts(float compression,float impact,float tensile,float torsion,float shear);
     void setFractureStrength(float compression,float impact,float tensile,float torsion,float shear);
     void setDensity(float _density);

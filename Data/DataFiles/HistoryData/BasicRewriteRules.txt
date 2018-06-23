@@ -39,6 +39,9 @@
 
 
 [Social Event]->[Become Allies]
+[Social Event]->[Trade]
+
+
 [Become Allies]->[First Creature][Second Creature]
 [Become Allies]->[First Faction][Second Faction]
 

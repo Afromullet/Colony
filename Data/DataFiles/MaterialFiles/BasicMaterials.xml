@@ -4,7 +4,7 @@
     <Name>Flesh</Name>
     <Density>10</Density>
     <CompressionDeformationStrenth>11</CompressionDeformationStrenth>
-    <ImpactDeformationStrength>12</ImpactDeformationStrength>
+    <ImpactDeformationStrength>15</ImpactDeformationStrength>
     <TensileDeformationStrength>13</TensileDeformationStrength>
     <TorsionDeformationStrength>14</TorsionDeformationStrength>
     <ShearDeformationStrength>15</ShearDeformationStrength>

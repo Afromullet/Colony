@@ -101,6 +101,9 @@ void BodyPart::EquipArmor(Item *item)
             Armor *arm = dynamic_cast<Armor*>(item);
             arm->isEquipped = true;
             armor = *arm;
+            std::cout << "\n Equipped";
+            
+            std::cout << "\n Equipment Name " << armor.sEquipmentName;
         }
         
     }

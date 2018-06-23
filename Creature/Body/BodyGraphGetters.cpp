@@ -189,6 +189,8 @@ void printBodyGraphVertices(const AnatomyGraph &graph)
     
     for(boost::tie(vi,vi_end) = vertices(graph); vi != vi_end; ++vi)
     {
+        std::cout << graph[*vi].bodyPartName << "\n";
+        std::cout << graph[*vi].armor.sEquipmentName;
         std::cout << graph[*vi] << "\n";
         
     }
@@ -229,7 +231,7 @@ std::vector<int> getVerticesThatCanHoldWeapons(const AnatomyGraph &graph)
     for(int i=0; i < indices.size(); i++)
     {
       
-        std::cout << "\n BP name " <<  graph[indices.at(i)].bodyPartName<<"Can Hold weapon " << graph[indices.at(i)].canHoldWeapon;
+       // std::cout << "\n BP name " <<  graph[indices.at(i)].bodyPartName<<"Can Hold weapon " << graph[indices.at(i)].canHoldWeapon;
         if(graph[indices.at(i)].canHoldWeapon == true)
         {
          

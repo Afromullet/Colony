@@ -419,6 +419,7 @@ void CreatureBody::EquipArmor(Item *item)
         {
        
                 anatomyGraph[indices.at(j)].EquipArmor(item);
+            
         }
         
         

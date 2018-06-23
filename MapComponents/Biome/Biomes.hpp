@@ -27,16 +27,6 @@ class Biome
 private:
   
     
-    
-    
-    
-public:
-    Biome();
-    Biome(const Biome &biome);
-    Biome(Biome &biome);
-   // Biome();
-    
-    
     float lowTemp;
     float highTemp;
     float currentTemp;
@@ -45,6 +35,23 @@ public:
     float wildlifeLevel;
     enBiomes EnBiome;
     std::string name;
+    
+    
+public:
+    
+    
+    bool operator==(const Biome &other) const;
+    bool operator!=(const Biome &other) const;
+    void operator=(const  Biome &other);
+    
+    
+    Biome();
+    Biome(const Biome &biome);
+
+   
+    
+    
+   
     
     void setTemperatureLimits(float _lowTemp,float _highTemp);
     void setBiome(enBiomes _EnBiome);

@@ -9,10 +9,43 @@
 #include "Biomes.hpp"
 #include "DataStorage.hpp"
 #include "EnumTypes.hpp"
+#include "ErrorConstants.hpp"
+#include "UtilMacros.h"
 
 
 
-Biome::Biome() : EnBiome(enUndefinedBiome), lowTemp(ERROR_VALUE), highTemp(ERROR_VALUE),vegetationLevel(ERROR_VALUE),treeLevel(ERROR_VALUE)
+bool Biome::operator==(const Biome &other) const
+{
+    if(lowTemp == other.lowTemp && highTemp == other.highTemp
+       && currentTemp == other.currentTemp && vegetationLevel == other.vegetationLevel
+       && treeLevel == other.treeLevel && wildlifeLevel == other.wildlifeLevel &&
+       EnBiome == other.EnBiome && name == other.name
+
+       )
+        return true;
+    
+    return false;
+}
+
+bool Biome::operator!=(const Biome &other) const
+{
+    return !(*this == other);
+}
+
+void Biome::operator=(const  Biome &other)
+{
+    lowTemp = other.lowTemp;
+    highTemp = other.highTemp;
+    currentTemp = other.currentTemp;
+    vegetationLevel = other.vegetationLevel;
+    treeLevel = other.treeLevel;
+    wildlifeLevel = other.wildlifeLevel;
+    EnBiome = other.EnBiome;
+    name = other.name;
+    
+}
+
+Biome::Biome() : EnBiome(enUndefinedBiome), lowTemp(ERROR_INPUT_NUMBER), highTemp(ERROR_INPUT_NUMBER),vegetationLevel(ERROR_INPUT_NUMBER),treeLevel(ERROR_INPUT_NUMBER)
 {
     
 }
@@ -29,16 +62,6 @@ Biome::Biome(const Biome &biome)
     
     
     
-}
-Biome::Biome(Biome &biome)
-{
-    lowTemp = biome.lowTemp;
-    highTemp = biome.highTemp;
-    currentTemp = biome.currentTemp;
-    name = biome.name;
-    vegetationLevel = biome.vegetationLevel;
-    treeLevel = biome.treeLevel;
-    wildlifeLevel = biome.wildlifeLevel;
 }
 
 void Biome::setTemperatureLimits(float _lowTemp,float _highTemp)
@@ -64,15 +87,15 @@ void Biome::setCurrentTemp(float _currentTemp)
 
 void Biome::setVegetationLevel(float level)
 {
-    vegetationLevel = level;
+    vegetationLevel = IS_NUM_GT_0(level);
 }
 void Biome::setTreelevel(float level)
 {
-    treeLevel = level;
+    treeLevel = IS_NUM_GT_0(level);
 }
 void Biome::setWildlifeLevel(float level)
 {
-    wildlifeLevel = level;
+    wildlifeLevel = IS_NUM_GT_0(level);
 }
 
 

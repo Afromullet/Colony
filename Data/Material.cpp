@@ -7,24 +7,98 @@
 //
 
 #include "Material.hpp"
+#include "ErrorConstants.hpp"
+#include "UtilMacros.h"
+
+bool Material::operator==(const Material &other) const
+{
+    
+    
+    if(compDefStrength == other.compDefStrength && impactDefStrength == other.impactDefStrength && tensileDefStrength == other.tensileDefStrength && torsionDefStrenght == other.torsionDefStrenght && shearDefStrength == other.shearDefStrength)
+    {
+        
+        //Nested if statements make it easier to read
+        if(compFractStrength == other.compFractStrength && impactFractStrength == other.impactFractStrength && tensileFractStrength == other.tensileFractStrength && torsionFractStrenght == other.torsionFractStrenght && shearFractStrength == other.shearFractStrength)
+            
+            
+            if(plasticity == other.plasticity && density == other.density && materialName == other.materialName)
+                    return true;
+    }
+    
+    
+    return false;
+    
+}
+
+bool Material::operator!=(const Material &other) const
+{
+    return !(*this == other);
+}
+
+
+void Material::operator=(const Material &other)
+{
+    compDefStrength = other.compDefStrength;
+    impactDefStrength = other.impactDefStrength;
+    tensileDefStrength = other.tensileDefStrength;
+    torsionDefStrenght = other.torsionDefStrenght;
+    shearDefStrength = other.shearDefStrength;
+    
+    plasticity = other.plasticity;
+    density = other.density;
+    
+    compFractStrength = other.compFractStrength;
+    impactFractStrength = other.impactFractStrength;
+    tensileFractStrength = other.tensileFractStrength;
+    torsionFractStrenght = other.torsionFractStrenght;
+    shearFractStrength = other.shearFractStrength;
+    
+    materialName = other.materialName;
+}
+
 
 #include <iostream>
 Material::Material()
 {
-     compDefStrength= 10 ;
-     impactDefStrength= 10 ;
-     tensileDefStrength= 10 ;
-     torsionDefStrenght= 10 ;
-     shearDefStrength= 10 ;
+    compDefStrength= DEFAULT_MATERIAL_VALUE ;
+    impactDefStrength= DEFAULT_MATERIAL_VALUE ;
+    tensileDefStrength= DEFAULT_MATERIAL_VALUE ;
+    torsionDefStrenght= DEFAULT_MATERIAL_VALUE ;
+    shearDefStrength= DEFAULT_MATERIAL_VALUE ;
     
-    density = 20;
-    
+    density = DEFAULT_MATERIAL_VALUE;
+    plasticity = DEFAULT_MATERIAL_VALUE;
 
-     compFractStrength= 22 ;
-     impactFractStrength= 22 ;
-     tensileFractStrength= 22 ;
-     torsionFractStrenght= 22 ;
-     shearFractStrength= 22 ;
+    compFractStrength= DEFAULT_MATERIAL_VALUE ;
+    impactFractStrength= DEFAULT_MATERIAL_VALUE ;
+    tensileFractStrength= DEFAULT_MATERIAL_VALUE ;
+    torsionFractStrenght= DEFAULT_MATERIAL_VALUE ;
+    shearFractStrength= DEFAULT_MATERIAL_VALUE ;
+    
+    materialName = ERROR_STRING_INPUT;
+    
+    
+}
+
+Material::Material(const Material &other)
+{
+    compDefStrength = other.compDefStrength;
+    impactDefStrength = other.impactDefStrength;
+    tensileDefStrength = other.tensileDefStrength;
+    torsionDefStrenght = other.torsionDefStrenght;
+    shearDefStrength = other.shearDefStrength;
+    
+    density = other.density;
+    plasticity = other.plasticity;
+    
+    compFractStrength = other.compFractStrength;
+    impactFractStrength = other.impactFractStrength;
+    tensileFractStrength  = other.tensileFractStrength;
+    torsionFractStrenght = other.torsionFractStrenght;
+    shearFractStrength = other.shearFractStrength;
+    
+    materialName = other.materialName;
+    
 }
 
 std::ostream& operator<<(std::ostream& os, const Material& mat)
@@ -55,27 +129,28 @@ std::ostream& operator<<(std::ostream& os, const AppliedForceEffect& mat)
     << mat.effect << "," << mat.startForce << "," << mat.endForce << "," << mat.size << "," << mat.ratio << "," << mat.woundSeverity;
     
     
-    /*
-    enMaterialEffect effect;
-    AttackType attackType;
-    float startForce;
-    float endForce;
-    float size;
-    float ratio; //The ratio between start and end force..gives us an idea of how much force has been absorbed, and how severe the wound will be. The higher the number, the more damage
-    WoundSeverity woundSeverity; //The kind of wound this attack causes
-     */
+
     
     return os;
 }
 
 //Although material effects is an array, currently only one effect if applied per attack
 //Wound severity is calculated as part of the force calculation
-void Material::PerformMaterialCalculations(float force,float size, AttackForceType enAttackForceType,AttackType attackType)
+bool Material::PerformMaterialCalculations(float force,float size, AttackForceType enAttackForceType,AttackType attackType)
 {
+    
+    if(force < 0 || size < 0)
+    {
+        effectsOnMaterial.clear();
+        return false;
+    }
+    
+    
     effectsOnMaterial.clear();
     SetupForce(force, size, enAttackForceType, attackType); //Calculates what kind of deformation the material suffers from
     CalculateForcePenentration(); //Calculates how much force the material absorbs
     DetermineWoundSeverity();
+    return true;
 }
 
 /*
@@ -311,26 +386,27 @@ bool Material::isValidMaterial()
 
 void Material::setDeformationStrenghts(float compression,float impact,float tensile,float torsion,float shear)
 {
-    compDefStrength = compression;
-    impactDefStrength = impact;
-    tensileDefStrength = tensile;
-    torsionDefStrenght = torsion;
-    shearDefStrength = shear;
+    
+    compDefStrength = IS_NUM_GT_0(compression);
+    impactDefStrength = IS_NUM_GT_0(impact);
+    tensileDefStrength = IS_NUM_GT_0(tensile);
+    torsionDefStrenght = IS_NUM_GT_0(torsion);
+    shearDefStrength = IS_NUM_GT_0(shear);
 }
 
 
 void Material::setFractureStrength(float compression,float impact,float tensile,float torsion,float shear)
 {
-    compFractStrength = compression;
-    impactFractStrength = impact;
-    tensileFractStrength = tensile;
-    torsionFractStrenght = torsion;
-    shearFractStrength = shear;
+    compFractStrength = IS_NUM_GT_0(compression);
+    impactFractStrength = IS_NUM_GT_0(impact);
+    tensileFractStrength = IS_NUM_GT_0(tensile);
+    torsionFractStrenght = IS_NUM_GT_0(torsion);
+    shearFractStrength = IS_NUM_GT_0(shear);
 }
 
 void Material::setDensity(float _density)
 {
-    density = _density;
+    density = IS_NUM_GT_0(_density);
 }
 
 void Material::setMaterialName(std::string name)

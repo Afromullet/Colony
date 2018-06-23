@@ -7,26 +7,78 @@
 //
 
 #include "EntityTile.hpp"
+#include "ErrorConstants.hpp"
 
+
+int EntityTile::entityTileIDCounter = 0;
+
+bool EntityTile::operator==(const EntityTile &other) const
+{
+    if(entityTileID == other.entityTileID && width == other.width && height == other.height && tileSize == other.tileSize)
+        return true;
+    
+    return false;
+}
+
+bool EntityTile::operator!=(const EntityTile &other) const
+{
+    return !(*this == other);
+}
+
+/*
+void EntityTile::operator=(const EntityTile &other)
+{
+    m_vertices = other.m_vertices;
+    m_tileset = other.m_tileset;
+    tileSize = other.tileSize;
+    width = other.width;
+    height = other.height;
+    entityTileID = other.entityTileID;
+}
+
+
+
+ 
+
+
+EntityTile::EntityTile(const EntityTile &other)
+{
+    m_vertices = other.m_vertices;
+    m_tileset = other.m_tileset;
+    tileSize = other.tileSize;
+    width = other.width;
+    height = other.height;
+    entityTileID = other.entityTileID;
+}
+
+
+EntityTile::EntityTile()
+{
+    entityTileID = EntityTile::entityTileIDCounter;
+    EntityTile::entityTileIDCounter++;
+    
+    width = ERROR_INPUT_NUMBER;
+    height = ERROR_INPUT_NUMBER;
+    tileSize.x = ERROR_INPUT_NUMBER;
+    tileSize.y = ERROR_INPUT_NUMBER;
+}
+ 
+  */
 
 //Need to draw a creature withn the bounds of a tile
 bool EntityTile::loadTile(const std::string& tileset, sf::Vector2i _tileSize, sf::Vector2i creaturePosition)
 {
     // load the tileset texture
-    if (!m_tileset.loadFromFile(tileset))
+    if (!m_tileset.loadFromFile(tileset) || _tileSize.x < 0 || tileSize.y < 0)
         return false;
     
     tileSize = _tileSize;
-    
-   // TileParameters tileParams;
-    
-    
+
     // resize the vertex array to fit the level size
     m_vertices.setPrimitiveType(sf::Quads);
     m_vertices.resize(4); //Since a creature tile is just like any other tile..We are only drawing one tile for every creature, so the size is 4, one for each corner of the square
     
     // populate the vertex array, with one quad per tile
-    
     int tileNumber = 0;
     
     // find its position in the tileset texture
@@ -36,10 +88,6 @@ bool EntityTile::loadTile(const std::string& tileset, sf::Vector2i _tileSize, sf
     int tu = tileNumber % (m_tileset.getSize().x / tileSize.x);
     int tv = tileNumber / (m_tileset.getSize().x / tileSize.x);
     
-    
-    
-   // tileParams.x = creaturePosition.x;
-   // tileParams.y = creaturePosition.y;
     
     // get a pointer to the current tile's quad
     sf::Vertex * quad = &m_vertices[tileNumber];
@@ -60,6 +108,8 @@ bool EntityTile::loadTile(const std::string& tileset, sf::Vector2i _tileSize, sf
     quad[3].texCoords = sf::Vector2f(tu * tileSize.x, (tv + 1) * tileSize.y);
     
     
+   // entityTileID = EntityTile::entityTileIDCounter;
+  //  EntityTile::entityTileIDCounter++;
     
     return true;
 }
@@ -67,7 +117,8 @@ bool EntityTile::loadTile(const std::string& tileset, sf::Vector2i _tileSize, sf
 //For a particular coordinate, sets the
 void EntityTile::setPosition(int x, int y)
 {
-    
+    if(x < 0 || y < 0)
+        return;
     
     m_vertices.setPrimitiveType(sf::Quads);
     m_vertices.resize(4);
@@ -115,3 +166,8 @@ sf::Vector2i EntityTile::getTileSize()
     return tileSize;
 }
 
+
+int EntityTile::getEntityTileID()
+{
+    return entityTileID;
+}

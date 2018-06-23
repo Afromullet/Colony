@@ -67,24 +67,47 @@ void ProcessRewrittenRule(RewriteRules &rules)
     
     
     
-   
-    for(int i=0; i < rules.vecRewrittenRule.size(); i++)
+   std::vector<int> indices;
+    
+   indices = getRewriteRulesIndices(rules.initialRule);
+    
+   int selection = rand() & indices.size()-1;
+    
+    for(int i = 0; i < numOfStartRewriteRules; i++)
     {
-        getRewriteRulesIndices(rules.vecRewrittenRule.at(i));
+        std::cout << startRewriteRules[i].rewrittenRule << "\n";
+        
+        
+        
+        
+        std::cout << "\n Printing more sht" << startRewriteRules[i].initialRule;
+        for(int j = 0; j < startRewriteRules[i].vecRewrittenRule.size(); j++)
+        {
+            std::cout << "\n " << startRewriteRules[i].vecRewrittenRule.at(j);
+        }
+         
     }
+    
+    //RewriteRules rule = startRewriteRules[selection];
+
+
     
 }
 
 //For a particular token (str), return the indices of all rules that match it in startRewriteRules. This is so that we can choose which rule we want to use
 //If this returns a vector of size 0, then we have a terminal symbol
-std::vector<int> getRewriteRulesIndices(std::string &str)
+std::vector<int> getRewriteRulesIndices(std::string str)
 {
     std::vector<int> indices;
     
     for(int i=0; i < numOfStartRewriteRules; i++)
+    {
+        //std::cout << "\n Comparing " << str << "," << startRewriteRules[i].initialRule;
         if(str == startRewriteRules[i].initialRule)
             indices.push_back(i);
         
+    }
+    
     
     
     return indices;

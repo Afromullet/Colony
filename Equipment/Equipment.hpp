@@ -39,6 +39,9 @@ private:
  
     sf::Vector2i position; //Is this a good idea? The position of an object does not matter if it's on a creature. Is the space this uses worth making managing items on the map easier?
     
+    float size; //Volume
+    float mass;
+    
     
     
     
@@ -47,14 +50,17 @@ private:
 public:
     
 
+    //Overloaded operators
+    bool operator==(const Item &other) const;
+    bool operator!=(const Item &other) const;
+    void operator=(const Item &other);
 
     std::string sEquipmentName;
     bool isEquipped;
     EntityTile itemTile; //The texture of this item
     
     Material material;
-    float size; //Volume
-    float mass;
+
     
     std::vector<std::string> sections; //The sections this armor covers
     
@@ -66,22 +72,26 @@ public:
     Item(std::string equipmentName);
     Item(std::string equipmentName, std::string _section);
     Item();
+    Item(const Item &other);
+    
     virtual Item *clone() const = 0;
     virtual Item *create() const  = 0;
     
     std::string getItemName();
     sf::Vector2i getPosition();
     virtual std::string getItemExamineString() = 0;
+    float getMass();
+    float getSize();
+    bool getIsEquipped();
     
     void setItemName(std::string value);
     void setMaterial(Material value);
-
     void setPosition(int x, int y); //For setting the position of the item when it's on the map
-    
-
     void setIsEquipped(bool _isEquipped);
+    void setMass(float _mass);
+    void setSize(float _size);
     
-    bool getIsEquipped();
+    
 
     
     
@@ -97,7 +107,7 @@ public:
     void CalculateMaterialBonuses();
     virtual void showItemStats() = 0;
     
-    float getMass();
+ 
    
   
     

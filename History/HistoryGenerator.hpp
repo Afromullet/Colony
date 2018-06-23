@@ -14,8 +14,9 @@
 
 
 RewriteRules SelectStartingHistoryRule();
+
 void ProcessRewrittenRule(RewriteRules &rules);
-std::vector<int> getRewriteRulesIndices(std::string &str);
+std::vector<int> getRewriteRulesIndices(std::string str);
 
 
 #endif /* HistoryGenerator_hpp */

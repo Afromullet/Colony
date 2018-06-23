@@ -13,8 +13,8 @@
 
 
 
-#include "MovementAction.hpp"
-#include "ExamineAction.hpp"
+
+
 bool usingTargetSquare = false;
 bool isInventoryWindowOpen = false;
 bool isEquipmentWindowOpen = false;
@@ -33,8 +33,6 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
     //playerWindowCommands.h
     
 
-    BasicMovementAction movementAction(*mapdata.map,creature);
-    BasicExamineSurroundingAction examineAction(*mapdata.map,creature);
     
     //movementAction.setCreature(creature);
     while(!PlayerActionTaken)
@@ -375,7 +373,7 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
              
              
              //creature.WalkPath(*mapdata.map);
-             movementAction.PerformAction();
+             //movementAction.PerformAction();
              ///sBehavior.ExamineSurroundingTask(creature, *mapdata.map);
          }
         else if(event.key.code == sf::Keyboard::X)
@@ -397,9 +395,7 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
             GridLocation loc;
             loc.x = 15;
             loc.y = 15;
-            movementAction.AddDestination(loc);
-            movementAction.PrepareAction();
-            examineAction.PerformAction();
+      
            // sBehavior.SelectRandomSearchLocation(mapdata.map->GetWidth(), mapdata.map->GetHeight(),*mapdata.map);
             
             

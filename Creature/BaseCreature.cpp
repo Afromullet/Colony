@@ -367,7 +367,7 @@ void BaseCreature::calculateAttackParameters()
             attackStats.damage += getStrength();
             attackStats.isRangedAttack = false;
             attackStats.force = CalculateMeleeAttackForce(body.anatomyGraph[verts.at(i)].weapon);
-            attackStats.contactArea = body.anatomyGraph[verts.at(i)].weapon.size; //TODO get size based on attack type
+            attackStats.contactArea = body.anatomyGraph[verts.at(i)].weapon.getSize(); //TODO get size based on attack type
         }
         
        
@@ -402,7 +402,7 @@ float BaseCreature::CalculateMeleeAttackForce(Weapon &weapon)
     //A smaller weapon can be swung faster, that's why we divide by size
     acceleration = (strength + weapon.material.getDensity());
     
-    force = weapon.mass * acceleration;
+    force = weapon.getMass() * acceleration;
     
     return force;
     
