@@ -12,22 +12,51 @@
 
 bool Armor::operator==(const Armor &other) const
 {
-    if(siArmorBonus == other.siArmorBonus && fDodgeModifier == other.fDodgeModifier && fDamageReduction == other.fDamageReduction && fMovementModifier == other.fMovementModifier )
+    if(siArmorBonus == other.siArmorBonus && fDodgeModifier == other.fDodgeModifier && fDamageReduction == other.fDamageReduction && fMovementModifier == other.fMovementModifier)
     {
-        
-        return true;
-     
+       if(size == other.size && mass == other.mass && section == other.section && material == other.material && sEquipmentName == other.sEquipmentName && isEquipped == other.isEquipped && itemTile == other.itemTile && tile == other.tile && sections == other.sections)
+           
+       {
+           
+          return true;
+       }
+       
     }
+    
+    
+    
+
+
+       
+     
+    
     return false;
 }
 
-bool Armor::operator=(const Armor &other) 
+
+
+bool Armor::operator!=(const Armor &other) const
+{
+    return !(*this == other);
+}
+
+void Armor::operator=(const Armor &other)
 {
     siArmorBonus = other.siArmorBonus;
     fDodgeModifier = other.fDodgeModifier;
     fDamageReduction = other.fDamageReduction;
     fMovementModifier = other.fMovementModifier;
     sEquipmentName = other.sEquipmentName;
+    section = other.section;
+    size = other.size;
+    mass = other.mass;
+    material = other.material;
+    isEquipped = other.isEquipped;
+    position = other.position;
+    tile = other.tile;
+    itemTile = other.itemTile;
+    sections = other.sections;
+    position = other.position;
 }
 
 Armor::Armor(Material _material, std::string _sEquipmentName, short int _siArmorBonus, float _fDodgeModifier, float _fDamageReduction,float _fMovementModifier)
@@ -49,25 +78,26 @@ Armor::Armor(std::string itemName, std::string _section) :Item(itemName,_section
 }
 
 //Ah..the bug was here. It wasn't copying the data needed because I thought it was using the Armor &armor() constructor, but it calls this oen instead Armor::Armor(const Armor &armor)
-Armor::Armor(const Armor &armor)
+Armor::Armor(const Armor &other)
 {
     
 
     
-    siArmorBonus = armor.siArmorBonus;
-    sEquipmentName = armor.sEquipmentName;
-    
- 
-    position = armor.position;
-   
-    
-
-    fDodgeModifier = armor.fDodgeModifier;
-    fDamageReduction = armor.fDamageReduction;
-    fMovementModifier = armor.fMovementModifier;
-
-    section = armor.section;
-    
+    siArmorBonus = other.siArmorBonus;
+    fDodgeModifier = other.fDodgeModifier;
+    fDamageReduction = other.fDamageReduction;
+    fMovementModifier = other.fMovementModifier;
+    sEquipmentName = other.sEquipmentName;
+    section = other.section;
+    size = other.size;
+    mass = other.mass;
+    material = other.material;
+    isEquipped = other.isEquipped;
+    position = other.position;
+    tile = other.tile;
+    itemTile = other.itemTile;
+    sections = other.sections;
+    position = other.position;
 
     
 }
@@ -75,36 +105,16 @@ Armor::Armor(const Armor &armor)
 
 
 
-Armor::Armor() : Item(),siArmorBonus(-1),fDodgeModifier(-1),fDamageReduction(-1),
-fMovementModifier(-1)
+Armor::Armor() : Item(),siArmorBonus(1),fDodgeModifier(1),fDamageReduction(1),
+fMovementModifier(1)
 {
 
-    setArmorBonus(0);
+    size = 1;
+    mass = 1;
+    isEquipped = false;
 }
 
-short int Armor::siGetArmorBonus()
-{
-    return siArmorBonus;
-}
-
-
-float Armor::fGetDodgeModifier()
-{
-    return fDodgeModifier;
-}
-
-float Armor::fGetDamageReduction()
-{
-    return fDamageReduction;
-}
-
-float Armor::fGetMovementModifier()
-{
-    return fMovementModifier;
-}
-
-
-std::string Armor::getItemExamineString()
+std::string Armor::getItemExamineString() const
 {
     std::string tempString;
     tempString = "Item Name: ";
@@ -115,18 +125,18 @@ std::string Armor::getItemExamineString()
     
     return tempString;
     
-
+    
     
 }
 
-/*
-int Armor::getItemName()
+void Armor::showItemStats() const
 {
- 
-    return Item::getItemName();
-    
+    std::cout << "ItemName " << getItemName() << "\n";
+    std::cout << "Armor Bonus " << siArmorBonus << "\n";
+    std::cout << "Doge Modifier " <<  fDodgeModifier << "\n";
+    std::cout << "Damage Reduction " <<  fDamageReduction<< "\n";
+    std::cout << "Movement Modifier " <<  fMovementModifier<< "\n";
 }
- */
 
 
 
@@ -135,11 +145,30 @@ void Armor::calculateMaterialBonuses()
     
 }
 
+short int Armor::siGetArmorBonus() const
+{
+    return siArmorBonus;
+}
+
+
+float Armor::fGetDodgeModifier() const
+{
+    return fDodgeModifier;
+}
+
+float Armor::fGetDamageReduction() const
+{
+    return fDamageReduction;
+}
+
+float Armor::fGetMovementModifier() const
+{
+    return fMovementModifier;
+}
+
 void Armor::setArmorBonus(short int value)
 {
-    
     siArmorBonus = value;
-    //std::cout <<  "set \nvalue = " << siArmorBonus;
 }
 
 void Armor::setDodgeModifier(float value)
@@ -157,16 +186,6 @@ void Armor::setMovementModifier(float value)
     fMovementModifier = value;
 }
 
-/*
-void Armor::setItemName(int value)
-{
-
-    Item::setItemName(value);
-    
-}
- */
-
-
 void Armor::setMaterial(Material value)
 {
     Item::setMaterial(value);
@@ -176,26 +195,7 @@ void Armor::setMaterial(Material value)
 
 
 
-void Armor::showItemStats()
-{
-    std::cout << "ItemName " << getItemName() << "\n";
-    std::cout << "Armor Bonus " << siArmorBonus << "\n";
-    std::cout << "Doge Modifier " <<  fDodgeModifier << "\n";
-    std::cout << "Damage Reduction " <<  fDamageReduction<< "\n";
-    std::cout << "Movement Modifier " <<  fMovementModifier<< "\n";
-}
 
 
 
-/*
-short int siGetArmorBonus;
-float fGetDodgeModifier;
-float fGetDamageReduction;
-float fGetMovementModifier;
-void setArmorBonus(short int value);
-void setDodgeModifier(float value);
-void setDamageReduction(float value);
-void setMovementModifier(float value);
-void calculateMaterialBonuses();
 
-*/

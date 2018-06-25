@@ -107,6 +107,8 @@ enum enMaterialEffect
     enNoEffect
 };
 
+#define DEFAULT_MATERIAL "Default Material"
+
 /*The size determines how exactly the object can be damaged
 A small shearing force (I.E, spear tip) would cut material differently than a sword blade, for example
  

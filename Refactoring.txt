@@ -35,6 +35,14 @@ List of refactored Parts
 
 10) Destructors
 
+11) Need to manage all items and creature in the world a better way
+
+12) Handle equipping items differently
+
+13) Determine what functions you no longer need
+
+14) Use constants where applicable
+
 Completed for:
 
 1)

@@ -26,7 +26,13 @@ private:
     
     
 public:
+    
+    bool operator==(const Tree &other) const;
+    bool operator=(const Tree &other) const;
+    bool operator=(const Tree other);
+    
     Tree();
+    Tree(const Tree &other);
     
     void setMaxHeight(float val);
     void setMaxDiameter(float val);

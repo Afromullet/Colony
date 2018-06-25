@@ -9,7 +9,29 @@
 #include "Resource.hpp"
 
 
+bool Resource::operator==(Resource &other) const
+{
+    if(isRenewable == other.isRenewable && isEdible == other.isEdible && resourceCategory == other.resourceCategory && name == other.name && rarity == other.rarity && material == other.material)
+        return true;
+    
+    return false;
+}
 
+bool Resource::operator!=(Resource &other) const
+{
+    return !(*this == other);
+    
+}
+
+void Resource::operator=(Resource &other)
+{
+    isRenewable = other.isRenewable;
+    isEdible = other.isEdible;
+    resourceCategory = other.resourceCategory;
+    name = other.name;
+    rarity = other.rarity;
+    material = other.material;
+}
 
 
 
@@ -21,6 +43,16 @@ Resource::Resource(bool _isRenewable,EnResourceCategory _resourceCategory,std::s
 Resource::Resource() : isRenewable(false),resourceCategory(enUndefinedResourceCategory),name("Undefined Resource"),rarity(0.5)
 {
     
+}
+
+Resource::Resource(const Resource &other)
+{
+    isRenewable = other.isRenewable;
+    isEdible = other.isEdible;
+    resourceCategory = other.resourceCategory;
+    name = other.name;
+    rarity = other.rarity;
+    material = other.material;
 }
 
 void Resource::setResourceCategory(EnResourceCategory category)
@@ -40,6 +72,9 @@ void Resource::setResourceName(std::string _name)
 
 void Resource::setRarity(float _rarity)
 {
+    if(rarity < 0)
+        return;
+    
     rarity = _rarity;
 }
 

@@ -400,7 +400,7 @@ float BaseCreature::CalculateMeleeAttackForce(Weapon &weapon)
     float acceleration;
     
     //A smaller weapon can be swung faster, that's why we divide by size
-    acceleration = (strength + weapon.material.getDensity());
+    acceleration = (strength + weapon.getMaterialRef().getDensity());
     
     force = weapon.getMass() * acceleration;
     

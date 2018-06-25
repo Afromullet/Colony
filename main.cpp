@@ -171,15 +171,15 @@ srand(time(NULL));
   
     Armor testArmor;
     testArmor.setItemName("TestArmor1");
-    testArmor.sections.push_back("upperbodysection");
-    testArmor.sections.push_back("armsection");
+    testArmor.addSection("upperbodysection");
+    testArmor.addSection("armsection");
     
     
     Weapon testWeapon;
-    testWeapon.enWeaponSize = enLargeWeapon;
+    testWeapon.setWeaponSize(enLargeWeapon);
      //testWeapon.sEquipmentName = "TestWeapon";
     testWeapon.setItemName("TestWeapon");
-    testWeapon.isRanged = true;
+    testWeapon.setIsRanged(true); 
     testWeapon.setRange(5);
     testWeapon.setDamage(10);
     
@@ -196,7 +196,9 @@ srand(time(NULL));
     
     for(int i =0; i < num_vertices(player.body.anatomyGraph); i++)
     {
-        std::cout << player.body.anatomyGraph[i].bodyPartName << "," << player.body.anatomyGraph[i].armor.sEquipmentName << "\n";
+        std::cout << player.body.anatomyGraph[i].bodyPartName << "," << player.body.anatomyGraph[i].armor.getItemName() << "\n";
+        
+         std::cout << player.body.anatomyGraph[i].bodyPartName << "," << player.body.anatomyGraph[i].weapon.getItemName() << "\n";
     }
     
    
@@ -207,7 +209,7 @@ srand(time(NULL));
     std::cout << "\n Num Vertices " << num_vertices(target.body.anatomyGraph);
 
 
-    
+    /*
          stats.enAttackForceType = enImpact;
          stats.force = 100;
          stats.contactArea = 5;
@@ -280,7 +282,7 @@ srand(time(NULL));
         
                
       
-
+*/
     
     Map mapstuff = *mapdata.map;
     

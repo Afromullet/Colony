@@ -190,7 +190,7 @@ void printBodyGraphVertices(const AnatomyGraph &graph)
     for(boost::tie(vi,vi_end) = vertices(graph); vi != vi_end; ++vi)
     {
         std::cout << graph[*vi].bodyPartName << "\n";
-        std::cout << graph[*vi].armor.sEquipmentName;
+       // std::cout << graph[*vi].armor.getItemName();
         std::cout << graph[*vi] << "\n";
         
     }
@@ -207,7 +207,7 @@ int getFirstUnequippedFromSection(const AnatomyGraph &graph,const std::string &s
     {
         
         
-        if(graph[indices.at(i)].armor.sEquipmentName == "No Armor")
+        if(graph[indices.at(i)].armor.getItemName() == "No Armor")
         {
             
             std::cout << "\n Returning " << i;

@@ -42,6 +42,10 @@ enum EnResourceCategory{enMetal,enStone,enPlant,enWood,enFood,enUndefinedResourc
 class Resource
 {
 private:
+    friend class Plant;
+    friend class Tree;
+    friend class Ore;
+    
     bool isRenewable;
     bool isEdible;
     EnResourceCategory resourceCategory;
@@ -52,7 +56,13 @@ private:
     
     
 public:
+    
+    bool operator==(Resource &other) const;
+    bool operator!=(Resource &other) const;
+    void operator=(Resource &other);
+    
     Resource();
+    Resource(const Resource &other);
     Resource(bool _isRenewable,EnResourceCategory _resourceCategory,std::string _name,float _rarity,bool _isEdible);
     
     void setResourceCategory(EnResourceCategory category);

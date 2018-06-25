@@ -14,9 +14,9 @@
 void Single_Attack_Melee(AttackStats attack, BaseCreature &defender)
 {
     int target = getRandomExternalBodyParts(defender.body.anatomyGraph);
-    defender.body.anatomyGraph[target].armor.material.PerformMaterialCalculations(attack.force,attack.contactArea,attack.enAttackForceType,attack.attackType);
+    defender.body.anatomyGraph[target].armor.getMaterialRef().PerformMaterialCalculations(attack.force,attack.contactArea,attack.enAttackForceType,attack.attackType);
     
-    std::vector<AppliedForceEffect> &effects = defender.body.anatomyGraph[target].armor.material.getAppliedForceEffects();
+    std::vector<AppliedForceEffect> &effects = defender.body.anatomyGraph[target].armor.getMaterialRef().getAppliedForceEffects();
     
     WoundCalculations woundCalcs(target);
     

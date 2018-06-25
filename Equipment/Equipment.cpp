@@ -92,27 +92,62 @@ Item::Item(const Item &other)
 }
 
 
+void Item::CalculateMaterialBonuses()
+{
+    
+    mass = material.getDensity() * size; //Density = mass * volume
+}
 
-std::string Item::getItemName()
+
+std::string Item::getItemName() const
 {
     return sEquipmentName;
 }
+
+
+
  
-sf::Vector2i Item::getPosition()
+sf::Vector2i Item::getPosition() const
 {
     return position;
 }
 
-float Item::getMass()
+float Item::getMass() const
 {
     return mass;
 }
 
-float Item::getSize()
+float Item::getSize() const
 {
     return size;
 }
 
+
+std::string Item::getSection() const
+{
+    return section;
+}
+
+Material Item::getMaterial() const
+{
+    return material;
+}
+
+Material &Item::getMaterialRef()  
+{
+    return material;
+}
+
+bool Item::getIsEquipped() const
+{
+    return isEquipped;
+}
+
+
+void Item::addSection(std::string value)
+{
+    sections.push_back(value);
+}
 
 void Item::setItemName(std::string value)
 {
@@ -126,11 +161,10 @@ void Item::setMaterial(Material value)
     
 }
 
-
-
 //For setting the position of the item when it's on the map
 void Item::setPosition(int x, int y)
 {
+    
     tile.setPosition(x, y);
     position.x = x;
     position.y = y;
@@ -146,18 +180,25 @@ void Item::setIsEquipped(bool _isEquipped)
 
 void Item::setMass(float _mass)
 {
+    if(mass < 0)
+        return;
+    
     mass = _mass;
 }
 
 void Item::setSize(float _size)
 {
-    size == _size;
+    if(size < 0)
+        return;
+    
+    size = _size;
 }
 
-bool Item::getIsEquipped()
+void Item::setSection(std::string _section)
 {
-    return isEquipped;
+    section = _section;
 }
+
 
 bool Item::isValidSection(std::string _section)
 {
@@ -170,11 +211,7 @@ bool Item::isValidSection(std::string _section)
     return false;
 }
 
-void Item::CalculateMaterialBonuses()
-{
-    
-    mass = material.getDensity() * size; //Density = mass * volume
-}
+
 
 
 

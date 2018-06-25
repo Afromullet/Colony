@@ -22,14 +22,24 @@ void InitializePlantMaterials();
 class Plant : public Resource
 {
     
+    
+    
 private:
+ 
+    friend class Tree;
+    
     float growthRate;
     float growthDuration;
     bool yieldSeeds;
     std::vector<std::string> biomeVec;
     
 public:
+    bool operator==(Plant &other) const;
+    bool operator!=(Plant &other) const;
+    void operator=(Plant &other);
+    
     Plant();
+    Plant(const Plant &other);
     
     
     void setGrowthRate(float rate);

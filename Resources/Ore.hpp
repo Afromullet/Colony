@@ -40,7 +40,12 @@ class Ore : public Resource
 private:
     EnOreType enOreType;
 public:
+    bool operator==(const Ore &other) const;
+    bool operator!=(const Ore &other) const;
+    void operator=(const Ore &other);
+    
     Ore();
+    Ore(const Ore &other);
     
     void setOreType(EnOreType type);
     

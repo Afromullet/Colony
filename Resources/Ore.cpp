@@ -22,6 +22,8 @@ int numGemResources = 0;
 
 
 
+
+
 void InitializeOreMaterials()
 {
     std::string matName;
@@ -65,13 +67,47 @@ void InitializeOreMaterials()
 }
 
 
+bool Ore::operator==(const Ore &other) const
+{
+    if(isRenewable == other.isRenewable && isEdible == other.isEdible && resourceCategory == other.resourceCategory && name == other.name && rarity == other.rarity && material == other.material)
+        return true;
+    
+    return false;
+}
+
+bool Ore::operator!=(const Ore &other) const
+{
+    return !(*this == other);
+    
+}
+
+void Ore::operator=(const Ore &other)
+{
+    isRenewable = other.isRenewable;
+    isEdible = other.isEdible;
+    resourceCategory = other.resourceCategory;
+    name = other.name;
+    rarity = other.rarity;
+    material = other.material;
+    enOreType = other.enOreType;
+}
 
 
 
-
-Ore::Ore()
+Ore::Ore() : Resource(false,enPlant,ERROR_STRING,50,true), enOreType(enErrorOreType)
 {
     
+}
+
+Ore::Ore(const Ore &other)
+{
+    isRenewable = other.isRenewable;
+    isEdible = other.isEdible;
+    resourceCategory = other.resourceCategory;
+    name = other.name;
+    rarity = other.rarity;
+    material = other.material;
+    enOreType = other.enOreType;
 }
 
 void Ore::setOreType(EnOreType type)

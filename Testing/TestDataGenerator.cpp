@@ -198,7 +198,7 @@ void GenerateTestEquipment()
     weapon.setItemName("TwoHandedWep");
     weapon.setRange(1);
     weapon.setDamage(10);
-    weapon.enWeaponSize = enLargeWeapon;
+    weapon.setWeaponSize(enLargeWeapon);
     tTwoHanded = weapon;
     
 
@@ -206,7 +206,7 @@ void GenerateTestEquipment()
     weapon.setItemName("OneHandedWep");
     weapon.setRange(1);
     weapon.setDamage(5);
-    weapon.enWeaponSize = enSmallWeapon;
+    weapon.setWeaponSize(enSmallWeapon);
     tOneHnaded = weapon;
     
 

@@ -99,11 +99,11 @@ void BodyPart::EquipArmor(Item *item)
         //if(item->getItemType() == enArmorType && canHoldArmor)
         {
             Armor *arm = dynamic_cast<Armor*>(item);
-            arm->isEquipped = true;
+            arm->setIsEquipped(true);
             armor = *arm;
             std::cout << "\n Equipped";
             
-            std::cout << "\n Equipment Name " << armor.sEquipmentName;
+            std::cout << "\n Equipment Name " << armor.getItemName();
         }
         
     }
@@ -113,7 +113,7 @@ void BodyPart::EquipWeapon(Item *item)
 {
     Weapon *wep = dynamic_cast<Weapon*>(item);
   //  std::cout << "\n Damage and range " << wep->getDamage() << ", " << wep->isRangedWeapon();
-    wep->isEquipped = true;
+    wep->setIsEquipped(true);
     weapon = *wep;
     
   //  std::cout << "\n Damage and range " << weapon.getDamage() << ", " << weapon.isRangedWeapon();
@@ -143,7 +143,7 @@ Weapon BodyPart::getWeapon()
 
 std::vector<AppliedForceEffect>& BodyPart::getArmorMaterialEffects()
 {
-    return armor.material.getAppliedForceEffects();
+    return armor.getMaterialRef().getAppliedForceEffects();
 }
 
 //Calculates the body parts size in units based on the total size passed as a parameter. RelativeSize is a percent
@@ -167,7 +167,7 @@ std::vector<AppliedForceEffect> BodyPart::ApplyAttack(AttackStats params)
 {
     
     std::vector<AppliedForceEffect> effects;
-    armor.material.PerformMaterialCalculations(params.force,params.contactArea,params.enAttackForceType,params.attackType);
+    armor.getMaterialRef().PerformMaterialCalculations(params.force,params.contactArea,params.enAttackForceType,params.attackType);
     effects = getArmorMaterialEffects();
     
     return effects;

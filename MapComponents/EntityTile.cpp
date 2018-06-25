@@ -25,7 +25,7 @@ bool EntityTile::operator!=(const EntityTile &other) const
     return !(*this == other);
 }
 
-/*
+
 void EntityTile::operator=(const EntityTile &other)
 {
     m_vertices = other.m_vertices;
@@ -34,11 +34,18 @@ void EntityTile::operator=(const EntityTile &other)
     width = other.width;
     height = other.height;
     entityTileID = other.entityTileID;
+    position = other.position;
+    tileSetString = other.tileSetString;
+    loadTile(tileSetString, tileSize, position);
+    
+    
+    
+    
 }
 
 
 
- 
+ /*
 
 
 EntityTile::EntityTile(const EntityTile &other)
@@ -50,20 +57,11 @@ EntityTile::EntityTile(const EntityTile &other)
     height = other.height;
     entityTileID = other.entityTileID;
 }
+ */
 
 
-EntityTile::EntityTile()
-{
-    entityTileID = EntityTile::entityTileIDCounter;
-    EntityTile::entityTileIDCounter++;
-    
-    width = ERROR_INPUT_NUMBER;
-    height = ERROR_INPUT_NUMBER;
-    tileSize.x = ERROR_INPUT_NUMBER;
-    tileSize.y = ERROR_INPUT_NUMBER;
-}
  
-  */
+ 
 
 //Need to draw a creature withn the bounds of a tile
 bool EntityTile::loadTile(const std::string& tileset, sf::Vector2i _tileSize, sf::Vector2i creaturePosition)
@@ -73,6 +71,11 @@ bool EntityTile::loadTile(const std::string& tileset, sf::Vector2i _tileSize, sf
         return false;
     
     tileSize = _tileSize;
+    
+    tileSetString = tileset;
+    
+    position.x = creaturePosition.x;
+    position.y = creaturePosition.y;
 
     // resize the vertex array to fit the level size
     m_vertices.setPrimitiveType(sf::Quads);

@@ -23,7 +23,7 @@ public:
     
     bool operator==(const EntityTile &other) const;
     bool operator!=(const EntityTile &other) const;
-   // void operator=(const EntityTile &other);
+    void operator=(const EntityTile &other);
     
     //EntityTile();
    // EntityTile(const EntityTile &other);
@@ -62,9 +62,11 @@ private:
     sf::VertexArray m_vertices; //Pairs of 4s = 1 Tile
     sf::Texture m_tileset;
     sf::Vector2i tileSize;
+    sf::Vector2i position;
     unsigned int width;
     unsigned int height;
     int entityTileID;
+    std::string tileSetString;
     
     
     

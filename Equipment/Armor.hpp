@@ -32,14 +32,16 @@ private:
 public:
     
     bool operator==(const Armor &other) const;
-    bool operator=(const Armor &other) ;
+    bool operator!=(const Armor &other) const;
+    void operator=(const Armor &other) ;
+    
    
     Armor(Material _material,std::string _sEquipmentName, short int _siArmorBonus, float _fDodgeModifier, float _fDamageReduction,float _fMovementModifier);
 
      Armor(std::string itemName);
     Armor(std::string itemName, std::string _section);
     
-    Armor(const Armor &armor);
+    Armor(const Armor &other);
 
     
     Armor();
@@ -55,42 +57,31 @@ public:
         return new Armor();
     }
     
-
     
-    /*
-    virtual Armor* clone() const
-    {
-        return new Armor(*this);
-    }
-     */
-   
+    std::string getItemExamineString() const;
+    void showItemStats() const;
+    
+    
+    void PrintArmorStatistics();
+
   
     
    
     //int getItemName();
-    short int siGetArmorBonus();
-    float fGetDodgeModifier();
-    float fGetDamageReduction();
-    float fGetMovementModifier();
-
-  
-    std::string getItemExamineString();
-    
-
+    short int siGetArmorBonus() const ;
+    float fGetDodgeModifier() const;
+    float fGetDamageReduction() const;
+    float fGetMovementModifier() const;
     
     void setArmorBonus(short int value);
     void setDodgeModifier(float value);
     void setDamageReduction(float value);
     void setMovementModifier(float value);
     void calculateMaterialBonuses();
-    
-    //void setItemName(int value);
     void setMaterial(Material value);
    
-
     
-    void PrintArmorStatistics();
-    void showItemStats();
+    
     
     
     

@@ -436,7 +436,7 @@ void CreatureBody::EquipWeapon(Item *item)
         Weapon *wep = dynamic_cast<Weapon*>(item);
     
  //   std::cout << "\n Damage and range " << wep->getDamage() << ", " << wep->isRangedWeapon();
-        if(wep->enWeaponSize == enLargeWeapon)
+        if(wep->getWeaponSize() == enLargeWeapon)
         {
             //Need at least two hands
             if(indices.size() < 2)

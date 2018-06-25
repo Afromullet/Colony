@@ -25,14 +25,16 @@ private:
     short int siRange;
     short int siDamage;
     int contactArea;
-
-  
-    
+    bool isTwohanded;
+    bool isRanged;
+    EnWeaponSize enWeaponSize;
     
     
 public:
     
     bool operator==(const Weapon &other) const;
+    bool operator!=(const Weapon &other) const;
+    void operator=(const Weapon &other);
     
     //todo getters and setters
     Weapon(Material _material, std::string _sEquipmentName, short int _siRange,
@@ -41,13 +43,8 @@ public:
     Weapon();
     
     Weapon(const Weapon &weapon);
-    Weapon(Weapon &weapon);
-    Weapon(std::string _itemname,std::string _section);
-    
-    bool isTwohanded;
-    bool isRanged;
-    EnWeaponSize enWeaponSize;
 
+    Weapon(std::string _itemname,std::string _section);
     
     //Once you get armor working, implement this just like you did with armor
     Weapon* clone() const
@@ -60,63 +57,26 @@ public:
         return new Weapon();
     }
     
-
     
-
-    
+    void showItemStats() const;
+    std::string getItemExamineString() const;
     void calculateMaterialBonuses();
     
-    short int getRange();
-    short int getDamage();
-    float getDamageModifier();
-   
-  
- 
-    bool isRangedWeapon();
     
+    short int getRange() const;
+    short int getDamage() const;
+    float getDamageModifier() const;
+    bool isRangedWeapon() const;
+    bool hasWeapon() const;
+    EnWeaponSize getWeaponSize() const;
     
-    std::string getItemExamineString();
-    
-    
-
-    //EnumBodyParts getBodyPart();
-    
-    
-   
-    
+    void setIsRanged(bool value);
     void setRange(short int value);
     void setDamage(short int value);
     //void setItemName(int value);
     void setMaterial(Material value);
+    void setWeaponSize(EnWeaponSize _size);
 
-
-
-    void showItemStats();
-    
-    
-    bool hasWeapon();
-    
-    
-    
-    
-   
-    void operator = (const Weapon &weapon ) {
-        siRange = weapon.siRange;
-        siDamage = weapon.siDamage;
-        
-     
-        material = weapon.material;
-        sEquipmentName = weapon.sEquipmentName;
-        position = weapon.position;
-        isRanged = weapon.isRanged;
-        
-        //inches = D.inches;
-    }
-    
-    
-    
-    
-    
 };
 
 
