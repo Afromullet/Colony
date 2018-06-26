@@ -22,6 +22,8 @@ struct WoundRule
     float requiredForceRatio;
 };
 
+
+
 #define FRACTURE_CHANCE 30
 #define RUPTURE_CHANCE 30
 #define DISMEMBER_CHANCE 30

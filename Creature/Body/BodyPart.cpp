@@ -38,12 +38,63 @@ std::ostream& operator<<(std::ostream& os, const BodyPart& bp)
     
 }
 
+
+
+bool BodyPart::operator==(BodyPart &other) const
+{
+    if(id == other.id && health == other.health && bodyPartToken == other.bodyPartToken && section == other.section && canHoldWeapon == other.canHoldWeapon && canHoldArmor == other.canHoldArmor && canInteract == other.canInteract)
+    {
+        if(canMoveCreature == other.canMoveCreature && canSee == other.canSee && canSmell == other.canSmell && canBreathe == other.canBreathe && isInternal == other.isInternal)
+            
+        {
+            if(relativeSize == other.relativeSize && tissues == other.tissues && bodyPartName == other.bodyPartName && wounds == other.wounds && armor == other.armor && weapon == other.weapon)
+            {
+                return true;
+            }
+        }
+    }
+}
+
+
+bool BodyPart::operator!=(BodyPart &other) const
+{
+    return !(*this == other);
+}
+
+
+void BodyPart::operator=(const BodyPart &other)
+{
+    id = other.id;
+    health = other.health;
+    bodyPartToken = other.bodyPartToken;
+    section = other.section;
+    canHoldWeapon = other.canHoldWeapon;
+    canHoldArmor = other.canHoldArmor;
+    canInteract = other.canInteract;
+    canMoveCreature = other.canMoveCreature;
+    canSee = other.canSee;
+    canSmell = other.canSmell;
+    canBreathe = other.canBreathe;
+    isInternal = other.isInternal;
+    
+    relativeSize = other.relativeSize;
+    tissues = other.tissues;
+    bodyPartName = other.bodyPartName;
+    wounds = other.wounds;
+    armor = other.armor;
+    weapon = other.weapon;
+ 
+}
+ 
+
 BodyPart::BodyPart() : armor(NO_ARMOR),weapon(NO_WEAPON)
 {
     canHoldArmor = true;
     canHoldWeapon = true;
 
     health = 1;
+    id = -1;
+    
     bodyPartName = "No part";
     
 }
@@ -62,31 +113,38 @@ BodyPart::BodyPart(std::string bptoken,std::string bpname) : bodyPartToken(bptok
 
 
 
-BodyPart::BodyPart(const BodyPart& bp)
+BodyPart::BodyPart(const BodyPart& other)
 {
-    health = bp.health;
+    id = other.id;
+    health = other.health;
+    bodyPartToken = other.bodyPartToken;
+    section = other.section;
+    canHoldWeapon = other.canHoldWeapon;
+    canHoldArmor = other.canHoldArmor;
+    canInteract = other.canInteract;
+    canMoveCreature = other.canMoveCreature;
+    canSee = other.canSee;
+    canSmell = other.canSmell;
+    canBreathe = other.canBreathe;
+    isInternal = other.isInternal;
     
-    canHoldWeapon = bp.canHoldWeapon;
-    canHoldArmor = bp.canHoldArmor;
-    canBreathe = bp.canBreathe;
-    canInteract = bp.canInteract;
-    canMoveCreature = bp.canMoveCreature;
-    canSmell = bp.canSmell;
     
-    
-    bodyPartName = bp.bodyPartName;
-    bodyPartToken = bp.bodyPartToken;
-    section = bp.section;
-    
-  
-    armor = bp.armor;
-    weapon = bp.weapon;
-    relativeSize = bp.relativeSize;
-    wounds = bp.wounds;
+    relativeSize = other.relativeSize;
+    tissues = other.tissues;
+    bodyPartName = other.bodyPartName;
+    wounds = other.wounds;
+    armor = other.armor;
+    weapon = other.weapon;
+     
    
     
 }
 
+
+void BodyPart::EquipItem(Item *item)
+{
+    
+}
 
 
 void BodyPart::EquipArmor(Item *item)
@@ -122,44 +180,9 @@ void BodyPart::EquipWeapon(Item *item)
 }
 
 
-
-
-
-int BodyPart::getHealth()
-{
-    return health;
-}
-
-
-Armor BodyPart::getArmor()
-{
-    return armor;
-}
-
-Weapon BodyPart::getWeapon()
-{
-    return weapon;
-}
-
-std::vector<AppliedForceEffect>& BodyPart::getArmorMaterialEffects()
-{
-    return armor.getMaterialRef().getAppliedForceEffects();
-}
-
-//Calculates the body parts size in units based on the total size passed as a parameter. RelativeSize is a percent
-float BodyPart::getBodyPartSize(float totalBodySize)
-{
-    return totalBodySize * relativeSize;
-}
-
 void BodyPart::ApplyDamage(int damage)
 {
     health -= damage;
-}
-bool BodyPart::hasWeapon()
-{
-    
-    //return true;
 }
 
 //Applies an attack to this body part
@@ -184,14 +207,230 @@ void BodyPart::ShowWounds()
     }
 }
 
+void BodyPart::ClearWounds()
+{
+    wounds.clear();
+}
+
+
+void BodyPart::setArmor(Armor val)
+{
+    armor = val;
+}
+
+void BodyPart::setWeapon(Weapon val)
+{
+    weapon = val;
+}
+
+void BodyPart::setHealth(int val)
+{
+    health = val;
+}
+
+void BodyPart::setArmorMaterialEffects(AppliedForceEffect val)
+{
+    
+}
+
+void BodyPart::setHasWeapon(bool val)
+{
+    //hasWeapon = val;
+}
+
+void BodyPart::setID(int val)
+{
+    id = val;
+}
+
+void BodyPart::setBodyPartToken(std::string val)
+{
+    bodyPartToken = val;
+}
+
+void BodyPart::setSection(std::string val)
+{
+    section = val;
+}
+
+void BodyPart::setCanHoldWeapon(bool val)
+{
+    canHoldWeapon = val;
+}
+
+void BodyPart::setCanHoldArmor(bool val)
+{
+    canHoldArmor = val;
+}
+
+void BodyPart::setCanInteract(bool val)
+{
+    canInteract = val;
+}
+
+void BodyPart::setCanMoveCreature(bool val)
+{
+    canMoveCreature = val;
+}
+
+void BodyPart::setCanSee(bool val)
+{
+    canSee = val;
+}
+
+void BodyPart::setCanSmell(bool val)
+{
+    canSmell = val;
+}
+
+void BodyPart::setCanBreathe(bool val)
+{
+    canBreathe = val;
+}
+
+void BodyPart::setIsInternal(bool val)
+{
+    isInternal = val;
+}
+
+void BodyPart::setRelativeSize(float val)
+{
+    if(relativeSize < 0)
+        return;
+    relativeSize = val;
+}
+
+void BodyPart::setBodyPartName(std::string val)
+{
+    bodyPartName = val;
+}
+
+
+
+
+
+int BodyPart::getHealth() const
+{
+    return health;
+}
+
+
+Armor BodyPart::getArmor() const
+{
+    return armor;
+}
+
+Weapon BodyPart::getWeapon() const
+{
+    return weapon;
+}
+
+Armor& BodyPart::getArmorRef()
+{
+    return armor;
+}
+
+
+Weapon& BodyPart::getWeaponRef()
+{
+    return weapon;
+}
+
+std::vector<AppliedForceEffect>& BodyPart::getArmorMaterialEffects()
+{
+    return armor.getMaterialRef().getAppliedForceEffects();
+}
+
+//Calculates the body parts size in units based on the total size passed as a parameter. RelativeSize is a percent
+float BodyPart::getBodyPartSize(float totalBodySize) const
+{
+    return totalBodySize * relativeSize;
+}
+
+
+bool BodyPart::hasWeapon() const
+{
+    
+    //return true;
+}
+
+
+int BodyPart::getID() const
+{
+    return id;
+}
+
+std::string BodyPart::getBodyPartToken() const
+{
+    return bodyPartToken;
+}
+
+std::string BodyPart::getSection() const
+{
+    return section;
+}
+
+bool BodyPart::getCanHoldWeapon() const
+{
+    return canHoldWeapon;
+    
+}
+
+bool BodyPart::getCanHoldArmor() const
+{
+    return canHoldArmor;
+}
+
+bool BodyPart::getCanInteract() const
+{
+    return canInteract;
+}
+
+bool BodyPart::getCanMoveCreature() const
+{
+    return canMoveCreature;
+}
+
+bool BodyPart::getCanSee() const
+{
+    return canSee;
+}
+
+bool BodyPart::getCanBreathe()const
+{
+    return canBreathe;
+}
+
+bool BodyPart::getCanSmell() const
+{
+    return canSmell;
+}
+
+bool BodyPart::getIsInternal() const
+{
+    return isInternal;
+}
+
+float BodyPart::getRelativeSize() const
+{
+    return relativeSize;
+}
+
+std::string BodyPart::getBodyPartName() const
+{
+    return bodyPartName;
+}
+
+
+std::vector<WoundType> BodyPart::getWounds() const
+{
+    return wounds;
+}
+
 void BodyPart::AddWound(WoundType woundType)
 {
     wounds.push_back(woundType);
 }
 
-void BodyPart::ClearWounds()
-{
-    wounds.clear();
-}
 
 

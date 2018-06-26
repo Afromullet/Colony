@@ -341,10 +341,10 @@ void BaseCreature::calculateAttackParameters()
     for(int i=0; i < verts.size(); i++)
     {
         
-        if(body.anatomyGraph[verts.at(i)].weapon == NO_WEAPON ||body.anatomyGraph[verts.at(i)].weapon == WEAPON_SLOT_FILLED)
+        if(body.anatomyGraph[verts.at(i)].getWeaponRef() == NO_WEAPON ||body.anatomyGraph[verts.at(i)].getWeaponRef() == WEAPON_SLOT_FILLED)
             continue;
-        attackStats.range = body.anatomyGraph[verts.at(i)].weapon.getRange();
-        attackStats.damage = body.anatomyGraph[verts.at(i)].weapon.getDamage();
+        attackStats.range = body.anatomyGraph[verts.at(i)].getWeaponRef().getRange();
+        attackStats.damage = body.anatomyGraph[verts.at(i)].getWeaponRef().getDamage();
         
         std::cout << "\nweapon damage " <<  attackStats.damage;
         
@@ -352,8 +352,8 @@ void BaseCreature::calculateAttackParameters()
         
         //A spear may have a range greater than 1, but it's not a ranged weapon, whcih is why that distinction is made
         
-        std::cout << "\n Is Ranged " << body.anatomyGraph[verts.at(i)].weapon.isRangedWeapon();
-        if(body.anatomyGraph[verts.at(i)].weapon.isRangedWeapon())
+        std::cout << "\n Is Ranged " << body.anatomyGraph[verts.at(i)].getWeaponRef().isRangedWeapon();
+        if(body.anatomyGraph[verts.at(i)].getWeaponRef().isRangedWeapon())
         {
             attackStats.attackValue = getRangedAttackValue();
             
@@ -366,8 +366,8 @@ void BaseCreature::calculateAttackParameters()
             
             attackStats.damage += getStrength();
             attackStats.isRangedAttack = false;
-            attackStats.force = CalculateMeleeAttackForce(body.anatomyGraph[verts.at(i)].weapon);
-            attackStats.contactArea = body.anatomyGraph[verts.at(i)].weapon.getSize(); //TODO get size based on attack type
+            attackStats.force = CalculateMeleeAttackForce(body.anatomyGraph[verts.at(i)].getWeaponRef());
+            attackStats.contactArea = body.anatomyGraph[verts.at(i)].getWeaponRef().getSize(); //TODO get size based on attack type
         }
         
        

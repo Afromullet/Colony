@@ -20,7 +20,7 @@ int GetVerticesWithToken(std::string bptoken, AnatomyGraph &graph)
     {
         
         
-        if(graph[i].bodyPartToken == bptoken)
+        if(graph[i].getBodyPartToken() == bptoken)
         {
             return i;
             
@@ -173,8 +173,8 @@ void printBodyGraphEdges(const AnatomyGraph &graph)
     AnatomyIndexMap indMap = get(vertex_index, graph); //Getting a proeprty map.
     for (boost::tie(ei, ei_end) = edges(graph); ei != ei_end; ++ei)
     {
-        std::cout << "(" << graph[source(*ei, graph)].bodyPartName
-        << "," << graph[target(*ei, graph)].bodyPartName << ") " << " ";
+        std::cout << "(" << graph[source(*ei, graph)].getBodyPartName()
+        << "," << graph[target(*ei, graph)].getBodyPartName() << ") " << " ";
         //printConnectionType(graph[*ei]);
         std::cout << "\n";
         
@@ -189,7 +189,7 @@ void printBodyGraphVertices(const AnatomyGraph &graph)
     
     for(boost::tie(vi,vi_end) = vertices(graph); vi != vi_end; ++vi)
     {
-        std::cout << graph[*vi].bodyPartName << "\n";
+        std::cout << graph[*vi].getBodyPartName() << "\n";
        // std::cout << graph[*vi].armor.getItemName();
         std::cout << graph[*vi] << "\n";
         
@@ -207,7 +207,7 @@ int getFirstUnequippedFromSection(const AnatomyGraph &graph,const std::string &s
     {
         
         
-        if(graph[indices.at(i)].armor.getItemName() == "No Armor")
+        if(graph[indices.at(i)].getArmor().getItemName() == "No Armor")
         {
             
             std::cout << "\n Returning " << i;
@@ -232,7 +232,7 @@ std::vector<int> getVerticesThatCanHoldWeapons(const AnatomyGraph &graph)
     {
       
        // std::cout << "\n BP name " <<  graph[indices.at(i)].bodyPartName<<"Can Hold weapon " << graph[indices.at(i)].canHoldWeapon;
-        if(graph[indices.at(i)].canHoldWeapon == true)
+        if(graph[indices.at(i)].getCanHoldWeapon() == true)
         {
          
             //Don't want to erase from the same array I am using

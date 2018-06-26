@@ -138,13 +138,13 @@ void CreatureBody::GenerateVertices()
             
             
             BodyPart bp(bptoken,bpname);
-            bp.relativeSize = relativeSize;
-            bp.canHoldArmor = holdsArmor;
-            bp.canHoldWeapon = holdsWeapon;
-            bp.canSmell = canSmell;
-            bp.canSee = canSee;
-            bp.section = section;
-            bp.armor = NO_ARMOR;
+            bp.setRelativeSize(relativeSize);
+            bp.setCanHoldArmor(holdsArmor);
+            bp.setCanHoldWeapon(holdsWeapon);
+            bp.setCanSmell(canSmell);
+            bp.setCanSee(canSee);
+            bp.setSection(section);
+            bp.setArmor(NO_ARMOR);
             
             
             
@@ -252,13 +252,13 @@ void CreatureBody::GenerateOrganVertices()
             
             
             BodyPart bp(bptoken,bpname);
-            bp.relativeSize = relativeSize;
-            bp.canHoldArmor = holdsArmor;
-            bp.canHoldWeapon = holdsWeapon;
-            bp.canSmell = canSmell;
-            bp.canSee = canSee;
-            bp.canBreathe = canBreathe;
-            bp.section = section;
+            bp.setRelativeSize(relativeSize);
+            bp.setCanHoldArmor(holdsArmor);
+            bp.setCanHoldWeapon(holdsWeapon);
+            bp.setCanSmell(canSmell);
+            bp.setCanSee(canSee);
+            bp.setSection(section);
+            bp.setArmor(NO_ARMOR);
             
             
             
@@ -462,7 +462,7 @@ void CreatureBody::EquipWeapon(Item *item)
         {
             for(int i = 0; i < indices.size(); i++)
             {
-                if(anatomyGraph[i].weapon == NO_WEAPON)
+                if(anatomyGraph[i].getWeaponRef() == NO_WEAPON)
                 {
                     anatomyGraph[indices.at(i)].EquipWeapon(item);
                     break;
@@ -515,15 +515,15 @@ void CreatureBody::PrintWounds()
     for(int i=0; i < num_vertices(anatomyGraph); i++)
     {
         
-        if(anatomyGraph[i].wounds.size() == 0)
+        if(anatomyGraph[i].getWounds().size() == 0)
             continue;
         
-        std::cout << "Body Part: " << anatomyGraph[i].bodyPartName << "\n";
-        for(int j=0; j < anatomyGraph[i].wounds.size(); j++)
+        std::cout << "Body Part: " << anatomyGraph[i].getBodyPartName() << "\n";
+        for(int j=0; j < anatomyGraph[i].getWounds().size(); j++)
         {
             
             std::cout << "Wound: ";
-            PrintWoundType(anatomyGraph[i].wounds.at(j));
+            PrintWoundType(anatomyGraph[i].getWounds().at(j));
             std::cout << "\n";
         
             

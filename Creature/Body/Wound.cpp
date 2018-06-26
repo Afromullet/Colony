@@ -98,10 +98,10 @@ std::vector<int> DetermineWoundTargets(int origin,AppliedForceEffect &effect, An
             {
     
                 tempTargets = getInternalVertices(origin,graph);
-                std::cout << "\n Origin: " << graph[origin].bodyPartName;
+                std::cout << "\n Origin: " << graph[origin].getBodyPartName();
                 for(int i =0; i < tempTargets.size(); i++)
                 {
-                    std::cout << "\n BP Name: " << graph[tempTargets.at(i)].bodyPartName;
+                    std::cout << "\n BP Name: " << graph[tempTargets.at(i)].getBodyPartName();
                 }
               
                 //Choose 1 random internal vertex connected to the origin

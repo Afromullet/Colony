@@ -26,7 +26,7 @@ public:
     }
     void discover_vertex(AnatomyVertex u, const AnatomyGraph & g) const
     {
-        if(g[u].section == searchSection)
+        if(g[u].getSection() == searchSection)
             anatomyVerts->push_back(u);
     }
     

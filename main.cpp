@@ -193,12 +193,12 @@ srand(time(NULL));
     player.body.EquipWeapon(&testWeapon);
     //printBodyGraphVertices(target.body.anatomyGraph);
     
-    
+    std::cout << "\n\n\n";
     for(int i =0; i < num_vertices(player.body.anatomyGraph); i++)
     {
-        std::cout << player.body.anatomyGraph[i].bodyPartName << "," << player.body.anatomyGraph[i].armor.getItemName() << "\n";
+        std::cout << player.body.anatomyGraph[i].getBodyPartName() << "," << player.body.anatomyGraph[i].getArmorRef().getItemName() << "\n";
         
-         std::cout << player.body.anatomyGraph[i].bodyPartName << "," << player.body.anatomyGraph[i].weapon.getItemName() << "\n";
+         std::cout << player.body.anatomyGraph[i].getBodyPartName() << "," << player.body.anatomyGraph[i].getWeaponRef().getItemName() << "\n";
     }
     
    
@@ -225,7 +225,7 @@ srand(time(NULL));
          Single_Attack_Melee(stats,target);
      
          target.body.PrintWounds();
-     
+     */
    
 
 
@@ -282,7 +282,7 @@ srand(time(NULL));
         
                
       
-*/
+
     
     Map mapstuff = *mapdata.map;
     

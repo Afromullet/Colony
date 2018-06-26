@@ -46,13 +46,6 @@ class BodyPart
     
 private:
     
-    
-public:
-    
-    
-    friend std::ostream& operator<<(std::ostream& os, const BodyPart& bp);
-    
-    //TODO make data fields private
     int id;
     int health;
     std::string bodyPartToken;
@@ -66,54 +59,92 @@ public:
     bool canBreathe;
     bool isInternal;
     float relativeSize; //How large this part is in relation to the whole body. A percent..I.E, .53 is 53%
-    std::vector<Tissue> tissues;
     
-    std::string bodyPartName;
+   
     std::vector<WoundType> wounds;
+    std::vector<Tissue> tissues;
+    std::string bodyPartName;
+    Armor armor;
+    Weapon weapon;
+    
+public:
     
     
+    friend std::ostream& operator<<(std::ostream& os, const BodyPart& bp);
     
+    //TODO make data fields private
     
+    bool operator==(BodyPart &other) const;
+    bool operator!=(BodyPart &other) const;
+    void operator=(const BodyPart &other);
+                    
     
     BodyPart();
     BodyPart(bool _canHoldWeapon, bool _canHoldArmor, bool _canInteract, bool _canMoveCreature,std::string _bodyPartName, int _health);
-    
-
-    
     BodyPart(std::string bptoken,std::string bpname);
-    
-    BodyPart(const BodyPart &bp);
+    BodyPart(const BodyPart &other);
   
     //Use a tree to represent body parts..Well, do that later, when we want to describe a hieracy of what body part is connected to what
-
-    Armor armor;
-    Weapon weapon;
-  
-    
     //Don't want a separate class for body parts that can equip weapons and armor, so just fill the data as determined
     //by the canHoldWeapon and canHoldArmor. The additional space used by Armor and Weapon for every creature that may not even be able to use them is worth managing everything more easily
     
     void EquipItem(Item *item);
-    
     void EquipArmor(Item *item);
     void EquipWeapon(Item *item);
 
-
-    Armor getArmor();
-    Weapon getWeapon();
-    int getHealth();
-    std::vector<AppliedForceEffect> &getArmorMaterialEffects();
-    float getBodyPartSize(float totalBodySize);
-    
-    void ApplyDamage(int damage);
-    
-    bool hasWeapon();
-    
-    void ShowWounds();
-    void AddWound(WoundType woundType);
-    void ClearWounds();
-    
     std::vector<AppliedForceEffect> ApplyAttack(AttackStats params);
+    void ApplyDamage(int damage);
+    void ShowWounds();
+    void ClearWounds();
+
+    void setArmor(Armor val) ;
+    void setWeapon(Weapon val) ;
+    void setHealth(int val) ;
+    void setArmorMaterialEffects(AppliedForceEffect val);
+    void setHasWeapon(bool val);
+    void setID(int val) ;
+    void setBodyPartToken(std::string val) ;
+    void setSection(std::string val) ;
+    void setCanHoldWeapon(bool val) ;
+    void setCanHoldArmor(bool val) ;
+    void setCanInteract(bool val) ;
+    void setCanMoveCreature(bool val) ;
+    void setCanSee(bool val) ;
+    void setCanSmell(bool val) ;
+    void setCanBreathe(bool val);
+    void setIsInternal(bool val) ;
+    void setRelativeSize(float val) ;
+    void setBodyPartName(std::string val) ;
+    
+    Armor getArmor() const;
+    Weapon getWeapon() const;
+    Armor &getArmorRef();
+    Weapon &getWeaponRef();
+    
+    int getHealth() const;
+    std::vector<AppliedForceEffect> &getArmorMaterialEffects();
+    float getBodyPartSize(float totalBodySize) const; //Not sure why I pass the totalbodysize here, will keep it like that for now
+    bool hasWeapon() const;
+    int getID() const;
+    std::string getBodyPartToken() const;
+    std::string getSection() const;
+    bool getCanHoldWeapon() const;
+    bool getCanHoldArmor() const;
+    bool getCanInteract() const;
+    bool getCanMoveCreature() const;
+    bool getCanSee() const;
+    bool getCanSmell() const;
+    bool getCanBreathe()const;
+    bool getIsInternal() const;
+    float getRelativeSize() const;
+    std::string getBodyPartName() const;
+    std::vector<WoundType> getWounds() const;
+    
+    
+    void AddWound(WoundType woundType);
+    
+    
+    
    
     
     
