@@ -54,8 +54,14 @@ private:
     bool woundEffectActive;
     
 public:
+    
+    bool operator==(WoundCalculations &other) const ;
+    bool operator!=(WoundCalculations &other) const;
+    void operator=(WoundCalculations &other);
+    
     WoundCalculations(int _origin);
     WoundCalculations();
+    WoundCalculations(const WoundCalculations &other);
     
     std::vector<int> ApplySlashingShearWound(AppliedForceEffect &effect,AnatomyGraph &graph);
     std::vector<int> ApplyPiercingShearWound(AppliedForceEffect &effect,AnatomyGraph &graph);

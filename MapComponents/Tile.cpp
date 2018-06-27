@@ -9,6 +9,8 @@
 #include "Tile.hpp"
 #include <iostream>
 
+
+
 Tile::Tile()
 {
     
@@ -25,24 +27,6 @@ Tile::Tile()
         //std::cout << "\nMov " << movementCost;
     
 }
-
-sf::VertexArray Tile::getTileVertices()
-{
-    return tileVertices;
-}
-
-sf::VertexArray& Tile::getTileVerticesRef()
-{
-    return tileVertices;
-}
-
-
-int Tile::getTileID()
-{
-    return TileID;
-}
-
-
 void Tile::ClearCreatureOnTile()
 {
     creature = NULL;
@@ -75,15 +59,9 @@ void Tile::setTileID(int tileTypeID)
     
 }
 
-
 void Tile::setCanHoldCreature(bool _canHoldCreature)
 {
     canHoldCreature = _canHoldCreature;
-}
-
-bool Tile::getCanHoldCreature()
-{
-    return canHoldCreature;
 }
 
 void Tile::SetTileTerrainType(TileTerrainType _tileTerrainType)
@@ -93,11 +71,17 @@ void Tile::SetTileTerrainType(TileTerrainType _tileTerrainType)
 
 void Tile::SetCreatureOnTile(BaseCreature *_creature)
 {
+    if(NULL == _creature)
+        return;
     creature = _creature;
 }
 
 void Tile::SetItemOnTile(Item *item)
+
 {
+    if(NULL == item)
+        return;
+    
     itemOnTile = item;
 }
 
@@ -111,7 +95,42 @@ void Tile::SetBiome(enBiomes _biome)
     EnBiome = _biome;
 }
 
-bool Tile::getHasFogOfWar()
+void Tile::setVisited(bool val)
+{
+    visited = val;
+}
+
+void Tile::setMovementCost(int val)
+{
+    movementCost = val;
+}
+
+void Tile::setElevation(double val)
+{
+    elevation = val;
+}
+
+void Tile::setMoisture(double val)
+{
+    moisture = val;
+}
+
+void Tile::setEnBiome(enBiomes val)
+{
+    EnBiome = val;
+}
+
+void Tile::setBiome(Biome val)
+{
+    biome = val;
+}
+
+void Tile::setIndex(int val)
+{
+    index = val;
+}
+
+bool Tile::getHasFogOfWar() const
 {
     return hasFogOfWar;
 }
@@ -122,16 +141,71 @@ BaseCreature* Tile::getCreatureOnTile()
     return creature;
 }
 
-Item* Tile::getItemOnTile()
+Item* Tile::getItemOnTile() 
 {
     return itemOnTile;
 }
 
-bool Tile::isCreatureOnTile()
+bool Tile::isCreatureOnTile() const
 {
     if(NULL == creature)
         return false;
     
     return true;
+    
+}
+
+bool Tile::getCanHoldCreature() const
+{
+    return canHoldCreature;
+}
+
+sf::VertexArray Tile::getTileVertices() const
+{
+    return tileVertices;
+}
+
+sf::VertexArray& Tile::getTileVerticesRef()
+{
+    return tileVertices;
+}
+
+
+int Tile::getTileID() const
+{
+    return TileID;
+}
+
+bool Tile::getVisited() const
+{
+    return visited;
+}
+
+int Tile::getMovementCost() const
+{
+    return movementCost;
+}
+
+double Tile::getElevation() const
+{
+    return elevation;
+}
+double Tile::getMoisture() const
+{
+    return moisture;
+}
+
+enBiomes Tile::getEnBiome() const
+{
+    return EnBiome;
+}
+
+Biome Tile::getBiome() const
+{
+    return biome;
+}
+
+int Tile::getIndex() const
+{
     
 }

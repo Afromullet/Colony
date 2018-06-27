@@ -36,19 +36,19 @@ void AttackCreature_Melee(BaseCreature &attacker,BaseCreature &defender)
     
     
     
-    for(int i = 0; i < attacker.attacks.size(); i++)
+    for(int i = 0; i < attacker.getAttacks().size(); i++)
     {
         int target = getRandomExternalBodyParts(defender.body.anatomyGraph);
         
-        if(!attacker.attacks.at(i).isRangedAttack)
+        if(!attacker.getAttacks().at(i).isRangedAttack)
         {
             
        
-            if(attacker.attacks.at(i).attackValue > defender.body.anatomyGraph[target].getArmor().siGetArmorBonus())
+            if(attacker.getAttacks().at(i).attackValue > defender.body.anatomyGraph[target].getArmor().siGetArmorBonus())
             {
                 std::cout << "\n Hit";
-                defender.body.anatomyGraph[target].ApplyDamage(attacker.attacks.at(i).damage);
-                defender.setTotalHealth(defender.getTotalHealth() - attacker.attacks.at(i).damage);
+                defender.body.anatomyGraph[target].ApplyDamage(attacker.getAttacks().at(i).damage);
+                defender.setTotalHealth(defender.getTotalHealth() - attacker.getAttacks().at(i).damage);
                 
             }
             else
@@ -76,28 +76,28 @@ void AttackCreature_Ranged(BaseCreature &attacker,BaseCreature &defender)
     
     
     
-    for(int i = 0; i < attacker.attacks.size(); i++)
+    for(int i = 0; i < attacker.getAttacks().size(); i++)
     {
         int target = getRandomExternalBodyParts(defender.body.anatomyGraph);
         
-         std::cout << "\n Weapon range " << attacker.attacks.at(i).range;
-        std::cout << "\n Is Ranged " << attacker.attacks.at(i).isRangedAttack;
+         std::cout << "\n Weapon range " << attacker.getAttacks().at(i).range;
+        std::cout << "\n Is Ranged " << attacker.getAttacks().at(i).isRangedAttack;
         
-        if(attacker.attacks.at(i).isRangedAttack)
+        if(attacker.getAttacks().at(i).isRangedAttack)
         {
             
            
-            if(attacker.attacks.at(i).range < distance)
+            if(attacker.getAttacks().at(i).range < distance)
             {
                 std::cout << "\n Target too far away";
                 continue;
             }
-            std::cout << "\n Attack Value, Armor Bonus: " << attacker.attacks.at(i).attackValue << "," << defender.body.anatomyGraph[target].getArmor().siGetArmorBonus();
-            if(attacker.attacks.at(i).attackValue > defender.body.anatomyGraph[target].getArmor().siGetArmorBonus())
+            std::cout << "\n Attack Value, Armor Bonus: " << attacker.getAttacks().at(i).attackValue << "," << defender.body.anatomyGraph[target].getArmor().siGetArmorBonus();
+            if(attacker.getAttacks().at(i).attackValue > defender.body.anatomyGraph[target].getArmor().siGetArmorBonus())
             {
                 std::cout << "\n Hit";
-                defender.body.anatomyGraph[target].ApplyDamage(attacker.attacks.at(i).damage);
-                defender.setTotalHealth(defender.getTotalHealth() - attacker.attacks.at(i).damage);
+                defender.body.anatomyGraph[target].ApplyDamage(attacker.getAttacks().at(i).damage);
+                defender.setTotalHealth(defender.getTotalHealth() - attacker.getAttacks().at(i).damage);
                 
             }
             else

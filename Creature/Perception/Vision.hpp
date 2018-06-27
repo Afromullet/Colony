@@ -21,26 +21,35 @@ private:
     sf::Vector2i origin; //Vision needs an origin point from which it is calculated.
     std::vector<sf::Vector2i> visionArea; //Need to define a set of basic shapes..The vision area are coordinates on a 2d grid (tile positions)
 public:
+    
+    
+    bool operator==(Vision &other) const;
+    bool operator!=(Vision &other) const;
+    bool operator=(Vision &other);
+    
+    
     Vision();
     Vision(sf::Vector2i _origin);
+    Vision(const Vision &other);
+    
+       void UpdateVision(Map &map,sf::Vector2i newOrigin); //If origin changes, vision area must also be updated
     
     
-    
-    
-    std::vector<Tile> getVisibleTiles(Map &map);
-    std::vector<BaseCreature> getVisibleCreatures(Map &map);
+    std::vector<Tile> getVisibleTiles(Map &map) const;
+    std::vector<BaseCreature> getVisibleCreatures(Map &map) const ;
     std::vector<Item*> getVisibleItems(Map &map);
-    std::vector<GridLocation> getVisibleItemLocation(Map &map);
-    std::vector<GridLocation> getVisibleCreatureLocation(Map &map);
-    std::vector<sf::Vector2i> getVisibleCoordinates(Map &map);
-    
-    
-    void UpdateVision(Map &map,sf::Vector2i newOrigin); //If origin changes, vision area must also be updated
-    
+    std::vector<GridLocation> getVisibleItemLocation(Map &map) const ;
+    std::vector<GridLocation> getVisibleCreatureLocation(Map &map) const ;
+    std::vector<sf::Vector2i> getVisibleCoordinates(Map &map) const ;
+    sf::Vector2i getOrigin() const ;
     
     void setOrigin(sf::Vector2i newOrigin);
+ 
     
-    sf::Vector2i getOrigin();
+    
+   
+    
+    
 };
 
 

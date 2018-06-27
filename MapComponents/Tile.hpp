@@ -14,6 +14,8 @@
 #include "Equipment.hpp"
 #include "Biomes.hpp"
 #include "Resource.hpp"
+#include <Memory>
+
 
 #ifndef Tile_hpp
 #define Tile_hpp
@@ -49,46 +51,59 @@ class Tile
 
 
 public:
-    Tile();
-     bool visited;
     
-    int index;
+    //bool operator==(const Tile &other);
+   // bool operator!=(const Tile &other);
+    //bool operator=(const Tile &other);
+    
+    Tile();
+  
+    
+    
+    void ClearCreatureOnTile();
     
     void SetTileVertices(int xOffset, int yOffset,sf::Vector2i tileSize);
-    sf::VertexArray getTileVertices();
-    sf::VertexArray& getTileVerticesRef();
     void setTileID(int tileTypeID);
     void setCanHoldCreature(bool _canHoldCreature);
-    int getTileID();
     void SetTileTerrainType(TileTerrainType _tileTerrainType);
     void SetCreatureOnTile(BaseCreature *_creature);
     void SetItemOnTile(Item *item);
     void SetBiome(enBiomes _biome);
+    void setFogOfWar(bool hasFog);
+    void setVisited(bool val);
+    void setMovementCost(int val);
+    void setElevation(double val);
+    void setMoisture(double val);
+    void setEnBiome(enBiomes val);
+    void setBiome(Biome val);
+    void setIndex(int val);
     
     BaseCreature* getCreatureOnTile();
-    
-    bool getCanHoldCreature();
+    int getTileID() const;
+    bool getCanHoldCreature() const;
     Item* getItemOnTile();
+    bool getHasFogOfWar() const;
+    bool isCreatureOnTile() const;
+    sf::VertexArray getTileVertices() const;
+    sf::VertexArray& getTileVerticesRef();
+    bool getVisited() const;
+    int getMovementCost() const;
+    double getElevation() const;
+    double getMoisture() const;
+    enBiomes getEnBiome() const;
+    Biome getBiome() const;
+    int getIndex() const;
+   
+    
+    
     
    
-    void ClearCreatureOnTile();
-    
-    void setFogOfWar(bool hasFog);
-    bool getHasFogOfWar();
     
     
-    bool isCreatureOnTile();
     
-    int movementCost;
+    
 
-   
-    double elevation;
-    double moisture;
-    enBiomes EnBiome;
-    Biome biome;
     
-
-   
     
     
     
@@ -100,12 +115,17 @@ private:
     BaseCreature *creature; //Holds info on the creature on the tile. Only one creature can be on a tile
     TileTerrainType enTileTerrainType;
     bool canHoldCreature; //Determines whether or not the tile can hold a creature
-    
+    int movementCost;
+    double elevation;
+    double moisture;
     bool hasFogOfWar;
- 
     sf::VertexArray tileVertices; //Pairs of 4s = 1 Tile,
-    
     Item *itemOnTile; //For now only allow one item to be on a tile.
+    enBiomes EnBiome;
+    Biome biome;
+   
+    int index;
+    bool visited;
    
 };
 

@@ -302,7 +302,7 @@ srand(time(NULL));
         {
             
             
-               tempText.setString(std::to_string(mapstuff.Map2D[i][j].index));
+               tempText.setString(std::to_string(mapstuff.Map2D[i][j].getIndex()));
                tempText.setPosition(i*fontSize*2, j*fontSize*2);
                 testStrings.push_back(tempText);
             
@@ -434,9 +434,9 @@ void GameLoop3()
         
     
       
-        player.vision.UpdateVision(*mapdata.map,player.getPosition());
-         std::vector<BaseCreature> visible =  player.vision.getVisibleCreatures(*mapdata.map);
-        player.vision.getVisibleItems(*mapdata.map);
+        player.getVision().UpdateVision(*mapdata.map,player.getPosition());
+         std::vector<BaseCreature> visible =  player.getVision().getVisibleCreatures(*mapdata.map);
+        player.getVision().getVisibleItems(*mapdata.map);
      
       
         DrawEverything(mapdata);

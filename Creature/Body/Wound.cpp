@@ -29,6 +29,8 @@ void SetupWoundRuleset()
  */
 
 
+
+
 //Determines what vertices are targetted by the wound. The appliedforceeffect determines how the damage propagates
 std::vector<int> DetermineWoundTargets(int origin,AppliedForceEffect &effect, AnatomyGraph &graph)
 {
@@ -197,6 +199,27 @@ void PrintWoundType(WoundType type)
 
 }
 
+
+bool WoundCalculations::operator==(WoundCalculations &other) const
+{
+    if(woundType == other.woundType && origin == other.origin && woundEffectActive == other.woundEffectActive)
+        return true;
+    
+    return false;
+}
+
+bool WoundCalculations::operator!=(WoundCalculations &other) const
+{
+    return !(*this == other);
+}
+
+void WoundCalculations::operator=(WoundCalculations &other)
+{
+    woundType = other.woundType;
+    origin = other.origin;
+    woundEffectActive = other.woundEffectActive;
+}
+
 WoundCalculations::WoundCalculations(int _origin) : origin(_origin)
 {
     
@@ -204,9 +227,16 @@ WoundCalculations::WoundCalculations(int _origin) : origin(_origin)
 
 WoundCalculations::WoundCalculations()
 {
+    origin = 0;
     
 }
 
+WoundCalculations::WoundCalculations(const WoundCalculations &other)
+{
+    woundType = other.woundType;
+    origin = other.origin;
+    woundEffectActive = other.woundEffectActive;
+}
 
 void WoundCalculations::ApplyWound(AppliedForceEffect &effect, AnatomyGraph &graph)
 {

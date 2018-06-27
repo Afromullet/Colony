@@ -53,33 +53,23 @@ private:
     short int charisma;
     short int moveSpeed; //Currently both x and y speed
     int totalHealth;
-    
-    
     sf::Vector2i position;
     std::list<Item*> creatureItems;
-    
     std::queue<sf::Vector2i> path; //A queue holding the path a creature walks
-    
+    Vision vision;
+    bool isAlive; //For testing
+    std::vector<AttackStats> attacks;
     
     
     
     
 public:
     
-    
-    
-    Vision vision;
     CreatureBody body;
-    std::vector<AttackStats> attacks;
+    
     
     BaseCreature();
 
-  
-    
-    
-
-   
-    
    // BaseCreature(const BaseCreature &creature);
     
     EntityTile creatureTile;
@@ -87,30 +77,8 @@ public:
     
     //TODO add some check to ensure the creature tile is initialized
     void loadCreatureTile(const std::string& tileset, int tileXSize,int tileYSize);
-    
-    //For calculating creature attributes and attacks
-   
+
     void CalculateTotalHealth();
-    
-    //Getters
-
-    short int getMeleeAttackValue();
-    short int getRangedAttackValue();
-    short int getStrength();
-    short int getAgility();
-    short int getAttackValue();
-    sf::Vector2i  getPosition();
-
-
-
-    
-    //Setters
-    void setPosition(short int x, short int y);
-    void setVelocity(int x, int y);
-    void setStrength(int _strength);
-    void setAgility(int _agility);
-    
-    
     //Movement related
     bool MoveCreature(int x, int y);
     
@@ -120,30 +88,37 @@ public:
     void PrintEquipment();
     void Equip(Item *item);
     void EquipItemFromInventory(int n); //Equips item number n from inventory, n being the position in the list
-    std::string GetItemInfo(int n);
+    
     void PickupItem(Map &map,std::list<Item*> &itemList);
-    std::list<Item*> getInventory();
-
-   
-    bool isAlive; //For testing
-    
-    //Combat related
     void AttackCreature(int attackBonus, int damage);
-    
     void AddToPath(sf::Vector2i point);
     void WalkPath(Map &map);
     void clearPath();
-    
-    
-
-    
-    void setTotalHealth(int _health);
-    int getTotalHealth();
-    
     void calculateAttackParameters();
     float CalculateMeleeAttackForce(Weapon &weapon);
     
+    
+    //Getters
 
+    short int getMeleeAttackValue()  const;
+    short int getRangedAttackValue() const;
+    short int getStrength() const;
+    short int getAgility() const;
+    short int getAttackValue() const;
+    sf::Vector2i  getPosition() const;
+    std::string GetItemInfo(int n) ;
+    int getTotalHealth() const;
+    std::list<Item*> getInventory();
+    Vision &getVision();
+    std::vector<AttackStats> &getAttacks();
+    
+    
+    //Setters
+    void setPosition(short int x, short int y);
+    void setVelocity(int x, int y);
+    void setStrength(int _strength);
+    void setAgility(int _agility);
+    void setTotalHealth(int _health);
 
     
 };

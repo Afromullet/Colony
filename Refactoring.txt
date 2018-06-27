@@ -43,6 +43,9 @@ List of refactored Parts
 
 14) Use constants where applicable
 
+15) Use shared and unique pointers where applicable
+
+
 Completed for:
 
 1)

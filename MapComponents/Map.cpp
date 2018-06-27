@@ -238,7 +238,7 @@ bool Map::Generate2DMap(sf::Vector2i _tileSize, unsigned int _width, unsigned in
             
             tempTile.SetTileVertices(i, j,tileSize);
             Map2D[i][j] = tempTile;
-            Map2D[i][j].index = ind;
+            Map2D[i][j].setIndex(ind);
             ind++;
             
             
@@ -476,7 +476,7 @@ void Map::ResetVisited()
     {
         for(int j = 0; j < height; j++)
         {
-            Map2D[i][j].visited = false;
+            Map2D[i][j].setVisited(false);
         }
     }
 }
@@ -637,7 +637,7 @@ void Map::InitializeTileIndices()
     for(int i=0; i<width; i++)
         for(int j = 0; j < height; i++)
         {
-            Map2D[i][j].index = ind;
+            Map2D[i][j].setIndex(ind);
             ind++;
         }
 }
@@ -648,7 +648,7 @@ sf::Vector2i Map::getCoordinates(int index)
     {
         for(int j = 0; j < height; j++)
         {
-            if(Map2D[i][j].index == index)
+            if(Map2D[i][j].getIndex() == index)
                 return sf::Vector2i(i,j);
         }
     }
@@ -682,7 +682,7 @@ Tile& Map::getByIndex(int index)
     {
         for(int j = 0; j < height; j++)
         {
-            if(Map2D[i][j].index == index)
+            if(Map2D[i][j].getIndex() == index)
                 return Map2D[i][j];
         }
     }
@@ -701,52 +701,52 @@ void Map::InitializeBiomeTemperatures()
         {
             
                         
-            if(Map2D[i][j].EnBiome == enTundraBiome || Map2D[i][j].EnBiome ==  enSnowMountainBiome
-               || Map2D[i][j].EnBiome == enSnowMountainBiome)
+            if(Map2D[i][j].getEnBiome() == enTundraBiome || Map2D[i][j].getEnBiome() ==  enSnowMountainBiome
+               || Map2D[i][j].getEnBiome() == enSnowMountainBiome)
             {
                 biome = findBiome("Tundra");
                 
               
             }
-            else if(Map2D[i][j].EnBiome == enDecidiousForestBiome)
+            else if(Map2D[i][j].getEnBiome() == enDecidiousForestBiome)
             {
                 biome = findBiome("Temperate Decidious Forest");
             }
-            else if(Map2D[i][j].EnBiome == enTemperateDesertBiome)
+            else if(Map2D[i][j].getEnBiome() == enTemperateDesertBiome)
             {
                 biome = findBiome("Temperate Desert");
             }
-            else if(Map2D[i][j].EnBiome == enShrublandBiome)
+            else if(Map2D[i][j].getEnBiome() == enShrublandBiome)
             {
                 biome = findBiome("Shrubland");
                
             }
-            else if(Map2D[i][j].EnBiome == enTaigaBiome)
+            else if(Map2D[i][j].getEnBiome() == enTaigaBiome)
             {
                 biome = findBiome("Taiga");
                 
             }
-            else if(Map2D[i][j].EnBiome == enGrasslandBiome)
+            else if(Map2D[i][j].getEnBiome() == enGrasslandBiome)
             {
                 biome = findBiome("Grassland");
                
             }
-            else if(Map2D[i][j].EnBiome == enTemperateRainForestBiome)
+            else if(Map2D[i][j].getEnBiome() == enTemperateRainForestBiome)
             {
                 biome = findBiome("Temperate Rainforest");
                 
             }
-            else if(Map2D[i][j].EnBiome == enSubtropicalDesertBiome)
+            else if(Map2D[i][j].getEnBiome() == enSubtropicalDesertBiome)
             {
                 biome = findBiome("Subtropical Desert");
                 
             }
-            else if(Map2D[i][j].EnBiome == enTropicalSeasonalForest)
+            else if(Map2D[i][j].getEnBiome() == enTropicalSeasonalForest)
             {
                 biome = findBiome("Tropical Seasonal Forest");
                 
             }
-            else if(Map2D[i][j].EnBiome == enTropicalRainForest)
+            else if(Map2D[i][j].getEnBiome() == enTropicalRainForest)
             {
                 biome = findBiome("Tropical Rainforest");
                
@@ -759,7 +759,7 @@ void Map::InitializeBiomeTemperatures()
             
           
             
-            Map2D[i][j].biome = biome;
+            Map2D[i][j].setBiome(biome);
 
             
                        

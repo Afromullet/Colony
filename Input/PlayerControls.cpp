@@ -330,7 +330,7 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
         {
             
             int x,y;
-            std::cout << "Enter x\n";
+            std::cout << "Enter x";
             std::cin >> x;
             std::cout << "Enter y;";
             std::cin >> y;
@@ -372,7 +372,7 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
          {
              
              
-             //creature.WalkPath(*mapdata.map);
+             creature.WalkPath(*mapdata.map);
              //movementAction.PerformAction();
              ///sBehavior.ExamineSurroundingTask(creature, *mapdata.map);
          }

@@ -72,8 +72,8 @@ void NoiseMap::GenerateNoiseValues()
             e = fabs(myNoise.GetNoise(i,j));
             m = fabs(myNoise2.GetNoise(i,j));
             
-            Map2D[i][j].elevation = e;
-            Map2D[i][j].moisture = m;
+            Map2D[i][j].setElevation(e);
+            Map2D[i][j].setMoisture(m);
              
              
 
@@ -109,28 +109,28 @@ void NoiseMap::SetBiomes()
             //double nx = (double)i/GetWidth() - 0.5, ny = j/GetHeight() - 0.5;
             double nx = i , ny = j;
             
-            if(Map2D[i][j].elevation < 0.1)
+            if(Map2D[i][j].getElevation() < 0.1)
             {
                 Map2D[i][j].setTileID(WATER_1_TILE);
                 Map2D[i][j].SetBiome(enWaterBiome);
                 
             }
-            else if(Map2D[i][j].elevation < 0.16)
+            else if(Map2D[i][j].getElevation() < 0.16)
             {
                 Map2D[i][j].setTileID(BEACH_1_SAND);
                 Map2D[i][j].SetBiome(enBeachBiome);
             }
             
-            else if(Map2D[i][j].elevation > 0.8)
+            else if(Map2D[i][j].getElevation() > 0.8)
             {
-                if(Map2D[i][j].moisture < 0.5)
+                if(Map2D[i][j].getMoisture() < 0.5)
                 {
                     Map2D[i][j].setTileID(TUNDRA_1_TILE);
                     Map2D[i][j].SetBiome(enTundraBiome);
                 }
                 else
                 {
-                    if(Map2D[i][j].elevation > 0.88)
+                    if(Map2D[i][j].getElevation() > 0.88)
                     {
                         Map2D[i][j].setTileID(SNOW_MOUNTAIN_1);
                         Map2D[i][j].SetBiome(enSnowMountainBiome); //Still a tundra for now
@@ -144,15 +144,15 @@ void NoiseMap::SetBiomes()
                 }
                 
             }
-            else if(Map2D[i][j].elevation > 0.6)
+            else if(Map2D[i][j].getElevation() > 0.6)
             {
                 
-                if(Map2D[i][j].moisture < 0.33)
+                if(Map2D[i][j].getMoisture() < 0.33)
                 {
                     Map2D[i][j].setTileID(DESERT_TILE_1); //Temperate desert/Cold Desert
                     Map2D[i][j].SetBiome(enTemperateDesertBiome);
                 }
-                else if(Map2D[i][j].moisture < 0.66)
+                else if(Map2D[i][j].getMoisture() < 0.66)
                 {
                     Map2D[i][j].setTileID(SHRUBLAND_1_TILE);
                     Map2D[i][j].SetBiome(enShrublandBiome);
@@ -165,21 +165,21 @@ void NoiseMap::SetBiomes()
                 
                 
             }
-            else if(Map2D[i][j].elevation > 0.3)
+            else if(Map2D[i][j].getElevation() > 0.3)
             {
-                if(Map2D[i][j].moisture < 0.16)
+                if(Map2D[i][j].getMoisture() < 0.16)
                 {
                     Map2D[i][j].setTileID(DESERT_TILE_1); //Temperate desert
                     Map2D[i][j].SetBiome(enTemperateDesertBiome);
                 }
-                else if(Map2D[i][j].moisture < 0.50)
+                else if(Map2D[i][j].getMoisture() < 0.50)
                 {
                     
                     Map2D[i][j].setTileID(FOREST_GRASS); //Grassland
                     Map2D[i][j].SetBiome(enGrasslandBiome);
                     
                 }
-                else if(Map2D[i][j].moisture < 0.83)
+                else if(Map2D[i][j].getMoisture() < 0.83)
                 {
                     Map2D[i][j].setTileID(TREE_3_TILE); //Temperate decidious forest/seasonal forest
                     Map2D[i][j].SetBiome(enDecidiousForestBiome);
@@ -190,17 +190,17 @@ void NoiseMap::SetBiomes()
                     Map2D[i][j].SetBiome(enTemperateRainForestBiome);
                 }
             }
-            else if(Map2D[i][j].moisture < 0.16)
+            else if(Map2D[i][j].getMoisture() < 0.16)
             {
                 Map2D[i][j].setTileID(DESERT_TILE_1); //Subtropical desert
                 Map2D[i][j].SetBiome(enSubtropicalDesertBiome);
             }
-            else if(Map2D[i][j].moisture < 0.33)
+            else if(Map2D[i][j].getMoisture() < 0.33)
             {
                 Map2D[i][j].setTileID(FOREST_GRASS); //Grassland
                 Map2D[i][j].SetBiome(enGrasslandBiome);
             }
-            else if(Map2D[i][j].moisture < 0.66)
+            else if(Map2D[i][j].getMoisture() < 0.66)
             {
                 Map2D[i][j].setTileID(TREE_1_TILE); //Tropical seasonal forest
                 Map2D[i][j].SetBiome(enTropicalSeasonalForest);

@@ -90,7 +90,6 @@ private:
     std::vector<std::string> bodyTokenList;
     float bodySize;
     
-    
 public:
     
     AnatomyGraph anatomyGraph;
@@ -101,20 +100,14 @@ public:
     void GenerateOrganVertices();
     void GenerateEdges();
     void GenerateOrganEdges();
-    
-    
     void InitializeBodypartEquipment();
-    
-    
     
     void load();
     void openBodyTypeFile(const std::string &fileName);
     void readBodyTokenList();
     int convertTruthValue(std::string truthVal);
-    
     void EquipArmor(Item *item);
     void EquipWeapon(Item *item);
-    
     void ApplyAttack(AttackStats attackStats, int n);
     void PrintWounds();
     

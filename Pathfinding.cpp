@@ -162,7 +162,7 @@ std::map<GridLocation,GridLocation> aStarSearch(Map &map, GridLocation start, Gr
             curLocation.x = current.x;
             curLocation.y = current.y;
             //int newCost = costSoFar[curLocation] + 1;//map.Map2D[current.x][current.y].movementCost;
-             int newCost = costSoFar[curLocation] + map.Map2D[current.x][current.y].movementCost;
+             int newCost = costSoFar[curLocation] + map.Map2D[current.x][current.y].getMovementCost();
             
             
             
