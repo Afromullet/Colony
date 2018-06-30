@@ -7,10 +7,10 @@
 //
 
 
-#include "BaseCreature.hpp"
+
 #ifndef AttackHandler_hpp
 #define AttackHandler_hpp
-
+#include "BaseCreature.hpp"
 #include <stdio.h>
 
 void Single_Attack_Melee(AttackStats attack, BaseCreature &defender);

@@ -1,0 +1,5 @@
+<map id="FastNoise::CalculateFractalBounding" name="FastNoise::CalculateFractalBounding">
+<area shape="rect" id="node2" href="$class_fast_noise.html#abe90bb52b45e18122d109dcb4b7fa987" title="FastNoise::FastNoise" alt="" coords="263,5,412,31"/>
+<area shape="rect" id="node3" href="$class_fast_noise.html#a7c7254a79a239e8014fd0078cee007dd" title="FastNoise::SetFractalOctaves" alt="" coords="238,55,437,80"/>
+<area shape="rect" id="node4" href="$class_fast_noise.html#abbd1dd9839957f18f5eaf8b2b61610ac" title="FastNoise::SetFractalGain" alt="" coords="249,104,426,129"/>
+</map>

@@ -6,21 +6,21 @@
 //  Copyright © 2017 Afromullet. All rights reserved.
 //
 
-#include <stdio.h>
-#include <SFML/Graphics.hpp>
-#include <string>
-#include "EnumTypes.hpp"
-#include "BaseCreature.hpp"
-#include "Equipment.hpp"
-#include "Biomes.hpp"
-#include "Resource.hpp"
-#include <Memory>
+
 
 
 #ifndef Tile_hpp
 #define Tile_hpp
 
+//#include "EnumTypes.hpp"
+#include "BaseCreature.hpp"
+#include "Biomes.hpp"
+#include "Equipment.hpp"
 
+
+#include <stdio.h>
+#include <string>
+#include <memory>
 
 /*
  
@@ -42,6 +42,8 @@
 #define TOP_LEFT 1
 #define TOP_RIGHT 2
 #define BOTTOM_RIGHT 3
+
+
 
 class BaseCreature;
 class Tile
@@ -121,6 +123,8 @@ private:
     bool hasFogOfWar;
     sf::VertexArray tileVertices; //Pairs of 4s = 1 Tile,
     Item *itemOnTile; //For now only allow one item to be on a tile.
+    
+    
     enBiomes EnBiome;
     Biome biome;
    

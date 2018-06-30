@@ -1,0 +1,4 @@
+<map id="FastNoise::GradCoord3D" name="FastNoise::GradCoord3D">
+<area shape="rect" id="node2" href="$class_fast_noise.html#a93f68e6b4d364be7359076d5c7f19313" title="FastNoise::SinglePerlin" alt="" coords="232,5,392,31"/>
+<area shape="rect" id="node3" href="$class_fast_noise.html#a5e40c643992d4099dbe7f0a5be6460e7" title="FastNoise::SingleSimplex" alt="" coords="225,55,398,80"/>
+</map>

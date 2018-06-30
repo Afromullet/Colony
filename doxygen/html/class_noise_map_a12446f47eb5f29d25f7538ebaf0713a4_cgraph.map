@@ -1,0 +1,4 @@
+<map id="NoiseMap::SetBiomes" name="NoiseMap::SetBiomes">
+<area shape="rect" id="node2" href="$class_map.html#a1e9263abe2e1290fc383586c327f9f4a" title="Map::GetWidth" alt="" coords="209,5,319,31"/>
+<area shape="rect" id="node3" href="$class_map.html#a5181eaa96c1d125523a2b16d0643bbd5" title="Map::GetHeight" alt="" coords="207,55,321,80"/>
+</map>

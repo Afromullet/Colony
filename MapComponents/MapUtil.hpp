@@ -6,13 +6,13 @@
 //  Copyright © 2017 Afromullet. All rights reserved.
 //
 
-#include "Map.hpp"
 
 #ifndef MapUtil_hpp
 #define MapUtil_hpp
 
 #include <stdio.h>
 
+#include "Map.hpp"
 
 
 

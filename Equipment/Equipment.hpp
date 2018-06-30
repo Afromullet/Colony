@@ -6,16 +6,16 @@
 //  Copyright © 2017 Afromullet. All rights reserved.
 //
 
+
+#ifndef Equipment_hpp
+#define Equipment_hpp
+
 #include <stdio.h>
 #include <string>
 #include <iostream>
 #include "EnumTypes.hpp"
 #include "EntityTile.hpp"
 #include "Material.hpp"
-
-
-#ifndef Equipment_hpp
-#define Equipment_hpp
 
 
 
@@ -66,10 +66,16 @@ public:
     Item();
     Item(const Item &other);
     
+    
+    virtual ~Item(){}
     virtual Item *clone() const = 0;
     virtual Item *create() const  = 0;
+    
     virtual void showItemStats() const = 0;
     virtual std::string getItemExamineString() const = 0;
+    
+
+    
 
     
     void CalculateMaterialBonuses();

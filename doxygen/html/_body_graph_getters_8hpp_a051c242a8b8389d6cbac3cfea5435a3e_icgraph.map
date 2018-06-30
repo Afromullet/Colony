@@ -1,0 +1,7 @@
+<map id="getVerticesThatCanHoldWeapons" name="getVerticesThatCanHoldWeapons">
+<area shape="rect" id="node2" href="$class_base_creature.html#a389d8ae4c4caa2d7c55939bef70935a8" title="BaseCreature::calculateAttack\lParameters" alt="" coords="275,44,476,83"/>
+<area shape="rect" id="node5" href="$class_creature_body.html#af329b825db569100370683f7a9b0263c" title="CreatureBody::EquipWeapon" alt="" coords="278,107,473,132"/>
+<area shape="rect" id="node3" href="$_attack_handler_8hpp.html#a3164db07a547600173ea625622ab873a" title="AttackCreature_Melee" alt="" coords="529,5,683,31"/>
+<area shape="rect" id="node4" href="$_attack_handler_8hpp.html#a3aea8e07a4017771a55d93e168930068" title="AttackCreature_Ranged" alt="" coords="524,55,688,80"/>
+<area shape="rect" id="node6" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="581,107,631,132"/>
+</map>

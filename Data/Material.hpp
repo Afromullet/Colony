@@ -11,8 +11,10 @@
 
 #include <stdio.h>
 #include <string>
-#include "EnumTypes.hpp"
 #include <vector>
+
+#include "EnumTypes.hpp"
+
 
 //Inspired by Dwarf Fortress
 //Not an accurate representation of material science...

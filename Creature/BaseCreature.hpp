@@ -7,19 +7,18 @@
 //
 
 
-#include <stdio.h>
-#include <list>
-#include <Unordered_Map>
-#include "BodyPart.hpp"
-#include "EnumTypes.hpp"
+
+
 
 
 #ifndef AbstractCreature_hpp
 #define AbstractCreature_hpp
+#include <stdio.h>
+#include <list>
+#include <Unordered_Map>
 
-
-
-#include "Map.hpp"
+#include "BodyPart.hpp"
+#include "EnumTypes.hpp"
 #include "Vision.hpp"
 #include <queue>
 #include "Pathfinding.hpp"

@@ -1,0 +1,8 @@
+<map id="AttackBodyPart" name="AttackBodyPart">
+<area shape="rect" id="node2" href="$class_wound_calculations.html#a8143ba01702cf1a1072d17ee7deab4e0" title="WoundCalculations::\lApplyWound" alt="" coords="167,68,310,107"/>
+<area shape="rect" id="node3" href="$class_wound_calculations.html#ae0e649e97591c6a6b28d6a4ff7e0324e" title="WoundCalculations::\lApplySlashingShearWound" alt="" coords="358,5,541,44"/>
+<area shape="rect" id="node6" href="$class_wound_calculations.html#ac763bba5d770b968ab68532b974d878d" title="WoundCalculations::\lApplyPiercingShearWound" alt="" coords="359,68,540,107"/>
+<area shape="rect" id="node7" href="$class_wound_calculations.html#a645dc9bb6dfc7d5fc20fc8e8b91fd430" title="WoundCalculations::\lApplyImpactWound" alt="" coords="378,131,521,169"/>
+<area shape="rect" id="node4" href="$_wound_8cpp.html#aaad24d5891076a31900647e4b5c0ab23" title="DetermineWoundTargets" alt="" coords="589,75,758,100"/>
+<area shape="rect" id="node5" href="$_body_graph_getters_8cpp.html#a68cd613cd5c568f481c313a533b27216" title="getInternalVertices" alt="" coords="806,75,938,100"/>
+</map>

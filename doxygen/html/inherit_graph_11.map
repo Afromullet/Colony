@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node2" href="$class_data_window.html" title="DataWindow" alt="" coords="160,5,257,31"/>
+<area shape="rect" id="node3" href="$class_entity_tile.html" title="EntityTile" alt="" coords="171,55,246,80"/>
+<area shape="rect" id="node4" href="$class_map.html" title="Map" alt="" coords="185,104,232,129"/>
+<area shape="rect" id="node5" href="$class_c_a___map.html" title="CA_Map" alt="" coords="309,79,382,104"/>
+<area shape="rect" id="node6" href="$class_noise_map.html" title="NoiseMap" alt="" coords="305,128,386,153"/>
+</map>

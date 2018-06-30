@@ -1,0 +1,7 @@
+<map id="DataWindow::initBasicHighlightSquare" name="DataWindow::initBasicHighlightSquare">
+<area shape="rect" id="node2" href="$class_window_commands.html#a1c45c8c693e631b581eeb355176a49e7" title="WindowCommands::handleSub\lWindowAction" alt="" coords="259,5,467,44"/>
+<area shape="rect" id="node3" href="$class_window_commands.html#ac4a64479853dfa15653a7690403815b7" title="WindowCommands::handleMain\lWindowAction" alt="" coords="515,5,729,44"/>
+<area shape="rect" id="node4" href="$_player_controls_8hpp.html#a2fbf8484c8a051b724315afd0f442465" title="HandlePlayerInput" alt="" coords="777,12,908,37"/>
+<area shape="rect" id="node5" href="$main_8cpp.html#ab8ef98eaa887a3be4bb916cdde45b3d1" title="GameLoop3" alt="" coords="956,12,1050,37"/>
+<area shape="rect" id="node6" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="1098,12,1149,37"/>
+</map>

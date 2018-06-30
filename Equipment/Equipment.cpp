@@ -53,6 +53,7 @@ void Item::operator=(const Item &other)
     section = other.section;
 }
 
+
 Item::Item(Material _material, std::string _sEquipmentName): material(_material),sEquipmentName(_sEquipmentName),isEquipped(false)
 {
     
@@ -90,6 +91,8 @@ Item::Item(const Item &other)
     sections = other.sections;
     section = other.section;
 }
+
+
 
 
 void Item::CalculateMaterialBonuses()

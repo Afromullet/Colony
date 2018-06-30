@@ -1,0 +1,7 @@
+<map id="EntityTile::loadTile" name="EntityTile::loadTile">
+<area shape="rect" id="node2" href="$class_base_creature.html#af2066b8eb62bf595d30feae6671e4495" title="BaseCreature::loadCreatureTile" alt="" coords="183,5,392,31"/>
+<area shape="rect" id="node6" href="$class_entity_tile.html#a81dbf6b294b80d6edcc830a243cdfae8" title="EntityTile::operator=" alt="" coords="217,55,357,80"/>
+<area shape="rect" id="node3" href="$main_8cpp.html#ab5227b073ad87fc30322650e123e0055" title="SetupGameData" alt="" coords="645,5,765,31"/>
+<area shape="rect" id="node5" href="$_test_data_generator_8hpp.html#a53822655f44ed7b8d6e0b8e01b996b5a" title="InitializeCreatureTypes" alt="" coords="440,31,597,56"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="813,5,864,31"/>
+</map>

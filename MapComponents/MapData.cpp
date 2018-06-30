@@ -13,6 +13,11 @@ MapData::MapData()
     
 }
 
+MapData::MapData(MapData &other)
+{
+    
+}
+
 void MapData::DrawCreaturesOnMap()
 {
     std::list<BaseCreature>::iterator iter;
@@ -57,6 +62,11 @@ void MapData::RemoveDeadCreature()
 void MapData::AddItemToMap(Item *item)
 {
     itemsOnMap.push_back(item);
+}
+
+void MapData::AddItemToMap(std::unique_ptr<Item> item)
+{
+    items.push_back(std::move(item));
 }
 
 void MapData::AddCreatureToMap(BaseCreature creature)

@@ -1,0 +1,3 @@
+<map id="Armor" name="Armor">
+<area shape="rect" id="node2" href="$class_item.html" title="{Item\n|+ itemTile\l+ tile\l+ sections\l&#45; position\l&#45; size\l&#45; mass\l&#45; section\l&#45; material\l&#45; sEquipmentName\l&#45; isEquipped\l|+ operator==()\l+ operator!=()\l+ operator=()\l+ Item()\l+ Item()\l+ Item()\l+ Item()\l+ Item()\l+ ~Item()\l+ clone()\land 22 more...\l}" alt="" coords="9,5,145,332"/>
+</map>

@@ -5,11 +5,11 @@
 //  Created by Sean on 6/3/18.
 //  Copyright © 2018 Afromullet. All rights reserved.
 //
-#include "Resource.hpp"
 #ifndef Ore_hpp
 #define Ore_hpp
 
 #include <stdio.h>
+#include "Resource.hpp"
 
 
 enum EnOreType{enGemOre,enStoneOre,enMetalOre,enErrorOreType};

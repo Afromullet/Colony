@@ -7,7 +7,7 @@
 //
 
 #include "Weapon.hpp"
-#include "ErrorConstants.hpp"
+
 
 bool Weapon::operator==(const Weapon &other) const
 {
@@ -93,6 +93,13 @@ Weapon::Weapon(const Weapon &weapon)
     section = weapon.section;
     material = weapon.material;
     isEquipped = weapon.isEquipped;
+}
+
+
+
+Weapon::~Weapon()
+{
+    
 }
 
 

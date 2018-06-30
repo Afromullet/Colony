@@ -1,0 +1,7 @@
+<map id="FastNoise::SingleValue" name="FastNoise::SingleValue">
+<area shape="rect" id="node2" href="$class_fast_noise.html#a0d9b7a6858a599cde4dc5b8f74264ae0" title="FastNoise::GetNoise" alt="" coords="254,5,398,31"/>
+<area shape="rect" id="node3" href="$class_fast_noise.html#a9189fa5c0fa9d9871290ade57dabe022" title="FastNoise::SingleValueFractalFBM" alt="" coords="212,55,440,80"/>
+<area shape="rect" id="node4" href="$class_fast_noise.html#ac2534a36b0dfb1c6337a512787511754" title="FastNoise::SingleValueFractal\lBillow" alt="" coords="226,104,426,143"/>
+<area shape="rect" id="node5" href="$class_fast_noise.html#a252117bcf7130247e06fa0bd1695c41e" title="FastNoise::SingleValueFractal\lRigidMulti" alt="" coords="226,167,426,205"/>
+<area shape="rect" id="node6" href="$class_fast_noise.html#ab2424cc7921a15da6eb683ab3bbfcbac" title="FastNoise::GetValue" alt="" coords="255,229,398,255"/>
+</map>

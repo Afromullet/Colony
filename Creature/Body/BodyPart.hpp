@@ -7,6 +7,11 @@
 //
 
 #include <stdio.h>
+
+
+#ifndef BodyPart_hpp
+#define BodyPart_hpp
+
 #include "Weapon.hpp"
 #include "Armor.hpp"
 
@@ -14,11 +19,6 @@
 #include <string>
 #include <vector>
 #include "Tissue.hpp"
-
-#ifndef BodyPart_hpp
-#define BodyPart_hpp
-
-
 
 
 

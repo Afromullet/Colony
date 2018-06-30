@@ -6,14 +6,14 @@
 //  Copyright © 2017 Afromullet. All rights reserved.
 //
 
-#include <stdio.h>
-#include "Equipment.hpp"
 
 
 #ifndef Weapon_hpp
 #define Weapon_hpp
 
 
+#include <stdio.h>
+#include "Equipment.hpp"
 
 enum EnWeaponSize{enSmallWeapon,enMediumWeapon,enLargeWeapon};
 
@@ -41,10 +41,12 @@ public:
    short int _siDamage);
     
     Weapon();
-    
     Weapon(const Weapon &weapon);
-
+    
     Weapon(std::string _itemname,std::string _section);
+    
+    ~Weapon();
+    
     
     //Once you get armor working, implement this just like you did with armor
     Weapon* clone() const

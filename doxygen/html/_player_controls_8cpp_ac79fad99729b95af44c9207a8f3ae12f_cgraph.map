@@ -1,0 +1,10 @@
+<map id="InitializeInventoryWindow" name="InitializeInventoryWindow">
+<area shape="rect" id="node2" href="$class_data_window.html#ab28e270817e9cdc56c78d9723c485d8f" title="DataWindow::setWindowPosition" alt="" coords="238,5,455,31"/>
+<area shape="rect" id="node3" href="$class_data_window.html#af883ff10816a9ad49b7b794c3e9f8f92" title="DataWindow::setWindowSize" alt="" coords="248,55,444,80"/>
+<area shape="rect" id="node4" href="$class_data_window.html#a66d08b9e2df3b4960fe4e030aabf61be" title="DataWindow::setFont" alt="" coords="272,104,421,129"/>
+<area shape="rect" id="node5" href="$class_data_window.html#aa9fe53356b3989e0781a13a03814aaac" title="DataWindow::setTextSize" alt="" coords="260,153,432,179"/>
+<area shape="rect" id="node6" href="$class_data_window.html#acd1f484d18f8f32d419d23e05e89ea31" title="DataWindow::setWindowType" alt="" coords="247,203,445,228"/>
+<area shape="rect" id="node7" href="$class_data_window.html#ab06d2ddf751a472f8f2305084f572a4b" title="DataWindow::setWindowColor" alt="" coords="245,252,447,277"/>
+<area shape="rect" id="node8" href="$class_data_window.html#a0e57ffff01c3dad8282f9768a3c9e949" title="DataWindow::AddSubWindow" alt="" coords="247,301,446,327"/>
+<area shape="rect" id="node9" href="$class_window_commands.html#ace8d243ff05f6535d2c6fe5bff6e5517" title="WindowCommands::addDataWindow" alt="" coords="225,351,467,376"/>
+</map>

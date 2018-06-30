@@ -8,17 +8,20 @@
 
 
 
-#include <stdio.h>
+
 #include "Tile.hpp"
-#include <unordered_map>
-#include "MapEffect.hpp"
-#include "DataStorage.hpp"
+
+
+
 
 
 #ifndef Map_hpp
 #define Map_hpp
+#include <unordered_map>
+#include <stdio.h>
 
-
+#include "MapEffect.hpp"
+#include "DataStorage.hpp"
 //Groups tile vertices by a tile ID
 //Todo make vertexarray a reference so we do not contain the vertices twice
 typedef struct MapTileParameters

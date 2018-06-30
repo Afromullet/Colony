@@ -1,39 +1,13 @@
 List of refactored Parts
 
-1) Improve Constructors. For every class -
-    Create copy constructors
-    Assignment operators
-
-    Constructor for various cases of instaniating the class
-
-    Handle invalid input
-
-2) Function improvement
-
-    Invalid input checking - wherever necessary
-    Determine whether it can be broken apart
-
-3)    Overload operators when necessary
-        Equality
-        !=
-        <
-        >
 
 
-4) Memory management
 
-5) Reduce STL usage
-    Use arrays when vectors are not necessary
 
-6) Change to private datatypes where applicable, along with other access modifiers
-
-7)  Get rid of enums when applicable
-
-8) For when you still need to use STL, use iterators rather than size() i++
 
 9) Write down things you may want to handle differently
 
-10) Destructors
+
 
 11) Need to manage all items and creature in the world a better way
 

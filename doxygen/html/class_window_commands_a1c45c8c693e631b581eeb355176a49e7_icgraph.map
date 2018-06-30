@@ -1,0 +1,6 @@
+<map id="WindowCommands::handleSubWindowAction" name="WindowCommands::handleSubWindowAction">
+<area shape="rect" id="node2" href="$class_window_commands.html#ac4a64479853dfa15653a7690403815b7" title="WindowCommands::handleMain\lWindowAction" alt="" coords="261,5,475,44"/>
+<area shape="rect" id="node3" href="$_player_controls_8hpp.html#a2fbf8484c8a051b724315afd0f442465" title="HandlePlayerInput" alt="" coords="523,12,654,37"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#ab8ef98eaa887a3be4bb916cdde45b3d1" title="GameLoop3" alt="" coords="702,12,796,37"/>
+<area shape="rect" id="node5" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="844,12,895,37"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="CA_Map::PlacementTest" name="CA_Map::PlacementTest">
+<area shape="rect" id="node2" href="$class_c_a___map.html#ad57529f17a77b590fe93839c4b8bd5f9" title="CA_Map::GetLivingNeighbors" alt="" coords="221,5,419,31"/>
+<area shape="rect" id="node3" href="$class_c_a___map.html#a990656963de9c40138ae4babe0c3c28c" title="CA_Map::CreateRoom" alt="" coords="242,55,398,80"/>
+<area shape="rect" id="node4" href="$class_map.html#aaf32aa299155bde102ea974acee38b3d" title="Map::isInBounds" alt="" coords="467,55,588,80"/>
+</map>

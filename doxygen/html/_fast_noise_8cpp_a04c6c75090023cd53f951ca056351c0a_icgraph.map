@@ -1,0 +1,12 @@
+<map id="FastAbs" name="FastAbs">
+<area shape="rect" id="node2" href="$class_fast_noise.html#ac2534a36b0dfb1c6337a512787511754" title="FastNoise::SingleValueFractal\lBillow" alt="" coords="129,5,328,44"/>
+<area shape="rect" id="node3" href="$class_fast_noise.html#a252117bcf7130247e06fa0bd1695c41e" title="FastNoise::SingleValueFractal\lRigidMulti" alt="" coords="129,68,328,107"/>
+<area shape="rect" id="node4" href="$class_fast_noise.html#a4e99adf451ddbd11a425a0909b2ae7e1" title="FastNoise::SinglePerlinFractal\lBillow" alt="" coords="128,131,329,169"/>
+<area shape="rect" id="node5" href="$class_fast_noise.html#ad5d0bbafb8bc1e07c3d771455736600d" title="FastNoise::SinglePerlinFractal\lRigidMulti" alt="" coords="128,193,329,232"/>
+<area shape="rect" id="node6" href="$class_fast_noise.html#a6dd57ba17192a085544452db30caaf64" title="FastNoise::SingleSimplex\lFractalBillow" alt="" coords="142,256,315,295"/>
+<area shape="rect" id="node7" href="$class_fast_noise.html#a6a1e4725751d679b33705fa5867f7525" title="FastNoise::SingleSimplex\lFractalRigidMulti" alt="" coords="142,319,315,357"/>
+<area shape="rect" id="node8" href="$class_fast_noise.html#a8595f37169b6133ccd822d21af3acd60" title="FastNoise::SingleCubicFractal\lBillow" alt="" coords="128,381,329,420"/>
+<area shape="rect" id="node9" href="$class_fast_noise.html#ab460847f52a3b64ac6ebbda5538c9c9a" title="FastNoise::SingleCubicFractal\lRigidMulti" alt="" coords="128,444,329,483"/>
+<area shape="rect" id="node10" href="$class_fast_noise.html#a0d55ad41a81a37df679a5ed92cef2d36" title="FastNoise::SingleCellular" alt="" coords="143,507,314,532"/>
+<area shape="rect" id="node11" href="$class_fast_noise.html#a10e1d5c203e0d93b70f9f3aa4718e221" title="FastNoise::SingleCellular2Edge" alt="" coords="124,556,333,581"/>
+</map>

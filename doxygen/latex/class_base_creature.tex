@@ -1,0 +1,656 @@
+\hypertarget{class_base_creature}{}\section{Base\+Creature Class Reference}
+\label{class_base_creature}\index{Base\+Creature@{Base\+Creature}}
+
+
+{\ttfamily \#include $<$Base\+Creature.\+hpp$>$}
+
+
+
+Collaboration diagram for Base\+Creature\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_base_creature__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_base_creature_aed503a9552a9d28233012f7a7b74d9bc}{Base\+Creature}} ()
+\item 
+void \mbox{\hyperlink{class_base_creature_af2066b8eb62bf595d30feae6671e4495}{load\+Creature\+Tile}} (const std\+::string \&tileset, int tile\+X\+Size, int tile\+Y\+Size)
+\item 
+void \mbox{\hyperlink{class_base_creature_ac5c9f52046801eb47701ef8b0f1eb32c}{Calculate\+Total\+Health}} ()
+\item 
+bool \mbox{\hyperlink{class_base_creature_a77f0a7d7c441406c252c3278817454d8}{Move\+Creature}} (int x, int y)
+\item 
+void \mbox{\hyperlink{class_base_creature_ab6f0139afb4e1b15d5f1feecc267580d}{Add\+Item\+To\+Inventory}} (\mbox{\hyperlink{class_item}{Item}} $\ast$item)
+\item 
+void \mbox{\hyperlink{class_base_creature_a097ec44d0b215f75ca75ae69c2bd11be}{Print\+Inventory}} ()
+\item 
+void \mbox{\hyperlink{class_base_creature_ac3d7907a8d8e0967a5881ff180205028}{Print\+Equipment}} ()
+\item 
+void \mbox{\hyperlink{class_base_creature_a82807038eafe46f7ac510a99a4cdc25e}{Equip}} (\mbox{\hyperlink{class_item}{Item}} $\ast$item)
+\item 
+void \mbox{\hyperlink{class_base_creature_a637cb7174d9bb9677a21281ff19fb10a}{Equip\+Item\+From\+Inventory}} (int n)
+\item 
+void \mbox{\hyperlink{class_base_creature_a2d45724079ff2eeb6606b222e405e4a8}{Pickup\+Item}} (\mbox{\hyperlink{class_map}{Map}} \&map, std\+::list$<$ \mbox{\hyperlink{class_item}{Item}} $\ast$$>$ \&item\+List)
+\item 
+void \mbox{\hyperlink{class_base_creature_a63f43a7153eee3c1032b02f6d1948cdb}{Attack\+Creature}} (int attack\+Bonus, int damage)
+\item 
+void \mbox{\hyperlink{class_base_creature_aa18f395754df39095f993e6805ef37a8}{Add\+To\+Path}} (sf\+::\+Vector2i point)
+\item 
+void \mbox{\hyperlink{class_base_creature_aaecab78bf5a5a5293079634e813f854f}{Walk\+Path}} (\mbox{\hyperlink{class_map}{Map}} \&map)
+\item 
+void \mbox{\hyperlink{class_base_creature_a8c7fec43bb0ca9a15e0f2596960283b7}{clear\+Path}} ()
+\item 
+void \mbox{\hyperlink{class_base_creature_a389d8ae4c4caa2d7c55939bef70935a8}{calculate\+Attack\+Parameters}} ()
+\item 
+float \mbox{\hyperlink{class_base_creature_ac81e681e444ed860c212463025d04a1d}{Calculate\+Melee\+Attack\+Force}} (\mbox{\hyperlink{class_weapon}{Weapon}} \&weapon)
+\item 
+short int \mbox{\hyperlink{class_base_creature_a7b4f974b77953aea8f4c698e6e21c500}{get\+Melee\+Attack\+Value}} () const
+\item 
+short int \mbox{\hyperlink{class_base_creature_a58a174420d25df7d0865087586c66a21}{get\+Ranged\+Attack\+Value}} () const
+\item 
+short int \mbox{\hyperlink{class_base_creature_a1232a2ecb3199fe79627df912078f24e}{get\+Strength}} () const
+\item 
+short int \mbox{\hyperlink{class_base_creature_ac04efe1dda147e264998609635baadb6}{get\+Agility}} () const
+\item 
+short int \mbox{\hyperlink{class_base_creature_a4e3864bd12e271718a838ba6c3881f0a}{get\+Attack\+Value}} () const
+\item 
+sf\+::\+Vector2i \mbox{\hyperlink{class_base_creature_a00ebdc186dd6d3c0ef3c3d1262d4363f}{get\+Position}} () const
+\item 
+std\+::string \mbox{\hyperlink{class_base_creature_a19f380cccb11f31d10d00de934da1b7f}{Get\+Item\+Info}} (int n)
+\item 
+int \mbox{\hyperlink{class_base_creature_accab7a878eae0580476b282ce2c556d3}{get\+Total\+Health}} () const
+\item 
+std\+::list$<$ \mbox{\hyperlink{class_item}{Item}} $\ast$ $>$ \mbox{\hyperlink{class_base_creature_a505e70415a3e2db87aac0767498375ff}{get\+Inventory}} ()
+\item 
+\mbox{\hyperlink{class_vision}{Vision}} \& \mbox{\hyperlink{class_base_creature_a8a960bc7a7689f5633b1abaa82fa6e95}{get\+Vision}} ()
+\item 
+std\+::vector$<$ \mbox{\hyperlink{struct_attack_stats}{Attack\+Stats}} $>$ \& \mbox{\hyperlink{class_base_creature_ae2fdab903403a68e431baa080f715d3c}{get\+Attacks}} ()
+\item 
+void \mbox{\hyperlink{class_base_creature_a00ffc1ee732a8f0a8921c9cee6842e4d}{set\+Position}} (short int x, short int y)
+\item 
+void \mbox{\hyperlink{class_base_creature_ae1cb6e6d01d0c369433fb1fb20803f91}{set\+Velocity}} (int x, int y)
+\item 
+void \mbox{\hyperlink{class_base_creature_a3a2eb318b9c5d849a02884b20e32f83d}{set\+Strength}} (int \+\_\+strength)
+\item 
+void \mbox{\hyperlink{class_base_creature_ad6357a6d4456d0b669abd1675efcca30}{set\+Agility}} (int \+\_\+agility)
+\item 
+void \mbox{\hyperlink{class_base_creature_a82f847585033035597700b071e40611f}{set\+Total\+Health}} (int \+\_\+health)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_creature_body}{Creature\+Body}} \mbox{\hyperlink{class_base_creature_a97e1d629325177b201bdcd43addefd0d}{body}}
+\item 
+\mbox{\hyperlink{class_entity_tile}{Entity\+Tile}} \mbox{\hyperlink{class_base_creature_a35d7353131ee00fe8738ec5a5ebfe231}{creature\+Tile}}
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+short int \mbox{\hyperlink{class_base_creature_ac5a9c850146fa856dbf7fdd0def635ac}{attack\+Value}}
+\item 
+short int \mbox{\hyperlink{class_base_creature_a7f325c07376932d6e831dd00a350b806}{strength}}
+\item 
+short int \mbox{\hyperlink{class_base_creature_a23bbce83de8f7be2dfbcec7f5da223ab}{agility}}
+\item 
+short int \mbox{\hyperlink{class_base_creature_a74bc0648b11f9637b31ad5b76f056740}{endurance}}
+\item 
+short int \mbox{\hyperlink{class_base_creature_a8debd17b675db2ac6d944e2ccb314def}{mind}}
+\item 
+short int \mbox{\hyperlink{class_base_creature_a992cbd3a6be93279f2c933a50eba5000}{will}}
+\item 
+short int \mbox{\hyperlink{class_base_creature_aa62b65a4bd43be6e999d9a29a472fffe}{charisma}}
+\item 
+short int \mbox{\hyperlink{class_base_creature_a846cd45ba49c6496bdcb760651b9aaa8}{move\+Speed}}
+\item 
+int \mbox{\hyperlink{class_base_creature_a727462587a0ec421c549acf8c497de42}{total\+Health}}
+\item 
+sf\+::\+Vector2i \mbox{\hyperlink{class_base_creature_ac0aa7211db6bbc4033b0a11e6c34171b}{position}}
+\item 
+std\+::list$<$ \mbox{\hyperlink{class_item}{Item}} $\ast$ $>$ \mbox{\hyperlink{class_base_creature_a15a7a38b2a5bc15d1c3f8eda7e1d835b}{creature\+Items}}
+\item 
+std\+::queue$<$ sf\+::\+Vector2i $>$ \mbox{\hyperlink{class_base_creature_a0e419167e4986de0a4652b8979d66e16}{path}}
+\item 
+\mbox{\hyperlink{class_vision}{Vision}} \mbox{\hyperlink{class_base_creature_a8433c26fcbcb9bee87c35b15ae2e0814}{vision}}
+\item 
+bool \mbox{\hyperlink{class_base_creature_adeb6eed7546d84b1547e8134f582a6c7}{is\+Alive}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{struct_attack_stats}{Attack\+Stats}} $>$ \mbox{\hyperlink{class_base_creature_ab40c21845e4c19538b356bbcb01f7075}{attacks}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_base_creature_aed503a9552a9d28233012f7a7b74d9bc}\label{class_base_creature_aed503a9552a9d28233012f7a7b74d9bc}} 
+\index{Base\+Creature@{Base\+Creature}!Base\+Creature@{Base\+Creature}}
+\index{Base\+Creature@{Base\+Creature}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{Base\+Creature()}{BaseCreature()}}
+{\footnotesize\ttfamily Base\+Creature\+::\+Base\+Creature (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_base_creature_ab6f0139afb4e1b15d5f1feecc267580d}\label{class_base_creature_ab6f0139afb4e1b15d5f1feecc267580d}} 
+\index{Base\+Creature@{Base\+Creature}!Add\+Item\+To\+Inventory@{Add\+Item\+To\+Inventory}}
+\index{Add\+Item\+To\+Inventory@{Add\+Item\+To\+Inventory}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{Add\+Item\+To\+Inventory()}{AddItemToInventory()}}
+{\footnotesize\ttfamily void Base\+Creature\+::\+Add\+Item\+To\+Inventory (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_item}{Item}} $\ast$}]{item }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_base_creature_ab6f0139afb4e1b15d5f1feecc267580d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_base_creature_aa18f395754df39095f993e6805ef37a8}\label{class_base_creature_aa18f395754df39095f993e6805ef37a8}} 
+\index{Base\+Creature@{Base\+Creature}!Add\+To\+Path@{Add\+To\+Path}}
+\index{Add\+To\+Path@{Add\+To\+Path}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{Add\+To\+Path()}{AddToPath()}}
+{\footnotesize\ttfamily void Base\+Creature\+::\+Add\+To\+Path (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2i}]{point }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_base_creature_aa18f395754df39095f993e6805ef37a8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_base_creature_a63f43a7153eee3c1032b02f6d1948cdb}\label{class_base_creature_a63f43a7153eee3c1032b02f6d1948cdb}} 
+\index{Base\+Creature@{Base\+Creature}!Attack\+Creature@{Attack\+Creature}}
+\index{Attack\+Creature@{Attack\+Creature}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{Attack\+Creature()}{AttackCreature()}}
+{\footnotesize\ttfamily void Base\+Creature\+::\+Attack\+Creature (\begin{DoxyParamCaption}\item[{int}]{attack\+Bonus,  }\item[{int}]{damage }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_base_creature_a389d8ae4c4caa2d7c55939bef70935a8}\label{class_base_creature_a389d8ae4c4caa2d7c55939bef70935a8}} 
+\index{Base\+Creature@{Base\+Creature}!calculate\+Attack\+Parameters@{calculate\+Attack\+Parameters}}
+\index{calculate\+Attack\+Parameters@{calculate\+Attack\+Parameters}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{calculate\+Attack\+Parameters()}{calculateAttackParameters()}}
+{\footnotesize\ttfamily void Base\+Creature\+::calculate\+Attack\+Parameters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_base_creature_a389d8ae4c4caa2d7c55939bef70935a8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_base_creature_a389d8ae4c4caa2d7c55939bef70935a8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_base_creature_ac81e681e444ed860c212463025d04a1d}\label{class_base_creature_ac81e681e444ed860c212463025d04a1d}} 
+\index{Base\+Creature@{Base\+Creature}!Calculate\+Melee\+Attack\+Force@{Calculate\+Melee\+Attack\+Force}}
+\index{Calculate\+Melee\+Attack\+Force@{Calculate\+Melee\+Attack\+Force}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{Calculate\+Melee\+Attack\+Force()}{CalculateMeleeAttackForce()}}
+{\footnotesize\ttfamily float Base\+Creature\+::\+Calculate\+Melee\+Attack\+Force (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_weapon}{Weapon}} \&}]{weapon }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_base_creature_ac81e681e444ed860c212463025d04a1d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_base_creature_ac81e681e444ed860c212463025d04a1d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_base_creature_ac5c9f52046801eb47701ef8b0f1eb32c}\label{class_base_creature_ac5c9f52046801eb47701ef8b0f1eb32c}} 
+\index{Base\+Creature@{Base\+Creature}!Calculate\+Total\+Health@{Calculate\+Total\+Health}}
+\index{Calculate\+Total\+Health@{Calculate\+Total\+Health}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{Calculate\+Total\+Health()}{CalculateTotalHealth()}}
+{\footnotesize\ttfamily void Base\+Creature\+::\+Calculate\+Total\+Health (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_base_creature_a8c7fec43bb0ca9a15e0f2596960283b7}\label{class_base_creature_a8c7fec43bb0ca9a15e0f2596960283b7}} 
+\index{Base\+Creature@{Base\+Creature}!clear\+Path@{clear\+Path}}
+\index{clear\+Path@{clear\+Path}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{clear\+Path()}{clearPath()}}
+{\footnotesize\ttfamily void Base\+Creature\+::clear\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_base_creature_a82807038eafe46f7ac510a99a4cdc25e}\label{class_base_creature_a82807038eafe46f7ac510a99a4cdc25e}} 
+\index{Base\+Creature@{Base\+Creature}!Equip@{Equip}}
+\index{Equip@{Equip}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{Equip()}{Equip()}}
+{\footnotesize\ttfamily void Base\+Creature\+::\+Equip (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_item}{Item}} $\ast$}]{item }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_base_creature_a637cb7174d9bb9677a21281ff19fb10a}\label{class_base_creature_a637cb7174d9bb9677a21281ff19fb10a}} 
+\index{Base\+Creature@{Base\+Creature}!Equip\+Item\+From\+Inventory@{Equip\+Item\+From\+Inventory}}
+\index{Equip\+Item\+From\+Inventory@{Equip\+Item\+From\+Inventory}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{Equip\+Item\+From\+Inventory()}{EquipItemFromInventory()}}
+{\footnotesize\ttfamily void Base\+Creature\+::\+Equip\+Item\+From\+Inventory (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_base_creature_a637cb7174d9bb9677a21281ff19fb10a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_base_creature_ac04efe1dda147e264998609635baadb6}\label{class_base_creature_ac04efe1dda147e264998609635baadb6}} 
+\index{Base\+Creature@{Base\+Creature}!get\+Agility@{get\+Agility}}
+\index{get\+Agility@{get\+Agility}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{get\+Agility()}{getAgility()}}
+{\footnotesize\ttfamily short int Base\+Creature\+::get\+Agility (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_base_creature_ac04efe1dda147e264998609635baadb6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_base_creature_ae2fdab903403a68e431baa080f715d3c}\label{class_base_creature_ae2fdab903403a68e431baa080f715d3c}} 
+\index{Base\+Creature@{Base\+Creature}!get\+Attacks@{get\+Attacks}}
+\index{get\+Attacks@{get\+Attacks}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{get\+Attacks()}{getAttacks()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{struct_attack_stats}{Attack\+Stats}} $>$ \& Base\+Creature\+::get\+Attacks (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_base_creature_ae2fdab903403a68e431baa080f715d3c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_base_creature_a4e3864bd12e271718a838ba6c3881f0a}\label{class_base_creature_a4e3864bd12e271718a838ba6c3881f0a}} 
+\index{Base\+Creature@{Base\+Creature}!get\+Attack\+Value@{get\+Attack\+Value}}
+\index{get\+Attack\+Value@{get\+Attack\+Value}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{get\+Attack\+Value()}{getAttackValue()}}
+{\footnotesize\ttfamily short int Base\+Creature\+::get\+Attack\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_base_creature_a505e70415a3e2db87aac0767498375ff}\label{class_base_creature_a505e70415a3e2db87aac0767498375ff}} 
+\index{Base\+Creature@{Base\+Creature}!get\+Inventory@{get\+Inventory}}
+\index{get\+Inventory@{get\+Inventory}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{get\+Inventory()}{getInventory()}}
+{\footnotesize\ttfamily std\+::list$<$ \mbox{\hyperlink{class_item}{Item}} $\ast$ $>$ Base\+Creature\+::get\+Inventory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_base_creature_a505e70415a3e2db87aac0767498375ff_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_base_creature_a19f380cccb11f31d10d00de934da1b7f}\label{class_base_creature_a19f380cccb11f31d10d00de934da1b7f}} 
+\index{Base\+Creature@{Base\+Creature}!Get\+Item\+Info@{Get\+Item\+Info}}
+\index{Get\+Item\+Info@{Get\+Item\+Info}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{Get\+Item\+Info()}{GetItemInfo()}}
+{\footnotesize\ttfamily std\+::string Base\+Creature\+::\+Get\+Item\+Info (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_base_creature_a7b4f974b77953aea8f4c698e6e21c500}\label{class_base_creature_a7b4f974b77953aea8f4c698e6e21c500}} 
+\index{Base\+Creature@{Base\+Creature}!get\+Melee\+Attack\+Value@{get\+Melee\+Attack\+Value}}
+\index{get\+Melee\+Attack\+Value@{get\+Melee\+Attack\+Value}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{get\+Melee\+Attack\+Value()}{getMeleeAttackValue()}}
+{\footnotesize\ttfamily short int Base\+Creature\+::get\+Melee\+Attack\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_base_creature_a7b4f974b77953aea8f4c698e6e21c500_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_base_creature_a00ebdc186dd6d3c0ef3c3d1262d4363f}\label{class_base_creature_a00ebdc186dd6d3c0ef3c3d1262d4363f}} 
+\index{Base\+Creature@{Base\+Creature}!get\+Position@{get\+Position}}
+\index{get\+Position@{get\+Position}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{get\+Position()}{getPosition()}}
+{\footnotesize\ttfamily sf\+::\+Vector2i Base\+Creature\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_base_creature_a00ebdc186dd6d3c0ef3c3d1262d4363f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_base_creature_a58a174420d25df7d0865087586c66a21}\label{class_base_creature_a58a174420d25df7d0865087586c66a21}} 
+\index{Base\+Creature@{Base\+Creature}!get\+Ranged\+Attack\+Value@{get\+Ranged\+Attack\+Value}}
+\index{get\+Ranged\+Attack\+Value@{get\+Ranged\+Attack\+Value}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{get\+Ranged\+Attack\+Value()}{getRangedAttackValue()}}
+{\footnotesize\ttfamily short int Base\+Creature\+::get\+Ranged\+Attack\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_base_creature_a58a174420d25df7d0865087586c66a21_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_base_creature_a1232a2ecb3199fe79627df912078f24e}\label{class_base_creature_a1232a2ecb3199fe79627df912078f24e}} 
+\index{Base\+Creature@{Base\+Creature}!get\+Strength@{get\+Strength}}
+\index{get\+Strength@{get\+Strength}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{get\+Strength()}{getStrength()}}
+{\footnotesize\ttfamily short int Base\+Creature\+::get\+Strength (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_base_creature_a1232a2ecb3199fe79627df912078f24e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_base_creature_accab7a878eae0580476b282ce2c556d3}\label{class_base_creature_accab7a878eae0580476b282ce2c556d3}} 
+\index{Base\+Creature@{Base\+Creature}!get\+Total\+Health@{get\+Total\+Health}}
+\index{get\+Total\+Health@{get\+Total\+Health}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{get\+Total\+Health()}{getTotalHealth()}}
+{\footnotesize\ttfamily int Base\+Creature\+::get\+Total\+Health (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_base_creature_accab7a878eae0580476b282ce2c556d3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_base_creature_a8a960bc7a7689f5633b1abaa82fa6e95}\label{class_base_creature_a8a960bc7a7689f5633b1abaa82fa6e95}} 
+\index{Base\+Creature@{Base\+Creature}!get\+Vision@{get\+Vision}}
+\index{get\+Vision@{get\+Vision}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{get\+Vision()}{getVision()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vision}{Vision}} \& Base\+Creature\+::get\+Vision (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_base_creature_a8a960bc7a7689f5633b1abaa82fa6e95_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_base_creature_af2066b8eb62bf595d30feae6671e4495}\label{class_base_creature_af2066b8eb62bf595d30feae6671e4495}} 
+\index{Base\+Creature@{Base\+Creature}!load\+Creature\+Tile@{load\+Creature\+Tile}}
+\index{load\+Creature\+Tile@{load\+Creature\+Tile}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{load\+Creature\+Tile()}{loadCreatureTile()}}
+{\footnotesize\ttfamily void Base\+Creature\+::load\+Creature\+Tile (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{tileset,  }\item[{int}]{tile\+X\+Size,  }\item[{int}]{tile\+Y\+Size }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_base_creature_af2066b8eb62bf595d30feae6671e4495_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_base_creature_af2066b8eb62bf595d30feae6671e4495_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_base_creature_a77f0a7d7c441406c252c3278817454d8}\label{class_base_creature_a77f0a7d7c441406c252c3278817454d8}} 
+\index{Base\+Creature@{Base\+Creature}!Move\+Creature@{Move\+Creature}}
+\index{Move\+Creature@{Move\+Creature}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{Move\+Creature()}{MoveCreature()}}
+{\footnotesize\ttfamily bool Base\+Creature\+::\+Move\+Creature (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_base_creature_a77f0a7d7c441406c252c3278817454d8_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_base_creature_a2d45724079ff2eeb6606b222e405e4a8}\label{class_base_creature_a2d45724079ff2eeb6606b222e405e4a8}} 
+\index{Base\+Creature@{Base\+Creature}!Pickup\+Item@{Pickup\+Item}}
+\index{Pickup\+Item@{Pickup\+Item}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{Pickup\+Item()}{PickupItem()}}
+{\footnotesize\ttfamily void Base\+Creature\+::\+Pickup\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_map}{Map}} \&}]{map,  }\item[{std\+::list$<$ \mbox{\hyperlink{class_item}{Item}} $\ast$$>$ \&}]{item\+List }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{class_base_creature_a2d45724079ff2eeb6606b222e405e4a8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_base_creature_a2d45724079ff2eeb6606b222e405e4a8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_base_creature_ac3d7907a8d8e0967a5881ff180205028}\label{class_base_creature_ac3d7907a8d8e0967a5881ff180205028}} 
+\index{Base\+Creature@{Base\+Creature}!Print\+Equipment@{Print\+Equipment}}
+\index{Print\+Equipment@{Print\+Equipment}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{Print\+Equipment()}{PrintEquipment()}}
+{\footnotesize\ttfamily void Base\+Creature\+::\+Print\+Equipment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_base_creature_a097ec44d0b215f75ca75ae69c2bd11be}\label{class_base_creature_a097ec44d0b215f75ca75ae69c2bd11be}} 
+\index{Base\+Creature@{Base\+Creature}!Print\+Inventory@{Print\+Inventory}}
+\index{Print\+Inventory@{Print\+Inventory}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{Print\+Inventory()}{PrintInventory()}}
+{\footnotesize\ttfamily void Base\+Creature\+::\+Print\+Inventory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_base_creature_ad6357a6d4456d0b669abd1675efcca30}\label{class_base_creature_ad6357a6d4456d0b669abd1675efcca30}} 
+\index{Base\+Creature@{Base\+Creature}!set\+Agility@{set\+Agility}}
+\index{set\+Agility@{set\+Agility}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{set\+Agility()}{setAgility()}}
+{\footnotesize\ttfamily void Base\+Creature\+::set\+Agility (\begin{DoxyParamCaption}\item[{int}]{\+\_\+agility }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_base_creature_ad6357a6d4456d0b669abd1675efcca30_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_base_creature_a00ffc1ee732a8f0a8921c9cee6842e4d}\label{class_base_creature_a00ffc1ee732a8f0a8921c9cee6842e4d}} 
+\index{Base\+Creature@{Base\+Creature}!set\+Position@{set\+Position}}
+\index{set\+Position@{set\+Position}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{set\+Position()}{setPosition()}}
+{\footnotesize\ttfamily void Base\+Creature\+::set\+Position (\begin{DoxyParamCaption}\item[{short int}]{x,  }\item[{short int}]{y }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_base_creature_a00ffc1ee732a8f0a8921c9cee6842e4d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_base_creature_a00ffc1ee732a8f0a8921c9cee6842e4d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_base_creature_a3a2eb318b9c5d849a02884b20e32f83d}\label{class_base_creature_a3a2eb318b9c5d849a02884b20e32f83d}} 
+\index{Base\+Creature@{Base\+Creature}!set\+Strength@{set\+Strength}}
+\index{set\+Strength@{set\+Strength}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{set\+Strength()}{setStrength()}}
+{\footnotesize\ttfamily void Base\+Creature\+::set\+Strength (\begin{DoxyParamCaption}\item[{int}]{\+\_\+strength }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_base_creature_a3a2eb318b9c5d849a02884b20e32f83d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_base_creature_a82f847585033035597700b071e40611f}\label{class_base_creature_a82f847585033035597700b071e40611f}} 
+\index{Base\+Creature@{Base\+Creature}!set\+Total\+Health@{set\+Total\+Health}}
+\index{set\+Total\+Health@{set\+Total\+Health}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{set\+Total\+Health()}{setTotalHealth()}}
+{\footnotesize\ttfamily void Base\+Creature\+::set\+Total\+Health (\begin{DoxyParamCaption}\item[{int}]{\+\_\+health }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_base_creature_a82f847585033035597700b071e40611f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_base_creature_ae1cb6e6d01d0c369433fb1fb20803f91}\label{class_base_creature_ae1cb6e6d01d0c369433fb1fb20803f91}} 
+\index{Base\+Creature@{Base\+Creature}!set\+Velocity@{set\+Velocity}}
+\index{set\+Velocity@{set\+Velocity}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{set\+Velocity()}{setVelocity()}}
+{\footnotesize\ttfamily void Base\+Creature\+::set\+Velocity (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_base_creature_aaecab78bf5a5a5293079634e813f854f}\label{class_base_creature_aaecab78bf5a5a5293079634e813f854f}} 
+\index{Base\+Creature@{Base\+Creature}!Walk\+Path@{Walk\+Path}}
+\index{Walk\+Path@{Walk\+Path}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{Walk\+Path()}{WalkPath()}}
+{\footnotesize\ttfamily void Base\+Creature\+::\+Walk\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_map}{Map}} \&}]{map }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_base_creature_aaecab78bf5a5a5293079634e813f854f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_base_creature_aaecab78bf5a5a5293079634e813f854f_icgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_base_creature_a23bbce83de8f7be2dfbcec7f5da223ab}\label{class_base_creature_a23bbce83de8f7be2dfbcec7f5da223ab}} 
+\index{Base\+Creature@{Base\+Creature}!agility@{agility}}
+\index{agility@{agility}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{agility}{agility}}
+{\footnotesize\ttfamily short int Base\+Creature\+::agility\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_base_creature_ab40c21845e4c19538b356bbcb01f7075}\label{class_base_creature_ab40c21845e4c19538b356bbcb01f7075}} 
+\index{Base\+Creature@{Base\+Creature}!attacks@{attacks}}
+\index{attacks@{attacks}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{attacks}{attacks}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{struct_attack_stats}{Attack\+Stats}}$>$ Base\+Creature\+::attacks\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_base_creature_ac5a9c850146fa856dbf7fdd0def635ac}\label{class_base_creature_ac5a9c850146fa856dbf7fdd0def635ac}} 
+\index{Base\+Creature@{Base\+Creature}!attack\+Value@{attack\+Value}}
+\index{attack\+Value@{attack\+Value}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{attack\+Value}{attackValue}}
+{\footnotesize\ttfamily short int Base\+Creature\+::attack\+Value\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_base_creature_a97e1d629325177b201bdcd43addefd0d}\label{class_base_creature_a97e1d629325177b201bdcd43addefd0d}} 
+\index{Base\+Creature@{Base\+Creature}!body@{body}}
+\index{body@{body}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{body}{body}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_creature_body}{Creature\+Body}} Base\+Creature\+::body}
+
+\mbox{\Hypertarget{class_base_creature_aa62b65a4bd43be6e999d9a29a472fffe}\label{class_base_creature_aa62b65a4bd43be6e999d9a29a472fffe}} 
+\index{Base\+Creature@{Base\+Creature}!charisma@{charisma}}
+\index{charisma@{charisma}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{charisma}{charisma}}
+{\footnotesize\ttfamily short int Base\+Creature\+::charisma\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_base_creature_a15a7a38b2a5bc15d1c3f8eda7e1d835b}\label{class_base_creature_a15a7a38b2a5bc15d1c3f8eda7e1d835b}} 
+\index{Base\+Creature@{Base\+Creature}!creature\+Items@{creature\+Items}}
+\index{creature\+Items@{creature\+Items}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{creature\+Items}{creatureItems}}
+{\footnotesize\ttfamily std\+::list$<$\mbox{\hyperlink{class_item}{Item}}$\ast$$>$ Base\+Creature\+::creature\+Items\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_base_creature_a35d7353131ee00fe8738ec5a5ebfe231}\label{class_base_creature_a35d7353131ee00fe8738ec5a5ebfe231}} 
+\index{Base\+Creature@{Base\+Creature}!creature\+Tile@{creature\+Tile}}
+\index{creature\+Tile@{creature\+Tile}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{creature\+Tile}{creatureTile}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_entity_tile}{Entity\+Tile}} Base\+Creature\+::creature\+Tile}
+
+\mbox{\Hypertarget{class_base_creature_a74bc0648b11f9637b31ad5b76f056740}\label{class_base_creature_a74bc0648b11f9637b31ad5b76f056740}} 
+\index{Base\+Creature@{Base\+Creature}!endurance@{endurance}}
+\index{endurance@{endurance}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{endurance}{endurance}}
+{\footnotesize\ttfamily short int Base\+Creature\+::endurance\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_base_creature_adeb6eed7546d84b1547e8134f582a6c7}\label{class_base_creature_adeb6eed7546d84b1547e8134f582a6c7}} 
+\index{Base\+Creature@{Base\+Creature}!is\+Alive@{is\+Alive}}
+\index{is\+Alive@{is\+Alive}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{is\+Alive}{isAlive}}
+{\footnotesize\ttfamily bool Base\+Creature\+::is\+Alive\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_base_creature_a8debd17b675db2ac6d944e2ccb314def}\label{class_base_creature_a8debd17b675db2ac6d944e2ccb314def}} 
+\index{Base\+Creature@{Base\+Creature}!mind@{mind}}
+\index{mind@{mind}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{mind}{mind}}
+{\footnotesize\ttfamily short int Base\+Creature\+::mind\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_base_creature_a846cd45ba49c6496bdcb760651b9aaa8}\label{class_base_creature_a846cd45ba49c6496bdcb760651b9aaa8}} 
+\index{Base\+Creature@{Base\+Creature}!move\+Speed@{move\+Speed}}
+\index{move\+Speed@{move\+Speed}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{move\+Speed}{moveSpeed}}
+{\footnotesize\ttfamily short int Base\+Creature\+::move\+Speed\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_base_creature_a0e419167e4986de0a4652b8979d66e16}\label{class_base_creature_a0e419167e4986de0a4652b8979d66e16}} 
+\index{Base\+Creature@{Base\+Creature}!path@{path}}
+\index{path@{path}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{path}{path}}
+{\footnotesize\ttfamily std\+::queue$<$sf\+::\+Vector2i$>$ Base\+Creature\+::path\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_base_creature_ac0aa7211db6bbc4033b0a11e6c34171b}\label{class_base_creature_ac0aa7211db6bbc4033b0a11e6c34171b}} 
+\index{Base\+Creature@{Base\+Creature}!position@{position}}
+\index{position@{position}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{position}{position}}
+{\footnotesize\ttfamily sf\+::\+Vector2i Base\+Creature\+::position\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_base_creature_a7f325c07376932d6e831dd00a350b806}\label{class_base_creature_a7f325c07376932d6e831dd00a350b806}} 
+\index{Base\+Creature@{Base\+Creature}!strength@{strength}}
+\index{strength@{strength}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{strength}{strength}}
+{\footnotesize\ttfamily short int Base\+Creature\+::strength\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_base_creature_a727462587a0ec421c549acf8c497de42}\label{class_base_creature_a727462587a0ec421c549acf8c497de42}} 
+\index{Base\+Creature@{Base\+Creature}!total\+Health@{total\+Health}}
+\index{total\+Health@{total\+Health}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{total\+Health}{totalHealth}}
+{\footnotesize\ttfamily int Base\+Creature\+::total\+Health\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_base_creature_a8433c26fcbcb9bee87c35b15ae2e0814}\label{class_base_creature_a8433c26fcbcb9bee87c35b15ae2e0814}} 
+\index{Base\+Creature@{Base\+Creature}!vision@{vision}}
+\index{vision@{vision}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{vision}{vision}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vision}{Vision}} Base\+Creature\+::vision\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_base_creature_a992cbd3a6be93279f2c933a50eba5000}\label{class_base_creature_a992cbd3a6be93279f2c933a50eba5000}} 
+\index{Base\+Creature@{Base\+Creature}!will@{will}}
+\index{will@{will}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{will}{will}}
+{\footnotesize\ttfamily short int Base\+Creature\+::will\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/\+Creature/\mbox{\hyperlink{_base_creature_8hpp}{Base\+Creature.\+hpp}}\item 
+/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/\+Creature/\mbox{\hyperlink{_base_creature_8cpp}{Base\+Creature.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['id',['id',['../class_body_part.html#a80cddb0171a2c226800b785dadf5e436',1,'BodyPart::id()'],['../class_map_effect.html#a9439d21ddced564043eba8fdf2c0e44e',1,'MapEffect::id()'],['../struct_tile_identification_data.html#af8dc97a27969926817e80d13d3d6c7b9',1,'TileIdentificationData::ID()']]],
+  ['impactdefstrength',['impactDefStrength',['../class_material.html#a3c8b5d54e06ce14b269ad549bfdf24e4',1,'Material']]],
+  ['impactfractstrength',['impactFractStrength',['../class_material.html#af6fa341d8fbe22cfb9b0eeb14a4d358e',1,'Material']]],
+  ['impactwoundruleset',['impactWoundRuleset',['../_wound_8cpp.html#ac510b324501071ef1df579998f83838f',1,'impactWoundRuleset():&#160;Wound.cpp'],['../_wound_8hpp.html#ac510b324501071ef1df579998f83838f',1,'impactWoundRuleset():&#160;Wound.cpp']]],
+  ['index',['index',['../class_tile.html#a0df7b6e81047e9932b02a45531e1f175',1,'Tile']]],
+  ['indmap',['indMap',['../class_anatomy___d_f_s___section___visitor.html#aa589aeb1afc570a76ff8bad92bcce25e',1,'Anatomy_DFS_Section_Visitor::indMap()'],['../class_anatomy___basic___d_f_s___visitor.html#a14840f6f0ba018b260db5d73e40fb326',1,'Anatomy_Basic_DFS_Visitor::indMap()']]],
+  ['initialhistorytokens',['initialHistoryTokens',['../_data_storage_8cpp.html#a53cb540ce02d4a4abadad6b0bd2b38ae',1,'initialHistoryTokens():&#160;DataStorage.cpp'],['../_data_storage_8hpp.html#a53cb540ce02d4a4abadad6b0bd2b38ae',1,'initialHistoryTokens():&#160;DataStorage.cpp']]],
+  ['initialrule',['initialRule',['../struct_rewrite_rules.html#a8ab1d58bcaf0a7997954d7930da0c622',1,'RewriteRules']]],
+  ['inventorywindow',['inventoryWindow',['../_player_controls_8cpp.html#a24a072a6c100424daa87be3b25f531f3',1,'inventoryWindow():&#160;PlayerControls.cpp'],['../_player_controls_8hpp.html#a24a072a6c100424daa87be3b25f531f3',1,'inventoryWindow():&#160;PlayerControls.cpp']]],
+  ['isalive',['isAlive',['../class_base_creature.html#adeb6eed7546d84b1547e8134f582a6c7',1,'BaseCreature']]],
+  ['isedible',['isEdible',['../class_resource.html#a0be3a5c7102decd8b33c86519daff91c',1,'Resource']]],
+  ['isequipmentwindowopen',['isEquipmentWindowOpen',['../_player_controls_8cpp.html#a0af6e6dfbaf21843e7ee7194d7cae62f',1,'isEquipmentWindowOpen():&#160;PlayerControls.cpp'],['../_player_controls_8hpp.html#a0af6e6dfbaf21843e7ee7194d7cae62f',1,'isEquipmentWindowOpen():&#160;PlayerControls.cpp']]],
+  ['isequipped',['isEquipped',['../class_item.html#a47a03cb11d41796494640d62f4d6b9d2',1,'Item']]],
+  ['ishighlightopen',['isHighlightOpen',['../class_data_window.html#ae2a48d16f580f227d72fac30671c18e2',1,'DataWindow']]],
+  ['isinternal',['isInternal',['../class_body_part.html#a10fa01b301773bf494c2342614fea8e7',1,'BodyPart']]],
+  ['isinventorywindowopen',['isInventoryWindowOpen',['../_player_controls_8cpp.html#aee628fbfb76e8349d796a2a45b4c6cc7',1,'isInventoryWindowOpen():&#160;PlayerControls.cpp'],['../_player_controls_8hpp.html#aee628fbfb76e8349d796a2a45b4c6cc7',1,'isInventoryWindowOpen():&#160;PlayerControls.cpp']]],
+  ['isopen',['isOpen',['../class_data_window.html#a90f2baaa114333dd06f3ef4c19ee8f03',1,'DataWindow']]],
+  ['isranged',['isRanged',['../class_weapon.html#a7e50af15bd27dfffe931e051b02101ac',1,'Weapon']]],
+  ['israngedattack',['isRangedAttack',['../struct_attack_stats.html#ae520cb405184191eef7d816e6ade41e4',1,'AttackStats']]],
+  ['isrenewable',['isRenewable',['../class_resource.html#aaeaf23c3f1041f48524420b8b072c2b6',1,'Resource']]],
+  ['istwohanded',['isTwohanded',['../class_weapon.html#a790c117505d8bf62c8297b3f87396070',1,'Weapon']]],
+  ['itemontile',['itemOnTile',['../class_tile.html#aeaade478f3e36be75cf8de09d0ffda8e',1,'Tile']]],
+  ['items',['items',['../class_item_manager.html#a67bf78a9baf31874b6cd6309e0d86e1e',1,'ItemManager::items()'],['../class_map_data.html#a21cf5ee5508940f91b56046186aa6dec',1,'MapData::items()']]],
+  ['itemsonmap',['itemsOnMap',['../class_map_data.html#a8a6af49f0a89008e9fc99d3bae2d6796',1,'MapData']]],
+  ['itemtile',['itemTile',['../class_item.html#a9ba716084bdafdbd767aade37259b56b',1,'Item']]]
+];

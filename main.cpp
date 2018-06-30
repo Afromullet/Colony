@@ -58,7 +58,8 @@
 #include "GenericReaders.hpp"
 #include "HistoryTokenReader.hpp"
 #include "HistoryGenerator.hpp"
-
+#include "ItemManager.hpp"
+#include <memory>
 
 
 
@@ -98,8 +99,27 @@ std::vector<sf::Text> testStrings;
 NoiseMap noiseMap;
 
 
+std::unique_ptr<Item> newItemPointer;
 
-
+void PointerTest()
+{
+    
+    Armor tA;
+    tA.setItemName("A");
+    tA.setMovementModifier(311);
+    std::unique_ptr<Item> newStuff(new Armor(tA));
+    
+    newItemPointer = std::move(newStuff);
+    
+    Armor *fas;
+     fas = dynamic_cast<Armor*>(newItemPointer.get());
+    
+    //free(fas);
+     std::cout << "\n " << fas->getItemName() << "," << fas->fGetMovementModifier();
+    std::cout << "\n " << fas->getItemName() << "," << fas->fGetMovementModifier();
+   // newItemPointer = std::move(newStuff);
+    
+}
 
 
 int main()
@@ -173,6 +193,7 @@ srand(time(NULL));
     testArmor.setItemName("TestArmor1");
     testArmor.addSection("upperbodysection");
     testArmor.addSection("armsection");
+    testArmor.setMovementModifier(5);
     
     
     Weapon testWeapon;
@@ -283,6 +304,16 @@ srand(time(NULL));
                
       
 
+    Armor testArmor2;
+    testArmor2.setItemName("TestArmor1");
+    testArmor2.addSection("upperbodysection");
+    testArmor2.addSection("armsection");
+    
+    
+    std::unique_ptr<Item> ui(&  testArmor2);
+   // mapdata.AddItemToMap(ui);
+    //std::cout << mapdata.items.at(0)->getItemName();
+    
     
     Map mapstuff = *mapdata.map;
     
@@ -315,10 +346,37 @@ srand(time(NULL));
     
      
     
+    Item *testItem;
+    testItem = testArmor.clone();
     
+    
+    Armor *arm = dynamic_cast<Armor*>(testItem);
+    std::cout << "\n " << arm->getItemName() << "," << arm->fGetMovementModifier();
     
 
+    std::unique_ptr<Armor> ar(new Armor(testArmor));
+    std::unique_ptr<Item> it(new Armor(testArmor));
+    //it = testArmor.clone();
     
+    std::cout << "\n New Val " << ar->fGetMovementModifier();
+    
+    //arm = dynamic_cast<Armor*>(testItem);
+
+    std::cout << "\n New 1 " << arm->getItemName() << "," << arm->fGetMovementModifier();
+
+   // arm = dynamic_cast<Armor*>(newItemPointer);
+    
+    
+    PointerTest();
+    
+    arm = dynamic_cast<Armor*>(newItemPointer.get());
+      std::cout << "\n New 2 " << arm->getItemName() << "," << arm->fGetMovementModifier();
+
+ 
+    
+  
+    
+     std::cout << "\n New 3 " << arm->getItemName() << "," << arm->fGetMovementModifier();
 
     std::cout << "\n Tile ID " << EntityTile::getEntityTileIDCounter();
    

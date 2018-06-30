@@ -6,13 +6,14 @@
 //  Copyright © 2017 Afromullet. All rights reserved.
 //
 
-#include "Map.hpp"
-#include <stdio.h>
+
+
 #ifndef MapData_hpp
 #define MapData_hpp
 
-
-
+#include "Map.hpp"
+#include <stdio.h>
+#include <memory>
 
 
 
@@ -22,9 +23,14 @@ class MapData
 {
 private:
     
+    //std::vector<std::unique_ptr<Item>> items;
+    
     
 public:
+    std::vector<std::unique_ptr<Item>> items;
+    
     MapData();
+    MapData(MapData &other);
     
     //Make private later
     sf::RenderWindow *window;
@@ -38,6 +44,7 @@ public:
     void RemoveDeadCreature();
     
     void AddItemToMap(Item *item);
+    void AddItemToMap(std::unique_ptr<Item> item);
     void AddCreatureToMap(BaseCreature creature);
     void PlaceCreaturesOnMap();
     void PlaceItemsOnMap();

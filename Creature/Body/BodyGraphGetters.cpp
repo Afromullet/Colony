@@ -206,8 +206,18 @@ int getFirstUnequippedFromSection(const AnatomyGraph &graph,const std::string &s
     for(int i =0; i < indices.size(); i++)
     {
         
-        
+        /*
         if(graph[indices.at(i)].getArmor().getItemName() == "No Armor")
+        {
+            
+            std::cout << "\n Returning " << i;
+            //return indices.at(i);
+            
+        }
+         */
+        
+        
+        if(graph[indices.at(i)].getArmor() == NO_ARMOR)
         {
             
             std::cout << "\n Returning " << i;

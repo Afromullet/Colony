@@ -1,0 +1,10 @@
+<map id="FastNoise::GetSimplexFractal" name="FastNoise::GetSimplexFractal">
+<area shape="rect" id="node2" href="$class_fast_noise.html#af7e3a4be65f1e27d1af76111a382adbc" title="FastNoise::SingleSimplex\lFractalFBM" alt="" coords="252,5,425,44"/>
+<area shape="rect" id="node7" href="$class_fast_noise.html#aa23a186cee489865781430d344cad11d" title="FastNoise::SingleSimplex\lFractalBillow" alt="" coords="252,131,425,169"/>
+<area shape="rect" id="node9" href="$class_fast_noise.html#a185d239a0bbbc93f673eeb1fe49eae80" title="FastNoise::SingleSimplex\lFractalRigidMulti" alt="" coords="252,68,425,107"/>
+<area shape="rect" id="node3" href="$class_fast_noise.html#a1aa539b6129719546bb4ed2847f1a11f" title="FastNoise::SingleSimplex" alt="" coords="473,75,646,100"/>
+<area shape="rect" id="node4" href="$_fast_noise_8cpp.html#a318facc2356654373240fde1b2cbc281" title="FastFloor" alt="" coords="741,51,819,76"/>
+<area shape="rect" id="node5" href="$class_fast_noise.html#ad264b1bd7c819f7d5d9b5d5695a140a8" title="FastNoise::GradCoord2D" alt="" coords="694,100,866,125"/>
+<area shape="rect" id="node6" href="$class_fast_noise.html#aa4cae648a6a3817d77dcd7439f711827" title="FastNoise::Index2D_12" alt="" coords="914,100,1075,125"/>
+<area shape="rect" id="node8" href="$_fast_noise_8cpp.html#a04c6c75090023cd53f951ca056351c0a" title="FastAbs" alt="" coords="525,131,595,156"/>
+</map>

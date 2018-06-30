@@ -1,0 +1,4 @@
+<map id="LoadTileTerrainType" name="LoadTileTerrainType">
+<area shape="rect" id="node2" href="$_tile_reader_8cpp.html#a161b6f9a485b956dbf5b84b1fd5e734e" title="split" alt="" coords="241,5,286,31"/>
+<area shape="rect" id="node3" href="$_tile_reader_8cpp.html#a9b908ee6b298acb79ca3ca1472342f9f" title="DecodeTerrainType" alt="" coords="195,55,332,80"/>
+</map>

@@ -114,6 +114,13 @@ fMovementModifier(1)
     isEquipped = false;
 }
 
+Armor::~Armor()
+{
+    
+}
+
+
+
 std::string Armor::getItemExamineString() const
 {
     std::string tempString;

@@ -1,0 +1,4 @@
+<map id="FastNoise::SingleValueFractalRigidMulti" name="FastNoise::SingleValueFractalRigidMulti">
+<area shape="rect" id="node2" href="$class_fast_noise.html#a0d9b7a6858a599cde4dc5b8f74264ae0" title="FastNoise::GetNoise" alt="" coords="273,5,417,31"/>
+<area shape="rect" id="node3" href="$class_fast_noise.html#a972ef8f462048015489604783155fd17" title="FastNoise::GetValueFractal" alt="" coords="253,55,437,80"/>
+</map>

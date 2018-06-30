@@ -1,0 +1,504 @@
+\hypertarget{class_item}{}\section{Item Class Reference}
+\label{class_item}\index{Item@{Item}}
+
+
+{\ttfamily \#include $<$Equipment.\+hpp$>$}
+
+
+
+Inheritance diagram for Item\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_item__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Item\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_item__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_item_a754d81f7346aebb775b16969a89021b4}{operator==}} (const \mbox{\hyperlink{class_item}{Item}} \&other) const
+\item 
+bool \mbox{\hyperlink{class_item_a612c595b62d2f7b9c5cd2b085a14b365}{operator!=}} (const \mbox{\hyperlink{class_item}{Item}} \&other) const
+\item 
+void \mbox{\hyperlink{class_item_a47267a43bfae3f28e183170f45783da5}{operator=}} (const \mbox{\hyperlink{class_item}{Item}} \&other)
+\item 
+\mbox{\hyperlink{class_item_a931e8f47fe5a367166280f28edca3950}{Item}} (\mbox{\hyperlink{class_material}{Material}} \+\_\+material, std\+::string \+\_\+s\+Equipment\+Name)
+\item 
+\mbox{\hyperlink{class_item_aa7071a91f151036f7fd1a87e12a07f83}{Item}} (std\+::string equipment\+Name)
+\item 
+\mbox{\hyperlink{class_item_ac84b16ca0e3ce8554dbd817d62bcbab0}{Item}} (std\+::string equipment\+Name, std\+::string \+\_\+section)
+\item 
+\mbox{\hyperlink{class_item_a297720c02984eab37332ae795d22189d}{Item}} ()
+\item 
+\mbox{\hyperlink{class_item_a44f7e3f580bd6c0fa2e1c288dff484be}{Item}} (const \mbox{\hyperlink{class_item}{Item}} \&other)
+\item 
+virtual \mbox{\hyperlink{class_item_a33cc9c0bc556b5a33a9d0d58d37c602b}{$\sim$\+Item}} ()
+\item 
+virtual \mbox{\hyperlink{class_item}{Item}} $\ast$ \mbox{\hyperlink{class_item_a6d963581e2caad2e08979683a827f39f}{clone}} () const =0
+\item 
+virtual \mbox{\hyperlink{class_item}{Item}} $\ast$ \mbox{\hyperlink{class_item_a17b3fa0cef44ada961e0d3c65e1de864}{create}} () const =0
+\item 
+virtual void \mbox{\hyperlink{class_item_aaf7dae41afdce432c11261043e8e4e30}{show\+Item\+Stats}} () const =0
+\item 
+virtual std\+::string \mbox{\hyperlink{class_item_a00e06647e1adeb62f2d95044476126ac}{get\+Item\+Examine\+String}} () const =0
+\item 
+void \mbox{\hyperlink{class_item_a8f02bc86b6f66142e35a660a5c28ba74}{Calculate\+Material\+Bonuses}} ()
+\item 
+std\+::string \mbox{\hyperlink{class_item_a806159273f1f9fbb07fe75a74f2f51c5}{get\+Item\+Name}} () const
+\item 
+sf\+::\+Vector2i \mbox{\hyperlink{class_item_ab015078a1ea19c197fc88b7a556d37cc}{get\+Position}} () const
+\item 
+float \mbox{\hyperlink{class_item_a452c0983b99f1b148949274b63ed79fd}{get\+Mass}} () const
+\item 
+float \mbox{\hyperlink{class_item_a2a84b0b0b25d4d1e8bb1b456d8094b84}{get\+Size}} () const
+\item 
+bool \mbox{\hyperlink{class_item_a9839c6a1b61487bbbe15b7ebba07de34}{get\+Is\+Equipped}} () const
+\item 
+std\+::string \mbox{\hyperlink{class_item_abe4ed40d2027ca131b669d471b47f29f}{get\+Section}} () const
+\item 
+\mbox{\hyperlink{class_material}{Material}} \mbox{\hyperlink{class_item_ada6692d4e0e9e8f9a9a78a13fd6522d8}{get\+Material}} () const
+\item 
+\mbox{\hyperlink{class_material}{Material}} \& \mbox{\hyperlink{class_item_af22ec5d207b70e2a3359e76dccfc7e11}{get\+Material\+Ref}} ()
+\item 
+\mbox{\hyperlink{class_entity_tile}{Entity\+Tile}} \& \mbox{\hyperlink{class_item_a61272a187be1a07a49685cbee45d30bd}{get\+Tile}} ()
+\item 
+void \mbox{\hyperlink{class_item_a6c9f73ef36b176cdb75bc9b13d5be8e8}{add\+Section}} (std\+::string value)
+\item 
+void \mbox{\hyperlink{class_item_ae8dd38d585a7795f134f6453feb1000e}{set\+Item\+Name}} (std\+::string value)
+\item 
+void \mbox{\hyperlink{class_item_af8f9e1899f933fc2ae2cdee6c7de0a4e}{set\+Material}} (\mbox{\hyperlink{class_material}{Material}} value)
+\item 
+void \mbox{\hyperlink{class_item_af8f03acf491fb71ec8cf1e4248bb4b3d}{set\+Position}} (int x, int y)
+\item 
+void \mbox{\hyperlink{class_item_ade0d63a4f02aa1a97f977b13f96eb891}{set\+Is\+Equipped}} (bool \+\_\+is\+Equipped)
+\item 
+void \mbox{\hyperlink{class_item_a3d6c15b2f0a37709541086df917aa761}{set\+Mass}} (float \+\_\+mass)
+\item 
+void \mbox{\hyperlink{class_item_a5ec923033eeb77f331c8307ef5141fc4}{set\+Size}} (float \+\_\+size)
+\item 
+void \mbox{\hyperlink{class_item_a87100c3d13e81e42e58969f817d591ef}{set\+Section}} (std\+::string \+\_\+section)
+\item 
+bool \mbox{\hyperlink{class_item_a10dd503844c230e3d3bf890e969af867}{is\+Valid\+Section}} (std\+::string \+\_\+section)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_entity_tile}{Entity\+Tile}} \mbox{\hyperlink{class_item_a9ba716084bdafdbd767aade37259b56b}{item\+Tile}}
+\item 
+\mbox{\hyperlink{class_entity_tile}{Entity\+Tile}} \mbox{\hyperlink{class_item_a1784c30db978d4858e34cf812ff261d5}{tile}}
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_item_ad0dfdfafbff3d22f196c19db4ce1eb40}{sections}}
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Vector2i \mbox{\hyperlink{class_item_ad1c1601358e5c56063390327e0d86ce1}{position}}
+\item 
+float \mbox{\hyperlink{class_item_af6193bebd888e699303f91bee96d9f16}{size}}
+\item 
+float \mbox{\hyperlink{class_item_a59f0500b0a1a2c5e6590deb7ff58db7b}{mass}}
+\item 
+std\+::string \mbox{\hyperlink{class_item_a23ee78e35c27520fce1ddfe2c56f88a0}{section}}
+\item 
+\mbox{\hyperlink{class_material}{Material}} \mbox{\hyperlink{class_item_a6b060c7156a9089e58869c8c4776bf4d}{material}}
+\item 
+std\+::string \mbox{\hyperlink{class_item_ab551fd7ec7c75a6d125cad56fe84b30a}{s\+Equipment\+Name}}
+\item 
+bool \mbox{\hyperlink{class_item_a47a03cb11d41796494640d62f4d6b9d2}{is\+Equipped}}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_item_aacd78ed1db38c3d74aa80233c16b3e9c}{Armor}}
+\item 
+class \mbox{\hyperlink{class_item_ab356dbee0f1e915287732c65e8ef61e1}{Weapon}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_item_a931e8f47fe5a367166280f28edca3950}\label{class_item_a931e8f47fe5a367166280f28edca3950}} 
+\index{Item@{Item}!Item@{Item}}
+\index{Item@{Item}!Item@{Item}}
+\subsubsection{\texorpdfstring{Item()}{Item()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily Item\+::\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_material}{Material}}}]{\+\_\+material,  }\item[{std\+::string}]{\+\_\+s\+Equipment\+Name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_item_aa7071a91f151036f7fd1a87e12a07f83}\label{class_item_aa7071a91f151036f7fd1a87e12a07f83}} 
+\index{Item@{Item}!Item@{Item}}
+\index{Item@{Item}!Item@{Item}}
+\subsubsection{\texorpdfstring{Item()}{Item()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily Item\+::\+Item (\begin{DoxyParamCaption}\item[{std\+::string}]{equipment\+Name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_item_ac84b16ca0e3ce8554dbd817d62bcbab0}\label{class_item_ac84b16ca0e3ce8554dbd817d62bcbab0}} 
+\index{Item@{Item}!Item@{Item}}
+\index{Item@{Item}!Item@{Item}}
+\subsubsection{\texorpdfstring{Item()}{Item()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily Item\+::\+Item (\begin{DoxyParamCaption}\item[{std\+::string}]{equipment\+Name,  }\item[{std\+::string}]{\+\_\+section }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_item_a297720c02984eab37332ae795d22189d}\label{class_item_a297720c02984eab37332ae795d22189d}} 
+\index{Item@{Item}!Item@{Item}}
+\index{Item@{Item}!Item@{Item}}
+\subsubsection{\texorpdfstring{Item()}{Item()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily Item\+::\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_item_a44f7e3f580bd6c0fa2e1c288dff484be}\label{class_item_a44f7e3f580bd6c0fa2e1c288dff484be}} 
+\index{Item@{Item}!Item@{Item}}
+\index{Item@{Item}!Item@{Item}}
+\subsubsection{\texorpdfstring{Item()}{Item()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily Item\+::\+Item (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_item}{Item}} \&}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_item_a33cc9c0bc556b5a33a9d0d58d37c602b}\label{class_item_a33cc9c0bc556b5a33a9d0d58d37c602b}} 
+\index{Item@{Item}!````~Item@{$\sim$\+Item}}
+\index{````~Item@{$\sim$\+Item}!Item@{Item}}
+\subsubsection{\texorpdfstring{$\sim$\+Item()}{~Item()}}
+{\footnotesize\ttfamily virtual Item\+::$\sim$\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_item_a6c9f73ef36b176cdb75bc9b13d5be8e8}\label{class_item_a6c9f73ef36b176cdb75bc9b13d5be8e8}} 
+\index{Item@{Item}!add\+Section@{add\+Section}}
+\index{add\+Section@{add\+Section}!Item@{Item}}
+\subsubsection{\texorpdfstring{add\+Section()}{addSection()}}
+{\footnotesize\ttfamily void Item\+::add\+Section (\begin{DoxyParamCaption}\item[{std\+::string}]{value }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=245pt]{class_item_a6c9f73ef36b176cdb75bc9b13d5be8e8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_item_a8f02bc86b6f66142e35a660a5c28ba74}\label{class_item_a8f02bc86b6f66142e35a660a5c28ba74}} 
+\index{Item@{Item}!Calculate\+Material\+Bonuses@{Calculate\+Material\+Bonuses}}
+\index{Calculate\+Material\+Bonuses@{Calculate\+Material\+Bonuses}!Item@{Item}}
+\subsubsection{\texorpdfstring{Calculate\+Material\+Bonuses()}{CalculateMaterialBonuses()}}
+{\footnotesize\ttfamily void Item\+::\+Calculate\+Material\+Bonuses (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_item_a8f02bc86b6f66142e35a660a5c28ba74_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_item_a6d963581e2caad2e08979683a827f39f}\label{class_item_a6d963581e2caad2e08979683a827f39f}} 
+\index{Item@{Item}!clone@{clone}}
+\index{clone@{clone}!Item@{Item}}
+\subsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_item}{Item}}$\ast$ Item\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_armor_aac8aec108de9a8a45bada1534c0f23b7}{Armor}}, and \mbox{\hyperlink{class_weapon_a4a914fa26d1d67a5d890252950f6b9be}{Weapon}}.
+
+\mbox{\Hypertarget{class_item_a17b3fa0cef44ada961e0d3c65e1de864}\label{class_item_a17b3fa0cef44ada961e0d3c65e1de864}} 
+\index{Item@{Item}!create@{create}}
+\index{create@{create}!Item@{Item}}
+\subsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_item}{Item}}$\ast$ Item\+::create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_armor_a21de0acaa6ecdb6f5937166b83da9b01}{Armor}}, and \mbox{\hyperlink{class_weapon_a0755dc1352391eb484644ab4e4cf144d}{Weapon}}.
+
+\mbox{\Hypertarget{class_item_a9839c6a1b61487bbbe15b7ebba07de34}\label{class_item_a9839c6a1b61487bbbe15b7ebba07de34}} 
+\index{Item@{Item}!get\+Is\+Equipped@{get\+Is\+Equipped}}
+\index{get\+Is\+Equipped@{get\+Is\+Equipped}!Item@{Item}}
+\subsubsection{\texorpdfstring{get\+Is\+Equipped()}{getIsEquipped()}}
+{\footnotesize\ttfamily bool Item\+::get\+Is\+Equipped (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_item_a00e06647e1adeb62f2d95044476126ac}\label{class_item_a00e06647e1adeb62f2d95044476126ac}} 
+\index{Item@{Item}!get\+Item\+Examine\+String@{get\+Item\+Examine\+String}}
+\index{get\+Item\+Examine\+String@{get\+Item\+Examine\+String}!Item@{Item}}
+\subsubsection{\texorpdfstring{get\+Item\+Examine\+String()}{getItemExamineString()}}
+{\footnotesize\ttfamily virtual std\+::string Item\+::get\+Item\+Examine\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_armor_a731bb4d1fe53070f30a336db82fada2c}{Armor}}, and \mbox{\hyperlink{class_weapon_aa52cecf0a3c34aba70a6425c36d40afa}{Weapon}}.
+
+\mbox{\Hypertarget{class_item_a806159273f1f9fbb07fe75a74f2f51c5}\label{class_item_a806159273f1f9fbb07fe75a74f2f51c5}} 
+\index{Item@{Item}!get\+Item\+Name@{get\+Item\+Name}}
+\index{get\+Item\+Name@{get\+Item\+Name}!Item@{Item}}
+\subsubsection{\texorpdfstring{get\+Item\+Name()}{getItemName()}}
+{\footnotesize\ttfamily std\+::string Item\+::get\+Item\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_item_a806159273f1f9fbb07fe75a74f2f51c5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_item_a452c0983b99f1b148949274b63ed79fd}\label{class_item_a452c0983b99f1b148949274b63ed79fd}} 
+\index{Item@{Item}!get\+Mass@{get\+Mass}}
+\index{get\+Mass@{get\+Mass}!Item@{Item}}
+\subsubsection{\texorpdfstring{get\+Mass()}{getMass()}}
+{\footnotesize\ttfamily float Item\+::get\+Mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_item_a452c0983b99f1b148949274b63ed79fd_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_item_ada6692d4e0e9e8f9a9a78a13fd6522d8}\label{class_item_ada6692d4e0e9e8f9a9a78a13fd6522d8}} 
+\index{Item@{Item}!get\+Material@{get\+Material}}
+\index{get\+Material@{get\+Material}!Item@{Item}}
+\subsubsection{\texorpdfstring{get\+Material()}{getMaterial()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_material}{Material}} Item\+::get\+Material (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_item_af22ec5d207b70e2a3359e76dccfc7e11}\label{class_item_af22ec5d207b70e2a3359e76dccfc7e11}} 
+\index{Item@{Item}!get\+Material\+Ref@{get\+Material\+Ref}}
+\index{get\+Material\+Ref@{get\+Material\+Ref}!Item@{Item}}
+\subsubsection{\texorpdfstring{get\+Material\+Ref()}{getMaterialRef()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_material}{Material}} \& Item\+::get\+Material\+Ref (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_item_af22ec5d207b70e2a3359e76dccfc7e11_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_item_ab015078a1ea19c197fc88b7a556d37cc}\label{class_item_ab015078a1ea19c197fc88b7a556d37cc}} 
+\index{Item@{Item}!get\+Position@{get\+Position}}
+\index{get\+Position@{get\+Position}!Item@{Item}}
+\subsubsection{\texorpdfstring{get\+Position()}{getPosition()}}
+{\footnotesize\ttfamily sf\+::\+Vector2i Item\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_item_abe4ed40d2027ca131b669d471b47f29f}\label{class_item_abe4ed40d2027ca131b669d471b47f29f}} 
+\index{Item@{Item}!get\+Section@{get\+Section}}
+\index{get\+Section@{get\+Section}!Item@{Item}}
+\subsubsection{\texorpdfstring{get\+Section()}{getSection()}}
+{\footnotesize\ttfamily std\+::string Item\+::get\+Section (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_item_a2a84b0b0b25d4d1e8bb1b456d8094b84}\label{class_item_a2a84b0b0b25d4d1e8bb1b456d8094b84}} 
+\index{Item@{Item}!get\+Size@{get\+Size}}
+\index{get\+Size@{get\+Size}!Item@{Item}}
+\subsubsection{\texorpdfstring{get\+Size()}{getSize()}}
+{\footnotesize\ttfamily float Item\+::get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_item_a61272a187be1a07a49685cbee45d30bd}\label{class_item_a61272a187be1a07a49685cbee45d30bd}} 
+\index{Item@{Item}!get\+Tile@{get\+Tile}}
+\index{get\+Tile@{get\+Tile}!Item@{Item}}
+\subsubsection{\texorpdfstring{get\+Tile()}{getTile()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_entity_tile}{Entity\+Tile}}\& Item\+::get\+Tile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_item_a10dd503844c230e3d3bf890e969af867}\label{class_item_a10dd503844c230e3d3bf890e969af867}} 
+\index{Item@{Item}!is\+Valid\+Section@{is\+Valid\+Section}}
+\index{is\+Valid\+Section@{is\+Valid\+Section}!Item@{Item}}
+\subsubsection{\texorpdfstring{is\+Valid\+Section()}{isValidSection()}}
+{\footnotesize\ttfamily bool Item\+::is\+Valid\+Section (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+section }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=335pt]{class_item_a10dd503844c230e3d3bf890e969af867_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_item_a612c595b62d2f7b9c5cd2b085a14b365}\label{class_item_a612c595b62d2f7b9c5cd2b085a14b365}} 
+\index{Item@{Item}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Item@{Item}}
+\subsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool Item\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_item}{Item}} \&}]{other }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_item_a47267a43bfae3f28e183170f45783da5}\label{class_item_a47267a43bfae3f28e183170f45783da5}} 
+\index{Item@{Item}!operator=@{operator=}}
+\index{operator=@{operator=}!Item@{Item}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily void Item\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_item}{Item}} \&}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_item_a754d81f7346aebb775b16969a89021b4}\label{class_item_a754d81f7346aebb775b16969a89021b4}} 
+\index{Item@{Item}!operator==@{operator==}}
+\index{operator==@{operator==}!Item@{Item}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Item\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_item}{Item}} \&}]{other }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_item_ade0d63a4f02aa1a97f977b13f96eb891}\label{class_item_ade0d63a4f02aa1a97f977b13f96eb891}} 
+\index{Item@{Item}!set\+Is\+Equipped@{set\+Is\+Equipped}}
+\index{set\+Is\+Equipped@{set\+Is\+Equipped}!Item@{Item}}
+\subsubsection{\texorpdfstring{set\+Is\+Equipped()}{setIsEquipped()}}
+{\footnotesize\ttfamily void Item\+::set\+Is\+Equipped (\begin{DoxyParamCaption}\item[{bool}]{\+\_\+is\+Equipped }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{class_item_ade0d63a4f02aa1a97f977b13f96eb891_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_item_ae8dd38d585a7795f134f6453feb1000e}\label{class_item_ae8dd38d585a7795f134f6453feb1000e}} 
+\index{Item@{Item}!set\+Item\+Name@{set\+Item\+Name}}
+\index{set\+Item\+Name@{set\+Item\+Name}!Item@{Item}}
+\subsubsection{\texorpdfstring{set\+Item\+Name()}{setItemName()}}
+{\footnotesize\ttfamily void Item\+::set\+Item\+Name (\begin{DoxyParamCaption}\item[{std\+::string}]{value }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_item_ae8dd38d585a7795f134f6453feb1000e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_item_a3d6c15b2f0a37709541086df917aa761}\label{class_item_a3d6c15b2f0a37709541086df917aa761}} 
+\index{Item@{Item}!set\+Mass@{set\+Mass}}
+\index{set\+Mass@{set\+Mass}!Item@{Item}}
+\subsubsection{\texorpdfstring{set\+Mass()}{setMass()}}
+{\footnotesize\ttfamily void Item\+::set\+Mass (\begin{DoxyParamCaption}\item[{float}]{\+\_\+mass }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_item_af8f9e1899f933fc2ae2cdee6c7de0a4e}\label{class_item_af8f9e1899f933fc2ae2cdee6c7de0a4e}} 
+\index{Item@{Item}!set\+Material@{set\+Material}}
+\index{set\+Material@{set\+Material}!Item@{Item}}
+\subsubsection{\texorpdfstring{set\+Material()}{setMaterial()}}
+{\footnotesize\ttfamily void Item\+::set\+Material (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_material}{Material}}}]{value }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=313pt]{class_item_af8f9e1899f933fc2ae2cdee6c7de0a4e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_item_af8f03acf491fb71ec8cf1e4248bb4b3d}\label{class_item_af8f03acf491fb71ec8cf1e4248bb4b3d}} 
+\index{Item@{Item}!set\+Position@{set\+Position}}
+\index{set\+Position@{set\+Position}!Item@{Item}}
+\subsubsection{\texorpdfstring{set\+Position()}{setPosition()}}
+{\footnotesize\ttfamily void Item\+::set\+Position (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=317pt]{class_item_af8f03acf491fb71ec8cf1e4248bb4b3d_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_item_a87100c3d13e81e42e58969f817d591ef}\label{class_item_a87100c3d13e81e42e58969f817d591ef}} 
+\index{Item@{Item}!set\+Section@{set\+Section}}
+\index{set\+Section@{set\+Section}!Item@{Item}}
+\subsubsection{\texorpdfstring{set\+Section()}{setSection()}}
+{\footnotesize\ttfamily void Item\+::set\+Section (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+section }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_item_a5ec923033eeb77f331c8307ef5141fc4}\label{class_item_a5ec923033eeb77f331c8307ef5141fc4}} 
+\index{Item@{Item}!set\+Size@{set\+Size}}
+\index{set\+Size@{set\+Size}!Item@{Item}}
+\subsubsection{\texorpdfstring{set\+Size()}{setSize()}}
+{\footnotesize\ttfamily void Item\+::set\+Size (\begin{DoxyParamCaption}\item[{float}]{\+\_\+size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_item_aaf7dae41afdce432c11261043e8e4e30}\label{class_item_aaf7dae41afdce432c11261043e8e4e30}} 
+\index{Item@{Item}!show\+Item\+Stats@{show\+Item\+Stats}}
+\index{show\+Item\+Stats@{show\+Item\+Stats}!Item@{Item}}
+\subsubsection{\texorpdfstring{show\+Item\+Stats()}{showItemStats()}}
+{\footnotesize\ttfamily virtual void Item\+::show\+Item\+Stats (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_armor_a4fe1507d7aaf280a18e19f51a6f8c42d}{Armor}}, and \mbox{\hyperlink{class_weapon_a5bd0118be0d84307c0865a63d907fec7}{Weapon}}.
+
+
+
+\subsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_item_aacd78ed1db38c3d74aa80233c16b3e9c}\label{class_item_aacd78ed1db38c3d74aa80233c16b3e9c}} 
+\index{Item@{Item}!Armor@{Armor}}
+\index{Armor@{Armor}!Item@{Item}}
+\subsubsection{\texorpdfstring{Armor}{Armor}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{class_armor}{Armor}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\Hypertarget{class_item_ab356dbee0f1e915287732c65e8ef61e1}\label{class_item_ab356dbee0f1e915287732c65e8ef61e1}} 
+\index{Item@{Item}!Weapon@{Weapon}}
+\index{Weapon@{Weapon}!Item@{Item}}
+\subsubsection{\texorpdfstring{Weapon}{Weapon}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{class_weapon}{Weapon}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_item_a47a03cb11d41796494640d62f4d6b9d2}\label{class_item_a47a03cb11d41796494640d62f4d6b9d2}} 
+\index{Item@{Item}!is\+Equipped@{is\+Equipped}}
+\index{is\+Equipped@{is\+Equipped}!Item@{Item}}
+\subsubsection{\texorpdfstring{is\+Equipped}{isEquipped}}
+{\footnotesize\ttfamily bool Item\+::is\+Equipped\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_item_a9ba716084bdafdbd767aade37259b56b}\label{class_item_a9ba716084bdafdbd767aade37259b56b}} 
+\index{Item@{Item}!item\+Tile@{item\+Tile}}
+\index{item\+Tile@{item\+Tile}!Item@{Item}}
+\subsubsection{\texorpdfstring{item\+Tile}{itemTile}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_entity_tile}{Entity\+Tile}} Item\+::item\+Tile}
+
+\mbox{\Hypertarget{class_item_a59f0500b0a1a2c5e6590deb7ff58db7b}\label{class_item_a59f0500b0a1a2c5e6590deb7ff58db7b}} 
+\index{Item@{Item}!mass@{mass}}
+\index{mass@{mass}!Item@{Item}}
+\subsubsection{\texorpdfstring{mass}{mass}}
+{\footnotesize\ttfamily float Item\+::mass\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_item_a6b060c7156a9089e58869c8c4776bf4d}\label{class_item_a6b060c7156a9089e58869c8c4776bf4d}} 
+\index{Item@{Item}!material@{material}}
+\index{material@{material}!Item@{Item}}
+\subsubsection{\texorpdfstring{material}{material}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_material}{Material}} Item\+::material\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_item_ad1c1601358e5c56063390327e0d86ce1}\label{class_item_ad1c1601358e5c56063390327e0d86ce1}} 
+\index{Item@{Item}!position@{position}}
+\index{position@{position}!Item@{Item}}
+\subsubsection{\texorpdfstring{position}{position}}
+{\footnotesize\ttfamily sf\+::\+Vector2i Item\+::position\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_item_a23ee78e35c27520fce1ddfe2c56f88a0}\label{class_item_a23ee78e35c27520fce1ddfe2c56f88a0}} 
+\index{Item@{Item}!section@{section}}
+\index{section@{section}!Item@{Item}}
+\subsubsection{\texorpdfstring{section}{section}}
+{\footnotesize\ttfamily std\+::string Item\+::section\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_item_ad0dfdfafbff3d22f196c19db4ce1eb40}\label{class_item_ad0dfdfafbff3d22f196c19db4ce1eb40}} 
+\index{Item@{Item}!sections@{sections}}
+\index{sections@{sections}!Item@{Item}}
+\subsubsection{\texorpdfstring{sections}{sections}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ Item\+::sections}
+
+\mbox{\Hypertarget{class_item_ab551fd7ec7c75a6d125cad56fe84b30a}\label{class_item_ab551fd7ec7c75a6d125cad56fe84b30a}} 
+\index{Item@{Item}!s\+Equipment\+Name@{s\+Equipment\+Name}}
+\index{s\+Equipment\+Name@{s\+Equipment\+Name}!Item@{Item}}
+\subsubsection{\texorpdfstring{s\+Equipment\+Name}{sEquipmentName}}
+{\footnotesize\ttfamily std\+::string Item\+::s\+Equipment\+Name\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_item_af6193bebd888e699303f91bee96d9f16}\label{class_item_af6193bebd888e699303f91bee96d9f16}} 
+\index{Item@{Item}!size@{size}}
+\index{size@{size}!Item@{Item}}
+\subsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily float Item\+::size\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_item_a1784c30db978d4858e34cf812ff261d5}\label{class_item_a1784c30db978d4858e34cf812ff261d5}} 
+\index{Item@{Item}!tile@{tile}}
+\index{tile@{tile}!Item@{Item}}
+\subsubsection{\texorpdfstring{tile}{tile}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_entity_tile}{Entity\+Tile}} Item\+::tile}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/\+Equipment/\mbox{\hyperlink{_equipment_8hpp}{Equipment.\+hpp}}\item 
+/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/\+Equipment/\mbox{\hyperlink{_equipment_8cpp}{Equipment.\+cpp}}\end{DoxyCompactItemize}

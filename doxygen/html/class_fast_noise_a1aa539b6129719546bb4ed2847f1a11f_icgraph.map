@@ -1,0 +1,8 @@
+<map id="FastNoise::SingleSimplex" name="FastNoise::SingleSimplex">
+<area shape="rect" id="node2" href="$class_fast_noise.html#a0d9b7a6858a599cde4dc5b8f74264ae0" title="FastNoise::GetNoise" alt="" coords="241,5,385,31"/>
+<area shape="rect" id="node3" href="$class_fast_noise.html#a2ac44ef2c9843f3024a3f0be9a47526b" title="FastNoise::SingleSimplex\lFractalFBM" alt="" coords="227,55,400,93"/>
+<area shape="rect" id="node4" href="$class_fast_noise.html#a6dd57ba17192a085544452db30caaf64" title="FastNoise::SingleSimplex\lFractalBillow" alt="" coords="227,117,400,156"/>
+<area shape="rect" id="node5" href="$class_fast_noise.html#a6a1e4725751d679b33705fa5867f7525" title="FastNoise::SingleSimplex\lFractalRigidMulti" alt="" coords="227,180,400,219"/>
+<area shape="rect" id="node6" href="$class_fast_noise.html#a4ab5e306f72c428fef0e69be3166c07d" title="FastNoise::GetSimplex" alt="" coords="234,243,392,268"/>
+<area shape="rect" id="node7" href="$class_fast_noise.html#af076ea4b492ce8e166816c5842ce43da" title="FastNoise::SingleSimplex\lFractalBlend" alt="" coords="227,292,400,331"/>
+</map>

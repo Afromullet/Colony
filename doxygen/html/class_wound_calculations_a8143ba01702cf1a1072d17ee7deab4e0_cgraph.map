@@ -1,0 +1,7 @@
+<map id="WoundCalculations::ApplyWound" name="WoundCalculations::ApplyWound">
+<area shape="rect" id="node2" href="$class_wound_calculations.html#ae0e649e97591c6a6b28d6a4ff7e0324e" title="WoundCalculations::\lApplySlashingShearWound" alt="" coords="197,5,380,44"/>
+<area shape="rect" id="node5" href="$class_wound_calculations.html#ac763bba5d770b968ab68532b974d878d" title="WoundCalculations::\lApplyPiercingShearWound" alt="" coords="198,68,379,107"/>
+<area shape="rect" id="node6" href="$class_wound_calculations.html#a645dc9bb6dfc7d5fc20fc8e8b91fd430" title="WoundCalculations::\lApplyImpactWound" alt="" coords="217,131,360,169"/>
+<area shape="rect" id="node3" href="$_wound_8cpp.html#aaad24d5891076a31900647e4b5c0ab23" title="DetermineWoundTargets" alt="" coords="428,75,597,100"/>
+<area shape="rect" id="node4" href="$_body_graph_getters_8cpp.html#a68cd613cd5c568f481c313a533b27216" title="getInternalVertices" alt="" coords="645,75,776,100"/>
+</map>

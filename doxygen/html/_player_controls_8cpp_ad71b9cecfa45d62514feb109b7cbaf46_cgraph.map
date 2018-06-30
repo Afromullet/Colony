@@ -1,0 +1,5 @@
+<map id="AddItemsToInventoryWindow" name="AddItemsToInventoryWindow">
+<area shape="rect" id="node2" href="$class_base_creature.html#a505e70415a3e2db87aac0767498375ff" title="BaseCreature::getInventory" alt="" coords="247,5,432,31"/>
+<area shape="rect" id="node3" href="$class_data_window.html#a8bec28c4e6514e9b62b10686e0e9b40d" title="DataWindow::AddText" alt="" coords="263,55,416,80"/>
+<area shape="rect" id="node4" href="$class_data_window.html#a05ac7ad6357b9cabd0436c181c6cf29d" title="DataWindow::setTextColor" alt="" coords="250,104,429,129"/>
+</map>

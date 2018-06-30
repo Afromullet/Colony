@@ -1,0 +1,260 @@
+\hypertarget{_globals_8hpp}{}\section{/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/\+Defs/\+Globals.hpp File Reference}
+\label{_globals_8hpp}\index{/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/\+Defs/\+Globals.\+hpp@{/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/\+Defs/\+Globals.\+hpp}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$S\+F\+M\+L/\+Graphics.\+hpp$>$}\newline
+{\ttfamily \#include $<$Vector$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include \char`\"{}Map.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Base\+Creature.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$list$>$}\newline
+{\ttfamily \#include \char`\"{}Ca\+Map.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Constants.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Filelogger.\+hpp\char`\"{}}\newline
+Include dependency graph for Globals.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_globals_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_globals_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_tile_identification_data}{Tile\+Identification\+Data}}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_globals_8hpp_a77245cb3af255500c9b146fd1afecdec}{M\+A\+X\+\_\+\+C\+R\+E\+A\+T\+U\+R\+E\+S\+\_\+\+P\+E\+R\+\_\+\+M\+AP}}~100
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct_tile_identification_data}{Tile\+Identification\+Data}} \mbox{\hyperlink{_globals_8hpp_a9af6325a1a0eb8e6b3713a9813e70f30}{Tile\+I\+D\+Data}}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_globals_8hpp_a9bcdcb765a42512f7ff98bf5feafcdc5}{Initialize\+Globals}} ()
+\item 
+bool \mbox{\hyperlink{_globals_8hpp_ae6568d3ab890e695fabbf2090be193ab}{does\+Effect\+I\+D\+Exist}} (int id)
+\item 
+int \mbox{\hyperlink{_globals_8hpp_a3028c6b7001d4b3036b6e6753ef11dd8}{Assign\+Effect\+ID}} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{_globals_8hpp_afe26025958369f3cf166861cbb98b1f8}{Player\+Action\+Taken}}
+\item 
+\mbox{\hyperlink{class_file_logger}{File\+Logger}} \mbox{\hyperlink{_globals_8hpp_a8ea4868d4b008c14c63ddc1b093c5841}{error\+Log}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{_globals_8hpp_a9af6325a1a0eb8e6b3713a9813e70f30}{Tile\+I\+D\+Data}} $>$ \mbox{\hyperlink{_globals_8hpp_a7014cfee6fd3bff072f6e535b21a968c}{tile\+I\+D\+Table}}
+\item 
+sf\+::\+Render\+Window \mbox{\hyperlink{_globals_8hpp_ae90e155ced28d8d3e69df6bad6b6d893}{window}}
+\item 
+\mbox{\hyperlink{class_map}{Map}} \mbox{\hyperlink{_globals_8hpp_ac01be1b16c3ca154a54b0ab4e107baa0}{Main\+Map}}
+\item 
+\mbox{\hyperlink{class_c_a___map}{C\+A\+\_\+\+Map}} \mbox{\hyperlink{_globals_8hpp_abbff21b25076f0b71b35245ac9e5505a}{ca\+Map}}
+\item 
+\mbox{\hyperlink{class_base_creature}{Base\+Creature}} \mbox{\hyperlink{_globals_8hpp_a5d01dfcdd7e90f3dd1fbb6513d5757bc}{player}}
+\item 
+\mbox{\hyperlink{class_weapon}{Weapon}} \mbox{\hyperlink{_globals_8hpp_a9340ef56458071ba1d4ad36b09e99a98}{F\+I\+S\+T\+\_\+\+W\+E\+A\+P\+ON}}
+\item 
+\mbox{\hyperlink{class_weapon}{Weapon}} \mbox{\hyperlink{_globals_8hpp_af3d6dcd20cdec261d635ea730e643f02}{N\+O\+\_\+\+W\+E\+A\+P\+ON}}
+\item 
+\mbox{\hyperlink{class_weapon}{Weapon}} \mbox{\hyperlink{_globals_8hpp_a99ccbe2b4b1a29290309c8bd3ee52d68}{W\+E\+A\+P\+O\+N\+\_\+\+S\+L\+O\+T\+\_\+\+F\+I\+L\+L\+ED}}
+\item 
+\mbox{\hyperlink{class_armor}{Armor}} \mbox{\hyperlink{_globals_8hpp_a9e5df21ad8a00a7fd06e5400241c5b99}{N\+O\+\_\+\+A\+R\+M\+OR}}
+\item 
+sf\+::\+Font \mbox{\hyperlink{_globals_8hpp_a3044f4b71a77183dac34b948821d462a}{default\+Font}}
+\item 
+sf\+::\+Color \mbox{\hyperlink{_globals_8hpp_a7fb9c784f91c465543b645c2daeb7f42}{yellow}}
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{_globals_8hpp_abbe08ca692bdb06a4d87ab4b41395b31}{all\+Effect\+I\+Ds}}
+\item 
+sf\+::\+Color \mbox{\hyperlink{_globals_8hpp_ac9f99d007bf0e49cc3a1272f0cd1f4ba}{Basic\+Highlight\+Color}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_globals_8hpp_a77245cb3af255500c9b146fd1afecdec}\label{_globals_8hpp_a77245cb3af255500c9b146fd1afecdec}} 
+\index{Globals.\+hpp@{Globals.\+hpp}!M\+A\+X\+\_\+\+C\+R\+E\+A\+T\+U\+R\+E\+S\+\_\+\+P\+E\+R\+\_\+\+M\+AP@{M\+A\+X\+\_\+\+C\+R\+E\+A\+T\+U\+R\+E\+S\+\_\+\+P\+E\+R\+\_\+\+M\+AP}}
+\index{M\+A\+X\+\_\+\+C\+R\+E\+A\+T\+U\+R\+E\+S\+\_\+\+P\+E\+R\+\_\+\+M\+AP@{M\+A\+X\+\_\+\+C\+R\+E\+A\+T\+U\+R\+E\+S\+\_\+\+P\+E\+R\+\_\+\+M\+AP}!Globals.\+hpp@{Globals.\+hpp}}
+\subsubsection{\texorpdfstring{M\+A\+X\+\_\+\+C\+R\+E\+A\+T\+U\+R\+E\+S\+\_\+\+P\+E\+R\+\_\+\+M\+AP}{MAX\_CREATURES\_PER\_MAP}}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+C\+R\+E\+A\+T\+U\+R\+E\+S\+\_\+\+P\+E\+R\+\_\+\+M\+AP~100}
+
+
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{_globals_8hpp_a9af6325a1a0eb8e6b3713a9813e70f30}\label{_globals_8hpp_a9af6325a1a0eb8e6b3713a9813e70f30}} 
+\index{Globals.\+hpp@{Globals.\+hpp}!Tile\+I\+D\+Data@{Tile\+I\+D\+Data}}
+\index{Tile\+I\+D\+Data@{Tile\+I\+D\+Data}!Globals.\+hpp@{Globals.\+hpp}}
+\subsubsection{\texorpdfstring{Tile\+I\+D\+Data}{TileIDData}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_tile_identification_data}{Tile\+Identification\+Data}} \mbox{\hyperlink{_globals_8hpp_a9af6325a1a0eb8e6b3713a9813e70f30}{Tile\+I\+D\+Data}}}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_globals_8hpp_a3028c6b7001d4b3036b6e6753ef11dd8}\label{_globals_8hpp_a3028c6b7001d4b3036b6e6753ef11dd8}} 
+\index{Globals.\+hpp@{Globals.\+hpp}!Assign\+Effect\+ID@{Assign\+Effect\+ID}}
+\index{Assign\+Effect\+ID@{Assign\+Effect\+ID}!Globals.\+hpp@{Globals.\+hpp}}
+\subsubsection{\texorpdfstring{Assign\+Effect\+I\+D()}{AssignEffectID()}}
+{\footnotesize\ttfamily int Assign\+Effect\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{_globals_8hpp_a3028c6b7001d4b3036b6e6753ef11dd8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_globals_8hpp_a3028c6b7001d4b3036b6e6753ef11dd8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_globals_8hpp_ae6568d3ab890e695fabbf2090be193ab}\label{_globals_8hpp_ae6568d3ab890e695fabbf2090be193ab}} 
+\index{Globals.\+hpp@{Globals.\+hpp}!does\+Effect\+I\+D\+Exist@{does\+Effect\+I\+D\+Exist}}
+\index{does\+Effect\+I\+D\+Exist@{does\+Effect\+I\+D\+Exist}!Globals.\+hpp@{Globals.\+hpp}}
+\subsubsection{\texorpdfstring{does\+Effect\+I\+D\+Exist()}{doesEffectIDExist()}}
+{\footnotesize\ttfamily bool does\+Effect\+I\+D\+Exist (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_globals_8hpp_ae6568d3ab890e695fabbf2090be193ab_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_globals_8hpp_a9bcdcb765a42512f7ff98bf5feafcdc5}\label{_globals_8hpp_a9bcdcb765a42512f7ff98bf5feafcdc5}} 
+\index{Globals.\+hpp@{Globals.\+hpp}!Initialize\+Globals@{Initialize\+Globals}}
+\index{Initialize\+Globals@{Initialize\+Globals}!Globals.\+hpp@{Globals.\+hpp}}
+\subsubsection{\texorpdfstring{Initialize\+Globals()}{InitializeGlobals()}}
+{\footnotesize\ttfamily void Initialize\+Globals (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=251pt]{_globals_8hpp_a9bcdcb765a42512f7ff98bf5feafcdc5_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_globals_8hpp_a9bcdcb765a42512f7ff98bf5feafcdc5_icgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{_globals_8hpp_abbe08ca692bdb06a4d87ab4b41395b31}\label{_globals_8hpp_abbe08ca692bdb06a4d87ab4b41395b31}} 
+\index{Globals.\+hpp@{Globals.\+hpp}!all\+Effect\+I\+Ds@{all\+Effect\+I\+Ds}}
+\index{all\+Effect\+I\+Ds@{all\+Effect\+I\+Ds}!Globals.\+hpp@{Globals.\+hpp}}
+\subsubsection{\texorpdfstring{all\+Effect\+I\+Ds}{allEffectIDs}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ all\+Effect\+I\+Ds}
+
+\mbox{\Hypertarget{_globals_8hpp_ac9f99d007bf0e49cc3a1272f0cd1f4ba}\label{_globals_8hpp_ac9f99d007bf0e49cc3a1272f0cd1f4ba}} 
+\index{Globals.\+hpp@{Globals.\+hpp}!Basic\+Highlight\+Color@{Basic\+Highlight\+Color}}
+\index{Basic\+Highlight\+Color@{Basic\+Highlight\+Color}!Globals.\+hpp@{Globals.\+hpp}}
+\subsubsection{\texorpdfstring{Basic\+Highlight\+Color}{BasicHighlightColor}}
+{\footnotesize\ttfamily sf\+::\+Color Basic\+Highlight\+Color}
+
+\mbox{\Hypertarget{_globals_8hpp_abbff21b25076f0b71b35245ac9e5505a}\label{_globals_8hpp_abbff21b25076f0b71b35245ac9e5505a}} 
+\index{Globals.\+hpp@{Globals.\+hpp}!ca\+Map@{ca\+Map}}
+\index{ca\+Map@{ca\+Map}!Globals.\+hpp@{Globals.\+hpp}}
+\subsubsection{\texorpdfstring{ca\+Map}{caMap}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_a___map}{C\+A\+\_\+\+Map}} ca\+Map}
+
+\mbox{\Hypertarget{_globals_8hpp_a3044f4b71a77183dac34b948821d462a}\label{_globals_8hpp_a3044f4b71a77183dac34b948821d462a}} 
+\index{Globals.\+hpp@{Globals.\+hpp}!default\+Font@{default\+Font}}
+\index{default\+Font@{default\+Font}!Globals.\+hpp@{Globals.\+hpp}}
+\subsubsection{\texorpdfstring{default\+Font}{defaultFont}}
+{\footnotesize\ttfamily sf\+::\+Font default\+Font}
+
+\mbox{\Hypertarget{_globals_8hpp_a8ea4868d4b008c14c63ddc1b093c5841}\label{_globals_8hpp_a8ea4868d4b008c14c63ddc1b093c5841}} 
+\index{Globals.\+hpp@{Globals.\+hpp}!error\+Log@{error\+Log}}
+\index{error\+Log@{error\+Log}!Globals.\+hpp@{Globals.\+hpp}}
+\subsubsection{\texorpdfstring{error\+Log}{errorLog}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_file_logger}{File\+Logger}} error\+Log}
+
+\mbox{\Hypertarget{_globals_8hpp_a9340ef56458071ba1d4ad36b09e99a98}\label{_globals_8hpp_a9340ef56458071ba1d4ad36b09e99a98}} 
+\index{Globals.\+hpp@{Globals.\+hpp}!F\+I\+S\+T\+\_\+\+W\+E\+A\+P\+ON@{F\+I\+S\+T\+\_\+\+W\+E\+A\+P\+ON}}
+\index{F\+I\+S\+T\+\_\+\+W\+E\+A\+P\+ON@{F\+I\+S\+T\+\_\+\+W\+E\+A\+P\+ON}!Globals.\+hpp@{Globals.\+hpp}}
+\subsubsection{\texorpdfstring{F\+I\+S\+T\+\_\+\+W\+E\+A\+P\+ON}{FIST\_WEAPON}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_weapon}{Weapon}} F\+I\+S\+T\+\_\+\+W\+E\+A\+P\+ON}
+
+\mbox{\Hypertarget{_globals_8hpp_ac01be1b16c3ca154a54b0ab4e107baa0}\label{_globals_8hpp_ac01be1b16c3ca154a54b0ab4e107baa0}} 
+\index{Globals.\+hpp@{Globals.\+hpp}!Main\+Map@{Main\+Map}}
+\index{Main\+Map@{Main\+Map}!Globals.\+hpp@{Globals.\+hpp}}
+\subsubsection{\texorpdfstring{Main\+Map}{MainMap}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_map}{Map}} Main\+Map}
+
+\mbox{\Hypertarget{_globals_8hpp_a9e5df21ad8a00a7fd06e5400241c5b99}\label{_globals_8hpp_a9e5df21ad8a00a7fd06e5400241c5b99}} 
+\index{Globals.\+hpp@{Globals.\+hpp}!N\+O\+\_\+\+A\+R\+M\+OR@{N\+O\+\_\+\+A\+R\+M\+OR}}
+\index{N\+O\+\_\+\+A\+R\+M\+OR@{N\+O\+\_\+\+A\+R\+M\+OR}!Globals.\+hpp@{Globals.\+hpp}}
+\subsubsection{\texorpdfstring{N\+O\+\_\+\+A\+R\+M\+OR}{NO\_ARMOR}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_armor}{Armor}} N\+O\+\_\+\+A\+R\+M\+OR}
+
+\mbox{\Hypertarget{_globals_8hpp_af3d6dcd20cdec261d635ea730e643f02}\label{_globals_8hpp_af3d6dcd20cdec261d635ea730e643f02}} 
+\index{Globals.\+hpp@{Globals.\+hpp}!N\+O\+\_\+\+W\+E\+A\+P\+ON@{N\+O\+\_\+\+W\+E\+A\+P\+ON}}
+\index{N\+O\+\_\+\+W\+E\+A\+P\+ON@{N\+O\+\_\+\+W\+E\+A\+P\+ON}!Globals.\+hpp@{Globals.\+hpp}}
+\subsubsection{\texorpdfstring{N\+O\+\_\+\+W\+E\+A\+P\+ON}{NO\_WEAPON}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_weapon}{Weapon}} N\+O\+\_\+\+W\+E\+A\+P\+ON}
+
+\mbox{\Hypertarget{_globals_8hpp_a5d01dfcdd7e90f3dd1fbb6513d5757bc}\label{_globals_8hpp_a5d01dfcdd7e90f3dd1fbb6513d5757bc}} 
+\index{Globals.\+hpp@{Globals.\+hpp}!player@{player}}
+\index{player@{player}!Globals.\+hpp@{Globals.\+hpp}}
+\subsubsection{\texorpdfstring{player}{player}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_base_creature}{Base\+Creature}} player}
+
+\mbox{\Hypertarget{_globals_8hpp_afe26025958369f3cf166861cbb98b1f8}\label{_globals_8hpp_afe26025958369f3cf166861cbb98b1f8}} 
+\index{Globals.\+hpp@{Globals.\+hpp}!Player\+Action\+Taken@{Player\+Action\+Taken}}
+\index{Player\+Action\+Taken@{Player\+Action\+Taken}!Globals.\+hpp@{Globals.\+hpp}}
+\subsubsection{\texorpdfstring{Player\+Action\+Taken}{PlayerActionTaken}}
+{\footnotesize\ttfamily bool Player\+Action\+Taken}
+
+\mbox{\Hypertarget{_globals_8hpp_a7014cfee6fd3bff072f6e535b21a968c}\label{_globals_8hpp_a7014cfee6fd3bff072f6e535b21a968c}} 
+\index{Globals.\+hpp@{Globals.\+hpp}!tile\+I\+D\+Table@{tile\+I\+D\+Table}}
+\index{tile\+I\+D\+Table@{tile\+I\+D\+Table}!Globals.\+hpp@{Globals.\+hpp}}
+\subsubsection{\texorpdfstring{tile\+I\+D\+Table}{tileIDTable}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{_globals_8hpp_a9af6325a1a0eb8e6b3713a9813e70f30}{Tile\+I\+D\+Data}}$>$ tile\+I\+D\+Table}
+
+\mbox{\Hypertarget{_globals_8hpp_a99ccbe2b4b1a29290309c8bd3ee52d68}\label{_globals_8hpp_a99ccbe2b4b1a29290309c8bd3ee52d68}} 
+\index{Globals.\+hpp@{Globals.\+hpp}!W\+E\+A\+P\+O\+N\+\_\+\+S\+L\+O\+T\+\_\+\+F\+I\+L\+L\+ED@{W\+E\+A\+P\+O\+N\+\_\+\+S\+L\+O\+T\+\_\+\+F\+I\+L\+L\+ED}}
+\index{W\+E\+A\+P\+O\+N\+\_\+\+S\+L\+O\+T\+\_\+\+F\+I\+L\+L\+ED@{W\+E\+A\+P\+O\+N\+\_\+\+S\+L\+O\+T\+\_\+\+F\+I\+L\+L\+ED}!Globals.\+hpp@{Globals.\+hpp}}
+\subsubsection{\texorpdfstring{W\+E\+A\+P\+O\+N\+\_\+\+S\+L\+O\+T\+\_\+\+F\+I\+L\+L\+ED}{WEAPON\_SLOT\_FILLED}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_weapon}{Weapon}} W\+E\+A\+P\+O\+N\+\_\+\+S\+L\+O\+T\+\_\+\+F\+I\+L\+L\+ED}
+
+\mbox{\Hypertarget{_globals_8hpp_ae90e155ced28d8d3e69df6bad6b6d893}\label{_globals_8hpp_ae90e155ced28d8d3e69df6bad6b6d893}} 
+\index{Globals.\+hpp@{Globals.\+hpp}!window@{window}}
+\index{window@{window}!Globals.\+hpp@{Globals.\+hpp}}
+\subsubsection{\texorpdfstring{window}{window}}
+{\footnotesize\ttfamily sf\+::\+Render\+Window window}
+
+\mbox{\Hypertarget{_globals_8hpp_a7fb9c784f91c465543b645c2daeb7f42}\label{_globals_8hpp_a7fb9c784f91c465543b645c2daeb7f42}} 
+\index{Globals.\+hpp@{Globals.\+hpp}!yellow@{yellow}}
+\index{yellow@{yellow}!Globals.\+hpp@{Globals.\+hpp}}
+\subsubsection{\texorpdfstring{yellow}{yellow}}
+{\footnotesize\ttfamily sf\+::\+Color yellow}
+

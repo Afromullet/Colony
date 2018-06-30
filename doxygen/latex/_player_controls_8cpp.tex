@@ -1,0 +1,194 @@
+\hypertarget{_player_controls_8cpp}{}\section{/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/\+Input/\+Player\+Controls.cpp File Reference}
+\label{_player_controls_8cpp}\index{/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/\+Input/\+Player\+Controls.\+cpp@{/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/\+Input/\+Player\+Controls.\+cpp}}
+{\ttfamily \#include \char`\"{}Player\+Controls.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Pathfinding.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Globals.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Noisemap.\+hpp\char`\"{}}\newline
+Include dependency graph for Player\+Controls.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_player_controls_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{_player_controls_8cpp_a2fbf8484c8a051b724315afd0f442465}{Handle\+Player\+Input}} (sf\+::\+Event \&event, \mbox{\hyperlink{class_map_data}{Map\+Data}} \&\mbox{\hyperlink{main_8cpp_ab63e584a122837ba00ad00bdb9dbcb6f}{mapdata}}, \mbox{\hyperlink{class_base_creature}{Base\+Creature}} \&creature)
+\item 
+void \mbox{\hyperlink{_player_controls_8cpp_abc69fe16b664614aa47cbd2b13ad76ac}{Control\+Target\+Square}} (\mbox{\hyperlink{_enum_types_8hpp_a00ec4eba48da32d6cbdf827185fd3d34}{Move\+Direction}} move\+Dir, \mbox{\hyperlink{class_map_data}{Map\+Data}} \&\mbox{\hyperlink{main_8cpp_ab63e584a122837ba00ad00bdb9dbcb6f}{mapdata}})
+\item 
+void \mbox{\hyperlink{_player_controls_8cpp_ac79fad99729b95af44c9207a8f3ae12f}{Initialize\+Inventory\+Window}} ()
+\item 
+void \mbox{\hyperlink{_player_controls_8cpp_ad71b9cecfa45d62514feb109b7cbaf46}{Add\+Items\+To\+Inventory\+Window}} (\mbox{\hyperlink{class_base_creature}{Base\+Creature}} \&creature)
+\item 
+void \mbox{\hyperlink{_player_controls_8cpp_a27582acd5009439f45ba716a210b3dda}{Add\+To\+Equipment\+Window}} (\mbox{\hyperlink{class_base_creature}{Base\+Creature}} \&creature)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{_player_controls_8cpp_abc71c8d30299c34de66532f8ea3c4e7c}{using\+Target\+Square}} = false
+\item 
+bool \mbox{\hyperlink{_player_controls_8cpp_aee628fbfb76e8349d796a2a45b4c6cc7}{is\+Inventory\+Window\+Open}} = false
+\item 
+bool \mbox{\hyperlink{_player_controls_8cpp_a0af6e6dfbaf21843e7ee7194d7cae62f}{is\+Equipment\+Window\+Open}} = false
+\item 
+\mbox{\hyperlink{class_window_commands}{Window\+Commands}} \mbox{\hyperlink{_player_controls_8cpp_a50c3e5aa031e2c39ab9ce73a4c5c8358}{player\+Window\+Commands}}
+\item 
+std\+::vector$<$ sf\+::\+Vector2i $>$ \mbox{\hyperlink{_player_controls_8cpp_a04384ba639ec418f957795508cbb1c55}{square}}
+\item 
+\mbox{\hyperlink{class_map_effect}{Map\+Effect}} \mbox{\hyperlink{_player_controls_8cpp_ab3afe3d24559101414ef4c5cfa8c5803}{targetting\+Square}}
+\item 
+\mbox{\hyperlink{class_data_window}{Data\+Window}} \mbox{\hyperlink{_player_controls_8cpp_a24a072a6c100424daa87be3b25f531f3}{inventory\+Window}}
+\item 
+\mbox{\hyperlink{class_data_window}{Data\+Window}} \mbox{\hyperlink{_player_controls_8cpp_a7c048d92a816795e8b74c70735f7fad7}{equipment\+Window}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_player_controls_8cpp_ad71b9cecfa45d62514feb109b7cbaf46}\label{_player_controls_8cpp_ad71b9cecfa45d62514feb109b7cbaf46}} 
+\index{Player\+Controls.\+cpp@{Player\+Controls.\+cpp}!Add\+Items\+To\+Inventory\+Window@{Add\+Items\+To\+Inventory\+Window}}
+\index{Add\+Items\+To\+Inventory\+Window@{Add\+Items\+To\+Inventory\+Window}!Player\+Controls.\+cpp@{Player\+Controls.\+cpp}}
+\subsubsection{\texorpdfstring{Add\+Items\+To\+Inventory\+Window()}{AddItemsToInventoryWindow()}}
+{\footnotesize\ttfamily void Add\+Items\+To\+Inventory\+Window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_base_creature}{Base\+Creature}} \&}]{creature }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_player_controls_8cpp_ad71b9cecfa45d62514feb109b7cbaf46_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_player_controls_8cpp_ad71b9cecfa45d62514feb109b7cbaf46_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_player_controls_8cpp_a27582acd5009439f45ba716a210b3dda}\label{_player_controls_8cpp_a27582acd5009439f45ba716a210b3dda}} 
+\index{Player\+Controls.\+cpp@{Player\+Controls.\+cpp}!Add\+To\+Equipment\+Window@{Add\+To\+Equipment\+Window}}
+\index{Add\+To\+Equipment\+Window@{Add\+To\+Equipment\+Window}!Player\+Controls.\+cpp@{Player\+Controls.\+cpp}}
+\subsubsection{\texorpdfstring{Add\+To\+Equipment\+Window()}{AddToEquipmentWindow()}}
+{\footnotesize\ttfamily void Add\+To\+Equipment\+Window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_base_creature}{Base\+Creature}} \&}]{creature }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_player_controls_8cpp_abc69fe16b664614aa47cbd2b13ad76ac}\label{_player_controls_8cpp_abc69fe16b664614aa47cbd2b13ad76ac}} 
+\index{Player\+Controls.\+cpp@{Player\+Controls.\+cpp}!Control\+Target\+Square@{Control\+Target\+Square}}
+\index{Control\+Target\+Square@{Control\+Target\+Square}!Player\+Controls.\+cpp@{Player\+Controls.\+cpp}}
+\subsubsection{\texorpdfstring{Control\+Target\+Square()}{ControlTargetSquare()}}
+{\footnotesize\ttfamily void Control\+Target\+Square (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_enum_types_8hpp_a00ec4eba48da32d6cbdf827185fd3d34}{Move\+Direction}}}]{move\+Dir,  }\item[{\mbox{\hyperlink{class_map_data}{Map\+Data}} \&}]{mapdata }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_player_controls_8cpp_abc69fe16b664614aa47cbd2b13ad76ac_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_player_controls_8cpp_abc69fe16b664614aa47cbd2b13ad76ac_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_player_controls_8cpp_a2fbf8484c8a051b724315afd0f442465}\label{_player_controls_8cpp_a2fbf8484c8a051b724315afd0f442465}} 
+\index{Player\+Controls.\+cpp@{Player\+Controls.\+cpp}!Handle\+Player\+Input@{Handle\+Player\+Input}}
+\index{Handle\+Player\+Input@{Handle\+Player\+Input}!Player\+Controls.\+cpp@{Player\+Controls.\+cpp}}
+\subsubsection{\texorpdfstring{Handle\+Player\+Input()}{HandlePlayerInput()}}
+{\footnotesize\ttfamily bool Handle\+Player\+Input (\begin{DoxyParamCaption}\item[{sf\+::\+Event \&}]{event,  }\item[{\mbox{\hyperlink{class_map_data}{Map\+Data}} \&}]{mapdata,  }\item[{\mbox{\hyperlink{class_base_creature}{Base\+Creature}} \&}]{creature }\end{DoxyParamCaption})}
+
+s\+Behavior.\+Examine\+Surrounding\+Task(creature, $\ast$mapdata.map); Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_player_controls_8cpp_a2fbf8484c8a051b724315afd0f442465_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_player_controls_8cpp_a2fbf8484c8a051b724315afd0f442465_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_player_controls_8cpp_ac79fad99729b95af44c9207a8f3ae12f}\label{_player_controls_8cpp_ac79fad99729b95af44c9207a8f3ae12f}} 
+\index{Player\+Controls.\+cpp@{Player\+Controls.\+cpp}!Initialize\+Inventory\+Window@{Initialize\+Inventory\+Window}}
+\index{Initialize\+Inventory\+Window@{Initialize\+Inventory\+Window}!Player\+Controls.\+cpp@{Player\+Controls.\+cpp}}
+\subsubsection{\texorpdfstring{Initialize\+Inventory\+Window()}{InitializeInventoryWindow()}}
+{\footnotesize\ttfamily void Initialize\+Inventory\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_player_controls_8cpp_ac79fad99729b95af44c9207a8f3ae12f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_player_controls_8cpp_ac79fad99729b95af44c9207a8f3ae12f_icgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{_player_controls_8cpp_a7c048d92a816795e8b74c70735f7fad7}\label{_player_controls_8cpp_a7c048d92a816795e8b74c70735f7fad7}} 
+\index{Player\+Controls.\+cpp@{Player\+Controls.\+cpp}!equipment\+Window@{equipment\+Window}}
+\index{equipment\+Window@{equipment\+Window}!Player\+Controls.\+cpp@{Player\+Controls.\+cpp}}
+\subsubsection{\texorpdfstring{equipment\+Window}{equipmentWindow}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_window}{Data\+Window}} equipment\+Window}
+
+\mbox{\Hypertarget{_player_controls_8cpp_a24a072a6c100424daa87be3b25f531f3}\label{_player_controls_8cpp_a24a072a6c100424daa87be3b25f531f3}} 
+\index{Player\+Controls.\+cpp@{Player\+Controls.\+cpp}!inventory\+Window@{inventory\+Window}}
+\index{inventory\+Window@{inventory\+Window}!Player\+Controls.\+cpp@{Player\+Controls.\+cpp}}
+\subsubsection{\texorpdfstring{inventory\+Window}{inventoryWindow}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_window}{Data\+Window}} inventory\+Window}
+
+\mbox{\Hypertarget{_player_controls_8cpp_a0af6e6dfbaf21843e7ee7194d7cae62f}\label{_player_controls_8cpp_a0af6e6dfbaf21843e7ee7194d7cae62f}} 
+\index{Player\+Controls.\+cpp@{Player\+Controls.\+cpp}!is\+Equipment\+Window\+Open@{is\+Equipment\+Window\+Open}}
+\index{is\+Equipment\+Window\+Open@{is\+Equipment\+Window\+Open}!Player\+Controls.\+cpp@{Player\+Controls.\+cpp}}
+\subsubsection{\texorpdfstring{is\+Equipment\+Window\+Open}{isEquipmentWindowOpen}}
+{\footnotesize\ttfamily bool is\+Equipment\+Window\+Open = false}
+
+\mbox{\Hypertarget{_player_controls_8cpp_aee628fbfb76e8349d796a2a45b4c6cc7}\label{_player_controls_8cpp_aee628fbfb76e8349d796a2a45b4c6cc7}} 
+\index{Player\+Controls.\+cpp@{Player\+Controls.\+cpp}!is\+Inventory\+Window\+Open@{is\+Inventory\+Window\+Open}}
+\index{is\+Inventory\+Window\+Open@{is\+Inventory\+Window\+Open}!Player\+Controls.\+cpp@{Player\+Controls.\+cpp}}
+\subsubsection{\texorpdfstring{is\+Inventory\+Window\+Open}{isInventoryWindowOpen}}
+{\footnotesize\ttfamily bool is\+Inventory\+Window\+Open = false}
+
+\mbox{\Hypertarget{_player_controls_8cpp_a50c3e5aa031e2c39ab9ce73a4c5c8358}\label{_player_controls_8cpp_a50c3e5aa031e2c39ab9ce73a4c5c8358}} 
+\index{Player\+Controls.\+cpp@{Player\+Controls.\+cpp}!player\+Window\+Commands@{player\+Window\+Commands}}
+\index{player\+Window\+Commands@{player\+Window\+Commands}!Player\+Controls.\+cpp@{Player\+Controls.\+cpp}}
+\subsubsection{\texorpdfstring{player\+Window\+Commands}{playerWindowCommands}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_window_commands}{Window\+Commands}} player\+Window\+Commands}
+
+\mbox{\Hypertarget{_player_controls_8cpp_a04384ba639ec418f957795508cbb1c55}\label{_player_controls_8cpp_a04384ba639ec418f957795508cbb1c55}} 
+\index{Player\+Controls.\+cpp@{Player\+Controls.\+cpp}!square@{square}}
+\index{square@{square}!Player\+Controls.\+cpp@{Player\+Controls.\+cpp}}
+\subsubsection{\texorpdfstring{square}{square}}
+{\footnotesize\ttfamily std\+::vector$<$sf\+::\+Vector2i$>$ square}
+
+\mbox{\Hypertarget{_player_controls_8cpp_ab3afe3d24559101414ef4c5cfa8c5803}\label{_player_controls_8cpp_ab3afe3d24559101414ef4c5cfa8c5803}} 
+\index{Player\+Controls.\+cpp@{Player\+Controls.\+cpp}!targetting\+Square@{targetting\+Square}}
+\index{targetting\+Square@{targetting\+Square}!Player\+Controls.\+cpp@{Player\+Controls.\+cpp}}
+\subsubsection{\texorpdfstring{targetting\+Square}{targettingSquare}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_map_effect}{Map\+Effect}} targetting\+Square}
+
+\mbox{\Hypertarget{_player_controls_8cpp_abc71c8d30299c34de66532f8ea3c4e7c}\label{_player_controls_8cpp_abc71c8d30299c34de66532f8ea3c4e7c}} 
+\index{Player\+Controls.\+cpp@{Player\+Controls.\+cpp}!using\+Target\+Square@{using\+Target\+Square}}
+\index{using\+Target\+Square@{using\+Target\+Square}!Player\+Controls.\+cpp@{Player\+Controls.\+cpp}}
+\subsubsection{\texorpdfstring{using\+Target\+Square}{usingTargetSquare}}
+{\footnotesize\ttfamily bool using\+Target\+Square = false}
+

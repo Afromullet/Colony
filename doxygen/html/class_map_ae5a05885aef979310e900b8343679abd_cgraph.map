@@ -1,0 +1,6 @@
+<map id="Map::InitializeBiomeTemperatures" name="Map::InitializeBiomeTemperatures">
+<area shape="rect" id="node2" href="$_data_storage_8cpp.html#a922c9c2233151c002fb65b44b60ee6fc" title="findBiome" alt="" coords="316,5,396,31"/>
+<area shape="rect" id="node3" href="$class_biome.html#a198f0bb873cce52c8e62df2cf0282e84" title="Biome::getLowTemp" alt="" coords="285,55,427,80"/>
+<area shape="rect" id="node4" href="$class_biome.html#afc882c431129cdaae8109ad5dcc8267e" title="Biome::getHighTemp" alt="" coords="284,104,429,129"/>
+<area shape="rect" id="node5" href="$class_biome.html#a73164a278cfd1c3c6cf52a6b006034e0" title="Biome::setCurrentTemp" alt="" coords="275,153,437,179"/>
+</map>

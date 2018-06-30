@@ -6,14 +6,14 @@
 //  Copyright © 2017 Afromullet. All rights reserved.
 //
 
-#include <stdio.h>
-#include "Equipment.hpp"
+
 
 
 #ifndef Armor_hpp
 #define Armor_hpp
 
-
+#include <stdio.h>
+#include "Equipment.hpp"
 
 
 class Armor : public Item
@@ -42,20 +42,24 @@ public:
     Armor(std::string itemName, std::string _section);
     
     Armor(const Armor &other);
-
     
+
     Armor();
     
+    ~Armor();
+
     
     Armor *clone() const
     {
         return new Armor(*this);
     }
     
+    
     Armor  *create() const
     {
         return new Armor();
     }
+    
     
     
     std::string getItemExamineString() const;

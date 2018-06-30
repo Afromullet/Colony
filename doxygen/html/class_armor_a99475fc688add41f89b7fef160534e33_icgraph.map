@@ -1,0 +1,9 @@
+<map id="Armor::setMovementModifier" name="Armor::setMovementModifier">
+<area shape="rect" id="node2" href="$main_8cpp.html#a272c53135b61217828e494f5d86dabe4" title="PointerTest" alt="" coords="495,56,583,81"/>
+<area shape="rect" id="node3" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="705,56,755,81"/>
+<area shape="rect" id="node4" href="$_item_generator_8hpp.html#a73c459717a9061affce0f19c1e98d626" title="GenerateRandomArmor" alt="" coords="247,157,410,183"/>
+<area shape="rect" id="node7" href="$_test_data_generator_8hpp.html#aab0823e979250be375299f1337314fe1" title="GenerateTestEquipment" alt="" coords="246,5,411,31"/>
+<area shape="rect" id="node5" href="$_test_data_generator_8hpp.html#adf5c94513b4604bb65ec2255caad5188" title="GenerateRandomItems" alt="" coords="459,157,619,183"/>
+<area shape="rect" id="node6" href="$main_8cpp.html#a6c1e06f0b04a13da772c0c1ac36470fc" title="SetupCurrentMap" alt="" coords="667,157,793,183"/>
+<area shape="rect" id="node8" href="$main_8cpp.html#ab5227b073ad87fc30322650e123e0055" title="SetupGameData" alt="" coords="479,7,599,32"/>
+</map>

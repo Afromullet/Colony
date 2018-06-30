@@ -1,0 +1,7 @@
+<map id="Resource::setIsRenewable" name="Resource::setIsRenewable">
+<area shape="rect" id="node2" href="$_data_readers_8hpp.html#a109a320a653d5c8339dda23b988b5e59" title="ReadPlantFile" alt="" coords="234,5,339,31"/>
+<area shape="rect" id="node5" href="$_data_readers_8hpp.html#a18a93cbb4de7a759fcaecb3022dccc26" title="ReadOreFile" alt="" coords="238,55,335,80"/>
+<area shape="rect" id="node6" href="$_data_readers_8hpp.html#a42fa1a2859bf358342ca890f314aaa72" title="ReadTreeFile" alt="" coords="236,104,337,129"/>
+<area shape="rect" id="node3" href="$main_8cpp.html#ab5227b073ad87fc30322650e123e0055" title="SetupGameData" alt="" coords="387,55,508,80"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="556,55,606,80"/>
+</map>
