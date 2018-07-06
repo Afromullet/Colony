@@ -1,0 +1,24 @@
+<map id="/Users/Afromullet/Documents/SFML/Colony2/Colony/MapComponents/MapVariants/CAMap.hpp" name="/Users/Afromullet/Documents/SFML/Colony2/Colony/MapComponents/MapVariants/CAMap.hpp">
+<area shape="rect" id="node2" href="$de/d2c/_map_8hpp.html" title="Map.hpp" alt="" coords="618,105,691,131"/>
+<area shape="rect" id="node3" href="$d4/de6/_tile_8hpp.html" title="Tile.hpp" alt="" coords="742,179,810,204"/>
+<area shape="rect" id="node45" href="$de/d6c/_map_effect_8hpp.html" title="MapEffect.hpp" alt="" coords="2241,705,2348,731"/>
+<area shape="rect" id="node46" href="$d7/d83/_data_storage_8hpp.html" title="DataStorage.hpp" alt="" coords="1070,632,1192,657"/>
+<area shape="rect" id="node4" href="$d8/db3/_base_creature_8hpp.html" title="BaseCreature.hpp" alt="" coords="821,252,950,277"/>
+<area shape="rect" id="node10" href="$db/d1b/_equipment_8hpp.html" title="Equipment.hpp" alt="" coords="1215,632,1326,657"/>
+<area shape="rect" id="node44" href="$da/da4/_biomes_8hpp.html" title="Biomes.hpp" alt="" coords="2422,705,2514,731"/>
+<area shape="rect" id="node8" href="$d4/df3/_body_part_8hpp.html" title="BodyPart.hpp" alt="" coords="536,405,638,431"/>
+<area shape="rect" id="node13" href="$db/d7d/_enum_types_8hpp.html" title="EnumTypes.hpp" alt="" coords="2094,779,2212,804"/>
+<area shape="rect" id="node22" href="$d7/d8e/_item_manager_8hpp.html" title="ItemManager.hpp" alt="" coords="411,485,536,511"/>
+<area shape="rect" id="node23" href="$d4/db9/_vision_8hpp.html" title="Vision.hpp" alt="" coords="312,325,395,351"/>
+<area shape="rect" id="node24" href="$de/da6/_pathfinding_8hpp.html" title="Pathfinding.hpp" alt="" coords="296,405,410,431"/>
+<area shape="rect" id="node26" href="$d9/d70/_body_graph_8hpp.html" title="Bodygraph.hpp" alt="" coords="1501,325,1613,351"/>
+<area shape="rect" id="node9" href="$dc/def/_weapon_8hpp.html" title="Weapon.hpp" alt="" coords="718,559,815,584"/>
+<area shape="rect" id="node18" href="$d4/d1d/_armor_8hpp.html" title="Armor.hpp" alt="" coords="561,559,644,584"/>
+<area shape="rect" id="node20" href="$d8/d5e/_tissue_8hpp.html" title="Tissue.hpp" alt="" coords="680,632,766,657"/>
+<area shape="rect" id="node14" href="$d0/d51/_entity_tile_8hpp.html" title="EntityTile.hpp" alt="" coords="1220,705,1321,731"/>
+<area shape="rect" id="node17" href="$d4/da9/_material_8hpp.html" title="Material.hpp" alt="" coords="1346,705,1441,731"/>
+<area shape="rect" id="node21" href="$d6/d4f/_error_constants_8hpp.html" title="ErrorConstants.hpp" alt="" coords="654,705,791,731"/>
+<area shape="rect" id="node37" href="$d4/d9c/_globals_8hpp.html" title="Globals.hpp" alt="" coords="3015,405,3108,431"/>
+<area shape="rect" id="node41" href="$dc/d77/_constants_8hpp.html" title="Constants.hpp" alt="" coords="2513,779,2620,804"/>
+<area shape="rect" id="node42" href="$da/dbe/_filelogger_8hpp.html" title="Filelogger.hpp" alt="" coords="2817,632,2922,657"/>
+</map>

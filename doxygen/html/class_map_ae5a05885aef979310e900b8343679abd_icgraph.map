@@ -1,7 +1,0 @@
-<map id="Map::InitializeBiomeTemperatures" name="Map::InitializeBiomeTemperatures">
-<area shape="rect" id="node2" href="$class_noise_map.html#a551072fd54a96722c96dea40dc24940e" title="NoiseMap::Generate\l_NoiseMap" alt="" coords="275,23,420,61"/>
-<area shape="rect" id="node3" href="$main_8cpp.html#ab8ef98eaa887a3be4bb916cdde45b3d1" title="GameLoop3" alt="" coords="631,5,726,31"/>
-<area shape="rect" id="node5" href="$main_8cpp.html#add6bd5657070c4129c65dc07a1280f7f" title="InitializeMaps" alt="" coords="468,55,570,80"/>
-<area shape="rect" id="node4" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="787,31,837,56"/>
-<area shape="rect" id="node6" href="$main_8cpp.html#ab5227b073ad87fc30322650e123e0055" title="SetupGameData" alt="" coords="618,55,739,80"/>
-</map>

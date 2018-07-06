@@ -1,7 +1,0 @@
-<map id="FastNoise::SinglePerlin" name="FastNoise::SinglePerlin">
-<area shape="rect" id="node2" href="$class_fast_noise.html#a0d9b7a6858a599cde4dc5b8f74264ae0" title="FastNoise::GetNoise" alt="" coords="255,5,400,31"/>
-<area shape="rect" id="node3" href="$class_fast_noise.html#ab2189c13cfabb4e900c6e63d74962ce2" title="FastNoise::SinglePerlinFractalFBM" alt="" coords="213,55,442,80"/>
-<area shape="rect" id="node4" href="$class_fast_noise.html#a4e99adf451ddbd11a425a0909b2ae7e1" title="FastNoise::SinglePerlinFractal\lBillow" alt="" coords="227,104,428,143"/>
-<area shape="rect" id="node5" href="$class_fast_noise.html#ad5d0bbafb8bc1e07c3d771455736600d" title="FastNoise::SinglePerlinFractal\lRigidMulti" alt="" coords="227,167,428,205"/>
-<area shape="rect" id="node6" href="$class_fast_noise.html#ac8379b662e050faf5302026616fc56af" title="FastNoise::GetPerlin" alt="" coords="255,229,400,255"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="Material::getAppliedForceEffects" name="Material::getAppliedForceEffects">
-<area shape="rect" id="node2" href="$class_body_part.html#a7c4d742811e49a2c97b9bec6c1785e94" title="BodyPart::getArmorMaterial\lEffects" alt="" coords="227,5,412,44"/>
-<area shape="rect" id="node4" href="$class_tissue.html#a28cafce7378e40c702e63f342e6b37b2" title="Tissue::getTissueMaterial\lEffects" alt="" coords="233,68,406,107"/>
-<area shape="rect" id="node3" href="$class_body_part.html#aed6e734467a8cd25b4be8bc18edc9033" title="BodyPart::ApplyAttack" alt="" coords="460,12,614,37"/>
-</map>

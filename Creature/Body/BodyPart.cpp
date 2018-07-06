@@ -8,6 +8,8 @@
 
 #include "BodyPart.hpp"
 #include "Globals.hpp"
+#include "Weapon.hpp"
+#include "Armor.hpp"
 //Read these from a file later and store in a vector of strings
 //That way it can be customized easily by reading from files
 
@@ -140,10 +142,23 @@ BodyPart::BodyPart(const BodyPart& other)
     
 }
 
-
-void BodyPart::EquipItem(Item *item)
+void BodyPart::EquipArmor(Armor val)
 {
-    
+    if(armor.isValidSection(section))
+    {
+        if(canHoldArmor)
+            
+            //if(item->getItemType() == enArmorType && canHoldArmor)
+        {
+            val.setIsEquipped(true);
+            
+            armor = val;
+            std::cout << "\n Equipped";
+            
+            std::cout << "\n Equipment Name " << armor.getItemName();
+        }
+        
+    }
 }
 
 

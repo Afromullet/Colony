@@ -1,0 +1,10 @@
+<map id="DataWindow::setTextColor" name="DataWindow::setTextColor">
+<area shape="rect" id="node2" href="$da/d07/class_window_commands.html#ab301c0f80a6c632ce5a858e6307feebd" title="WindowCommands::GetWindowData" alt="" coords="526,44,767,69"/>
+<area shape="rect" id="node8" href="$da/d07/class_window_commands.html#a1d8aea294ed36e2fc3fe061811b8513a" title="WindowCommands::getInventoryData" alt="" coords="232,69,478,95"/>
+<area shape="rect" id="node9" href="$df/d40/_player_controls_8hpp.html#ad71b9cecfa45d62514feb109b7cbaf46" title="AddItemsToInventoryWindow" alt="" coords="549,120,743,145"/>
+<area shape="rect" id="node3" href="$da/d07/class_window_commands.html#a1c45c8c693e631b581eeb355176a49e7" title="WindowCommands::handleSub\lWindowAction" alt="" coords="815,5,1023,44"/>
+<area shape="rect" id="node5" href="$df/d40/_player_controls_8hpp.html#a2fbf8484c8a051b724315afd0f442465" title="HandlePlayerInput" alt="" coords="1332,69,1463,95"/>
+<area shape="rect" id="node4" href="$da/d07/class_window_commands.html#ac4a64479853dfa15653a7690403815b7" title="WindowCommands::handleMain\lWindowAction" alt="" coords="1071,5,1284,44"/>
+<area shape="rect" id="node6" href="$df/d0a/main_8cpp.html#ab8ef98eaa887a3be4bb916cdde45b3d1" title="GameLoop3" alt="" coords="1511,69,1606,95"/>
+<area shape="rect" id="node7" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="1654,69,1704,95"/>
+</map>

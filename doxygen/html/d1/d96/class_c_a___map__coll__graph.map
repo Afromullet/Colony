@@ -1,0 +1,4 @@
+<map id="CA_Map" name="CA_Map">
+<area shape="rect" id="node2" href="$dd/d11/class_map.html" title="{Map\n|+ tileGroups\l+ Map2D\l+ m_vertices\l+ fogOfWar\l+ effectsOnMap\l+ effects\l&#45; tileSize\l&#45; width\l&#45; height\l|+ BasicRandom2DMap()\l+ Generate2DMap()\l+ Group2DGridTiles()\l+ LoadTileTexture()\l+ GenerateRandom2DTiles()\l+ LoadTileParameters()\l+ getTileSize()\l+ GetWidth()\l+ GetHeight()\l+ isInBounds()\land 16 more...\l&#45; draw()\l}" alt="" coords="24,128,216,455"/>
+<area shape="rect" id="node5" href="$dc/db6/struct___c_a_ruleset.html" title="{_CARuleset\n|+ aliveTileID\l+ deadTileID\l+ chanceToStartAlive\l+ numberOfSteps\l+ birthLimit\l+ deathLimit\l+ numToStayAliveLimit\l|}" alt="" coords="240,215,397,368"/>
+</map>

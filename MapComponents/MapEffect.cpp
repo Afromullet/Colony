@@ -11,6 +11,15 @@
 sf::VertexArray EMPTY_VERTEXARAY;
 std::vector<sf::Vector2i> EMPTY_TILEPOSITION;
 
+
+
+bool MapEffect::operator==(const MapEffect &other) const
+{
+    if(id == other.id)
+        return true;
+    return false;
+}
+
 MapEffect::MapEffect(int _id,sf::VertexArray vertArray) : id(_id),vertices(vertArray),color(sf::Color::Transparent),squareSize(0)
 {
     
@@ -26,24 +35,29 @@ MapEffect::MapEffect() : vertices(EMPTY_VERTEXARAY),squareSize(0)
     
 }
 
-void MapEffect::setColor(sf::Color newColor)
+//Doesn't get the vertices right now, those have to be set separetely
+void MapEffect::MoveShape(int xOffset,int yOffset)
 {
-    color = newColor;
-    for(int i = 0; i < vertices.getVertexCount(); i++)
+    
+    //TODO, don't hardcode the 32..Supposed to be default_tile_size
+    
+    int vertexCounter = 0;
+    for(int i=0; i < tilePositions.size(); i++)
     {
-        vertices[i].color = newColor;
+        
+        
+        tilePositions.at(i).x += xOffset;
+        tilePositions.at(i).y += yOffset;
+        
     }
+    
+    
 }
 
-void MapEffect::setID(int _id)
-{
-    id = _id;
-}
 
-void MapEffect::setTilePositions(std::vector<sf::Vector2i> newPositions)
-{
-    tilePositions = newPositions;
-}
+
+
+
 
 void MapEffect::addTilePositions(std::vector<sf::Vector2i> newPositions)
 {
@@ -80,6 +94,82 @@ std::vector<sf::Vector2i> MapEffect::getShape(sf::Vector2i position,int n)
     }
     
     return tempVec;
+}
+
+std::vector<sf::Vector2i> MapEffect::getLine(int x0, int y0, int x1, int y1)
+{
+    int dx =  abs(x1-x0);
+    int sx = x0<x1 ? 1 : -1;
+    int dy = -abs(y1-y0);
+    int sy = y0<y1 ? 1 : -1;
+    int err = dx+dy;
+    int e2; /* error value e_xy */
+    
+    std::vector<sf::Vector2i> tempPoints;
+    
+    sf::Vector2i tempPos;
+    
+    int i = 0;
+    for(;;){  /* loop */
+        std::cout << x0 <<  "," << y0 << "\n";
+        
+        
+        tempPos.x = x0;
+        tempPos.y = y0;
+        tempPoints.push_back(tempPos);
+        
+        
+        if (x0==x1 && y0==y1) break;
+        e2 = 2*err;
+        if (e2 >= dy)
+        {
+            err += dy;
+            x0 += sx;
+        }
+        
+        if (e2 <= dx)
+        {   err += dx;
+            y0 += sy;
+        } /* e_xy+e_y < 0 */
+        i++;
+    }
+    
+    return tempPoints;
+}
+
+
+int MapEffect::getID()
+{
+    return id;
+}
+
+int MapEffect::getSquareSize()
+{
+    return squareSize;
+}
+
+sf::Color MapEffect::getColor()
+{
+    return color;
+}
+
+void MapEffect::setColor(sf::Color newColor)
+{
+    color = newColor;
+    for(int i = 0; i < vertices.getVertexCount(); i++)
+    {
+        vertices[i].color = newColor;
+    }
+}
+
+void MapEffect::setID(int _id)
+{
+    id = _id;
+}
+
+void MapEffect::setTilePositions(std::vector<sf::Vector2i> newPositions)
+{
+    tilePositions = newPositions;
 }
 
 //Sets the x and y position of the square itself, not the vertices. The function creates a square of size n
@@ -248,77 +338,11 @@ void MapEffect::setCircle(int xm, int ym, int r)
     enShape = enCircle;;
 }
 
-std::vector<sf::Vector2i> MapEffect::getLine(int x0, int y0, int x1, int y1)
+void MapEffect::setSquareSize(int val)
 {
-    int dx =  abs(x1-x0);
-    int sx = x0<x1 ? 1 : -1;
-    int dy = -abs(y1-y0);
-    int sy = y0<y1 ? 1 : -1;
-    int err = dx+dy;
-    int e2; /* error value e_xy */
-    
-    std::vector<sf::Vector2i> tempPoints;
- 
-    sf::Vector2i tempPos;
-    
-    int i = 0;
-    for(;;){  /* loop */
-        std::cout << x0 <<  "," << y0 << "\n";
-        
-        
-        tempPos.x = x0;
-        tempPos.y = y0;
-        tempPoints.push_back(tempPos);
-        
-        
-        if (x0==x1 && y0==y1) break;
-        e2 = 2*err;
-        if (e2 >= dy)
-        {
-            err += dy;
-            x0 += sx;
-        }
-        
-        if (e2 <= dx)
-        {   err += dx;
-            y0 += sy;
-        } /* e_xy+e_y < 0 */
-        i++;
-    }
-    
-    return tempPoints;
-}
-
-//Doesn't get the vertices right now, those have to be set separetely 
-void MapEffect::MoveShape(int xOffset,int yOffset)
-{
-
-    //TODO, don't hardcode the 32..Supposed to be default_tile_size
-
-    int vertexCounter = 0;
-    for(int i=0; i < tilePositions.size(); i++)
-    {
-        
-        
-        tilePositions.at(i).x += xOffset;
-        tilePositions.at(i).y += yOffset;
-        
-    }
-    
-    
+    squareSize = val;
 }
 
 
- 
 
-int MapEffect::getID()
-{
-    return id;
-}
 
-bool MapEffect::operator==(const MapEffect &other) const
-{
-    if(id == other.id)
-        return true;
-    return false;
-}

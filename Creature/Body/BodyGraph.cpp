@@ -15,6 +15,7 @@
 
 
 
+
 using boost::typeindex::type_id_with_cvr;
 
 
@@ -22,6 +23,8 @@ CreatureBody::CreatureBody()
 {
     
 }
+
+
 
 void CreatureBody::openBodyTypeFile(const std::string &fileName)
 {
@@ -405,9 +408,143 @@ int CreatureBody::convertTruthValue(std::string truthVal)
     return -1;
 }
 
+//Todo remove tempItems and just replace it with item. tempitem is left over from when I handled it a different way
+bool CreatureBody::Equip(std::unique_ptr<Item> item,ItemManager &inventory,int index)
+{
+    bool equipSuccess = false;
+    
+    std::unique_ptr<Item> tempitem(std::move(item));
+    std::cout << "\n Name " << tempitem->getItemName();
+    
+    
+    for(int i = 0; i < tempitem->sections.size(); i++)
+    {
+        std::cout << "\n Section " << tempitem->sections.at(i);
+    }
+    
+    for(int i =0; i < tempitem->sections.size(); i++)
+    {
+        Anatomy_DFS_Section_Visitor vis(tempitem->sections.at(i));
+        depth_first_search(anatomyGraph,visitor(vis));
+        std::vector<int> indices = vis.getVertexIndices();
+        
+        //The item can be equipped
+        if(indices.size() > 0)
+        {
+            //item.release();
+            
+            inventory.ClearSlot(index);
+            
+            if(tempitem->getItemType() == enArmorType)
+            {
+                UnequipArmorBySection(indices, inventory);
+                
+                
+                for(int j =0; j < indices.size(); j++)
+                {
+                    
+                    //Creates a copy of the item. Adds what is currently in the slot to the inventory. Creates a copy
+                    tempitem->EquipItem(anatomyGraph[indices.at(j)],inventory);
+                    equipSuccess = true;
+                }
+            }
+            else if(tempitem->getItemType() == enWeaponType)
+            {
+                UnequipArmorBySection(indices, inventory);
+                
+                
+                for(int j =0; j < indices.size(); j++)
+                {
+                    
+                    //Creates a copy of the item. Adds what is currently in the slot to the inventory. Creates a copy
+                    tempitem->EquipItem(anatomyGraph[indices.at(j)],inventory);
+                    equipSuccess = true;
+                }
+            }
+            
+
+    
+            
+        }
+        else
+        {
+            //No valid slot. Early exit
+            inventory.ClearSlot(index);
+            inventory.addItem(std::move(tempitem));
+            
+            return false;
+        }
+        
+        /*
+        for(int j =0; j < indices.size(); j++)
+        {
+            
+            //Creates a copy of the item. Adds what is currently in the slot to the inventory. Creates a copy
+            tempitem->EquipItem(anatomyGraph[indices.at(j)],inventory);
+            equipSuccess = true;
+            
+           
+            
+        }
+         */
+    }
+    
+
+    
+    
+    return equipSuccess;
+}
+
+
+
+/*
+ Only a single piece of armor per body part, but a piece of armor can cover multiple sections.
+ 
+ Find all unique pieces of armor equipped on the vertices given by the indices vector
+ 
+ 
+ 
+ */
+void CreatureBody::UnequipArmorBySection(std::vector<int> &indices,ItemManager &itemManager)
+{
+    std::vector<Armor> vecArmor;
+    Armor tempArmor;
+    
+  
+    
+    for(int i = 0; i < indices.size(); i++)
+    {
+        tempArmor = anatomyGraph[indices.at(i)].getArmor();
+        
+        //Only proceed if there is armor equipped
+        if(tempArmor != NO_ARMOR)
+        {
+            
+            if(std::find(vecArmor.begin(),vecArmor.end(),tempArmor) != vecArmor.end())
+            {
+                //Do nothing
+            }
+            else
+            {
+                itemManager.addArmor(tempArmor);
+                //vecArmor.push_back(tempArmor);
+            }
+            
+            anatomyGraph[indices.at(i)].setArmor(NO_ARMOR); //Clear the armor slot
+            
+        }
+        
+
+    }
+ 
+    
+    
+    
+}
 
 void CreatureBody::EquipArmor(Item *item)
 {
+    
     
     for(int i =0; i < item->sections.size(); i++)
     {

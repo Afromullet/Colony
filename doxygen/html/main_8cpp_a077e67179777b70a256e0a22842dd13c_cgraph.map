@@ -1,9 +1,0 @@
-<map id="MoveAllCreatures" name="MoveAllCreatures">
-<area shape="rect" id="node2" href="$_movement_handler_8cpp.html#a90b82498b11fee5568c3853a60f16e6a" title="MoveCreatureRandomly" alt="" coords="181,55,346,80"/>
-<area shape="rect" id="node3" href="$class_base_creature.html#a00ebdc186dd6d3c0ef3c3d1262d4363f" title="BaseCreature::getPosition" alt="" coords="394,5,571,31"/>
-<area shape="rect" id="node4" href="$_movement_handler_8cpp.html#ab344e17f4b170e3e3fd2e9893be5a790" title="InMapBoundaries" alt="" coords="420,55,546,80"/>
-<area shape="rect" id="node7" href="$class_base_creature.html#a00ffc1ee732a8f0a8921c9cee6842e4d" title="BaseCreature::setPosition" alt="" coords="395,104,571,129"/>
-<area shape="rect" id="node5" href="$class_map.html#a1e9263abe2e1290fc383586c327f9f4a" title="Map::GetWidth" alt="" coords="638,5,749,31"/>
-<area shape="rect" id="node6" href="$class_map.html#a5181eaa96c1d125523a2b16d0643bbd5" title="Map::GetHeight" alt="" coords="636,55,751,80"/>
-<area shape="rect" id="node8" href="$class_entity_tile.html#a7b9e5be8dc4017eb5af8e4fda7add3c4" title="EntityTile::setPosition" alt="" coords="619,104,768,129"/>
-</map>

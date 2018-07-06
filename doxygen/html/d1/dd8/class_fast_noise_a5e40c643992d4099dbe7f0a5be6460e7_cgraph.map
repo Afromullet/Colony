@@ -1,0 +1,5 @@
+<map id="FastNoise::SingleSimplex" name="FastNoise::SingleSimplex">
+<area shape="rect" id="node2" href="$dc/dc1/_fast_noise_8cpp.html#a318facc2356654373240fde1b2cbc281" title="FastFloor" alt="" coords="274,5,351,31"/>
+<area shape="rect" id="node3" href="$d1/dd8/class_fast_noise.html#a96bc7b4cc9a84cec68c16bf6dfce4f53" title="FastNoise::GradCoord3D" alt="" coords="227,55,398,80"/>
+<area shape="rect" id="node4" href="$d1/dd8/class_fast_noise.html#ab4304e7e7b79684b371492d3c7f0aa51" title="FastNoise::Index3D_12" alt="" coords="446,55,607,80"/>
+</map>

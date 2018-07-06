@@ -1,0 +1,352 @@
+\hypertarget{class_map_effect}{}\section{Map\+Effect Class Reference}
+\label{class_map_effect}\index{Map\+Effect@{Map\+Effect}}
+
+
+{\ttfamily \#include $<$Map\+Effect.\+hpp$>$}
+
+
+
+Collaboration diagram for Map\+Effect\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{d8/d21/class_map_effect__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_map_effect_a4782568b5d45629c080fdf183943ea29}{operator==}} (const \mbox{\hyperlink{class_map_effect}{Map\+Effect}} \&other) const
+\item 
+\mbox{\hyperlink{class_map_effect_ac517bf5e557ac443b45a1dedb2b216ab}{Map\+Effect}} (int \+\_\+id, sf\+::\+Vertex\+Array vert\+Array)
+\item 
+\mbox{\hyperlink{class_map_effect_aff543fedf91ca1798942f756c8388aa3}{Map\+Effect}} (const \mbox{\hyperlink{class_map_effect}{Map\+Effect}} \&effect)
+\item 
+\mbox{\hyperlink{class_map_effect_aa271c0e92d24c599620890409a7a0de6}{Map\+Effect}} ()
+\item 
+void \mbox{\hyperlink{class_map_effect_a099bb0a933606b5fb24e0eb91a9f78b6}{set\+Color}} (sf\+::\+Color new\+Color)
+\item 
+void \mbox{\hyperlink{class_map_effect_a7945a4888b4f7d3d14990beac98d6b46}{set\+ID}} (int \+\_\+id)
+\item 
+void \mbox{\hyperlink{class_map_effect_af79dd085aefbd1cdd92e9e9aa695592a}{set\+Tile\+Positions}} (std\+::vector$<$ sf\+::\+Vector2i $>$ new\+Positions)
+\item 
+void \mbox{\hyperlink{class_map_effect_a241e9bc24e9ded3426acedb2a36bc15b}{add\+Tile\+Positions}} (std\+::vector$<$ sf\+::\+Vector2i $>$ new\+Positions)
+\item 
+void \mbox{\hyperlink{class_map_effect_aa3ede6caaa085ad57f7cc5be0b143ca2}{add\+Tile\+Positions}} (sf\+::\+Vector2i new\+Position)
+\item 
+std\+::vector$<$ sf\+::\+Vector2i $>$ \mbox{\hyperlink{class_map_effect_a4557d94941b97471dce7ac47e30825c5}{get\+Shape}} (sf\+::\+Vector2i position, int n)
+\item 
+std\+::vector$<$ sf\+::\+Vector2i $>$ \mbox{\hyperlink{class_map_effect_a7aeebd5eef57c00feabca583a38c5361}{get\+Line}} (int x0, int y0, int x1, int y1)
+\item 
+int \mbox{\hyperlink{class_map_effect_aa96fb614319095fdc9003d85ea4647e2}{get\+Square\+Size}} ()
+\item 
+int \mbox{\hyperlink{class_map_effect_af05848201790b0038c5b61659b116706}{get\+ID}} ()
+\item 
+sf\+::\+Color \mbox{\hyperlink{class_map_effect_a8c3e266da325516b48983cf7cf238cf6}{get\+Color}} ()
+\item 
+void \mbox{\hyperlink{class_map_effect_a4c382be68e0b9dae8fb1f216c8cfc9a6}{set\+Square}} (sf\+::\+Vector2i position, int n)
+\item 
+void \mbox{\hyperlink{class_map_effect_a4f2bfbdac42379cf0206216a52441c1a}{set\+Line}} (sf\+::\+Vector2i position, int n, \mbox{\hyperlink{_enum_types_8hpp_a00ec4eba48da32d6cbdf827185fd3d34}{Move\+Direction}} mov\+Direction)
+\item 
+void \mbox{\hyperlink{class_map_effect_ac927f830b816bcf14d594db3c1d1e100}{set\+Line}} (int x0, int y0, int x1, int y1)
+\item 
+void \mbox{\hyperlink{class_map_effect_af9023620bb63c6ca99855742585d5cbe}{set\+Circle}} (int xm, int ym, int r)
+\item 
+void \mbox{\hyperlink{class_map_effect_adfa0231021b37a4fe775f33330454cb2}{set\+Square\+Size}} (int val)
+\item 
+void \mbox{\hyperlink{class_map_effect_a515c5ddb85a15fd44b2b8d27c1cee21a}{Remove\+O\+O\+B\+Tiles}} ()
+\item 
+void \mbox{\hyperlink{class_map_effect_a4a775648e056eda586a1d627467552d7}{Move\+Shape}} (int x\+Offset, int y\+Offset)
+\item 
+void \mbox{\hyperlink{class_map_effect_a0436f9350a55dabc183dd66024dc7895}{Move\+Line}} (int x\+Offset, int y\+Offset)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ sf\+::\+Vector2i $>$ \mbox{\hyperlink{class_map_effect_a3a61ab548ae00ef7abd123672c75e579}{tile\+Positions}}
+\item 
+sf\+::\+Vertex\+Array \mbox{\hyperlink{class_map_effect_ae3ee2ef0f261d4527b5af20e788af26e}{vertices}}
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_map_effect_8hpp_a55b506070847a13554f8b879c1bfb37c}{Shape}} \mbox{\hyperlink{class_map_effect_a3bf3a8ffe6c838dad83356be63b986f5}{en\+Shape}}
+\item 
+int \mbox{\hyperlink{class_map_effect_a4fb92217a562e90b9038977a2d660e25}{square\+Size}}
+\item 
+int \mbox{\hyperlink{class_map_effect_a9439d21ddced564043eba8fdf2c0e44e}{id}}
+\item 
+sf\+::\+Color \mbox{\hyperlink{class_map_effect_ae542c1aef75e386b30ec544c2dd411d3}{color}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_map_effect_ac517bf5e557ac443b45a1dedb2b216ab}\label{class_map_effect_ac517bf5e557ac443b45a1dedb2b216ab}} 
+\index{Map\+Effect@{Map\+Effect}!Map\+Effect@{Map\+Effect}}
+\index{Map\+Effect@{Map\+Effect}!Map\+Effect@{Map\+Effect}}
+\subsubsection{\texorpdfstring{Map\+Effect()}{MapEffect()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Map\+Effect\+::\+Map\+Effect (\begin{DoxyParamCaption}\item[{int}]{\+\_\+id,  }\item[{sf\+::\+Vertex\+Array}]{vert\+Array }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_map_effect_aff543fedf91ca1798942f756c8388aa3}\label{class_map_effect_aff543fedf91ca1798942f756c8388aa3}} 
+\index{Map\+Effect@{Map\+Effect}!Map\+Effect@{Map\+Effect}}
+\index{Map\+Effect@{Map\+Effect}!Map\+Effect@{Map\+Effect}}
+\subsubsection{\texorpdfstring{Map\+Effect()}{MapEffect()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Map\+Effect\+::\+Map\+Effect (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_map_effect}{Map\+Effect}} \&}]{effect }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_map_effect_aa271c0e92d24c599620890409a7a0de6}\label{class_map_effect_aa271c0e92d24c599620890409a7a0de6}} 
+\index{Map\+Effect@{Map\+Effect}!Map\+Effect@{Map\+Effect}}
+\index{Map\+Effect@{Map\+Effect}!Map\+Effect@{Map\+Effect}}
+\subsubsection{\texorpdfstring{Map\+Effect()}{MapEffect()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Map\+Effect\+::\+Map\+Effect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_map_effect_a241e9bc24e9ded3426acedb2a36bc15b}\label{class_map_effect_a241e9bc24e9ded3426acedb2a36bc15b}} 
+\index{Map\+Effect@{Map\+Effect}!add\+Tile\+Positions@{add\+Tile\+Positions}}
+\index{add\+Tile\+Positions@{add\+Tile\+Positions}!Map\+Effect@{Map\+Effect}}
+\subsubsection{\texorpdfstring{add\+Tile\+Positions()}{addTilePositions()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Map\+Effect\+::add\+Tile\+Positions (\begin{DoxyParamCaption}\item[{std\+::vector$<$ sf\+::\+Vector2i $>$}]{new\+Positions }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/de4/class_map_effect_a241e9bc24e9ded3426acedb2a36bc15b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_map_effect_aa3ede6caaa085ad57f7cc5be0b143ca2}\label{class_map_effect_aa3ede6caaa085ad57f7cc5be0b143ca2}} 
+\index{Map\+Effect@{Map\+Effect}!add\+Tile\+Positions@{add\+Tile\+Positions}}
+\index{add\+Tile\+Positions@{add\+Tile\+Positions}!Map\+Effect@{Map\+Effect}}
+\subsubsection{\texorpdfstring{add\+Tile\+Positions()}{addTilePositions()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Map\+Effect\+::add\+Tile\+Positions (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2i}]{new\+Position }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_map_effect_a8c3e266da325516b48983cf7cf238cf6}\label{class_map_effect_a8c3e266da325516b48983cf7cf238cf6}} 
+\index{Map\+Effect@{Map\+Effect}!get\+Color@{get\+Color}}
+\index{get\+Color@{get\+Color}!Map\+Effect@{Map\+Effect}}
+\subsubsection{\texorpdfstring{get\+Color()}{getColor()}}
+{\footnotesize\ttfamily sf\+::\+Color Map\+Effect\+::get\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/de4/class_map_effect_a8c3e266da325516b48983cf7cf238cf6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_map_effect_af05848201790b0038c5b61659b116706}\label{class_map_effect_af05848201790b0038c5b61659b116706}} 
+\index{Map\+Effect@{Map\+Effect}!get\+ID@{get\+ID}}
+\index{get\+ID@{get\+ID}!Map\+Effect@{Map\+Effect}}
+\subsubsection{\texorpdfstring{get\+I\+D()}{getID()}}
+{\footnotesize\ttfamily int Map\+Effect\+::get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/de4/class_map_effect_af05848201790b0038c5b61659b116706_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_map_effect_a7aeebd5eef57c00feabca583a38c5361}\label{class_map_effect_a7aeebd5eef57c00feabca583a38c5361}} 
+\index{Map\+Effect@{Map\+Effect}!get\+Line@{get\+Line}}
+\index{get\+Line@{get\+Line}!Map\+Effect@{Map\+Effect}}
+\subsubsection{\texorpdfstring{get\+Line()}{getLine()}}
+{\footnotesize\ttfamily std\+::vector$<$ sf\+::\+Vector2i $>$ Map\+Effect\+::get\+Line (\begin{DoxyParamCaption}\item[{int}]{x0,  }\item[{int}]{y0,  }\item[{int}]{x1,  }\item[{int}]{y1 }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/de4/class_map_effect_a7aeebd5eef57c00feabca583a38c5361_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_map_effect_a4557d94941b97471dce7ac47e30825c5}\label{class_map_effect_a4557d94941b97471dce7ac47e30825c5}} 
+\index{Map\+Effect@{Map\+Effect}!get\+Shape@{get\+Shape}}
+\index{get\+Shape@{get\+Shape}!Map\+Effect@{Map\+Effect}}
+\subsubsection{\texorpdfstring{get\+Shape()}{getShape()}}
+{\footnotesize\ttfamily std\+::vector$<$ sf\+::\+Vector2i $>$ Map\+Effect\+::get\+Shape (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2i}]{position,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_map_effect_aa96fb614319095fdc9003d85ea4647e2}\label{class_map_effect_aa96fb614319095fdc9003d85ea4647e2}} 
+\index{Map\+Effect@{Map\+Effect}!get\+Square\+Size@{get\+Square\+Size}}
+\index{get\+Square\+Size@{get\+Square\+Size}!Map\+Effect@{Map\+Effect}}
+\subsubsection{\texorpdfstring{get\+Square\+Size()}{getSquareSize()}}
+{\footnotesize\ttfamily int Map\+Effect\+::get\+Square\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/de4/class_map_effect_aa96fb614319095fdc9003d85ea4647e2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_map_effect_a0436f9350a55dabc183dd66024dc7895}\label{class_map_effect_a0436f9350a55dabc183dd66024dc7895}} 
+\index{Map\+Effect@{Map\+Effect}!Move\+Line@{Move\+Line}}
+\index{Move\+Line@{Move\+Line}!Map\+Effect@{Map\+Effect}}
+\subsubsection{\texorpdfstring{Move\+Line()}{MoveLine()}}
+{\footnotesize\ttfamily void Map\+Effect\+::\+Move\+Line (\begin{DoxyParamCaption}\item[{int}]{x\+Offset,  }\item[{int}]{y\+Offset }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_map_effect_a4a775648e056eda586a1d627467552d7}\label{class_map_effect_a4a775648e056eda586a1d627467552d7}} 
+\index{Map\+Effect@{Map\+Effect}!Move\+Shape@{Move\+Shape}}
+\index{Move\+Shape@{Move\+Shape}!Map\+Effect@{Map\+Effect}}
+\subsubsection{\texorpdfstring{Move\+Shape()}{MoveShape()}}
+{\footnotesize\ttfamily void Map\+Effect\+::\+Move\+Shape (\begin{DoxyParamCaption}\item[{int}]{x\+Offset,  }\item[{int}]{y\+Offset }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/de4/class_map_effect_a4a775648e056eda586a1d627467552d7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_map_effect_a4782568b5d45629c080fdf183943ea29}\label{class_map_effect_a4782568b5d45629c080fdf183943ea29}} 
+\index{Map\+Effect@{Map\+Effect}!operator==@{operator==}}
+\index{operator==@{operator==}!Map\+Effect@{Map\+Effect}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Map\+Effect\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_map_effect}{Map\+Effect}} \&}]{other }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_map_effect_a515c5ddb85a15fd44b2b8d27c1cee21a}\label{class_map_effect_a515c5ddb85a15fd44b2b8d27c1cee21a}} 
+\index{Map\+Effect@{Map\+Effect}!Remove\+O\+O\+B\+Tiles@{Remove\+O\+O\+B\+Tiles}}
+\index{Remove\+O\+O\+B\+Tiles@{Remove\+O\+O\+B\+Tiles}!Map\+Effect@{Map\+Effect}}
+\subsubsection{\texorpdfstring{Remove\+O\+O\+B\+Tiles()}{RemoveOOBTiles()}}
+{\footnotesize\ttfamily void Map\+Effect\+::\+Remove\+O\+O\+B\+Tiles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_map_effect_af9023620bb63c6ca99855742585d5cbe}\label{class_map_effect_af9023620bb63c6ca99855742585d5cbe}} 
+\index{Map\+Effect@{Map\+Effect}!set\+Circle@{set\+Circle}}
+\index{set\+Circle@{set\+Circle}!Map\+Effect@{Map\+Effect}}
+\subsubsection{\texorpdfstring{set\+Circle()}{setCircle()}}
+{\footnotesize\ttfamily void Map\+Effect\+::set\+Circle (\begin{DoxyParamCaption}\item[{int}]{xm,  }\item[{int}]{ym,  }\item[{int}]{r }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/de4/class_map_effect_af9023620bb63c6ca99855742585d5cbe_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_map_effect_a099bb0a933606b5fb24e0eb91a9f78b6}\label{class_map_effect_a099bb0a933606b5fb24e0eb91a9f78b6}} 
+\index{Map\+Effect@{Map\+Effect}!set\+Color@{set\+Color}}
+\index{set\+Color@{set\+Color}!Map\+Effect@{Map\+Effect}}
+\subsubsection{\texorpdfstring{set\+Color()}{setColor()}}
+{\footnotesize\ttfamily void Map\+Effect\+::set\+Color (\begin{DoxyParamCaption}\item[{sf\+::\+Color}]{new\+Color }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/de4/class_map_effect_a099bb0a933606b5fb24e0eb91a9f78b6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_map_effect_a7945a4888b4f7d3d14990beac98d6b46}\label{class_map_effect_a7945a4888b4f7d3d14990beac98d6b46}} 
+\index{Map\+Effect@{Map\+Effect}!set\+ID@{set\+ID}}
+\index{set\+ID@{set\+ID}!Map\+Effect@{Map\+Effect}}
+\subsubsection{\texorpdfstring{set\+I\+D()}{setID()}}
+{\footnotesize\ttfamily void Map\+Effect\+::set\+ID (\begin{DoxyParamCaption}\item[{int}]{\+\_\+id }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/de4/class_map_effect_a7945a4888b4f7d3d14990beac98d6b46_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_map_effect_a4f2bfbdac42379cf0206216a52441c1a}\label{class_map_effect_a4f2bfbdac42379cf0206216a52441c1a}} 
+\index{Map\+Effect@{Map\+Effect}!set\+Line@{set\+Line}}
+\index{set\+Line@{set\+Line}!Map\+Effect@{Map\+Effect}}
+\subsubsection{\texorpdfstring{set\+Line()}{setLine()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Map\+Effect\+::set\+Line (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2i}]{position,  }\item[{int}]{n,  }\item[{\mbox{\hyperlink{_enum_types_8hpp_a00ec4eba48da32d6cbdf827185fd3d34}{Move\+Direction}}}]{mov\+Direction }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_map_effect_ac927f830b816bcf14d594db3c1d1e100}\label{class_map_effect_ac927f830b816bcf14d594db3c1d1e100}} 
+\index{Map\+Effect@{Map\+Effect}!set\+Line@{set\+Line}}
+\index{set\+Line@{set\+Line}!Map\+Effect@{Map\+Effect}}
+\subsubsection{\texorpdfstring{set\+Line()}{setLine()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Map\+Effect\+::set\+Line (\begin{DoxyParamCaption}\item[{int}]{x0,  }\item[{int}]{y0,  }\item[{int}]{x1,  }\item[{int}]{y1 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_map_effect_a4c382be68e0b9dae8fb1f216c8cfc9a6}\label{class_map_effect_a4c382be68e0b9dae8fb1f216c8cfc9a6}} 
+\index{Map\+Effect@{Map\+Effect}!set\+Square@{set\+Square}}
+\index{set\+Square@{set\+Square}!Map\+Effect@{Map\+Effect}}
+\subsubsection{\texorpdfstring{set\+Square()}{setSquare()}}
+{\footnotesize\ttfamily void Map\+Effect\+::set\+Square (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2i}]{position,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/de4/class_map_effect_a4c382be68e0b9dae8fb1f216c8cfc9a6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_map_effect_adfa0231021b37a4fe775f33330454cb2}\label{class_map_effect_adfa0231021b37a4fe775f33330454cb2}} 
+\index{Map\+Effect@{Map\+Effect}!set\+Square\+Size@{set\+Square\+Size}}
+\index{set\+Square\+Size@{set\+Square\+Size}!Map\+Effect@{Map\+Effect}}
+\subsubsection{\texorpdfstring{set\+Square\+Size()}{setSquareSize()}}
+{\footnotesize\ttfamily void Map\+Effect\+::set\+Square\+Size (\begin{DoxyParamCaption}\item[{int}]{val }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/de4/class_map_effect_adfa0231021b37a4fe775f33330454cb2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_map_effect_af79dd085aefbd1cdd92e9e9aa695592a}\label{class_map_effect_af79dd085aefbd1cdd92e9e9aa695592a}} 
+\index{Map\+Effect@{Map\+Effect}!set\+Tile\+Positions@{set\+Tile\+Positions}}
+\index{set\+Tile\+Positions@{set\+Tile\+Positions}!Map\+Effect@{Map\+Effect}}
+\subsubsection{\texorpdfstring{set\+Tile\+Positions()}{setTilePositions()}}
+{\footnotesize\ttfamily void Map\+Effect\+::set\+Tile\+Positions (\begin{DoxyParamCaption}\item[{std\+::vector$<$ sf\+::\+Vector2i $>$}]{new\+Positions }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_map_effect_ae542c1aef75e386b30ec544c2dd411d3}\label{class_map_effect_ae542c1aef75e386b30ec544c2dd411d3}} 
+\index{Map\+Effect@{Map\+Effect}!color@{color}}
+\index{color@{color}!Map\+Effect@{Map\+Effect}}
+\subsubsection{\texorpdfstring{color}{color}}
+{\footnotesize\ttfamily sf\+::\+Color Map\+Effect\+::color\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_map_effect_a3bf3a8ffe6c838dad83356be63b986f5}\label{class_map_effect_a3bf3a8ffe6c838dad83356be63b986f5}} 
+\index{Map\+Effect@{Map\+Effect}!en\+Shape@{en\+Shape}}
+\index{en\+Shape@{en\+Shape}!Map\+Effect@{Map\+Effect}}
+\subsubsection{\texorpdfstring{en\+Shape}{enShape}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_map_effect_8hpp_a55b506070847a13554f8b879c1bfb37c}{Shape}} Map\+Effect\+::en\+Shape\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_map_effect_a9439d21ddced564043eba8fdf2c0e44e}\label{class_map_effect_a9439d21ddced564043eba8fdf2c0e44e}} 
+\index{Map\+Effect@{Map\+Effect}!id@{id}}
+\index{id@{id}!Map\+Effect@{Map\+Effect}}
+\subsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily int Map\+Effect\+::id\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_map_effect_a4fb92217a562e90b9038977a2d660e25}\label{class_map_effect_a4fb92217a562e90b9038977a2d660e25}} 
+\index{Map\+Effect@{Map\+Effect}!square\+Size@{square\+Size}}
+\index{square\+Size@{square\+Size}!Map\+Effect@{Map\+Effect}}
+\subsubsection{\texorpdfstring{square\+Size}{squareSize}}
+{\footnotesize\ttfamily int Map\+Effect\+::square\+Size\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_map_effect_a3a61ab548ae00ef7abd123672c75e579}\label{class_map_effect_a3a61ab548ae00ef7abd123672c75e579}} 
+\index{Map\+Effect@{Map\+Effect}!tile\+Positions@{tile\+Positions}}
+\index{tile\+Positions@{tile\+Positions}!Map\+Effect@{Map\+Effect}}
+\subsubsection{\texorpdfstring{tile\+Positions}{tilePositions}}
+{\footnotesize\ttfamily std\+::vector$<$sf\+::\+Vector2i$>$ Map\+Effect\+::tile\+Positions}
+
+\mbox{\Hypertarget{class_map_effect_ae3ee2ef0f261d4527b5af20e788af26e}\label{class_map_effect_ae3ee2ef0f261d4527b5af20e788af26e}} 
+\index{Map\+Effect@{Map\+Effect}!vertices@{vertices}}
+\index{vertices@{vertices}!Map\+Effect@{Map\+Effect}}
+\subsubsection{\texorpdfstring{vertices}{vertices}}
+{\footnotesize\ttfamily sf\+::\+Vertex\+Array Map\+Effect\+::vertices}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/\+Map\+Components/\mbox{\hyperlink{_map_effect_8hpp}{Map\+Effect.\+hpp}}\item 
+/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/\+Map\+Components/\mbox{\hyperlink{_map_effect_8cpp}{Map\+Effect.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,8 @@
+<map id="MapEffect::getID" name="MapEffect::getID">
+<area shape="rect" id="node2" href="$df/d40/_player_controls_8hpp.html#a2fbf8484c8a051b724315afd0f442465" title="HandlePlayerInput" alt="" coords="546,27,677,52"/>
+<area shape="rect" id="node5" href="$df/d40/_player_controls_8hpp.html#abc69fe16b664614aa47cbd2b13ad76ac" title="ControlTargetSquare" alt="" coords="353,27,498,52"/>
+<area shape="rect" id="node6" href="$dd/d11/class_map.html#a7ba59d3c72accc7e8af4624f8e0abe69" title="Map::UpdateEffect" alt="" coords="174,52,305,78"/>
+<area shape="rect" id="node7" href="$dd/d11/class_map.html#a0165980338b5bb5739a05dee4d4b341b" title="Map::RemoveEffect" alt="" coords="356,76,495,102"/>
+<area shape="rect" id="node3" href="$df/d0a/main_8cpp.html#ab8ef98eaa887a3be4bb916cdde45b3d1" title="GameLoop3" alt="" coords="725,27,819,52"/>
+<area shape="rect" id="node4" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="867,27,918,52"/>
+</map>

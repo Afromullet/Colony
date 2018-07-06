@@ -1,0 +1,157 @@
+\hypertarget{_pathfinding_8cpp}{}\section{/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/\+Pathfinding.cpp File Reference}
+\label{_pathfinding_8cpp}\index{/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/\+Pathfinding.\+cpp@{/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/\+Pathfinding.\+cpp}}
+{\ttfamily \#include \char`\"{}Pathfinding.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$queue$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+Include dependency graph for Pathfinding.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/d2c/_pathfinding_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{_pathfinding_8cpp_a3fd0fe99b57899b161ed0dd620c21d66}{operator$<$}} (const \mbox{\hyperlink{struct_a_star_node}{A\+Star\+Node}} \&lhs, const \mbox{\hyperlink{struct_a_star_node}{A\+Star\+Node}} \&rhs)
+\item 
+bool \mbox{\hyperlink{_pathfinding_8cpp_a613f6583b26a27cd9c89cc43a6798461}{operator==}} (const \mbox{\hyperlink{struct_a_star_node}{A\+Star\+Node}} \&lhs, const \mbox{\hyperlink{struct_a_star_node}{A\+Star\+Node}} \&rhs)
+\item 
+bool \mbox{\hyperlink{_pathfinding_8cpp_a8dabe72642719e46e4c20977e141af57}{operator==}} (const \mbox{\hyperlink{struct_grid_location}{Grid\+Location}} \&lhs, const \mbox{\hyperlink{struct_grid_location}{Grid\+Location}} \&rhs)
+\item 
+bool \mbox{\hyperlink{_pathfinding_8cpp_a15b5132cc482ec0768a77434b80cbb20}{operator!=}} (const \mbox{\hyperlink{struct_grid_location}{Grid\+Location}} \&lhs, const \mbox{\hyperlink{struct_grid_location}{Grid\+Location}} \&rhs)
+\item 
+bool \mbox{\hyperlink{_pathfinding_8cpp_a448fd40a80fe72fba475a49755fe55a1}{operator$<$}} (const \mbox{\hyperlink{struct_grid_location}{Grid\+Location}} \&a, const \mbox{\hyperlink{struct_grid_location}{Grid\+Location}} \&b)
+\item 
+bool \mbox{\hyperlink{_pathfinding_8cpp_a13390cb4560388a55ac16467d51f47e1}{search\+Cost\+So\+Far}} (std\+::map$<$ \mbox{\hyperlink{struct_grid_location}{Grid\+Location}}, int $>$ \&cost\+So\+Far\+Map, sf\+::\+Vector2i position)
+\item 
+int \mbox{\hyperlink{_pathfinding_8cpp_a40b4089b5156c40abbd12b8902a61461}{get\+Cost}} (std\+::map$<$ \mbox{\hyperlink{struct_grid_location}{Grid\+Location}}, int $>$ \&cost\+So\+Far\+Map, sf\+::\+Vector2i position)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{struct_grid_location}{Grid\+Location}} $>$ \mbox{\hyperlink{_pathfinding_8cpp_acb577154fc24ab7e0d1ce07f974ffc48}{recontruct\+Path}} (\mbox{\hyperlink{struct_grid_location}{Grid\+Location}} start, \mbox{\hyperlink{struct_grid_location}{Grid\+Location}} end, std\+::map$<$ \mbox{\hyperlink{struct_grid_location}{Grid\+Location}}, \mbox{\hyperlink{struct_grid_location}{Grid\+Location}} $>$ came\+From)
+\item 
+std\+::map$<$ \mbox{\hyperlink{struct_grid_location}{Grid\+Location}}, \mbox{\hyperlink{struct_grid_location}{Grid\+Location}} $>$ \mbox{\hyperlink{_pathfinding_8cpp_af3ec4ca78feaa4a936e943155dbef474}{a\+Star\+Search}} (\mbox{\hyperlink{class_map}{Map}} \&map, \mbox{\hyperlink{struct_grid_location}{Grid\+Location}} start, \mbox{\hyperlink{struct_grid_location}{Grid\+Location}} end)
+\item 
+std\+::vector$<$ sf\+::\+Vector2i $>$ \mbox{\hyperlink{_pathfinding_8cpp_a276d4b8b3ff32f2cd7bb2127bcb1777c}{Get\+P\+Neighbors}} (sf\+::\+Vector2i start\+Point, \mbox{\hyperlink{class_map}{Map}} \&map, bool get\+Non\+Passable)
+\item 
+int \mbox{\hyperlink{_pathfinding_8cpp_aa0001a1bfd684daaec92d3dee770e64a}{Manhattan\+Distance}} (sf\+::\+Vector2i start, sf\+::\+Vector2i end)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_pathfinding_8cpp_af3ec4ca78feaa4a936e943155dbef474}\label{_pathfinding_8cpp_af3ec4ca78feaa4a936e943155dbef474}} 
+\index{Pathfinding.\+cpp@{Pathfinding.\+cpp}!a\+Star\+Search@{a\+Star\+Search}}
+\index{a\+Star\+Search@{a\+Star\+Search}!Pathfinding.\+cpp@{Pathfinding.\+cpp}}
+\subsubsection{\texorpdfstring{a\+Star\+Search()}{aStarSearch()}}
+{\footnotesize\ttfamily std\+::map$<$\mbox{\hyperlink{struct_grid_location}{Grid\+Location}},\mbox{\hyperlink{struct_grid_location}{Grid\+Location}}$>$ a\+Star\+Search (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_map}{Map}} \&}]{map,  }\item[{\mbox{\hyperlink{struct_grid_location}{Grid\+Location}}}]{start,  }\item[{\mbox{\hyperlink{struct_grid_location}{Grid\+Location}}}]{end }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d4e/_pathfinding_8cpp_af3ec4ca78feaa4a936e943155dbef474_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d4e/_pathfinding_8cpp_af3ec4ca78feaa4a936e943155dbef474_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_pathfinding_8cpp_a40b4089b5156c40abbd12b8902a61461}\label{_pathfinding_8cpp_a40b4089b5156c40abbd12b8902a61461}} 
+\index{Pathfinding.\+cpp@{Pathfinding.\+cpp}!get\+Cost@{get\+Cost}}
+\index{get\+Cost@{get\+Cost}!Pathfinding.\+cpp@{Pathfinding.\+cpp}}
+\subsubsection{\texorpdfstring{get\+Cost()}{getCost()}}
+{\footnotesize\ttfamily int get\+Cost (\begin{DoxyParamCaption}\item[{std\+::map$<$ \mbox{\hyperlink{struct_grid_location}{Grid\+Location}}, int $>$ \&}]{cost\+So\+Far\+Map,  }\item[{sf\+::\+Vector2i}]{position }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_pathfinding_8cpp_a276d4b8b3ff32f2cd7bb2127bcb1777c}\label{_pathfinding_8cpp_a276d4b8b3ff32f2cd7bb2127bcb1777c}} 
+\index{Pathfinding.\+cpp@{Pathfinding.\+cpp}!Get\+P\+Neighbors@{Get\+P\+Neighbors}}
+\index{Get\+P\+Neighbors@{Get\+P\+Neighbors}!Pathfinding.\+cpp@{Pathfinding.\+cpp}}
+\subsubsection{\texorpdfstring{Get\+P\+Neighbors()}{GetPNeighbors()}}
+{\footnotesize\ttfamily std\+::vector$<$sf\+::\+Vector2i$>$ Get\+P\+Neighbors (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2i}]{start\+Point,  }\item[{\mbox{\hyperlink{class_map}{Map}} \&}]{map,  }\item[{bool}]{get\+Non\+Passable }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=291pt]{d8/d4e/_pathfinding_8cpp_a276d4b8b3ff32f2cd7bb2127bcb1777c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d4e/_pathfinding_8cpp_a276d4b8b3ff32f2cd7bb2127bcb1777c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_pathfinding_8cpp_aa0001a1bfd684daaec92d3dee770e64a}\label{_pathfinding_8cpp_aa0001a1bfd684daaec92d3dee770e64a}} 
+\index{Pathfinding.\+cpp@{Pathfinding.\+cpp}!Manhattan\+Distance@{Manhattan\+Distance}}
+\index{Manhattan\+Distance@{Manhattan\+Distance}!Pathfinding.\+cpp@{Pathfinding.\+cpp}}
+\subsubsection{\texorpdfstring{Manhattan\+Distance()}{ManhattanDistance()}}
+{\footnotesize\ttfamily int Manhattan\+Distance (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2i}]{start,  }\item[{sf\+::\+Vector2i}]{end }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_pathfinding_8cpp_a15b5132cc482ec0768a77434b80cbb20}\label{_pathfinding_8cpp_a15b5132cc482ec0768a77434b80cbb20}} 
+\index{Pathfinding.\+cpp@{Pathfinding.\+cpp}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Pathfinding.\+cpp@{Pathfinding.\+cpp}}
+\subsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_grid_location}{Grid\+Location}} \&}]{lhs,  }\item[{const \mbox{\hyperlink{struct_grid_location}{Grid\+Location}} \&}]{rhs }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_pathfinding_8cpp_a3fd0fe99b57899b161ed0dd620c21d66}\label{_pathfinding_8cpp_a3fd0fe99b57899b161ed0dd620c21d66}} 
+\index{Pathfinding.\+cpp@{Pathfinding.\+cpp}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Pathfinding.\+cpp@{Pathfinding.\+cpp}}
+\subsubsection{\texorpdfstring{operator$<$()}{operator<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_a_star_node}{A\+Star\+Node}} \&}]{lhs,  }\item[{const \mbox{\hyperlink{struct_a_star_node}{A\+Star\+Node}} \&}]{rhs }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_pathfinding_8cpp_a448fd40a80fe72fba475a49755fe55a1}\label{_pathfinding_8cpp_a448fd40a80fe72fba475a49755fe55a1}} 
+\index{Pathfinding.\+cpp@{Pathfinding.\+cpp}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Pathfinding.\+cpp@{Pathfinding.\+cpp}}
+\subsubsection{\texorpdfstring{operator$<$()}{operator<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_grid_location}{Grid\+Location}} \&}]{a,  }\item[{const \mbox{\hyperlink{struct_grid_location}{Grid\+Location}} \&}]{b }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_pathfinding_8cpp_a613f6583b26a27cd9c89cc43a6798461}\label{_pathfinding_8cpp_a613f6583b26a27cd9c89cc43a6798461}} 
+\index{Pathfinding.\+cpp@{Pathfinding.\+cpp}!operator==@{operator==}}
+\index{operator==@{operator==}!Pathfinding.\+cpp@{Pathfinding.\+cpp}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_a_star_node}{A\+Star\+Node}} \&}]{lhs,  }\item[{const \mbox{\hyperlink{struct_a_star_node}{A\+Star\+Node}} \&}]{rhs }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_pathfinding_8cpp_a8dabe72642719e46e4c20977e141af57}\label{_pathfinding_8cpp_a8dabe72642719e46e4c20977e141af57}} 
+\index{Pathfinding.\+cpp@{Pathfinding.\+cpp}!operator==@{operator==}}
+\index{operator==@{operator==}!Pathfinding.\+cpp@{Pathfinding.\+cpp}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_grid_location}{Grid\+Location}} \&}]{lhs,  }\item[{const \mbox{\hyperlink{struct_grid_location}{Grid\+Location}} \&}]{rhs }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_pathfinding_8cpp_acb577154fc24ab7e0d1ce07f974ffc48}\label{_pathfinding_8cpp_acb577154fc24ab7e0d1ce07f974ffc48}} 
+\index{Pathfinding.\+cpp@{Pathfinding.\+cpp}!recontruct\+Path@{recontruct\+Path}}
+\index{recontruct\+Path@{recontruct\+Path}!Pathfinding.\+cpp@{Pathfinding.\+cpp}}
+\subsubsection{\texorpdfstring{recontruct\+Path()}{recontructPath()}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{struct_grid_location}{Grid\+Location}}$>$ recontruct\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_grid_location}{Grid\+Location}}}]{start,  }\item[{\mbox{\hyperlink{struct_grid_location}{Grid\+Location}}}]{end,  }\item[{std\+::map$<$ \mbox{\hyperlink{struct_grid_location}{Grid\+Location}}, \mbox{\hyperlink{struct_grid_location}{Grid\+Location}} $>$}]{came\+From }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d4e/_pathfinding_8cpp_acb577154fc24ab7e0d1ce07f974ffc48_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_pathfinding_8cpp_a13390cb4560388a55ac16467d51f47e1}\label{_pathfinding_8cpp_a13390cb4560388a55ac16467d51f47e1}} 
+\index{Pathfinding.\+cpp@{Pathfinding.\+cpp}!search\+Cost\+So\+Far@{search\+Cost\+So\+Far}}
+\index{search\+Cost\+So\+Far@{search\+Cost\+So\+Far}!Pathfinding.\+cpp@{Pathfinding.\+cpp}}
+\subsubsection{\texorpdfstring{search\+Cost\+So\+Far()}{searchCostSoFar()}}
+{\footnotesize\ttfamily bool search\+Cost\+So\+Far (\begin{DoxyParamCaption}\item[{std\+::map$<$ \mbox{\hyperlink{struct_grid_location}{Grid\+Location}}, int $>$ \&}]{cost\+So\+Far\+Map,  }\item[{sf\+::\+Vector2i}]{position }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d4e/_pathfinding_8cpp_a13390cb4560388a55ac16467d51f47e1_icgraph}
+\end{center}
+\end{figure}

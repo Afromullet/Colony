@@ -1,0 +1,11 @@
+<map id="CreatureBody::GenerateVertices" name="CreatureBody::GenerateVertices">
+<area shape="rect" id="node2" href="$df/d0a/main_8cpp.html#a6355d41788bff5386a6854b1fd02ab9b" title="v" alt="" coords="349,5,388,31"/>
+<area shape="rect" id="node3" href="$da/d7d/class_creature_body.html#a2e5f101eb4ce889f47810e8e65164d50" title="CreatureBody::convertTruth\lValue" alt="" coords="276,55,461,93"/>
+<area shape="rect" id="node4" href="$d2/d6f/class_body_part.html#ab22b9412b4959e3a0a42efc79e409199" title="BodyPart::setRelativeSize" alt="" coords="281,117,456,143"/>
+<area shape="rect" id="node5" href="$d2/d6f/class_body_part.html#ad83118e7510cbab332815cd9254a6024" title="BodyPart::setCanHoldArmor" alt="" coords="274,167,463,192"/>
+<area shape="rect" id="node6" href="$d2/d6f/class_body_part.html#af61f39aa545dacd8c1a9cf43761df85a" title="BodyPart::setCanHoldWeapon" alt="" coords="267,216,470,241"/>
+<area shape="rect" id="node7" href="$d2/d6f/class_body_part.html#acc147f8434d4bf881ee4b54e1b79c439" title="BodyPart::setCanSmell" alt="" coords="289,265,448,291"/>
+<area shape="rect" id="node8" href="$d2/d6f/class_body_part.html#acc7c6792cd9837901dfb7d639714eb00" title="BodyPart::setCanSee" alt="" coords="294,315,443,340"/>
+<area shape="rect" id="node9" href="$d2/d6f/class_body_part.html#acae2236af2e131dfb8a49b4ca62d0d1f" title="BodyPart::setSection" alt="" coords="296,364,442,389"/>
+<area shape="rect" id="node10" href="$d2/d6f/class_body_part.html#a089afe1bbd06d3fc84a9870ec173883c" title="BodyPart::setArmor" alt="" coords="300,413,438,439"/>
+</map>

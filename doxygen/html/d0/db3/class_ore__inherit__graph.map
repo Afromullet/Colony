@@ -1,0 +1,3 @@
+<map id="Ore" name="Ore">
+<area shape="rect" id="node2" href="$df/d00/class_resource.html" title="{Resource\n|&#45; isRenewable\l&#45; isEdible\l&#45; resourceCategory\l&#45; name\l&#45; rarity\l&#45; material\l|+ operator==()\l+ operator!=()\l+ operator=()\l+ Resource()\l+ Resource()\l+ Resource()\l+ setResourceCategory()\l+ setIsRenewable()\l+ setResourceName()\l+ setRarity()\land 12 more...\l}" alt="" coords="5,5,176,279"/>
+</map>

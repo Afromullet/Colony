@@ -19,6 +19,7 @@
 #include <string>
 #include <vector>
 #include "Tissue.hpp"
+#include "ItemManager.hpp"
 
 
 
@@ -88,8 +89,10 @@ public:
     //Don't want a separate class for body parts that can equip weapons and armor, so just fill the data as determined
     //by the canHoldWeapon and canHoldArmor. The additional space used by Armor and Weapon for every creature that may not even be able to use them is worth managing everything more easily
     
-    void EquipItem(Item *item);
+   
     void EquipArmor(Item *item);
+    void EquipArmor(Armor val);
+    
     void EquipWeapon(Item *item);
 
     std::vector<AppliedForceEffect> ApplyAttack(AttackStats params);

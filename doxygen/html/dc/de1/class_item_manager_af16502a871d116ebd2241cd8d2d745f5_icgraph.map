@@ -1,0 +1,5 @@
+<map id="ItemManager::addArmor" name="ItemManager::addArmor">
+<area shape="rect" id="node2" href="$d2/d3b/class_base_creature.html#a03122a2c070fe7cab0dc772f552f1a63" title="BaseCreature::AddArmorTo\lInventory" alt="" coords="219,5,404,44"/>
+<area shape="rect" id="node3" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="452,41,503,67"/>
+<area shape="rect" id="node4" href="$d9/d76/class_armor.html#a0b5dc1feb7b5d3c4bd023cf9e0857fe3" title="Armor::EquipItem" alt="" coords="249,120,374,145"/>
+</map>

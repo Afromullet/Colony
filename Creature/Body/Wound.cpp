@@ -57,11 +57,15 @@ std::vector<int> DetermineWoundTargets(int origin,AppliedForceEffect &effect, An
             
             //-1 on the limit because the origin is added at the beginning
             for(int i=0; i < MOD_IMPACT_VERTNUM - 1; i++)
-                targets.push_back(tempTargets[rand() % tempTargets.size()]);
+            {
+                //May not have internal vertices
+                if(tempTargets.size() > 0)
+                    targets.push_back(tempTargets[rand() % tempTargets.size()]);
+            }
             
                 
             
-           
+      
             
         }
         else if(effect.woundSeverity == enMajorWound)
@@ -75,9 +79,12 @@ std::vector<int> DetermineWoundTargets(int origin,AppliedForceEffect &effect, An
                 
                 //May not have internal vertices
                 if(tempTargets.size() > 0)
-                    targets.push_back(tempTargets[rand() % tempTargets.size() - 1]);
+                    targets.push_back(tempTargets[rand() % tempTargets.size()]);
                 
             }
+            
+         
+            
          
             
         }
@@ -333,6 +340,7 @@ std::vector<int> WoundCalculations::ApplyImpactWound(AppliedForceEffect &effect,
     std::vector<int> targets;
     if(effect.effect == enImpactDefEffect || effect.effect == enImpactFracEffect)
     {
+        
         targets= DetermineWoundTargets(origin,effect,graph);
     
         int fractureChance = rand() % 101;
@@ -366,8 +374,14 @@ std::vector<int> WoundCalculations::ApplyImpactWound(AppliedForceEffect &effect,
             if(fractureChance <= FRACTURE_CHANCE)
                 graph[targets.at(0)].AddWound(enMajorFracture);
         
+            std::cout << "\n Target size " << targets.size();
+         
             if(targets.size() > 1)
+            {
+                   std::cout << "\n Targets at 1" << targets.at(1);
                 graph[targets.at(1)].AddWound(enMajorBruise);
+                
+            }
         
             if(ruptureChance <= RUPTURE_CHANCE && targets.size() > 1)
                 graph[targets.at(1)].AddWound(enRupture);

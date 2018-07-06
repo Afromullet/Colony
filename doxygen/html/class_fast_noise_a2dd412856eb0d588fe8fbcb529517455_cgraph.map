@@ -1,8 +1,0 @@
-<map id="FastNoise::SinglePerlin" name="FastNoise::SinglePerlin">
-<area shape="rect" id="node2" href="$_fast_noise_8cpp.html#a318facc2356654373240fde1b2cbc281" title="FastFloor" alt="" coords="260,5,338,31"/>
-<area shape="rect" id="node3" href="$_fast_noise_8cpp.html#abd9bf665bf4e99846a274ccb52934f9d" title="InterpHermiteFunc" alt="" coords="233,55,365,80"/>
-<area shape="rect" id="node4" href="$_fast_noise_8cpp.html#a9249edba704a32939798c3efbf1063a9" title="InterpQuinticFunc" alt="" coords="236,104,362,129"/>
-<area shape="rect" id="node5" href="$_fast_noise_8cpp.html#a824a3801b9df898891f37d807824ad4e" title="Lerp" alt="" coords="275,153,323,179"/>
-<area shape="rect" id="node6" href="$class_fast_noise.html#ad264b1bd7c819f7d5d9b5d5695a140a8" title="FastNoise::GradCoord2D" alt="" coords="213,203,385,228"/>
-<area shape="rect" id="node7" href="$class_fast_noise.html#aa4cae648a6a3817d77dcd7439f711827" title="FastNoise::Index2D_12" alt="" coords="433,203,594,228"/>
-</map>

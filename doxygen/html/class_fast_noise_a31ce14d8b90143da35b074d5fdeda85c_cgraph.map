@@ -1,6 +1,0 @@
-<map id="FastNoise::SingleCubic" name="FastNoise::SingleCubic">
-<area shape="rect" id="node2" href="$_fast_noise_8cpp.html#a318facc2356654373240fde1b2cbc281" title="FastFloor" alt="" coords="268,5,345,31"/>
-<area shape="rect" id="node3" href="$_fast_noise_8cpp.html#aba0e13f5ae84d64b1b5c1f65737c380a" title="CubicLerp" alt="" coords="265,55,347,80"/>
-<area shape="rect" id="node4" href="$class_fast_noise.html#ace751d0f7929c892937cd97f3e0341a7" title="FastNoise::ValCoord2DFast" alt="" coords="213,104,400,129"/>
-<area shape="rect" id="node5" href="$class_fast_noise.html#aec59eb9f9bcdb06e6a7dbe5a3fdf7145" title="FastNoise::Index2D_256" alt="" coords="448,104,616,129"/>
-</map>

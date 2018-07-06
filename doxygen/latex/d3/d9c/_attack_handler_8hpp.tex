@@ -1,0 +1,98 @@
+\hypertarget{_attack_handler_8hpp}{}\section{/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/\+Combat\+Handlers/\+Attack\+Handler.hpp File Reference}
+\label{_attack_handler_8hpp}\index{/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/\+Combat\+Handlers/\+Attack\+Handler.\+hpp@{/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/\+Combat\+Handlers/\+Attack\+Handler.\+hpp}}
+{\ttfamily \#include \char`\"{}Base\+Creature.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+Include dependency graph for Attack\+Handler.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/da6/_attack_handler_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/df9/_attack_handler_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_attack_handler_8hpp_a06418078dcd0cb84babdf25f9ef58881}{Single\+\_\+\+Attack\+\_\+\+Melee}} (\mbox{\hyperlink{struct_attack_stats}{Attack\+Stats}} attack, \mbox{\hyperlink{class_base_creature}{Base\+Creature}} \&defender)
+\item 
+void \mbox{\hyperlink{_attack_handler_8hpp_a3164db07a547600173ea625622ab873a}{Attack\+Creature\+\_\+\+Melee}} (\mbox{\hyperlink{class_base_creature}{Base\+Creature}} \&attacker, \mbox{\hyperlink{class_base_creature}{Base\+Creature}} \&defender)
+\item 
+void \mbox{\hyperlink{_attack_handler_8hpp_a3aea8e07a4017771a55d93e168930068}{Attack\+Creature\+\_\+\+Ranged}} (\mbox{\hyperlink{class_base_creature}{Base\+Creature}} \&attacker, \mbox{\hyperlink{class_base_creature}{Base\+Creature}} \&defender)
+\item 
+void \mbox{\hyperlink{_attack_handler_8hpp_a40fa6bc13b57d799d179e22cb54d761d}{Attack\+Body\+Part}} (\mbox{\hyperlink{struct_attack_stats}{Attack\+Stats}} stats, int index, \mbox{\hyperlink{_body_graph_8hpp_ab01b157c2e143191570b012d275fbf0d}{Anatomy\+Graph}} \&graph)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_attack_handler_8hpp_a40fa6bc13b57d799d179e22cb54d761d}\label{_attack_handler_8hpp_a40fa6bc13b57d799d179e22cb54d761d}} 
+\index{Attack\+Handler.\+hpp@{Attack\+Handler.\+hpp}!Attack\+Body\+Part@{Attack\+Body\+Part}}
+\index{Attack\+Body\+Part@{Attack\+Body\+Part}!Attack\+Handler.\+hpp@{Attack\+Handler.\+hpp}}
+\subsubsection{\texorpdfstring{Attack\+Body\+Part()}{AttackBodyPart()}}
+{\footnotesize\ttfamily void Attack\+Body\+Part (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_attack_stats}{Attack\+Stats}}}]{stats,  }\item[{int}]{index,  }\item[{\mbox{\hyperlink{_body_graph_8hpp_ab01b157c2e143191570b012d275fbf0d}{Anatomy\+Graph}} \&}]{graph }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d9c/_attack_handler_8hpp_a40fa6bc13b57d799d179e22cb54d761d_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_attack_handler_8hpp_a3164db07a547600173ea625622ab873a}\label{_attack_handler_8hpp_a3164db07a547600173ea625622ab873a}} 
+\index{Attack\+Handler.\+hpp@{Attack\+Handler.\+hpp}!Attack\+Creature\+\_\+\+Melee@{Attack\+Creature\+\_\+\+Melee}}
+\index{Attack\+Creature\+\_\+\+Melee@{Attack\+Creature\+\_\+\+Melee}!Attack\+Handler.\+hpp@{Attack\+Handler.\+hpp}}
+\subsubsection{\texorpdfstring{Attack\+Creature\+\_\+\+Melee()}{AttackCreature\_Melee()}}
+{\footnotesize\ttfamily void Attack\+Creature\+\_\+\+Melee (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_base_creature}{Base\+Creature}} \&}]{attacker,  }\item[{\mbox{\hyperlink{class_base_creature}{Base\+Creature}} \&}]{defender }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d9c/_attack_handler_8hpp_a3164db07a547600173ea625622ab873a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_attack_handler_8hpp_a3aea8e07a4017771a55d93e168930068}\label{_attack_handler_8hpp_a3aea8e07a4017771a55d93e168930068}} 
+\index{Attack\+Handler.\+hpp@{Attack\+Handler.\+hpp}!Attack\+Creature\+\_\+\+Ranged@{Attack\+Creature\+\_\+\+Ranged}}
+\index{Attack\+Creature\+\_\+\+Ranged@{Attack\+Creature\+\_\+\+Ranged}!Attack\+Handler.\+hpp@{Attack\+Handler.\+hpp}}
+\subsubsection{\texorpdfstring{Attack\+Creature\+\_\+\+Ranged()}{AttackCreature\_Ranged()}}
+{\footnotesize\ttfamily void Attack\+Creature\+\_\+\+Ranged (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_base_creature}{Base\+Creature}} \&}]{attacker,  }\item[{\mbox{\hyperlink{class_base_creature}{Base\+Creature}} \&}]{defender }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d9c/_attack_handler_8hpp_a3aea8e07a4017771a55d93e168930068_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_attack_handler_8hpp_a06418078dcd0cb84babdf25f9ef58881}\label{_attack_handler_8hpp_a06418078dcd0cb84babdf25f9ef58881}} 
+\index{Attack\+Handler.\+hpp@{Attack\+Handler.\+hpp}!Single\+\_\+\+Attack\+\_\+\+Melee@{Single\+\_\+\+Attack\+\_\+\+Melee}}
+\index{Single\+\_\+\+Attack\+\_\+\+Melee@{Single\+\_\+\+Attack\+\_\+\+Melee}!Attack\+Handler.\+hpp@{Attack\+Handler.\+hpp}}
+\subsubsection{\texorpdfstring{Single\+\_\+\+Attack\+\_\+\+Melee()}{Single\_Attack\_Melee()}}
+{\footnotesize\ttfamily void Single\+\_\+\+Attack\+\_\+\+Melee (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_attack_stats}{Attack\+Stats}}}]{attack,  }\item[{\mbox{\hyperlink{class_base_creature}{Base\+Creature}} \&}]{defender }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d9c/_attack_handler_8hpp_a06418078dcd0cb84babdf25f9ef58881_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{d3/d9c/_attack_handler_8hpp_a06418078dcd0cb84babdf25f9ef58881_icgraph}
+\end{center}
+\end{figure}

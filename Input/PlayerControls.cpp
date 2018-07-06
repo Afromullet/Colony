@@ -179,7 +179,7 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
                 targettingSquare.vertices = mapdata.map->getVertices(targettingSquare.tilePositions);
                 targettingSquare.setColor(sf::Color::Yellow);
                 targettingSquare.setID(AssignEffectID());
-                mapdata.map->AddEffect(targettingSquare.id, targettingSquare.vertices);
+                mapdata.map->AddEffect(targettingSquare.getID(), targettingSquare.vertices);
             }
             
           
@@ -212,17 +212,19 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
             if(usingTargetSquare)
             {
                 //Can't reduce any further
-                if(targettingSquare.squareSize == 1)
+                if(targettingSquare.getSquareSize() == 1)
                 {
                     break;
                 }
                 mapdata.map->RemoveEffect(targettingSquare);
                 
-                targettingSquare.setSquare(targettingSquare.tilePositions.at(0), targettingSquare.squareSize -= 1);
+                targettingSquare.setSquareSize(targettingSquare.getSquareSize() - 1);
+                targettingSquare.setSquare(targettingSquare.tilePositions.at(0), targettingSquare.getSquareSize());
+                
                 targettingSquare.vertices = mapdata.map->getVertices(targettingSquare.tilePositions);
                 targettingSquare.setColor(sf::Color::Yellow);
                 targettingSquare.setID(AssignEffectID());
-                mapdata.map->AddEffect(targettingSquare.id, targettingSquare.vertices);
+                mapdata.map->AddEffect(targettingSquare.getID(), targettingSquare.vertices);
 
             }
         }
@@ -232,11 +234,13 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
             if(usingTargetSquare)
             {
                 mapdata.map->RemoveEffect(targettingSquare);
-                targettingSquare.setSquare(targettingSquare.tilePositions.at(0), targettingSquare.squareSize += 1);
+                targettingSquare.setSquareSize(targettingSquare.getSquareSize() + 1);
+
+                targettingSquare.setSquare(targettingSquare.tilePositions.at(0), targettingSquare.getSquareSize());
                 targettingSquare.vertices = mapdata.map->getVertices(targettingSquare.tilePositions);
                 targettingSquare.setColor(sf::Color::Yellow);
                 targettingSquare.setID(AssignEffectID());
-                mapdata.map->AddEffect(targettingSquare.id, targettingSquare.vertices);
+                mapdata.map->AddEffect(targettingSquare.getID(), targettingSquare.vertices);
             }
         
         }
@@ -322,7 +326,7 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
             targettingSquare.vertices = mapdata.map->getVertices(targettingSquare.tilePositions);
             targettingSquare.setColor(sf::Color::Yellow);
             targettingSquare.setID(AssignEffectID());
-            mapdata.map->AddEffect(targettingSquare.id, targettingSquare.vertices);
+            mapdata.map->AddEffect(targettingSquare.getID(), targettingSquare.vertices);
             }
             
         }

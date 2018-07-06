@@ -7,7 +7,10 @@
 //
 
 #include "Weapon.hpp"
-
+#include "BodyPart.hpp"
+#include "ItemManager.hpp"
+#include <boost/uuid/uuid.hpp>
+#include <boost/uuid/uuid_generators.hpp>
 
 bool Weapon::operator==(const Weapon &other) const
 {
@@ -17,7 +20,8 @@ bool Weapon::operator==(const Weapon &other) const
         if(size == other.size && mass == other.mass && section == other.section &&
            material == other.material && sEquipmentName == other.sEquipmentName && isEquipped == other.isEquipped)
         {
-            return true;
+            if(sections == other.sections)
+                return true;
         }
         
     }
@@ -46,12 +50,17 @@ void Weapon::operator=(const Weapon &other)
     section = other.section;
     material = other.material;
     isEquipped = other.isEquipped;
+    tag = boost::uuids::random_generator()();
+    enItemType = enWeaponType;
+    sections = other.sections;
+    stackSize = other.stackSize;
+    maxStackSize = other.maxStackSize;
     
 }
 
 //todo add "Blank" weapon for when no weapon is equipped..and also something to identify a two handed weapon is equipped
 Weapon::Weapon(Material _material, std::string _sEquipmentName, short int _siRange,short int _siDamage):
-        Item::Item(_material,_sEquipmentName),
+        Item::Item(_material,_sEquipmentName,enWeaponType),
         siRange(_siRange),siDamage(_siDamage)
 {
 
@@ -61,7 +70,7 @@ Weapon::Weapon(Material _material, std::string _sEquipmentName, short int _siRan
 }
 
 
-Weapon::Weapon() : Item(Material(),"Fist Weapon"),siRange(1),siDamage(1),contactArea(1)
+Weapon::Weapon() : Item(Material(),"Fist Weapon",enWeaponType),siRange(1),siDamage(1),contactArea(1)
 {
     
     size = 0;
@@ -70,13 +79,13 @@ Weapon::Weapon() : Item(Material(),"Fist Weapon"),siRange(1),siDamage(1),contact
 }
 
 
-Weapon::Weapon(std::string _itemname,std::string _section) : Item(_itemname,_section) {
+Weapon::Weapon(std::string _itemname,std::string _section) : Item(_itemname,_section,enWeaponType) {
     
 }
 
 
 
-Weapon::Weapon(const Weapon &weapon)
+Weapon::Weapon(const Weapon &weapon) : Item(enWeaponType)
 {
   
     position = weapon.position;
@@ -93,14 +102,20 @@ Weapon::Weapon(const Weapon &weapon)
     section = weapon.section;
     material = weapon.material;
     isEquipped = weapon.isEquipped;
+    tag = weapon.tag;
+    section = weapon.section;
+    sections = weapon.sections;
+    stackSize = weapon.stackSize;
+    maxStackSize = weapon.maxStackSize;
 }
 
 
-
+/*
 Weapon::~Weapon()
 {
     
 }
+ */
 
 
 void Weapon::showItemStats() const
@@ -116,15 +131,24 @@ void Weapon::showItemStats() const
 std::string Weapon::getItemExamineString() const
 {
     std::string tempString;
-    tempString = "\nItem Name: "  + sEquipmentName;
-    tempString = "\Damage: "  + siDamage;
-    tempString = "\nRange "  + siRange;
+    tempString = "\n Item Name: "  + sEquipmentName;
+    tempString = "\n Damage: "  + siDamage;
+    tempString = "\n nRange "  + siRange;
     
     return tempString;
     
 }
 
 
+void Weapon::AddToItemManager(ItemManager &manager)
+{
+    manager.addWeapon(*this);
+}
+
+void Weapon::EquipItem(BodyPart &bp,ItemManager &itemManager)
+{
+    bp.setWeapon(*this);
+}
 
 void Weapon::calculateMaterialBonuses()
 {

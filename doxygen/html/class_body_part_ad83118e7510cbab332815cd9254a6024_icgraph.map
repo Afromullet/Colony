@@ -1,5 +1,0 @@
-<map id="BodyPart::setCanHoldArmor" name="BodyPart::setCanHoldArmor">
-<area shape="rect" id="node2" href="$class_creature_body.html#af7047fb13005abbb9a816c0dd64af873" title="CreatureBody::GenerateVertices" alt="" coords="243,5,457,31"/>
-<area shape="rect" id="node4" href="$class_creature_body.html#a9cf5cffe6209ed851bf32c2b164d9391" title="CreatureBody::GenerateOrgan\lVertices" alt="" coords="248,55,452,93"/>
-<area shape="rect" id="node3" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="505,33,555,59"/>
-</map>

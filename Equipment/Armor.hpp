@@ -14,6 +14,8 @@
 
 #include <stdio.h>
 #include "Equipment.hpp"
+#include <memory>
+
 
 
 class Armor : public Item
@@ -42,11 +44,14 @@ public:
     Armor(std::string itemName, std::string _section);
     
     Armor(const Armor &other);
+   
+
     
 
     Armor();
+  //  ~Armor();
+   
     
-    ~Armor();
 
     
     Armor *clone() const
@@ -62,13 +67,16 @@ public:
     
     
     
+    
     std::string getItemExamineString() const;
     void showItemStats() const;
-    
+    void EquipItem(BodyPart &bp,ItemManager &itemManager);
     
     void PrintArmorStatistics();
+    
+    void AddToItemManager(ItemManager &manager);
 
-  
+ 
     
    
     //int getItemName();

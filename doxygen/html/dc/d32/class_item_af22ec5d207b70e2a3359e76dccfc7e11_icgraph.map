@@ -1,0 +1,8 @@
+<map id="Item::getMaterialRef" name="Item::getMaterialRef">
+<area shape="rect" id="node2" href="$d2/d3b/class_base_creature.html#ac81e681e444ed860c212463025d04a1d" title="BaseCreature::CalculateMelee\lAttackForce" alt="" coords="195,23,398,61"/>
+<area shape="rect" id="node6" href="$d2/d6f/class_body_part.html#aed6e734467a8cd25b4be8bc18edc9033" title="BodyPart::ApplyAttack" alt="" coords="469,115,623,140"/>
+<area shape="rect" id="node7" href="$d2/d6f/class_body_part.html#a7c4d742811e49a2c97b9bec6c1785e94" title="BodyPart::getArmorMaterial\lEffects" alt="" coords="203,137,389,176"/>
+<area shape="rect" id="node3" href="$d2/d3b/class_base_creature.html#a389d8ae4c4caa2d7c55939bef70935a8" title="BaseCreature::calculateAttack\lParameters" alt="" coords="446,23,646,61"/>
+<area shape="rect" id="node4" href="$d3/d9c/_attack_handler_8hpp.html#a3164db07a547600173ea625622ab873a" title="AttackCreature_Melee" alt="" coords="699,5,853,31"/>
+<area shape="rect" id="node5" href="$d3/d9c/_attack_handler_8hpp.html#a3aea8e07a4017771a55d93e168930068" title="AttackCreature_Ranged" alt="" coords="694,55,859,80"/>
+</map>

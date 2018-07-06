@@ -1,6 +1,0 @@
-<map id="Map::GenerateRandom2DTiles" name="Map::GenerateRandom2DTiles">
-<area shape="rect" id="node2" href="$class_map.html#a1fabae1bed7d63177af112101c38c3b5" title="Map::BasicRandom2DMap" alt="" coords="259,5,439,31"/>
-<area shape="rect" id="node3" href="$main_8cpp.html#add6bd5657070c4129c65dc07a1280f7f" title="InitializeMaps" alt="" coords="487,5,589,31"/>
-<area shape="rect" id="node4" href="$main_8cpp.html#ab5227b073ad87fc30322650e123e0055" title="SetupGameData" alt="" coords="637,5,758,31"/>
-<area shape="rect" id="node5" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="806,5,856,31"/>
-</map>

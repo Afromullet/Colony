@@ -24,6 +24,9 @@
 #include "Pathfinding.hpp"
 #include "Bodygraph.hpp"
 
+#include "ItemManager.hpp"
+
+
 
 
 
@@ -37,6 +40,7 @@ struct DefenseStats
 };
 
 class Map;
+
 
 
 //todo rename..not abstract anymore
@@ -62,12 +66,22 @@ private:
     
     
     
+    
+    
 public:
+    
+    
+    
+    ItemManager inventory;
     
     CreatureBody body;
     
     
     BaseCreature();
+    BaseCreature(const BaseCreature &other);
+    BaseCreature(BaseCreature &other);
+    
+
 
    // BaseCreature(const BaseCreature &creature);
     
@@ -83,10 +97,15 @@ public:
     
     //Inventory management
     void AddItemToInventory(Item *item);
+    void AddArmorToInventory(Armor val);
+    void AddWeaponToInventory(Weapon val);
+    
+    
     void PrintInventory();
     void PrintEquipment();
     void Equip(Item *item);
     void EquipItemFromInventory(int n); //Equips item number n from inventory, n being the position in the list
+    void EquipItem(int i);
     
     void PickupItem(Map &map,std::list<Item*> &itemList);
     void AttackCreature(int attackBonus, int damage);
@@ -110,6 +129,8 @@ public:
     std::list<Item*> getInventory();
     Vision &getVision();
     std::vector<AttackStats> &getAttacks();
+    
+
     
     
     //Setters

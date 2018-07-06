@@ -1,0 +1,5 @@
+<map id="ValCoord3D" name="ValCoord3D">
+<area shape="rect" id="node2" href="$d1/dd8/class_fast_noise.html#a661febd01ba99e06b9de5fab9bd13fb0" title="FastNoise::GetWhiteNoise" alt="" coords="154,5,332,31"/>
+<area shape="rect" id="node3" href="$d1/dd8/class_fast_noise.html#a1c0a782e7675a58f6fe777eb6fa06eaf" title="FastNoise::GetWhiteNoiseInt" alt="" coords="146,55,340,80"/>
+<area shape="rect" id="node4" href="$d1/dd8/class_fast_noise.html#a0d55ad41a81a37df679a5ed92cef2d36" title="FastNoise::SingleCellular" alt="" coords="157,104,328,129"/>
+</map>

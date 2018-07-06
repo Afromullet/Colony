@@ -9,7 +9,7 @@
 #include "Equipment.hpp"
 #include "ErrorConstants.hpp"
 
-
+#include <boost/uuid/uuid_generators.hpp>
 //Overloaded operators
 
 bool Item::operator==(const Item &other) const
@@ -51,32 +51,50 @@ void Item::operator=(const Item &other)
     mass = other.size;
     sections = other.sections;
     section = other.section;
+    tag = boost::uuids::random_generator()();
+    stackSize = other.stackSize;
+    maxStackSize = other.maxStackSize;
+
 }
 
 
-Item::Item(Material _material, std::string _sEquipmentName): material(_material),sEquipmentName(_sEquipmentName),isEquipped(false)
+Item::Item(Material _material, std::string _sEquipmentName,EnItemType itType): material(_material),sEquipmentName(_sEquipmentName),isEquipped(false)
 {
     
+    tag = boost::uuids::random_generator()();
+    enItemType = itType;
+    stackSize = 0;
+    maxStackSize = 1;
 }
 
-Item::Item(std::string equipmentName) : sEquipmentName(equipmentName)
+Item::Item(std::string equipmentName,EnItemType itType) : sEquipmentName(equipmentName)
 {
-    
+    tag = boost::uuids::random_generator()();
+    enItemType = itType;
+    stackSize = 0;
+    maxStackSize = 1;
 }
 
 
-Item::Item(std::string equipmentName, std::string _section) : sEquipmentName(equipmentName), section(_section)
+Item::Item(std::string equipmentName, std::string _section,EnItemType itType) : sEquipmentName(equipmentName), section(_section)
 {
-    
+    tag = boost::uuids::random_generator()();
+    enItemType = itType;
+    stackSize = 0;
+    maxStackSize = 1;
 }
 
 
 
-Item::Item() : material(),sEquipmentName(ERROR_STRING_INPUT),isEquipped(false)
+Item::Item(EnItemType itType) : material(),sEquipmentName(ERROR_STRING_INPUT),isEquipped(false)
 {
     size = ERROR_INPUT_NUMBER;
     mass = ERROR_INPUT_NUMBER;
     section = ERROR_STRING_INPUT;
+    tag = boost::uuids::random_generator()();
+    enItemType = itType;
+    stackSize = 0;
+    maxStackSize = 1;
     
 }
 
@@ -90,6 +108,9 @@ Item::Item(const Item &other)
     mass = other.size;
     sections = other.sections;
     section = other.section;
+    stackSize = other.stackSize;
+    maxStackSize = other.maxStackSize;
+    
 }
 
 
@@ -146,10 +167,34 @@ bool Item::getIsEquipped() const
     return isEquipped;
 }
 
+boost::uuids::uuid Item::getTag()
+{
+    return tag;
+}
 
+EnItemType Item::getItemType()
+{
+    return enItemType;
+}
+
+int Item::getStackSize()
+{
+    return stackSize;
+}
+
+int Item::getMaxStackSize()
+{
+    return maxStackSize;
+}
+
+//TODO add check to not allow duplicate sections
 void Item::addSection(std::string value)
 {
-    sections.push_back(value);
+    if(std::find(sections.begin(),sections.end(),value) == sections.end())
+    {
+        sections.push_back(value);
+    }
+    
 }
 
 void Item::setItemName(std::string value)
@@ -214,6 +259,28 @@ bool Item::isValidSection(std::string _section)
     return false;
 }
 
+void Item::setTag(boost::uuids::uuid val)
+{
+   
+    tag = val;
+    
+    
+}
+
+void Item::setItemType(EnItemType val)
+{
+     enItemType = val;
+}
+
+void Item::setStackSize(int val)
+{
+    stackSize = val;
+}
+
+void Item::setMaxStackSize(int val)
+{
+    maxStackSize = val;
+}
 
 
 

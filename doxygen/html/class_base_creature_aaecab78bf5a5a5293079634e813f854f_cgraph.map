@@ -1,7 +1,0 @@
-<map id="BaseCreature::WalkPath" name="BaseCreature::WalkPath">
-<area shape="rect" id="node2" href="$class_map.html#aaf32aa299155bde102ea974acee38b3d" title="Map::isInBounds" alt="" coords="249,5,369,31"/>
-<area shape="rect" id="node3" href="$class_map.html#a2ee6fd8a412c966c941784b226374bd1" title="Map::canHoldCreature" alt="" coords="231,55,387,80"/>
-<area shape="rect" id="node4" href="$class_map.html#a22f7804f69757183a8b7093cf5b136ac" title="Map::isCreatureOnTile" alt="" coords="232,104,387,129"/>
-<area shape="rect" id="node5" href="$class_base_creature.html#a00ffc1ee732a8f0a8921c9cee6842e4d" title="BaseCreature::setPosition" alt="" coords="221,153,397,179"/>
-<area shape="rect" id="node6" href="$class_entity_tile.html#a7b9e5be8dc4017eb5af8e4fda7add3c4" title="EntityTile::setPosition" alt="" coords="445,153,593,179"/>
-</map>

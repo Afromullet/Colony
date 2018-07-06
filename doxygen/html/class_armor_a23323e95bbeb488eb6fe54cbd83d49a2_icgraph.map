@@ -1,7 +1,0 @@
-<map id="Armor::Armor" name="Armor::Armor">
-<area shape="rect" id="node2" href="$class_armor.html#aac8aec108de9a8a45bada1534c0f23b7" title="Armor::clone" alt="" coords="157,29,254,55"/>
-<area shape="rect" id="node6" href="$class_armor.html#a21de0acaa6ecdb6f5937166b83da9b01" title="Armor::create" alt="" coords="155,79,257,104"/>
-<area shape="rect" id="node3" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="360,5,410,31"/>
-<area shape="rect" id="node4" href="$_test_data_generator_8hpp.html#adf5c94513b4604bb65ec2255caad5188" title="GenerateRandomItems" alt="" coords="305,55,465,80"/>
-<area shape="rect" id="node5" href="$main_8cpp.html#a6c1e06f0b04a13da772c0c1ac36470fc" title="SetupCurrentMap" alt="" coords="513,55,639,80"/>
-</map>

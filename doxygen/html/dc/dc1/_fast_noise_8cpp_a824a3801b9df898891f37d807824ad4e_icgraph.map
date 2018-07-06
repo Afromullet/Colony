@@ -1,0 +1,5 @@
+<map id="Lerp" name="Lerp">
+<area shape="rect" id="node2" href="$d1/dd8/class_fast_noise.html#a982fae6250ecadc33331384167fcbc2d" title="FastNoise::SingleValue" alt="" coords="110,5,269,31"/>
+<area shape="rect" id="node3" href="$d1/dd8/class_fast_noise.html#a93f68e6b4d364be7359076d5c7f19313" title="FastNoise::SinglePerlin" alt="" coords="110,55,270,80"/>
+<area shape="rect" id="node4" href="$d1/dd8/class_fast_noise.html#ac584dcaa35fdc6d8af986eba0d3ed50e" title="FastNoise::SingleGradient\lPerturb" alt="" coords="101,104,278,143"/>
+</map>

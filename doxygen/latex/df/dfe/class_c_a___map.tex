@@ -1,0 +1,264 @@
+\hypertarget{class_c_a___map}{}\section{C\+A\+\_\+\+Map Class Reference}
+\label{class_c_a___map}\index{C\+A\+\_\+\+Map@{C\+A\+\_\+\+Map}}
+
+
+{\ttfamily \#include $<$C\+A\+Map.\+hpp$>$}
+
+
+
+Inheritance diagram for C\+A\+\_\+\+Map\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{de/d6f/class_c_a___map__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for C\+A\+\_\+\+Map\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{d1/d96/class_c_a___map__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_a___map_a43e7cd49d1de02187bd3726d328c7b85}{C\+A\+\_\+\+Map}} ()
+\item 
+void \mbox{\hyperlink{class_c_a___map_a8db5cbcb8cef56f0ac58571425502b59}{Generate\+\_\+\+C\+A\+\_\+\+M\+AP}} (sf\+::\+Vector2i \+\_\+tile\+Size, unsigned int \+\_\+width, unsigned int \+\_\+height, \mbox{\hyperlink{_c_a_map_8hpp_a8502e9e74cc08ed2c245d58ff7cd4a88}{C\+A\+\_\+\+Rule\+Set}} \+\_\+ruleset)
+\item 
+void \mbox{\hyperlink{class_c_a___map_ad4c6a5b3ca7121d6c4593061d4bf3056}{Set\+Initial\+State}} ()
+\item 
+void \mbox{\hyperlink{class_c_a___map_a5d22c84ef623d63d99300d1f83af143e}{Set\+Rule\+Set}} (\mbox{\hyperlink{_c_a_map_8hpp_a8502e9e74cc08ed2c245d58ff7cd4a88}{C\+A\+\_\+\+Rule\+Set}} \+\_\+ruleset)
+\item 
+void \mbox{\hyperlink{class_c_a___map_a9f978dd06a224ab2acf97f1c532ec3da}{Simulation\+Step}} ()
+\item 
+void \mbox{\hyperlink{class_c_a___map_a36d031c797435985d1a833713b64ae98}{Cave\+Simulation\+Step}} ()
+\item 
+int \mbox{\hyperlink{class_c_a___map_ad57529f17a77b590fe93839c4b8bd5f9}{Get\+Living\+Neighbors}} (int alive\+Tile\+ID, int dead\+Tile\+ID, int x, int y)
+\item 
+void \mbox{\hyperlink{class_c_a___map_a7a3a75540c418bdcee3689ecfca4cbff}{Test\+Ruleset}} ()
+\item 
+void \mbox{\hyperlink{class_c_a___map_a142fc34721fe8d06cc93b61a27af9bda}{Placement\+Test}} ()
+\item 
+void \mbox{\hyperlink{class_c_a___map_aad2d89a0ccb584de480b315887c4932d}{Cave\+Tunnel\+Map}} ()
+\item 
+void \mbox{\hyperlink{class_c_a___map_a990656963de9c40138ae4babe0c3c28c}{Create\+Room}} (std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{class_tile}{Tile}} $>$ $>$ \&new\+Map, int room\+Size, sf\+::\+Vector2i starting\+Point, int floor\+Tile\+ID, int wall\+Tile\+ID)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_c_a_map_8hpp_a8502e9e74cc08ed2c245d58ff7cd4a88}{C\+A\+\_\+\+Rule\+Set}} \mbox{\hyperlink{class_c_a___map_a7f21b6e31fec0a42ba6b47c93e7675fd}{ruleset}}
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_c_a___map_a621e0347874d4f80984e7644059a542e}{all\+Num\+Of\+Neighbors}}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_c_a___map_a43e7cd49d1de02187bd3726d328c7b85}\label{class_c_a___map_a43e7cd49d1de02187bd3726d328c7b85}} 
+\index{C\+A\+\_\+\+Map@{C\+A\+\_\+\+Map}!C\+A\+\_\+\+Map@{C\+A\+\_\+\+Map}}
+\index{C\+A\+\_\+\+Map@{C\+A\+\_\+\+Map}!C\+A\+\_\+\+Map@{C\+A\+\_\+\+Map}}
+\subsubsection{\texorpdfstring{C\+A\+\_\+\+Map()}{CA\_Map()}}
+{\footnotesize\ttfamily C\+A\+\_\+\+Map\+::\+C\+A\+\_\+\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_c_a___map_a36d031c797435985d1a833713b64ae98}\label{class_c_a___map_a36d031c797435985d1a833713b64ae98}} 
+\index{C\+A\+\_\+\+Map@{C\+A\+\_\+\+Map}!Cave\+Simulation\+Step@{Cave\+Simulation\+Step}}
+\index{Cave\+Simulation\+Step@{Cave\+Simulation\+Step}!C\+A\+\_\+\+Map@{C\+A\+\_\+\+Map}}
+\subsubsection{\texorpdfstring{Cave\+Simulation\+Step()}{CaveSimulationStep()}}
+{\footnotesize\ttfamily void C\+A\+\_\+\+Map\+::\+Cave\+Simulation\+Step (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/dfe/class_c_a___map_a36d031c797435985d1a833713b64ae98_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_c_a___map_aad2d89a0ccb584de480b315887c4932d}\label{class_c_a___map_aad2d89a0ccb584de480b315887c4932d}} 
+\index{C\+A\+\_\+\+Map@{C\+A\+\_\+\+Map}!Cave\+Tunnel\+Map@{Cave\+Tunnel\+Map}}
+\index{Cave\+Tunnel\+Map@{Cave\+Tunnel\+Map}!C\+A\+\_\+\+Map@{C\+A\+\_\+\+Map}}
+\subsubsection{\texorpdfstring{Cave\+Tunnel\+Map()}{CaveTunnelMap()}}
+{\footnotesize\ttfamily void C\+A\+\_\+\+Map\+::\+Cave\+Tunnel\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/dfe/class_c_a___map_aad2d89a0ccb584de480b315887c4932d_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_c_a___map_a990656963de9c40138ae4babe0c3c28c}\label{class_c_a___map_a990656963de9c40138ae4babe0c3c28c}} 
+\index{C\+A\+\_\+\+Map@{C\+A\+\_\+\+Map}!Create\+Room@{Create\+Room}}
+\index{Create\+Room@{Create\+Room}!C\+A\+\_\+\+Map@{C\+A\+\_\+\+Map}}
+\subsubsection{\texorpdfstring{Create\+Room()}{CreateRoom()}}
+{\footnotesize\ttfamily void C\+A\+\_\+\+Map\+::\+Create\+Room (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{class_tile}{Tile}} $>$ $>$ \&}]{new\+Map,  }\item[{int}]{room\+Size,  }\item[{sf\+::\+Vector2i}]{starting\+Point,  }\item[{int}]{floor\+Tile\+ID,  }\item[{int}]{wall\+Tile\+ID }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{df/dfe/class_c_a___map_a990656963de9c40138ae4babe0c3c28c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/dfe/class_c_a___map_a990656963de9c40138ae4babe0c3c28c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_c_a___map_a8db5cbcb8cef56f0ac58571425502b59}\label{class_c_a___map_a8db5cbcb8cef56f0ac58571425502b59}} 
+\index{C\+A\+\_\+\+Map@{C\+A\+\_\+\+Map}!Generate\+\_\+\+C\+A\+\_\+\+M\+AP@{Generate\+\_\+\+C\+A\+\_\+\+M\+AP}}
+\index{Generate\+\_\+\+C\+A\+\_\+\+M\+AP@{Generate\+\_\+\+C\+A\+\_\+\+M\+AP}!C\+A\+\_\+\+Map@{C\+A\+\_\+\+Map}}
+\subsubsection{\texorpdfstring{Generate\+\_\+\+C\+A\+\_\+\+M\+A\+P()}{Generate\_CA\_MAP()}}
+{\footnotesize\ttfamily void C\+A\+\_\+\+Map\+::\+Generate\+\_\+\+C\+A\+\_\+\+M\+AP (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2i}]{\+\_\+tile\+Size,  }\item[{unsigned int}]{\+\_\+width,  }\item[{unsigned int}]{\+\_\+height,  }\item[{\mbox{\hyperlink{_c_a_map_8hpp_a8502e9e74cc08ed2c245d58ff7cd4a88}{C\+A\+\_\+\+Rule\+Set}}}]{\+\_\+ruleset }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/dfe/class_c_a___map_a8db5cbcb8cef56f0ac58571425502b59_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/dfe/class_c_a___map_a8db5cbcb8cef56f0ac58571425502b59_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_c_a___map_ad57529f17a77b590fe93839c4b8bd5f9}\label{class_c_a___map_ad57529f17a77b590fe93839c4b8bd5f9}} 
+\index{C\+A\+\_\+\+Map@{C\+A\+\_\+\+Map}!Get\+Living\+Neighbors@{Get\+Living\+Neighbors}}
+\index{Get\+Living\+Neighbors@{Get\+Living\+Neighbors}!C\+A\+\_\+\+Map@{C\+A\+\_\+\+Map}}
+\subsubsection{\texorpdfstring{Get\+Living\+Neighbors()}{GetLivingNeighbors()}}
+{\footnotesize\ttfamily int C\+A\+\_\+\+Map\+::\+Get\+Living\+Neighbors (\begin{DoxyParamCaption}\item[{int}]{alive\+Tile\+ID,  }\item[{int}]{dead\+Tile\+ID,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/dfe/class_c_a___map_ad57529f17a77b590fe93839c4b8bd5f9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_c_a___map_a142fc34721fe8d06cc93b61a27af9bda}\label{class_c_a___map_a142fc34721fe8d06cc93b61a27af9bda}} 
+\index{C\+A\+\_\+\+Map@{C\+A\+\_\+\+Map}!Placement\+Test@{Placement\+Test}}
+\index{Placement\+Test@{Placement\+Test}!C\+A\+\_\+\+Map@{C\+A\+\_\+\+Map}}
+\subsubsection{\texorpdfstring{Placement\+Test()}{PlacementTest()}}
+{\footnotesize\ttfamily void C\+A\+\_\+\+Map\+::\+Placement\+Test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/dfe/class_c_a___map_a142fc34721fe8d06cc93b61a27af9bda_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_c_a___map_ad4c6a5b3ca7121d6c4593061d4bf3056}\label{class_c_a___map_ad4c6a5b3ca7121d6c4593061d4bf3056}} 
+\index{C\+A\+\_\+\+Map@{C\+A\+\_\+\+Map}!Set\+Initial\+State@{Set\+Initial\+State}}
+\index{Set\+Initial\+State@{Set\+Initial\+State}!C\+A\+\_\+\+Map@{C\+A\+\_\+\+Map}}
+\subsubsection{\texorpdfstring{Set\+Initial\+State()}{SetInitialState()}}
+{\footnotesize\ttfamily void C\+A\+\_\+\+Map\+::\+Set\+Initial\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{df/dfe/class_c_a___map_ad4c6a5b3ca7121d6c4593061d4bf3056_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/dfe/class_c_a___map_ad4c6a5b3ca7121d6c4593061d4bf3056_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_c_a___map_a5d22c84ef623d63d99300d1f83af143e}\label{class_c_a___map_a5d22c84ef623d63d99300d1f83af143e}} 
+\index{C\+A\+\_\+\+Map@{C\+A\+\_\+\+Map}!Set\+Rule\+Set@{Set\+Rule\+Set}}
+\index{Set\+Rule\+Set@{Set\+Rule\+Set}!C\+A\+\_\+\+Map@{C\+A\+\_\+\+Map}}
+\subsubsection{\texorpdfstring{Set\+Rule\+Set()}{SetRuleSet()}}
+{\footnotesize\ttfamily void C\+A\+\_\+\+Map\+::\+Set\+Rule\+Set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_c_a_map_8hpp_a8502e9e74cc08ed2c245d58ff7cd4a88}{C\+A\+\_\+\+Rule\+Set}}}]{\+\_\+ruleset }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/dfe/class_c_a___map_a5d22c84ef623d63d99300d1f83af143e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_c_a___map_a9f978dd06a224ab2acf97f1c532ec3da}\label{class_c_a___map_a9f978dd06a224ab2acf97f1c532ec3da}} 
+\index{C\+A\+\_\+\+Map@{C\+A\+\_\+\+Map}!Simulation\+Step@{Simulation\+Step}}
+\index{Simulation\+Step@{Simulation\+Step}!C\+A\+\_\+\+Map@{C\+A\+\_\+\+Map}}
+\subsubsection{\texorpdfstring{Simulation\+Step()}{SimulationStep()}}
+{\footnotesize\ttfamily void C\+A\+\_\+\+Map\+::\+Simulation\+Step (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/dfe/class_c_a___map_a9f978dd06a224ab2acf97f1c532ec3da_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/dfe/class_c_a___map_a9f978dd06a224ab2acf97f1c532ec3da_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_c_a___map_a7a3a75540c418bdcee3689ecfca4cbff}\label{class_c_a___map_a7a3a75540c418bdcee3689ecfca4cbff}} 
+\index{C\+A\+\_\+\+Map@{C\+A\+\_\+\+Map}!Test\+Ruleset@{Test\+Ruleset}}
+\index{Test\+Ruleset@{Test\+Ruleset}!C\+A\+\_\+\+Map@{C\+A\+\_\+\+Map}}
+\subsubsection{\texorpdfstring{Test\+Ruleset()}{TestRuleset()}}
+{\footnotesize\ttfamily void C\+A\+\_\+\+Map\+::\+Test\+Ruleset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/dfe/class_c_a___map_a7a3a75540c418bdcee3689ecfca4cbff_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_c_a___map_a621e0347874d4f80984e7644059a542e}\label{class_c_a___map_a621e0347874d4f80984e7644059a542e}} 
+\index{C\+A\+\_\+\+Map@{C\+A\+\_\+\+Map}!all\+Num\+Of\+Neighbors@{all\+Num\+Of\+Neighbors}}
+\index{all\+Num\+Of\+Neighbors@{all\+Num\+Of\+Neighbors}!C\+A\+\_\+\+Map@{C\+A\+\_\+\+Map}}
+\subsubsection{\texorpdfstring{all\+Num\+Of\+Neighbors}{allNumOfNeighbors}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ C\+A\+\_\+\+Map\+::all\+Num\+Of\+Neighbors\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_c_a___map_a7f21b6e31fec0a42ba6b47c93e7675fd}\label{class_c_a___map_a7f21b6e31fec0a42ba6b47c93e7675fd}} 
+\index{C\+A\+\_\+\+Map@{C\+A\+\_\+\+Map}!ruleset@{ruleset}}
+\index{ruleset@{ruleset}!C\+A\+\_\+\+Map@{C\+A\+\_\+\+Map}}
+\subsubsection{\texorpdfstring{ruleset}{ruleset}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_c_a_map_8hpp_a8502e9e74cc08ed2c245d58ff7cd4a88}{C\+A\+\_\+\+Rule\+Set}} C\+A\+\_\+\+Map\+::ruleset\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/\+Map\+Components/\+Map\+Variants/\mbox{\hyperlink{_c_a_map_8hpp}{C\+A\+Map.\+hpp}}\item 
+/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/\+Map\+Components/\+Map\+Variants/\mbox{\hyperlink{_c_a_map_8cpp}{C\+A\+Map.\+cpp}}\end{DoxyCompactItemize}

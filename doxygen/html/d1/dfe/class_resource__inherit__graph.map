@@ -1,0 +1,5 @@
+<map id="Resource" name="Resource">
+<area shape="rect" id="node2" href="$d7/d51/class_ore.html" title="{Ore\n|&#45; enOreType\l|+ operator==()\l+ operator!=()\l+ operator=()\l+ Ore()\l+ Ore()\l+ setOreType()\l+ getOreType()\l}" alt="" coords="5,393,117,547"/>
+<area shape="rect" id="node3" href="$d7/d0b/class_plant.html" title="{Plant\n|&#45; growthRate\l&#45; growthDuration\l&#45; yieldSeeds\l&#45; biomeVec\l|+ operator==()\l+ operator!=()\l+ operator=()\l+ Plant()\l+ Plant()\l+ setGrowthRate()\l+ setGrowthDuration()\l+ setYieldSeeds()\l+ addBiome()\l+ getGrowthRate()\l+ getGrowthDuration()\l+ getYieldsSeeds()\l+ getBiomeVec()\l+ getBiomeVecRef()\l}" alt="" coords="140,327,294,613"/>
+<area shape="rect" id="node4" href="$dd/df8/class_tree.html" title="{Tree\n|&#45; maxHeight\l&#45; maxDiameter\l|+ operator==()\l+ operator=()\l+ operator=()\l+ Tree()\l+ Tree()\l+ setMaxHeight()\l+ setMaxDiameter()\l+ getMaxHeight()\l+ getMaxDiameter()\l}" alt="" coords="147,661,287,855"/>
+</map>

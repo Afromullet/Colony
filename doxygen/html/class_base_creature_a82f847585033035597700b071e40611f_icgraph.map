@@ -1,4 +1,0 @@
-<map id="BaseCreature::setTotalHealth" name="BaseCreature::setTotalHealth">
-<area shape="rect" id="node2" href="$_attack_handler_8hpp.html#a3164db07a547600173ea625622ab873a" title="AttackCreature_Melee" alt="" coords="254,5,408,31"/>
-<area shape="rect" id="node3" href="$_attack_handler_8hpp.html#a3aea8e07a4017771a55d93e168930068" title="AttackCreature_Ranged" alt="" coords="249,55,413,80"/>
-</map>

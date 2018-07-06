@@ -1,0 +1,6 @@
+<map id="BodyPart::setArmor" name="BodyPart::setArmor">
+<area shape="rect" id="node2" href="$da/d7d/class_creature_body.html#af7047fb13005abbb9a816c0dd64af873" title="CreatureBody::GenerateVertices" alt="" coords="191,5,405,31"/>
+<area shape="rect" id="node4" href="$da/d7d/class_creature_body.html#a9cf5cffe6209ed851bf32c2b164d9391" title="CreatureBody::GenerateOrgan\lVertices" alt="" coords="196,55,400,93"/>
+<area shape="rect" id="node5" href="$d9/d76/class_armor.html#a0b5dc1feb7b5d3c4bd023cf9e0857fe3" title="Armor::EquipItem" alt="" coords="235,117,361,143"/>
+<area shape="rect" id="node3" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="453,33,503,59"/>
+</map>

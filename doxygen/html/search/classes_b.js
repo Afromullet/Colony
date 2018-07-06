@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ore',['Ore',['../class_ore.html',1,'']]]
+  ['ore',['Ore',['../d7/d51/class_ore.html',1,'']]]
 ];

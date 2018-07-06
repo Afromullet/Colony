@@ -1,0 +1,229 @@
+\hypertarget{class_plant}{}\section{Plant Class Reference}
+\label{class_plant}\index{Plant@{Plant}}
+
+
+{\ttfamily \#include $<$Plant.\+hpp$>$}
+
+
+
+Inheritance diagram for Plant\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{d4/dfd/class_plant__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Plant\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{d0/dfd/class_plant__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_plant_abe475b0daf524526b9680274ea0f8e2b}{operator==}} (\mbox{\hyperlink{class_plant}{Plant}} \&other) const
+\item 
+bool \mbox{\hyperlink{class_plant_a6ae96ef1da51ed164d62c400cbf9aa5a}{operator!=}} (\mbox{\hyperlink{class_plant}{Plant}} \&other) const
+\item 
+void \mbox{\hyperlink{class_plant_a10e2417c9c0e750666146443e76623ee}{operator=}} (\mbox{\hyperlink{class_plant}{Plant}} \&other)
+\item 
+\mbox{\hyperlink{class_plant_aeebba67fbf33e3087e9035f41289a83a}{Plant}} ()
+\item 
+\mbox{\hyperlink{class_plant_a3e454c81c5a9120c4b321614b22621c1}{Plant}} (const \mbox{\hyperlink{class_plant}{Plant}} \&other)
+\item 
+void \mbox{\hyperlink{class_plant_af55fc2a9b7b3833ecc305f7fe19fd5dd}{set\+Growth\+Rate}} (float rate)
+\item 
+void \mbox{\hyperlink{class_plant_a3baeabf1c11ff1440b696cfe34f785f5}{set\+Growth\+Duration}} (float rate)
+\item 
+void \mbox{\hyperlink{class_plant_a21c26df7238a78906804603559f5cc04}{set\+Yield\+Seeds}} (bool val)
+\item 
+void \mbox{\hyperlink{class_plant_a32c7cc807dce6f0049fec8a8576a341d}{add\+Biome}} (std\+::string str)
+\item 
+float \mbox{\hyperlink{class_plant_a7f0844398279e81e7e65a7cea52faf45}{get\+Growth\+Rate}} ()
+\item 
+float \mbox{\hyperlink{class_plant_a76c9434c2b7f9a9edad3e07db344ce0f}{get\+Growth\+Duration}} ()
+\item 
+bool \mbox{\hyperlink{class_plant_a3144642078f06af87392cdd27612b12b}{get\+Yields\+Seeds}} ()
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_plant_a1c0df266a43944cb5f0565c298259340}{get\+Biome\+Vec}} ()
+\item 
+std\+::vector$<$ std\+::string $>$ \& \mbox{\hyperlink{class_plant_aa8d8046f942713a0d455accd0f86509f}{get\+Biome\+Vec\+Ref}} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_plant_a3e0a3a4109fe0ce37eb56576cb06c2aa}{growth\+Rate}}
+\item 
+float \mbox{\hyperlink{class_plant_aa17e87fd95a8d188c3ad4fe12d68befa}{growth\+Duration}}
+\item 
+bool \mbox{\hyperlink{class_plant_ab4d4894c58e27f62622b1a9388538b96}{yield\+Seeds}}
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_plant_a452989226b807a8ef885fc810a1e7f17}{biome\+Vec}}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_plant_a4b682814d14447120dd184fd300deade}{Tree}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_plant_aeebba67fbf33e3087e9035f41289a83a}\label{class_plant_aeebba67fbf33e3087e9035f41289a83a}} 
+\index{Plant@{Plant}!Plant@{Plant}}
+\index{Plant@{Plant}!Plant@{Plant}}
+\subsubsection{\texorpdfstring{Plant()}{Plant()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Plant\+::\+Plant (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_plant_a3e454c81c5a9120c4b321614b22621c1}\label{class_plant_a3e454c81c5a9120c4b321614b22621c1}} 
+\index{Plant@{Plant}!Plant@{Plant}}
+\index{Plant@{Plant}!Plant@{Plant}}
+\subsubsection{\texorpdfstring{Plant()}{Plant()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Plant\+::\+Plant (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_plant}{Plant}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_plant_a32c7cc807dce6f0049fec8a8576a341d}\label{class_plant_a32c7cc807dce6f0049fec8a8576a341d}} 
+\index{Plant@{Plant}!add\+Biome@{add\+Biome}}
+\index{add\+Biome@{add\+Biome}!Plant@{Plant}}
+\subsubsection{\texorpdfstring{add\+Biome()}{addBiome()}}
+{\footnotesize\ttfamily void Plant\+::add\+Biome (\begin{DoxyParamCaption}\item[{std\+::string}]{str }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_plant_a1c0df266a43944cb5f0565c298259340}\label{class_plant_a1c0df266a43944cb5f0565c298259340}} 
+\index{Plant@{Plant}!get\+Biome\+Vec@{get\+Biome\+Vec}}
+\index{get\+Biome\+Vec@{get\+Biome\+Vec}!Plant@{Plant}}
+\subsubsection{\texorpdfstring{get\+Biome\+Vec()}{getBiomeVec()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Plant\+::get\+Biome\+Vec (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_plant_aa8d8046f942713a0d455accd0f86509f}\label{class_plant_aa8d8046f942713a0d455accd0f86509f}} 
+\index{Plant@{Plant}!get\+Biome\+Vec\+Ref@{get\+Biome\+Vec\+Ref}}
+\index{get\+Biome\+Vec\+Ref@{get\+Biome\+Vec\+Ref}!Plant@{Plant}}
+\subsubsection{\texorpdfstring{get\+Biome\+Vec\+Ref()}{getBiomeVecRef()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ \& Plant\+::get\+Biome\+Vec\+Ref (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/d0b/class_plant_aa8d8046f942713a0d455accd0f86509f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_plant_a76c9434c2b7f9a9edad3e07db344ce0f}\label{class_plant_a76c9434c2b7f9a9edad3e07db344ce0f}} 
+\index{Plant@{Plant}!get\+Growth\+Duration@{get\+Growth\+Duration}}
+\index{get\+Growth\+Duration@{get\+Growth\+Duration}!Plant@{Plant}}
+\subsubsection{\texorpdfstring{get\+Growth\+Duration()}{getGrowthDuration()}}
+{\footnotesize\ttfamily float Plant\+::get\+Growth\+Duration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_plant_a7f0844398279e81e7e65a7cea52faf45}\label{class_plant_a7f0844398279e81e7e65a7cea52faf45}} 
+\index{Plant@{Plant}!get\+Growth\+Rate@{get\+Growth\+Rate}}
+\index{get\+Growth\+Rate@{get\+Growth\+Rate}!Plant@{Plant}}
+\subsubsection{\texorpdfstring{get\+Growth\+Rate()}{getGrowthRate()}}
+{\footnotesize\ttfamily float Plant\+::get\+Growth\+Rate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_plant_a3144642078f06af87392cdd27612b12b}\label{class_plant_a3144642078f06af87392cdd27612b12b}} 
+\index{Plant@{Plant}!get\+Yields\+Seeds@{get\+Yields\+Seeds}}
+\index{get\+Yields\+Seeds@{get\+Yields\+Seeds}!Plant@{Plant}}
+\subsubsection{\texorpdfstring{get\+Yields\+Seeds()}{getYieldsSeeds()}}
+{\footnotesize\ttfamily bool Plant\+::get\+Yields\+Seeds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_plant_a6ae96ef1da51ed164d62c400cbf9aa5a}\label{class_plant_a6ae96ef1da51ed164d62c400cbf9aa5a}} 
+\index{Plant@{Plant}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Plant@{Plant}}
+\subsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool Plant\+::operator!= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plant}{Plant}} \&}]{other }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_plant_a10e2417c9c0e750666146443e76623ee}\label{class_plant_a10e2417c9c0e750666146443e76623ee}} 
+\index{Plant@{Plant}!operator=@{operator=}}
+\index{operator=@{operator=}!Plant@{Plant}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily void Plant\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plant}{Plant}} \&}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_plant_abe475b0daf524526b9680274ea0f8e2b}\label{class_plant_abe475b0daf524526b9680274ea0f8e2b}} 
+\index{Plant@{Plant}!operator==@{operator==}}
+\index{operator==@{operator==}!Plant@{Plant}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Plant\+::operator== (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plant}{Plant}} \&}]{other }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_plant_a3baeabf1c11ff1440b696cfe34f785f5}\label{class_plant_a3baeabf1c11ff1440b696cfe34f785f5}} 
+\index{Plant@{Plant}!set\+Growth\+Duration@{set\+Growth\+Duration}}
+\index{set\+Growth\+Duration@{set\+Growth\+Duration}!Plant@{Plant}}
+\subsubsection{\texorpdfstring{set\+Growth\+Duration()}{setGrowthDuration()}}
+{\footnotesize\ttfamily void Plant\+::set\+Growth\+Duration (\begin{DoxyParamCaption}\item[{float}]{rate }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_plant_af55fc2a9b7b3833ecc305f7fe19fd5dd}\label{class_plant_af55fc2a9b7b3833ecc305f7fe19fd5dd}} 
+\index{Plant@{Plant}!set\+Growth\+Rate@{set\+Growth\+Rate}}
+\index{set\+Growth\+Rate@{set\+Growth\+Rate}!Plant@{Plant}}
+\subsubsection{\texorpdfstring{set\+Growth\+Rate()}{setGrowthRate()}}
+{\footnotesize\ttfamily void Plant\+::set\+Growth\+Rate (\begin{DoxyParamCaption}\item[{float}]{rate }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/d0b/class_plant_af55fc2a9b7b3833ecc305f7fe19fd5dd_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_plant_a21c26df7238a78906804603559f5cc04}\label{class_plant_a21c26df7238a78906804603559f5cc04}} 
+\index{Plant@{Plant}!set\+Yield\+Seeds@{set\+Yield\+Seeds}}
+\index{set\+Yield\+Seeds@{set\+Yield\+Seeds}!Plant@{Plant}}
+\subsubsection{\texorpdfstring{set\+Yield\+Seeds()}{setYieldSeeds()}}
+{\footnotesize\ttfamily void Plant\+::set\+Yield\+Seeds (\begin{DoxyParamCaption}\item[{bool}]{val }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/d0b/class_plant_a21c26df7238a78906804603559f5cc04_icgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_plant_a4b682814d14447120dd184fd300deade}\label{class_plant_a4b682814d14447120dd184fd300deade}} 
+\index{Plant@{Plant}!Tree@{Tree}}
+\index{Tree@{Tree}!Plant@{Plant}}
+\subsubsection{\texorpdfstring{Tree}{Tree}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{class_tree}{Tree}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_plant_a452989226b807a8ef885fc810a1e7f17}\label{class_plant_a452989226b807a8ef885fc810a1e7f17}} 
+\index{Plant@{Plant}!biome\+Vec@{biome\+Vec}}
+\index{biome\+Vec@{biome\+Vec}!Plant@{Plant}}
+\subsubsection{\texorpdfstring{biome\+Vec}{biomeVec}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ Plant\+::biome\+Vec\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_plant_aa17e87fd95a8d188c3ad4fe12d68befa}\label{class_plant_aa17e87fd95a8d188c3ad4fe12d68befa}} 
+\index{Plant@{Plant}!growth\+Duration@{growth\+Duration}}
+\index{growth\+Duration@{growth\+Duration}!Plant@{Plant}}
+\subsubsection{\texorpdfstring{growth\+Duration}{growthDuration}}
+{\footnotesize\ttfamily float Plant\+::growth\+Duration\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_plant_a3e0a3a4109fe0ce37eb56576cb06c2aa}\label{class_plant_a3e0a3a4109fe0ce37eb56576cb06c2aa}} 
+\index{Plant@{Plant}!growth\+Rate@{growth\+Rate}}
+\index{growth\+Rate@{growth\+Rate}!Plant@{Plant}}
+\subsubsection{\texorpdfstring{growth\+Rate}{growthRate}}
+{\footnotesize\ttfamily float Plant\+::growth\+Rate\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_plant_ab4d4894c58e27f62622b1a9388538b96}\label{class_plant_ab4d4894c58e27f62622b1a9388538b96}} 
+\index{Plant@{Plant}!yield\+Seeds@{yield\+Seeds}}
+\index{yield\+Seeds@{yield\+Seeds}!Plant@{Plant}}
+\subsubsection{\texorpdfstring{yield\+Seeds}{yieldSeeds}}
+{\footnotesize\ttfamily bool Plant\+::yield\+Seeds\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/\+Resources/\mbox{\hyperlink{_plant_8hpp}{Plant.\+hpp}}\item 
+/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/\+Resources/\mbox{\hyperlink{_plant_8cpp}{Plant.\+cpp}}\end{DoxyCompactItemize}

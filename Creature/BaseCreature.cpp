@@ -11,10 +11,9 @@
 #include "Globals.hpp"
 #include "Constants.hpp"
 
-
 //todo replace raw pointers with unique ptr
 
-BaseCreature::BaseCreature()
+BaseCreature::BaseCreature() 
 {
     totalHealth = 50;
     isAlive = true;
@@ -26,9 +25,65 @@ BaseCreature::BaseCreature()
     will = 10;
     charisma = 10;
     moveSpeed = 1;
+    
    
     
 }
+
+
+
+
+
+BaseCreature::BaseCreature(const BaseCreature &other)
+{
+    attackValue = other.attackValue;
+    strength = other.strength;
+    agility = other.agility;
+    endurance = other.endurance;
+    mind = other.mind;
+    will = other.will;
+    charisma = other.charisma;
+    moveSpeed = other.moveSpeed;
+    totalHealth = other.totalHealth;
+    position = other.position;
+    path = other.path; //Do we really want to copy this?
+    vision = other.vision;
+    isAlive = other.isAlive;
+    
+    creatureItems = other.creatureItems; //Not needded in the future
+    path = other.path;
+    attacks = other.attacks;
+    
+   //inventory = other.inventory;
+    
+    
+}
+
+
+BaseCreature::BaseCreature(BaseCreature &other)
+{
+    attackValue = other.attackValue;
+    strength = other.strength;
+    agility = other.agility;
+    endurance = other.endurance;
+    mind = other.mind;
+    will = other.will;
+    charisma = other.charisma;
+    moveSpeed = other.moveSpeed;
+    totalHealth = other.totalHealth;
+    position = other.position;
+    path = other.path; //Do we really want to copy this?
+    vision = other.vision;
+    isAlive = other.isAlive;
+    
+    creatureItems = other.creatureItems; //Not needded in the future
+    path = other.path;
+    attacks = other.attacks;
+    
+    inventory = other.inventory;
+}
+
+ 
 
 
 //TODO, ensure that the tile is loaded every time a creature is placed on a map. We do not have to load the tile until the creature has to be displayed on the map
@@ -146,6 +201,16 @@ void BaseCreature::AddItemToInventory(Item *item)
     creatureItems.push_back(item);
 }
 
+void BaseCreature::AddArmorToInventory(Armor val)
+{
+    inventory.addArmor(val);
+}
+
+void BaseCreature::AddWeaponToInventory(Weapon val)
+{
+    inventory.addWeapon(val);
+}
+
 void BaseCreature::PrintInventory()
 {
     std::list<Item*>::iterator itemIt;
@@ -180,6 +245,11 @@ void BaseCreature::EquipItemFromInventory(int n)
     }
     
     
+}
+
+void BaseCreature::EquipItem(int i)
+{
+    inventory.EquipItem(i,body);
 }
 
 //Picks up item at current position (if there is one) and adds it to the creatures inventory. TODO, determine whether there should be a class for creature and map interaction, or whether it's better to just pass the map as a reference

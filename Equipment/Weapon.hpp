@@ -15,8 +15,8 @@
 #include <stdio.h>
 #include "Equipment.hpp"
 
-enum EnWeaponSize{enSmallWeapon,enMediumWeapon,enLargeWeapon};
 
+enum EnWeaponSize{enSmallWeapon,enMediumWeapon,enLargeWeapon};
 
 class Weapon : public Item
 {
@@ -43,9 +43,10 @@ public:
     Weapon();
     Weapon(const Weapon &weapon);
     
+    
     Weapon(std::string _itemname,std::string _section);
     
-    ~Weapon();
+   // ~Weapon();
     
     
     //Once you get armor working, implement this just like you did with armor
@@ -62,6 +63,13 @@ public:
     
     void showItemStats() const;
     std::string getItemExamineString() const;
+    
+    
+    void AddToItemManager(ItemManager &manager);
+    
+    void EquipItem(BodyPart &bp,ItemManager &itemManager);
+    
+    
     void calculateMaterialBonuses();
     
     

@@ -1,0 +1,266 @@
+\hypertarget{_data_readers_8hpp}{}\section{/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/\+Data/\+Data\+Readers/\+Data\+Readers.hpp File Reference}
+\label{_data_readers_8hpp}\index{/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/\+Data/\+Data\+Readers/\+Data\+Readers.\+hpp@{/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/\+Data/\+Data\+Readers/\+Data\+Readers.\+hpp}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include \char`\"{}File\+Logger.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Plant.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Resource.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Ore.\+hpp\char`\"{}}\newline
+Include dependency graph for Data\+Readers.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/da1/_data_readers_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d4/d1a/_data_readers_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_data_readers_8hpp_aa2fb206e6ca29f0de368d0ca95ef8d95}{M\+A\+T\+E\+R\+I\+A\+L\+\_\+\+R\+E\+A\+D\+E\+R\+\_\+\+I\+N\+P\+U\+T\+\_\+\+E\+R\+R\+OR}}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_data_readers_8hpp_a410356780b9b81185e7d1cfa196e98bf}{Initialize\+Data\+Reader\+Error\+Log}} ()
+\item 
+void \mbox{\hyperlink{_data_readers_8hpp_a8fdb82e3c7550ba10e84f81fa9ec1cf5}{Read\+Material\+File}} (const std\+::string file\+Name)
+\item 
+void \mbox{\hyperlink{_data_readers_8hpp_a810b7e8cb1dae179f001fd6dd341762d}{Read\+Biome\+File}} (const std\+::string file\+Name)
+\item 
+void \mbox{\hyperlink{_data_readers_8hpp_a109a320a653d5c8339dda23b988b5e59}{Read\+Plant\+File}} (const std\+::string file\+Name)
+\item 
+void \mbox{\hyperlink{_data_readers_8hpp_a18a93cbb4de7a759fcaecb3022dccc26}{Read\+Ore\+File}} (const std\+::string file\+Name)
+\item 
+void \mbox{\hyperlink{_data_readers_8hpp_a42fa1a2859bf358342ca890f314aaa72}{Read\+Tree\+File}} (const std\+::string file\+Name)
+\item 
+bool \mbox{\hyperlink{_data_readers_8hpp_a3feb46a1e2ba75c4b189f19ad41a2f80}{Validate\+Material\+File}} ()
+\item 
+float \mbox{\hyperlink{_data_readers_8hpp_ac22aa8a1fae8271d21dabf52ae481e0c}{convert\+Float\+Val}} (std\+::string s)
+\item 
+int \mbox{\hyperlink{_data_readers_8hpp_a6b05fa0bcd3963ac297d54236a96047a}{convert\+Int\+Val}} (std\+::string s)
+\item 
+int \mbox{\hyperlink{_data_readers_8hpp_ac92e08a978856feb0262b7666682f7c6}{convert\+Level\+Val}} (std\+::string s)
+\item 
+bool \mbox{\hyperlink{_data_readers_8hpp_ac85d679b2063b137acc171a359ff0365}{convert\+Truth\+Value}} (std\+::string truth\+Val)
+\item 
+\mbox{\hyperlink{_ore_8hpp_a4dd6f8b19eecee73049dd69be5803f14}{En\+Ore\+Type}} \mbox{\hyperlink{_data_readers_8hpp_a749ce067eae26ba7f08327ab2133b746}{convert\+Ore\+Type\+Val}} (std\+::string str)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_file_logger}{File\+Logger}} \mbox{\hyperlink{_data_readers_8hpp_aa4e086492dd95c77d1c21fb5b87caba9}{data\+Reader\+Error\+Log}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_data_readers_8hpp_aa2fb206e6ca29f0de368d0ca95ef8d95}\label{_data_readers_8hpp_aa2fb206e6ca29f0de368d0ca95ef8d95}} 
+\index{Data\+Readers.\+hpp@{Data\+Readers.\+hpp}!M\+A\+T\+E\+R\+I\+A\+L\+\_\+\+R\+E\+A\+D\+E\+R\+\_\+\+I\+N\+P\+U\+T\+\_\+\+E\+R\+R\+OR@{M\+A\+T\+E\+R\+I\+A\+L\+\_\+\+R\+E\+A\+D\+E\+R\+\_\+\+I\+N\+P\+U\+T\+\_\+\+E\+R\+R\+OR}}
+\index{M\+A\+T\+E\+R\+I\+A\+L\+\_\+\+R\+E\+A\+D\+E\+R\+\_\+\+I\+N\+P\+U\+T\+\_\+\+E\+R\+R\+OR@{M\+A\+T\+E\+R\+I\+A\+L\+\_\+\+R\+E\+A\+D\+E\+R\+\_\+\+I\+N\+P\+U\+T\+\_\+\+E\+R\+R\+OR}!Data\+Readers.\+hpp@{Data\+Readers.\+hpp}}
+\subsubsection{\texorpdfstring{M\+A\+T\+E\+R\+I\+A\+L\+\_\+\+R\+E\+A\+D\+E\+R\+\_\+\+I\+N\+P\+U\+T\+\_\+\+E\+R\+R\+OR}{MATERIAL\_READER\_INPUT\_ERROR}}
+{\footnotesize\ttfamily \#define M\+A\+T\+E\+R\+I\+A\+L\+\_\+\+R\+E\+A\+D\+E\+R\+\_\+\+I\+N\+P\+U\+T\+\_\+\+E\+R\+R\+OR}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_data_readers_8hpp_ac22aa8a1fae8271d21dabf52ae481e0c}\label{_data_readers_8hpp_ac22aa8a1fae8271d21dabf52ae481e0c}} 
+\index{Data\+Readers.\+hpp@{Data\+Readers.\+hpp}!convert\+Float\+Val@{convert\+Float\+Val}}
+\index{convert\+Float\+Val@{convert\+Float\+Val}!Data\+Readers.\+hpp@{Data\+Readers.\+hpp}}
+\subsubsection{\texorpdfstring{convert\+Float\+Val()}{convertFloatVal()}}
+{\footnotesize\ttfamily float convert\+Float\+Val (\begin{DoxyParamCaption}\item[{std\+::string}]{s }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/d1e/_data_readers_8hpp_ac22aa8a1fae8271d21dabf52ae481e0c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_data_readers_8hpp_a6b05fa0bcd3963ac297d54236a96047a}\label{_data_readers_8hpp_a6b05fa0bcd3963ac297d54236a96047a}} 
+\index{Data\+Readers.\+hpp@{Data\+Readers.\+hpp}!convert\+Int\+Val@{convert\+Int\+Val}}
+\index{convert\+Int\+Val@{convert\+Int\+Val}!Data\+Readers.\+hpp@{Data\+Readers.\+hpp}}
+\subsubsection{\texorpdfstring{convert\+Int\+Val()}{convertIntVal()}}
+{\footnotesize\ttfamily int convert\+Int\+Val (\begin{DoxyParamCaption}\item[{std\+::string}]{s }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_data_readers_8hpp_ac92e08a978856feb0262b7666682f7c6}\label{_data_readers_8hpp_ac92e08a978856feb0262b7666682f7c6}} 
+\index{Data\+Readers.\+hpp@{Data\+Readers.\+hpp}!convert\+Level\+Val@{convert\+Level\+Val}}
+\index{convert\+Level\+Val@{convert\+Level\+Val}!Data\+Readers.\+hpp@{Data\+Readers.\+hpp}}
+\subsubsection{\texorpdfstring{convert\+Level\+Val()}{convertLevelVal()}}
+{\footnotesize\ttfamily int convert\+Level\+Val (\begin{DoxyParamCaption}\item[{std\+::string}]{s }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/d1e/_data_readers_8hpp_ac92e08a978856feb0262b7666682f7c6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_data_readers_8hpp_a749ce067eae26ba7f08327ab2133b746}\label{_data_readers_8hpp_a749ce067eae26ba7f08327ab2133b746}} 
+\index{Data\+Readers.\+hpp@{Data\+Readers.\+hpp}!convert\+Ore\+Type\+Val@{convert\+Ore\+Type\+Val}}
+\index{convert\+Ore\+Type\+Val@{convert\+Ore\+Type\+Val}!Data\+Readers.\+hpp@{Data\+Readers.\+hpp}}
+\subsubsection{\texorpdfstring{convert\+Ore\+Type\+Val()}{convertOreTypeVal()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_ore_8hpp_a4dd6f8b19eecee73049dd69be5803f14}{En\+Ore\+Type}} convert\+Ore\+Type\+Val (\begin{DoxyParamCaption}\item[{std\+::string}]{str }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/d1e/_data_readers_8hpp_a749ce067eae26ba7f08327ab2133b746_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_data_readers_8hpp_ac85d679b2063b137acc171a359ff0365}\label{_data_readers_8hpp_ac85d679b2063b137acc171a359ff0365}} 
+\index{Data\+Readers.\+hpp@{Data\+Readers.\+hpp}!convert\+Truth\+Value@{convert\+Truth\+Value}}
+\index{convert\+Truth\+Value@{convert\+Truth\+Value}!Data\+Readers.\+hpp@{Data\+Readers.\+hpp}}
+\subsubsection{\texorpdfstring{convert\+Truth\+Value()}{convertTruthValue()}}
+{\footnotesize\ttfamily bool convert\+Truth\+Value (\begin{DoxyParamCaption}\item[{std\+::string}]{truth\+Val }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/d1e/_data_readers_8hpp_ac85d679b2063b137acc171a359ff0365_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_data_readers_8hpp_a410356780b9b81185e7d1cfa196e98bf}\label{_data_readers_8hpp_a410356780b9b81185e7d1cfa196e98bf}} 
+\index{Data\+Readers.\+hpp@{Data\+Readers.\+hpp}!Initialize\+Data\+Reader\+Error\+Log@{Initialize\+Data\+Reader\+Error\+Log}}
+\index{Initialize\+Data\+Reader\+Error\+Log@{Initialize\+Data\+Reader\+Error\+Log}!Data\+Readers.\+hpp@{Data\+Readers.\+hpp}}
+\subsubsection{\texorpdfstring{Initialize\+Data\+Reader\+Error\+Log()}{InitializeDataReaderErrorLog()}}
+{\footnotesize\ttfamily void Initialize\+Data\+Reader\+Error\+Log (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_data_readers_8hpp_a810b7e8cb1dae179f001fd6dd341762d}\label{_data_readers_8hpp_a810b7e8cb1dae179f001fd6dd341762d}} 
+\index{Data\+Readers.\+hpp@{Data\+Readers.\+hpp}!Read\+Biome\+File@{Read\+Biome\+File}}
+\index{Read\+Biome\+File@{Read\+Biome\+File}!Data\+Readers.\+hpp@{Data\+Readers.\+hpp}}
+\subsubsection{\texorpdfstring{Read\+Biome\+File()}{ReadBiomeFile()}}
+{\footnotesize\ttfamily void Read\+Biome\+File (\begin{DoxyParamCaption}\item[{const std\+::string}]{file\+Name }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{d1/d1e/_data_readers_8hpp_a810b7e8cb1dae179f001fd6dd341762d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/d1e/_data_readers_8hpp_a810b7e8cb1dae179f001fd6dd341762d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_data_readers_8hpp_a8fdb82e3c7550ba10e84f81fa9ec1cf5}\label{_data_readers_8hpp_a8fdb82e3c7550ba10e84f81fa9ec1cf5}} 
+\index{Data\+Readers.\+hpp@{Data\+Readers.\+hpp}!Read\+Material\+File@{Read\+Material\+File}}
+\index{Read\+Material\+File@{Read\+Material\+File}!Data\+Readers.\+hpp@{Data\+Readers.\+hpp}}
+\subsubsection{\texorpdfstring{Read\+Material\+File()}{ReadMaterialFile()}}
+{\footnotesize\ttfamily void Read\+Material\+File (\begin{DoxyParamCaption}\item[{const std\+::string}]{file\+Name }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/d1e/_data_readers_8hpp_a8fdb82e3c7550ba10e84f81fa9ec1cf5_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/d1e/_data_readers_8hpp_a8fdb82e3c7550ba10e84f81fa9ec1cf5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_data_readers_8hpp_a18a93cbb4de7a759fcaecb3022dccc26}\label{_data_readers_8hpp_a18a93cbb4de7a759fcaecb3022dccc26}} 
+\index{Data\+Readers.\+hpp@{Data\+Readers.\+hpp}!Read\+Ore\+File@{Read\+Ore\+File}}
+\index{Read\+Ore\+File@{Read\+Ore\+File}!Data\+Readers.\+hpp@{Data\+Readers.\+hpp}}
+\subsubsection{\texorpdfstring{Read\+Ore\+File()}{ReadOreFile()}}
+{\footnotesize\ttfamily void Read\+Ore\+File (\begin{DoxyParamCaption}\item[{const std\+::string}]{file\+Name }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/d1e/_data_readers_8hpp_a18a93cbb4de7a759fcaecb3022dccc26_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/d1e/_data_readers_8hpp_a18a93cbb4de7a759fcaecb3022dccc26_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_data_readers_8hpp_a109a320a653d5c8339dda23b988b5e59}\label{_data_readers_8hpp_a109a320a653d5c8339dda23b988b5e59}} 
+\index{Data\+Readers.\+hpp@{Data\+Readers.\+hpp}!Read\+Plant\+File@{Read\+Plant\+File}}
+\index{Read\+Plant\+File@{Read\+Plant\+File}!Data\+Readers.\+hpp@{Data\+Readers.\+hpp}}
+\subsubsection{\texorpdfstring{Read\+Plant\+File()}{ReadPlantFile()}}
+{\footnotesize\ttfamily void Read\+Plant\+File (\begin{DoxyParamCaption}\item[{const std\+::string}]{file\+Name }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/d1e/_data_readers_8hpp_a109a320a653d5c8339dda23b988b5e59_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/d1e/_data_readers_8hpp_a109a320a653d5c8339dda23b988b5e59_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_data_readers_8hpp_a42fa1a2859bf358342ca890f314aaa72}\label{_data_readers_8hpp_a42fa1a2859bf358342ca890f314aaa72}} 
+\index{Data\+Readers.\+hpp@{Data\+Readers.\+hpp}!Read\+Tree\+File@{Read\+Tree\+File}}
+\index{Read\+Tree\+File@{Read\+Tree\+File}!Data\+Readers.\+hpp@{Data\+Readers.\+hpp}}
+\subsubsection{\texorpdfstring{Read\+Tree\+File()}{ReadTreeFile()}}
+{\footnotesize\ttfamily void Read\+Tree\+File (\begin{DoxyParamCaption}\item[{const std\+::string}]{file\+Name }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/d1e/_data_readers_8hpp_a42fa1a2859bf358342ca890f314aaa72_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/d1e/_data_readers_8hpp_a42fa1a2859bf358342ca890f314aaa72_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_data_readers_8hpp_a3feb46a1e2ba75c4b189f19ad41a2f80}\label{_data_readers_8hpp_a3feb46a1e2ba75c4b189f19ad41a2f80}} 
+\index{Data\+Readers.\+hpp@{Data\+Readers.\+hpp}!Validate\+Material\+File@{Validate\+Material\+File}}
+\index{Validate\+Material\+File@{Validate\+Material\+File}!Data\+Readers.\+hpp@{Data\+Readers.\+hpp}}
+\subsubsection{\texorpdfstring{Validate\+Material\+File()}{ValidateMaterialFile()}}
+{\footnotesize\ttfamily bool Validate\+Material\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{_data_readers_8hpp_aa4e086492dd95c77d1c21fb5b87caba9}\label{_data_readers_8hpp_aa4e086492dd95c77d1c21fb5b87caba9}} 
+\index{Data\+Readers.\+hpp@{Data\+Readers.\+hpp}!data\+Reader\+Error\+Log@{data\+Reader\+Error\+Log}}
+\index{data\+Reader\+Error\+Log@{data\+Reader\+Error\+Log}!Data\+Readers.\+hpp@{Data\+Readers.\+hpp}}
+\subsubsection{\texorpdfstring{data\+Reader\+Error\+Log}{dataReaderErrorLog}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_file_logger}{File\+Logger}} data\+Reader\+Error\+Log}
+

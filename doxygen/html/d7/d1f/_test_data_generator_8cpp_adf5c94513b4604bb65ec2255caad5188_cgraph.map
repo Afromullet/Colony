@@ -1,0 +1,12 @@
+<map id="GenerateRandomItems" name="GenerateRandomItems">
+<area shape="rect" id="node2" href="$dc/d64/_item_generator_8cpp.html#a73c459717a9061affce0f19c1e98d626" title="GenerateRandomArmor" alt="" coords="213,128,377,153"/>
+<area shape="rect" id="node8" href="$d9/d76/class_armor.html#aac8aec108de9a8a45bada1534c0f23b7" title="Armor::clone" alt="" coords="247,215,344,240"/>
+<area shape="rect" id="node10" href="$dd/d11/class_map.html#a1e9263abe2e1290fc383586c327f9f4a" title="Map::GetWidth" alt="" coords="240,264,350,289"/>
+<area shape="rect" id="node11" href="$dd/d11/class_map.html#a5181eaa96c1d125523a2b16d0643bbd5" title="Map::GetHeight" alt="" coords="238,313,352,339"/>
+<area shape="rect" id="node3" href="$d9/d76/class_armor.html#a14c15f72741f2a3dec28c746b3678c20" title="Armor::setArmorBonus" alt="" coords="443,5,600,31"/>
+<area shape="rect" id="node4" href="$d9/d76/class_armor.html#ab48309e3f16d226d56af617c65350698" title="Armor::setDodgeModifier" alt="" coords="437,55,606,80"/>
+<area shape="rect" id="node5" href="$d9/d76/class_armor.html#a08f926ae8438bae04058c22b098c6fcf" title="Armor::setDamageReduction" alt="" coords="425,104,618,129"/>
+<area shape="rect" id="node6" href="$d9/d76/class_armor.html#a99475fc688add41f89b7fef160534e33" title="Armor::setMovementModifier" alt="" coords="425,153,618,179"/>
+<area shape="rect" id="node7" href="$dc/d32/class_item.html#ae8dd38d585a7795f134f6453feb1000e" title="Item::setItemName" alt="" coords="455,203,588,228"/>
+<area shape="rect" id="node9" href="$d9/d76/class_armor.html#a23323e95bbeb488eb6fe54cbd83d49a2" title="Armor::Armor" alt="" coords="471,252,572,277"/>
+</map>

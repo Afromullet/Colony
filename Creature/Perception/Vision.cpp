@@ -23,7 +23,7 @@
 
 //For now vision is a square
 
-bool Vision::operator==(Vision &other) const
+bool Vision::operator==(const Vision &other) const
 {
     if(origin == other.origin && visionArea == other.visionArea)
         return true;
@@ -31,12 +31,12 @@ bool Vision::operator==(Vision &other) const
     return false;
 }
 
-bool Vision::operator!=(Vision &other) const
+bool Vision::operator!=(const Vision &other) const
 {
     return !(*this == other);
 }
 
-bool Vision::operator=(Vision &other)
+void Vision::operator=(const Vision &other)
 {
     origin = other.origin;
     visionArea = other.visionArea;

@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <vector>
 #include <list>
-#include "BodyPart.hpp"
+
 #include <boost/graph/adjacency_list.hpp>
 #include <boost/graph/graphviz.hpp>
 #include <boost/graph/breadth_first_search.hpp>
@@ -23,11 +23,18 @@
 #include <string>
 #include "Globals.hpp"
 #include "EnumTypes.hpp"
+#include <memory>
+#include "ItemManager.hpp"
+
+
 
 
 using namespace boost;
 #ifndef BodyGraph_hpp
 #define BodyGraph_hpp
+
+
+#include "BodyPart.hpp"
 
 
 
@@ -95,6 +102,7 @@ public:
     AnatomyGraph anatomyGraph;
     
     CreatureBody();
+  
     
     void GenerateVertices();
     void GenerateOrganVertices();
@@ -106,6 +114,8 @@ public:
     void openBodyTypeFile(const std::string &fileName);
     void readBodyTokenList();
     int convertTruthValue(std::string truthVal);
+    bool Equip(std::unique_ptr<Item> item,ItemManager &inventory,int index);
+    void UnequipArmorBySection(std::vector<int> &indices,ItemManager &itemManager);
     void EquipArmor(Item *item);
     void EquipWeapon(Item *item);
     void ApplyAttack(AttackStats attackStats, int n);

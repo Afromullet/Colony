@@ -1,0 +1,4 @@
+<map id="ItemManager::addWeapon" name="ItemManager::addWeapon">
+<area shape="rect" id="node2" href="$d2/d3b/class_base_creature.html#ab0a90200835bc80c6db29e31f98d35e9" title="BaseCreature::AddWeaponTo\lInventory" alt="" coords="232,5,431,44"/>
+<area shape="rect" id="node3" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="479,41,529,67"/>
+</map>

@@ -28,23 +28,28 @@ private:
    
     
     Shape enShape;
+    int squareSize;
+    int id;
+    sf::Color color;
    
     
 public:
-    MapEffect(int _id,sf::VertexArray vertArray);
-    MapEffect(const MapEffect &effect);
-    MapEffect();
+
     
     std::vector<sf::Vector2i> tilePositions;
     sf::VertexArray vertices;
-     int id;
-    sf::Color color;
-    int squareSize;
+
+    
+    
     
     
     
     
     bool operator==(const MapEffect &other) const;
+    
+    MapEffect(int _id,sf::VertexArray vertArray);
+    MapEffect(const MapEffect &effect);
+    MapEffect();
 
     void setColor(sf::Color newColor);
     void setID(int _id);
@@ -54,13 +59,18 @@ public:
     
     
     std::vector<sf::Vector2i> getShape(sf::Vector2i position,int n);
-   
+    std::vector<sf::Vector2i> getLine(int x0, int y0, int x1, int y1);
+    int getSquareSize();
+    int getID();
+    sf::Color getColor();
+    
     void setSquare(sf::Vector2i position,int n);
     void setLine(sf::Vector2i position,int n,MoveDirection movDirection);
     void setLine(int x0, int y0, int x1, int y1);
     void setCircle(int xm, int ym, int r);
+    void setSquareSize(int val);
     
-    std::vector<sf::Vector2i> getLine(int x0, int y0, int x1, int y1);
+   
     
     
     
@@ -68,15 +78,11 @@ public:
     
     //Removes out of bounds tiles
     void RemoveOOBTiles();
-    
-    
-    
-        
     void MoveShape(int xOffset,int yOffset);
     void MoveLine(int xOffset,int yOffset);
     
     
-    int getID();
+    
     
     
     

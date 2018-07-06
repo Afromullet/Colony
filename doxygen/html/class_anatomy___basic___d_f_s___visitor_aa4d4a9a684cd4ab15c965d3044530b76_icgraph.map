@@ -1,8 +1,0 @@
-<map id="Anatomy_Basic_DFS_Visitor::getVertexIndices" name="Anatomy_Basic_DFS_Visitor::getVertexIndices">
-<area shape="rect" id="node2" href="$_body_graph_getters_8hpp.html#a051c242a8b8389d6cbac3cfea5435a3e" title="getVerticesThatCanHoldWeapons" alt="" coords="246,79,468,104"/>
-<area shape="rect" id="node3" href="$class_base_creature.html#a389d8ae4c4caa2d7c55939bef70935a8" title="BaseCreature::calculateAttack\lParameters" alt="" coords="516,44,716,83"/>
-<area shape="rect" id="node6" href="$class_creature_body.html#af329b825db569100370683f7a9b0263c" title="CreatureBody::EquipWeapon" alt="" coords="519,107,713,132"/>
-<area shape="rect" id="node4" href="$_attack_handler_8hpp.html#a3164db07a547600173ea625622ab873a" title="AttackCreature_Melee" alt="" coords="769,5,923,31"/>
-<area shape="rect" id="node5" href="$_attack_handler_8hpp.html#a3aea8e07a4017771a55d93e168930068" title="AttackCreature_Ranged" alt="" coords="764,55,929,80"/>
-<area shape="rect" id="node7" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="821,107,872,132"/>
-</map>

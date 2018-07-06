@@ -7,6 +7,10 @@
 //
 
 #include "Armor.hpp"
+#include "BodyPart.hpp"
+#include "ItemManager.hpp"
+#include <boost/uuid/uuid.hpp>
+#include <boost/uuid/uuid_generators.hpp>
 
 //todo add "Blank" armor for when no armor is equipped or when we have something like leg armor
 
@@ -57,28 +61,38 @@ void Armor::operator=(const Armor &other)
     itemTile = other.itemTile;
     sections = other.sections;
     position = other.position;
+    tag = other.tag;
+    enItemType = enArmorType;
+    stackSize = other.stackSize;
+    maxStackSize = other.maxStackSize;
+    
+
 }
 
 Armor::Armor(Material _material, std::string _sEquipmentName, short int _siArmorBonus, float _fDodgeModifier, float _fDamageReduction,float _fMovementModifier)
-: Item(_material,_sEquipmentName),
+: Item(_material,_sEquipmentName,enArmorType),
 siArmorBonus(_siArmorBonus),fDodgeModifier(_fDodgeModifier),
 fDamageReduction(_fDamageReduction),fMovementModifier(_fMovementModifier)
-{}
+{
+
+    
+
+}
 
 
 
-Armor::Armor(std::string itemName) :Item(itemName)
+Armor::Armor(std::string itemName) :Item(itemName,enArmorType)
 {
     
 }
 
-Armor::Armor(std::string itemName, std::string _section) :Item(itemName,_section)
+Armor::Armor(std::string itemName, std::string _section) :Item(itemName,_section,enArmorType)
 {
     
 }
 
 //Ah..the bug was here. It wasn't copying the data needed because I thought it was using the Armor &armor() constructor, but it calls this oen instead Armor::Armor(const Armor &armor)
-Armor::Armor(const Armor &other)
+Armor::Armor(const Armor &other) : Item(enArmorType)
 {
     
 
@@ -98,14 +112,17 @@ Armor::Armor(const Armor &other)
     itemTile = other.itemTile;
     sections = other.sections;
     position = other.position;
+    tag = other.tag;
+    stackSize = other.stackSize;
+    maxStackSize = other.maxStackSize;
+
 
     
 }
 
 
 
-
-Armor::Armor() : Item(),siArmorBonus(1),fDodgeModifier(1),fDamageReduction(1),
+Armor::Armor() : Item(enArmorType),siArmorBonus(1),fDodgeModifier(1),fDamageReduction(1),
 fMovementModifier(1)
 {
 
@@ -114,11 +131,13 @@ fMovementModifier(1)
     isEquipped = false;
 }
 
+
+
+/*
 Armor::~Armor()
 {
-    
 }
-
+*/
 
 
 std::string Armor::getItemExamineString() const
@@ -136,6 +155,17 @@ std::string Armor::getItemExamineString() const
     
 }
 
+//At this point, a copy has ben created
+void Armor::EquipItem(BodyPart &bp,ItemManager &itemManager)
+{
+    
+    bp.setArmor(*this);
+    
+    //itemManager.addArmor(*this); //Add what's currently equipped to the inventory
+    
+}
+
+
 void Armor::showItemStats() const
 {
     std::cout << "ItemName " << getItemName() << "\n";
@@ -143,6 +173,12 @@ void Armor::showItemStats() const
     std::cout << "Doge Modifier " <<  fDodgeModifier << "\n";
     std::cout << "Damage Reduction " <<  fDamageReduction<< "\n";
     std::cout << "Movement Modifier " <<  fMovementModifier<< "\n";
+}
+
+
+void Armor::AddToItemManager(ItemManager &manager)
+{
+    manager.addArmor(*this);
 }
 
 

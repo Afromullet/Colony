@@ -1,5 +1,0 @@
-<map id="GenerateRandomWeapon" name="GenerateRandomWeapon">
-<area shape="rect" id="node2" href="$class_weapon.html#aa6f690fe5e69ce11628b245739c74dc5" title="Weapon::setRange" alt="" coords="236,5,371,31"/>
-<area shape="rect" id="node3" href="$class_weapon.html#a0c582ba1c1413a4ecda931bb8acff458" title="Weapon::setDamage" alt="" coords="230,55,376,80"/>
-<area shape="rect" id="node4" href="$class_item.html#ae8dd38d585a7795f134f6453feb1000e" title="Item::setItemName" alt="" coords="236,104,370,129"/>
-</map>

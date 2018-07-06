@@ -1,7 +1,0 @@
-<map id="Material::SetupForce" name="Material::SetupForce">
-<area shape="rect" id="node2" href="$class_material.html#a9fa7b190d0621069612e848150e780ee" title="Material::SetupCompression\lForce" alt="" coords="198,5,388,44"/>
-<area shape="rect" id="node3" href="$class_material.html#a0306582d701642b867f9c53c769ffaf7" title="Material::SetupImpactForce" alt="" coords="201,68,386,93"/>
-<area shape="rect" id="node4" href="$class_material.html#a9d67ba42a8823f287b382ea069b7afe9" title="Material::SetupTensileForce" alt="" coords="200,117,386,143"/>
-<area shape="rect" id="node5" href="$class_material.html#a767010a40d459c05e14afc641217a21b" title="Material::SetupTorsionForce" alt="" coords="199,167,387,192"/>
-<area shape="rect" id="node6" href="$class_material.html#a65d6bf35a560e97da3468e91178facdc" title="Material::SetupShearForce" alt="" coords="203,216,384,241"/>
-</map>

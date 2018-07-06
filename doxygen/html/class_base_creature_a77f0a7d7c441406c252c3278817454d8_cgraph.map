@@ -1,3 +1,0 @@
-<map id="BaseCreature::MoveCreature" name="BaseCreature::MoveCreature">
-<area shape="rect" id="node2" href="$class_entity_tile.html#a7b9e5be8dc4017eb5af8e4fda7add3c4" title="EntityTile::setPosition" alt="" coords="249,5,397,31"/>
-</map>

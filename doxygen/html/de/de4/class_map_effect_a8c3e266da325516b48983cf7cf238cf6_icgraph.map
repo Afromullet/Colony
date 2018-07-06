@@ -1,0 +1,7 @@
+<map id="MapEffect::getColor" name="MapEffect::getColor">
+<area shape="rect" id="node2" href="$dd/d11/class_map.html#a7ba59d3c72accc7e8af4624f8e0abe69" title="Map::UpdateEffect" alt="" coords="192,5,324,31"/>
+<area shape="rect" id="node3" href="$df/d40/_player_controls_8hpp.html#abc69fe16b664614aa47cbd2b13ad76ac" title="ControlTargetSquare" alt="" coords="372,5,516,31"/>
+<area shape="rect" id="node4" href="$df/d40/_player_controls_8hpp.html#a2fbf8484c8a051b724315afd0f442465" title="HandlePlayerInput" alt="" coords="564,5,695,31"/>
+<area shape="rect" id="node5" href="$df/d0a/main_8cpp.html#ab8ef98eaa887a3be4bb916cdde45b3d1" title="GameLoop3" alt="" coords="743,5,838,31"/>
+<area shape="rect" id="node6" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="886,5,936,31"/>
+</map>

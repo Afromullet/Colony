@@ -1,0 +1,4 @@
+<map id="Armor::EquipItem" name="Armor::EquipItem">
+<area shape="rect" id="node2" href="$d2/d6f/class_body_part.html#a089afe1bbd06d3fc84a9870ec173883c" title="BodyPart::setArmor" alt="" coords="192,5,330,31"/>
+<area shape="rect" id="node3" href="$dc/de1/class_item_manager.html#af16502a871d116ebd2241cd8d2d745f5" title="ItemManager::addArmor" alt="" coords="178,55,344,80"/>
+</map>

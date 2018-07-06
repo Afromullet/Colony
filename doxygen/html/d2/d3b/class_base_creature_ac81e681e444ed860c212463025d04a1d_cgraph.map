@@ -1,0 +1,5 @@
+<map id="BaseCreature::CalculateMeleeAttackForce" name="BaseCreature::CalculateMeleeAttackForce">
+<area shape="rect" id="node2" href="$dc/d32/class_item.html#af22ec5d207b70e2a3359e76dccfc7e11" title="Item::getMaterialRef" alt="" coords="256,5,398,31"/>
+<area shape="rect" id="node3" href="$dc/dee/class_material.html#a40740dabb21cc8ba24b168935e10b06f" title="Material::getDensity" alt="" coords="257,55,397,80"/>
+<area shape="rect" id="node4" href="$dc/d32/class_item.html#a452c0983b99f1b148949274b63ed79fd" title="Item::getMass" alt="" coords="274,104,379,129"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="FastNoise::SingleCubic" name="FastNoise::SingleCubic">
+<area shape="rect" id="node2" href="$d1/dd8/class_fast_noise.html#a0d9b7a6858a599cde4dc5b8f74264ae0" title="FastNoise::GetNoise" alt="" coords="255,5,400,31"/>
+<area shape="rect" id="node3" href="$d1/dd8/class_fast_noise.html#a6334e559478fb891e31e305d64c0c31d" title="FastNoise::SingleCubicFractalFBM" alt="" coords="213,55,442,80"/>
+<area shape="rect" id="node4" href="$d1/dd8/class_fast_noise.html#a8595f37169b6133ccd822d21af3acd60" title="FastNoise::SingleCubicFractal\lBillow" alt="" coords="227,104,428,143"/>
+<area shape="rect" id="node5" href="$d1/dd8/class_fast_noise.html#ab460847f52a3b64ac6ebbda5538c9c9a" title="FastNoise::SingleCubicFractal\lRigidMulti" alt="" coords="227,167,428,205"/>
+<area shape="rect" id="node6" href="$d1/dd8/class_fast_noise.html#a08d9997db49e1f7d536a6502e29cb2b8" title="FastNoise::GetCubic" alt="" coords="255,229,400,255"/>
+</map>

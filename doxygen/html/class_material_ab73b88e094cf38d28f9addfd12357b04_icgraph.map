@@ -1,9 +1,0 @@
-<map id="Material::setMaterialName" name="Material::setMaterialName">
-<area shape="rect" id="node2" href="$_data_readers_8hpp.html#a8fdb82e3c7550ba10e84f81fa9ec1cf5" title="ReadMaterialFile" alt="" coords="263,5,385,31"/>
-<area shape="rect" id="node5" href="$class_resource.html#a43801faadac24460d3266d5cbc2940f9" title="Resource::setMaterialName" alt="" coords="230,68,417,93"/>
-<area shape="rect" id="node3" href="$main_8cpp.html#ab5227b073ad87fc30322650e123e0055" title="SetupGameData" alt="" coords="618,68,739,93"/>
-<area shape="rect" id="node4" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="787,68,837,93"/>
-<area shape="rect" id="node6" href="$_data_readers_8hpp.html#a109a320a653d5c8339dda23b988b5e59" title="ReadPlantFile" alt="" coords="465,43,570,68"/>
-<area shape="rect" id="node7" href="$_data_readers_8hpp.html#a18a93cbb4de7a759fcaecb3022dccc26" title="ReadOreFile" alt="" coords="469,92,566,117"/>
-<area shape="rect" id="node8" href="$_data_readers_8hpp.html#a42fa1a2859bf358342ca890f314aaa72" title="ReadTreeFile" alt="" coords="467,141,568,167"/>
-</map>

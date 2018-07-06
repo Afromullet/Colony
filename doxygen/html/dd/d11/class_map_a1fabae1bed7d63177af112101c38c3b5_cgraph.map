@@ -1,0 +1,10 @@
+<map id="Map::BasicRandom2DMap" name="Map::BasicRandom2DMap">
+<area shape="rect" id="node2" href="$dd/d11/class_map.html#a6e7c6b33a4b312d325eb7079f651b414" title="Map::Generate2DMap" alt="" coords="260,5,413,31"/>
+<area shape="rect" id="node4" href="$dd/d11/class_map.html#a9fe61ffc95d4fc4bed052ead1c06221a" title="Map::GenerateRandom2DTiles" alt="" coords="234,55,439,80"/>
+<area shape="rect" id="node5" href="$dd/d11/class_map.html#a4e045e2e1df74c3fcba4b860f240d498" title="Map::LoadTileParameters" alt="" coords="250,104,424,129"/>
+<area shape="rect" id="node7" href="$dd/d11/class_map.html#af2b4481fa4588c8aa5ab6e8c45c5f7cf" title="Map::Group2DGridTiles" alt="" coords="256,153,418,179"/>
+<area shape="rect" id="node9" href="$dd/d11/class_map.html#ab64e7930cd811d847dbbee056b1e2fb0" title="Map::LoadTileTexture" alt="" coords="262,203,411,228"/>
+<area shape="rect" id="node3" href="$df/d79/class_tile.html#ae04b87313b96914391ca2ffc2eb9f5c1" title="Tile::SetTileVertices" alt="" coords="496,5,634,31"/>
+<area shape="rect" id="node6" href="$dd/d11/class_map.html#a2ee6fd8a412c966c941784b226374bd1" title="Map::canHoldCreature" alt="" coords="487,104,643,129"/>
+<area shape="rect" id="node8" href="$df/d79/class_tile.html#ab3414f28d4e7334903bc9e8f8451ccee" title="Tile::getTileVertices" alt="" coords="497,153,633,179"/>
+</map>

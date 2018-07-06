@@ -1,0 +1,10 @@
+<map id="WindowCommands::GetWindowData" name="WindowCommands::GetWindowData">
+<area shape="rect" id="node2" href="$da/d07/class_window_commands.html#a1d8aea294ed36e2fc3fe061811b8513a" title="WindowCommands::getInventoryData" alt="" coords="295,53,541,79"/>
+<area shape="rect" id="node5" href="$d1/def/class_data_window.html#a8bec28c4e6514e9b62b10686e0e9b40d" title="DataWindow::AddText" alt="" coords="612,104,764,129"/>
+<area shape="rect" id="node6" href="$d1/def/class_data_window.html#a05ac7ad6357b9cabd0436c181c6cf29d" title="DataWindow::setTextColor" alt="" coords="599,153,777,179"/>
+<area shape="rect" id="node7" href="$da/d07/class_window_commands.html#a4a688b109ea4eff83b5ae43bb1f93e50" title="WindowCommands::selectWindow" alt="" coords="304,205,531,231"/>
+<area shape="rect" id="node8" href="$d1/def/class_data_window.html#ab3ad6b28f3a4c54f692d623b4af48779" title="DataWindow::getSubWindow" alt="" coords="321,255,515,280"/>
+<area shape="rect" id="node9" href="$d1/def/class_data_window.html#a2f7b8defc928dcf530149a82bdd16d53" title="DataWindow::clearTextComponents" alt="" coords="301,304,534,329"/>
+<area shape="rect" id="node3" href="$d1/def/class_data_window.html#a84545c27ad784513eb4f830d4aeda82a" title="DataWindow::getWindowType" alt="" coords="589,5,788,31"/>
+<area shape="rect" id="node4" href="$d2/d3b/class_base_creature.html#a505e70415a3e2db87aac0767498375ff" title="BaseCreature::getInventory" alt="" coords="596,55,780,80"/>
+</map>

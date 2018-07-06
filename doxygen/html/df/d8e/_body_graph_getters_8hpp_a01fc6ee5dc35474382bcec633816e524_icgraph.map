@@ -1,0 +1,6 @@
+<map id="getRandomExternalBodyParts" name="getRandomExternalBodyParts">
+<area shape="rect" id="node2" href="$d3/d9c/_attack_handler_8hpp.html#a06418078dcd0cb84babdf25f9ef58881" title="Single_Attack_Melee" alt="" coords="263,5,410,31"/>
+<area shape="rect" id="node4" href="$d3/d9c/_attack_handler_8hpp.html#a3164db07a547600173ea625622ab873a" title="AttackCreature_Melee" alt="" coords="259,55,413,80"/>
+<area shape="rect" id="node5" href="$d3/d9c/_attack_handler_8hpp.html#a3aea8e07a4017771a55d93e168930068" title="AttackCreature_Ranged" alt="" coords="254,104,418,129"/>
+<area shape="rect" id="node3" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="466,5,517,31"/>
+</map>

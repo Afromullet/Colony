@@ -1,0 +1,325 @@
+\hypertarget{class_biome}{}\section{Biome Class Reference}
+\label{class_biome}\index{Biome@{Biome}}
+
+
+{\ttfamily \#include $<$Biomes.\+hpp$>$}
+
+
+
+Collaboration diagram for Biome\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=207pt]{d8/d78/class_biome__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_biome_ab30d25f0400f31071794964de3224b6b}{operator==}} (const \mbox{\hyperlink{class_biome}{Biome}} \&other) const
+\item 
+bool \mbox{\hyperlink{class_biome_a5f619965ed1bf4b1f7423cbb69be3559}{operator!=}} (const \mbox{\hyperlink{class_biome}{Biome}} \&other) const
+\item 
+void \mbox{\hyperlink{class_biome_a5a66500c836cefef0f6cf47af93fe3df}{operator=}} (const \mbox{\hyperlink{class_biome}{Biome}} \&other)
+\item 
+\mbox{\hyperlink{class_biome_aa340fc9737f1f60fe4aa99f5d4d5c726}{Biome}} ()
+\item 
+\mbox{\hyperlink{class_biome_a6145de7d30bcbef4b6042ee456f88f16}{Biome}} (const \mbox{\hyperlink{class_biome}{Biome}} \&biome)
+\item 
+void \mbox{\hyperlink{class_biome_acc568302ef1e66d443d2e43d94b36a10}{set\+Temperature\+Limits}} (float \+\_\+low\+Temp, float \+\_\+high\+Temp)
+\item 
+void \mbox{\hyperlink{class_biome_afb3047918646d9d7717b74091efa378b}{set\+Biome}} (\mbox{\hyperlink{_enum_types_8hpp_a5c2255009cd01c90cf68245e6f453d1c}{en\+Biomes}} \+\_\+\+En\+Biome)
+\item 
+void \mbox{\hyperlink{class_biome_a4b702cd936eb35364493be9e3e3c4166}{set\+Biome\+Name}} (std\+::string \+\_\+name)
+\item 
+void \mbox{\hyperlink{class_biome_a73164a278cfd1c3c6cf52a6b006034e0}{set\+Current\+Temp}} (float \+\_\+current\+Temp)
+\item 
+void \mbox{\hyperlink{class_biome_adbe071450d7411ddd3f886b1c84c2029}{set\+Vegetation\+Level}} (float level)
+\item 
+void \mbox{\hyperlink{class_biome_adb9f34f853f233464a33a5dfbb2ccbee}{set\+Treelevel}} (float level)
+\item 
+void \mbox{\hyperlink{class_biome_afe05b01787008c396ccad3ffd7e6d6cd}{set\+Wildlife\+Level}} (float level)
+\item 
+float \mbox{\hyperlink{class_biome_a198f0bb873cce52c8e62df2cf0282e84}{get\+Low\+Temp}} ()
+\item 
+float \mbox{\hyperlink{class_biome_afc882c431129cdaae8109ad5dcc8267e}{get\+High\+Temp}} ()
+\item 
+float \mbox{\hyperlink{class_biome_ac347b6eeccd189054af58983acd62ea3}{get\+Current\+Temp}} ()
+\item 
+float \mbox{\hyperlink{class_biome_aaa9ebdc0dde9b6737da890299a7b5ea4}{get\+Wildlife\+Level}} ()
+\item 
+float \mbox{\hyperlink{class_biome_a93767d0c392cdef6c3c527a4dbe38efd}{get\+Vegetation\+Level}} ()
+\item 
+float \mbox{\hyperlink{class_biome_a052e0b1b6a6167f3e076a64a59487172}{get\+Tree\+Level}} ()
+\item 
+std\+::string \mbox{\hyperlink{class_biome_ad3cbf2a1fcdea543a2104fde28766f90}{get\+Biome\+Name}} ()
+\item 
+\mbox{\hyperlink{_enum_types_8hpp_a5c2255009cd01c90cf68245e6f453d1c}{en\+Biomes}} \mbox{\hyperlink{class_biome_aed98ff023d5563e1ca0309180064fbc4}{get\+Biome}} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_biome_afe7165774528de18876c2df0b08faa9d}{low\+Temp}}
+\item 
+float \mbox{\hyperlink{class_biome_a389c810fbb09eea1fa5c4553ac976c77}{high\+Temp}}
+\item 
+float \mbox{\hyperlink{class_biome_a80ffc723aed56c5d9390a45e22a7742c}{current\+Temp}}
+\item 
+float \mbox{\hyperlink{class_biome_af2e689d891f991d1ec7abedb2d8cbfe6}{vegetation\+Level}}
+\item 
+float \mbox{\hyperlink{class_biome_aab11a193d913aeccf5a5d4d8af6ccd05}{tree\+Level}}
+\item 
+float \mbox{\hyperlink{class_biome_a4568b5f65ed8b774ef37d1126bb5ecd1}{wildlife\+Level}}
+\item 
+\mbox{\hyperlink{_enum_types_8hpp_a5c2255009cd01c90cf68245e6f453d1c}{en\+Biomes}} \mbox{\hyperlink{class_biome_a9171c1298078010a780475f5c0ab9d58}{En\+Biome}}
+\item 
+std\+::string \mbox{\hyperlink{class_biome_a45d0a14ac780f5a5a0215df8be24e8cf}{name}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_biome_aa340fc9737f1f60fe4aa99f5d4d5c726}\label{class_biome_aa340fc9737f1f60fe4aa99f5d4d5c726}} 
+\index{Biome@{Biome}!Biome@{Biome}}
+\index{Biome@{Biome}!Biome@{Biome}}
+\subsubsection{\texorpdfstring{Biome()}{Biome()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Biome\+::\+Biome (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_biome_a6145de7d30bcbef4b6042ee456f88f16}\label{class_biome_a6145de7d30bcbef4b6042ee456f88f16}} 
+\index{Biome@{Biome}!Biome@{Biome}}
+\index{Biome@{Biome}!Biome@{Biome}}
+\subsubsection{\texorpdfstring{Biome()}{Biome()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Biome\+::\+Biome (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_biome}{Biome}} \&}]{biome }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_biome_aed98ff023d5563e1ca0309180064fbc4}\label{class_biome_aed98ff023d5563e1ca0309180064fbc4}} 
+\index{Biome@{Biome}!get\+Biome@{get\+Biome}}
+\index{get\+Biome@{get\+Biome}!Biome@{Biome}}
+\subsubsection{\texorpdfstring{get\+Biome()}{getBiome()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_enum_types_8hpp_a5c2255009cd01c90cf68245e6f453d1c}{en\+Biomes}} Biome\+::get\+Biome (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_biome_ad3cbf2a1fcdea543a2104fde28766f90}\label{class_biome_ad3cbf2a1fcdea543a2104fde28766f90}} 
+\index{Biome@{Biome}!get\+Biome\+Name@{get\+Biome\+Name}}
+\index{get\+Biome\+Name@{get\+Biome\+Name}!Biome@{Biome}}
+\subsubsection{\texorpdfstring{get\+Biome\+Name()}{getBiomeName()}}
+{\footnotesize\ttfamily std\+::string Biome\+::get\+Biome\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_biome_ac347b6eeccd189054af58983acd62ea3}\label{class_biome_ac347b6eeccd189054af58983acd62ea3}} 
+\index{Biome@{Biome}!get\+Current\+Temp@{get\+Current\+Temp}}
+\index{get\+Current\+Temp@{get\+Current\+Temp}!Biome@{Biome}}
+\subsubsection{\texorpdfstring{get\+Current\+Temp()}{getCurrentTemp()}}
+{\footnotesize\ttfamily float Biome\+::get\+Current\+Temp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_biome_afc882c431129cdaae8109ad5dcc8267e}\label{class_biome_afc882c431129cdaae8109ad5dcc8267e}} 
+\index{Biome@{Biome}!get\+High\+Temp@{get\+High\+Temp}}
+\index{get\+High\+Temp@{get\+High\+Temp}!Biome@{Biome}}
+\subsubsection{\texorpdfstring{get\+High\+Temp()}{getHighTemp()}}
+{\footnotesize\ttfamily float Biome\+::get\+High\+Temp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/dd0/class_biome_afc882c431129cdaae8109ad5dcc8267e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_biome_a198f0bb873cce52c8e62df2cf0282e84}\label{class_biome_a198f0bb873cce52c8e62df2cf0282e84}} 
+\index{Biome@{Biome}!get\+Low\+Temp@{get\+Low\+Temp}}
+\index{get\+Low\+Temp@{get\+Low\+Temp}!Biome@{Biome}}
+\subsubsection{\texorpdfstring{get\+Low\+Temp()}{getLowTemp()}}
+{\footnotesize\ttfamily float Biome\+::get\+Low\+Temp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/dd0/class_biome_a198f0bb873cce52c8e62df2cf0282e84_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_biome_a052e0b1b6a6167f3e076a64a59487172}\label{class_biome_a052e0b1b6a6167f3e076a64a59487172}} 
+\index{Biome@{Biome}!get\+Tree\+Level@{get\+Tree\+Level}}
+\index{get\+Tree\+Level@{get\+Tree\+Level}!Biome@{Biome}}
+\subsubsection{\texorpdfstring{get\+Tree\+Level()}{getTreeLevel()}}
+{\footnotesize\ttfamily float Biome\+::get\+Tree\+Level (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_biome_a93767d0c392cdef6c3c527a4dbe38efd}\label{class_biome_a93767d0c392cdef6c3c527a4dbe38efd}} 
+\index{Biome@{Biome}!get\+Vegetation\+Level@{get\+Vegetation\+Level}}
+\index{get\+Vegetation\+Level@{get\+Vegetation\+Level}!Biome@{Biome}}
+\subsubsection{\texorpdfstring{get\+Vegetation\+Level()}{getVegetationLevel()}}
+{\footnotesize\ttfamily float Biome\+::get\+Vegetation\+Level (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_biome_aaa9ebdc0dde9b6737da890299a7b5ea4}\label{class_biome_aaa9ebdc0dde9b6737da890299a7b5ea4}} 
+\index{Biome@{Biome}!get\+Wildlife\+Level@{get\+Wildlife\+Level}}
+\index{get\+Wildlife\+Level@{get\+Wildlife\+Level}!Biome@{Biome}}
+\subsubsection{\texorpdfstring{get\+Wildlife\+Level()}{getWildlifeLevel()}}
+{\footnotesize\ttfamily float Biome\+::get\+Wildlife\+Level (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_biome_a5f619965ed1bf4b1f7423cbb69be3559}\label{class_biome_a5f619965ed1bf4b1f7423cbb69be3559}} 
+\index{Biome@{Biome}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Biome@{Biome}}
+\subsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool Biome\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_biome}{Biome}} \&}]{other }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_biome_a5a66500c836cefef0f6cf47af93fe3df}\label{class_biome_a5a66500c836cefef0f6cf47af93fe3df}} 
+\index{Biome@{Biome}!operator=@{operator=}}
+\index{operator=@{operator=}!Biome@{Biome}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily void Biome\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_biome}{Biome}} \&}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_biome_ab30d25f0400f31071794964de3224b6b}\label{class_biome_ab30d25f0400f31071794964de3224b6b}} 
+\index{Biome@{Biome}!operator==@{operator==}}
+\index{operator==@{operator==}!Biome@{Biome}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Biome\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_biome}{Biome}} \&}]{other }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_biome_afb3047918646d9d7717b74091efa378b}\label{class_biome_afb3047918646d9d7717b74091efa378b}} 
+\index{Biome@{Biome}!set\+Biome@{set\+Biome}}
+\index{set\+Biome@{set\+Biome}!Biome@{Biome}}
+\subsubsection{\texorpdfstring{set\+Biome()}{setBiome()}}
+{\footnotesize\ttfamily void Biome\+::set\+Biome (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_enum_types_8hpp_a5c2255009cd01c90cf68245e6f453d1c}{en\+Biomes}}}]{\+\_\+\+En\+Biome }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_biome_a4b702cd936eb35364493be9e3e3c4166}\label{class_biome_a4b702cd936eb35364493be9e3e3c4166}} 
+\index{Biome@{Biome}!set\+Biome\+Name@{set\+Biome\+Name}}
+\index{set\+Biome\+Name@{set\+Biome\+Name}!Biome@{Biome}}
+\subsubsection{\texorpdfstring{set\+Biome\+Name()}{setBiomeName()}}
+{\footnotesize\ttfamily void Biome\+::set\+Biome\+Name (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+name }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/dd0/class_biome_a4b702cd936eb35364493be9e3e3c4166_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_biome_a73164a278cfd1c3c6cf52a6b006034e0}\label{class_biome_a73164a278cfd1c3c6cf52a6b006034e0}} 
+\index{Biome@{Biome}!set\+Current\+Temp@{set\+Current\+Temp}}
+\index{set\+Current\+Temp@{set\+Current\+Temp}!Biome@{Biome}}
+\subsubsection{\texorpdfstring{set\+Current\+Temp()}{setCurrentTemp()}}
+{\footnotesize\ttfamily void Biome\+::set\+Current\+Temp (\begin{DoxyParamCaption}\item[{float}]{\+\_\+current\+Temp }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/dd0/class_biome_a73164a278cfd1c3c6cf52a6b006034e0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_biome_acc568302ef1e66d443d2e43d94b36a10}\label{class_biome_acc568302ef1e66d443d2e43d94b36a10}} 
+\index{Biome@{Biome}!set\+Temperature\+Limits@{set\+Temperature\+Limits}}
+\index{set\+Temperature\+Limits@{set\+Temperature\+Limits}!Biome@{Biome}}
+\subsubsection{\texorpdfstring{set\+Temperature\+Limits()}{setTemperatureLimits()}}
+{\footnotesize\ttfamily void Biome\+::set\+Temperature\+Limits (\begin{DoxyParamCaption}\item[{float}]{\+\_\+low\+Temp,  }\item[{float}]{\+\_\+high\+Temp }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/dd0/class_biome_acc568302ef1e66d443d2e43d94b36a10_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_biome_adb9f34f853f233464a33a5dfbb2ccbee}\label{class_biome_adb9f34f853f233464a33a5dfbb2ccbee}} 
+\index{Biome@{Biome}!set\+Treelevel@{set\+Treelevel}}
+\index{set\+Treelevel@{set\+Treelevel}!Biome@{Biome}}
+\subsubsection{\texorpdfstring{set\+Treelevel()}{setTreelevel()}}
+{\footnotesize\ttfamily void Biome\+::set\+Treelevel (\begin{DoxyParamCaption}\item[{float}]{level }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/dd0/class_biome_adb9f34f853f233464a33a5dfbb2ccbee_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_biome_adbe071450d7411ddd3f886b1c84c2029}\label{class_biome_adbe071450d7411ddd3f886b1c84c2029}} 
+\index{Biome@{Biome}!set\+Vegetation\+Level@{set\+Vegetation\+Level}}
+\index{set\+Vegetation\+Level@{set\+Vegetation\+Level}!Biome@{Biome}}
+\subsubsection{\texorpdfstring{set\+Vegetation\+Level()}{setVegetationLevel()}}
+{\footnotesize\ttfamily void Biome\+::set\+Vegetation\+Level (\begin{DoxyParamCaption}\item[{float}]{level }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/dd0/class_biome_adbe071450d7411ddd3f886b1c84c2029_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_biome_afe05b01787008c396ccad3ffd7e6d6cd}\label{class_biome_afe05b01787008c396ccad3ffd7e6d6cd}} 
+\index{Biome@{Biome}!set\+Wildlife\+Level@{set\+Wildlife\+Level}}
+\index{set\+Wildlife\+Level@{set\+Wildlife\+Level}!Biome@{Biome}}
+\subsubsection{\texorpdfstring{set\+Wildlife\+Level()}{setWildlifeLevel()}}
+{\footnotesize\ttfamily void Biome\+::set\+Wildlife\+Level (\begin{DoxyParamCaption}\item[{float}]{level }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/dd0/class_biome_afe05b01787008c396ccad3ffd7e6d6cd_icgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_biome_a80ffc723aed56c5d9390a45e22a7742c}\label{class_biome_a80ffc723aed56c5d9390a45e22a7742c}} 
+\index{Biome@{Biome}!current\+Temp@{current\+Temp}}
+\index{current\+Temp@{current\+Temp}!Biome@{Biome}}
+\subsubsection{\texorpdfstring{current\+Temp}{currentTemp}}
+{\footnotesize\ttfamily float Biome\+::current\+Temp\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_biome_a9171c1298078010a780475f5c0ab9d58}\label{class_biome_a9171c1298078010a780475f5c0ab9d58}} 
+\index{Biome@{Biome}!En\+Biome@{En\+Biome}}
+\index{En\+Biome@{En\+Biome}!Biome@{Biome}}
+\subsubsection{\texorpdfstring{En\+Biome}{EnBiome}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_enum_types_8hpp_a5c2255009cd01c90cf68245e6f453d1c}{en\+Biomes}} Biome\+::\+En\+Biome\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_biome_a389c810fbb09eea1fa5c4553ac976c77}\label{class_biome_a389c810fbb09eea1fa5c4553ac976c77}} 
+\index{Biome@{Biome}!high\+Temp@{high\+Temp}}
+\index{high\+Temp@{high\+Temp}!Biome@{Biome}}
+\subsubsection{\texorpdfstring{high\+Temp}{highTemp}}
+{\footnotesize\ttfamily float Biome\+::high\+Temp\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_biome_afe7165774528de18876c2df0b08faa9d}\label{class_biome_afe7165774528de18876c2df0b08faa9d}} 
+\index{Biome@{Biome}!low\+Temp@{low\+Temp}}
+\index{low\+Temp@{low\+Temp}!Biome@{Biome}}
+\subsubsection{\texorpdfstring{low\+Temp}{lowTemp}}
+{\footnotesize\ttfamily float Biome\+::low\+Temp\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_biome_a45d0a14ac780f5a5a0215df8be24e8cf}\label{class_biome_a45d0a14ac780f5a5a0215df8be24e8cf}} 
+\index{Biome@{Biome}!name@{name}}
+\index{name@{name}!Biome@{Biome}}
+\subsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily std\+::string Biome\+::name\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_biome_aab11a193d913aeccf5a5d4d8af6ccd05}\label{class_biome_aab11a193d913aeccf5a5d4d8af6ccd05}} 
+\index{Biome@{Biome}!tree\+Level@{tree\+Level}}
+\index{tree\+Level@{tree\+Level}!Biome@{Biome}}
+\subsubsection{\texorpdfstring{tree\+Level}{treeLevel}}
+{\footnotesize\ttfamily float Biome\+::tree\+Level\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_biome_af2e689d891f991d1ec7abedb2d8cbfe6}\label{class_biome_af2e689d891f991d1ec7abedb2d8cbfe6}} 
+\index{Biome@{Biome}!vegetation\+Level@{vegetation\+Level}}
+\index{vegetation\+Level@{vegetation\+Level}!Biome@{Biome}}
+\subsubsection{\texorpdfstring{vegetation\+Level}{vegetationLevel}}
+{\footnotesize\ttfamily float Biome\+::vegetation\+Level\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_biome_a4568b5f65ed8b774ef37d1126bb5ecd1}\label{class_biome_a4568b5f65ed8b774ef37d1126bb5ecd1}} 
+\index{Biome@{Biome}!wildlife\+Level@{wildlife\+Level}}
+\index{wildlife\+Level@{wildlife\+Level}!Biome@{Biome}}
+\subsubsection{\texorpdfstring{wildlife\+Level}{wildlifeLevel}}
+{\footnotesize\ttfamily float Biome\+::wildlife\+Level\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/\+Map\+Components/\+Biome/\mbox{\hyperlink{_biomes_8hpp}{Biomes.\+hpp}}\item 
+/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/\+Map\+Components/\+Biome/\mbox{\hyperlink{_biomes_8cpp}{Biomes.\+cpp}}\end{DoxyCompactItemize}

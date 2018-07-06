@@ -1,0 +1,3 @@
+<map id="BaseCreature::AddArmorToInventory" name="BaseCreature::AddArmorToInventory">
+<area shape="rect" id="node2" href="$dc/de1/class_item_manager.html#af16502a871d116ebd2241cd8d2d745f5" title="ItemManager::addArmor" alt="" coords="238,12,404,37"/>
+</map>

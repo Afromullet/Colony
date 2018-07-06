@@ -133,8 +133,14 @@ void EntityTile::setPosition(int x, int y)
     
     
     
-    int tu = tileNumber % (m_tileset.getSize().x / tileSize.x);
-    int tv = tileNumber / (m_tileset.getSize().x / tileSize.x);
+    int tu,tv;
+    if(m_tileset.getSize().x  > 0  && tileSize.x > 0)
+    {
+        tu = tileNumber % (m_tileset.getSize().x / tileSize.x);
+        tv = tileNumber / (m_tileset.getSize().x / tileSize.x);
+    }
+    
+
     
     
     quad[0].position = sf::Vector2f(creaturePosition.x * tileSize.x, creaturePosition.y * tileSize.y);

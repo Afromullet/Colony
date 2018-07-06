@@ -1,5 +1,0 @@
-<map id="BaseCreature::loadCreatureTile" name="BaseCreature::loadCreatureTile">
-<area shape="rect" id="node2" href="$main_8cpp.html#ab5227b073ad87fc30322650e123e0055" title="SetupGameData" alt="" coords="467,5,588,31"/>
-<area shape="rect" id="node4" href="$_test_data_generator_8hpp.html#a53822655f44ed7b8d6e0b8e01b996b5a" title="InitializeCreatureTypes" alt="" coords="262,31,419,56"/>
-<area shape="rect" id="node3" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="636,5,686,31"/>
-</map>

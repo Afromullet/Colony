@@ -590,7 +590,7 @@ void Map::UpdateEffect(MapEffect newEffect)
         {
             effects.at(i).tilePositions = newEffect.tilePositions;
             effects.at(i).vertices = newEffect.vertices;
-            effects.at(i).setColor(newEffect.color);
+            effects.at(i).setColor(newEffect.getColor());
             
         }
     }

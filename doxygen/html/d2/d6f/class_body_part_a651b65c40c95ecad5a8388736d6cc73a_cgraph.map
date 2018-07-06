@@ -1,0 +1,5 @@
+<map id="BodyPart::EquipArmor" name="BodyPart::EquipArmor">
+<area shape="rect" id="node2" href="$dc/d32/class_item.html#a10dd503844c230e3d3bf890e969af867" title="Item::isValidSection" alt="" coords="208,5,346,31"/>
+<area shape="rect" id="node3" href="$dc/d32/class_item.html#ade0d63a4f02aa1a97f977b13f96eb891" title="Item::setIsEquipped" alt="" coords="207,55,346,80"/>
+<area shape="rect" id="node4" href="$dc/d32/class_item.html#a806159273f1f9fbb07fe75a74f2f51c5" title="Item::getItemName" alt="" coords="210,104,344,129"/>
+</map>

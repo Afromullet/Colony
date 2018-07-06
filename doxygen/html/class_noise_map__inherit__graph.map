@@ -1,3 +1,0 @@
-<map id="NoiseMap" name="NoiseMap">
-<area shape="rect" id="node2" href="$class_map.html" title="{Map\n|+ tileGroups\l+ Map2D\l+ m_vertices\l+ fogOfWar\l+ effectsOnMap\l+ effects\l&#45; tileSize\l&#45; width\l&#45; height\l|+ BasicRandom2DMap()\l+ Generate2DMap()\l+ Group2DGridTiles()\l+ LoadTileTexture()\l+ GenerateRandom2DTiles()\l+ LoadTileParameters()\l+ getTileSize()\l+ GetWidth()\l+ GetHeight()\l+ isInBounds()\land 16 more...\l&#45; draw()\l}" alt="" coords="24,127,216,453"/>
-</map>

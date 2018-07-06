@@ -180,6 +180,23 @@ srand(time(NULL));
     player.body.GenerateOrganEdges();
     player.body.InitializeBodypartEquipment();
     
+    
+    Vision v2;
+    Vision v3;
+    v2 =  v3;
+    
+    
+    
+    std::list<Item*> creatureItems;
+    std::list<Item*> creatureItems2;
+    creatureItems = creatureItems2;
+    CreatureBody bod(player.body);
+    for(int i = 0; i < num_vertices(bod.anatomyGraph); i++)
+    {
+        std::cout << "\n Name: " << bod.anatomyGraph[i].getBodyPartName();
+    }
+    
+    
     //bReader.load("/Users/Afromullet/Documents/SFML/Colony2/Colony/Creature/BodyData/TestFile.xml");
     target.body.openBodyTypeFile("/Users/Afromullet/Documents/SFML/Colony2/Colony/Creature/BodyData/BasicHumanoidBody.xml");
     target.body.readBodyTokenList();
@@ -214,6 +231,111 @@ srand(time(NULL));
     player.body.EquipWeapon(&testWeapon);
     //printBodyGraphVertices(target.body.anatomyGraph);
     
+    
+    Armor testArmor5,testArmor6,testArmor7,testArmor8;
+    Weapon testWeapon5,testWeapon6,testWeapon7;
+    
+    
+    testArmor5.setItemName("Head Armor");
+    testArmor5.addSection("headsection");
+    //testArmor5.addSection("upperbodysection");
+   //  testArmor5.addSection("upperbodysection");
+   //  testArmor5.addSection("headsection");
+    testArmor5.setMovementModifier(5);
+    
+    testArmor6.setItemName("Head Armor 2");
+    testArmor6.addSection("headsection");
+    testArmor6.setMovementModifier(6);
+    
+    testArmor7.setItemName("Leg Armor");
+    testArmor7.addSection("legsection");
+    testArmor7.setMovementModifier(7);
+    
+    testArmor8.setItemName("asdasdasdasds");
+    testArmor8.addSection("headsection");
+    testArmor8.setMovementModifier(7);
+    
+    
+ 
+    testWeapon5.setWeaponSize(enLargeWeapon);
+    testWeapon5.addSection("handsection");
+    testWeapon5.setIsRanged(false);
+    testWeapon5.setRange(5);
+    testWeapon5.setDamage(5);
+    
+    testWeapon6.setWeaponSize(enLargeWeapon);
+    testWeapon6.setItemName("TestWeapon6");
+    testWeapon6.setIsRanged(true);
+    testWeapon6.setRange(6);
+    testWeapon6.setDamage(6);
+    
+    testWeapon7.setWeaponSize(enLargeWeapon);
+    testWeapon7.setItemName("TestWeapon7");
+    testWeapon7.setIsRanged(true);
+    testWeapon7.setRange(7);
+    testWeapon7.setDamage(7);
+    
+
+    
+    //ItemManager newInventory(new ItemManager());
+    
+ 
+    player.AddArmorToInventory(testArmor5);
+    player.AddArmorToInventory(testArmor6);
+    
+   //player.AddWeaponToInventory(testWeapon5);
+    
+    
+    
+    player.AddArmorToInventory(testArmor7);
+   //  player.AddWeaponToInventory(testWeapon5);
+   // player.AddWeaponToInventory(testWeapon6);
+    player.AddArmorToInventory(testArmor7);
+    player.AddArmorToInventory(testArmor7);
+    player.AddWeaponToInventory(testWeapon5);
+    player.AddWeaponToInventory(testWeapon6);
+    player.AddWeaponToInventory((testWeapon7));
+    player.AddWeaponToInventory((testWeapon7));
+    player.AddArmorToInventory(testArmor7);
+    
+
+    
+    
+    
+    
+  
+    
+  
+    for(int i=0; i < 10; i++)
+    {
+        player.inventory.showItemStats(i);
+    }
+    
+    
+    player.inventory.showItemStats(0);
+    player.EquipItem(0);
+    
+
+    
+    for(int i=0; i < 10; i++)
+    {
+        player.inventory.showItemStats(i);
+    }
+    
+    
+    
+    player.inventory.showItemStats(0);
+    player.EquipItem(0);
+    
+    for(int i=0; i < 10; i++)
+    {
+        player.inventory.showItemStats(i);
+    }
+
+    
+  
+    
+    
     std::cout << "\n\n\n";
     for(int i =0; i < num_vertices(player.body.anatomyGraph); i++)
     {
@@ -221,6 +343,8 @@ srand(time(NULL));
         
          std::cout << player.body.anatomyGraph[i].getBodyPartName() << "," << player.body.anatomyGraph[i].getWeaponRef().getItemName() << "\n";
     }
+    
+    //itemManager.showItemStats(0);
     
    
     
@@ -250,6 +374,8 @@ srand(time(NULL));
    
 
 
+        
+    
          stats.enAttackForceType = enImpact;
          stats.force = 100;
          stats.contactArea = 1;
@@ -296,7 +422,7 @@ srand(time(NULL));
          
          
      
-         
+    
          target.body.PrintWounds();
          
           target.body.PrintWounds();
@@ -576,7 +702,7 @@ void SetupCurrentMap(Map *map)
 
    CreateTargetCreatures(mapdata);
     
-    GenerateRandomItems(mapdata,30);
+   // GenerateRandomItems(mapdata,30);
     mapdata.PlaceCreaturesOnMap();
     mapdata.PlaceItemsOnMap();
     

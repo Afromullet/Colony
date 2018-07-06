@@ -23,9 +23,9 @@ private:
 public:
     
     
-    bool operator==(Vision &other) const;
-    bool operator!=(Vision &other) const;
-    bool operator=(Vision &other);
+    bool operator==(const Vision &other) const;
+    bool operator!=(const Vision &other) const;
+    void operator=(const Vision &other);
     
     
     Vision();

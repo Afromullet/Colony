@@ -1,0 +1,5 @@
+<map id="CreatureBody::Equip" name="CreatureBody::Equip">
+<area shape="rect" id="node2" href="$dc/de1/class_item_manager.html#a55d0009a402e2f5fc3a18cf0629cec64" title="ItemManager::EquipItem" alt="" coords="198,5,366,31"/>
+<area shape="rect" id="node3" href="$d2/d3b/class_base_creature.html#a1e73375251b20070ae9dac505b280b3e" title="BaseCreature::EquipItem" alt="" coords="414,5,585,31"/>
+<area shape="rect" id="node4" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="633,5,683,31"/>
+</map>

@@ -1,5 +1,0 @@
-<map id="DecodeTerrainType" name="DecodeTerrainType">
-<area shape="rect" id="node2" href="$_tile_reader_8hpp.html#a6a6500699b3541b0abdbdbf02e704435" title="LoadTileTerrainType" alt="" coords="190,5,332,31"/>
-<area shape="rect" id="node3" href="$_tile_reader_8hpp.html#a0910e3677e6b75d03dd5127d903045cd" title="ParseTileFile" alt="" coords="380,5,479,31"/>
-<area shape="rect" id="node4" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="527,5,577,31"/>
-</map>

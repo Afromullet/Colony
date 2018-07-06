@@ -1,0 +1,229 @@
+\hypertarget{class_entity_tile}{}\section{Entity\+Tile Class Reference}
+\label{class_entity_tile}\index{Entity\+Tile@{Entity\+Tile}}
+
+
+{\ttfamily \#include $<$Entity\+Tile.\+hpp$>$}
+
+
+
+Inheritance diagram for Entity\+Tile\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{d0/d94/class_entity_tile__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Entity\+Tile\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{d6/dc8/class_entity_tile__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_entity_tile_a2b8c81d35530991c08ca2b6a76e436bf}{operator==}} (const \mbox{\hyperlink{class_entity_tile}{Entity\+Tile}} \&other) const
+\item 
+bool \mbox{\hyperlink{class_entity_tile_ad5adfda10fac26073effad1f16d6ffb6}{operator!=}} (const \mbox{\hyperlink{class_entity_tile}{Entity\+Tile}} \&other) const
+\item 
+void \mbox{\hyperlink{class_entity_tile_a81dbf6b294b80d6edcc830a243cdfae8}{operator=}} (const \mbox{\hyperlink{class_entity_tile}{Entity\+Tile}} \&other)
+\item 
+bool \mbox{\hyperlink{class_entity_tile_a1a6b6b995ad942e7850f14cc6e693bbc}{load\+Tile}} (const std\+::string \&tileset, sf\+::\+Vector2i \+\_\+tile\+Size, sf\+::\+Vector2i creature\+Position)
+\item 
+void \mbox{\hyperlink{class_entity_tile_a7b9e5be8dc4017eb5af8e4fda7add3c4}{set\+Position}} (int x, int y)
+\item 
+sf\+::\+Vector2i \mbox{\hyperlink{class_entity_tile_a5b0c178bfb2b65842c9c70ffafd857a7}{get\+Tile\+Size}} ()
+\item 
+int \mbox{\hyperlink{class_entity_tile_a2a4d57fa026ee00140e4cfd4ccc0d2b0}{get\+Entity\+Tile\+ID}} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{class_entity_tile_acabd6691ddcf65a812c38e86e12e28e7}{get\+Entity\+Tile\+I\+D\+Counter}} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_entity_tile_a1d61eb82fed61b1c7aebc54249bd7c80}{draw}} (sf\+::\+Render\+Target \&target, sf\+::\+Render\+States states) const
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Vertex\+Array \mbox{\hyperlink{class_entity_tile_a23eae4039b6b9fd344b9e36c34f9c5f9}{m\+\_\+vertices}}
+\item 
+sf\+::\+Texture \mbox{\hyperlink{class_entity_tile_a56d45f31668b3ff5934b684dce65f1d7}{m\+\_\+tileset}}
+\item 
+sf\+::\+Vector2i \mbox{\hyperlink{class_entity_tile_ab2b227fcf7beb0bd6bc40ba2cdf71643}{tile\+Size}}
+\item 
+sf\+::\+Vector2i \mbox{\hyperlink{class_entity_tile_acd604627c6c2c587a2bb4201bca9b0a4}{position}}
+\item 
+unsigned int \mbox{\hyperlink{class_entity_tile_a8e83db5f6f4fcabafca37d2a24714676}{width}}
+\item 
+unsigned int \mbox{\hyperlink{class_entity_tile_af102153f8a56f40d2cec1d53781bc3da}{height}}
+\item 
+int \mbox{\hyperlink{class_entity_tile_a12416c687d821f5c9d8272b94c5764d4}{entity\+Tile\+ID}}
+\item 
+std\+::string \mbox{\hyperlink{class_entity_tile_a4cb87a476e5125f272fc704cf51fabb7}{tile\+Set\+String}}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{class_entity_tile_a48bfcc60158b629788db1357707a9614}{entity\+Tile\+I\+D\+Counter}} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_entity_tile_a1d61eb82fed61b1c7aebc54249bd7c80}\label{class_entity_tile_a1d61eb82fed61b1c7aebc54249bd7c80}} 
+\index{Entity\+Tile@{Entity\+Tile}!draw@{draw}}
+\index{draw@{draw}!Entity\+Tile@{Entity\+Tile}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Entity\+Tile\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Target \&}]{target,  }\item[{sf\+::\+Render\+States}]{states }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_entity_tile_a2a4d57fa026ee00140e4cfd4ccc0d2b0}\label{class_entity_tile_a2a4d57fa026ee00140e4cfd4ccc0d2b0}} 
+\index{Entity\+Tile@{Entity\+Tile}!get\+Entity\+Tile\+ID@{get\+Entity\+Tile\+ID}}
+\index{get\+Entity\+Tile\+ID@{get\+Entity\+Tile\+ID}!Entity\+Tile@{Entity\+Tile}}
+\subsubsection{\texorpdfstring{get\+Entity\+Tile\+I\+D()}{getEntityTileID()}}
+{\footnotesize\ttfamily int Entity\+Tile\+::get\+Entity\+Tile\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_entity_tile_acabd6691ddcf65a812c38e86e12e28e7}\label{class_entity_tile_acabd6691ddcf65a812c38e86e12e28e7}} 
+\index{Entity\+Tile@{Entity\+Tile}!get\+Entity\+Tile\+I\+D\+Counter@{get\+Entity\+Tile\+I\+D\+Counter}}
+\index{get\+Entity\+Tile\+I\+D\+Counter@{get\+Entity\+Tile\+I\+D\+Counter}!Entity\+Tile@{Entity\+Tile}}
+\subsubsection{\texorpdfstring{get\+Entity\+Tile\+I\+D\+Counter()}{getEntityTileIDCounter()}}
+{\footnotesize\ttfamily static int Entity\+Tile\+::get\+Entity\+Tile\+I\+D\+Counter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=271pt]{d7/dd4/class_entity_tile_acabd6691ddcf65a812c38e86e12e28e7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_entity_tile_a5b0c178bfb2b65842c9c70ffafd857a7}\label{class_entity_tile_a5b0c178bfb2b65842c9c70ffafd857a7}} 
+\index{Entity\+Tile@{Entity\+Tile}!get\+Tile\+Size@{get\+Tile\+Size}}
+\index{get\+Tile\+Size@{get\+Tile\+Size}!Entity\+Tile@{Entity\+Tile}}
+\subsubsection{\texorpdfstring{get\+Tile\+Size()}{getTileSize()}}
+{\footnotesize\ttfamily sf\+::\+Vector2i Entity\+Tile\+::get\+Tile\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_entity_tile_a1a6b6b995ad942e7850f14cc6e693bbc}\label{class_entity_tile_a1a6b6b995ad942e7850f14cc6e693bbc}} 
+\index{Entity\+Tile@{Entity\+Tile}!load\+Tile@{load\+Tile}}
+\index{load\+Tile@{load\+Tile}!Entity\+Tile@{Entity\+Tile}}
+\subsubsection{\texorpdfstring{load\+Tile()}{loadTile()}}
+{\footnotesize\ttfamily bool Entity\+Tile\+::load\+Tile (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{tileset,  }\item[{sf\+::\+Vector2i}]{\+\_\+tile\+Size,  }\item[{sf\+::\+Vector2i}]{creature\+Position }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/dd4/class_entity_tile_a1a6b6b995ad942e7850f14cc6e693bbc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_entity_tile_ad5adfda10fac26073effad1f16d6ffb6}\label{class_entity_tile_ad5adfda10fac26073effad1f16d6ffb6}} 
+\index{Entity\+Tile@{Entity\+Tile}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Entity\+Tile@{Entity\+Tile}}
+\subsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool Entity\+Tile\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_entity_tile}{Entity\+Tile}} \&}]{other }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_entity_tile_a81dbf6b294b80d6edcc830a243cdfae8}\label{class_entity_tile_a81dbf6b294b80d6edcc830a243cdfae8}} 
+\index{Entity\+Tile@{Entity\+Tile}!operator=@{operator=}}
+\index{operator=@{operator=}!Entity\+Tile@{Entity\+Tile}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily void Entity\+Tile\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_entity_tile}{Entity\+Tile}} \&}]{other }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{d7/dd4/class_entity_tile_a81dbf6b294b80d6edcc830a243cdfae8_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_entity_tile_a2b8c81d35530991c08ca2b6a76e436bf}\label{class_entity_tile_a2b8c81d35530991c08ca2b6a76e436bf}} 
+\index{Entity\+Tile@{Entity\+Tile}!operator==@{operator==}}
+\index{operator==@{operator==}!Entity\+Tile@{Entity\+Tile}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Entity\+Tile\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_entity_tile}{Entity\+Tile}} \&}]{other }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_entity_tile_a7b9e5be8dc4017eb5af8e4fda7add3c4}\label{class_entity_tile_a7b9e5be8dc4017eb5af8e4fda7add3c4}} 
+\index{Entity\+Tile@{Entity\+Tile}!set\+Position@{set\+Position}}
+\index{set\+Position@{set\+Position}!Entity\+Tile@{Entity\+Tile}}
+\subsubsection{\texorpdfstring{set\+Position()}{setPosition()}}
+{\footnotesize\ttfamily void Entity\+Tile\+::set\+Position (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/dd4/class_entity_tile_a7b9e5be8dc4017eb5af8e4fda7add3c4_icgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_entity_tile_a12416c687d821f5c9d8272b94c5764d4}\label{class_entity_tile_a12416c687d821f5c9d8272b94c5764d4}} 
+\index{Entity\+Tile@{Entity\+Tile}!entity\+Tile\+ID@{entity\+Tile\+ID}}
+\index{entity\+Tile\+ID@{entity\+Tile\+ID}!Entity\+Tile@{Entity\+Tile}}
+\subsubsection{\texorpdfstring{entity\+Tile\+ID}{entityTileID}}
+{\footnotesize\ttfamily int Entity\+Tile\+::entity\+Tile\+ID\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_entity_tile_a48bfcc60158b629788db1357707a9614}\label{class_entity_tile_a48bfcc60158b629788db1357707a9614}} 
+\index{Entity\+Tile@{Entity\+Tile}!entity\+Tile\+I\+D\+Counter@{entity\+Tile\+I\+D\+Counter}}
+\index{entity\+Tile\+I\+D\+Counter@{entity\+Tile\+I\+D\+Counter}!Entity\+Tile@{Entity\+Tile}}
+\subsubsection{\texorpdfstring{entity\+Tile\+I\+D\+Counter}{entityTileIDCounter}}
+{\footnotesize\ttfamily int Entity\+Tile\+::entity\+Tile\+I\+D\+Counter = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_entity_tile_af102153f8a56f40d2cec1d53781bc3da}\label{class_entity_tile_af102153f8a56f40d2cec1d53781bc3da}} 
+\index{Entity\+Tile@{Entity\+Tile}!height@{height}}
+\index{height@{height}!Entity\+Tile@{Entity\+Tile}}
+\subsubsection{\texorpdfstring{height}{height}}
+{\footnotesize\ttfamily unsigned int Entity\+Tile\+::height\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_entity_tile_a56d45f31668b3ff5934b684dce65f1d7}\label{class_entity_tile_a56d45f31668b3ff5934b684dce65f1d7}} 
+\index{Entity\+Tile@{Entity\+Tile}!m\+\_\+tileset@{m\+\_\+tileset}}
+\index{m\+\_\+tileset@{m\+\_\+tileset}!Entity\+Tile@{Entity\+Tile}}
+\subsubsection{\texorpdfstring{m\+\_\+tileset}{m\_tileset}}
+{\footnotesize\ttfamily sf\+::\+Texture Entity\+Tile\+::m\+\_\+tileset\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_entity_tile_a23eae4039b6b9fd344b9e36c34f9c5f9}\label{class_entity_tile_a23eae4039b6b9fd344b9e36c34f9c5f9}} 
+\index{Entity\+Tile@{Entity\+Tile}!m\+\_\+vertices@{m\+\_\+vertices}}
+\index{m\+\_\+vertices@{m\+\_\+vertices}!Entity\+Tile@{Entity\+Tile}}
+\subsubsection{\texorpdfstring{m\+\_\+vertices}{m\_vertices}}
+{\footnotesize\ttfamily sf\+::\+Vertex\+Array Entity\+Tile\+::m\+\_\+vertices\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_entity_tile_acd604627c6c2c587a2bb4201bca9b0a4}\label{class_entity_tile_acd604627c6c2c587a2bb4201bca9b0a4}} 
+\index{Entity\+Tile@{Entity\+Tile}!position@{position}}
+\index{position@{position}!Entity\+Tile@{Entity\+Tile}}
+\subsubsection{\texorpdfstring{position}{position}}
+{\footnotesize\ttfamily sf\+::\+Vector2i Entity\+Tile\+::position\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_entity_tile_a4cb87a476e5125f272fc704cf51fabb7}\label{class_entity_tile_a4cb87a476e5125f272fc704cf51fabb7}} 
+\index{Entity\+Tile@{Entity\+Tile}!tile\+Set\+String@{tile\+Set\+String}}
+\index{tile\+Set\+String@{tile\+Set\+String}!Entity\+Tile@{Entity\+Tile}}
+\subsubsection{\texorpdfstring{tile\+Set\+String}{tileSetString}}
+{\footnotesize\ttfamily std\+::string Entity\+Tile\+::tile\+Set\+String\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_entity_tile_ab2b227fcf7beb0bd6bc40ba2cdf71643}\label{class_entity_tile_ab2b227fcf7beb0bd6bc40ba2cdf71643}} 
+\index{Entity\+Tile@{Entity\+Tile}!tile\+Size@{tile\+Size}}
+\index{tile\+Size@{tile\+Size}!Entity\+Tile@{Entity\+Tile}}
+\subsubsection{\texorpdfstring{tile\+Size}{tileSize}}
+{\footnotesize\ttfamily sf\+::\+Vector2i Entity\+Tile\+::tile\+Size\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_entity_tile_a8e83db5f6f4fcabafca37d2a24714676}\label{class_entity_tile_a8e83db5f6f4fcabafca37d2a24714676}} 
+\index{Entity\+Tile@{Entity\+Tile}!width@{width}}
+\index{width@{width}!Entity\+Tile@{Entity\+Tile}}
+\subsubsection{\texorpdfstring{width}{width}}
+{\footnotesize\ttfamily unsigned int Entity\+Tile\+::width\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/\+Map\+Components/\mbox{\hyperlink{_entity_tile_8hpp}{Entity\+Tile.\+hpp}}\item 
+/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/\+Map\+Components/\mbox{\hyperlink{_entity_tile_8cpp}{Entity\+Tile.\+cpp}}\end{DoxyCompactItemize}

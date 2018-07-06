@@ -1,7 +1,0 @@
-<map id="Item::getItemName" name="Item::getItemName">
-<area shape="rect" id="node2" href="$class_body_part.html#aa12ae5563a19cabd664731bbba3c7ea6" title="BodyPart::EquipArmor" alt="" coords="194,5,348,31"/>
-<area shape="rect" id="node3" href="$class_armor.html#a4fe1507d7aaf280a18e19f51a6f8c42d" title="Armor::showItemStats" alt="" coords="195,55,347,80"/>
-<area shape="rect" id="node4" href="$class_weapon.html#a5bd0118be0d84307c0865a63d907fec7" title="Weapon::showItemStats" alt="" coords="188,104,354,129"/>
-<area shape="rect" id="node5" href="$main_8cpp.html#a272c53135b61217828e494f5d86dabe4" title="PointerTest" alt="" coords="227,153,315,179"/>
-<area shape="rect" id="node6" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="402,179,452,204"/>
-</map>

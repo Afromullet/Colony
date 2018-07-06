@@ -1,6 +1,0 @@
-<map id="aStarHeuristic" name="aStarHeuristic">
-<area shape="rect" id="node2" href="$_pathfinding_8hpp.html#af3ec4ca78feaa4a936e943155dbef474" title="aStarSearch" alt="" coords="158,5,254,31"/>
-<area shape="rect" id="node3" href="$_player_controls_8hpp.html#a2fbf8484c8a051b724315afd0f442465" title="HandlePlayerInput" alt="" coords="302,5,433,31"/>
-<area shape="rect" id="node4" href="$main_8cpp.html#ab8ef98eaa887a3be4bb916cdde45b3d1" title="GameLoop3" alt="" coords="481,5,576,31"/>
-<area shape="rect" id="node5" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="624,5,674,31"/>
-</map>

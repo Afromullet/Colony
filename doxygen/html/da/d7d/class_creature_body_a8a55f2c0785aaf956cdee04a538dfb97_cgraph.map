@@ -1,0 +1,4 @@
+<map id="CreatureBody::Equip" name="CreatureBody::Equip">
+<area shape="rect" id="node2" href="$dc/de1/class_item_manager.html#a2aa35a782e14a35ad9477c512e256303" title="ItemManager::ClearSlot" alt="" coords="198,5,361,31"/>
+<area shape="rect" id="node3" href="$dc/de1/class_item_manager.html#af86e2b751da18d6d142c29f8c4860323" title="ItemManager::addItem" alt="" coords="202,55,357,80"/>
+</map>
