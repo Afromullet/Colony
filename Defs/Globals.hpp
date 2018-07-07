@@ -6,6 +6,9 @@
 //  Copyright © 2016 Afromullet. All rights reserved.
 //
 
+#include "imgui.h"
+#include "imgui-SFML.h"
+
 #include <stdio.h>
 #include <SFML/Graphics.hpp>
 

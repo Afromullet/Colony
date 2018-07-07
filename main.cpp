@@ -1,4 +1,9 @@
+#include "imgui.h"
+#include "imgui-SFML.h"
+
 #include <SFML/Graphics.hpp>
+#include <SFML/System/Clock.hpp>
+#include <SFML/Window/Event.hpp>
 
 #include "StaticVarInitializer.hpp"
 #include <iostream>
@@ -645,6 +650,7 @@ void GameLoop3()
     drawLine(0,0,10,10);
    
 
+    sf::Clock deltaClock;
     // run the main loop
     while (window.isOpen())
     {

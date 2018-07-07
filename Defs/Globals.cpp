@@ -10,6 +10,13 @@
 #include "Constants.hpp"
 #include "Material.hpp"
 
+
+
+
+#include <SFML/System/Clock.hpp>
+#include <SFML/Window/Event.hpp>
+
+
 bool PlayerActionTaken = false;
 
 sf::RenderWindow window(sf::VideoMode(WINDOW_X, WINDOW_Y), "My window");
@@ -58,6 +65,9 @@ void InitializeGlobals()
     
     
     window.setView(tempView);
+    window.setVerticalSyncEnabled(true);
+    ImGui::SFML::Init(window);
+    
     if (!defaultFont.loadFromFile("tnr.ttf"))
     {
         std::cout << "\n Error initializing global font";
