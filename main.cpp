@@ -238,7 +238,7 @@ srand(time(NULL));
     
     testArmor5.setItemName("Head Armor");
     testArmor5.addSection("headsection");
-    //testArmor5.addSection("upperbodysection");
+    testArmor5.addSection("upperbodysection");
    //  testArmor5.addSection("upperbodysection");
    //  testArmor5.addSection("headsection");
     testArmor5.setMovementModifier(5);
@@ -257,44 +257,50 @@ srand(time(NULL));
     
     
  
-    testWeapon5.setWeaponSize(enLargeWeapon);
+    testWeapon5.setItemName("Med Weapon");
+    testWeapon5.setWeaponSize(enMediumWeapon);
     testWeapon5.addSection("handsection");
     testWeapon5.setIsRanged(false);
     testWeapon5.setRange(5);
     testWeapon5.setDamage(5);
+    testWeapon5.setContactArea(7);
     
+     testWeapon6.setItemName("Large Weapon");
     testWeapon6.setWeaponSize(enLargeWeapon);
-    testWeapon6.setItemName("TestWeapon6");
     testWeapon6.setIsRanged(true);
     testWeapon6.setRange(6);
     testWeapon6.setDamage(6);
+    testWeapon6.setContactArea(9);
     
-    testWeapon7.setWeaponSize(enLargeWeapon);
-    testWeapon7.setItemName("TestWeapon7");
+     testWeapon7.setItemName("Small Weapon");
+    testWeapon7.setWeaponSize(enSmallWeapon);
+
     testWeapon7.setIsRanged(true);
     testWeapon7.setRange(7);
     testWeapon7.setDamage(7);
+    testWeapon7.setContactArea(11);
     
 
     
     //ItemManager newInventory(new ItemManager());
     
  
-    player.AddArmorToInventory(testArmor5);
-    player.AddArmorToInventory(testArmor6);
+    //player.AddArmorToInventory(testArmor5);
+  //  player.AddArmorToInventory(testArmor6);
     
-   //player.AddWeaponToInventory(testWeapon5);
+ //  player.AddWeaponToInventory(testWeapon5);
     
     
-    
-    player.AddArmorToInventory(testArmor7);
-   //  player.AddWeaponToInventory(testWeapon5);
-   // player.AddWeaponToInventory(testWeapon6);
-    player.AddArmorToInventory(testArmor7);
-    player.AddArmorToInventory(testArmor7);
     player.AddWeaponToInventory(testWeapon5);
     player.AddWeaponToInventory(testWeapon6);
     player.AddWeaponToInventory((testWeapon7));
+    player.AddArmorToInventory(testArmor5);
+    
+    player.AddArmorToInventory(testArmor6);
+    player.AddArmorToInventory(testArmor7);
+   player.AddWeaponToInventory(testWeapon6);
+   player.AddWeaponToInventory(testWeapon5);
+
     player.AddWeaponToInventory((testWeapon7));
     player.AddArmorToInventory(testArmor7);
     
@@ -315,12 +321,31 @@ srand(time(NULL));
     player.inventory.showItemStats(0);
     player.EquipItem(0);
     
+    
+    std::cout << "\n\n\n";
+    for(int i =0; i < num_vertices(player.body.anatomyGraph); i++)
+    {
+        std::cout << player.body.anatomyGraph[i].getBodyPartName() << "," << player.body.anatomyGraph[i].getArmorRef().getItemName() << "\n";
+        
+        std::cout << player.body.anatomyGraph[i].getBodyPartName() << "," << player.body.anatomyGraph[i].getWeaponRef().getItemName() << "\n";
+    }
+    
 
     
     for(int i=0; i < 10; i++)
     {
         player.inventory.showItemStats(i);
+        std::cout << "\n";
     }
+    
+    std::cout << "\n\n\n";
+    for(int i =0; i < num_vertices(player.body.anatomyGraph); i++)
+    {
+        std::cout << player.body.anatomyGraph[i].getBodyPartName() << "," << player.body.anatomyGraph[i].getArmorRef().getItemName() << "\n";
+        
+        std::cout << player.body.anatomyGraph[i].getBodyPartName() << "," << player.body.anatomyGraph[i].getWeaponRef().getItemName() << "\n";
+    }
+    
     
     
     
@@ -343,6 +368,48 @@ srand(time(NULL));
         
          std::cout << player.body.anatomyGraph[i].getBodyPartName() << "," << player.body.anatomyGraph[i].getWeaponRef().getItemName() << "\n";
     }
+    
+    
+    player.inventory.showItemStats(0);
+    player.EquipItem(0);
+    
+    
+    std::cout << "\n\n\n";
+    for(int i =0; i < num_vertices(player.body.anatomyGraph); i++)
+    {
+        std::cout << player.body.anatomyGraph[i].getBodyPartName() << "," << player.body.anatomyGraph[i].getArmorRef().getItemName() << "\n";
+        
+        std::cout << player.body.anatomyGraph[i].getBodyPartName() << "," << player.body.anatomyGraph[i].getWeaponRef().getItemName() << "\n";
+    }
+    
+    
+    
+    for(int i=0; i < 10; i++)
+    {
+        player.inventory.showItemStats(i);
+    }
+
+    
+    
+    player.inventory.showItemStats(0);
+    player.EquipItem(0);
+    
+    
+    std::cout << "\n\n\n";
+    for(int i =0; i < num_vertices(player.body.anatomyGraph); i++)
+    {
+        std::cout << player.body.anatomyGraph[i].getBodyPartName() << "," << player.body.anatomyGraph[i].getArmorRef().getItemName() << "\n";
+        
+        std::cout << player.body.anatomyGraph[i].getBodyPartName() << "," << player.body.anatomyGraph[i].getWeaponRef().getItemName() << "\n";
+    }
+    
+    
+    
+    for(int i=0; i < 10; i++)
+    {
+        player.inventory.showItemStats(i);
+    }
+
     
     //itemManager.showItemStats(0);
     

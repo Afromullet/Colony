@@ -415,78 +415,112 @@ bool CreatureBody::Equip(std::unique_ptr<Item> item,ItemManager &inventory,int i
     
     std::unique_ptr<Item> tempitem(std::move(item));
     std::cout << "\n Name " << tempitem->getItemName();
+    inventory.ClearSlot(index);
     
+ 
     
-    for(int i = 0; i < tempitem->sections.size(); i++)
+    if(tempitem->getItemType() == enArmorType)
     {
-        std::cout << "\n Section " << tempitem->sections.at(i);
+        Armor *tempArmor  = dynamic_cast<Armor*>(tempitem.get());
+        
+        std::cout << "\n Temp Armor " << tempArmor->getItemName();
+        for(int i =0; i < tempArmor->sections.size(); i++)
+        {
+            Anatomy_DFS_Section_Visitor vis(tempArmor->sections.at(i));
+            depth_first_search(anatomyGraph,visitor(vis));
+            std::vector<int> indices = vis.getVertexIndices();
+        
+            //The item can be equipped
+            if(indices.size() > 0)
+            {
+             
+            
+          
+            
+           
+                //Only removes armor whose sections match the input armor. If I want to change this in the future
+                //Check the first piece of equipment at indices[0], get the section the armor at that body part fits
+                //And then search for all body parts matching that section and remove the armor
+                UnequipArmorBySection(indices, inventory);
+                
+                
+                for(int j =0; j < indices.size(); j++)
+                {
+                    
+                    //Creates a copy of the item. Adds what is currently in the slot to the inventory. Creates a copy
+                    //tempitem->EquipItem(anatomyGraph[indices.at(j)]);
+                    tempArmor->EquipItem(anatomyGraph[indices.at(j)]);
+                    equipSuccess = true;
+                }
+            }
+            else
+            {
+                //No valid slot. Early exit
+                //inventory.ClearSlot(index);
+                inventory.addItem(std::move(tempitem));
+            
+                return false;
+            }
+        }
+        
+       if(equipSuccess == true)
+       {
+          tempitem.release();
+         //inventory.ClearSlot(index);
+       }
+        
+
     }
     
-    for(int i =0; i < tempitem->sections.size(); i++)
+    else if(tempitem->getItemType() == enWeaponType)
     {
-        Anatomy_DFS_Section_Visitor vis(tempitem->sections.at(i));
-        depth_first_search(anatomyGraph,visitor(vis));
-        std::vector<int> indices = vis.getVertexIndices();
+        Weapon *tempWeapon  = dynamic_cast<Weapon*>(tempitem.get());
+        std::vector<int> indices = getVerticesThatCanHoldWeapons(anatomyGraph);
         
-        //The item can be equipped
-        if(indices.size() > 0)
+        
+        UnequipWeaponBySection(indices,inventory,tempWeapon->getWeaponSize());
+        
+        if(tempWeapon->getWeaponSize() == enLargeWeapon)
         {
-            //item.release();
-            
-            inventory.ClearSlot(index);
-            
-            if(tempitem->getItemType() == enArmorType)
+            if(indices.size() >= 2)
             {
-                UnequipArmorBySection(indices, inventory);
+               tempWeapon->EquipItem(anatomyGraph[indices.at(0)]);
+               
+                anatomyGraph[indices.at(1)].setWeapon(WEAPON_SLOT_FILLED);
+                equipSuccess = true;
                 
-                
-                for(int j =0; j < indices.size(); j++)
-                {
-                    
-                    //Creates a copy of the item. Adds what is currently in the slot to the inventory. Creates a copy
-                    tempitem->EquipItem(anatomyGraph[indices.at(j)],inventory);
-                    equipSuccess = true;
-                }
             }
-            else if(tempitem->getItemType() == enWeaponType)
+            else
             {
-                UnequipArmorBySection(indices, inventory);
-                
-                
-                for(int j =0; j < indices.size(); j++)
-                {
-                    
-                    //Creates a copy of the item. Adds what is currently in the slot to the inventory. Creates a copy
-                    tempitem->EquipItem(anatomyGraph[indices.at(j)],inventory);
-                    equipSuccess = true;
-                }
+                inventory.addItem(std::move(tempitem));
+                return false;
             }
-            
-
-    
-            
         }
         else
         {
-            //No valid slot. Early exit
-            inventory.ClearSlot(index);
-            inventory.addItem(std::move(tempitem));
-            
-            return false;
+            if(indices.size() >= 1)
+            {
+                 tempWeapon->EquipItem(anatomyGraph[indices.at(0)]);
+                anatomyGraph[indices.at(1)].setWeapon(FIST_WEAPON);
+                equipSuccess = true;
+                
+            }
+            else
+            {
+                inventory.addItem(std::move(tempitem));
+                return false;
+            }
+                
         }
         
-        /*
-        for(int j =0; j < indices.size(); j++)
+        if(equipSuccess == true)
         {
-            
-            //Creates a copy of the item. Adds what is currently in the slot to the inventory. Creates a copy
-            tempitem->EquipItem(anatomyGraph[indices.at(j)],inventory);
-            equipSuccess = true;
-            
-           
-            
+            tempitem.release();
         }
-         */
+        
+        
+        
+        
     }
     
 
@@ -536,7 +570,55 @@ void CreatureBody::UnequipArmorBySection(std::vector<int> &indices,ItemManager &
         
 
     }
- 
+}
+
+
+/*
+ If the weapon is large, need two hands to equip it, so uneqip
+ Don't need to check for duplicates like I do with armor, will unueqip from the first available lsots
+ */
+void CreatureBody::UnequipWeaponBySection(std::vector<int> &indices,ItemManager &itemManager,EnWeaponSize size)
+{
+    Weapon tempWep;
+    
+    //Select the first two set of hands
+    
+    //Need at least two hands for a weapon. Pick the first two vertices...Not worried about left-right handedness
+    if(size == enLargeWeapon && indices.size() >= 2 )
+    {
+        
+        tempWep = anatomyGraph[indices.at(0)].getWeapon();
+        
+        if(tempWep != FIST_WEAPON || tempWep != NO_WEAPON || tempWep != WEAPON_SLOT_FILLED)
+        {
+             itemManager.addWeapon(tempWep);
+        }
+        
+         tempWep = anatomyGraph[indices.at(1)].getWeapon();
+        
+        if(tempWep != FIST_WEAPON || tempWep != NO_WEAPON || tempWep != WEAPON_SLOT_FILLED)
+        {
+             itemManager.addWeapon(tempWep);
+        }
+        
+        
+        
+    }
+    else if(indices.size() >= 1)
+    {
+        tempWep = anatomyGraph[indices.at(0)].getWeapon();
+        
+        if(tempWep != FIST_WEAPON || tempWep != NO_WEAPON || tempWep != WEAPON_SLOT_FILLED)
+        {
+            itemManager.addWeapon(tempWep);
+        }
+    }
+    else
+    {
+        std::cout << "\n Not enough hands";
+    }
+    
+    
     
     
     

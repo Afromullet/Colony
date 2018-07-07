@@ -116,6 +116,7 @@ public:
     int convertTruthValue(std::string truthVal);
     bool Equip(std::unique_ptr<Item> item,ItemManager &inventory,int index);
     void UnequipArmorBySection(std::vector<int> &indices,ItemManager &itemManager);
+    void UnequipWeaponBySection(std::vector<int> &indices,ItemManager &itemManager,EnWeaponSize size);
     void EquipArmor(Item *item);
     void EquipWeapon(Item *item);
     void ApplyAttack(AttackStats attackStats, int n);

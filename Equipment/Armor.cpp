@@ -156,12 +156,12 @@ std::string Armor::getItemExamineString() const
 }
 
 //At this point, a copy has ben created
-void Armor::EquipItem(BodyPart &bp,ItemManager &itemManager)
+void Armor::EquipItem(BodyPart &bp)
 {
     
     bp.setArmor(*this);
     
-    //itemManager.addArmor(*this); //Add what's currently equipped to the inventory
+  
     
 }
 

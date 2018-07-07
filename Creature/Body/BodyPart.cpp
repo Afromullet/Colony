@@ -23,7 +23,7 @@ void InitializeGlobalBodyParts()
     
     //Until I finalize the constructor
     NO_WEAPON.setItemName("No Weapon");
-    FIST_WEAPON.setItemName("First Weapon");
+    FIST_WEAPON.setItemName("Fist Weapon");
     NO_ARMOR.setItemName("No Armor");
     
     

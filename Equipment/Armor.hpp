@@ -70,7 +70,7 @@ public:
     
     std::string getItemExamineString() const;
     void showItemStats() const;
-    void EquipItem(BodyPart &bp,ItemManager &itemManager);
+    void EquipItem(BodyPart &bp);
     
     void PrintArmorStatistics();
     

@@ -85,7 +85,7 @@ public:
     virtual Item *create() const  = 0;
     virtual void showItemStats() const = 0;
     virtual std::string getItemExamineString() const = 0;
-    virtual void EquipItem(BodyPart &bp,ItemManager &itemManager) = 0;
+    virtual void EquipItem(BodyPart &bp) = 0;
     virtual void AddToItemManager(ItemManager &manager) = 0;
     
 

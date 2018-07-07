@@ -44,7 +44,7 @@ void Weapon::operator=(const Weapon &other)
     contactArea = other.contactArea;
     isTwohanded = other.isTwohanded;
     isRanged = other.isRanged;
-    
+    enWeaponSize = other.enWeaponSize;
     size = other.size;
     mass = other.mass;
     section = other.section;
@@ -96,7 +96,7 @@ Weapon::Weapon(const Weapon &weapon) : Item(enWeaponType)
     contactArea = weapon.contactArea;
     isTwohanded = weapon.isTwohanded;
     isRanged = weapon.isRanged;
-    
+    enWeaponSize = weapon.enWeaponSize;
     size = weapon.size;
     mass = weapon.mass;
     section = weapon.section;
@@ -145,7 +145,7 @@ void Weapon::AddToItemManager(ItemManager &manager)
     manager.addWeapon(*this);
 }
 
-void Weapon::EquipItem(BodyPart &bp,ItemManager &itemManager)
+void Weapon::EquipItem(BodyPart &bp)
 {
     bp.setWeapon(*this);
 }
@@ -182,6 +182,12 @@ void Weapon::setWeaponSize(EnWeaponSize _size)
 {
     enWeaponSize = _size;
 }
+
+ void Weapon::setContactArea(int area)
+{
+    contactArea = area;
+}
+
 bool Weapon::isRangedWeapon() const
 {
     return isRanged;

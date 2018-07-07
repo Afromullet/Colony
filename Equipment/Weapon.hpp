@@ -24,10 +24,11 @@ private:
     friend class Item;
     short int siRange;
     short int siDamage;
-    int contactArea;
+   
     bool isTwohanded;
     bool isRanged;
     EnWeaponSize enWeaponSize;
+     int contactArea;
     
     
 public:
@@ -67,7 +68,7 @@ public:
     
     void AddToItemManager(ItemManager &manager);
     
-    void EquipItem(BodyPart &bp,ItemManager &itemManager);
+    void EquipItem(BodyPart &bp);
     
     
     void calculateMaterialBonuses();
@@ -86,6 +87,7 @@ public:
     //void setItemName(int value);
     void setMaterial(Material value);
     void setWeaponSize(EnWeaponSize _size);
+    void setContactArea(int area);
 
 };
 
