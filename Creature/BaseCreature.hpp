@@ -130,9 +130,9 @@ public:
     Vision &getVision();
     std::vector<AttackStats> &getAttacks();
     
+    
+    
 
-    
-    
     //Setters
     void setPosition(short int x, short int y);
     void setVelocity(int x, int y);
@@ -140,6 +140,7 @@ public:
     void setAgility(int _agility);
     void setTotalHealth(int _health);
 
+    void ReleaseInventoryMemory();
     
 };
 

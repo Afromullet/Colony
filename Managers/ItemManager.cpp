@@ -169,3 +169,11 @@ void ItemManager::ClearSlot(int i)
 {
     items.erase(items.begin() + i);
 }
+
+void ItemManager::ReleaseAllMemory()
+{
+    for(int i = 0; i < items.size(); i++)
+    {
+        
+    }
+}

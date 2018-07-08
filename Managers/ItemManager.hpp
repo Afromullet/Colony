@@ -55,6 +55,8 @@ public:
     
     void ClearSlot(int i); //Clears slot at index i
     
+    void ReleaseAllMemory();
+    
     //void MoveInventory(
     
     

@@ -474,6 +474,10 @@ void BaseCreature::setTotalHealth(int _health)
 }
 
 
+void BaseCreature::ReleaseInventoryMemory()
+{
+    inventory.ReleaseAllMemory();
+}
 
 
 
