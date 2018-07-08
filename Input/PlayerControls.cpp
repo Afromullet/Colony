@@ -19,12 +19,10 @@ bool usingTargetSquare = false;
 bool isInventoryWindowOpen = false;
 bool isEquipmentWindowOpen = false;
 
-WindowCommands playerWindowCommands;
 
 std::vector<sf::Vector2i> square;
 MapEffect targettingSquare;
-DataWindow inventoryWindow;
-DataWindow equipmentWindow;
+
 bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creature)
 {
     
@@ -35,30 +33,15 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
 
     
     //movementAction.setCreature(creature);
-    while(!PlayerActionTaken)
-    {
+   // PlayerActionTaken = true;
+   // while(!PlayerActionTaken)
+    //{
     
     if (event.type == sf::Event::KeyPressed)
     {
         PlayerActionTaken = true;
   
-       //playerWindowCommands.handleOpenWindowCommand(event.key.code);
-        playerWindowCommands.handleOpenMainWindow(event.key.code);
-        for(int i = 0; i < playerWindowCommands.dataWindows.size(); i++)
-        {
-          
-            if(playerWindowCommands.dataWindows.at(i).isOpen)
-            {
-                playerWindowCommands.dataWindows.at(i).clearTextComponents();
-                playerWindowCommands.GetWindowData(creature, playerWindowCommands.dataWindows.at(i).getWindowType(),playerWindowCommands.dataWindows.at(i));
-            
-                
-                playerWindowCommands.handleMainWindowAction(creature,playerWindowCommands.dataWindows.at(i), event.key.code);
-               // playerWindowCommands.handleOpenWindowAction(creature,playerWindowCommands.dataWindows.at(i).getWindowType(), event.key.code);
-            }
-            
-            
-        }
+  
          
         
         
@@ -70,7 +53,7 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
                 ControlTargetSquare(Right,mapdata);
             }
             
-            else if(!playerWindowCommands.isAnyWindowOpen())
+            else
             {
                 MovePlayer(Right, creature,*mapdata.map);
             }
@@ -84,7 +67,7 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
             {
                 ControlTargetSquare(Left,mapdata);
             }
-            else if(!playerWindowCommands.isAnyWindowOpen())
+            else
             {
                 MovePlayer(Left, creature,*mapdata.map);
             }
@@ -101,8 +84,7 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
             {
                 ControlTargetSquare(Up,mapdata);
             }
-            else if(!playerWindowCommands.isAnyWindowOpen())
-            {
+            else             {
                 MovePlayer(Up, creature,*mapdata.map);
             }
             
@@ -115,7 +97,7 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
             {
                 ControlTargetSquare(Down,mapdata);
             }
-            else if(!playerWindowCommands.isAnyWindowOpen())
+            else 
             {
                 MovePlayer(Down, creature,*mapdata.map);
             }
@@ -130,23 +112,7 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
         {
             
             
-            
-            // mapdata.window->draw(invWindow);
-            if(!isInventoryWindowOpen)
-            {
-                
-                AddItemsToInventoryWindow(creature);
-                isInventoryWindowOpen = true;
-            }
-   
-            
-        
-            int n;
-            std::cout << "\nEnter item index \n";
-            std::cin >> n;
-            creature.EquipItemFromInventory(n);
-            std::cout << "Equipped";
-            int k = 3;
+         
             
             
         }
@@ -214,7 +180,7 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
                 //Can't reduce any further
                 if(targettingSquare.getSquareSize() == 1)
                 {
-                    break;
+                    //break;
                 }
                 mapdata.map->RemoveEffect(targettingSquare);
                 
@@ -421,8 +387,8 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
     
     }
     
-    return true;
-    }
+    //return true;
+   // }
     
     return true;
 }
@@ -458,110 +424,4 @@ void ControlTargetSquare(MoveDirection moveDir,MapData &mapdata)
     mapdata.map->setEffectColor(targettingSquare.getID(), sf::Color::Yellow);
     mapdata.map->UpdateEffect(targettingSquare);
 }
-
-void InitializeInventoryWindow()
-{
-    inventoryWindow.setWindowPosition(sf::Vector2f(0,0));
-    inventoryWindow.setWindowSize(sf::Vector2f(WINDOW_X, WINDOW_Y));
-    inventoryWindow.setFont("tnr.ttf");
-    inventoryWindow.setTextSize(50);
-    inventoryWindow.setWindowType(enInventoryWindow);
-    inventoryWindow.isOpen = false;
-    
-    equipmentWindow.setWindowPosition(sf::Vector2f(0,0));
-    equipmentWindow.setWindowSize(sf::Vector2f(WINDOW_X, WINDOW_Y));
-    equipmentWindow.setFont("tnr.ttf");
-    equipmentWindow.setTextSize(25);
-    equipmentWindow.setWindowType(enEquipmentWindow);
-    equipmentWindow.isOpen = false;
-    
-
-    
-
-    
-    DataWindow invSelectWindow; //Move to top of class, replace inventory window and equipment window with temp window
-    DataWindow exInvWindow;
-    invSelectWindow.setWindowSize(sf::Vector2f(150 , 150));
-    invSelectWindow.setWindowPosition(sf::Vector2f(WINDOW_X/2 - invSelectWindow.rectangle.getSize().x,WINDOW_Y/2 - invSelectWindow.rectangle.getSize().y));
-    invSelectWindow.setFont("tnr.ttf");
-    invSelectWindow.setTextSize(25);
-    invSelectWindow.setWindowType(enInventorySelectWindow);
-    invSelectWindow.isOpen = false;
-    invSelectWindow.setWindowColor(sf::Color::Green);
-    invSelectWindow.isHighlightOpen = false;
-    
-    exInvWindow.setWindowSize(sf::Vector2f(300 , 300));
-    exInvWindow.setWindowPosition(sf::Vector2f(WINDOW_X/2 - exInvWindow.rectangle.getSize().x,WINDOW_Y/2 - exInvWindow.rectangle.getSize().y));
-    exInvWindow.setFont("tnr.ttf");
-    exInvWindow.setTextSize(25);
-    exInvWindow.setWindowType(enExamineItemWindow);
-    exInvWindow.isOpen = false;
-    exInvWindow.setWindowColor(sf::Color::Green);
-    exInvWindow.isHighlightOpen = false;
-    
-    invSelectWindow.AddSubWindow(exInvWindow);
-    inventoryWindow.AddSubWindow(invSelectWindow);
-    playerWindowCommands.addDataWindow(inventoryWindow);
-    playerWindowCommands.addDataWindow(equipmentWindow);
-    playerWindowCommands.addDataWindow(invSelectWindow);
-    playerWindowCommands.addDataWindow(exInvWindow);
-    
-    for(int i =0; i < playerWindowCommands.dataWindows.size(); i++)
-    {
-        playerWindowCommands.dataWindows.at(i).initBasicHighlightSquare();
-        //playerWindowCommands.dataWindows.at(i).MoveHighlightSquare(5);
-    }
-    
-    
-    /*
-    inventoryWindow.AddText("abc");
-    inventoryWindow.AddText("xyz");
-    inventoryWindow.setTextColor(sf::Color::Red);
-     */
-    
-    BasicHighlightColor.a = 90;
-}
-
-void AddItemsToInventoryWindow(BaseCreature &creature)
-{
-    std::list<Item*>::iterator itemIt;
-    std::list<Item*> items = creature.getInventory();
-    std::string tempString;
-    int i = 0;
-    for(itemIt = items.begin(); itemIt != items.end(); ++itemIt)
-    {
-        tempString = std::to_string(i);
-        tempString.append(" ");
-        tempString.append((*itemIt)->getItemName());
-       
-        inventoryWindow.AddText(tempString);
-        i++;
-     
-    }
-    
-    inventoryWindow.setTextColor(sf::Color::Red);
-}
-
-//Prints only the equipped items
-void AddToEquipmentWindow(BaseCreature &creature)
-{
-    /*
-    std::vector<BodyPart*> bodyPartSchema = creature.getBodyPartSchema();
-    std::string outString;
-    for(int i = 0; i < bodyPartSchema.size(); i++)
-    {
-        outString = bodyPartSchema.at(i)->bodyPartName + " - Armor: " + bodyPartSchema.at(i)->armor.getItemName() + " Weapon: " + bodyPartSchema.at(i)->weapon.getItemName();
-        equipmentWindow.AddText(outString);
-    }
-    
-    equipmentWindow.setTextColor(sf::Color::Red);
-    */
-
-}
-
-/*
- 
-
- *
- */
 

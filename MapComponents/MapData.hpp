@@ -41,6 +41,7 @@ public:
 
     void DrawCreaturesOnMap();
     void DrawItemsOnMap();
+    void DrawImGUI();
     void RemoveDeadCreature();
     
     void AddItemToMap(Item *item);

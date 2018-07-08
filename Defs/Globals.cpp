@@ -21,7 +21,7 @@ bool PlayerActionTaken = false;
 
 sf::RenderWindow window(sf::VideoMode(WINDOW_X, WINDOW_Y), "My window");
 
-FileLogger errorLog("errors.txt");
+//FileLogger errorLog("errors.txt");
 
 sf::Font defaultFont;
 
@@ -58,15 +58,8 @@ void InitializeGlobals()
 {
     
     
-    sf::View tempView = window.getView();
-    
-    //tempView.setSize(1000, 1000);
-    //tempView.zoom(5.0f);
-    
-    
-    window.setView(tempView);
-    window.setVerticalSyncEnabled(true);
-    ImGui::SFML::Init(window);
+
+    InitializeWindows();
     
     if (!defaultFont.loadFromFile("tnr.ttf"))
     {
@@ -79,6 +72,20 @@ void InitializeGlobals()
     }
     
     //yellow.a = 1;
+}
+
+void InitializeWindows()
+{
+
+    window.setVerticalSyncEnabled(true);
+    ImGui::SFML::Init(window);
+    
+    
+    
+
+ 
+    
+    
 }
 
 bool doesEffectIDExist(int id)

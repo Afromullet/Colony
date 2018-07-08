@@ -65,7 +65,7 @@
 #include "HistoryGenerator.hpp"
 #include "ItemManager.hpp"
 #include <memory>
-
+#include "PlayerWindows.hpp"
 
 
 void GameLoop3();
@@ -650,53 +650,66 @@ void GameLoop3()
     drawLine(0,0,10,10);
    
 
-    sf::Clock deltaClock;
+    
     // run the main loop
+  char windowTitle[255] = "ImGui + SFML = <3";
+    window.setTitle(windowTitle);
+    sf::Clock deltaClock;
+    
+    
     while (window.isOpen())
     {
         // handle events
         sf::Event event;
         
-        while(!PlayerActionTaken)
+        while (window.pollEvent(event))
         {
-            while (window.pollEvent(event))
+            ImGui::SFML::ProcessEvent(event);
+            
+            if(event.type == sf::Event::Closed)
             {
-                if(event.type == sf::Event::Closed)
-                {
-                    window.close();
-                    errorLog.closeFile();
-                }
-            
-                if(event.type == sf::Event::KeyPressed)
-                {
-                    HandlePlayerInput(event,mapdata,player);
-                    
-                     if(event.key.code == sf::Keyboard::X)
-                    {
-                        noiseMap.Generate_NoiseMap(sf::Vector2i(32,32), MAP_WIDTH,MAP_HEIGHT);
-                        
-                    }
-              
-                }
-            
+                window.close();
+                //errorLog.closeFile();
             }
+                
+            if(event.type == sf::Event::KeyPressed)
+            {
+                HandlePlayerInput(event,mapdata,player);
+                    
+                if(event.key.code == sf::Keyboard::X)
+                {
+                    noiseMap.Generate_NoiseMap(sf::Vector2i(32,32), MAP_WIDTH,MAP_HEIGHT);
+                        
+                }
+                    
+            }
+                
         }
         
-  
-  
-     
-
+        
+        
+            
+            
+        ImGui::SFML::Update(window, deltaClock.restart());
+        
+        BodyPartWindow(player.body.anatomyGraph);
+        
+ 
         
         
         
     
-      
-        player.getVision().UpdateVision(*mapdata.map,player.getPosition());
-         std::vector<BaseCreature> visible =  player.getVision().getVisibleCreatures(*mapdata.map);
-        player.getVision().getVisibleItems(*mapdata.map);
      
       
+        
         DrawEverything(mapdata);
+        
+        
+       // window.clear(bgColor); // fill background with color
+       
+        //window.display();
+        
+        
         
      
         
@@ -709,6 +722,7 @@ void GameLoop3()
 
     
     
+    ImGui::SFML::Shutdown();
         return 0;
     
     
@@ -891,7 +905,7 @@ void SetupGameData(Map *map)
     //player.setPosition(5, 5);
     player.setStrength(3);
     player.setAgility(3);
-    InitializeInventoryWindow();
+   
     
   
     std::list<BaseCreature>::iterator creatureIt;
@@ -920,8 +934,6 @@ void DrawEverything(MapData _mapdata)
     if(elapsed.asMilliseconds() >= 1000)
     {
       
-   
-
         globalClock.restart();
     }
     
@@ -929,12 +941,7 @@ void DrawEverything(MapData _mapdata)
       MoveAllCreatures();
     
     
-    sf::VertexArray bigSquare = mapdata.map->m_vertices;
-    
-    
-    
-    bigSquare.setPrimitiveType(sf::Quads);
-    bigSquare.resize(4);
+
     
     
     
@@ -943,17 +950,15 @@ void DrawEverything(MapData _mapdata)
     _mapdata.DrawCreaturesOnMap();
     _mapdata.DrawItemsOnMap();
     
+   ImGui::SFML::Render(window);
+    
 
     
     
     
-    for(int i = 0; i < playerWindowCommands.dataWindows.size(); i++)
-    {
-        
-        mapdata.window->draw(playerWindowCommands.dataWindows.at(i));
-    }
+   
     
-    mapdata.window->draw(testStrings.at(0));
+
     mapdata.window->display();
     mapdata.window->clear();
     
@@ -962,4 +967,45 @@ void DrawEverything(MapData _mapdata)
     
     
 }
+
+
+/*
+ while(!PlayerActionTaken)
+ {
+ 
+ 
+ 
+ 
+ 
+ while (window.pollEvent(event))
+ {
+ if(event.type == sf::Event::Closed)
+ {
+ window.close();
+ //errorLog.closeFile();
+ }
+ 
+ if(event.type == sf::Event::KeyPressed)
+ {
+ HandlePlayerInput(event,mapdata,player);
+ 
+ if(event.key.code == sf::Keyboard::X)
+ {
+ noiseMap.Generate_NoiseMap(sf::Vector2i(32,32), MAP_WIDTH,MAP_HEIGHT);
+ 
+ }
+ 
+ }
+ 
+ }
+ 
+ 
+ }
+ */
+
+
+//  player.getVision().UpdateVision(*mapdata.map,player.getPosition());
+//  std::vector<BaseCreature> visible =  player.getVision().getVisibleCreatures(*mapdata.map);
+// player.getVision().getVisibleItems(*mapdata.map);
+
 

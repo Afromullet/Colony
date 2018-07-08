@@ -48,7 +48,7 @@ typedef struct TileIdentificationData
 
 extern bool PlayerActionTaken;
 
-extern FileLogger errorLog;
+//extern FileLogger errorLog;
 extern std::vector<TileIDData> tileIDTable; 
 extern sf::RenderWindow window;
 extern Map MainMap; //No need to have more than one main map (At least for now)
@@ -72,6 +72,7 @@ extern Armor NO_ARMOR;
 extern sf::Font defaultFont;
 
 void InitializeGlobals();
+void InitializeWindows();
 
 extern sf::Color yellow;
 

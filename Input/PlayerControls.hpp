@@ -14,8 +14,7 @@
 #include "MovementHandler.hpp"
 #include "MapData.hpp"
 #include "EnumTypes.hpp"
-#include "DataWindow.hpp"
-#include "WindowCommands.hpp"
+
 
 
 
@@ -26,18 +25,17 @@ extern bool isInventoryWindowOpen;
 extern bool isEquipmentWindowOpen;
 
 
-extern WindowCommands playerWindowCommands;
 
-extern DataWindow inventoryWindow;
-extern DataWindow equipmentWindow;
+
+
 
 extern MapEffect targettingSquare;
 
 extern std::vector<sf::Vector2i> square;
 bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creature);
 void ControlTargetSquare(MoveDirection moveDir,MapData &mapdata);
-void InitializeInventoryWindow();
-void AddItemsToInventoryWindow(BaseCreature &creature);
+
+
 void AddToEquipmentWindow(BaseCreature &creature);
 
 

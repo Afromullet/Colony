@@ -8,6 +8,9 @@
 
 #include "MapData.hpp"
 
+//#include "imgui.h"
+//#include "imgui-SFML.h"
+
 MapData::MapData()
 {
     
@@ -36,6 +39,11 @@ void MapData::DrawItemsOnMap()
     {
         window->draw((*itemIterator)->tile);
     }
+    
+}
+
+void MapData::DrawImGUI()
+{
     
 }
 //If a creature is killed, remove it from the map of the creature list

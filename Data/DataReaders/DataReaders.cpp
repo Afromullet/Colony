@@ -26,7 +26,7 @@ using namespace boost;
 namespace pt = boost::property_tree;
 
 
-FileLogger dataReaderErrorLog("DataReaderErrorLog.xml");
+//FileLogger dataReaderErrorLog("DataReaderErrorLog.xml");
 
 void ReadMaterialFile(const std::string fileName)
 {

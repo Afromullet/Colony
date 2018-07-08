@@ -17,7 +17,7 @@
 #include "Ore.hpp"
 #define MATERIAL_READER_INPUT_ERROR
 
-extern FileLogger dataReaderErrorLog;
+//extern FileLogger dataReaderErrorLog;
 
 void InitializeDataReaderErrorLog();
 
