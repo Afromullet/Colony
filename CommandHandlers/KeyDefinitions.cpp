@@ -12,4 +12,9 @@ sf::Keyboard::Key OPEN_INVENTORY_KEY = sf::Keyboard::Key::I;
 sf::Keyboard::Key OPEN_EQUIPMENT_KEY = sf::Keyboard::Key::P;
 sf::Keyboard::Key OPEN_SELECTION_WINDOW_KEY = sf::Keyboard::Key::Space;
 sf::Keyboard::Key CLOSE_WINDOW_KEY = sf::Keyboard::Key::Escape;
-sf::Keyboard::Key SELECT_ACTION_KEY = sf::Keyboard::Key::Return;
+sf::Keyboard::Key SELECT_ACTION_KEY = sf::Keyboard::Key::Space;
+
+sf::Keyboard::Key UP_KEY = sf::Keyboard::Key::Up;
+sf::Keyboard::Key DOWN_KEY = sf::Keyboard::Key::Down;
+sf::Keyboard::Key LEFT_KEY = sf::Keyboard::Key::Left;
+sf::Keyboard::Key RIGHT_KEY = sf::Keyboard::Key::Right;

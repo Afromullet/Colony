@@ -57,6 +57,11 @@ public:
     
     void ReleaseAllMemory();
     
+    int getInventorySize();
+    std::string getItemNameAtIndex(int i);
+ 
+    
+    
     //void MoveInventory(
     
     

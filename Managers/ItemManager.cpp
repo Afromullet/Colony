@@ -177,3 +177,16 @@ void ItemManager::ReleaseAllMemory()
         
     }
 }
+
+int ItemManager::getInventorySize()
+{
+    return items.size();
+}
+std::string ItemManager::getItemNameAtIndex(int i)
+{
+    if(i > items.size())
+        return "";
+    else
+        return items.at(i)->getItemName();
+    
+}

@@ -5,6 +5,7 @@
 //  Created by Sean on 5/22/16.
 //  Copyright © 2016 Afromullet. All rights reserved.
 //
+#include <TGUI/TGUI.hpp>
 
 #include "imgui.h"
 #include "imgui-SFML.h"
@@ -25,7 +26,6 @@
 
 #include "Constants.hpp"
 #include "Filelogger.hpp"
-
 
 #ifndef Globals_hpp
 #define Globals_hpp
@@ -51,6 +51,7 @@ extern bool PlayerActionTaken;
 //extern FileLogger errorLog;
 extern std::vector<TileIDData> tileIDTable; 
 extern sf::RenderWindow window;
+extern tgui::Gui gui;
 extern Map MainMap; //No need to have more than one main map (At least for now)
 
 extern CA_Map caMap;
@@ -70,6 +71,7 @@ extern Armor NO_ARMOR;
 
 
 extern sf::Font defaultFont;
+//extern tgui::Font tguiFont;
 
 void InitializeGlobals();
 void InitializeWindows();

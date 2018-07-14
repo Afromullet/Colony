@@ -22,4 +22,9 @@ extern sf::Keyboard::Key OPEN_EQUIPMENT_KEY;
 extern sf::Keyboard::Key OPEN_SELECTION_WINDOW_KEY;
 extern sf::Keyboard::Key CLOSE_WINDOW_KEY;
 extern sf::Keyboard::Key SELECT_ACTION_KEY;
+
+extern sf::Keyboard::Key UP_KEY;
+extern sf::Keyboard::Key DOWN_KEY;
+extern sf::Keyboard::Key LEFT_KEY;
+extern sf::Keyboard::Key RIGHT_KEY;
 #endif /* KeyDefinitions_hpp */

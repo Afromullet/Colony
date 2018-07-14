@@ -16,14 +16,18 @@
 #include <SFML/System/Clock.hpp>
 #include <SFML/Window/Event.hpp>
 
+#include <TGUI/TGUI.hpp>
+
 
 bool PlayerActionTaken = false;
 
 sf::RenderWindow window(sf::VideoMode(WINDOW_X, WINDOW_Y), "My window");
+tgui::Gui gui;
 
 //FileLogger errorLog("errors.txt");
 
 sf::Font defaultFont;
+tgui::Font tguiFont("tnr.ttf");
 
 std::vector<TileIDData> tileIDTable; //Tile types are predefined. TODO, populate this from a file.
 Armor NO_ARMOR(Material(),"No armor",0,0,0,0);
@@ -60,6 +64,9 @@ void InitializeGlobals()
     
 
     InitializeWindows();
+    gui.setFont("tnr.ttf"); // Load the font directly
+    
+    
     
     if (!defaultFont.loadFromFile("tnr.ttf"))
     {
@@ -71,6 +78,9 @@ void InitializeGlobals()
         std::cout << "\n Font loaded";
     }
     
+    
+    
+    
     //yellow.a = 1;
 }
 
@@ -78,6 +88,9 @@ void InitializeWindows()
 {
 
     window.setVerticalSyncEnabled(true);
+    
+   
+   gui.setWindow(window);
     ImGui::SFML::Init(window);
     
     

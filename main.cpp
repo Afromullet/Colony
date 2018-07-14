@@ -1,5 +1,6 @@
 #include "imgui.h"
 #include "imgui-SFML.h"
+#include <TGUI/TGUI.hpp>
 
 #include <SFML/Graphics.hpp>
 #include <SFML/System/Clock.hpp>
@@ -135,7 +136,7 @@ srand(time(NULL));
     mapdata.SetWindow(&window);
    //SetupGameData(&caMap);
    SetupGameData(&noiseMap);
-    
+   SetupGUI(gui);
     for(int i = 0; i < noiseMap.GetWidth(); i++)
     {
         for(int j =0; j < noiseMap.GetHeight(); j++)
@@ -296,7 +297,7 @@ srand(time(NULL));
     player.AddArmorToInventory(testArmor7);
     
 
-    
+   // GetInventoryWindowData(player.inventory);
     
     
     
@@ -519,7 +520,7 @@ srand(time(NULL));
             
                tempText.setString(std::to_string(mapstuff.Map2D[i][j].getIndex()));
                tempText.setPosition(i*fontSize*2, j*fontSize*2);
-                testStrings.push_back(tempText);
+               // testStrings.push_back(tempText);
             
             
         }
@@ -528,6 +529,7 @@ srand(time(NULL));
 
 
 
+    //SetupInventoryWindow(player.inventory);
    
 
     GameLoop3();
@@ -618,6 +620,7 @@ void GameLoop3()
         {
             ImGui::SFML::ProcessEvent(event);
             
+            
             if(event.type == sf::Event::Closed)
             {
                 window.close();
@@ -635,7 +638,14 @@ void GameLoop3()
                 }
                     
             }
-                
+            
+            playerGUI.HandleInventoryEvent(event,gui);
+            //inventoryWindow.HandleEvent(event,gui,player.inventory);
+            //inventoryWindow.UpdateInventory(player.inventory);
+            
+           gui.handleEvent(event); // Pass the event to the widgets
+
+            
         }
         
         
@@ -644,8 +654,7 @@ void GameLoop3()
             
         ImGui::SFML::Update(window, deltaClock.restart());
         
-        BodyPartWindow(player.body.anatomyGraph);
-        
+              
  
         
         
@@ -904,6 +913,9 @@ void DrawEverything(MapData _mapdata)
     
    ImGui::SFML::Render(window);
     
+    //GetInventoryWindowData(player.inventory);
+    
+    gui.draw();
 
     
     
