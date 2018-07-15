@@ -64,6 +64,12 @@ void PlayerGUI::HandleInventoryEvent(sf::Event &event,tgui::Gui &guiRef)
          creature->setCanMove(true);
     
      inventoryWindow.HandleEvent(event,guiRef,creature->inventory);
+    
+    
+   // if(inventoryWindow.isExamineWindowVisible())
+   // inventoryWindow.setExamineWindowText(creature->inventory);
+    
+    
 }
 
 ExamineWindow::ExamineWindow()
@@ -74,6 +80,8 @@ ExamineWindow::ExamineWindow()
 
 void ExamineWindow::show()
 {
+    
+    
     examineBox->show();
 }
 
@@ -89,6 +97,7 @@ bool ExamineWindow::isVisible()
 
 void ExamineWindow::setText(const std::string &str)
 {
+    
     examineBox->setText(str);
 }
 
@@ -131,8 +140,10 @@ InventoryWindow::InventoryWindow()
 void InventoryWindow::InventoryDoubleClickAction(std::string name)
 {
     std::cout << "\n inv double click";
-    additionalActionsWindow->show();
     curItemIndex = inventoryBox->getSelectedItemIndex();
+    additionalActionsWindow->setSelectedItemByIndex(0);
+    additionalActionsWindow->show();
+    
 }
 
 void InventoryWindow::AdditionalActionsDoubleClick(std::string name)
@@ -151,6 +162,7 @@ void InventoryWindow::AdditionalActionsHandler(std::string name)
     if(name == EXAMINE_OPTION)
     {
         //examineWindow.setText("Test");
+        
         examineWindow.show();
         std::cout << "\n Examining";
     }
@@ -170,6 +182,10 @@ void InventoryWindow::HandleEvent(sf::Event &event,tgui::Gui &guiRef,ItemManager
 {
     HandleAdditonalActionsWindowEvent(event,guiRef,inventory);
     HandleInventoryWindowEvent(event,guiRef,inventory);
+    
+    
+    if(inventory.getInventorySize() > 0)
+        examineWindow.setText(inventory.getItemDescriptionAtIndex(curItemIndex));
 }
 
 
@@ -256,7 +272,8 @@ void InventoryWindow::HandleInventoryWindowEvent(sf::Event &event,tgui::Gui &gui
         {
             
             curActionsIndex = additionalActionsWindow->getSelectedItemIndex();
-            additionalActionsWindow->show();
+            AdditionalActionsHandler(additionalActionsWindow->getSelectedItem());
+            //additionalActionsWindow->show();
         }
         
     }
@@ -267,6 +284,7 @@ void InventoryWindow::HandleInventoryWindowEvent(sf::Event &event,tgui::Gui &gui
             examineWindow.hide();
             
         }
+  
     }
     
     
@@ -281,6 +299,8 @@ void InventoryWindow::HandleAdditonalActionsWindowEvent(sf::Event &event,tgui::G
   
     }
 }
+
+
 
 
 
@@ -364,11 +384,31 @@ void InventoryWindow::UpdateInventory(ItemManager &inventory)
     
 }
 
+
+int InventoryWindow::getCurItemIndex()
+{
+    return curItemIndex;
+}
+
 bool InventoryWindow::isAnyWindowVisible()
 {
     return inventoryBox->isVisible() || additionalActionsWindow->isVisible() || examineWindow.isVisible();
 }
 
+bool InventoryWindow::isInventoryWindowVisible()
+{
+    return inventoryBox->isVisible();
+}
+
+bool InventoryWindow::isadditionalActionWindowVisible()
+{
+    return additionalActionsWindow->isVisible();
+}
+
+bool InventoryWindow::isExamineWindowVisible()
+{
+    return examineWindow.isVisible();
+}
 
 void InventoryWindow::setPosition(float x, float y)
 {
@@ -379,10 +419,13 @@ void InventoryWindow::setSize(float x, float y)
     inventoryBox->setSize(sf::Vector2f(x,y));
 }
 
-
-
-
-
+void InventoryWindow::setExamineWindowText(ItemManager &manager)
+{
+    
+    examineWindow.setText(""); //First clear the text
+    if(curItemIndex > 0 & curItemIndex < manager.getInventorySize())
+        examineWindow.setText(manager.getItemDescriptionAtIndex(curItemIndex));
+}
 
 
 void SetupGUI(tgui::Gui &guiRef)

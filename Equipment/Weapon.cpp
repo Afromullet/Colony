@@ -108,7 +108,7 @@ Weapon::Weapon(const Weapon &weapon) : Item(enWeaponType)
     sections = weapon.sections;
     stackSize = weapon.stackSize;
     maxStackSize = weapon.maxStackSize;
-    descriptiveText = other.descriptiveText;
+    descriptiveText = weapon.descriptiveText;
 }
 
 

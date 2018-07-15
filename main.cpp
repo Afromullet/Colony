@@ -203,6 +203,7 @@ srand(time(NULL));
     testArmor.addSection("upperbodysection");
     testArmor.addSection("armsection");
     testArmor.setMovementModifier(5);
+    testArmor.setDescriptiveText("Test Armor 1 Text");
     
     
     Weapon testWeapon;
@@ -212,6 +213,7 @@ srand(time(NULL));
     testWeapon.setIsRanged(true); 
     testWeapon.setRange(5);
     testWeapon.setDamage(10);
+    testWeapon.setDescriptiveText("test Weapon text");
     
     player.setPosition(10, 10);
     target.setPosition(11, 11);
@@ -219,8 +221,8 @@ srand(time(NULL));
 
     
     
-    player.body.EquipArmor(&testArmor);
-    player.body.EquipWeapon(&testWeapon);
+   // player.body.EquipArmor(&testArmor);
+  //  player.body.EquipWeapon(&testWeapon);
     //printBodyGraphVertices(target.body.anatomyGraph);
     
     
@@ -228,28 +230,28 @@ srand(time(NULL));
     Weapon testWeapon5,testWeapon6,testWeapon7;
     
     
-    testArmor5.setItemName("Head Armor");
+    testArmor5.setItemName("Test Armor 5");
     testArmor5.addSection("headsection");
     testArmor5.addSection("upperbodysection");
    //  testArmor5.addSection("upperbodysection");
    //  testArmor5.addSection("headsection");
     testArmor5.setMovementModifier(5);
     
-    testArmor6.setItemName("Head Armor 2");
+    testArmor6.setItemName("Test Armor 6");
     testArmor6.addSection("headsection");
     testArmor6.setMovementModifier(6);
     
-    testArmor7.setItemName("Leg Armor");
+    testArmor7.setItemName("Test Armor 7");
     testArmor7.addSection("legsection");
     testArmor7.setMovementModifier(7);
     
-    testArmor8.setItemName("asdasdasdasds");
+    testArmor8.setItemName("Test Armor 8");
     testArmor8.addSection("headsection");
     testArmor8.setMovementModifier(7);
     
     
  
-    testWeapon5.setItemName("Med Weapon");
+    testWeapon5.setItemName("Test Weapon 5");
     testWeapon5.setWeaponSize(enMediumWeapon);
     testWeapon5.addSection("handsection");
     testWeapon5.setIsRanged(false);
@@ -257,20 +259,22 @@ srand(time(NULL));
     testWeapon5.setDamage(5);
     testWeapon5.setContactArea(7);
     
-     testWeapon6.setItemName("Large Weapon");
+     testWeapon6.setItemName("Test Weapon 6");
     testWeapon6.setWeaponSize(enLargeWeapon);
     testWeapon6.setIsRanged(true);
     testWeapon6.setRange(6);
     testWeapon6.setDamage(6);
     testWeapon6.setContactArea(9);
     
-     testWeapon7.setItemName("Small Weapon");
+     testWeapon7.setItemName("Test WEapon 7");
     testWeapon7.setWeaponSize(enSmallWeapon);
 
     testWeapon7.setIsRanged(true);
     testWeapon7.setRange(7);
     testWeapon7.setDamage(7);
     testWeapon7.setContactArea(11);
+    
+    
     
 
     
@@ -283,18 +287,39 @@ srand(time(NULL));
  //  player.AddWeaponToInventory(testWeapon5);
     
     
-    player.AddWeaponToInventory(testWeapon5);
-    player.AddWeaponToInventory(testWeapon6);
-    player.AddWeaponToInventory((testWeapon7));
-    player.AddArmorToInventory(testArmor5);
     
+   // Armor testArmor5,testArmor6,testArmor7,testArmor8;
+   // Weapon testWeapon5,testWeapon6,testWeapon7;
+
+    
+    testArmor5.setDescriptiveText("Test Armor 5 Text");
+    testArmor6.setDescriptiveText("Test Armor 6 Text");
+    testArmor7.setDescriptiveText("Test Armor 7 Text");
+    testArmor8.setDescriptiveText("Test Armor 8 Text");
+    
+    testWeapon5.setDescriptiveText("Test Weapon 5 Text");
+    testWeapon6.setDescriptiveText("Test Weapon 6 Text");
+    testWeapon7.setDescriptiveText("Test Weapon 7 Text");
+    
+    
+   // player.AddWeaponToInventory(testWeapon5);
+    //player.AddWeaponToInventory(testWeapon6);
+    //player.AddWeaponToInventory((testWeapon7));
+    
+    
+    
+
+    player.AddArmorToInventory(testArmor5);
     player.AddArmorToInventory(testArmor6);
     player.AddArmorToInventory(testArmor7);
-   player.AddWeaponToInventory(testWeapon6);
+    player.AddArmorToInventory(testArmor8);
+   
    player.AddWeaponToInventory(testWeapon5);
+    player.AddWeaponToInventory(testWeapon6);
 
     player.AddWeaponToInventory((testWeapon7));
-    player.AddArmorToInventory(testArmor7);
+
+     
     
 
    // GetInventoryWindowData(player.inventory);
@@ -311,7 +336,7 @@ srand(time(NULL));
     
     
     player.inventory.showItemStats(0);
-    player.EquipItem(0);
+    //player.EquipItem(0);
     
     
     std::cout << "\n\n\n";
@@ -342,7 +367,7 @@ srand(time(NULL));
     
     
     player.inventory.showItemStats(0);
-    player.EquipItem(0);
+    //player.EquipItem(0);
     
     for(int i=0; i < 10; i++)
     {
@@ -363,7 +388,7 @@ srand(time(NULL));
     
     
     player.inventory.showItemStats(0);
-    player.EquipItem(0);
+   // player.EquipItem(0);
     
     
     std::cout << "\n\n\n";
@@ -384,7 +409,7 @@ srand(time(NULL));
     
     
     player.inventory.showItemStats(0);
-    player.EquipItem(0);
+    //player.EquipItem(0);
     
     
     std::cout << "\n\n\n";
@@ -493,6 +518,7 @@ srand(time(NULL));
     testArmor2.setItemName("TestArmor1");
     testArmor2.addSection("upperbodysection");
     testArmor2.addSection("armsection");
+    testArmor2.setDescriptiveText("Descriptive text");
     
     
   

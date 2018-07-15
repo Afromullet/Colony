@@ -78,6 +78,8 @@ private:
     ExamineBoxWidgetType::Ptr examineBox;
     std::string tag; //There are multiple places that use the examinebox, so store the tag an instance uses
     
+    
+    
 public:
     ExamineWindow();
     
@@ -107,6 +109,8 @@ private:
     std::string additionalActionsBoxTag;
     std::string examineWindowTag;
     
+   
+    
     int curItemIndex;
     int curActionsIndex;
     
@@ -125,6 +129,7 @@ public:
     void HandleInventoryWindowEvent(sf::Event &event,tgui::Gui &guiRef,ItemManager &inventory);
     void HandleAdditonalActionsWindowEvent(sf::Event &event,tgui::Gui &guiRef,ItemManager &inventory);
     
+    
        
 
     
@@ -134,10 +139,18 @@ public:
        
     void UpdateInventory(ItemManager &inventory);
     
+    
+    
+    int getCurItemIndex();
     bool isAnyWindowVisible();
+    bool isInventoryWindowVisible();
+    bool isadditionalActionWindowVisible();
+    bool isExamineWindowVisible();
     
     void setPosition(float x, float y);
     void setSize(float x, float y);
+    void setExamineWindowText(ItemManager &manager);
+   
     
 };
 

@@ -59,6 +59,7 @@ public:
     
     int getInventorySize();
     std::string getItemNameAtIndex(int i);
+    std::string getItemDescriptionAtIndex(int i);
  
     
     

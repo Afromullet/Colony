@@ -190,3 +190,17 @@ std::string ItemManager::getItemNameAtIndex(int i)
         return items.at(i)->getItemName();
     
 }
+
+std::string ItemManager::getItemDescriptionAtIndex(int i)
+{
+    
+   // std::cout << "\n I " << i;
+    
+    if(items.size() == 0)
+        return;
+    
+    if(i > items.size() || i < 0)
+        return "";
+    else
+        return items.at(i)->getDescriptiveText();
+}
