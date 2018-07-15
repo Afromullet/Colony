@@ -42,6 +42,17 @@ float EXAMINE_INV_WINDOW_X_POSITION = INVENTORY_WINDOWX_POSITION + INVENTORY_WIN
 float EXAMINE_INV_WINDOW_Y_POSITION = INVENTORY_WINDOWY_SIZE / 2;
 
 
+float EQUIPMENT_WINDOWX_SIZE = WINDOW_X/2;
+float EQUIPMENT_WINDOWY_SIZE  = WINDOW_Y/2;
+float EQUIPMENT_WINDOWX_POSITION = WINDOW_X/4;
+float EQUIPMENT_WINDOWY_POSITION = 0;
+
+
+float ADDIT_EQUIPMENT_ACTIONS_WINDOWX_SIZE = WINDOW_X / 4;
+float ADDIT_EQUIPMENT_ACTIONS_WINDOWY_SIZE = WINDOW_Y / 4;
+float ADDIT_EQUIPMENT_ACTIONS_WINDOWX_POSITION = EQUIPMENT_WINDOWX_POSITION + ADDIT_EQUIPMENT_ACTIONS_WINDOWX_SIZE / 2;
+float ADDIT_EQUIPMENT_ACTIONS_WINDOWY_POSITION  = EQUIPMENT_WINDOWY_SIZE / 2;
+
 
 PlayerGUI::PlayerGUI()
 {
@@ -51,26 +62,67 @@ PlayerGUI::PlayerGUI()
 void PlayerGUI::SetupPlayerGUI(tgui::Gui &guiRef,BaseCreature *_creature)
 {
     creature = _creature;
-    inventoryWindow.setupWidgets(guiRef);
+    inventoryWindow.setupWidgets(guiRef,_creature);
     inventoryWindow.setupSignals();
+    //EquipmentWindow.setupWidgets(guiRef,_creature);
+   // EquipmentWindow.setupSignals();
 }
 
 
 void PlayerGUI::HandleInventoryEvent(sf::Event &event,tgui::Gui &guiRef)
 {
+    //Don't want to move when navigating through the inventory
      if(inventoryWindow.isAnyWindowVisible())
          creature->setCanMove(false);
      else
          creature->setCanMove(true);
     
-     inventoryWindow.HandleEvent(event,guiRef,creature->inventory);
+     inventoryWindow.HandleEvent(event,guiRef);
+}
+
+void SelectionWindow::SetupMainWindow(std::string tag, int xSize,int ySize,int xPosition,int yPosition,tgui::Gui &guiRef)
+{
+    mainWindowTag = tag;
     
+    if(gui.get<SelectionWindowWidgetType>(mainWindowTag))
+        guiRef.remove(mainWindow);
     
-   // if(inventoryWindow.isExamineWindowVisible())
-   // inventoryWindow.setExamineWindowText(creature->inventory);
+ 
     
+    mainWindow = SelectionWindowWidgetType::create();
+    mainWindow->setSize(sf::Vector2f(xSize,ySize));
+    mainWindow->setPosition(sf::Vector2f(xPosition,yPosition));
+    //mainWindow->hide();
+    
+    guiRef.add(mainWindow,mainWindowTag);
+
     
 }
+
+SelectionWindow::SelectionWindow()
+{
+    
+}
+
+void SelectionWindow::SetupActionWindow(std::string tag, int xSize,int ySize,int xPosition,int yPosition,tgui::Gui &guiRef)
+{
+    
+}
+void SelectionWindow::SetupExamineWindow(std::string tag, int xSize,int ySize,int xPosition,int yPosition,tgui::Gui &guiRef)
+{
+    
+}
+
+void SelectionWindow::AddTextToMainWindow(const std::string &str)
+{
+    mainWindow->addItem(str);
+}
+
+void SelectionWindow::setCreature(BaseCreature *_creature)
+{
+    creature = _creature;
+}
+
 
 ExamineWindow::ExamineWindow()
 {
@@ -80,8 +132,6 @@ ExamineWindow::ExamineWindow()
 
 void ExamineWindow::show()
 {
-    
-    
     examineBox->show();
 }
 
@@ -117,9 +167,6 @@ void ExamineWindow::setupWidgets(tgui::Gui &guiRef,std::string _tag)
     examineBox->setPosition(sf::Vector2f(EXAMINE_INV_WINDOW_X_POSITION,EXAMINE_INV_WINDOW_Y_POSITION));
     examineBox->setReadOnly();
     examineBox->hide();
-    
-
-    
     guiRef.add(examineBox,tag);
     
 }
@@ -152,9 +199,11 @@ void InventoryWindow::AdditionalActionsDoubleClick(std::string name)
 
 }
 
+
+
 void InventoryWindow::AdditionalActionsHandler(std::string name)
 {
-    std::cout << "\nSel It Index " << curItemIndex;
+
     
     curActionsIndex = additionalActionsWindow->getSelectedItemIndex();
     
@@ -162,6 +211,8 @@ void InventoryWindow::AdditionalActionsHandler(std::string name)
     if(name == EXAMINE_OPTION)
     {
         //examineWindow.setText("Test");
+        if(creature->inventory.getInventorySize() > 0)
+            examineWindow.setText(creature->inventory.getItemDescriptionAtIndex(curItemIndex));
         
         examineWindow.show();
         std::cout << "\n Examining";
@@ -178,18 +229,18 @@ void InventoryWindow::AdditionalActionsHandler(std::string name)
     additionalActionsWindow->show();
 }
 
-void InventoryWindow::HandleEvent(sf::Event &event,tgui::Gui &guiRef,ItemManager &inventory)
+void InventoryWindow::HandleEvent(sf::Event &event,tgui::Gui &guiRef)
 {
-    HandleAdditonalActionsWindowEvent(event,guiRef,inventory);
-    HandleInventoryWindowEvent(event,guiRef,inventory);
+    
+    HandleInventoryWindowEvent(event,guiRef);
     
     
-    if(inventory.getInventorySize() > 0)
-        examineWindow.setText(inventory.getItemDescriptionAtIndex(curItemIndex));
+    //if(inventory.getInventorySize() > 0)
+     //   examineWindow.setText(inventory.getItemDescriptionAtIndex(curItemIndex));
 }
 
 
-void InventoryWindow::HandleInventoryWindowEvent(sf::Event &event,tgui::Gui &guiRef,ItemManager &inventory)
+void InventoryWindow::HandleInventoryWindowEvent(sf::Event &event,tgui::Gui &guiRef)
 {
     
 
@@ -218,7 +269,7 @@ void InventoryWindow::HandleInventoryWindowEvent(sf::Event &event,tgui::Gui &gui
         if(event.key.code == OPEN_INVENTORY_KEY)
         {
             
-            UpdateInventory(inventory);
+            UpdateInventory();
             inventoryBox->show();
             
         }
@@ -290,22 +341,28 @@ void InventoryWindow::HandleInventoryWindowEvent(sf::Event &event,tgui::Gui &gui
     
 }
 
-void InventoryWindow::HandleAdditonalActionsWindowEvent(sf::Event &event,tgui::Gui &guiRef,ItemManager &inventory)
+
+
+
+
+
+void InventoryWindow::setupWidgets(tgui::Gui &guiRef,BaseCreature *_creature)
 {
     
-   
-    if(additionalActionsWindow->isVisible())
-    {
-  
-    }
-}
-
-
-
-
-
-void InventoryWindow::setupWidgets(tgui::Gui &guiRef)
-{
+    creature = _creature;
+    
+    
+    inventoryWindow.setCreature(_creature);
+    
+    SetupMainWindow(INVENTORY_WIDGET_TAG,INVENTORY_WINDOWX_SIZE,INVENTORY_WINDOWY_SIZE,INVENTORY_WINDOWX_POSITION,INVENTORY_WINDOWY_POSITION,guiRef);
+    
+    
+    
+    
+    
+    
+    
+    
     
     inventoryBoxTag = INVENTORY_WIDGET_TAG;
     additionalActionsBoxTag = INVENTORY_ADDITIONAL_ACTIONS_WIDGET_TAG;
@@ -317,31 +374,14 @@ void InventoryWindow::setupWidgets(tgui::Gui &guiRef)
     if(gui.get<InventoryAdditionalActionsWidget>(additionalActionsBoxTag))
         guiRef.remove(additionalActionsWindow);
     
-    
-    
-
-    
     inventoryBox = InventoryWidgetType::create();
     inventoryBox->setSize(sf::Vector2f(INVENTORY_WINDOWX_SIZE,INVENTORY_WINDOWY_SIZE));
     inventoryBox->setPosition(sf::Vector2f(INVENTORY_WINDOWX_POSITION,INVENTORY_WINDOWY_POSITION));
     inventoryBox->hide();
     
-    
-    
-    
-    
     guiRef.add(inventoryBox,inventoryBoxTag);
     
-    
-    
-    
     //Defining the actions that the player can take when rightclicking in the inventory window
-    
-    
-    
-    
-    
-    
     additionalActionsWindow = InventoryAdditionalActionsWidget::create();
     additionalActionsWindow->setPosition(sf::Vector2f(ADDIT_INVENTORY_ACTIONS_WINDOWX_POSITION,ADDIT_INVENTORY_ACTIONS_WINDOWY_POSITION));
     //additionalActionsWindow->setSize(ADDIT_INVENTORY_ACTIONS_WINDOWX_SIZE,ADDIT_INVENTORY_ACTIONS_WINDOWY_SIZE);
@@ -352,11 +392,6 @@ void InventoryWindow::setupWidgets(tgui::Gui &guiRef)
     guiRef.add(additionalActionsWindow,additionalActionsBoxTag);
     
     examineWindow.setupWidgets(guiRef,examineWindowTag);
-    
-    
-    
-    
-    
     
 }
 
@@ -372,16 +407,14 @@ void InventoryWindow::setupSignals()
 
 
 
-void InventoryWindow::UpdateInventory(ItemManager &inventory)
+void InventoryWindow::UpdateInventory()
 {
-    
-    int inventorySize = inventory.getInventorySize();
+    int inventorySize = creature->inventory.getInventorySize();
     for(int i = 0; i < inventorySize; i++)
     {
-        inventoryBox->addItem(inventory.getItemNameAtIndex(i));
+        inventoryBox->addItem(creature->inventory.getItemNameAtIndex(i));
+        AddTextToMainWindow(creature->inventory.getItemNameAtIndex(i));
     }
-    
-    
 }
 
 
@@ -419,12 +452,100 @@ void InventoryWindow::setSize(float x, float y)
     inventoryBox->setSize(sf::Vector2f(x,y));
 }
 
-void InventoryWindow::setExamineWindowText(ItemManager &manager)
+
+EquipmentWindow::EquipmentWindow()
+{
+    curItemIndex = 0;
+    curActionsIndex = 0;
+}
+
+void EquipmentWindow::EquipDoubleClickAction(std::string name)
+{
+    std::cout << "\n Eq double click";
+    curItemIndex = equipmentBox->getSelectedItemIndex();
+    additionalActionsWindow->setSelectedItemByIndex(0);
+    additionalActionsWindow->show();
+}
+
+void EquipmentWindow::AdditionalActionsDoubleClick(std::string name)
+{
+    if(equipmentBox)
+    {
+        equipmentBox->connect(DOUBLE_CLICK_SIGNAL,&::EquipmentWindow::EquipDoubleClickAction,this);
+    }
+    
+    additionalActionsWindow->connect(DOUBLE_CLICK_SIGNAL,&::EquipmentWindow::AdditionalActionsDoubleClick,this);
+}
+
+void EquipmentWindow::setupWidgets(tgui::Gui &guiRef,BaseCreature *_creature)
 {
     
-    examineWindow.setText(""); //First clear the text
-    if(curItemIndex > 0 & curItemIndex < manager.getInventorySize())
-        examineWindow.setText(manager.getItemDescriptionAtIndex(curItemIndex));
+    creature = _creature;
+    equipmentBoxTag = EQUIPMENT_WIDGET_TAG;
+    additionalActionsBoxTag = EQUIMENT_ADDITIONAACTIONS_WIDGET_TAG;
+    examineWindowTag =EQUIPMENT_EXAMINEBOX_TAG;
+    
+    if(gui.get<EquipmentWidgetType>(equipmentBoxTag))
+        guiRef.remove(equipmentBox);
+    
+    if(gui.get<EquipmentAdditActionsWidget>(additionalActionsBoxTag))
+        guiRef.remove(additionalActionsWindow);
+    
+    equipmentBox = EquipmentWidgetType::create();
+    equipmentBox->setSize(sf::Vector2f(EQUIPMENT_WINDOWX_SIZE,EQUIPMENT_WINDOWY_SIZE));
+    equipmentBox->setPosition(sf::Vector2f(EQUIPMENT_WINDOWX_POSITION,EQUIPMENT_WINDOWY_POSITION));
+    equipmentBox->hide();
+    
+    guiRef.add(equipmentBox,equipmentBoxTag);
+    
+    //Defining the actions that the player can take when rightclicking in the inventory window
+    additionalActionsWindow = EquipmentAdditActionsWidget::create();
+    additionalActionsWindow->setPosition(sf::Vector2f(ADDIT_EQUIPMENT_ACTIONS_WINDOWX_POSITION,ADDIT_EQUIPMENT_ACTIONS_WINDOWY_POSITION));
+    //additionalActionsWindow->setSize(ADDIT_INVENTORY_ACTIONS_WINDOWX_SIZE,ADDIT_INVENTORY_ACTIONS_WINDOWY_SIZE);
+    additionalActionsWindow->addItem(EXAMINE_OPTION);
+    additionalActionsWindow->addItem(DROP_OPTION);
+    additionalActionsWindow->addItem(EQUIP_OPTION);
+    additionalActionsWindow->hide(); //It isn't shown until after right click so hide at startup
+    guiRef.add(additionalActionsWindow,additionalActionsBoxTag);
+    
+    examineWindow.setupWidgets(guiRef,examineWindowTag);
+}
+
+void EquipmentWindow::setupSignals()
+{
+    
+}
+
+
+void EquipmentWindow::UpdateEquipment()
+{
+    
+}
+
+int EquipmentWindow::getCurItemIndex()
+{
+    return curItemIndex;
+}
+
+bool EquipmentWindow::isAnyWindowVisible()
+{
+    return equipmentBox->isVisible() || additionalActionsWindow->isVisible() || examineWindow.isVisible();
+
+}
+
+bool EquipmentWindow::isEquipmentWindowVisible()
+{
+    return equipmentBox->isVisible();
+}
+
+bool EquipmentWindow::isadditionalActionWindowVisible()
+{
+    return additionalActionsWindow->isVisible();
+}
+
+bool EquipmentWindow::isExamineWindowVisible()
+{
+    return examineWindow.isVisible();
 }
 
 

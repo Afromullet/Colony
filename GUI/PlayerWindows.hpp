@@ -23,11 +23,24 @@
 
 
 
+
+
 ///The typedefs for the widgets are here in case I ever choose to change the widget type.
-typedef tgui::ListBox InventoryWidgetType;
-typedef tgui::ListBox InventoryAdditionalActionsWidget;
+
+typedef tgui::ListBox SelectionWindowWidgetType;
+typedef tgui::ListBox AdditionalActionsWidgetType;
 typedef tgui::TextBox ExamineBoxWidgetType;
 
+
+
+typedef tgui::ListBox InventoryWidgetType;
+typedef tgui::ListBox InventoryAdditionalActionsWidget;
+
+
+
+typedef tgui::ListBox EquipmentWidgetType;
+typedef tgui::ListBox EquipmentAdditActionsWidget;
+typedef tgui::ListBox EquipmentExamineBoxWidgetType;
 
 
 
@@ -36,6 +49,9 @@ typedef tgui::TextBox ExamineBoxWidgetType;
 #define INVENTORY_ADDITIONAL_ACTIONS_WIDGET_TAG "INVENTORY_RIGHTCLICK_BOX"
 #define INVENTORY_EXAMINEBOX_TAG "EXAMINE_INVENTORY"
 
+#define EQUIPMENT_WIDGET_TAG "EQUIPMENT"
+#define EQUIMENT_ADDITIONAACTIONS_WIDGET_TAG "EQUIPMENT_ADDITIONALACTIONS_BOX";
+#define EQUIPMENT_EXAMINEBOX_TAG "EXAMINE_EQUIPMENT_BOX"
 
 
 
@@ -68,8 +84,15 @@ extern float EXAMINE_INV_WINDOW_Y_SIZE;
 extern float EXAMINE_INV_WINDOW_X_POSITION;
 extern float EXAMINE_INV_WINDOW_Y_POSITION;
 
+extern float EQUIPMENT_WINDOWX_SIZE;
+extern float EQUIPMENT_WINDOWY_SIZE;
+extern float EQUIPMENT_WINDOWX_POSITION;
+extern float EQUIPMENT_WINDOWY_POSITION;
 
-
+extern float ADDIT_EQUIPMENT_ACTIONS_WINDOWX_SIZE;
+extern float ADDIT_EQUIPMENT_ACTIONS_WINDOWY_SIZE;
+extern float ADDIT_EQUIPMENT_ACTIONS_WINDOWX_POSITION;
+extern float ADDIT_EQUIPMENT_ACTIONS_WINDOWY_POSITION;
 
 
 class ExamineWindow
@@ -92,18 +115,66 @@ public:
     void setupWidgets(tgui::Gui &guiRef,std::string _tag); //There can be multiple types of examine boxes, that's what the tag modifier is for
     
     
-
+    
 };
 
 
 
-class InventoryWindow
+class SelectionWindow
+{
+private:
+
+    SelectionWindowWidgetType::Ptr mainWindow;
+    AdditionalActionsWidgetType::Ptr additionalActionsWindow;
+    ExamineWindow examineWindow;
+    
+    BaseCreature *creature;
+    
+    std::string mainWindowTag;
+    std::string additionalActionsWindowTag;
+    std::string examineWindowStag;
+    
+    
+public:
+    
+    SelectionWindow();
+    
+    void SetupMainWindow(std::string tag, int xSize,int ySize,int xPosition,int yPosition,tgui::Gui &guiRef);
+    void SetupActionWindow(std::string tag, int xSize,int ySize,int xPosition,int yPosition,tgui::Gui &guiRef);
+    void SetupExamineWindow(std::string tag, int xSize,int ySize,int xPosition,int yPosition,tgui::Gui &guiRef);
+    
+    virtual void AdditionalActionsHandler(std::string name) = 0;
+    
+    virtual void HandleEvent(sf::Event &event,tgui::Gui &guiRef) = 0;
+    
+   // virtual void AddActionWindowOption(const std::string str) = 0;
+    
+    void AddTextToMainWindow(const std::string &str);
+    
+    void setCreature(BaseCreature *_creature);
+    
+    
+    
+    
+    
+};
+
+
+
+///Not created a parent class at the moment. Never made a GUI like this, and can't accurately predict what will be reused until I implement a prototype. Trying to keep the function methods consitent so that I can add a parent class when needed
+
+
+
+
+class InventoryWindow : public SelectionWindow
 {
 private:
     InventoryWidgetType::Ptr inventoryBox;
     InventoryAdditionalActionsWidget::Ptr additionalActionsWindow;
     ExamineWindow examineWindow;
     
+    //Didn't want this here at first, but this will make things much easier and more self contained
+    BaseCreature *creature;
     
     std::string inventoryBoxTag;
     std::string additionalActionsBoxTag;
@@ -125,19 +196,19 @@ public:
    
     void AdditionalActionsHandler(std::string name);
     
-    void HandleEvent(sf::Event &event,tgui::Gui &guiRef,ItemManager &inventory);
-    void HandleInventoryWindowEvent(sf::Event &event,tgui::Gui &guiRef,ItemManager &inventory);
-    void HandleAdditonalActionsWindowEvent(sf::Event &event,tgui::Gui &guiRef,ItemManager &inventory);
+    void HandleEvent(sf::Event &event,tgui::Gui &guiRef);
+    void HandleInventoryWindowEvent(sf::Event &event,tgui::Gui &guiRef);
+  
     
     
        
 
     
     
-    void setupWidgets(tgui::Gui &guiRef);
+    void setupWidgets(tgui::Gui &guiRef,BaseCreature *_creature);
     void setupSignals();
        
-    void UpdateInventory(ItemManager &inventory);
+    void UpdateInventory();
     
     
     
@@ -149,23 +220,71 @@ public:
     
     void setPosition(float x, float y);
     void setSize(float x, float y);
-    void setExamineWindowText(ItemManager &manager);
+
    
     
 };
 
+
+class EquipmentWindow
+{
+private:
+    EquipmentWidgetType::Ptr equipmentBox;
+    ExamineWindow examineWindow; //Gives details on wounds etc
+    EquipmentAdditActionsWidget::Ptr additionalActionsWindow;
+    
+    
+    
+    std::string equipmentBoxTag;
+    std::string additionalActionsBoxTag;
+    std::string examineWindowTag;
+    
+    BaseCreature *creature;
+    
+    int curItemIndex;
+    int curActionsIndex;
+    
+public:
+    EquipmentWindow();
+    
+    void EquipDoubleClickAction(std::string name);
+    void AdditionalActionsDoubleClick(std::string name);
+    
+    
+    void AdditionalActionsHandler(std::string name);
+    
+    void HandleEvent(sf::Event &event,tgui::Gui &guiRef);
+    void HandleEquipmentWindowEvent(sf::Event &event,tgui::Gui &guiRef);
+    
+    void setupWidgets(tgui::Gui &guiRef,BaseCreature *_creature);
+    void setupSignals();
+    
+    
+    void UpdateEquipment();
+    
+    int getCurItemIndex();
+    bool isAnyWindowVisible();
+    bool isEquipmentWindowVisible();
+    bool isadditionalActionWindowVisible();
+    bool isExamineWindowVisible();
+    
+    
+    
+};
 
 
 class PlayerGUI
 {
 private:
     InventoryWindow inventoryWindow;
+    EquipmentWindow equipmentWindow;
+    
     BaseCreature *creature;
     
     
 public:
     PlayerGUI();
-    void HandleEvent(sf::Event &event,tgui::Gui &guiRef,ItemManager &inventory);
+    void HandleEvent(sf::Event &event,tgui::Gui &guiRef);
     void HandleInventoryEvent(sf::Event &event,tgui::Gui &guiRef);
     void SetupPlayerGUI(tgui::Gui &guiRef,BaseCreature *_creature);
     
