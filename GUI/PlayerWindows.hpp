@@ -124,18 +124,28 @@ class SelectionWindow
 {
 private:
 
+
+    
+
+ 
+protected:
+    
     SelectionWindowWidgetType::Ptr mainWindow;
-    AdditionalActionsWidgetType::Ptr additionalActionsWindow;
+    AdditionalActionsWidgetType::Ptr additional_ActionsWindow;
     ExamineWindow examineWindow;
     
     BaseCreature *creature;
     
     std::string mainWindowTag;
     std::string additionalActionsWindowTag;
-    std::string examineWindowStag;
+    std::string examineWindowTag;
     
+    int curItemIndex;
+    int curActionsIndex;
     
 public:
+    
+
     
     SelectionWindow();
     
@@ -143,16 +153,32 @@ public:
     void SetupActionWindow(std::string tag, int xSize,int ySize,int xPosition,int yPosition,tgui::Gui &guiRef);
     void SetupExamineWindow(std::string tag, int xSize,int ySize,int xPosition,int yPosition,tgui::Gui &guiRef);
     
+    virtual void DoubleClickAction(std::string name) = 0;
+    virtual void AdditionalActionsDoubleClick(std::string name) = 0;
     virtual void AdditionalActionsHandler(std::string name) = 0;
-    
+    virtual void setupSignals() = 0;
+    virtual bool isAnyWindowVisible() = 0;
     virtual void HandleEvent(sf::Event &event,tgui::Gui &guiRef) = 0;
     
    // virtual void AddActionWindowOption(const std::string str) = 0;
     
     void AddTextToMainWindow(const std::string &str);
+    void AddAdditionalAction(const std::string &str);
     
     void setCreature(BaseCreature *_creature);
     
+    void showMainWindow();
+    void showAdditionalActionsWindow();
+    void showExamineWindow();
+    
+    void hideMainWindow();
+    void hideAdditionalActionsWindow();
+    void hideExamineWindow();
+    
+    
+    bool isMainWindowVisible();
+    bool isAdditionalActionsWindowVisible();
+    bool isExamineWindowVisible();
     
     
     
@@ -169,28 +195,27 @@ public:
 class InventoryWindow : public SelectionWindow
 {
 private:
-    InventoryWidgetType::Ptr inventoryBox;
-    InventoryAdditionalActionsWidget::Ptr additionalActionsWindow;
-    ExamineWindow examineWindow;
+    //InventoryWidgetType::Ptr inventoryBox;
+    //InventoryAdditionalActionsWidget::Ptr additionalActionsWindow;
+    //ExamineWindow examineWindow;
     
     //Didn't want this here at first, but this will make things much easier and more self contained
     BaseCreature *creature;
     
-    std::string inventoryBoxTag;
-    std::string additionalActionsBoxTag;
-    std::string examineWindowTag;
+    //std::string inventoryBoxTag;
+   // std::string additionalActionsBoxTag;
+   // std::string examineWindowTag;
     
    
     
-    int curItemIndex;
-    int curActionsIndex;
+
     
 public:
     
     InventoryWindow();
     
     
-    void InventoryDoubleClickAction(std::string name);
+    void DoubleClickAction(std::string name);
     void AdditionalActionsDoubleClick(std::string name);
     
    
@@ -212,72 +237,26 @@ public:
     
     
     
-    int getCurItemIndex();
+
     bool isAnyWindowVisible();
-    bool isInventoryWindowVisible();
-    bool isadditionalActionWindowVisible();
-    bool isExamineWindowVisible();
+   
+ 
+  
     
-    void setPosition(float x, float y);
-    void setSize(float x, float y);
+
 
    
     
 };
 
 
-class EquipmentWindow
-{
-private:
-    EquipmentWidgetType::Ptr equipmentBox;
-    ExamineWindow examineWindow; //Gives details on wounds etc
-    EquipmentAdditActionsWidget::Ptr additionalActionsWindow;
-    
-    
-    
-    std::string equipmentBoxTag;
-    std::string additionalActionsBoxTag;
-    std::string examineWindowTag;
-    
-    BaseCreature *creature;
-    
-    int curItemIndex;
-    int curActionsIndex;
-    
-public:
-    EquipmentWindow();
-    
-    void EquipDoubleClickAction(std::string name);
-    void AdditionalActionsDoubleClick(std::string name);
-    
-    
-    void AdditionalActionsHandler(std::string name);
-    
-    void HandleEvent(sf::Event &event,tgui::Gui &guiRef);
-    void HandleEquipmentWindowEvent(sf::Event &event,tgui::Gui &guiRef);
-    
-    void setupWidgets(tgui::Gui &guiRef,BaseCreature *_creature);
-    void setupSignals();
-    
-    
-    void UpdateEquipment();
-    
-    int getCurItemIndex();
-    bool isAnyWindowVisible();
-    bool isEquipmentWindowVisible();
-    bool isadditionalActionWindowVisible();
-    bool isExamineWindowVisible();
-    
-    
-    
-};
 
 
 class PlayerGUI
 {
 private:
     InventoryWindow inventoryWindow;
-    EquipmentWindow equipmentWindow;
+   
     
     BaseCreature *creature;
     
