@@ -55,7 +55,8 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
             
             else
             {
-                MovePlayer(Right, creature,*mapdata.map);
+                if(creature.getCanMove())
+                    MovePlayer(Right, creature,*mapdata.map);
             }
             
         }
@@ -69,7 +70,8 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
             }
             else
             {
-                MovePlayer(Left, creature,*mapdata.map);
+                if(creature.getCanMove())
+                    MovePlayer(Left, creature,*mapdata.map);
             }
             
             
@@ -84,8 +86,10 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
             {
                 ControlTargetSquare(Up,mapdata);
             }
-            else             {
-                MovePlayer(Up, creature,*mapdata.map);
+            else
+            {
+                if(creature.getCanMove())
+                    MovePlayer(Up, creature,*mapdata.map);
             }
             
             
@@ -99,7 +103,8 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
             }
             else 
             {
-                MovePlayer(Down, creature,*mapdata.map);
+                if(creature.getCanMove())
+                    MovePlayer(Down, creature,*mapdata.map);
             }
         }
         else if(event.key.code == sf::Keyboard::G)

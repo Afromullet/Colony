@@ -52,6 +52,8 @@ private:
     int stackSize;
     int maxStackSize;
     
+    std::string descriptiveText;
+    
   
     //Why do I have tile and itemtile?
     
@@ -107,6 +109,7 @@ public:
     EnItemType getItemType();
     int getStackSize();
     int getMaxStackSize();
+    std::string getDescriptiveText() const;
     
     
     void addSection(std::string value);
@@ -122,6 +125,7 @@ public:
     void setItemType(EnItemType val);
     void setStackSize(int val);
     void setMaxStackSize(int val);
+    void setDescriptiveText(std::string str);
 
     
     

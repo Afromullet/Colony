@@ -108,6 +108,7 @@ private:
     std::string examineWindowTag;
     
     int curItemIndex;
+    int curActionsIndex;
     
 public:
     
@@ -118,6 +119,7 @@ public:
     void AdditionalActionsDoubleClick(std::string name);
     
    
+    void AdditionalActionsHandler(std::string name);
     
     void HandleEvent(sf::Event &event,tgui::Gui &guiRef,ItemManager &inventory);
     void HandleInventoryWindowEvent(sf::Event &event,tgui::Gui &guiRef,ItemManager &inventory);
@@ -125,10 +127,14 @@ public:
     
        
 
+    
+    
     void setupWidgets(tgui::Gui &guiRef);
     void setupSignals();
        
     void UpdateInventory(ItemManager &inventory);
+    
+    bool isAnyWindowVisible();
     
     void setPosition(float x, float y);
     void setSize(float x, float y);

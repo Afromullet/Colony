@@ -55,6 +55,7 @@ void Weapon::operator=(const Weapon &other)
     sections = other.sections;
     stackSize = other.stackSize;
     maxStackSize = other.maxStackSize;
+    descriptiveText = other.descriptiveText;
     
 }
 
@@ -107,6 +108,7 @@ Weapon::Weapon(const Weapon &weapon) : Item(enWeaponType)
     sections = weapon.sections;
     stackSize = weapon.stackSize;
     maxStackSize = weapon.maxStackSize;
+    descriptiveText = other.descriptiveText;
 }
 
 

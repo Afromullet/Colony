@@ -25,6 +25,7 @@ BaseCreature::BaseCreature()
     will = 10;
     charisma = 10;
     moveSpeed = 1;
+    canMove = true;
     
    
     
@@ -53,7 +54,7 @@ BaseCreature::BaseCreature(const BaseCreature &other)
     creatureItems = other.creatureItems; //Not needded in the future
     path = other.path;
     attacks = other.attacks;
-    
+    canMove = other.canMove;
    //inventory = other.inventory;
     
     
@@ -81,6 +82,8 @@ BaseCreature::BaseCreature(BaseCreature &other)
     attacks = other.attacks;
     
     inventory = other.inventory;
+    
+    canMove = other.canMove;
 }
 
  
@@ -446,6 +449,11 @@ std::vector<AttackStats>& BaseCreature::getAttacks()
     return attacks;
 }
 
+bool BaseCreature::getCanMove() const
+{
+    return canMove;
+}
+
 //Need to update both the creatures logical position and the position of its texture
 void BaseCreature::setPosition(short int x, short int y)
 {
@@ -473,6 +481,11 @@ void BaseCreature::setTotalHealth(int _health)
     totalHealth = _health;
 }
 
+
+void BaseCreature::setCanMove(bool val)
+{
+    canMove = val;
+}
 
 void BaseCreature::ReleaseInventoryMemory()
 {

@@ -58,6 +58,11 @@ void PlayerGUI::SetupPlayerGUI(tgui::Gui &guiRef,BaseCreature *_creature)
 
 void PlayerGUI::HandleInventoryEvent(sf::Event &event,tgui::Gui &guiRef)
 {
+     if(inventoryWindow.isAnyWindowVisible())
+         creature->setCanMove(false);
+     else
+         creature->setCanMove(true);
+    
      inventoryWindow.HandleEvent(event,guiRef,creature->inventory);
 }
 
@@ -119,6 +124,7 @@ void ExamineWindow::setupWidgets(tgui::Gui &guiRef,std::string _tag)
 InventoryWindow::InventoryWindow()
 {
     curItemIndex = 0;
+    curActionsIndex = 0;
     
 }
 
@@ -131,8 +137,15 @@ void InventoryWindow::InventoryDoubleClickAction(std::string name)
 
 void InventoryWindow::AdditionalActionsDoubleClick(std::string name)
 {
-   
+    AdditionalActionsHandler(name);
+
+}
+
+void InventoryWindow::AdditionalActionsHandler(std::string name)
+{
     std::cout << "\nSel It Index " << curItemIndex;
+    
+    curActionsIndex = additionalActionsWindow->getSelectedItemIndex();
     
     
     if(name == EXAMINE_OPTION)
@@ -167,8 +180,13 @@ void InventoryWindow::HandleInventoryWindowEvent(sf::Event &event,tgui::Gui &gui
     //Consider using textbox rendere, and when the additional action window is open
     //Change the color of the inventoryBox selector to the background, so that it doesn't display
     //when the player scrolls over the window with the additional actions window open todo
+    
+    
+    
     if(additionalActionsWindow->isVisible() && !examineWindow.isVisible())
     {
+        
+        
         inventoryBox->deselectItem(); //So that the inventory double click action is not triggered again when the additional actions window is open
     }
     else if(examineWindow.isVisible() && additionalActionsWindow->isVisible() && inventoryBox->isVisible())
@@ -197,22 +215,56 @@ void InventoryWindow::HandleInventoryWindowEvent(sf::Event &event,tgui::Gui &gui
             inventoryBox->hide();
          
         }
+        else if(event.key.code == DOWN_KEY && event.type == sf::Event::KeyReleased)
+        {
+        
+            int index = inventoryBox->getSelectedItemIndex();
+            inventoryBox->setSelectedItemByIndex(++index);
+        }
+        else if(event.key.code == UP_KEY && event.type == sf::Event::KeyReleased)
+        {
+            int index = inventoryBox->getSelectedItemIndex();
+            inventoryBox->setSelectedItemByIndex(--index);
+        }
+        else if(event.key.code == SELECT_ACTION_KEY && event.type == sf::Event::KeyReleased)
+        {
+            
+            curItemIndex = inventoryBox->getSelectedItemIndex();
+            additionalActionsWindow->show();
+        }
+        
+        
     }
     else if(inventoryBox->isVisible() && additionalActionsWindow->isVisible() && !examineWindow.isVisible())
     {
         if(event.key.code == CLOSE_WINDOW_KEY && event.type == sf::Event::KeyReleased)
         {
             additionalActionsWindow->hide();
-            
-            
         }
+        else if(event.key.code == DOWN_KEY && event.type == sf::Event::KeyReleased)
+        {
+            
+            int index = additionalActionsWindow->getSelectedItemIndex();
+            additionalActionsWindow->setSelectedItemByIndex(++index);
+        }
+        else if(event.key.code == UP_KEY && event.type == sf::Event::KeyReleased)
+        {
+            int index = additionalActionsWindow->getSelectedItemIndex();
+            additionalActionsWindow->setSelectedItemByIndex(--index);
+        }
+        else if(event.key.code == SELECT_ACTION_KEY && event.type == sf::Event::KeyReleased)
+        {
+            
+            curActionsIndex = additionalActionsWindow->getSelectedItemIndex();
+            additionalActionsWindow->show();
+        }
+        
     }
     else if(inventoryBox->isVisible() && additionalActionsWindow->isVisible() && examineWindow.isVisible())
     {
         if(event.key.code == CLOSE_WINDOW_KEY && event.type == sf::Event::KeyReleased)
         {
             examineWindow.hide();
-            
             
         }
     }
@@ -310,6 +362,11 @@ void InventoryWindow::UpdateInventory(ItemManager &inventory)
     }
     
     
+}
+
+bool InventoryWindow::isAnyWindowVisible()
+{
+    return inventoryBox->isVisible() || additionalActionsWindow->isVisible() || examineWindow.isVisible();
 }
 
 

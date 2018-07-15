@@ -63,6 +63,8 @@ private:
     bool isAlive; //For testing
     std::vector<AttackStats> attacks;
     
+    bool canMove;
+    
     
     
     
@@ -129,6 +131,7 @@ public:
     std::list<Item*> getInventory();
     Vision &getVision();
     std::vector<AttackStats> &getAttacks();
+    bool getCanMove() const;
     
     
     
@@ -139,6 +142,7 @@ public:
     void setStrength(int _strength);
     void setAgility(int _agility);
     void setTotalHealth(int _health);
+    void setCanMove(bool val);
 
     void ReleaseInventoryMemory();
     

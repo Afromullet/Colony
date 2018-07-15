@@ -65,6 +65,7 @@ void Armor::operator=(const Armor &other)
     enItemType = enArmorType;
     stackSize = other.stackSize;
     maxStackSize = other.maxStackSize;
+    descriptiveText = other.descriptiveText;
     
 
 }
@@ -115,6 +116,7 @@ Armor::Armor(const Armor &other) : Item(enArmorType)
     tag = other.tag;
     stackSize = other.stackSize;
     maxStackSize = other.maxStackSize;
+    descriptiveText = other.descriptiveText;
 
 
     

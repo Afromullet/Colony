@@ -54,6 +54,7 @@ void Item::operator=(const Item &other)
     tag = boost::uuids::random_generator()();
     stackSize = other.stackSize;
     maxStackSize = other.maxStackSize;
+    descriptiveText = other.descriptiveText;
 
 }
 
@@ -110,6 +111,7 @@ Item::Item(const Item &other)
     section = other.section;
     stackSize = other.stackSize;
     maxStackSize = other.maxStackSize;
+    descriptiveText = other.descriptiveText;
     
 }
 
@@ -185,6 +187,11 @@ int Item::getStackSize()
 int Item::getMaxStackSize()
 {
     return maxStackSize;
+}
+
+std::string Item::getDescriptiveText() const
+{
+    return descriptiveText;
 }
 
 //TODO add check to not allow duplicate sections
@@ -280,6 +287,11 @@ void Item::setStackSize(int val)
 void Item::setMaxStackSize(int val)
 {
     maxStackSize = val;
+}
+
+void Item::setDescriptiveText(std::string str)
+{
+    descriptiveText = str;
 }
 
 
