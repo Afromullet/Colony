@@ -112,7 +112,7 @@ public:
     
     void setText(const std::string &str);
     
-    void setupWidgets(tgui::Gui &guiRef,std::string _tag); //There can be multiple types of examine boxes, that's what the tag modifier is for
+    void setupWidgets(tgui::Gui &guiRef,std::string _tag,int xPosition, int yPosition); //There can be multiple types of examine boxes, that's what the tag modifier is for
     
     
     
@@ -159,6 +159,7 @@ public:
     virtual void setupSignals() = 0;
     virtual bool isAnyWindowVisible() = 0;
     virtual void HandleEvent(sf::Event &event,tgui::Gui &guiRef) = 0;
+    virtual void UpdateMainWindow() = 0;
     
    // virtual void AddActionWindowOption(const std::string str) = 0;
     
@@ -230,10 +231,10 @@ public:
 
     
     
-    void setupWidgets(tgui::Gui &guiRef,BaseCreature *_creature);
+    void setupWidgets(const std::string &mainWindowTag, const std::string &additionalActionsWindowTag,tgui::Gui &guiRef,BaseCreature *_creature);
     void setupSignals();
        
-    void UpdateInventory();
+    void UpdateMainWindow();
     
     
     

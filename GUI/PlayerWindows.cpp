@@ -62,7 +62,7 @@ PlayerGUI::PlayerGUI()
 void PlayerGUI::SetupPlayerGUI(tgui::Gui &guiRef,BaseCreature *_creature)
 {
     creature = _creature;
-    inventoryWindow.setupWidgets(guiRef,_creature);
+    inventoryWindow.setupWidgets(INVENTORY_WIDGET_TAG,INVENTORY_ADDITIONAL_ACTIONS_WIDGET_TAG,guiRef,_creature);
     inventoryWindow.setupSignals();
 }
 
@@ -123,7 +123,7 @@ void SelectionWindow::SetupActionWindow(std::string tag, int xSize,int ySize,int
 }
 void SelectionWindow::SetupExamineWindow(std::string tag, int xSize,int ySize,int xPosition,int yPosition,tgui::Gui &guiRef)
 {
-    examineWindow.setupWidgets(guiRef,tag);
+    examineWindow.setupWidgets(guiRef,tag,EXAMINE_INV_WINDOW_X_POSITION,EXAMINE_INV_WINDOW_Y_POSITION);
     examineWindow.hide();
 }
 
@@ -213,7 +213,7 @@ void ExamineWindow::setText(const std::string &str)
 
 //This widget is different than windows that have signals, but for the sake of consistently
 //This one is also going to be created in a similar manner
-void ExamineWindow::setupWidgets(tgui::Gui &guiRef,std::string _tag)
+void ExamineWindow::setupWidgets(tgui::Gui &guiRef,std::string _tag,int xPosition, int yPosition)
 {
     tag = _tag;
     
@@ -248,7 +248,7 @@ void InventoryWindow::DoubleClickAction(std::string name)
     
     std::cout << "\n inv double click";
     curItemIndex = mainWindow->getSelectedItemIndex();
-    additional_ActionsWindow->setSelectedItemByIndex(0);
+    additional_ActionsWindow->setSelectedItemByIndex(0); //Can't remember why this is here
     additional_ActionsWindow->show();
     
 }
@@ -256,7 +256,6 @@ void InventoryWindow::DoubleClickAction(std::string name)
 void InventoryWindow::AdditionalActionsDoubleClick(std::string name)
 {
     AdditionalActionsHandler(name);
-
 }
 
 
@@ -318,7 +317,7 @@ void InventoryWindow::HandleInventoryWindowEvent(sf::Event &event,tgui::Gui &gui
     {
         if(event.key.code == OPEN_INVENTORY_KEY)
         {
-            UpdateInventory();
+            UpdateMainWindow();
             mainWindow->show();
         }
     }
@@ -390,7 +389,7 @@ void InventoryWindow::HandleInventoryWindowEvent(sf::Event &event,tgui::Gui &gui
 
 
 
-void InventoryWindow::setupWidgets(tgui::Gui &guiRef,BaseCreature *_creature)
+void InventoryWindow::setupWidgets(const std::string &mainWindowTag, const std::string &additionalActionsWindowTag, tgui::Gui &guiRef,BaseCreature *_creature)
 {
     
     creature = _creature;
@@ -398,9 +397,9 @@ void InventoryWindow::setupWidgets(tgui::Gui &guiRef,BaseCreature *_creature)
     
     inventoryWindow.setCreature(_creature);
     
-    SetupMainWindow(INVENTORY_WIDGET_TAG,INVENTORY_WINDOWX_SIZE,INVENTORY_WINDOWY_SIZE,INVENTORY_WINDOWX_POSITION,INVENTORY_WINDOWY_POSITION,guiRef);
+    SetupMainWindow(mainWindowTag,INVENTORY_WINDOWX_SIZE,INVENTORY_WINDOWY_SIZE,INVENTORY_WINDOWX_POSITION,INVENTORY_WINDOWY_POSITION,guiRef);
     
-    SetupActionWindow(INVENTORY_ADDITIONAL_ACTIONS_WIDGET_TAG,INVENTORY_WINDOWX_SIZE,INVENTORY_WINDOWY_SIZE,ADDIT_INVENTORY_ACTIONS_WINDOWX_POSITION,ADDIT_INVENTORY_ACTIONS_WINDOWY_POSITION,guiRef);
+    SetupActionWindow(additionalActionsWindowTag,INVENTORY_WINDOWX_SIZE,INVENTORY_WINDOWY_SIZE,ADDIT_INVENTORY_ACTIONS_WINDOWX_POSITION,ADDIT_INVENTORY_ACTIONS_WINDOWY_POSITION,guiRef);
     
     SetupExamineWindow(examineWindowTag,0,0,0,0,guiRef);
 
@@ -422,7 +421,7 @@ void InventoryWindow::setupSignals()
 
 
 
-void InventoryWindow::UpdateInventory()
+void InventoryWindow::UpdateMainWindow()
 {
     int inventorySize = creature->inventory.getInventorySize();
     for(int i = 0; i < inventorySize; i++)
