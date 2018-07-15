@@ -150,7 +150,7 @@ void InventoryWindow::AdditionalActionsHandler(std::string name)
     
     if(name == EXAMINE_OPTION)
     {
-        //examineWindow.setText("SAM LIKES PENIS");
+        //examineWindow.setText("Test");
         examineWindow.show();
         std::cout << "\n Examining";
     }
