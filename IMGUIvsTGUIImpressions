@@ -1,0 +1,2 @@
+IMGUI - Juggling between types. Combobox takes static char array, I use string to stre creature data
+Easier event handling than TGUI

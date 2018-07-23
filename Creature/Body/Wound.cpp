@@ -145,6 +145,68 @@ std::vector<int> DetermineWoundTargets(int origin,AppliedForceEffect &effect, An
     
 }
 
+
+std::string GetWoundType(WoundType type)
+{
+    if(type == enMinorFracture)
+    {
+        return "Minor Fracture";
+    }
+    else if(type == enModerateFracture)
+    {
+        return  "Moderate Fracture";
+    }
+    else if(type == enMajorFracture)
+    {
+        return  "Major Fracture";
+    }
+    else if(type == enMinorPuncture)
+    {
+        return  "Minor Pucture";
+    }
+    else if(type == enModeratePuncture)
+    {
+        return  "Moderate Pucture";
+    }
+    else if(type == enMajorPuncture)
+    {
+        return  "Major Pucture";
+    }
+    else if(type == enMinorCut)
+    {
+        return  "Minor Cut";
+    }
+    else if(type == enModerateCut)
+    {
+        return  "Moderate Cut";
+    }
+    else if(type == enMajorCut)
+    {
+        return  "Major Cut";
+    }
+    else if(type == enMinorBruise)
+    {
+        return  "Minor Bruise";
+    }
+    else if(type == enModerateBruise)
+    {
+        return  "Moderate Bruise";
+    }
+    else if(type == enMajorBruise)
+    {
+        return  "Major Bruise";
+    }
+    else if(type == enRupture)
+    {
+        return  "Rupture";
+    }
+    else if(type == enDismember)
+    {
+        return  "Dismember";
+    }
+}
+
+
 void PrintWoundType(WoundType type)
 {
     if(type == enMinorFracture)

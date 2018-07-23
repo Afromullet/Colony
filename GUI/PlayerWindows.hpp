@@ -50,7 +50,7 @@ typedef tgui::ListBox EquipmentExamineBoxWidgetType;
 #define INVENTORY_EXAMINEBOX_TAG "EXAMINE_INVENTORY"
 
 #define EQUIPMENT_WIDGET_TAG "EQUIPMENT"
-#define EQUIMENT_ADDITIONAACTIONS_WIDGET_TAG "EQUIPMENT_ADDITIONALACTIONS_BOX";
+#define EQUIMENT_ADDITIONAACTIONS_WIDGET_TAG "EQUIPMENT_ADDITIONALACTIONS_BOX"
 #define EQUIPMENT_EXAMINEBOX_TAG "EXAMINE_EQUIPMENT_BOX"
 
 
@@ -153,14 +153,17 @@ public:
     void SetupActionWindow(std::string tag, int xSize,int ySize,int xPosition,int yPosition,tgui::Gui &guiRef);
     void SetupExamineWindow(std::string tag, int xSize,int ySize,int xPosition,int yPosition,tgui::Gui &guiRef);
     
-    virtual void DoubleClickAction(std::string name) = 0;
+    void MainDoubleClickAction(std::string name);
+    bool isAnyInitialWindowVisible();
+    
     virtual void AdditionalActionsDoubleClick(std::string name) = 0;
     virtual void AdditionalActionsHandler(std::string name) = 0;
     virtual void setupSignals() = 0;
-    virtual bool isAnyWindowVisible() = 0;
+    
     virtual void HandleEvent(sf::Event &event,tgui::Gui &guiRef) = 0;
     virtual void UpdateMainWindow() = 0;
-    
+    virtual void HideAllWindows() = 0;
+    virtual bool isAnyWindowVisible() = 0;
    // virtual void AddActionWindowOption(const std::string str) = 0;
     
     void AddTextToMainWindow(const std::string &str);
@@ -216,14 +219,14 @@ public:
     InventoryWindow();
     
     
-    void DoubleClickAction(std::string name);
+   
     void AdditionalActionsDoubleClick(std::string name);
     
    
     void AdditionalActionsHandler(std::string name);
     
     void HandleEvent(sf::Event &event,tgui::Gui &guiRef);
-    void HandleInventoryWindowEvent(sf::Event &event,tgui::Gui &guiRef);
+    void HandleWindowEvent(sf::Event &event,tgui::Gui &guiRef);
   
     
     
@@ -231,7 +234,7 @@ public:
 
     
     
-    void setupWidgets(const std::string &mainWindowTag, const std::string &additionalActionsWindowTag,tgui::Gui &guiRef,BaseCreature *_creature);
+    void setupWidgets(const std::string &mainWindowTag, const std::string &exWindowTag,const std::string &additionalActionsWindowTag,tgui::Gui &guiRef,BaseCreature *_creature);
     void setupSignals();
        
     void UpdateMainWindow();
@@ -240,6 +243,8 @@ public:
     
 
     bool isAnyWindowVisible();
+    
+    void HideAllWindows();
    
  
   
@@ -250,6 +255,58 @@ public:
     
 };
 
+class EquipmentWindow : public SelectionWindow
+{
+private:
+
+    BaseCreature *creature;
+    
+
+    
+    
+    
+public:
+    
+    EquipmentWindow();
+    
+    
+    
+    void AdditionalActionsDoubleClick(std::string name);
+    
+    
+    void AdditionalActionsHandler(std::string name);
+    
+    void HandleEvent(sf::Event &event,tgui::Gui &guiRef);
+    void HandleWindowEvent(sf::Event &event,tgui::Gui &guiRef);
+    
+    
+    
+    
+    
+    
+    
+    void setupWidgets(const std::string &mainWindowTag, const std::string &exWindowTag,const std::string &additionalActionsWindowTag,tgui::Gui &guiRef,BaseCreature *_creature);
+    void setupSignals();
+    
+    void UpdateMainWindow();
+    
+    
+    
+    
+    bool isAnyWindowVisible();
+    void HideAllWindows();
+    
+    
+    
+    
+    
+    
+    
+    
+};
+
+
+
 
 
 
@@ -257,6 +314,7 @@ class PlayerGUI
 {
 private:
     InventoryWindow inventoryWindow;
+    EquipmentWindow equipmentWindow;
    
     
     BaseCreature *creature;
@@ -265,7 +323,7 @@ private:
 public:
     PlayerGUI();
     void HandleEvent(sf::Event &event,tgui::Gui &guiRef);
-    void HandleInventoryEvent(sf::Event &event,tgui::Gui &guiRef);
+    void HandleWindowEvent(sf::Event &event,tgui::Gui &guiRef);
     void SetupPlayerGUI(tgui::Gui &guiRef,BaseCreature *_creature);
     
     

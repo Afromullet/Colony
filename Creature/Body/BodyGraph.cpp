@@ -752,3 +752,10 @@ void CreatureBody::PrintWounds()
     }
     
 }
+
+void CreatureBody::AddVertex(BodyPart &bp)
+{
+    
+    boost::add_vertex(bp,anatomyGraph);
+    
+}

@@ -44,6 +44,7 @@ void SetupWoundRuleset();
 std::vector<int> DetermineWoundTargets(int origin,AppliedForceEffect &effect, AnatomyGraph &graph);
 
 void PrintWoundType(WoundType type);
+std::string GetWoundType(WoundType type);
 
 
 class WoundCalculations

@@ -67,7 +67,7 @@
 #include "ItemManager.hpp"
 #include <memory>
 #include "PlayerWindows.hpp"
-
+#include "ImguiDebug.hpp"
 
 void GameLoop3();
 
@@ -336,7 +336,7 @@ srand(time(NULL));
     
     
     player.inventory.showItemStats(0);
-    //player.EquipItem(0);
+  //  player.EquipItem(0);
     
     
     std::cout << "\n\n\n";
@@ -367,7 +367,7 @@ srand(time(NULL));
     
     
     player.inventory.showItemStats(0);
-    //player.EquipItem(0);
+  //  player.EquipItem(0);
     
     for(int i=0; i < 10; i++)
     {
@@ -464,7 +464,7 @@ srand(time(NULL));
          stats.force = 100;
          stats.contactArea = 1;
          stats.attackType = enBlunt;
-         Single_Attack_Melee(stats,target);
+         Single_Attack_Melee(stats,player);
      
          target.body.PrintWounds();
 
@@ -472,7 +472,7 @@ srand(time(NULL));
           stats.force = 100;
           stats.contactArea = 1;
           stats.attackType = enSlash;
-          Single_Attack_Melee(stats,target);
+          Single_Attack_Melee(stats,player);
     
     target.body.PrintWounds();
      
@@ -484,7 +484,7 @@ srand(time(NULL));
          stats.force = 100;
          stats.contactArea = 1;
          stats.attackType = enPierce;
-         Single_Attack_Melee(stats,target);
+         Single_Attack_Melee(stats,player);
      
 
   
@@ -493,7 +493,7 @@ srand(time(NULL));
          stats.force = 100;
          stats.contactArea = 5;
          stats.attackType = enPierce;
-         Single_Attack_Melee(stats,target);
+         Single_Attack_Melee(stats,player);
      
          target.body.PrintWounds();
      
@@ -502,7 +502,7 @@ srand(time(NULL));
          stats.force = 1000;
          stats.contactArea = 1;
          stats.attackType = enPierce;
-         Single_Attack_Melee(stats,target);
+         Single_Attack_Melee(stats,player);
          
          
      
@@ -519,9 +519,23 @@ srand(time(NULL));
     testArmor2.addSection("upperbodysection");
     testArmor2.addSection("armsection");
     testArmor2.setDescriptiveText("Descriptive text");
+
+    std::vector<int> verts;
+
+   verts = getConnectedVertices(0,player.body.anatomyGraph);
     
+    for(int i = 0; i < verts.size(); i++)
+    {
+        std::cout << "\n BP " << player.body.anatomyGraph[verts.at(i)].getBodyPartName();
+    }
+    std::cout << "\n";
+   verts =  getConnectedVertices(5,player.body.anatomyGraph);
+
+    for(int i = 0; i < verts.size(); i++)
+    {
+        std::cout << "\n BP " << player.body.anatomyGraph[verts.at(i)].getBodyPartName();
+    }
     
-  
    // mapdata.AddItemToMap(ui);
     //std::cout << mapdata.items.at(0)->getItemName();
     
@@ -655,7 +669,7 @@ void GameLoop3()
                 
             if(event.type == sf::Event::KeyPressed)
             {
-                HandlePlayerInput(event,mapdata,player);
+              //  HandlePlayerInput(event,mapdata,player);
                     
                 if(event.key.code == sf::Keyboard::X)
                 {
@@ -665,7 +679,7 @@ void GameLoop3()
                     
             }
             
-            playerGUI.HandleInventoryEvent(event,gui);
+           // playerGUI.HandleWindowEvent(event,gui);
             //inventoryWindow.HandleEvent(event,gui,player.inventory);
             //inventoryWindow.UpdateInventory(player.inventory);
             
@@ -674,18 +688,29 @@ void GameLoop3()
             
         }
         
-        
+     
         
             
             
         ImGui::SFML::Update(window, deltaClock.restart());
         
-              
+       
+    
  
+        
+        BPCreatorInput();
+        BPExaminer();
+        BPConnector();
+        BodyGraphViewer(player.body);
+        
+
+        ImGui::SFML::Render(window);
         
         
         
     
+        
+        
      
       
         

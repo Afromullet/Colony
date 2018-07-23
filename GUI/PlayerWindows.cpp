@@ -16,8 +16,9 @@
 #include "Globals.hpp"
 #include <memory>
 
+#include "BodyGraphGetters.hpp"
 #include "Constants.hpp"
-
+#include "Wound.hpp"
 
 InventoryWindow inventoryWindow;
 ExamineWindow examineWindow;
@@ -62,26 +63,45 @@ PlayerGUI::PlayerGUI()
 void PlayerGUI::SetupPlayerGUI(tgui::Gui &guiRef,BaseCreature *_creature)
 {
     creature = _creature;
-    inventoryWindow.setupWidgets(INVENTORY_WIDGET_TAG,INVENTORY_ADDITIONAL_ACTIONS_WIDGET_TAG,guiRef,_creature);
+    inventoryWindow.setupWidgets(INVENTORY_WIDGET_TAG,EQUIPMENT_EXAMINEBOX_TAG,INVENTORY_ADDITIONAL_ACTIONS_WIDGET_TAG,guiRef,_creature);
     inventoryWindow.setupSignals();
+    
+    equipmentWindow.setupWidgets(EQUIPMENT_WIDGET_TAG,EQUIPMENT_EXAMINEBOX_TAG,EQUIMENT_ADDITIONAACTIONS_WIDGET_TAG,guiRef,_creature);
+    equipmentWindow.setupSignals();
 }
 
 
-void PlayerGUI::HandleInventoryEvent(sf::Event &event,tgui::Gui &guiRef)
+//TODO handle window opening so that only one window at a time can be opened
+//Maybe add a "Close all windows except xxx function that takes a widget as a parameter that closes
+//All functions except the ones passed as a parameter
+void PlayerGUI::HandleWindowEvent(sf::Event &event,tgui::Gui &guiRef)
 {
     //Don't want to move when navigating through the inventory
-     if(inventoryWindow.isAnyWindowVisible())
+     if(inventoryWindow.isAnyInitialWindowVisible())
          creature->setCanMove(false);
      else
          creature->setCanMove(true);
     
+    
+     if(inventoryWindow.isAnyWindowVisible())
+     {
+         equipmentWindow.HideAllWindows();
+     }
+    else if(equipmentWindow.isAnyWindowVisible())
+    {
+        inventoryWindow.HideAllWindows();
+    }
+     
+    
      inventoryWindow.HandleEvent(event,guiRef);
+     equipmentWindow.HandleEvent(event,guiRef);
 }
 
 
 SelectionWindow::SelectionWindow()
 {
-    
+    curItemIndex = 0;
+    curActionsIndex = 0;
 }
 
 void SelectionWindow::SetupMainWindow(std::string tag, int xSize,int ySize,int xPosition,int yPosition,tgui::Gui &guiRef)
@@ -126,6 +146,22 @@ void SelectionWindow::SetupExamineWindow(std::string tag, int xSize,int ySize,in
     examineWindow.setupWidgets(guiRef,tag,EXAMINE_INV_WINDOW_X_POSITION,EXAMINE_INV_WINDOW_Y_POSITION);
     examineWindow.hide();
 }
+
+void SelectionWindow::MainDoubleClickAction(std::string name)
+{
+    
+    std::cout << "\n inv double click";
+    curItemIndex = mainWindow->getSelectedItemIndex();
+    additional_ActionsWindow->setSelectedItemByIndex(0); //Can't remember why this is here
+    additional_ActionsWindow->show();
+    
+}
+
+bool SelectionWindow::isAnyInitialWindowVisible()
+{
+    return mainWindow->isVisible() || additional_ActionsWindow->isVisible() || examineWindow.isVisible();
+}
+
 
 void SelectionWindow::AddTextToMainWindow(const std::string &str)
 {
@@ -238,20 +274,10 @@ void ExamineWindow::setupWidgets(tgui::Gui &guiRef,std::string _tag,int xPositio
 
 InventoryWindow::InventoryWindow()
 {
-    curItemIndex = 0;
-    curActionsIndex = 0;
+
     
 }
 
-void InventoryWindow::DoubleClickAction(std::string name)
-{
-    
-    std::cout << "\n inv double click";
-    curItemIndex = mainWindow->getSelectedItemIndex();
-    additional_ActionsWindow->setSelectedItemByIndex(0); //Can't remember why this is here
-    additional_ActionsWindow->show();
-    
-}
 
 void InventoryWindow::AdditionalActionsDoubleClick(std::string name)
 {
@@ -265,7 +291,7 @@ void InventoryWindow::AdditionalActionsHandler(std::string name)
 
 
     curActionsIndex = additional_ActionsWindow->getSelectedItemIndex();
-    
+    std::cout << "\n Current INdex " << curItemIndex;
     
     if(name == EXAMINE_OPTION)
     {
@@ -281,6 +307,12 @@ void InventoryWindow::AdditionalActionsHandler(std::string name)
     }
     else if(name == EQUIP_OPTION)
     {
+        creature->EquipItem(curItemIndex);
+        mainWindow->hide();
+        UpdateMainWindow();
+        mainWindow->show();
+        additional_ActionsWindow->hide();
+        
         std::cout << "\n Equipping";
     }
     
@@ -293,11 +325,11 @@ void InventoryWindow::AdditionalActionsHandler(std::string name)
 
 void InventoryWindow::HandleEvent(sf::Event &event,tgui::Gui &guiRef)
 {
-    HandleInventoryWindowEvent(event,guiRef);
+    HandleWindowEvent(event,guiRef);
 }
 
 
-void InventoryWindow::HandleInventoryWindowEvent(sf::Event &event,tgui::Gui &guiRef)
+void InventoryWindow::HandleWindowEvent(sf::Event &event,tgui::Gui &guiRef)
 {
     
     
@@ -389,12 +421,12 @@ void InventoryWindow::HandleInventoryWindowEvent(sf::Event &event,tgui::Gui &gui
 
 
 
-void InventoryWindow::setupWidgets(const std::string &mainWindowTag, const std::string &additionalActionsWindowTag, tgui::Gui &guiRef,BaseCreature *_creature)
+void InventoryWindow::setupWidgets(const std::string &mainWindowTag,const std::string &exWindowTag, const std::string &additionalActionsWindowTag, tgui::Gui &guiRef,BaseCreature *_creature)
 {
     
     creature = _creature;
     
-    
+    examineWindowTag = exWindowTag;
     inventoryWindow.setCreature(_creature);
     
     SetupMainWindow(mainWindowTag,INVENTORY_WINDOWX_SIZE,INVENTORY_WINDOWY_SIZE,INVENTORY_WINDOWX_POSITION,INVENTORY_WINDOWY_POSITION,guiRef);
@@ -413,7 +445,7 @@ void InventoryWindow::setupSignals()
     
     if(mainWindow)
     {
-        mainWindow->connect(DOUBLE_CLICK_SIGNAL,&::InventoryWindow::DoubleClickAction,this);
+        mainWindow->connect(DOUBLE_CLICK_SIGNAL,&::InventoryWindow::MainDoubleClickAction,this);
     }
     
     additional_ActionsWindow->connect(DOUBLE_CLICK_SIGNAL,&::InventoryWindow::AdditionalActionsDoubleClick,this);
@@ -424,6 +456,7 @@ void InventoryWindow::setupSignals()
 void InventoryWindow::UpdateMainWindow()
 {
     int inventorySize = creature->inventory.getInventorySize();
+    mainWindow->removeAllItems();
     for(int i = 0; i < inventorySize; i++)
     {
         
@@ -431,17 +464,259 @@ void InventoryWindow::UpdateMainWindow()
     }
 }
 
-
-
 bool InventoryWindow::isAnyWindowVisible()
 {
-    return mainWindow->isVisible() || additional_ActionsWindow->isVisible() || examineWindow.isVisible();
+    isAnyInitialWindowVisible();
 }
+
+void InventoryWindow::HideAllWindows()
+{
+    mainWindow->hide();
+    additional_ActionsWindow->hide();
+    examineWindow.hide();
+}
+
+EquipmentWindow::EquipmentWindow()
+{
+    
+    
+}
+
+
+void EquipmentWindow::AdditionalActionsDoubleClick(std::string name)
+{
+    AdditionalActionsHandler(name);
+}
+
+
+
+void EquipmentWindow::AdditionalActionsHandler(std::string name)
+{
+    
+    
+    curActionsIndex = additional_ActionsWindow->getSelectedItemIndex();
+    
+    std::string str = "";
+    
+    if(name == EXAMINE_OPTION)
+    {
+        std::vector<WoundType> &wounds = creature->body.anatomyGraph[curItemIndex].getWoundsRef();
+        
+        
+        if(wounds.size() == 0)
+        {
+            str = "No wounds";
+        }
+        else
+        {
+            for(int i = 0; i < wounds.size(); i++)
+            {
+                str += GetWoundType(wounds.at(i)) + ", ";
+            }
+        }
+
+        
+        examineWindow.setText(str);
+        
+    //examineWindow.setText(creature->body.anatomyGraph[curItemIndex].getBodyPartName());
+        
+        str = "";
+        examineWindow.show();
+        std::cout << "\n Examining";
+    }
+ 
+    
+    additional_ActionsWindow->show();
+    
+    
+    
+    
+}
+
+void EquipmentWindow::HandleEvent(sf::Event &event,tgui::Gui &guiRef)
+{
+    HandleWindowEvent(event,guiRef);
+}
+
+
+void EquipmentWindow::HandleWindowEvent(sf::Event &event,tgui::Gui &guiRef)
+{
+    
+    
+    
+    if(isAdditionalActionsWindowVisible() && !isExamineWindowVisible())
+    {
+        mainWindow->deselectItem(); //So that the inventory double click action is not triggered again when the additional actions window is open
+    }
+    else if(isExamineWindowVisible() && isAdditionalActionsWindowVisible() && isMainWindowVisible())
+    {
+        //So that the inventory double click action is not triggered again when the additional actions window is open
+        mainWindow->deselectItem();
+        additional_ActionsWindow->deselectItem();
+    }
+    
+    if(!isMainWindowVisible())
+    {
+        if(event.key.code == OPEN_EQUIPMENT_KEY)
+        {
+            UpdateMainWindow();
+            mainWindow->show();
+        }
+    }
+    else if(isMainWindowVisible() && !isAdditionalActionsWindowVisible() && !isExamineWindowVisible())
+    {
+        if(event.key.code == CLOSE_WINDOW_KEY && event.type == sf::Event::KeyReleased)
+        {
+            mainWindow->removeAllItems();
+            mainWindow->hide();
+        }
+        else if(event.key.code == DOWN_KEY && event.type == sf::Event::KeyReleased)
+        {
+            int index = mainWindow->getSelectedItemIndex();
+            mainWindow->setSelectedItemByIndex(++index);
+        }
+        else if(event.key.code == UP_KEY && event.type == sf::Event::KeyReleased)
+        {
+            int index = mainWindow->getSelectedItemIndex();
+            mainWindow->setSelectedItemByIndex(--index);
+        }
+        else if(event.key.code == SELECT_ACTION_KEY && event.type == sf::Event::KeyReleased)
+        {
+            
+            curItemIndex = mainWindow->getSelectedItemIndex();
+            additional_ActionsWindow->show();
+        }
+        
+        
+    }
+    else if(isMainWindowVisible() && isAdditionalActionsWindowVisible() && !isExamineWindowVisible())
+    {
+        if(event.key.code == CLOSE_WINDOW_KEY && event.type == sf::Event::KeyReleased)
+        {
+            additional_ActionsWindow->hide();
+        }
+        else if(event.key.code == DOWN_KEY && event.type == sf::Event::KeyReleased)
+        {
+            
+            int index = additional_ActionsWindow->getSelectedItemIndex();
+            additional_ActionsWindow->setSelectedItemByIndex(++index);
+        }
+        else if(event.key.code == UP_KEY && event.type == sf::Event::KeyReleased)
+        {
+            int index = additional_ActionsWindow->getSelectedItemIndex();
+            additional_ActionsWindow->setSelectedItemByIndex(--index);
+        }
+        else if(event.key.code == SELECT_ACTION_KEY && event.type == sf::Event::KeyReleased)
+        {
+            
+            curActionsIndex = additional_ActionsWindow->getSelectedItemIndex();
+            AdditionalActionsHandler(additional_ActionsWindow->getSelectedItem());
+            //additionalActionsWindow->show();
+        }
+        
+    }
+    else if(isMainWindowVisible() && isAdditionalActionsWindowVisible() && isExamineWindowVisible())
+    {
+        if(event.key.code == CLOSE_WINDOW_KEY && event.type == sf::Event::KeyReleased)
+        {
+            hideExamineWindow();
+            
+        }
+        
+    }
+}
+
+
+
+
+
+
+void EquipmentWindow::setupWidgets(const std::string &mainWindowTag,const std::string &exWindowTag, const std::string &additionalActionsWindowTag, tgui::Gui &guiRef,BaseCreature *_creature)
+{
+    
+    creature = _creature;
+    
+    examineWindowTag = exWindowTag;
+    inventoryWindow.setCreature(_creature);
+    
+    SetupMainWindow(mainWindowTag,EQUIPMENT_WINDOWX_SIZE,EQUIPMENT_WINDOWY_SIZE,EQUIPMENT_WINDOWX_POSITION,EQUIPMENT_WINDOWY_POSITION,guiRef);
+    
+    SetupActionWindow(additionalActionsWindowTag,EQUIPMENT_WINDOWX_SIZE,EQUIPMENT_WINDOWY_SIZE,ADDIT_EQUIPMENT_ACTIONS_WINDOWX_POSITION,ADDIT_EQUIPMENT_ACTIONS_WINDOWY_POSITION,guiRef);
+    
+    SetupExamineWindow(examineWindowTag,0,0,0,0,guiRef);
+    
+    AddAdditionalAction(EXAMINE_OPTION);
+
+}
+
+void EquipmentWindow::setupSignals()
+{
+    
+    if(mainWindow)
+    {
+        mainWindow->connect(DOUBLE_CLICK_SIGNAL,&::EquipmentWindow::MainDoubleClickAction,this);
+    }
+    
+    additional_ActionsWindow->connect(DOUBLE_CLICK_SIGNAL,&::EquipmentWindow::AdditionalActionsDoubleClick,this);
+}
+
+
+
+void EquipmentWindow::UpdateMainWindow()
+{
+    
+    std::string bpName;
+    std::vector<int> parts = getExternalBodyParts(creature->body.anatomyGraph);
+    int inventorySize = creature->inventory.getInventorySize();
+    
+    
+
+    std::string eqString = "";
+    int offset = 0;
+    for(int i = 0; i < parts.size(); i++)
+    {
+        BodyPart &bp =  creature->body.anatomyGraph[parts.at(i)];
+        
+        //If body part can hold neither weapon nor armor, no need to check ti
+        if(!bp.getCanHoldArmor() && !bp.getCanHoldWeapon())
+            continue;
+        
+        eqString += bp.getBodyPartName();
+        
+        if(bp.getCanHoldWeapon())
+            eqString += " Weapon:" + bp.getWeaponRef().getItemName();
+        
+        if(bp.getCanHoldArmor())
+            eqString += " Armor:" + bp.getArmorRef().getItemName();
+    
+        
+        
+        AddTextToMainWindow(eqString);
+        
+        eqString = "";
+    }
+}
+
+bool EquipmentWindow::isAnyWindowVisible()
+{
+    isAnyInitialWindowVisible();
+}
+
+
+void EquipmentWindow::HideAllWindows()
+{
+    mainWindow->hide();
+    additional_ActionsWindow->hide();
+    examineWindow.hide();
+    
+}
+
 
 void SetupGUI(tgui::Gui &guiRef)
 {
  
-    
+
+
     
     defaultTheme = tgui::Theme::create("Black.txt");
     playerGUI.SetupPlayerGUI(guiRef,&player);

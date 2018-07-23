@@ -42,6 +42,15 @@
  */
 
 //TODO, whatever can be private, make private
+
+
+#define BP_BOOL_VALUES 8
+#define BP_INT_VALUES 2
+#define BP_STRING_VALUES 2
+#define BP_FLOAT_VALUES 1
+#define BP_ARMOR_VALUES 1
+#define BP_WEAPON_VALUES 1
+
 class BodyPart
 {
     
@@ -142,6 +151,7 @@ public:
     float getRelativeSize() const;
     std::string getBodyPartName() const;
     std::vector<WoundType> getWounds() const;
+    std::vector<WoundType> &getWoundsRef() ;
     
     
     void AddWound(WoundType woundType);

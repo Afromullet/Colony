@@ -337,6 +337,23 @@ std::vector<int> getInternalVertices(int n,AnatomyGraph &graph)
     
 }
 
+std::vector<int> getConnectedVertices(int n,AnatomyGraph &graph)
+{
+    std::vector<int> tempArr;
+    
+    AnatomyIndexMap indMap = get(vertex_index, graph);
+    AnatomyAdjacencyIt neighbourIt, neighbourEnd;
+    
+    for(boost::tie(neighbourIt, neighbourEnd) = adjacent_vertices( indMap[n], graph ); neighbourIt != neighbourEnd; ++neighbourIt   )
+    {
+        
+        tempArr.push_back(indMap[*neighbourIt]);
+        //std:: cout <<  graph[*neighbourIt].getBodyPartName();
+    }
+    
+    return tempArr;
+}
+
 void WoundReport(AnatomyGraph &graph)
 {
     for(int i =0; i < num_vertices(graph); i++)

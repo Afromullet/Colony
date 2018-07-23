@@ -76,7 +76,7 @@ typedef boost::graph_traits<AnatomyGraph>::edge_descriptor AnatomyEdge;
 
 typedef boost::graph_traits <AnatomyGraph>::edge_iterator AnatomyEdgeIt;
 typedef boost::graph_traits<AnatomyGraph>::vertex_iterator AnatomyVertexIt;
-
+typedef boost::graph_traits<AnatomyGraph>::adjacency_iterator AnatomyAdjacencyIt;
 
 
 //typedef std::map<AnatomyVertex,AnatomyVertex> AnatomyMap;
@@ -122,6 +122,7 @@ public:
     void ApplyAttack(AttackStats attackStats, int n);
     void PrintWounds();
     
+    void AddVertex(BodyPart &bp);
    
     
     

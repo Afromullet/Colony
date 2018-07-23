@@ -442,6 +442,11 @@ std::vector<WoundType> BodyPart::getWounds() const
     return wounds;
 }
 
+std::vector<WoundType>& BodyPart::getWoundsRef() 
+{
+    return wounds;
+}
+
 void BodyPart::AddWound(WoundType woundType)
 {
     wounds.push_back(woundType);

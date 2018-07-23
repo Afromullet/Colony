@@ -125,6 +125,8 @@ int getRandomExternalBodyParts(const AnatomyGraph &graph);
 int getFirstUnequippedFromSection(const AnatomyGraph &graph, const std::string &section);
 std::vector<int> getVerticesThatCanHoldWeapons(const AnatomyGraph &graph);
 std::vector<int> getInternalVertices(int n,AnatomyGraph &graph);
+std::vector<int> getConnectedVertices(int n,AnatomyGraph &graph);
+
 void WoundReport(AnatomyGraph &graph);
 
 
