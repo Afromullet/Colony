@@ -694,14 +694,15 @@ void GameLoop3()
             
         ImGui::SFML::Update(window, deltaClock.restart());
         
-       
-    
- 
+      //  BPCreatorInput();
         
-        BPCreatorInput();
-        BPExaminer();
-        BPConnector();
-        BodyGraphViewer(player.body);
+        BodyPartCreator::BPCreator();
+        BodyPartEditor::BPEditor();
+        BodyGraphEditor::GraphEditor();
+        BodyGraphViewer::GraphViewer();
+        //BPExaminer();
+       // BPConnector();
+        //BodyGraphViewer2(player.body);
         
 
         ImGui::SFML::Render(window);

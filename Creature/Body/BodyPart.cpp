@@ -97,8 +97,7 @@ BodyPart::BodyPart() : armor(NO_ARMOR),weapon(NO_WEAPON)
     health = 1;
     id = -1;
     
-    bodyPartName = "No part";
-    
+    bodyPartName = INVALID_BODY_PART;
 }
 
 BodyPart::BodyPart(bool _canHoldWeapon, bool _canHoldArmor, bool _canInteract, bool _canMoveCreature,std::string _bodyPartName, int _health) : canHoldArmor(_canHoldArmor),canHoldWeapon(_canHoldWeapon),armor(NO_ARMOR),weapon(NO_WEAPON),health(1), bodyPartName(_bodyPartName)

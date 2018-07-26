@@ -96,6 +96,7 @@ private:
     std::string m_file;
     std::vector<std::string> bodyTokenList;
     float bodySize;
+    std::string bodyName;
     
 public:
     
@@ -109,6 +110,9 @@ public:
     void GenerateEdges();
     void GenerateOrganEdges();
     void InitializeBodypartEquipment();
+    
+    void setName(std::string name);
+    std::string getName();
     
     void load();
     void openBodyTypeFile(const std::string &fileName);

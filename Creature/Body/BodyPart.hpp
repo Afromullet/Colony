@@ -28,7 +28,7 @@
 #define FOOT_STRING "foot"
 #define HAND_STRING "hand"
 
-
+#define INVALID_BODY_PART "Invalid Body Part";
 
 
 /*

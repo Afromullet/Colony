@@ -711,6 +711,16 @@ void CreatureBody::InitializeBodypartEquipment()
     }
 }
 
+void CreatureBody::setName(std::string name)
+{
+    bodyName = name;
+}
+
+std::string CreatureBody::getName()
+{
+    return bodyName;
+}
+
 //N is the index of the node
 /*
  What's the problem I need to solve here? Need to find a way to convert the force applied to a body part

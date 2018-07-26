@@ -13,13 +13,17 @@
 //Storing information entered in the debug menu
 
 std::shared_ptr<CreatureBody> anatomy;
+
 std::vector<BodyPart> debugBodyparts;
 std::vector<std::string> debugBodyartNames;
+
+std::vector<CreatureBody> debugBodies;
+std::vector<std::string> debugBodiesNames;
+
+
 BodyPart tempBodyPart;
-bool canSee,canSmell,canBreathe;
-bool canHoldWeapon,canHoldArmor,canInteract,canMoveCreature,isInternal;
-int health;
-std::string bodyPartToken,section,bodyPartName;
+CreatureBody tempBody;
+
 
 //Wrappers to help deal with the vector debugBodyParts and anatomy storage containers
 //From https://eliasdaler.github.io/using-imgui-with-sfml-pt2/
@@ -49,6 +53,416 @@ namespace ImGui
     
 }
 
+BodyPartValidity isValidBodyPart(BodyPart &bp,std::vector<BodyPart> &bpVec)
+{
+    
+    bool nameExists,tokenExists;
+    for(int i = 0; i < bpVec.size(); i++)
+    {
+        if(bpVec.at(i).getBodyPartName() == bp.getBodyPartName() && bpVec.at(i).getBodyPartToken() == bp.getBodyPartToken())
+        {
+            return BodyPartValidity::DUPLICATE_NAME_AND_TOKEN;
+        }
+        else if(bpVec.at(i).getBodyPartName() == bp.getBodyPartName())
+        {
+            return BodyPartValidity::DUPLICATE_NAME;
+        }
+        else if(bpVec.at(i).getBodyPartToken() == bp.getBodyPartToken())
+        {
+            return BodyPartValidity::DUPLICATE_TOKEN;
+        }
+    }
+    
+    return BodyPartValidity::VALID_BODY_PART;
+    
+   
+}
+
+
+namespace BodyPartCreator
+{
+
+    void BPCreator()
+    {
+        
+        ImGui::Begin(CREATE_BODYPART_WINDOW);
+        
+        
+        ImGui::LabelText("label", "Value");
+        
+        {
+            ReadInput();
+            if(ImGui::Button(CREATE_BODYPART_BUTTON))
+            {
+                CreateBodyPart();
+            }
+        }
+        
+        ImGui::End();
+
+    }
+    
+    void ReadInput()
+    {
+        ImGui::InputText("Bodypart Name", bpName, IM_ARRAYSIZE(bpName));
+        ImGui::InputText("Bodypart Token", bpToken, IM_ARRAYSIZE(bpToken));
+        ImGui::InputText("Bodypart Section", bpSection, IM_ARRAYSIZE(bpSection));
+        
+        ImGui::Combo("Can Hold Weapon", &canHoldWeaponSelect, items, IM_ARRAYSIZE(items));
+        ImGui::Combo("Can Hold Armor", &canHoldArmorSelect, items, IM_ARRAYSIZE(items));
+        ImGui::Combo("Can Interact", &canInteractSelect, items, IM_ARRAYSIZE(items));
+        ImGui::Combo("Can Move Creture", &canMoveCreatureSelect, items, IM_ARRAYSIZE(items));
+        ImGui::Combo("Can See", &canSeeSelect, items, IM_ARRAYSIZE(items));
+        ImGui::Combo("Can Smell", &canSmellSelect, items, IM_ARRAYSIZE(items));
+        ImGui::Combo("Can Breathe", &canBreatheSelect, items, IM_ARRAYSIZE(items));
+    }
+    
+    void CreateBodyPart()
+    {
+        tempBodyPart.setCanHoldWeapon(canHoldWeaponSelect);
+        tempBodyPart.setCanHoldArmor(canHoldArmorSelect);
+        tempBodyPart.setCanInteract(canInteractSelect);
+        tempBodyPart.setCanMoveCreature(canMoveCreatureSelect);
+        tempBodyPart.setCanSee(canSeeSelect);
+        tempBodyPart.setCanSmell(canSmellSelect);
+        tempBodyPart.setCanBreathe(canBreatheSelect);
+        tempBodyPart.setBodyPartName(bpName);
+        tempBodyPart.setBodyPartToken(bpToken);
+        tempBodyPart.setSection(bpSection);
+        
+        BodyPartValidity validity = isValidBodyPart(tempBodyPart,debugBodyparts);
+        
+        if(validity == DUPLICATE_NAME_AND_TOKEN)
+        {
+            std::cout << "\n Duplicate name and token";
+        }
+        else if(validity == DUPLICATE_NAME)
+        {
+            std::cout << "\n Duplicate name ";
+        }
+        else if(validity == DUPLICATE_TOKEN)
+        {
+            std::cout << "\n Duplicate token";
+        }
+        else if(validity == VALID_BODY_PART)
+        {
+            std::cout << "\n Valid body part";
+            
+            debugBodyparts.push_back(tempBodyPart);
+        }
+        
+        
+        
+        
+        tempBodyPart =  BodyPart();
+        
+        DisplayShit();
+
+    }
+    
+}
+
+namespace BodyPartEditor
+{
+    
+    void BPEditor()
+    {
+        ImGui::Begin(EDIT_BODYPART_WINDOW);
+        
+        
+        ImGui::LabelText("label", "Value");
+        
+        {
+            UniversalDebugFunctions::UpdateBodyPartNames();
+            
+            ImGui::Combo(BP_EDITOR_SELECT_COMBO, &item, debugBodyartNames);
+            
+            //Don't want out of bounds condition
+            if(item > -1)
+            {
+                BodyPart &bpRef = debugBodyparts.at(item);
+                //std::cout << "\n Printing selected item name " << bpRef.getBodyPartName();
+                DisplaySelectedInput(bpRef);
+                
+                
+                
+                ImGui::Separator();
+                ImGui::Separator();
+                
+              
+                ReadInput();
+               
+                if(ImGui::Button(EDIT_BODYPART_BUTTON))
+                {
+                    
+                    UpdateBodyPart(bpRef);
+                }
+                
+                
+                
+            }//End index > -1
+            
+            
+        }//
+        ImGui::End();
+    }
+    
+    void DisplaySelectedInput(BodyPart &bpRef)
+    {
+        ImGui::Text("Current Values");
+        
+        std::string dataString = "Name: " + bpRef.getBodyPartName();
+        ImGui::Text("%s",dataString.c_str());
+        
+        dataString = "Token: " + bpRef.getBodyPartToken();
+        ImGui::Text("%s",dataString.c_str());
+        
+        dataString = "Section: " + bpRef.getSection();
+        ImGui::Text("%s",dataString.c_str());
+        
+        dataString = "Can Hold Weapon: " + convertBPTruthVal(bpRef.getCanHoldWeapon());
+        ImGui::Text("%s",dataString.c_str());
+        
+        dataString = "Can Hold Armor " + convertBPTruthVal(bpRef.getCanHoldArmor());
+        ImGui::Text("%s",dataString.c_str());
+        
+        dataString = "Can Hold Interact " + convertBPTruthVal(bpRef.getCanInteract());
+        ImGui::Text("%s",dataString.c_str());
+        
+        dataString = "Can Hold Interact " + convertBPTruthVal(bpRef.getCanMoveCreature());
+        ImGui::Text("%s",dataString.c_str());
+        
+        dataString = "Can Hold Interact " + convertBPTruthVal(bpRef.getCanSee());
+        ImGui::Text("%s",dataString.c_str());
+        
+        dataString = "Can Hold Interact " + convertBPTruthVal(bpRef.getCanSmell());
+        ImGui::Text("%s",dataString.c_str());
+        
+        dataString = "Can Hold Interact " + convertBPTruthVal(bpRef.getCanBreathe());
+        ImGui::Text("%s",dataString.c_str());
+
+    }
+    
+    void ReadInput()
+    {
+        
+        ImGui::InputText("Bodypart Name",bpName, IM_ARRAYSIZE(bpName));
+        ImGui::InputText("Bodypart Token", bpToken, IM_ARRAYSIZE(bpToken));
+        ImGui::InputText("Bodypart Section", bpSection, IM_ARRAYSIZE(bpSection));
+    
+        //Don't change the items const char array..0 index = false, 1 index = true;
+        ImGui::Combo("Can Hold Weapon", &canHoldWeaponSelect, items, IM_ARRAYSIZE(items));
+        ImGui::Combo("Can Hold Armor", &canHoldArmorSelect, items, IM_ARRAYSIZE(items));
+        ImGui::Combo("Can Interact", &canInteractSelect, items, IM_ARRAYSIZE(items));
+        ImGui::Combo("Can Move Creture", &canMoveCreatureSelect, items, IM_ARRAYSIZE(items));
+        ImGui::Combo("Can See", &canSeeSelect, items, IM_ARRAYSIZE(items));
+        ImGui::Combo("Can Smell", &canSmellSelect, items, IM_ARRAYSIZE(items));
+        ImGui::Combo("Can Breathe", &canBreatheSelect, items, IM_ARRAYSIZE(items));
+    }
+    
+    void UpdateBodyPart(BodyPart &bpRef)
+    {
+        BodyPart tempBP = bpRef;
+        std::cout << "\n Item number" << item;
+        
+        bpRef.setCanHoldWeapon(canHoldWeaponSelect);
+        bpRef.setCanHoldArmor(canHoldArmorSelect);
+        bpRef.setCanInteract(canInteractSelect);
+        bpRef.setCanMoveCreature(canMoveCreatureSelect);
+        bpRef.setCanSee(canSeeSelect);
+        bpRef.setCanSmell(canSmellSelect);
+        bpRef.setCanBreathe(canBreatheSelect);
+        
+        bpRef.setBodyPartName(bpName);
+        bpRef.setBodyPartToken(bpToken);
+        bpRef.setSection(bpSection);
+
+    }
+    
+}
+
+
+namespace BodyGraphEditor
+{
+    
+    void CreateNewGraph()
+    {
+        ImGui::LabelText("Test","Vale");
+        {
+            static char graphName[128] = "Empty";
+            ImGui::InputText("Graph Name", graphName, IM_ARRAYSIZE(graphName));
+            
+            if(ImGui::Button(CREATE_NEW_BODYGRPAH_BUTTON))
+            {
+                
+                
+                tempBody.setName(graphName);
+                debugBodies.push_back(tempBody);
+            }
+        }
+    }
+    
+    void SetupComboBoxes()
+    {
+        
+        
+    
+        
+        ImGui::Separator();
+        
+        UniversalDebugFunctions::UpdateAnatomyNames();
+        ImGui::Combo("Select Anatomy Graph", &graphItem, debugBodiesNames);
+        UniversalDebugFunctions::UpdateBodyPartNames();
+        ImGui::Combo("Select Bodypart", &bpItem, debugBodyartNames);
+    }
+    
+    void GraphEditor()
+    {
+        std::string nodeString;
+        
+        ImGui::Begin("Body Graph Editor");
+       
+          CreateNewGraph();
+        
+        SetupComboBoxes();
+       
+        
+        
+        if(ImGui::Button("Add Vertex to graph"))
+        {
+            
+            BodyPart tempBodyPart;
+            tempBodyPart = UniversalDebugFunctions::GetBodyPart(debugBodyartNames.at(bpItem));
+            debugBodies.at(graphItem).AddVertex(tempBodyPart);
+            
+        }
+        
+        ImGui::Separator();
+        
+        
+        for(int i = 0; i < 7; i++)
+        {
+            ImGui::Separator();
+        }
+        
+        ImGui::End();
+
+    }
+    
+}
+
+namespace BodyGraphViewer
+{
+    void SetupComboBoxes()
+    {
+        
+        
+         UniversalDebugFunctions::UpdateAnatomyNames();
+     
+        
+        ImGui::Combo("Select Anatomy Graph", &graphItem, debugBodiesNames);
+
+    }
+    
+    void BuildBodypartGraph()
+    {
+        
+    }
+    
+    void DisplayGraph()
+    {
+        CreatureBody tempGraph;
+        tempGraph = UniversalDebugFunctions::getBody(debugBodiesNames.at(graphItem));
+        std::string nodeString;
+        for(int i = 0; i < num_vertices(tempGraph.anatomyGraph); i++)
+        {
+            nodeString = tempGraph.anatomyGraph[i].getBodyPartName() + "Connections ";
+            
+            if (ImGui::TreeNode(nodeString.c_str()))
+            {
+                
+                
+                CreateBPTree(tempGraph,i);
+                ImGui::TreePop();
+                
+            }
+            
+        }
+        
+        std::cout << "\n Show name " << tempGraph.getName();
+    }
+    
+    void GraphViewer()
+    {
+        
+       
+        ImGui::Begin("Body Graph Viewer");
+        
+        SetupComboBoxes();
+        
+        if(graphItem >= 0)
+            DisplayGraph();
+        
+      
+        
+        ImGui::End();
+    }
+}
+
+
+namespace UniversalDebugFunctions
+{
+    
+    
+    BodyPart GetBodyPart(std::string name)
+    {
+        std::vector<BodyPart>::iterator it;
+        for(it = debugBodyparts.begin(); it != debugBodyparts.end(); ++it)
+        {
+          
+            if(it->getBodyPartName() == name)
+                return *it;
+        }
+        
+        BodyPart bp;
+        return bp;
+            
+    }
+    
+    CreatureBody getBody(std::string name)
+    {
+        std::vector<CreatureBody>::iterator it;
+        for(it = debugBodies.begin(); it != debugBodies.end(); ++it)
+        {
+            
+            if(it->getName() == name)
+                return *it;
+        }
+        
+        CreatureBody body;
+        return body;
+    }
+    
+    void UpdateBodyPartNames()
+    {
+        debugBodyartNames.clear();
+        std::vector<BodyPart>::iterator it;
+        for(it = debugBodyparts.begin(); it != debugBodyparts.end(); ++it)
+            debugBodyartNames.push_back(it->getBodyPartName());
+    }
+    
+    void UpdateAnatomyNames()
+    {
+        debugBodiesNames.clear();
+        std::vector<CreatureBody>::iterator it;
+        for(it = debugBodies.begin(); it != debugBodies.end(); ++it)
+            debugBodiesNames.push_back(it->getName());
+    }
+}
+
+
+
+
 // Helper to display a little (?) mark which shows a tooltip when hovered.
 static void ShowHelpMarker(const char* desc)
 {
@@ -67,237 +481,14 @@ static void ShowHelpMarker(const char* desc)
 
 
 
-void BPCreatorInput()
-{
-    
-    
-    ImGui::Begin("Create Body Part");
-    
-    static int canHoldWeaponSelect = 0;
-    static int canHoldArmorSelect = 0;
-    static int canInteractSelect = 0;
-    static int canMoveCreatureSelect = 0;
-    static int canSeeSelect = 0;
-    static int canSmellSelect = 0;
-    static int canBreatheSelect = 0;
-    //static int isInternalSelect = 0
-    static char bpName[128] = "Empty";
-    static char bpToken[128] = "Empty";
-    static char bpSection[128] = "Empty";
-    ImGui::LabelText("label", "Value");
-    
-    {
-        
-        // Using the _simplified_ one-liner Combo() api here
-        // See "Combo" section for examples of how to use the more complete BeginCombo()/EndCombo() api.
-        
-        
-        ImGui::InputText("Bodypart Name", bpName, IM_ARRAYSIZE(bpName));
-        ImGui::SameLine(); ShowHelpMarker("The name of the body part");
-        
-        ImGui::InputText("Bodypart Token", bpToken, IM_ARRAYSIZE(bpToken));
-        ImGui::SameLine(); ShowHelpMarker("This token is used when forming connections between body parts.");
-        
-        ImGui::InputText("Bodypart Section", bpSection, IM_ARRAYSIZE(bpSection));
-        ImGui::SameLine(); ShowHelpMarker("I.E, upperbodysection,footsection,chestinternalsection");
-        
-        //Don't change the items const char array..0 index = false, 1 index = true;
-        const char* items[] = { "False", "True"};
-        ImGui::Combo("Can Hold Weapon", &canHoldWeaponSelect, items, IM_ARRAYSIZE(items));
-      
-        ImGui::Combo("Can Hold Armor", &canHoldArmorSelect, items, IM_ARRAYSIZE(items));
-        
-        ImGui::Combo("Can Interact", &canInteractSelect, items, IM_ARRAYSIZE(items));
-        ImGui::SameLine(); ShowHelpMarker("Whether the creature can interact with the environment");
-        
-        ImGui::Combo("Can Move Creture", &canMoveCreatureSelect, items, IM_ARRAYSIZE(items));
-        ImGui::SameLine(); ShowHelpMarker("This bodypart can be used for locomotion");
-        
-        ImGui::Combo("Can See", &canSeeSelect, items, IM_ARRAYSIZE(items));
-        
-        ImGui::Combo("Can Smell", &canSmellSelect, items, IM_ARRAYSIZE(items));
-
-        ImGui::Combo("Can Breathe", &canBreatheSelect, items, IM_ARRAYSIZE(items));
-        
-        static int createButtonClicked = 0;
-        if(ImGui::Button("Create bodypart"))
-        {
-            tempBodyPart.setCanHoldWeapon(canHoldWeaponSelect);
-            tempBodyPart.setCanHoldArmor(canHoldArmorSelect);
-            tempBodyPart.setCanInteract(canInteractSelect);
-            tempBodyPart.setCanMoveCreature(canMoveCreatureSelect);
-            tempBodyPart.setCanSee(canSeeSelect);
-            tempBodyPart.setCanSmell(canSmellSelect);
-            tempBodyPart.setCanBreathe(canBreatheSelect);
-            
-            tempBodyPart.setBodyPartName(bpName);
-            tempBodyPart.setBodyPartToken(bpToken);
-            tempBodyPart.setSection(bpSection);
-            
-            std::vector<BodyPart>::iterator it;
-            debugBodyparts.push_back(tempBodyPart);
-            tempBodyPart =  BodyPart();
-    
-            DisplayShit();
-        
-        }
-    }
-    
-    ImGui::End();
-}
-
-void BPExaminer()
-{
-    
-    
-    ImGui::Begin("Examine Body Parts");
-    debugBodyartNames.clear();
-
-    std::vector<BodyPart>::iterator it;
-    for(it = debugBodyparts.begin(); it != debugBodyparts.end(); ++it)
-        debugBodyartNames.push_back(it->getBodyPartName());
-    
-    static int item = -1;
-    ImGui::Combo("Combo", &item, debugBodyartNames);
-    
-    static int canHoldWeaponSelect = 0;
-    static int canHoldArmorSelect = 0;
-    static int canInteractSelect = 0;
-    static int canMoveCreatureSelect = 0;
-    static int canSeeSelect = 0;
-    static int canSmellSelect = 0;
-    static int canBreatheSelect = 0;
-    //static int isInternalSelect = 0
-    static char bpName[128] = "Empty";
-    static char bpToken[128] = "Empty";
-    static char bpSection[128] = "Empty";
-    
-    
-    ImGui::LabelText("label", "Value");
-    
-    {
-        
-        
-       
-        //Don't want out of bounds condition
-        if(item > -1)
-        {
-            BodyPart &bpRef = debugBodyparts.at(item);
-            //std::cout << "\n Printing selected item name " << bpRef.getBodyPartName();
-            
-            
-            
-            ImGui::Text("Current Values");
-            
-            std::string dataString = "Name: " + bpRef.getBodyPartName();
-            ImGui::Text("%s",dataString.c_str());
-            
-            
-            dataString = "Token: " + bpRef.getBodyPartToken();
-            ImGui::Text("%s",dataString.c_str());
-            
-            dataString = "Section: " + bpRef.getSection();
-            ImGui::Text("%s",dataString.c_str());
-            
-            dataString = "Can Hold Weapon: " + convertBPTruthVal(bpRef.getCanHoldWeapon());
-            ImGui::Text("%s",dataString.c_str());
-            
-            dataString = "Can Hold Armor " + convertBPTruthVal(bpRef.getCanHoldArmor());
-            ImGui::Text("%s",dataString.c_str());
-            
-            dataString = "Can Hold Interact " + convertBPTruthVal(bpRef.getCanInteract());
-            ImGui::Text("%s",dataString.c_str());
-            
-            dataString = "Can Hold Interact " + convertBPTruthVal(bpRef.getCanMoveCreature());
-            ImGui::Text("%s",dataString.c_str());
-            
-            dataString = "Can Hold Interact " + convertBPTruthVal(bpRef.getCanSee());
-            ImGui::Text("%s",dataString.c_str());
-            
-            dataString = "Can Hold Interact " + convertBPTruthVal(bpRef.getCanSmell());
-            ImGui::Text("%s",dataString.c_str());
-            
-            dataString = "Can Hold Interact " + convertBPTruthVal(bpRef.getCanBreathe());
-            ImGui::Text("%s",dataString.c_str());
-                                                                  
-                                                                  
-            
-            ImGui::Separator();
-            ImGui::Separator();
-            
-           
-            ImGui::InputText("Bodypart Name",bpName, IM_ARRAYSIZE(bpName));
-    
-            ImGui::InputText("Bodypart Token", bpToken, IM_ARRAYSIZE(bpToken));
-          
-            
-    
-            ImGui::InputText("Bodypart Section", bpSection, IM_ARRAYSIZE(bpSection));
-     
-            
-            //Don't change the items const char array..0 index = false, 1 index = true;
-            const char* items[] = { "False", "True"};
-            
-            canHoldWeaponSelect = getBPTruthValIndex(bpRef.getCanHoldWeapon());
-            ImGui::Combo("Can Hold Weapon", &canHoldWeaponSelect, items, IM_ARRAYSIZE(items));
-            
-            ImGui::Combo("Can Hold Armor", &canHoldArmorSelect, items, IM_ARRAYSIZE(items));
-            
-            ImGui::Combo("Can Interact", &canInteractSelect, items, IM_ARRAYSIZE(items));
-            ImGui::SameLine(); ShowHelpMarker("Whether the creature can interact with the environment");
-            
-            ImGui::Combo("Can Move Creture", &canMoveCreatureSelect, items, IM_ARRAYSIZE(items));
-            ImGui::SameLine(); ShowHelpMarker("This bodypart can be used for locomotion");
-            
-            ImGui::Combo("Can See", &canSeeSelect, items, IM_ARRAYSIZE(items));
-            
-            ImGui::Combo("Can Smell", &canSmellSelect, items, IM_ARRAYSIZE(items));
-            
-            ImGui::Combo("Can Breathe", &canBreatheSelect, items, IM_ARRAYSIZE(items));
-            
-            static int createButtonClicked = 0;
-            if(ImGui::Button("Edit bodypart"))
-            {
-                
-                BodyPart tempBP = bpRef;
-                std::cout << "\n Item number" << item;
-                
-                bpRef.setCanHoldWeapon(canHoldWeaponSelect);
-                bpRef.setCanHoldArmor(canHoldArmorSelect);
-                bpRef.setCanInteract(canInteractSelect);
-                bpRef.setCanMoveCreature(canMoveCreatureSelect);
-                bpRef.setCanSee(canSeeSelect);
-                bpRef.setCanSmell(canSmellSelect);
-                bpRef.setCanBreathe(canBreatheSelect);
-                
-                bpRef.setBodyPartName(bpName);
-                bpRef.setBodyPartToken(bpToken);
-                bpRef.setSection(bpSection);
-                
-       
-                
-                
-            }
-            
-            
-            
-        }//End index > -1
-        
- 
-    }//
-
-    
-
-    
-    
-    ImGui::End();
-     
-}
-
 void BPConnector()
 {
     
     ImGui::Begin("Body Part Connector");
+    
+    
+
+    
     
     ImGui::Text("Body Part 1");
     
@@ -420,7 +611,9 @@ void BPConnector()
     ImGui::End();
 }
 
-void BodyGraphViewer(CreatureBody &body)
+
+
+void BodyGraphViewer2(CreatureBody &body)
 {
     
     
@@ -429,7 +622,34 @@ void BodyGraphViewer(CreatureBody &body)
 
     std::string nodeString;
     
-    ImGui::Begin("Body Graph Viewer");
+    ImGui::Begin("Body Graph Viewer2");
+    
+    ImGui::LabelText("Test","Vale");
+    {
+        static char graphName[128] = "Empty";
+        ImGui::InputText("Graph Name", graphName, IM_ARRAYSIZE(graphName));
+        
+        if(ImGui::Button("Create Anatomy Graph"))
+        {
+           
+    
+            tempBody.setName(graphName);
+            debugBodies.push_back(tempBody);
+        }
+    }
+    static int item = -1;
+
+    
+    debugBodiesNames.clear();
+    
+    std::vector<CreatureBody>::iterator bodyIt;
+
+    for(bodyIt = debugBodies.begin(); bodyIt != debugBodies.end(); ++bodyIt)
+        debugBodiesNames.push_back(bodyIt->getName());
+
+        ImGui::Combo("Combo", &item, debugBodiesNames);
+    ImGui::Separator();
+    ImGui::Separator();
     
     //nodeString = body.anatomyGraph[0].getBodyPartName() + "Connections ";
     
