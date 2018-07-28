@@ -20,6 +20,8 @@ bool MapEffect::operator==(const MapEffect &other) const
     return false;
 }
 
+
+
 MapEffect::MapEffect(int _id,sf::VertexArray vertArray) : id(_id),vertices(vertArray),color(sf::Color::Transparent),squareSize(0)
 {
     
@@ -44,8 +46,6 @@ void MapEffect::MoveShape(int xOffset,int yOffset)
     int vertexCounter = 0;
     for(int i=0; i < tilePositions.size(); i++)
     {
-        
-        
         tilePositions.at(i).x += xOffset;
         tilePositions.at(i).y += yOffset;
         
@@ -153,7 +153,7 @@ sf::Color MapEffect::getColor()
     return color;
 }
 
-void MapEffect::setColor(sf::Color newColor)
+void MapEffect::setColor(sf::Color newColor) 
 {
     color = newColor;
     for(int i = 0; i < vertices.getVertexCount(); i++)

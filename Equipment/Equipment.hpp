@@ -72,10 +72,11 @@ public:
     bool operator!=(const Item &other) const;
     void operator=(const Item &other);
     
+    Item();
     Item(Material _material,std::string _sEquipmentName,EnItemType itType);
-    Item(std::string equipmentName,EnItemType itType);
-    Item(std::string equipmentName, std::string _section,EnItemType itType);
-    Item(EnItemType itType);
+    
+ 
+    
     Item(const Item &other);
     
    

@@ -14,6 +14,8 @@
 #define WINDOW_X 2000
 #define WINDOW_Y 2000
 
+#define ERROR_TILE_LOCATION "Tiles/errorTile.jpg"
+
 #define TEST_WINDOW_X 1500
 #define TEST_WINDOW_Y 1500
 

@@ -28,7 +28,7 @@ private:
     bool isTwohanded;
     bool isRanged;
     EnWeaponSize enWeaponSize;
-     int contactArea;
+    int contactArea;
     
     
 public:
@@ -45,8 +45,7 @@ public:
     Weapon(const Weapon &weapon);
     
     
-    Weapon(std::string _itemname,std::string _section);
-    
+       
    // ~Weapon();
     
     
@@ -71,7 +70,7 @@ public:
     void EquipItem(BodyPart &bp);
     
     
-    void calculateMaterialBonuses();
+
     
     
     short int getRange() const;

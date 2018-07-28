@@ -25,29 +25,22 @@ public:
     bool operator!=(const EntityTile &other) const;
     void operator=(const EntityTile &other);
     
-    //EntityTile();
-   // EntityTile(const EntityTile &other);
-    
-    
-    
-    
-    // bool loadCreature(const std::string& tileset, sf::Vector2i tileSize, int creatureXPosition, int creatureYPosition);
-    
-    
+ 
+
     //TODO rename creaturePosition since the tile can also represent an item. this will prevent confusion
     bool loadTile(const std::string& tileset, sf::Vector2i _tileSize, sf::Vector2i creaturePosition);
     
     void setPosition(int x, int y);
 
     
-    sf::Vector2i getTileSize();
+    sf::Vector2i getTileSize() const;
     static int  getEntityTileIDCounter()
     {
         
         return EntityTile::entityTileIDCounter;
     }
     
-    int getEntityTileID();
+    int getEntityTileID() const;
 
     
     // std::vector<TileParameters> vecTileParams;

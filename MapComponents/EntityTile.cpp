@@ -170,13 +170,13 @@ void EntityTile::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
 
 
-sf::Vector2i EntityTile::getTileSize()
+sf::Vector2i EntityTile::getTileSize() const
 {
     return tileSize;
 }
 
 
-int EntityTile::getEntityTileID()
+int EntityTile::getEntityTileID() const
 {
     return entityTileID;
 }

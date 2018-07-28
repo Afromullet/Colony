@@ -47,8 +47,9 @@ public:
     
     bool operator==(const MapEffect &other) const;
     
-    MapEffect(int _id,sf::VertexArray vertArray);
+
     MapEffect(const MapEffect &effect);
+    MapEffect(int _id,sf::VertexArray vertArray);
     MapEffect();
 
     void setColor(sf::Color newColor);
@@ -58,13 +59,14 @@ public:
     void addTilePositions(sf::Vector2i newPosition);
     
     
-    std::vector<sf::Vector2i> getShape(sf::Vector2i position,int n);
-    std::vector<sf::Vector2i> getLine(int x0, int y0, int x1, int y1);
-    int getSquareSize();
-    int getID();
-    sf::Color getColor();
+    std::vector<sf::Vector2i> getShape(sf::Vector2i position,int n) ;
+    std::vector<sf::Vector2i> getLine(int x0, int y0, int x1, int y1) ;
+    int getSquareSize() ;
+    int getID() ;
+    sf::Color getColor() ;
     
-    void setSquare(sf::Vector2i position,int n);
+    
+    void setSquare(sf::Vector2i position,int n) ;
     void setLine(sf::Vector2i position,int n,MoveDirection movDirection);
     void setLine(int x0, int y0, int x1, int y1);
     void setCircle(int xm, int ym, int r);

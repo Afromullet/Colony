@@ -44,6 +44,8 @@ extern std::vector<std::string> debugBodiesNames;
 
 #define CREATE_NEW_BODYGRPAH_BUTTON "New Body Graph Button"
 
+#define CREATE_BODYPART_MENU_ITEM "Create BodyPart Menu Item"
+#define EDIT_BODYPART_MENU_ITEM "Edit BodyPart Menu Item"
 
 
 enum BodyPartValidity
@@ -56,6 +58,30 @@ enum BodyPartValidity
 
 BodyPartValidity isValidBodyPart(BodyPart &bp,std::vector<BodyPart> &bpVec);
 
+
+namespace MainDebugWindow
+{
+    static bool showCreateBodyPartWindow = false;
+    static bool showEditBodyPartWindow = false;
+    static bool showGraphEditor = false;
+    static bool showGraphViewer = false;
+    
+    static bool show_app_main_menu_bar = false;
+    static bool show_app_console = false;
+    static bool show_app_log = false;
+    static bool show_app_layout = false;
+    static bool show_app_property_editor = false;
+    static bool show_app_long_text = false;
+    static bool show_app_auto_resize = false;
+    static bool show_app_constrained_resize = false;
+    static bool show_app_simple_overlay = false;
+    static bool show_app_window_titles = false;
+    static bool show_app_custom_rendering = false;
+    
+    void DebugMainWindow();
+    void ShowMainDebugWindow();
+    void MenuBarHandler();
+}
 
 namespace BodyPartCreator
 {
@@ -72,69 +98,56 @@ namespace BodyPartCreator
     static char bpSection[128] = "Empty";
     static const char* items[] = { "False", "True"};
     static int createButtonClicked = 0;
+    static int item = -1;
+    
+    
+    static int modeSelectIndex;
+    
+    
     
     void BPCreator();
-    
     void ReadInput();
     void CreateBodyPart();
-}
-
-namespace BodyPartEditor
-{
-    static int canHoldWeaponSelect = 0;
-    static int canHoldArmorSelect = 0;
-    static int canInteractSelect = 0;
-    static int canMoveCreatureSelect = 0;
-    static int canSeeSelect = 0;
-    static int canSmellSelect = 0;
-    static int canBreatheSelect = 0;
-    //static int isInternalSelect = 0
-    static char bpName[128] = "Empty";
-    static char bpToken[128] = "Empty";
-    static char bpSection[128] = "Empty";
-    static int item = -1;
-    static const char* items[] = { "False", "True"};
-    static int editButtonClicked = 0;
     
     void BPEditor();
-    
     void DisplaySelectedInput(BodyPart &bpRef);
     void ReadInput();
     void UpdateBodyPart(BodyPart &bpRef);
 }
 
-namespace BodyGraphEditor
-{
-    static int canHoldWeaponSelect = 0;
-    static int canHoldArmorSelect = 0;
-    static int canInteractSelect = 0;
-    static int canMoveCreatureSelect = 0;
-    static int canSeeSelect = 0;
-    static int canSmellSelect = 0;
-    static int canBreatheSelect = 0;
-    //static int isInternalSelect = 0
-    static char bpName[128] = "Empty";
-    static char bpToken[128] = "Empty";
-    static char bpSection[128] = "Empty";
-    static int graphItem = -1;
-    static int bpItem = -1;
-    
-    
-    void CreateNewGraph();
-    void SetupComboBoxes();
-    void GraphEditor();
-    
-
-}
 
 namespace BodyGraphViewer
 {
     static int graphItem = -1;
+    static int item = -1;
+    static int item2 = -1;
+    static int vertexAddItem = -1;
+    static int modeSelectIndex = -1;
+    static int prevIndex = -1;
     
-    void SetupComboBoxes();
+    
+    
+    static bool showBP1Stats = false;
+    static bool showBP2Stats = false;
+    static bool showBPStats = false;
+    static bool showAnatomy = false;
+    
+    
+
+    
+    
+    void SetupViewerComponents();
     void BuildBodypartGraph();
     void DisplayGraph();
     void GraphViewer();
+    void BodyGraphConnector();
+    
+    
+    void CreateNewGraph();
+    void VertexAdder();
+    void FirstBodyPartMenu();
+    void SecondBodyPartMenu();
+    void ConnectBodyPartsButtonHandler();
 }
 
 namespace UniversalDebugFunctions
@@ -143,6 +156,7 @@ namespace UniversalDebugFunctions
     void UpdateAnatomyNames();
     BodyPart GetBodyPart(std::string name);
     CreatureBody getBody(std::string name);
+    CreatureBody getBodyRef(std::string name);
 }
 
 

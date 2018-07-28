@@ -365,7 +365,7 @@ void Map::LoadTileTexture()
         {
             if(tileIDTable.at(j).ID == tileGroups.at(i).TileID)
             {
-                std::cout << "\n Text file name " << tileIDTable.at(j).textureFileName;
+                
                 tileGroups.at(i).m_tileset.loadFromFile(tileIDTable.at(j).textureFileName);
                 tileGroups.at(i).sprite.setTexture(tileGroups.at(i).m_tileset);
                 

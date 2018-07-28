@@ -9,7 +9,8 @@
 #ifndef UtilMacros_h
 #define UtilMacros_h
 
-#define IS_NUM_GT_0(a) ((a > 0) ? a : 0);
+#define IS_NUM_GT_0(a) ((a > 0) ? a : 1);
+#define IS_NUM_GTE_0(a) ((a >= 0) ? a : 1);
 
 
 #endif /* UtilMacros_h */

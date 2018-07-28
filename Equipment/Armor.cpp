@@ -11,6 +11,8 @@
 #include "ItemManager.hpp"
 #include <boost/uuid/uuid.hpp>
 #include <boost/uuid/uuid_generators.hpp>
+#include "Globals.hpp"
+#include "UtilMacros.h"
 
 //todo add "Blank" armor for when no armor is equipped or when we have something like leg armor
 
@@ -28,12 +30,7 @@ bool Armor::operator==(const Armor &other) const
     }
     
     
-    
 
-
-       
-     
-    
     return false;
 }
 
@@ -66,9 +63,11 @@ void Armor::operator=(const Armor &other)
     stackSize = other.stackSize;
     maxStackSize = other.maxStackSize;
     descriptiveText = other.descriptiveText;
+    itemTile = other.itemTile;
     
 
 }
+
 
 Armor::Armor(Material _material, std::string _sEquipmentName, short int _siArmorBonus, float _fDodgeModifier, float _fDamageReduction,float _fMovementModifier)
 : Item(_material,_sEquipmentName,enArmorType),
@@ -82,18 +81,9 @@ fDamageReduction(_fDamageReduction),fMovementModifier(_fMovementModifier)
 
 
 
-Armor::Armor(std::string itemName) :Item(itemName,enArmorType)
-{
-    
-}
-
-Armor::Armor(std::string itemName, std::string _section) :Item(itemName,_section,enArmorType)
-{
-    
-}
 
 //Ah..the bug was here. It wasn't copying the data needed because I thought it was using the Armor &armor() constructor, but it calls this oen instead Armor::Armor(const Armor &armor)
-Armor::Armor(const Armor &other) : Item(enArmorType)
+Armor::Armor(const Armor &other)
 {
     
 
@@ -117,20 +107,20 @@ Armor::Armor(const Armor &other) : Item(enArmorType)
     stackSize = other.stackSize;
     maxStackSize = other.maxStackSize;
     descriptiveText = other.descriptiveText;
-
+    enItemType = enArmorType;
+    itemTile = other.itemTile;
 
     
 }
 
 
 
-Armor::Armor() : Item(enArmorType),siArmorBonus(1),fDodgeModifier(1),fDamageReduction(1),
-fMovementModifier(1)
+Armor::Armor()
 {
 
-    size = 1;
-    mass = 1;
-    isEquipped = false;
+    *this = NO_ARMOR;
+    tag = boost::uuids::random_generator()();
+ 
 }
 
 
@@ -184,12 +174,6 @@ void Armor::AddToItemManager(ItemManager &manager)
 }
 
 
-
-void Armor::calculateMaterialBonuses()
-{
-    
-}
-
 short int Armor::siGetArmorBonus() const
 {
     return siArmorBonus;
@@ -213,22 +197,24 @@ float Armor::fGetMovementModifier() const
 
 void Armor::setArmorBonus(short int value)
 {
-    siArmorBonus = value;
+    
+    siArmorBonus = IS_NUM_GT_0(value);
+
 }
 
 void Armor::setDodgeModifier(float value)
 {
-    fDodgeModifier = value;
+    fDodgeModifier = IS_NUM_GT_0(value);
 }
 
 void Armor::setDamageReduction(float value)
 {
-    fDamageReduction = value;
+    fDamageReduction = IS_NUM_GT_0(value);
 }
 
 void Armor::setMovementModifier(float value)
 {
-    fMovementModifier = value;
+    fMovementModifier = IS_NUM_GT_0(value);
 }
 
 void Armor::setMaterial(Material value)

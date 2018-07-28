@@ -8,8 +8,9 @@
 
 #include "Equipment.hpp"
 #include "ErrorConstants.hpp"
-
+#include "UtilMacros.h"
 #include <boost/uuid/uuid_generators.hpp>
+#include "Constants.hpp"
 //Overloaded operators
 
 bool Item::operator==(const Item &other) const
@@ -28,9 +29,6 @@ bool Item::operator==(const Item &other) const
         }
         
     }
-    
-        
-
     return false;
 }
 
@@ -59,6 +57,14 @@ void Item::operator=(const Item &other)
 }
 
 
+ Item::Item()
+{
+    isEquipped = false;
+    tag = boost::uuids::random_generator()();
+    itemTile.loadTile(ERROR_TILE_LOCATION, sf::Vector2i(DEFAULT_TILE_SIZE,DEFAULT_TILE_SIZE), position);
+
+}
+
 Item::Item(Material _material, std::string _sEquipmentName,EnItemType itType): material(_material),sEquipmentName(_sEquipmentName),isEquipped(false)
 {
     
@@ -68,36 +74,12 @@ Item::Item(Material _material, std::string _sEquipmentName,EnItemType itType): m
     maxStackSize = 1;
 }
 
-Item::Item(std::string equipmentName,EnItemType itType) : sEquipmentName(equipmentName)
-{
-    tag = boost::uuids::random_generator()();
-    enItemType = itType;
-    stackSize = 0;
-    maxStackSize = 1;
-}
-
-
-Item::Item(std::string equipmentName, std::string _section,EnItemType itType) : sEquipmentName(equipmentName), section(_section)
-{
-    tag = boost::uuids::random_generator()();
-    enItemType = itType;
-    stackSize = 0;
-    maxStackSize = 1;
-}
 
 
 
-Item::Item(EnItemType itType) : material(),sEquipmentName(ERROR_STRING_INPUT),isEquipped(false)
-{
-    size = ERROR_INPUT_NUMBER;
-    mass = ERROR_INPUT_NUMBER;
-    section = ERROR_STRING_INPUT;
-    tag = boost::uuids::random_generator()();
-    enItemType = itType;
-    stackSize = 0;
-    maxStackSize = 1;
-    
-}
+
+
+
 
 Item::Item(const Item &other)
 {
@@ -235,18 +217,13 @@ void Item::setIsEquipped(bool _isEquipped)
 
 void Item::setMass(float _mass)
 {
-    if(mass < 0)
-        return;
-    
-    mass = _mass;
+    mass = IS_NUM_GT_0(_mass);
 }
 
 void Item::setSize(float _size)
 {
-    if(size < 0)
-        return;
-    
-    size = _size;
+  
+    size = IS_NUM_GT_0(_size);
 }
 
 void Item::setSection(std::string _section)
@@ -270,8 +247,6 @@ void Item::setTag(boost::uuids::uuid val)
 {
    
     tag = val;
-    
-    
 }
 
 void Item::setItemType(EnItemType val)
@@ -281,12 +256,12 @@ void Item::setItemType(EnItemType val)
 
 void Item::setStackSize(int val)
 {
-    stackSize = val;
+    stackSize = IS_NUM_GT_0(val);
 }
 
 void Item::setMaxStackSize(int val)
 {
-    maxStackSize = val;
+    maxStackSize = IS_NUM_GT_0(val);
 }
 
 void Item::setDescriptiveText(std::string str)

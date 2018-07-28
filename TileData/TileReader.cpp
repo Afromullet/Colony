@@ -109,7 +109,7 @@ void ParseTileFile()
             //Shold be at the end of a block now
             std::getline(tileFile,line);
             
-            std::cout << "\nTexture file name  loaded: " << tempData.textureFileName << "\n";
+            //std::cout << "\nTexture file name  loaded: " << tempData.textureFileName << "\n";
             
             if(line != END_OF_BLOCK_TOKEN)
             {
@@ -170,7 +170,6 @@ bool LoadTileTerrainType(const std::string &s)
     tempString.replace(0, sizeof(KEY_VALUE_DELIMITER_TOKEN)-1, "");//Removes the token
    
     //Starting after the token..So we ignore the first
-    std::cout << "Tempstring is " << tempString;
     for(int i = 1; i < terrainTypeTable.size(); i++)
     {
         if(tempString == terrainTypeTable.at(i))

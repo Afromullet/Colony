@@ -75,7 +75,7 @@ void InitializeGlobals()
     }
     else
     {
-        std::cout << "\n Font loaded";
+        
     }
     
     

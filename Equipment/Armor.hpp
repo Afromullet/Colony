@@ -40,8 +40,8 @@ public:
    
     Armor(Material _material,std::string _sEquipmentName, short int _siArmorBonus, float _fDodgeModifier, float _fDamageReduction,float _fMovementModifier);
 
-     Armor(std::string itemName);
-    Armor(std::string itemName, std::string _section);
+     
+
     
     Armor(const Armor &other);
    
@@ -89,7 +89,6 @@ public:
     void setDodgeModifier(float value);
     void setDamageReduction(float value);
     void setMovementModifier(float value);
-    void calculateMaterialBonuses();
     void setMaterial(Material value);
    
     

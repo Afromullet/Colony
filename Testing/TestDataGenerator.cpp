@@ -76,65 +76,9 @@ void CreateRandomCreatures(MapData &mapdata)
     
 }
 
-void CreateTargetCreatures(MapData &mapdata)
-{
-    
-
-    
-   
-    
-    
-    
-    
-    for(int i = 0; i < 10; i++)
-    {
-        BaseCreature testCreature;
-         testCreature = basicOrc;
-        testCreature.setPosition(rand() % MAP_WIDTH, rand() % MAP_HEIGHT);
- 
-            mapdata.AddCreatureToMap(testCreature);
-        
-    }
-    
-    
-}
 
 
-//Generates random items and places them on the map
-void GenerateRandomItems(MapData &mapdata, int numberOfItems)
-{
-    
-    for(int i = 0; i < numberOfItems; i++)
-    {
-        Item *item;
-        mapdata.itemsOnMap.push_back(item);
-    }
-    
-    std::list<Item*>::iterator itemIt;
-    int counter = 0;
-    
-    int randX,randY;
-    for(itemIt =  mapdata.itemsOnMap.begin(); itemIt !=  mapdata.itemsOnMap.end(); ++itemIt)
-    {
-        
-        //A lot of redunancy in the code below..just testing for now
-        Armor arm = GenerateRandomArmor();
-        
-        
-        *itemIt = arm.clone();
-        
-        //std::cout << "\nInside random item gen after cast " << (* << "\n";
-        
-        // (*itemIt)->setItemName(arm.getItemName());
-       // std::cout << "\nRandom item gen item armor name " << (*itemIt)->getItemName() << "\n";
-       
-        randX = rand() % mapdata.map->GetWidth();
-        randY = rand() % mapdata.map->GetHeight();
-        (*itemIt)->setPosition(randX, randY);
-        //(*itemIt)->localItemID = counter;
-        counter++;
-    }
-}
+
 
 
 //Generate one set of armor for each slot the armor can fit

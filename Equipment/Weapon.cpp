@@ -11,6 +11,8 @@
 #include "ItemManager.hpp"
 #include <boost/uuid/uuid.hpp>
 #include <boost/uuid/uuid_generators.hpp>
+#include "Globals.hpp"
+#include "UtilMacros.h"
 
 bool Weapon::operator==(const Weapon &other) const
 {
@@ -56,6 +58,8 @@ void Weapon::operator=(const Weapon &other)
     stackSize = other.stackSize;
     maxStackSize = other.maxStackSize;
     descriptiveText = other.descriptiveText;
+    itemTile = other.itemTile;
+
     
 }
 
@@ -71,8 +75,12 @@ Weapon::Weapon(Material _material, std::string _sEquipmentName, short int _siRan
 }
 
 
-Weapon::Weapon() : Item(Material(),"Fist Weapon",enWeaponType),siRange(1),siDamage(1),contactArea(1)
+Weapon::Weapon()
 {
+    
+    *this = FIST_WEAPON;
+    tag = boost::uuids::random_generator()();
+    enItemType = enWeaponType;
     
     size = 0;
     mass = 0;
@@ -80,13 +88,10 @@ Weapon::Weapon() : Item(Material(),"Fist Weapon",enWeaponType),siRange(1),siDama
 }
 
 
-Weapon::Weapon(std::string _itemname,std::string _section) : Item(_itemname,_section,enWeaponType) {
-    
-}
 
 
 
-Weapon::Weapon(const Weapon &weapon) : Item(enWeaponType)
+Weapon::Weapon(const Weapon &weapon)
 {
   
     position = weapon.position;
@@ -109,15 +114,11 @@ Weapon::Weapon(const Weapon &weapon) : Item(enWeaponType)
     stackSize = weapon.stackSize;
     maxStackSize = weapon.maxStackSize;
     descriptiveText = weapon.descriptiveText;
+    enItemType = enWeaponType;
+    itemTile = weapon.itemTile;
 }
 
 
-/*
-Weapon::~Weapon()
-{
-    
-}
- */
 
 
 void Weapon::showItemStats() const
@@ -152,10 +153,7 @@ void Weapon::EquipItem(BodyPart &bp)
     bp.setWeapon(*this);
 }
 
-void Weapon::calculateMaterialBonuses()
-{
-    
-}
+
 
 
 void Weapon::setIsRanged(bool value)
@@ -166,17 +164,15 @@ void Weapon::setIsRanged(bool value)
 void Weapon::setRange(short int value)
 {
     
-    if(value < 0)
-        return;
     
-    siRange = value;
+    siRange = IS_NUM_GT_0(value);
     
 }
 
 //May have a weapon that heals by attacking, so there's no need to check if the damage is less than 0
 void Weapon::setDamage(short int value)
 {
-    siDamage = value;
+    siDamage = IS_NUM_GT_0(value);
 }
 //void Weapon::setItemName(int value){Item::setItemName(value);}
 void Weapon::setMaterial(Material value){Item::setMaterial(value);}
@@ -187,7 +183,7 @@ void Weapon::setWeaponSize(EnWeaponSize _size)
 
  void Weapon::setContactArea(int area)
 {
-    contactArea = area;
+    contactArea = IS_NUM_GT_0(area);
 }
 
 bool Weapon::isRangedWeapon() const
