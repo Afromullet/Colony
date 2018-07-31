@@ -1,5 +1,5 @@
 <map id="InitializeTreeMaterials" name="InitializeTreeMaterials">
 <area shape="rect" id="node2" href="$df/d00/class_resource.html#acdeb90b10c0e8b2837997525468ab5c3" title="Resource::getMaterialName" alt="" coords="204,5,391,31"/>
 <area shape="rect" id="node4" href="$df/d00/class_resource.html#a84958f14311775c18c24cb69d43a74d0" title="Resource::setMaterial" alt="" coords="222,55,373,80"/>
-<area shape="rect" id="node3" href="$dc/dee/class_material.html#a6259941981c91ac2f0c0baa0dd53c160" title="Material::getMaterialName" alt="" coords="439,5,617,31"/>
+<area shape="rect" id="node3" href="$dc/dee/class_material.html#ac87a8b48812fc2ca84155a1179899635" title="Material::getMaterialName" alt="" coords="439,5,617,31"/>
 </map>

@@ -5,8 +5,6 @@
 {\ttfamily \#include \char`\"{}Movement\+Handler.\+hpp\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Map\+Data.\+hpp\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Enum\+Types.\+hpp\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}Data\+Window.\+hpp\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}Window\+Commands.\+hpp\char`\"{}}\newline
 Include dependency graph for Player\+Controls.\+hpp\+:
 \nopagebreak
 \begin{figure}[H]
@@ -30,10 +28,6 @@ bool \mbox{\hyperlink{_player_controls_8hpp_a2fbf8484c8a051b724315afd0f442465}{H
 \item 
 void \mbox{\hyperlink{_player_controls_8hpp_abc69fe16b664614aa47cbd2b13ad76ac}{Control\+Target\+Square}} (\mbox{\hyperlink{_enum_types_8hpp_a00ec4eba48da32d6cbdf827185fd3d34}{Move\+Direction}} move\+Dir, \mbox{\hyperlink{class_map_data}{Map\+Data}} \&\mbox{\hyperlink{main_8cpp_ab63e584a122837ba00ad00bdb9dbcb6f}{mapdata}})
 \item 
-void \mbox{\hyperlink{_player_controls_8hpp_ac79fad99729b95af44c9207a8f3ae12f}{Initialize\+Inventory\+Window}} ()
-\item 
-void \mbox{\hyperlink{_player_controls_8hpp_ad71b9cecfa45d62514feb109b7cbaf46}{Add\+Items\+To\+Inventory\+Window}} (\mbox{\hyperlink{class_base_creature}{Base\+Creature}} \&creature)
-\item 
 void \mbox{\hyperlink{_player_controls_8hpp_a27582acd5009439f45ba716a210b3dda}{Add\+To\+Equipment\+Window}} (\mbox{\hyperlink{class_base_creature}{Base\+Creature}} \&creature)
 \end{DoxyCompactItemize}
 \subsection*{Variables}
@@ -45,12 +39,6 @@ bool \mbox{\hyperlink{_player_controls_8hpp_aee628fbfb76e8349d796a2a45b4c6cc7}{i
 \item 
 bool \mbox{\hyperlink{_player_controls_8hpp_a0af6e6dfbaf21843e7ee7194d7cae62f}{is\+Equipment\+Window\+Open}}
 \item 
-\mbox{\hyperlink{class_window_commands}{Window\+Commands}} \mbox{\hyperlink{_player_controls_8hpp_a50c3e5aa031e2c39ab9ce73a4c5c8358}{player\+Window\+Commands}}
-\item 
-\mbox{\hyperlink{class_data_window}{Data\+Window}} \mbox{\hyperlink{_player_controls_8hpp_a24a072a6c100424daa87be3b25f531f3}{inventory\+Window}}
-\item 
-\mbox{\hyperlink{class_data_window}{Data\+Window}} \mbox{\hyperlink{_player_controls_8hpp_a7c048d92a816795e8b74c70735f7fad7}{equipment\+Window}}
-\item 
 \mbox{\hyperlink{class_map_effect}{Map\+Effect}} \mbox{\hyperlink{_player_controls_8hpp_ab3afe3d24559101414ef4c5cfa8c5803}{targetting\+Square}}
 \item 
 std\+::vector$<$ sf\+::\+Vector2i $>$ \mbox{\hyperlink{_player_controls_8hpp_a04384ba639ec418f957795508cbb1c55}{square}}
@@ -58,28 +46,6 @@ std\+::vector$<$ sf\+::\+Vector2i $>$ \mbox{\hyperlink{_player_controls_8hpp_a04
 
 
 \subsection{Function Documentation}
-\mbox{\Hypertarget{_player_controls_8hpp_ad71b9cecfa45d62514feb109b7cbaf46}\label{_player_controls_8hpp_ad71b9cecfa45d62514feb109b7cbaf46}} 
-\index{Player\+Controls.\+hpp@{Player\+Controls.\+hpp}!Add\+Items\+To\+Inventory\+Window@{Add\+Items\+To\+Inventory\+Window}}
-\index{Add\+Items\+To\+Inventory\+Window@{Add\+Items\+To\+Inventory\+Window}!Player\+Controls.\+hpp@{Player\+Controls.\+hpp}}
-\subsubsection{\texorpdfstring{Add\+Items\+To\+Inventory\+Window()}{AddItemsToInventoryWindow()}}
-{\footnotesize\ttfamily void Add\+Items\+To\+Inventory\+Window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_base_creature}{Base\+Creature}} \&}]{creature }\end{DoxyParamCaption})}
-
-Here is the call graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{df/d40/_player_controls_8hpp_ad71b9cecfa45d62514feb109b7cbaf46_cgraph}
-\end{center}
-\end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{df/d40/_player_controls_8hpp_ad71b9cecfa45d62514feb109b7cbaf46_icgraph}
-\end{center}
-\end{figure}
 \mbox{\Hypertarget{_player_controls_8hpp_a27582acd5009439f45ba716a210b3dda}\label{_player_controls_8hpp_a27582acd5009439f45ba716a210b3dda}} 
 \index{Player\+Controls.\+hpp@{Player\+Controls.\+hpp}!Add\+To\+Equipment\+Window@{Add\+To\+Equipment\+Window}}
 \index{Add\+To\+Equipment\+Window@{Add\+To\+Equipment\+Window}!Player\+Controls.\+hpp@{Player\+Controls.\+hpp}}
@@ -119,7 +85,7 @@ s\+Behavior.\+Examine\+Surrounding\+Task(creature, $\ast$mapdata.map); Here is t
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{df/d40/_player_controls_8hpp_a2fbf8484c8a051b724315afd0f442465_cgraph}
+\includegraphics[height=550pt]{df/d40/_player_controls_8hpp_a2fbf8484c8a051b724315afd0f442465_cgraph}
 \end{center}
 \end{figure}
 Here is the caller graph for this function\+:
@@ -130,43 +96,9 @@ Here is the caller graph for this function\+:
 \includegraphics[width=350pt]{df/d40/_player_controls_8hpp_a2fbf8484c8a051b724315afd0f442465_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{_player_controls_8hpp_ac79fad99729b95af44c9207a8f3ae12f}\label{_player_controls_8hpp_ac79fad99729b95af44c9207a8f3ae12f}} 
-\index{Player\+Controls.\+hpp@{Player\+Controls.\+hpp}!Initialize\+Inventory\+Window@{Initialize\+Inventory\+Window}}
-\index{Initialize\+Inventory\+Window@{Initialize\+Inventory\+Window}!Player\+Controls.\+hpp@{Player\+Controls.\+hpp}}
-\subsubsection{\texorpdfstring{Initialize\+Inventory\+Window()}{InitializeInventoryWindow()}}
-{\footnotesize\ttfamily void Initialize\+Inventory\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-Here is the call graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{df/d40/_player_controls_8hpp_ac79fad99729b95af44c9207a8f3ae12f_cgraph}
-\end{center}
-\end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{df/d40/_player_controls_8hpp_ac79fad99729b95af44c9207a8f3ae12f_icgraph}
-\end{center}
-\end{figure}
 
 
 \subsection{Variable Documentation}
-\mbox{\Hypertarget{_player_controls_8hpp_a7c048d92a816795e8b74c70735f7fad7}\label{_player_controls_8hpp_a7c048d92a816795e8b74c70735f7fad7}} 
-\index{Player\+Controls.\+hpp@{Player\+Controls.\+hpp}!equipment\+Window@{equipment\+Window}}
-\index{equipment\+Window@{equipment\+Window}!Player\+Controls.\+hpp@{Player\+Controls.\+hpp}}
-\subsubsection{\texorpdfstring{equipment\+Window}{equipmentWindow}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_data_window}{Data\+Window}} equipment\+Window}
-
-\mbox{\Hypertarget{_player_controls_8hpp_a24a072a6c100424daa87be3b25f531f3}\label{_player_controls_8hpp_a24a072a6c100424daa87be3b25f531f3}} 
-\index{Player\+Controls.\+hpp@{Player\+Controls.\+hpp}!inventory\+Window@{inventory\+Window}}
-\index{inventory\+Window@{inventory\+Window}!Player\+Controls.\+hpp@{Player\+Controls.\+hpp}}
-\subsubsection{\texorpdfstring{inventory\+Window}{inventoryWindow}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_data_window}{Data\+Window}} inventory\+Window}
-
 \mbox{\Hypertarget{_player_controls_8hpp_a0af6e6dfbaf21843e7ee7194d7cae62f}\label{_player_controls_8hpp_a0af6e6dfbaf21843e7ee7194d7cae62f}} 
 \index{Player\+Controls.\+hpp@{Player\+Controls.\+hpp}!is\+Equipment\+Window\+Open@{is\+Equipment\+Window\+Open}}
 \index{is\+Equipment\+Window\+Open@{is\+Equipment\+Window\+Open}!Player\+Controls.\+hpp@{Player\+Controls.\+hpp}}
@@ -178,12 +110,6 @@ Here is the caller graph for this function\+:
 \index{is\+Inventory\+Window\+Open@{is\+Inventory\+Window\+Open}!Player\+Controls.\+hpp@{Player\+Controls.\+hpp}}
 \subsubsection{\texorpdfstring{is\+Inventory\+Window\+Open}{isInventoryWindowOpen}}
 {\footnotesize\ttfamily bool is\+Inventory\+Window\+Open}
-
-\mbox{\Hypertarget{_player_controls_8hpp_a50c3e5aa031e2c39ab9ce73a4c5c8358}\label{_player_controls_8hpp_a50c3e5aa031e2c39ab9ce73a4c5c8358}} 
-\index{Player\+Controls.\+hpp@{Player\+Controls.\+hpp}!player\+Window\+Commands@{player\+Window\+Commands}}
-\index{player\+Window\+Commands@{player\+Window\+Commands}!Player\+Controls.\+hpp@{Player\+Controls.\+hpp}}
-\subsubsection{\texorpdfstring{player\+Window\+Commands}{playerWindowCommands}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_window_commands}{Window\+Commands}} player\+Window\+Commands}
 
 \mbox{\Hypertarget{_player_controls_8hpp_a04384ba639ec418f957795508cbb1c55}\label{_player_controls_8hpp_a04384ba639ec418f957795508cbb1c55}} 
 \index{Player\+Controls.\+hpp@{Player\+Controls.\+hpp}!square@{square}}

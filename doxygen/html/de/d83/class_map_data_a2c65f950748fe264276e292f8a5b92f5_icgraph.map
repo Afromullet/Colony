@@ -1,3 +1,5 @@
 <map id="MapData::SetWindow" name="MapData::SetWindow">
-<area shape="rect" id="node2" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="204,5,254,31"/>
+<area shape="rect" id="node2" href="$df/d0a/main_8cpp.html#afd3a2815aa759a646954f025b39c3969" title="InitializeWindowData" alt="" coords="204,5,349,31"/>
+<area shape="rect" id="node3" href="$df/d0a/main_8cpp.html#ad60a204b9b7e3351c3f1a99b7aa7e429" title="InitializeAllData" alt="" coords="397,5,509,31"/>
+<area shape="rect" id="node4" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="557,5,607,31"/>
 </map>

@@ -1,8 +1,7 @@
 var searchData=
 [
   ['name',['name',['../dd/dfb/class_tissue.html#aae2dc58365b59cda8cdf3650c0937010',1,'Tissue::name()'],['../d6/dd0/class_biome.html#a45d0a14ac780f5a5a0215df8be24e8cf',1,'Biome::name()'],['../df/d00/class_resource.html#a2470c0f38c44ae45229e2eb0d6ea1881',1,'Resource::name()']]],
-  ['newitempointer',['newItemPointer',['../df/d0a/main_8cpp.html#a891233fcd482dc0d8949059ec8a13d5b',1,'main.cpp']]],
-  ['no_5farmor',['NO_ARMOR',['../d2/d5d/_globals_8cpp.html#a0efca8c0ddc2b97bf9ba3d2b00c96870',1,'NO_ARMOR():&#160;Globals.cpp'],['../d4/d9c/_globals_8hpp.html#a9e5df21ad8a00a7fd06e5400241c5b99',1,'NO_ARMOR():&#160;Globals.hpp']]],
+  ['no_5farmor',['NO_ARMOR',['../d2/d5d/_globals_8cpp.html#a69b32c161b656625a89033c6b8121aac',1,'NO_ARMOR():&#160;Globals.cpp'],['../d4/d9c/_globals_8hpp.html#a9e5df21ad8a00a7fd06e5400241c5b99',1,'NO_ARMOR():&#160;Globals.hpp']]],
   ['no_5fweapon',['NO_WEAPON',['../d2/d5d/_globals_8cpp.html#aaa9365240b8cc8fdf03bb61448cdc2d1',1,'NO_WEAPON():&#160;Globals.cpp'],['../d4/d9c/_globals_8hpp.html#af3d6dcd20cdec261d635ea730e643f02',1,'NO_WEAPON():&#160;Globals.hpp']]],
   ['noisemap',['noiseMap',['../df/d0a/main_8cpp.html#aa8718f0e11a74ad829ac3f5cffe44da4',1,'main.cpp']]],
   ['number_5fof_5fsteps',['NUMBER_OF_STEPS',['../dd/da3/_c_a_map_8cpp.html#ac19ce0d00b3b54fa003921a8a9ee1b83',1,'NUMBER_OF_STEPS():&#160;CAMap.cpp'],['../db/d25/_c_a_map_8hpp.html#ac19ce0d00b3b54fa003921a8a9ee1b83',1,'NUMBER_OF_STEPS():&#160;CAMap.cpp']]],

@@ -326,7 +326,7 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
             end.x = x;
             end.y = y;
             
-            std::map<GridLocation,GridLocation> cameFrom =  aStarSearch(caMap,  start,  end);
+            std::map<GridLocation,GridLocation> cameFrom =  aStarSearch(*mapdata.map,  start,  end);
             
             
             std::vector<GridLocation> path = recontructPath(start,end, cameFrom);

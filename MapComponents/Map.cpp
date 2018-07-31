@@ -135,6 +135,15 @@ void Map::draw(sf::RenderTarget& target, sf::RenderStates states) const
     }
     
     
+    for(int i = 0; i < width; i++)
+    {
+        for(int j = 0; j < height; j++)
+        {
+            
+        }
+    }
+    
+    
     
     // std::cout << "\n New size " <<  effectsOnMap.getVertexCount();
     // target.draw(effectsOnMap);
@@ -773,5 +782,15 @@ void Map::InitializeBiomeTemperatures()
     }
     
     
+    
+}
+
+void Map::setWidth(int val)
+{
+    width = val;
+}
+void Map::setHeight(int val)
+{
+    height = val;
     
 }

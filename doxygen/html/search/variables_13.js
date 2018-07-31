@@ -7,7 +7,6 @@ var searchData=
   ['wildlifelevel',['wildlifeLevel',['../d6/dd0/class_biome.html#a4568b5f65ed8b774ef37d1126bb5ecd1',1,'Biome']]],
   ['will',['will',['../d2/d3b/class_base_creature.html#a992cbd3a6be93279f2c933a50eba5000',1,'BaseCreature']]],
   ['window',['window',['../de/d83/class_map_data.html#af927873e328d1fb6a4b5c0cf145808db',1,'MapData::window()'],['../d4/d9c/_globals_8hpp.html#ae90e155ced28d8d3e69df6bad6b6d893',1,'window():&#160;Globals.hpp']]],
-  ['windowtype',['windowType',['../d1/def/class_data_window.html#a0ace2dac637e9483b554814128994dc7',1,'DataWindow']]],
   ['woundeffectactive',['woundEffectActive',['../db/d1e/class_wound_calculations.html#a172749c15d2f25d3b008a3ea7b16420d',1,'WoundCalculations']]],
   ['wounds',['wounds',['../d2/d6f/class_body_part.html#a22bf733f773503bd1fabee639371309c',1,'BodyPart']]],
   ['woundseverity',['woundSeverity',['../de/d13/struct_applied_force_effect.html#a5aa8b89ec11b997955d4160b3fb671ec',1,'AppliedForceEffect']]],

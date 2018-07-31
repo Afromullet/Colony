@@ -65,15 +65,15 @@ public:
     
     
     
-    float getLowTemp();
-    float getHighTemp();
-    float getCurrentTemp();
-    float getWildlifeLevel();
-    float getVegetationLevel();
-    float getTreeLevel();
+    float getLowTemp() const;
+    float getHighTemp() const;
+    float getCurrentTemp() const;
+    float getWildlifeLevel() const;
+    float getVegetationLevel() const;
+    float getTreeLevel() const;
     
-    std::string getBiomeName();
-    enBiomes getBiome();
+    std::string getBiomeName() const;
+    enBiomes getBiome() const;
 };
 
 #endif /* Biomes_hpp */

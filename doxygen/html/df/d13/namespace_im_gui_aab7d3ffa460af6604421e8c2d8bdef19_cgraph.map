@@ -1,0 +1,26 @@
+<map id="ImGui::NavUpdate" name="ImGui::NavUpdate">
+<area shape="rect" id="node2" href="$da/d72/imgui_8cpp.html#a073bc2b679234928c9e5bb25e42c4613" title="SetNavIDWithRectRel" alt="" coords="721,94,873,119"/>
+<area shape="rect" id="node3" href="$da/d72/imgui_8cpp.html#a806524974b3662b408e10ea52401de06" title="SetNavID" alt="" coords="954,68,1032,94"/>
+<area shape="rect" id="node4" href="$da/d72/imgui_8cpp.html#a961ba0c5c7a9c40b1175849a7bb16cf0" title="NavScrollToBringItemIntoView" alt="" coords="185,496,386,522"/>
+<area shape="rect" id="node5" href="$da/d72/imgui_8cpp.html#ae63b6d94f211acf1daca9ab57033bf5a" title="CalcNextScrollFromScroll\lTargetAndClamp" alt="" coords="199,546,372,584"/>
+<area shape="rect" id="node8" href="$da/d72/imgui_8cpp.html#a078a40363b7ca5e7cb03b9dbb707018e" title="NavCalcPreferredRefPos" alt="" coords="200,608,371,634"/>
+<area shape="rect" id="node9" href="$da/d72/imgui_8cpp.html#a03560b4f51e08dbb54bb4b092afa53c7" title="GetViewportRect" alt="" coords="476,656,598,682"/>
+<area shape="rect" id="node10" href="$da/d72/imgui_8cpp.html#ab4218f9acd81ff7e28c89008e5559ee0" title="NavSaveLastChildNavWindow" alt="" coords="184,710,386,735"/>
+<area shape="rect" id="node11" href="$df/d13/namespace_im_gui.html#ad00213b916de0bc1519d6d20259391cf" title="ImGui::NavUpdateWindowing" alt="" coords="187,344,384,370"/>
+<area shape="rect" id="node12" href="$da/d72/imgui_8cpp.html#a1711c52eb54dd6f6995f18e572035c60" title="IsNavInputPressed" alt="" coords="470,458,604,483"/>
+<area shape="rect" id="node17" href="$da/d72/imgui_8cpp.html#a96dc3ecad6b9d102dc6ec26a0c792c0a" title="IsNavInputDown" alt="" coords="477,507,597,532"/>
+<area shape="rect" id="node19" href="$da/d72/imgui_8cpp.html#a9ba787f7b1ae676675e10ad3676baade" title="NavRestoreLayer" alt="" coords="475,144,600,170"/>
+<area shape="rect" id="node20" href="$da/d72/imgui_8cpp.html#aabe5c31b1e6d1f8ff5e42644a005f56a" title="ClosePopupToLevel" alt="" coords="467,194,607,219"/>
+<area shape="rect" id="node21" href="$da/d72/imgui_8cpp.html#a5c47d902e780371385cbcb711291a2be" title="IsNavInputPressedAnyOfTwo" alt="" coords="188,759,383,784"/>
+<area shape="rect" id="node22" href="$da/d72/imgui_8cpp.html#ab1fad0fb52dfe94fb77c18d6f230cf38" title="SetWindowScrollY" alt="" coords="220,808,351,834"/>
+<area shape="rect" id="node23" href="$da/d72/imgui_8cpp.html#acbb76ca32af07da396906eb70afaa00c" title="NavUpdateAnyRequestFlag" alt="" coords="192,858,379,883"/>
+<area shape="rect" id="node24" href="$da/d72/imgui_8cpp.html#ab4113508672dd5f31fc35d25e354eff6" title="SetWindowScrollX" alt="" coords="220,907,351,932"/>
+<area shape="rect" id="node25" href="$da/d72/imgui_8cpp.html#a75ccaf7d676b1f567ba888ae42ac3809" title="ImFormatString" alt="" coords="229,956,342,982"/>
+<area shape="rect" id="node6" href="$da/d72/imgui_8cpp.html#a76c1c4bf12de0201b9d9b308ba11a7a8" title="GetScrollMaxX" alt="" coords="482,606,592,631"/>
+<area shape="rect" id="node7" href="$da/d72/imgui_8cpp.html#a2257a6327d12507739377b0dc96b3b7d" title="GetScrollMaxY" alt="" coords="482,556,592,582"/>
+<area shape="rect" id="node13" href="$da/d72/imgui_8cpp.html#a8faca7166485b9106c91ef03b836ae26" title="IsKeyPressedMap" alt="" coords="472,243,602,268"/>
+<area shape="rect" id="node14" href="$da/d72/imgui_8cpp.html#aa61c1b273cd6b189e5b9f4cb90cb36b8" title="FindWindowNavigable" alt="" coords="720,348,874,374"/>
+<area shape="rect" id="node15" href="$da/d72/imgui_8cpp.html#a24ca0e08c6e33315fd201b557aec2598" title="NavUpdateWindowingHighlight\lWindow" alt="" coords="434,395,640,434"/>
+<area shape="rect" id="node18" href="$da/d72/imgui_8cpp.html#a29a26b773698f2b18e24e0cc4e203b08" title="NavRestoreLastChildNavWindow" alt="" coords="688,194,906,219"/>
+<area shape="rect" id="node16" href="$da/d72/imgui_8cpp.html#ab83e8fc43f6e33871313204f087538b2" title="FindWindowIndex" alt="" coords="733,402,861,427"/>
+</map>

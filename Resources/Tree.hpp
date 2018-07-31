@@ -37,8 +37,8 @@ public:
     void setMaxHeight(float val);
     void setMaxDiameter(float val);
     
-    float getMaxHeight();
-    float getMaxDiameter();
+    float getMaxHeight() const;
+    float getMaxDiameter() const;
 };
 
 #endif /* Tree_hpp */

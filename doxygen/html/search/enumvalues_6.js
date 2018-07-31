@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['left',['Left',['../db/d7d/_enum_types_8hpp.html#a00ec4eba48da32d6cbdf827185fd3d34a9d4d8b0b72fc2659da772d761a3c5ecb',1,'EnumTypes.hpp']]],
-  ['linear',['Linear',['../d1/dd8/class_fast_noise.html#a60969f626ea3ea3504ea51d789f19a33abbbd24b00b6fcb4ebb32076787914618',1,'FastNoise']]]
+  ['imguipopuppositionpolicy_5fcombobox',['ImGuiPopupPositionPolicy_ComboBox',['../da/d72/imgui_8cpp.html#a9c122103feadc7b225fc21698ff0f4d8a8aaec33fd337ffbffd524a140f6810ea',1,'imgui.cpp']]],
+  ['imguipopuppositionpolicy_5fdefault',['ImGuiPopupPositionPolicy_Default',['../da/d72/imgui_8cpp.html#a9c122103feadc7b225fc21698ff0f4d8ab8a9815cfc6ed3f721aa8e75d960dbdf',1,'imgui.cpp']]]
 ];

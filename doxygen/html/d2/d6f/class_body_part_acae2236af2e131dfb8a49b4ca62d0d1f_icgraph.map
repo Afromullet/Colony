@@ -1,5 +1,14 @@
 <map id="BodyPart::setSection" name="BodyPart::setSection">
-<area shape="rect" id="node2" href="$da/d7d/class_creature_body.html#af7047fb13005abbb9a816c0dd64af873" title="CreatureBody::GenerateVertices" alt="" coords="199,5,413,31"/>
-<area shape="rect" id="node4" href="$da/d7d/class_creature_body.html#a9cf5cffe6209ed851bf32c2b164d9391" title="CreatureBody::GenerateOrgan\lVertices" alt="" coords="204,55,408,93"/>
-<area shape="rect" id="node3" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="461,33,511,59"/>
+<area shape="rect" id="node2" href="$da/d7d/class_creature_body.html#af7047fb13005abbb9a816c0dd64af873" title="CreatureBody::GenerateVertices" alt="" coords="205,5,419,31"/>
+<area shape="rect" id="node6" href="$da/d7d/class_creature_body.html#a9cf5cffe6209ed851bf32c2b164d9391" title="CreatureBody::GenerateOrgan\lVertices" alt="" coords="210,55,414,93"/>
+<area shape="rect" id="node7" href="$d8/d3a/namespace_body_part_creator.html#a1e5297a1d1c20d2867434868cfc42ac1" title="BodyPartCreator::CreateBodyPart" alt="" coords="473,119,696,144"/>
+<area shape="rect" id="node12" href="$d8/d3a/namespace_body_part_creator.html#ab6d6a7845f43f745c09aaa1514881e20" title="BodyPartCreator::UpdateBodyPart" alt="" coords="199,169,425,195"/>
+<area shape="rect" id="node3" href="$df/d0a/main_8cpp.html#a37d529700e0f9a49f368764a2965b20f" title="InitializePlayerData" alt="" coords="517,33,652,59"/>
+<area shape="rect" id="node4" href="$df/d0a/main_8cpp.html#ad60a204b9b7e3351c3f1a99b7aa7e429" title="InitializeAllData" alt="" coords="783,33,895,59"/>
+<area shape="rect" id="node5" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="1056,33,1107,59"/>
+<area shape="rect" id="node8" href="$d8/d3a/namespace_body_part_creator.html#aa69c6643c5e96d7dee3884662bb6ca00" title="BodyPartCreator::BPCreator" alt="" coords="744,143,934,168"/>
+<area shape="rect" id="node9" href="$d9/dd7/namespace_main_debug_window.html#a2c9084a9752a2e4ef87b8ca3039f5a4d" title="MainDebugWindow::MenuBar\lHandler" alt="" coords="982,136,1181,175"/>
+<area shape="rect" id="node10" href="$d9/dd7/namespace_main_debug_window.html#ae0112f4e295169b45c2615b4915e3cc5" title="MainDebugWindow::ShowMain\lDebugWindow" alt="" coords="1229,136,1435,175"/>
+<area shape="rect" id="node11" href="$d9/dd7/namespace_main_debug_window.html#ae86fa1cdeae81822f5567320f9d56f65" title="MainDebugWindow::DebugMain\lWindow" alt="" coords="1483,136,1696,175"/>
+<area shape="rect" id="node13" href="$d8/d3a/namespace_body_part_creator.html#ac18c9ae3935b336efbb9634fb329413f" title="BodyPartCreator::BPEditor" alt="" coords="494,168,675,193"/>
 </map>

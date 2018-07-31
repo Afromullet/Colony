@@ -1,0 +1,5 @@
+<map id="EquipmentWindow::AdditionalActionsHandler" name="EquipmentWindow::AdditionalActionsHandler">
+<area shape="rect" id="node2" href="$d9/d6d/_wound_8cpp.html#aeea66c7e63179a3375e101f954cb5248" title="GetWoundType" alt="" coords="280,5,394,31"/>
+<area shape="rect" id="node3" href="$d0/d28/class_examine_window.html#ab88efb6bed6125a0c941ce70a360baf0" title="ExamineWindow::setText" alt="" coords="252,55,422,80"/>
+<area shape="rect" id="node4" href="$d0/d28/class_examine_window.html#a5d93b356de906a2b4891b8ff79425b90" title="ExamineWindow::show" alt="" coords="257,104,417,129"/>
+</map>

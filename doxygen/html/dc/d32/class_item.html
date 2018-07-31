@@ -80,8 +80,8 @@ Inheritance diagram for Item:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../dc/dc7/class_item__inherit__graph.png" border="0" usemap="#_item_inherit__map" alt="Inheritance graph"/></div>
 <map name="_item_inherit__map" id="_item_inherit__map">
-<area shape="rect" id="node2" href="../../d9/d76/class_armor.html" title="{Armor\n|&#45; siArmorBonus\l&#45; fDodgeModifier\l&#45; fDamageReduction\l&#45; fMovementModifier\l|+ operator==()\l+ operator!=()\l+ operator=()\l+ Armor()\l+ Armor()\l+ Armor()\l+ Armor()\l+ Armor()\l+ clone()\l+ create()\land 14 more...\l}" alt="" coords="5,393,149,640"/>
-<area shape="rect" id="node3" href="../../db/de5/class_weapon.html" title="{Weapon\n|&#45; siRange\l&#45; siDamage\l&#45; contactArea\l&#45; isTwohanded\l&#45; isRanged\l&#45; enWeaponSize\l|+ operator==()\l+ operator!=()\l+ operator=()\l+ Weapon()\l+ Weapon()\l+ Weapon()\l+ Weapon()\l+ clone()\l+ create()\l+ showItemStats()\land 14 more...\l}" alt="" coords="173,380,302,653"/>
+<area shape="rect" id="node2" href="../../d9/d76/class_armor.html" title="{Armor\n|&#45; siArmorBonus\l&#45; fDodgeModifier\l&#45; fDamageReduction\l&#45; fMovementModifier\l|+ operator==()\l+ operator!=()\l+ operator=()\l+ Armor()\l+ Armor()\l+ Armor()\l+ clone()\l+ create()\l+ getItemExamineString()\l+ showItemStats()\land 12 more...\l}" alt="" coords="5,460,178,707"/>
+<area shape="rect" id="node3" href="../../db/de5/class_weapon.html" title="{Weapon\n|&#45; siRange\l&#45; siDamage\l&#45; isTwohanded\l&#45; isRanged\l&#45; enWeaponSize\l&#45; contactArea\l|+ operator==()\l+ operator!=()\l+ operator=()\l+ Weapon()\l+ Weapon()\l+ Weapon()\l+ clone()\l+ create()\l+ showItemStats()\l+ getItemExamineString()\land 14 more...\l}" alt="" coords="203,447,376,720"/>
 </map>
 </div>
 <div class="dynheader">
@@ -89,7 +89,7 @@ Collaboration diagram for Item:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../d2/d8b/class_item__coll__graph.png" border="0" usemap="#_item_coll__map" alt="Collaboration graph"/></div>
 <map name="_item_coll__map" id="_item_coll__map">
-<area shape="rect" id="node2" href="../../d7/dd4/class_entity_tile.html" title="{EntityTile\n|&#45; m_vertices\l&#45; m_tileset\l&#45; tileSize\l&#45; position\l&#45; width\l&#45; height\l&#45; entityTileID\l&#45; tileSetString\l&#45; entityTileIDCounter\l|+ operator==()\l+ operator!=()\l+ operator=()\l+ loadTile()\l+ setPosition()\l+ getTileSize()\l+ getEntityTileID()\l+ getEntityTileIDCounter()\l&#45; draw()\l}" alt="" coords="14,241,189,528"/>
+<area shape="rect" id="node2" href="../../d7/dd4/class_entity_tile.html" title="{EntityTile\n|&#45; m_vertices\l&#45; m_tileset\l&#45; tileSize\l&#45; position\l&#45; width\l&#45; height\l&#45; entityTileID\l&#45; tileSetString\l&#45; entityTileIDCounter\l|+ operator==()\l+ operator!=()\l+ operator=()\l+ EntityTile()\l+ loadTile()\l+ setPosition()\l+ getTileSize()\l+ getEntityTileID()\l+ getEntityTileIDCounter()\l&#45; draw()\l}" alt="" coords="14,235,189,535"/>
 <area shape="rect" id="node5" href="../../dc/dee/class_material.html" title="{Material\n|&#45; effectsOnMaterial\l&#45; compDefStrength\l&#45; impactDefStrength\l&#45; tensileDefStrength\l&#45; torsionDefStrenght\l&#45; shearDefStrength\l&#45; compFractStrength\l&#45; impactFractStrength\l&#45; tensileFractStrength\l&#45; torsionFractStrenght\l&#45; shearFractStrength\l&#45; plasticity\l&#45; density\l&#45; materialName\l|+ operator==()\l+ operator!=()\l+ operator=()\l+ Material()\l+ Material()\l+ PerformMaterialCalculations()\l+ setDeformationStrenghts()\l+ setFractureStrength()\l+ setDensity()\l+ setMaterialName()\land 6 more...\l&#45; SetupForce()\l&#45; SetupShearForce()\l&#45; SetupImpactForce()\l&#45; SetupCompressionForce()\l&#45; SetupTensileForce()\l&#45; SetupTorsionForce()\l&#45; CalculateForcePenentration()\l&#45; CalculateForcePenentration()\l&#45; ApplyForcePenentration()\l&#45; DetermineWoundSeverity()\l}" alt="" coords="213,128,422,641"/>
 </map>
 </div>
@@ -102,14 +102,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a612c595b62d2f7b9c5cd2b085a14b365"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47267a43bfae3f28e183170f45783da5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a47267a43bfae3f28e183170f45783da5">operator=</a> (const <a class="el" href="../../dc/d32/class_item.html">Item</a> &amp;other)</td></tr>
 <tr class="separator:a47267a43bfae3f28e183170f45783da5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a931e8f47fe5a367166280f28edca3950"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a931e8f47fe5a367166280f28edca3950">Item</a> (<a class="el" href="../../dc/dee/class_material.html">Material</a> _material, std::string _sEquipmentName)</td></tr>
-<tr class="separator:a931e8f47fe5a367166280f28edca3950"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7071a91f151036f7fd1a87e12a07f83"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#aa7071a91f151036f7fd1a87e12a07f83">Item</a> (std::string equipmentName)</td></tr>
-<tr class="separator:aa7071a91f151036f7fd1a87e12a07f83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac84b16ca0e3ce8554dbd817d62bcbab0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#ac84b16ca0e3ce8554dbd817d62bcbab0">Item</a> (std::string equipmentName, std::string _section)</td></tr>
-<tr class="separator:ac84b16ca0e3ce8554dbd817d62bcbab0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a297720c02984eab37332ae795d22189d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a297720c02984eab37332ae795d22189d">Item</a> ()</td></tr>
 <tr class="separator:a297720c02984eab37332ae795d22189d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a151feb15d24241570c89d776ac31aeb4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a151feb15d24241570c89d776ac31aeb4">Item</a> (<a class="el" href="../../dc/dee/class_material.html">Material</a> _material, std::string _sEquipmentName, <a class="el" href="../../db/d1b/_equipment_8hpp.html#a3c7fe24829a0b210a1a4d36e29ac01c6">EnItemType</a> itType)</td></tr>
+<tr class="separator:a151feb15d24241570c89d776ac31aeb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44f7e3f580bd6c0fa2e1c288dff484be"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a44f7e3f580bd6c0fa2e1c288dff484be">Item</a> (const <a class="el" href="../../dc/d32/class_item.html">Item</a> &amp;other)</td></tr>
 <tr class="separator:a44f7e3f580bd6c0fa2e1c288dff484be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d963581e2caad2e08979683a827f39f"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="../../dc/d32/class_item.html">Item</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a6d963581e2caad2e08979683a827f39f">clone</a> () const =0</td></tr>
@@ -120,8 +116,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aaf7dae41afdce432c11261043e8e4e30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00e06647e1adeb62f2d95044476126ac"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a00e06647e1adeb62f2d95044476126ac">getItemExamineString</a> () const =0</td></tr>
 <tr class="separator:a00e06647e1adeb62f2d95044476126ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1a25684e25e0fc14cbe88f77ea035c2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#ad1a25684e25e0fc14cbe88f77ea035c2">EquipItem</a> (<a class="el" href="../../d2/d6f/class_body_part.html">BodyPart</a> &amp;bp, <a class="el" href="../../dc/de1/class_item_manager.html">ItemManager</a> &amp;itemManager)=0</td></tr>
-<tr class="separator:ad1a25684e25e0fc14cbe88f77ea035c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4b9caf8fcfc22bbde13bf6c3505b35c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#af4b9caf8fcfc22bbde13bf6c3505b35c">EquipItem</a> (<a class="el" href="../../d2/d6f/class_body_part.html">BodyPart</a> &amp;bp)=0</td></tr>
+<tr class="separator:af4b9caf8fcfc22bbde13bf6c3505b35c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae534538f3e77078f804acc742ef68521"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#ae534538f3e77078f804acc742ef68521">AddToItemManager</a> (<a class="el" href="../../dc/de1/class_item_manager.html">ItemManager</a> &amp;manager)=0</td></tr>
+<tr class="separator:ae534538f3e77078f804acc742ef68521"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f02bc86b6f66142e35a660a5c28ba74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a8f02bc86b6f66142e35a660a5c28ba74">CalculateMaterialBonuses</a> ()</td></tr>
 <tr class="separator:a8f02bc86b6f66142e35a660a5c28ba74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a806159273f1f9fbb07fe75a74f2f51c5"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a806159273f1f9fbb07fe75a74f2f51c5">getItemName</a> () const</td></tr>
@@ -142,6 +140,16 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af22ec5d207b70e2a3359e76dccfc7e11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61272a187be1a07a49685cbee45d30bd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/dd4/class_entity_tile.html">EntityTile</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a61272a187be1a07a49685cbee45d30bd">getTile</a> ()</td></tr>
 <tr class="separator:a61272a187be1a07a49685cbee45d30bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e829376b05757d63d2593fb378d05ff"><td class="memItemLeft" align="right" valign="top">boost::uuids::uuid&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a5e829376b05757d63d2593fb378d05ff">getTag</a> ()</td></tr>
+<tr class="separator:a5e829376b05757d63d2593fb378d05ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8320312184b0cbf28d047d68059f1b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d1b/_equipment_8hpp.html#a3c7fe24829a0b210a1a4d36e29ac01c6">EnItemType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#aa8320312184b0cbf28d047d68059f1b1">getItemType</a> ()</td></tr>
+<tr class="separator:aa8320312184b0cbf28d047d68059f1b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cbcf6f1a3b7c07a05b9cc0954e677db"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a7cbcf6f1a3b7c07a05b9cc0954e677db">getStackSize</a> ()</td></tr>
+<tr class="separator:a7cbcf6f1a3b7c07a05b9cc0954e677db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8e94ab96931949a517490d1c4b37287"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#ac8e94ab96931949a517490d1c4b37287">getMaxStackSize</a> ()</td></tr>
+<tr class="separator:ac8e94ab96931949a517490d1c4b37287"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc7555345dbfa5a079622fb3eec6f5b7"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#acc7555345dbfa5a079622fb3eec6f5b7">getDescriptiveText</a> () const</td></tr>
+<tr class="separator:acc7555345dbfa5a079622fb3eec6f5b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c9f73ef36b176cdb75bc9b13d5be8e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a6c9f73ef36b176cdb75bc9b13d5be8e8">addSection</a> (std::string value)</td></tr>
 <tr class="separator:a6c9f73ef36b176cdb75bc9b13d5be8e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8dd38d585a7795f134f6453feb1000e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#ae8dd38d585a7795f134f6453feb1000e">setItemName</a> (std::string value)</td></tr>
@@ -160,6 +168,16 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a87100c3d13e81e42e58969f817d591ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10dd503844c230e3d3bf890e969af867"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a10dd503844c230e3d3bf890e969af867">isValidSection</a> (std::string _section)</td></tr>
 <tr class="separator:a10dd503844c230e3d3bf890e969af867"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18f7cd6d575a855529a4df7b47b3585e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a18f7cd6d575a855529a4df7b47b3585e">setTag</a> (boost::uuids::uuid val)</td></tr>
+<tr class="separator:a18f7cd6d575a855529a4df7b47b3585e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4c09d3c7d22b96a4bca5f530f5f3b42"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#ae4c09d3c7d22b96a4bca5f530f5f3b42">setItemType</a> (<a class="el" href="../../db/d1b/_equipment_8hpp.html#a3c7fe24829a0b210a1a4d36e29ac01c6">EnItemType</a> val)</td></tr>
+<tr class="separator:ae4c09d3c7d22b96a4bca5f530f5f3b42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e0495bbb3eafeef69f8f8aa5bf94dbb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a0e0495bbb3eafeef69f8f8aa5bf94dbb">setStackSize</a> (int val)</td></tr>
+<tr class="separator:a0e0495bbb3eafeef69f8f8aa5bf94dbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ae38e2b09f1b12e2fd799865fe7000d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a3ae38e2b09f1b12e2fd799865fe7000d">setMaxStackSize</a> (int val)</td></tr>
+<tr class="separator:a3ae38e2b09f1b12e2fd799865fe7000d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5eece4e311535630dec1ac8c65b683e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a5eece4e311535630dec1ac8c65b683e6">setDescriptiveText</a> (std::string str)</td></tr>
+<tr class="separator:a5eece4e311535630dec1ac8c65b683e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -186,6 +204,16 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ab551fd7ec7c75a6d125cad56fe84b30a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47a03cb11d41796494640d62f4d6b9d2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a47a03cb11d41796494640d62f4d6b9d2">isEquipped</a></td></tr>
 <tr class="separator:a47a03cb11d41796494640d62f4d6b9d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae25a4fa73976dabda3d4df6cf16fdaf1"><td class="memItemLeft" align="right" valign="top">boost::uuids::uuid&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#ae25a4fa73976dabda3d4df6cf16fdaf1">tag</a></td></tr>
+<tr class="separator:ae25a4fa73976dabda3d4df6cf16fdaf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a132d392fc3cd4c7dfa06ceaa0888a491"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d1b/_equipment_8hpp.html#a3c7fe24829a0b210a1a4d36e29ac01c6">EnItemType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a132d392fc3cd4c7dfa06ceaa0888a491">enItemType</a></td></tr>
+<tr class="separator:a132d392fc3cd4c7dfa06ceaa0888a491"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e80a8ff6b74d6a2ecbd9a972e7df69a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a0e80a8ff6b74d6a2ecbd9a972e7df69a">stackSize</a></td></tr>
+<tr class="separator:a0e80a8ff6b74d6a2ecbd9a972e7df69a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21048ebf5f1893ed429657863c622288"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a21048ebf5f1893ed429657863c622288">maxStackSize</a></td></tr>
+<tr class="separator:a21048ebf5f1893ed429657863c622288"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a337c41fb4f1ac4b9ab69266722d9afac"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a337c41fb4f1ac4b9ab69266722d9afac">descriptiveText</a></td></tr>
+<tr class="separator:a337c41fb4f1ac4b9ab69266722d9afac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -195,8 +223,33 @@ Friends</h2></td></tr>
 <tr class="separator:ab356dbee0f1e915287732c65e8ef61e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a931e8f47fe5a367166280f28edca3950"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a931e8f47fe5a367166280f28edca3950">&#9670;&nbsp;</a></span>Item() <span class="overload">[1/5]</span></h2>
+<a id="a297720c02984eab37332ae795d22189d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a297720c02984eab37332ae795d22189d">&#9670;&nbsp;</a></span>Item() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Item::Item </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dc/d32/class_item_a297720c02984eab37332ae795d22189d_cgraph.png" border="0" usemap="#dc/d32/class_item_a297720c02984eab37332ae795d22189d_cgraph" alt=""/></div>
+<map name="dc/d32/class_item_a297720c02984eab37332ae795d22189d_cgraph" id="dc/d32/class_item_a297720c02984eab37332ae795d22189d_cgraph">
+<area shape="rect" id="node2" href="../../d7/dd4/class_entity_tile.html#a1a6b6b995ad942e7850f14cc6e693bbc" title="EntityTile::loadTile" alt="" coords="134,5,263,31"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a151feb15d24241570c89d776ac31aeb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a151feb15d24241570c89d776ac31aeb4">&#9670;&nbsp;</a></span>Item() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -211,75 +264,18 @@ Friends</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>_sEquipmentName</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa7071a91f151036f7fd1a87e12a07f83"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa7071a91f151036f7fd1a87e12a07f83">&#9670;&nbsp;</a></span>Item() <span class="overload">[2/5]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Item::Item </td>
-          <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>equipmentName</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac84b16ca0e3ce8554dbd817d62bcbab0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac84b16ca0e3ce8554dbd817d62bcbab0">&#9670;&nbsp;</a></span>Item() <span class="overload">[3/5]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Item::Item </td>
-          <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>equipmentName</em>, </td>
+          <td class="paramname"><em>_sEquipmentName</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>_section</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../db/d1b/_equipment_8hpp.html#a3c7fe24829a0b210a1a4d36e29ac01c6">EnItemType</a>&#160;</td>
+          <td class="paramname"><em>itType</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
           <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a297720c02984eab37332ae795d22189d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a297720c02984eab37332ae795d22189d">&#9670;&nbsp;</a></span>Item() <span class="overload">[4/5]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Item::Item </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -287,7 +283,7 @@ Friends</h2></td></tr>
 </div>
 </div>
 <a id="a44f7e3f580bd6c0fa2e1c288dff484be"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a44f7e3f580bd6c0fa2e1c288dff484be">&#9670;&nbsp;</a></span>Item() <span class="overload">[5/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a44f7e3f580bd6c0fa2e1c288dff484be">&#9670;&nbsp;</a></span>Item() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -325,9 +321,39 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../dc/d32/class_item_a6c9f73ef36b176cdb75bc9b13d5be8e8_icgraph.png" border="0" usemap="#dc/d32/class_item_a6c9f73ef36b176cdb75bc9b13d5be8e8_icgraph" alt=""/></div>
 <map name="dc/d32/class_item_a6c9f73ef36b176cdb75bc9b13d5be8e8_icgraph" id="dc/d32/class_item_a6c9f73ef36b176cdb75bc9b13d5be8e8_icgraph">
-<area shape="rect" id="node2" href="../../df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="175,5,225,31"/>
+<area shape="rect" id="node2" href="../../df/d0a/main_8cpp.html#a0e54b88e292aa007c9534e8ab287d049" title="InitializeTestingData" alt="" coords="175,5,315,31"/>
+<area shape="rect" id="node3" href="../../df/d0a/main_8cpp.html#ad60a204b9b7e3351c3f1a99b7aa7e429" title="InitializeAllData" alt="" coords="363,5,475,31"/>
+<area shape="rect" id="node4" href="../../df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="523,5,573,31"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="ae534538f3e77078f804acc742ef68521"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae534538f3e77078f804acc742ef68521">&#9670;&nbsp;</a></span>AddToItemManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Item::AddToItemManager </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dc/de1/class_item_manager.html">ItemManager</a> &amp;&#160;</td>
+          <td class="paramname"><em>manager</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="../../d9/d76/class_armor.html#a008a9def7f07c141c87771937d856616">Armor</a>, and <a class="el" href="../../db/de5/class_weapon.html#a241a74219d47374ffebebaad675dc250">Weapon</a>.</p>
 
 </div>
 </div>
@@ -350,7 +376,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../dc/d32/class_item_a8f02bc86b6f66142e35a660a5c28ba74_cgraph.png" border="0" usemap="#dc/d32/class_item_a8f02bc86b6f66142e35a660a5c28ba74_cgraph" alt=""/></div>
 <map name="dc/d32/class_item_a8f02bc86b6f66142e35a660a5c28ba74_cgraph" id="dc/d32/class_item_a8f02bc86b6f66142e35a660a5c28ba74_cgraph">
-<area shape="rect" id="node2" href="../../dc/dee/class_material.html#a40740dabb21cc8ba24b168935e10b06f" title="Material::getDensity" alt="" coords="263,5,402,31"/>
+<area shape="rect" id="node2" href="../../dc/dee/class_material.html#ac414d481bc0f34f1a55e2d89d9584301" title="Material::getDensity" alt="" coords="263,5,402,31"/>
 </map>
 </div>
 
@@ -410,8 +436,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="ad1a25684e25e0fc14cbe88f77ea035c2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad1a25684e25e0fc14cbe88f77ea035c2">&#9670;&nbsp;</a></span>EquipItem()</h2>
+<a id="af4b9caf8fcfc22bbde13bf6c3505b35c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4b9caf8fcfc22bbde13bf6c3505b35c">&#9670;&nbsp;</a></span>EquipItem()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -423,18 +449,8 @@ Here is the call graph for this function:</div>
           <td class="memname">virtual void Item::EquipItem </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d2/d6f/class_body_part.html">BodyPart</a> &amp;&#160;</td>
-          <td class="paramname"><em>bp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>bp</em></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../dc/de1/class_item_manager.html">ItemManager</a> &amp;&#160;</td>
-          <td class="paramname"><em>itemManager</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -444,7 +460,24 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="../../d9/d76/class_armor.html#a0b5dc1feb7b5d3c4bd023cf9e0857fe3">Armor</a>, and <a class="el" href="../../db/de5/class_weapon.html#ab40ee049b9f2a5c3cfdec36750f0842d">Weapon</a>.</p>
+<p>Implemented in <a class="el" href="../../d9/d76/class_armor.html#a697e23862a5a6bb32fc5b1b143d61f58">Armor</a>, and <a class="el" href="../../db/de5/class_weapon.html#af7fda0b6e0d4ce8f25e2b0e4ad5fd94d">Weapon</a>.</p>
+
+</div>
+</div>
+<a id="acc7555345dbfa5a079622fb3eec6f5b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc7555345dbfa5a079622fb3eec6f5b7">&#9670;&nbsp;</a></span>getDescriptiveText()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Item::getDescriptiveText </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -511,13 +544,45 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../dc/d32/class_item_a806159273f1f9fbb07fe75a74f2f51c5_icgraph.png" border="0" usemap="#dc/d32/class_item_a806159273f1f9fbb07fe75a74f2f51c5_icgraph" alt=""/></div>
 <map name="dc/d32/class_item_a806159273f1f9fbb07fe75a74f2f51c5_icgraph" id="dc/d32/class_item_a806159273f1f9fbb07fe75a74f2f51c5_icgraph">
-<area shape="rect" id="node2" href="../../d2/d6f/class_body_part.html#a651b65c40c95ecad5a8388736d6cc73a" title="BodyPart::EquipArmor" alt="" coords="194,5,348,31"/>
-<area shape="rect" id="node3" href="../../d9/d76/class_armor.html#a4fe1507d7aaf280a18e19f51a6f8c42d" title="Armor::showItemStats" alt="" coords="195,55,347,80"/>
-<area shape="rect" id="node4" href="../../db/de5/class_weapon.html#a5bd0118be0d84307c0865a63d907fec7" title="Weapon::showItemStats" alt="" coords="188,104,354,129"/>
-<area shape="rect" id="node5" href="../../df/d0a/main_8cpp.html#a272c53135b61217828e494f5d86dabe4" title="PointerTest" alt="" coords="227,153,315,179"/>
-<area shape="rect" id="node6" href="../../df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="402,179,452,204"/>
+<area shape="rect" id="node2" href="../../da/d7d/class_creature_body.html#a8a55f2c0785aaf956cdee04a538dfb97" title="CreatureBody::Equip" alt="" coords="198,9,343,35"/>
+<area shape="rect" id="node16" href="../../d2/d6f/class_body_part.html#a651b65c40c95ecad5a8388736d6cc73a" title="BodyPart::EquipArmor" alt="" coords="194,59,348,84"/>
+<area shape="rect" id="node17" href="../../d9/d76/class_armor.html#a4fe1507d7aaf280a18e19f51a6f8c42d" title="Armor::showItemStats" alt="" coords="195,108,347,133"/>
+<area shape="rect" id="node18" href="../../db/de5/class_weapon.html#a5bd0118be0d84307c0865a63d907fec7" title="Weapon::showItemStats" alt="" coords="188,157,354,183"/>
+<area shape="rect" id="node19" href="../../d8/dcb/class_equipment_window.html#acf7d2c5609224291b20ad65d1241eeca" title="EquipmentWindow::UpdateMain\lWindow" alt="" coords="402,163,613,201"/>
+<area shape="rect" id="node3" href="../../dc/de1/class_item_manager.html#a55d0009a402e2f5fc3a18cf0629cec64" title="ItemManager::EquipItem" alt="" coords="424,11,591,36"/>
+<area shape="rect" id="node4" href="../../d2/d3b/class_base_creature.html#a1e73375251b20070ae9dac505b280b3e" title="BaseCreature::EquipItem" alt="" coords="691,12,862,37"/>
+<area shape="rect" id="node5" href="../../d1/dee/class_inventory_window.html#a5115f00fecccca34ba3559079a325a9a" title="InventoryWindow::Additional\lActionsHandler" alt="" coords="952,5,1142,44"/>
+<area shape="rect" id="node6" href="../../d1/dee/class_inventory_window.html#a184239af4739a83163b45c4bb72ff6ec" title="InventoryWindow::Additional\lActionsDoubleClick" alt="" coords="1219,5,1408,44"/>
+<area shape="rect" id="node12" href="../../d1/dee/class_inventory_window.html#a201c5b514200d4b3afc27fa056c1c365" title="InventoryWindow::HandleWindow\lEvent" alt="" coords="1203,68,1424,107"/>
+<area shape="rect" id="node7" href="../../d1/dee/class_inventory_window.html#ada117b35239727b734887c1d56dcf6f0" title="InventoryWindow::setupSignals" alt="" coords="1472,13,1679,39"/>
+<area shape="rect" id="node8" href="../../db/dcd/class_player_g_u_i.html#a7fdc3f6f9478ea077ddaffd8d34a3854" title="PlayerGUI::SetupPlayerGUI" alt="" coords="1741,19,1928,44"/>
+<area shape="rect" id="node9" href="../../d1/d27/_player_windows_8hpp.html#acc8d46ee468ab4d8721d18b65370186d" title="SetupGUI" alt="" coords="1989,20,2069,45"/>
+<area shape="rect" id="node10" href="../../df/d0a/main_8cpp.html#ad60a204b9b7e3351c3f1a99b7aa7e429" title="InitializeAllData" alt="" coords="2117,23,2230,48"/>
+<area shape="rect" id="node11" href="../../df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="2278,48,2328,73"/>
+<area shape="rect" id="node13" href="../../d1/dee/class_inventory_window.html#ad023d9091385b9829673f6f592dd44ea" title="InventoryWindow::HandleEvent" alt="" coords="1472,75,1679,100"/>
+<area shape="rect" id="node14" href="../../db/dcd/class_player_g_u_i.html#a1658f37b9e537d4a7377ca842bf60598" title="PlayerGUI::HandleWindowEvent" alt="" coords="1727,75,1941,100"/>
+<area shape="rect" id="node15" href="../../df/d0a/main_8cpp.html#ab8ef98eaa887a3be4bb916cdde45b3d1" title="GameLoop3" alt="" coords="2126,72,2221,97"/>
+<area shape="rect" id="node20" href="../../d8/dcb/class_equipment_window.html#a51ce202b7d1c4ac4e0e7d93df9dec726" title="EquipmentWindow::HandleWindow\lEvent" alt="" coords="661,143,891,181"/>
+<area shape="rect" id="node21" href="../../d8/dcb/class_equipment_window.html#aea251bbf9967a0f39ccca5df854adcbe" title="EquipmentWindow::HandleEvent" alt="" coords="939,140,1155,165"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="aa8320312184b0cbf28d047d68059f1b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8320312184b0cbf28d047d68059f1b1">&#9670;&nbsp;</a></span>getItemType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d1b/_equipment_8hpp.html#a3c7fe24829a0b210a1a4d36e29ac01c6">EnItemType</a> Item::getItemType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -596,6 +661,23 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="ac8e94ab96931949a517490d1c4b37287"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8e94ab96931949a517490d1c4b37287">&#9670;&nbsp;</a></span>getMaxStackSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Item::getMaxStackSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ab015078a1ea19c197fc88b7a556d37cc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab015078a1ea19c197fc88b7a556d37cc">&#9670;&nbsp;</a></span>getPosition()</h2>
 
@@ -644,6 +726,70 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7cbcf6f1a3b7c07a05b9cc0954e677db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cbcf6f1a3b7c07a05b9cc0954e677db">&#9670;&nbsp;</a></span>getStackSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Item::getStackSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5e829376b05757d63d2593fb378d05ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e829376b05757d63d2593fb378d05ff">&#9670;&nbsp;</a></span>getTag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::uuids::uuid Item::getTag </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dc/d32/class_item_a5e829376b05757d63d2593fb378d05ff_icgraph.png" border="0" usemap="#dc/d32/class_item_a5e829376b05757d63d2593fb378d05ff_icgraph" alt=""/></div>
+<map name="dc/d32/class_item_a5e829376b05757d63d2593fb378d05ff_icgraph" id="dc/d32/class_item_a5e829376b05757d63d2593fb378d05ff_icgraph">
+<area shape="rect" id="node2" href="../../dc/de1/class_item_manager.html#af16502a871d116ebd2241cd8d2d745f5" title="ItemManager::addArmor" alt="" coords="155,96,320,121"/>
+<area shape="rect" id="node21" href="../../dc/de1/class_item_manager.html#a2631fb34c48555098029e18e66d7eb05" title="ItemManager::addWeapon" alt="" coords="148,217,327,243"/>
+<area shape="rect" id="node3" href="../../d2/d3b/class_base_creature.html#a03122a2c070fe7cab0dc772f552f1a63" title="BaseCreature::AddArmorTo\lInventory" alt="" coords="388,5,573,44"/>
+<area shape="rect" id="node7" href="../../da/d7d/class_creature_body.html#aa923b5ba453a19b651af7290d568a4fc" title="CreatureBody::UnequipArmor\lBySection" alt="" coords="382,117,579,156"/>
+<area shape="rect" id="node20" href="../../d9/d76/class_armor.html#a008a9def7f07c141c87771937d856616" title="Armor::AddToItemManager" alt="" coords="389,68,571,93"/>
+<area shape="rect" id="node4" href="../../df/d0a/main_8cpp.html#a0e54b88e292aa007c9534e8ab287d049" title="InitializeTestingData" alt="" coords="636,125,776,151"/>
+<area shape="rect" id="node5" href="../../df/d0a/main_8cpp.html#ad60a204b9b7e3351c3f1a99b7aa7e429" title="InitializeAllData" alt="" coords="2522,183,2634,208"/>
+<area shape="rect" id="node6" href="../../df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="2682,209,2732,235"/>
+<area shape="rect" id="node8" href="../../da/d7d/class_creature_body.html#a8a55f2c0785aaf956cdee04a538dfb97" title="CreatureBody::Equip" alt="" coords="633,185,778,211"/>
+<area shape="rect" id="node9" href="../../dc/de1/class_item_manager.html#a55d0009a402e2f5fc3a18cf0629cec64" title="ItemManager::EquipItem" alt="" coords="826,185,994,211"/>
+<area shape="rect" id="node10" href="../../d2/d3b/class_base_creature.html#a1e73375251b20070ae9dac505b280b3e" title="BaseCreature::EquipItem" alt="" coords="1042,185,1213,211"/>
+<area shape="rect" id="node11" href="../../d1/dee/class_inventory_window.html#a5115f00fecccca34ba3559079a325a9a" title="InventoryWindow::Additional\lActionsHandler" alt="" coords="1261,179,1450,217"/>
+<area shape="rect" id="node12" href="../../d1/dee/class_inventory_window.html#a184239af4739a83163b45c4bb72ff6ec" title="InventoryWindow::Additional\lActionsDoubleClick" alt="" coords="1498,176,1688,215"/>
+<area shape="rect" id="node16" href="../../d1/dee/class_inventory_window.html#a201c5b514200d4b3afc27fa056c1c365" title="InventoryWindow::HandleWindow\lEvent" alt="" coords="1736,232,1956,271"/>
+<area shape="rect" id="node13" href="../../d1/dee/class_inventory_window.html#ada117b35239727b734887c1d56dcf6f0" title="InventoryWindow::setupSignals" alt="" coords="1742,183,1950,208"/>
+<area shape="rect" id="node14" href="../../db/dcd/class_player_g_u_i.html#a7fdc3f6f9478ea077ddaffd8d34a3854" title="PlayerGUI::SetupPlayerGUI" alt="" coords="2015,183,2201,208"/>
+<area shape="rect" id="node15" href="../../d1/d27/_player_windows_8hpp.html#acc8d46ee468ab4d8721d18b65370186d" title="SetupGUI" alt="" coords="2327,183,2407,208"/>
+<area shape="rect" id="node17" href="../../d1/dee/class_inventory_window.html#ad023d9091385b9829673f6f592dd44ea" title="InventoryWindow::HandleEvent" alt="" coords="2004,237,2212,263"/>
+<area shape="rect" id="node18" href="../../db/dcd/class_player_g_u_i.html#a1658f37b9e537d4a7377ca842bf60598" title="PlayerGUI::HandleWindowEvent" alt="" coords="2260,235,2474,260"/>
+<area shape="rect" id="node19" href="../../df/d0a/main_8cpp.html#ab8ef98eaa887a3be4bb916cdde45b3d1" title="GameLoop3" alt="" coords="2531,233,2625,259"/>
+<area shape="rect" id="node22" href="../../d2/d3b/class_base_creature.html#ab0a90200835bc80c6db29e31f98d35e9" title="BaseCreature::AddWeaponTo\lInventory" alt="" coords="381,180,579,219"/>
+<area shape="rect" id="node23" href="../../da/d7d/class_creature_body.html#a4cd14d7e1ed54d8beeb853a99ff0516c" title="CreatureBody::UnequipWeapon\lBySection" alt="" coords="375,243,585,281"/>
+<area shape="rect" id="node24" href="../../db/de5/class_weapon.html#a241a74219d47374ffebebaad675dc250" title="Weapon::AddToItemManager" alt="" coords="383,305,577,331"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -744,6 +890,34 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a5eece4e311535630dec1ac8c65b683e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5eece4e311535630dec1ac8c65b683e6">&#9670;&nbsp;</a></span>setDescriptiveText()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Item::setDescriptiveText </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dc/d32/class_item_a5eece4e311535630dec1ac8c65b683e6_icgraph.png" border="0" usemap="#dc/d32/class_item_a5eece4e311535630dec1ac8c65b683e6_icgraph" alt=""/></div>
+<map name="dc/d32/class_item_a5eece4e311535630dec1ac8c65b683e6_icgraph" id="dc/d32/class_item_a5eece4e311535630dec1ac8c65b683e6_icgraph">
+<area shape="rect" id="node2" href="../../df/d0a/main_8cpp.html#a0e54b88e292aa007c9534e8ab287d049" title="InitializeTestingData" alt="" coords="216,5,356,31"/>
+<area shape="rect" id="node3" href="../../df/d0a/main_8cpp.html#ad60a204b9b7e3351c3f1a99b7aa7e429" title="InitializeAllData" alt="" coords="404,5,517,31"/>
+<area shape="rect" id="node4" href="../../df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="565,5,615,31"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="ade0d63a4f02aa1a97f977b13f96eb891"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ade0d63a4f02aa1a97f977b13f96eb891">&#9670;&nbsp;</a></span>setIsEquipped()</h2>
 
@@ -791,16 +965,32 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../dc/d32/class_item_ae8dd38d585a7795f134f6453feb1000e_icgraph.png" border="0" usemap="#dc/d32/class_item_ae8dd38d585a7795f134f6453feb1000e_icgraph" alt=""/></div>
 <map name="dc/d32/class_item_ae8dd38d585a7795f134f6453feb1000e_icgraph" id="dc/d32/class_item_ae8dd38d585a7795f134f6453feb1000e_icgraph">
-<area shape="rect" id="node2" href="../../d4/df3/_body_part_8hpp.html#aebe44915ce0d2d59b0b6337a91219823" title="InitializeGlobalBodyParts" alt="" coords="191,5,360,31"/>
-<area shape="rect" id="node4" href="../../df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="620,105,670,131"/>
-<area shape="rect" id="node5" href="../../df/d0a/main_8cpp.html#a272c53135b61217828e494f5d86dabe4" title="PointerTest" alt="" coords="448,156,536,181"/>
-<area shape="rect" id="node6" href="../../d6/d62/_item_generator_8hpp.html#a73c459717a9061affce0f19c1e98d626" title="GenerateRandomArmor" alt="" coords="194,256,357,281"/>
-<area shape="rect" id="node8" href="../../d6/d62/_item_generator_8hpp.html#a5be96f6f28cdb72430191c9116ee5048" title="GenerateRandomWeapon" alt="" coords="187,207,364,232"/>
-<area shape="rect" id="node9" href="../../d8/d46/_test_data_generator_8hpp.html#aab0823e979250be375299f1337314fe1" title="GenerateTestEquipment" alt="" coords="193,55,358,80"/>
-<area shape="rect" id="node3" href="../../df/d0a/main_8cpp.html#ab5227b073ad87fc30322650e123e0055" title="SetupGameData" alt="" coords="432,55,552,80"/>
-<area shape="rect" id="node7" href="../../d8/d46/_test_data_generator_8hpp.html#adf5c94513b4604bb65ec2255caad5188" title="GenerateRandomItems" alt="" coords="412,256,572,281"/>
+<area shape="rect" id="node2" href="../../df/d0a/main_8cpp.html#a0e54b88e292aa007c9534e8ab287d049" title="InitializeTestingData" alt="" coords="206,5,346,31"/>
+<area shape="rect" id="node5" href="../../d6/d62/_item_generator_8hpp.html#a73c459717a9061affce0f19c1e98d626" title="GenerateRandomArmor" alt="" coords="194,55,357,80"/>
+<area shape="rect" id="node6" href="../../d6/d62/_item_generator_8hpp.html#a5be96f6f28cdb72430191c9116ee5048" title="GenerateRandomWeapon" alt="" coords="187,104,364,129"/>
+<area shape="rect" id="node7" href="../../d7/d1f/_test_data_generator_8cpp.html#aab0823e979250be375299f1337314fe1" title="GenerateTestEquipment" alt="" coords="193,153,358,179"/>
+<area shape="rect" id="node3" href="../../df/d0a/main_8cpp.html#ad60a204b9b7e3351c3f1a99b7aa7e429" title="InitializeAllData" alt="" coords="412,5,525,31"/>
+<area shape="rect" id="node4" href="../../df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="573,5,623,31"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="ae4c09d3c7d22b96a4bca5f530f5f3b42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4c09d3c7d22b96a4bca5f530f5f3b42">&#9670;&nbsp;</a></span>setItemType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Item::setItemType </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d1b/_equipment_8hpp.html#a3c7fe24829a0b210a1a4d36e29ac01c6">EnItemType</a>&#160;</td>
+          <td class="paramname"><em>val</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -849,6 +1039,24 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a3ae38e2b09f1b12e2fd799865fe7000d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ae38e2b09f1b12e2fd799865fe7000d">&#9670;&nbsp;</a></span>setMaxStackSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Item::setMaxStackSize </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>val</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="af8f03acf491fb71ec8cf1e4248bb4b3d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af8f03acf491fb71ec8cf1e4248bb4b3d">&#9670;&nbsp;</a></span>setPosition()</h2>
 
@@ -880,6 +1088,14 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="../../dc/d32/class_item_af8f03acf491fb71ec8cf1e4248bb4b3d_cgraph.png" border="0" usemap="#dc/d32/class_item_af8f03acf491fb71ec8cf1e4248bb4b3d_cgraph" alt=""/></div>
 <map name="dc/d32/class_item_af8f03acf491fb71ec8cf1e4248bb4b3d_cgraph" id="dc/d32/class_item_af8f03acf491fb71ec8cf1e4248bb4b3d_cgraph">
 <area shape="rect" id="node2" href="../../d7/dd4/class_entity_tile.html#a7b9e5be8dc4017eb5af8e4fda7add3c4" title="EntityTile::setPosition" alt="" coords="173,5,322,31"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dc/d32/class_item_af8f03acf491fb71ec8cf1e4248bb4b3d_icgraph.png" border="0" usemap="#dc/d32/class_item_af8f03acf491fb71ec8cf1e4248bb4b3d_icgraph" alt=""/></div>
+<map name="dc/d32/class_item_af8f03acf491fb71ec8cf1e4248bb4b3d_icgraph" id="dc/d32/class_item_af8f03acf491fb71ec8cf1e4248bb4b3d_icgraph">
+<area shape="rect" id="node2" href="../../df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="173,5,223,31"/>
 </map>
 </div>
 
@@ -914,6 +1130,42 @@ Here is the call graph for this function:</div>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>_size</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0e0495bbb3eafeef69f8f8aa5bf94dbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e0495bbb3eafeef69f8f8aa5bf94dbb">&#9670;&nbsp;</a></span>setStackSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Item::setStackSize </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>val</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a18f7cd6d575a855529a4df7b47b3585e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18f7cd6d575a855529a4df7b47b3585e">&#9670;&nbsp;</a></span>setTag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Item::setTag </td>
+          <td>(</td>
+          <td class="paramtype">boost::uuids::uuid&#160;</td>
+          <td class="paramname"><em>val</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -994,6 +1246,50 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a337c41fb4f1ac4b9ab69266722d9afac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a337c41fb4f1ac4b9ab69266722d9afac">&#9670;&nbsp;</a></span>descriptiveText</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Item::descriptiveText</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a132d392fc3cd4c7dfa06ceaa0888a491"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a132d392fc3cd4c7dfa06ceaa0888a491">&#9670;&nbsp;</a></span>enItemType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d1b/_equipment_8hpp.html#a3c7fe24829a0b210a1a4d36e29ac01c6">EnItemType</a> Item::enItemType</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a47a03cb11d41796494640d62f4d6b9d2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a47a03cb11d41796494640d62f4d6b9d2">&#9670;&nbsp;</a></span>isEquipped</h2>
 
@@ -1063,6 +1359,28 @@ Here is the call graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="../../dc/dee/class_material.html">Material</a> Item::material</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a21048ebf5f1893ed429657863c622288"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21048ebf5f1893ed429657863c622288">&#9670;&nbsp;</a></span>maxStackSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Item::maxStackSize</td>
         </tr>
       </table>
   </td>
@@ -1165,6 +1483,50 @@ Here is the call graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">float Item::size</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0e80a8ff6b74d6a2ecbd9a972e7df69a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e80a8ff6b74d6a2ecbd9a972e7df69a">&#9670;&nbsp;</a></span>stackSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Item::stackSize</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae25a4fa73976dabda3d4df6cf16fdaf1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae25a4fa73976dabda3d4df6cf16fdaf1">&#9670;&nbsp;</a></span>tag</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::uuids::uuid Item::tag</td>
         </tr>
       </table>
   </td>

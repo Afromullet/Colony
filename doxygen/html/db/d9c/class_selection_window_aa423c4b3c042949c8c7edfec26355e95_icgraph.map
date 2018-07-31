@@ -1,0 +1,17 @@
+<map id="SelectionWindow::AddTextToMainWindow" name="SelectionWindow::AddTextToMainWindow">
+<area shape="rect" id="node2" href="$d1/dee/class_inventory_window.html#a02cf6a3724a6ca38f12de98b96e8a8e7" title="InventoryWindow::UpdateMain\lWindow" alt="" coords="237,63,440,101"/>
+<area shape="rect" id="node14" href="$d8/dcb/class_equipment_window.html#acf7d2c5609224291b20ad65d1241eeca" title="EquipmentWindow::UpdateMain\lWindow" alt="" coords="233,125,444,164"/>
+<area shape="rect" id="node3" href="$d1/dee/class_inventory_window.html#a5115f00fecccca34ba3559079a325a9a" title="InventoryWindow::Additional\lActionsHandler" alt="" coords="512,11,702,49"/>
+<area shape="rect" id="node10" href="$d1/dee/class_inventory_window.html#a201c5b514200d4b3afc27fa056c1c365" title="InventoryWindow::HandleWindow\lEvent" alt="" coords="770,68,991,107"/>
+<area shape="rect" id="node4" href="$d1/dee/class_inventory_window.html#a184239af4739a83163b45c4bb72ff6ec" title="InventoryWindow::Additional\lActionsDoubleClick" alt="" coords="785,5,975,44"/>
+<area shape="rect" id="node5" href="$d1/dee/class_inventory_window.html#ada117b35239727b734887c1d56dcf6f0" title="InventoryWindow::setupSignals" alt="" coords="1043,13,1250,39"/>
+<area shape="rect" id="node6" href="$db/dcd/class_player_g_u_i.html#a7fdc3f6f9478ea077ddaffd8d34a3854" title="PlayerGUI::SetupPlayerGUI" alt="" coords="1317,19,1503,44"/>
+<area shape="rect" id="node7" href="$d1/d27/_player_windows_8hpp.html#acc8d46ee468ab4d8721d18b65370186d" title="SetupGUI" alt="" coords="1565,20,1645,45"/>
+<area shape="rect" id="node8" href="$df/d0a/main_8cpp.html#ad60a204b9b7e3351c3f1a99b7aa7e429" title="InitializeAllData" alt="" coords="1693,23,1805,48"/>
+<area shape="rect" id="node9" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="1853,48,1903,73"/>
+<area shape="rect" id="node11" href="$d1/dee/class_inventory_window.html#ad023d9091385b9829673f6f592dd44ea" title="InventoryWindow::HandleEvent" alt="" coords="1043,75,1250,100"/>
+<area shape="rect" id="node12" href="$db/dcd/class_player_g_u_i.html#a1658f37b9e537d4a7377ca842bf60598" title="PlayerGUI::HandleWindowEvent" alt="" coords="1303,75,1517,100"/>
+<area shape="rect" id="node13" href="$df/d0a/main_8cpp.html#ab8ef98eaa887a3be4bb916cdde45b3d1" title="GameLoop3" alt="" coords="1702,72,1796,97"/>
+<area shape="rect" id="node15" href="$d8/dcb/class_equipment_window.html#a51ce202b7d1c4ac4e0e7d93df9dec726" title="EquipmentWindow::HandleWindow\lEvent" alt="" coords="492,125,722,164"/>
+<area shape="rect" id="node16" href="$d8/dcb/class_equipment_window.html#aea251bbf9967a0f39ccca5df854adcbe" title="EquipmentWindow::HandleEvent" alt="" coords="1039,128,1255,153"/>
+</map>

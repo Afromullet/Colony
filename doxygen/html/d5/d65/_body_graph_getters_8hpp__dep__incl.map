@@ -4,5 +4,7 @@
 <area shape="rect" id="node4" href="$dc/d2f/_body_graph_8cpp.html" title="/Users/Afromullet/Documents\l/SFML/Colony2/Colony/Creature\l/Body/BodyGraph.cpp" alt="" coords="531,105,745,157"/>
 <area shape="rect" id="node5" href="$df/d51/_body_graph_getters_8cpp.html" title="/Users/Afromullet/Documents\l/SFML/Colony2/Colony/Creature\l/Body/BodyGraphGetters.cpp" alt="" coords="769,105,983,157"/>
 <area shape="rect" id="node6" href="$d9/d6d/_wound_8cpp.html" title="/Users/Afromullet/Documents\l/SFML/Colony2/Colony/Creature\l/Body/Wound.cpp" alt="" coords="1008,105,1222,157"/>
-<area shape="rect" id="node7" href="$df/d0a/main_8cpp.html" title="/Users/Afromullet/Documents\l/SFML/Colony2/Colony/main.cpp" alt="" coords="1246,112,1462,151"/>
+<area shape="rect" id="node7" href="$da/dd9/_imgui_debug_8cpp.html" title="/Users/Afromullet/Documents\l/SFML/Colony2/Colony/GUI\l/ImguiDebug.cpp" alt="" coords="1246,105,1440,157"/>
+<area shape="rect" id="node8" href="$d6/d8e/_player_windows_8cpp.html" title="/Users/Afromullet/Documents\l/SFML/Colony2/Colony/GUI\l/PlayerWindows.cpp" alt="" coords="1464,105,1659,157"/>
+<area shape="rect" id="node9" href="$df/d0a/main_8cpp.html" title="/Users/Afromullet/Documents\l/SFML/Colony2/Colony/main.cpp" alt="" coords="1683,112,1899,151"/>
 </map>

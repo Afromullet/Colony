@@ -1,0 +1,3 @@
+<map id="BaseCreature::ReleaseInventoryMemory" name="BaseCreature::ReleaseInventoryMemory">
+<area shape="rect" id="node2" href="$dc/de1/class_item_manager.html#a70bf322ab676e3eb16850ddbcdf601d5" title="ItemManager::ReleaseAllMemory" alt="" coords="268,12,487,37"/>
+</map>

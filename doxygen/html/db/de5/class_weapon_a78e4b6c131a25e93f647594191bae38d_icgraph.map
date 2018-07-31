@@ -1,5 +1,6 @@
 <map id="Weapon::setWeaponSize" name="Weapon::setWeaponSize">
-<area shape="rect" id="node2" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="606,5,657,31"/>
-<area shape="rect" id="node3" href="$d8/d46/_test_data_generator_8hpp.html#aab0823e979250be375299f1337314fe1" title="GenerateTestEquipment" alt="" coords="225,31,390,56"/>
-<area shape="rect" id="node4" href="$df/d0a/main_8cpp.html#ab5227b073ad87fc30322650e123e0055" title="SetupGameData" alt="" coords="438,31,558,56"/>
+<area shape="rect" id="node2" href="$df/d0a/main_8cpp.html#a0e54b88e292aa007c9534e8ab287d049" title="InitializeTestingData" alt="" coords="237,5,377,31"/>
+<area shape="rect" id="node5" href="$d7/d1f/_test_data_generator_8cpp.html#aab0823e979250be375299f1337314fe1" title="GenerateTestEquipment" alt="" coords="225,55,390,80"/>
+<area shape="rect" id="node3" href="$df/d0a/main_8cpp.html#ad60a204b9b7e3351c3f1a99b7aa7e429" title="InitializeAllData" alt="" coords="438,5,550,31"/>
+<area shape="rect" id="node4" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="598,5,648,31"/>
 </map>

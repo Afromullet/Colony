@@ -1,0 +1,4 @@
+<map id="InventoryWindow" name="InventoryWindow">
+<area shape="rect" id="node1" title="Not created a parent class at the moment. Never made a GUI like this, and can&#39;t accurately predict wh..." alt="" coords="5,367,220,560"/>
+<area shape="rect" id="node2" href="$db/d9c/class_selection_window.html" title="{SelectionWindow\n|# mainWindow\l# additional_ActionsWindow\l# examineWindow\l# creature\l# mainWindowTag\l# additionalActionsWindowTag\l# examineWindowTag\l# curItemIndex\l# curActionsIndex\l|+ SelectionWindow()\l+ SetupMainWindow()\l+ SetupActionWindow()\l+ SetupExamineWindow()\l+ MainDoubleClickAction()\l+ isAnyInitialWindowVisible()\l+ AdditionalActionsDoubleClick()\l+ AdditionalActionsHandler()\l+ setupSignals()\l+ HandleEvent()\land 15 more...\l}" alt="" coords="5,5,220,319"/>
+</map>

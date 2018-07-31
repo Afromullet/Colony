@@ -111,6 +111,9 @@ public:
     
     void InitializeBiomeTemperatures();
     
+    void setWidth(int val);
+    void setHeight(int val);
+    
     
     
     

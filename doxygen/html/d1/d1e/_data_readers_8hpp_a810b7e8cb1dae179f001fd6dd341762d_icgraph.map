@@ -1,4 +1,5 @@
 <map id="ReadBiomeFile" name="ReadBiomeFile">
-<area shape="rect" id="node2" href="$df/d0a/main_8cpp.html#ab5227b073ad87fc30322650e123e0055" title="SetupGameData" alt="" coords="166,5,286,31"/>
-<area shape="rect" id="node3" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="334,5,385,31"/>
+<area shape="rect" id="node2" href="$df/d0a/main_8cpp.html#a32c7da4c4c129a2af80924d89fe1f89c" title="InitialzeDataFromFiles" alt="" coords="166,5,320,31"/>
+<area shape="rect" id="node3" href="$df/d0a/main_8cpp.html#ad60a204b9b7e3351c3f1a99b7aa7e429" title="InitializeAllData" alt="" coords="368,5,480,31"/>
+<area shape="rect" id="node4" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="528,5,579,31"/>
 </map>

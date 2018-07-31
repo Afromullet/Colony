@@ -1,0 +1,20 @@
+<map id="BodyPart::getCanHoldArmor" name="BodyPart::getCanHoldArmor">
+<area shape="rect" id="node2" href="$d8/d3a/namespace_body_part_creator.html#af0715dc94164f78c721237555a28209c" title="BodyPartCreator::Display\lSelectedInput" alt="" coords="264,5,436,44"/>
+<area shape="rect" id="node8" href="$df/d9e/namespace_body_graph_viewer.html#a84ae9cb3a7a4441cd2f55037b98ddcaf" title="BodyGraphViewer::VertexAdder" alt="" coords="514,69,724,95"/>
+<area shape="rect" id="node10" href="$df/d9e/namespace_body_graph_viewer.html#a7a0ddd4c8da17a236fb1b160d43d6c72" title="BodyGraphViewer::FirstBody\lPartMenu" alt="" coords="253,120,446,159"/>
+<area shape="rect" id="node12" href="$df/d9e/namespace_body_graph_viewer.html#a8f24a618383585f0b013da6054244e2c" title="BodyGraphViewer::SecondBody\lPartMenu" alt="" coords="244,183,456,221"/>
+<area shape="rect" id="node13" href="$d6/d1f/_imgui_debug_8hpp.html#a724daa873580bc506b61df3166b6bda4" title="BPConnector" alt="" coords="299,245,400,271"/>
+<area shape="rect" id="node14" href="$d8/dcb/class_equipment_window.html#acf7d2c5609224291b20ad65d1241eeca" title="EquipmentWindow::UpdateMain\lWindow" alt="" coords="244,295,456,333"/>
+<area shape="rect" id="node3" href="$d8/d3a/namespace_body_part_creator.html#ac18c9ae3935b336efbb9634fb329413f" title="BodyPartCreator::BPEditor" alt="" coords="528,15,709,40"/>
+<area shape="rect" id="node4" href="$d8/d3a/namespace_body_part_creator.html#aa69c6643c5e96d7dee3884662bb6ca00" title="BodyPartCreator::BPCreator" alt="" coords="795,16,985,41"/>
+<area shape="rect" id="node5" href="$d9/dd7/namespace_main_debug_window.html#a2c9084a9752a2e4ef87b8ca3039f5a4d" title="MainDebugWindow::MenuBar\lHandler" alt="" coords="1054,39,1252,77"/>
+<area shape="rect" id="node6" href="$d9/dd7/namespace_main_debug_window.html#ae0112f4e295169b45c2615b4915e3cc5" title="MainDebugWindow::ShowMain\lDebugWindow" alt="" coords="1308,39,1514,77"/>
+<area shape="rect" id="node7" href="$d9/dd7/namespace_main_debug_window.html#ae86fa1cdeae81822f5567320f9d56f65" title="MainDebugWindow::DebugMain\lWindow" alt="" coords="1562,39,1775,77"/>
+<area shape="rect" id="node9" href="$df/d9e/namespace_body_graph_viewer.html#af9dda6b999602264957b77351415c57d" title="BodyGraphViewer::GraphViewer" alt="" coords="783,69,997,95"/>
+<area shape="rect" id="node11" href="$df/d9e/namespace_body_graph_viewer.html#a269151dfadc20a939854d1187a7ef914" title="BodyGraphViewer::BodyGraph\lConnector" alt="" coords="517,120,721,159"/>
+<area shape="rect" id="node15" href="$d8/dcb/class_equipment_window.html#a51ce202b7d1c4ac4e0e7d93df9dec726" title="EquipmentWindow::HandleWindow\lEvent" alt="" coords="504,295,734,333"/>
+<area shape="rect" id="node16" href="$d8/dcb/class_equipment_window.html#aea251bbf9967a0f39ccca5df854adcbe" title="EquipmentWindow::HandleEvent" alt="" coords="782,301,998,327"/>
+<area shape="rect" id="node17" href="$db/dcd/class_player_g_u_i.html#a1658f37b9e537d4a7377ca842bf60598" title="PlayerGUI::HandleWindowEvent" alt="" coords="1046,301,1260,327"/>
+<area shape="rect" id="node18" href="$df/d0a/main_8cpp.html#ab8ef98eaa887a3be4bb916cdde45b3d1" title="GameLoop3" alt="" coords="1364,301,1458,327"/>
+<area shape="rect" id="node19" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="1644,301,1694,327"/>
+</map>

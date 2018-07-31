@@ -1,0 +1,5 @@
+<map id="BodyGraphViewer::ConnectBodyPartsButtonHandler" name="BodyGraphViewer::ConnectBodyPartsButtonHandler">
+<area shape="rect" id="node2" href="$d4/d16/namespace_universal_debug_functions.html#a069b66d16867ce9cdef140dc7b77f297" title="UniversalDebugFunctions\l::UpdateBodyPartNames" alt="" coords="249,5,423,44"/>
+<area shape="rect" id="node3" href="$d4/d16/namespace_universal_debug_functions.html#a6b25dc6d07d7ecd36501c946195b403d" title="UniversalDebugFunctions\l::GetBodyPart" alt="" coords="249,68,423,107"/>
+<area shape="rect" id="node4" href="$d2/d6f/class_body_part.html#af5a68e571235e6b4e8cd6a13ec94bab3" title="BodyPart::getBodyPartName" alt="" coords="240,131,432,156"/>
+</map>

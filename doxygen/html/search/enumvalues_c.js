@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['simplex',['Simplex',['../d1/dd8/class_fast_noise.html#a77adcfdc4d6e9410ef6099553509d09faba24ab2c34040c17cf42aeb5f0e36f00',1,'FastNoise']]],
-  ['simplexfractal',['SimplexFractal',['../d1/dd8/class_fast_noise.html#a77adcfdc4d6e9410ef6099553509d09fa90a87f1bdd0c585f9e4a3ca184486581',1,'FastNoise']]]
+  ['right',['Right',['../db/d7d/_enum_types_8hpp.html#a00ec4eba48da32d6cbdf827185fd3d34ad48f7af8c070184f3774c8e85854eb66',1,'EnumTypes.hpp']]],
+  ['rigidmulti',['RigidMulti',['../d1/dd8/class_fast_noise.html#a20a2d45a468fa10a7c6a94e22c2f3d30a0ef2e614c31ecd52674a440fc5abac8f',1,'FastNoise']]]
 ];

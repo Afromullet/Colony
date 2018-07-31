@@ -176,6 +176,11 @@ std::string Item::getDescriptiveText() const
     return descriptiveText;
 }
 
+void Item::UpdateTileTexture(const std::string &textureLocation,sf::Vector2i tileSize)
+{
+    itemTile.loadTile(textureLocation,tileSize,position);
+}
+
 //TODO add check to not allow duplicate sections
 void Item::addSection(std::string value)
 {
@@ -202,7 +207,7 @@ void Item::setMaterial(Material value)
 void Item::setPosition(int x, int y)
 {
     
-    tile.setPosition(x, y);
+    itemTile.setPosition(x, y);
     position.x = x;
     position.y = y;
     

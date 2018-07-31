@@ -1,7 +1,11 @@
 <map id="EntityTile::loadTile" name="EntityTile::loadTile">
-<area shape="rect" id="node2" href="$d2/d3b/class_base_creature.html#af2066b8eb62bf595d30feae6671e4495" title="BaseCreature::loadCreatureTile" alt="" coords="183,5,392,31"/>
-<area shape="rect" id="node6" href="$d7/dd4/class_entity_tile.html#a81dbf6b294b80d6edcc830a243cdfae8" title="EntityTile::operator=" alt="" coords="217,55,357,80"/>
-<area shape="rect" id="node3" href="$df/d0a/main_8cpp.html#ab5227b073ad87fc30322650e123e0055" title="SetupGameData" alt="" coords="645,5,765,31"/>
-<area shape="rect" id="node5" href="$d8/d46/_test_data_generator_8hpp.html#a53822655f44ed7b8d6e0b8e01b996b5a" title="InitializeCreatureTypes" alt="" coords="440,31,597,56"/>
-<area shape="rect" id="node4" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="813,5,864,31"/>
+<area shape="rect" id="node2" href="$d2/d3b/class_base_creature.html#af2066b8eb62bf595d30feae6671e4495" title="BaseCreature::loadCreatureTile" alt="" coords="183,29,392,55"/>
+<area shape="rect" id="node8" href="$dc/d32/class_item.html#a297720c02984eab37332ae795d22189d" title="Item::Item" alt="" coords="247,79,327,104"/>
+<area shape="rect" id="node9" href="$d7/dd4/class_entity_tile.html#a7339ed82b7f4d506ef34f99b1446714a" title="EntityTile::EntityTile" alt="" coords="218,128,356,153"/>
+<area shape="rect" id="node10" href="$d7/dd4/class_entity_tile.html#a81dbf6b294b80d6edcc830a243cdfae8" title="EntityTile::operator=" alt="" coords="217,177,357,203"/>
+<area shape="rect" id="node3" href="$df/d0a/main_8cpp.html#a37d529700e0f9a49f368764a2965b20f" title="InitializePlayerData" alt="" coords="645,5,781,31"/>
+<area shape="rect" id="node6" href="$d8/d46/_test_data_generator_8hpp.html#a53822655f44ed7b8d6e0b8e01b996b5a" title="InitializeCreatureTypes" alt="" coords="440,55,597,80"/>
+<area shape="rect" id="node4" href="$df/d0a/main_8cpp.html#ad60a204b9b7e3351c3f1a99b7aa7e429" title="InitializeAllData" alt="" coords="830,31,942,56"/>
+<area shape="rect" id="node5" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="990,31,1040,56"/>
+<area shape="rect" id="node7" href="$df/d0a/main_8cpp.html#ab6fa3d680e4d82a77c33943cbbad790c" title="InitializeDebugData" alt="" coords="645,55,782,80"/>
 </map>

@@ -1,0 +1,6 @@
+<map id="BodyGraphViewer::DisplayGraph" name="BodyGraphViewer::DisplayGraph">
+<area shape="rect" id="node2" href="$d4/d16/namespace_universal_debug_functions.html#a25b85b8c4e031a0e076f679acc405af8" title="UniversalDebugFunctions\l::getBody" alt="" coords="234,5,408,44"/>
+<area shape="rect" id="node3" href="$da/dd9/_imgui_debug_8cpp.html#a7f9f6442244ddfe471cc27a5662eeaa4" title="CreateBPTree" alt="" coords="268,68,374,93"/>
+<area shape="rect" id="node5" href="$da/d7d/class_creature_body.html#abfbe9ab6a145745934fc7fafefccdb67" title="CreatureBody::getName" alt="" coords="238,117,403,143"/>
+<area shape="rect" id="node4" href="$df/d51/_body_graph_getters_8cpp.html#af1f9aa3eb19810590eedfa16c0d79179" title="getConnectedVertices" alt="" coords="456,68,608,93"/>
+</map>

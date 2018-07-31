@@ -11,6 +11,7 @@
 
 
 
+
 Tile::Tile()
 {
     
@@ -23,10 +24,72 @@ Tile::Tile()
     visited = false;
     movementCost = 1;
     canHoldCreature = true;
+    
     //movementCost = rand() % 10000;
         //std::cout << "\nMov " << movementCost;
     
 }
+
+/*
+ std::string tileName;
+ int TileID; //Use a table to decode what kind of parameters this tile has (texture, etc)
+ sf::Texture tileTexture;
+ BaseCreature *creature; //Holds info on the creature on the tile. Only one creature can be on a tile
+ TileTerrainType enTileTerrainType;
+ bool canHoldCreature; //Determines whether or not the tile can hold a creature
+ int movementCost;
+ double elevation;
+ double moisture;
+ bool hasFogOfWar;
+ sf::VertexArray tileVertices; //Pairs of 4s = 1 Tile,
+ Item *itemOnTile; //For now only allow one item to be on a tile.
+ 
+ 
+ enBiomes EnBiome;
+ Biome biome;
+ 
+ int index;
+ bool visited;
+ */
+Tile::Tile(Tile &other)
+{
+    tileName = other.tileName;
+    TileID = other.TileID;
+    tileTexture = other.tileTexture;
+    creature = other.creature;
+    enTileTerrainType = other.enTileTerrainType;
+    canHoldCreature = other.canHoldCreature;
+    movementCost = other.movementCost;
+    elevation = other.elevation;
+    moisture = other.moisture;
+    hasFogOfWar = other.hasFogOfWar;
+    tileVertices = other.tileVertices;
+    EnBiome = other.EnBiome;
+    biome = other.biome;
+    index = other.index;
+    visited = other.visited;
+    inventory = other.inventory;
+}
+Tile::Tile(const Tile &other)
+{
+    tileName = other.tileName;
+    TileID = other.TileID;
+    tileTexture = other.tileTexture;
+    creature = other.creature;
+    enTileTerrainType = other.enTileTerrainType;
+    canHoldCreature = other.canHoldCreature;
+    movementCost = other.movementCost;
+    elevation = other.elevation;
+    moisture = other.moisture;
+    hasFogOfWar = other.hasFogOfWar;
+    tileVertices = other.tileVertices;
+    EnBiome = other.EnBiome;
+    biome = other.biome;
+    index = other.index;
+    visited = other.visited;
+    
+}
+
 void Tile::ClearCreatureOnTile()
 {
     creature = NULL;
@@ -208,4 +271,10 @@ Biome Tile::getBiome() const
 int Tile::getIndex() const
 {
     
+}
+
+//For adding items to tiles
+void Tile::AddArmor(Armor armor)
+{
+    inventory.addArmor(armor);
 }

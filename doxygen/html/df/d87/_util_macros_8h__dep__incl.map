@@ -1,4 +1,7 @@
 <map id="/Users/Afromullet/Documents/SFML/Colony2/Colony/Defs/UtilMacros.h" name="/Users/Afromullet/Documents/SFML/Colony2/Colony/Defs/UtilMacros.h">
 <area shape="rect" id="node2" href="$d7/db5/_material_8cpp.html" title="/Users/Afromullet/Documents\l/SFML/Colony2/Colony/Data\l/Material.cpp" alt="" coords="5,105,200,157"/>
-<area shape="rect" id="node3" href="$d6/d69/_biomes_8cpp.html" title="/Users/Afromullet/Documents\l/SFML/Colony2/Colony/MapComponents\l/Biome/Biomes.cpp" alt="" coords="224,105,488,157"/>
+<area shape="rect" id="node3" href="$da/d7c/_armor_8cpp.html" title="/Users/Afromullet/Documents\l/SFML/Colony2/Colony/Equipment\l/Armor.cpp" alt="" coords="224,105,450,157"/>
+<area shape="rect" id="node4" href="$d9/db5/_equipment_8cpp.html" title="/Users/Afromullet/Documents\l/SFML/Colony2/Colony/Equipment\l/Equipment.cpp" alt="" coords="474,105,700,157"/>
+<area shape="rect" id="node5" href="$d8/d3f/_weapon_8cpp.html" title="/Users/Afromullet/Documents\l/SFML/Colony2/Colony/Equipment\l/Weapon.cpp" alt="" coords="723,105,949,157"/>
+<area shape="rect" id="node6" href="$d6/d69/_biomes_8cpp.html" title="/Users/Afromullet/Documents\l/SFML/Colony2/Colony/MapComponents\l/Biome/Biomes.cpp" alt="" coords="974,105,1237,157"/>
 </map>

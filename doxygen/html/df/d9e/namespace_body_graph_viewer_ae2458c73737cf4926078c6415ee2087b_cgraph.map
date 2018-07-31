@@ -1,0 +1,5 @@
+<map id="BodyGraphViewer::SetupViewerComponents" name="BodyGraphViewer::SetupViewerComponents">
+<area shape="rect" id="node2" href="$d4/d16/namespace_universal_debug_functions.html#ab344b96caf2f2580133e89fe7af30e17" title="UniversalDebugFunctions\l::UpdateAnatomyNames" alt="" coords="265,5,439,44"/>
+<area shape="rect" id="node3" href="$d4/d16/namespace_universal_debug_functions.html#a069b66d16867ce9cdef140dc7b77f297" title="UniversalDebugFunctions\l::UpdateBodyPartNames" alt="" coords="265,68,439,107"/>
+<area shape="rect" id="node4" href="$df/d13/namespace_im_gui.html#a405b19deb7db39d92f42ac1329740892" title="ImGui::Combo" alt="" coords="299,131,406,156"/>
+</map>

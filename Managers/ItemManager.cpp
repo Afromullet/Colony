@@ -204,3 +204,11 @@ std::string ItemManager::getItemDescriptionAtIndex(int i)
     else
         return items.at(i)->getDescriptiveText();
 }
+
+void ItemManager::draw(sf::RenderTarget& target, sf::RenderStates states) const
+{
+    for(int i = 0; i < items.size(); i++)
+    {
+        
+    }
+}

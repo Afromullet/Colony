@@ -55,7 +55,7 @@ void ReadMaterialFile(const std::string fileName)
     BOOST_FOREACH(pt::ptree::value_type &v, tree.get_child("materiallist"))
     {
         
-        std::cout << v.first << "\n";
+       // std::cout << v.first << "\n";
         // The data function is used to access the data stored in a node.
         
         
@@ -139,7 +139,7 @@ void ReadBiomeFile(const std::string fileName)
     BOOST_FOREACH(pt::ptree::value_type &v, tree.get_child("biomelist"))
     {
         
-        std::cout << v.first << "\n";
+       // std::cout << v.first << "\n";
         // The data function is used to access the data stored in a node.
         
         
@@ -329,7 +329,7 @@ void ReadOreFile(const std::string fileName)
             
             
             
-            std::cout << "\n Name " << name;
+          //  std::cout << "\n Name " << name;
 
             ore.setName(name);
             ore.setOreType(EnOreType);

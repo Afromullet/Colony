@@ -33,13 +33,9 @@ bool \mbox{\hyperlink{class_item_a612c595b62d2f7b9c5cd2b085a14b365}{operator!=}}
 \item 
 void \mbox{\hyperlink{class_item_a47267a43bfae3f28e183170f45783da5}{operator=}} (const \mbox{\hyperlink{class_item}{Item}} \&other)
 \item 
-\mbox{\hyperlink{class_item_a931e8f47fe5a367166280f28edca3950}{Item}} (\mbox{\hyperlink{class_material}{Material}} \+\_\+material, std\+::string \+\_\+s\+Equipment\+Name)
-\item 
-\mbox{\hyperlink{class_item_aa7071a91f151036f7fd1a87e12a07f83}{Item}} (std\+::string equipment\+Name)
-\item 
-\mbox{\hyperlink{class_item_ac84b16ca0e3ce8554dbd817d62bcbab0}{Item}} (std\+::string equipment\+Name, std\+::string \+\_\+section)
-\item 
 \mbox{\hyperlink{class_item_a297720c02984eab37332ae795d22189d}{Item}} ()
+\item 
+\mbox{\hyperlink{class_item_a151feb15d24241570c89d776ac31aeb4}{Item}} (\mbox{\hyperlink{class_material}{Material}} \+\_\+material, std\+::string \+\_\+s\+Equipment\+Name, \mbox{\hyperlink{_equipment_8hpp_a3c7fe24829a0b210a1a4d36e29ac01c6}{En\+Item\+Type}} it\+Type)
 \item 
 \mbox{\hyperlink{class_item_a44f7e3f580bd6c0fa2e1c288dff484be}{Item}} (const \mbox{\hyperlink{class_item}{Item}} \&other)
 \item 
@@ -51,7 +47,9 @@ virtual void \mbox{\hyperlink{class_item_aaf7dae41afdce432c11261043e8e4e30}{show
 \item 
 virtual std\+::string \mbox{\hyperlink{class_item_a00e06647e1adeb62f2d95044476126ac}{get\+Item\+Examine\+String}} () const =0
 \item 
-virtual void \mbox{\hyperlink{class_item_ad1a25684e25e0fc14cbe88f77ea035c2}{Equip\+Item}} (\mbox{\hyperlink{class_body_part}{Body\+Part}} \&bp, \mbox{\hyperlink{class_item_manager}{Item\+Manager}} \&item\+Manager)=0
+virtual void \mbox{\hyperlink{class_item_af4b9caf8fcfc22bbde13bf6c3505b35c}{Equip\+Item}} (\mbox{\hyperlink{class_body_part}{Body\+Part}} \&bp)=0
+\item 
+virtual void \mbox{\hyperlink{class_item_ae534538f3e77078f804acc742ef68521}{Add\+To\+Item\+Manager}} (\mbox{\hyperlink{class_item_manager}{Item\+Manager}} \&manager)=0
 \item 
 void \mbox{\hyperlink{class_item_a8f02bc86b6f66142e35a660a5c28ba74}{Calculate\+Material\+Bonuses}} ()
 \item 
@@ -73,6 +71,16 @@ std\+::string \mbox{\hyperlink{class_item_abe4ed40d2027ca131b669d471b47f29f}{get
 \item 
 \mbox{\hyperlink{class_entity_tile}{Entity\+Tile}} \& \mbox{\hyperlink{class_item_a61272a187be1a07a49685cbee45d30bd}{get\+Tile}} ()
 \item 
+boost\+::uuids\+::uuid \mbox{\hyperlink{class_item_a5e829376b05757d63d2593fb378d05ff}{get\+Tag}} ()
+\item 
+\mbox{\hyperlink{_equipment_8hpp_a3c7fe24829a0b210a1a4d36e29ac01c6}{En\+Item\+Type}} \mbox{\hyperlink{class_item_aa8320312184b0cbf28d047d68059f1b1}{get\+Item\+Type}} ()
+\item 
+int \mbox{\hyperlink{class_item_a7cbcf6f1a3b7c07a05b9cc0954e677db}{get\+Stack\+Size}} ()
+\item 
+int \mbox{\hyperlink{class_item_ac8e94ab96931949a517490d1c4b37287}{get\+Max\+Stack\+Size}} ()
+\item 
+std\+::string \mbox{\hyperlink{class_item_acc7555345dbfa5a079622fb3eec6f5b7}{get\+Descriptive\+Text}} () const
+\item 
 void \mbox{\hyperlink{class_item_a6c9f73ef36b176cdb75bc9b13d5be8e8}{add\+Section}} (std\+::string value)
 \item 
 void \mbox{\hyperlink{class_item_ae8dd38d585a7795f134f6453feb1000e}{set\+Item\+Name}} (std\+::string value)
@@ -90,6 +98,16 @@ void \mbox{\hyperlink{class_item_a5ec923033eeb77f331c8307ef5141fc4}{set\+Size}} 
 void \mbox{\hyperlink{class_item_a87100c3d13e81e42e58969f817d591ef}{set\+Section}} (std\+::string \+\_\+section)
 \item 
 bool \mbox{\hyperlink{class_item_a10dd503844c230e3d3bf890e969af867}{is\+Valid\+Section}} (std\+::string \+\_\+section)
+\item 
+void \mbox{\hyperlink{class_item_a18f7cd6d575a855529a4df7b47b3585e}{set\+Tag}} (boost\+::uuids\+::uuid val)
+\item 
+void \mbox{\hyperlink{class_item_ae4c09d3c7d22b96a4bca5f530f5f3b42}{set\+Item\+Type}} (\mbox{\hyperlink{_equipment_8hpp_a3c7fe24829a0b210a1a4d36e29ac01c6}{En\+Item\+Type}} val)
+\item 
+void \mbox{\hyperlink{class_item_a0e0495bbb3eafeef69f8f8aa5bf94dbb}{set\+Stack\+Size}} (int val)
+\item 
+void \mbox{\hyperlink{class_item_a3ae38e2b09f1b12e2fd799865fe7000d}{set\+Max\+Stack\+Size}} (int val)
+\item 
+void \mbox{\hyperlink{class_item_a5eece4e311535630dec1ac8c65b683e6}{set\+Descriptive\+Text}} (std\+::string str)
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -116,6 +134,16 @@ std\+::string \mbox{\hyperlink{class_item_a23ee78e35c27520fce1ddfe2c56f88a0}{sec
 std\+::string \mbox{\hyperlink{class_item_ab551fd7ec7c75a6d125cad56fe84b30a}{s\+Equipment\+Name}}
 \item 
 bool \mbox{\hyperlink{class_item_a47a03cb11d41796494640d62f4d6b9d2}{is\+Equipped}}
+\item 
+boost\+::uuids\+::uuid \mbox{\hyperlink{class_item_ae25a4fa73976dabda3d4df6cf16fdaf1}{tag}}
+\item 
+\mbox{\hyperlink{_equipment_8hpp_a3c7fe24829a0b210a1a4d36e29ac01c6}{En\+Item\+Type}} \mbox{\hyperlink{class_item_a132d392fc3cd4c7dfa06ceaa0888a491}{en\+Item\+Type}}
+\item 
+int \mbox{\hyperlink{class_item_a0e80a8ff6b74d6a2ecbd9a972e7df69a}{stack\+Size}}
+\item 
+int \mbox{\hyperlink{class_item_a21048ebf5f1893ed429657863c622288}{max\+Stack\+Size}}
+\item 
+std\+::string \mbox{\hyperlink{class_item_a337c41fb4f1ac4b9ab69266722d9afac}{descriptive\+Text}}
 \end{DoxyCompactItemize}
 \subsection*{Friends}
 \begin{DoxyCompactItemize}
@@ -127,34 +155,30 @@ class \mbox{\hyperlink{class_item_ab356dbee0f1e915287732c65e8ef61e1}{Weapon}}
 
 
 \subsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_item_a931e8f47fe5a367166280f28edca3950}\label{class_item_a931e8f47fe5a367166280f28edca3950}} 
-\index{Item@{Item}!Item@{Item}}
-\index{Item@{Item}!Item@{Item}}
-\subsubsection{\texorpdfstring{Item()}{Item()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
-{\footnotesize\ttfamily Item\+::\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_material}{Material}}}]{\+\_\+material,  }\item[{std\+::string}]{\+\_\+s\+Equipment\+Name }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{class_item_aa7071a91f151036f7fd1a87e12a07f83}\label{class_item_aa7071a91f151036f7fd1a87e12a07f83}} 
-\index{Item@{Item}!Item@{Item}}
-\index{Item@{Item}!Item@{Item}}
-\subsubsection{\texorpdfstring{Item()}{Item()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
-{\footnotesize\ttfamily Item\+::\+Item (\begin{DoxyParamCaption}\item[{std\+::string}]{equipment\+Name }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{class_item_ac84b16ca0e3ce8554dbd817d62bcbab0}\label{class_item_ac84b16ca0e3ce8554dbd817d62bcbab0}} 
-\index{Item@{Item}!Item@{Item}}
-\index{Item@{Item}!Item@{Item}}
-\subsubsection{\texorpdfstring{Item()}{Item()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
-{\footnotesize\ttfamily Item\+::\+Item (\begin{DoxyParamCaption}\item[{std\+::string}]{equipment\+Name,  }\item[{std\+::string}]{\+\_\+section }\end{DoxyParamCaption})}
-
 \mbox{\Hypertarget{class_item_a297720c02984eab37332ae795d22189d}\label{class_item_a297720c02984eab37332ae795d22189d}} 
 \index{Item@{Item}!Item@{Item}}
 \index{Item@{Item}!Item@{Item}}
-\subsubsection{\texorpdfstring{Item()}{Item()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+\subsubsection{\texorpdfstring{Item()}{Item()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
 {\footnotesize\ttfamily Item\+::\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=273pt]{dc/d32/class_item_a297720c02984eab37332ae795d22189d_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_item_a151feb15d24241570c89d776ac31aeb4}\label{class_item_a151feb15d24241570c89d776ac31aeb4}} 
+\index{Item@{Item}!Item@{Item}}
+\index{Item@{Item}!Item@{Item}}
+\subsubsection{\texorpdfstring{Item()}{Item()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Item\+::\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_material}{Material}}}]{\+\_\+material,  }\item[{std\+::string}]{\+\_\+s\+Equipment\+Name,  }\item[{\mbox{\hyperlink{_equipment_8hpp_a3c7fe24829a0b210a1a4d36e29ac01c6}{En\+Item\+Type}}}]{it\+Type }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{class_item_a44f7e3f580bd6c0fa2e1c288dff484be}\label{class_item_a44f7e3f580bd6c0fa2e1c288dff484be}} 
 \index{Item@{Item}!Item@{Item}}
 \index{Item@{Item}!Item@{Item}}
-\subsubsection{\texorpdfstring{Item()}{Item()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+\subsubsection{\texorpdfstring{Item()}{Item()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
 {\footnotesize\ttfamily Item\+::\+Item (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_item}{Item}} \&}]{other }\end{DoxyParamCaption})}
 
 
@@ -171,9 +195,19 @@ Here is the caller graph for this function\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=245pt]{dc/d32/class_item_a6c9f73ef36b176cdb75bc9b13d5be8e8_icgraph}
+\includegraphics[width=350pt]{dc/d32/class_item_a6c9f73ef36b176cdb75bc9b13d5be8e8_icgraph}
 \end{center}
 \end{figure}
+\mbox{\Hypertarget{class_item_ae534538f3e77078f804acc742ef68521}\label{class_item_ae534538f3e77078f804acc742ef68521}} 
+\index{Item@{Item}!Add\+To\+Item\+Manager@{Add\+To\+Item\+Manager}}
+\index{Add\+To\+Item\+Manager@{Add\+To\+Item\+Manager}!Item@{Item}}
+\subsubsection{\texorpdfstring{Add\+To\+Item\+Manager()}{AddToItemManager()}}
+{\footnotesize\ttfamily virtual void Item\+::\+Add\+To\+Item\+Manager (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_item_manager}{Item\+Manager}} \&}]{manager }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_armor_a008a9def7f07c141c87771937d856616}{Armor}}, and \mbox{\hyperlink{class_weapon_a241a74219d47374ffebebaad675dc250}{Weapon}}.
+
 \mbox{\Hypertarget{class_item_a8f02bc86b6f66142e35a660a5c28ba74}\label{class_item_a8f02bc86b6f66142e35a660a5c28ba74}} 
 \index{Item@{Item}!Calculate\+Material\+Bonuses@{Calculate\+Material\+Bonuses}}
 \index{Calculate\+Material\+Bonuses@{Calculate\+Material\+Bonuses}!Item@{Item}}
@@ -208,15 +242,21 @@ Implemented in \mbox{\hyperlink{class_armor_aac8aec108de9a8a45bada1534c0f23b7}{A
 
 Implemented in \mbox{\hyperlink{class_armor_a21de0acaa6ecdb6f5937166b83da9b01}{Armor}}, and \mbox{\hyperlink{class_weapon_a0755dc1352391eb484644ab4e4cf144d}{Weapon}}.
 
-\mbox{\Hypertarget{class_item_ad1a25684e25e0fc14cbe88f77ea035c2}\label{class_item_ad1a25684e25e0fc14cbe88f77ea035c2}} 
+\mbox{\Hypertarget{class_item_af4b9caf8fcfc22bbde13bf6c3505b35c}\label{class_item_af4b9caf8fcfc22bbde13bf6c3505b35c}} 
 \index{Item@{Item}!Equip\+Item@{Equip\+Item}}
 \index{Equip\+Item@{Equip\+Item}!Item@{Item}}
 \subsubsection{\texorpdfstring{Equip\+Item()}{EquipItem()}}
-{\footnotesize\ttfamily virtual void Item\+::\+Equip\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_body_part}{Body\+Part}} \&}]{bp,  }\item[{\mbox{\hyperlink{class_item_manager}{Item\+Manager}} \&}]{item\+Manager }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily virtual void Item\+::\+Equip\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_body_part}{Body\+Part}} \&}]{bp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
-Implemented in \mbox{\hyperlink{class_armor_a0b5dc1feb7b5d3c4bd023cf9e0857fe3}{Armor}}, and \mbox{\hyperlink{class_weapon_ab40ee049b9f2a5c3cfdec36750f0842d}{Weapon}}.
+Implemented in \mbox{\hyperlink{class_armor_a697e23862a5a6bb32fc5b1b143d61f58}{Armor}}, and \mbox{\hyperlink{class_weapon_af7fda0b6e0d4ce8f25e2b0e4ad5fd94d}{Weapon}}.
+
+\mbox{\Hypertarget{class_item_acc7555345dbfa5a079622fb3eec6f5b7}\label{class_item_acc7555345dbfa5a079622fb3eec6f5b7}} 
+\index{Item@{Item}!get\+Descriptive\+Text@{get\+Descriptive\+Text}}
+\index{get\+Descriptive\+Text@{get\+Descriptive\+Text}!Item@{Item}}
+\subsubsection{\texorpdfstring{get\+Descriptive\+Text()}{getDescriptiveText()}}
+{\footnotesize\ttfamily std\+::string Item\+::get\+Descriptive\+Text (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 \mbox{\Hypertarget{class_item_a9839c6a1b61487bbbe15b7ebba07de34}\label{class_item_a9839c6a1b61487bbbe15b7ebba07de34}} 
 \index{Item@{Item}!get\+Is\+Equipped@{get\+Is\+Equipped}}
@@ -248,6 +288,12 @@ Here is the caller graph for this function\+:
 \includegraphics[width=350pt]{dc/d32/class_item_a806159273f1f9fbb07fe75a74f2f51c5_icgraph}
 \end{center}
 \end{figure}
+\mbox{\Hypertarget{class_item_aa8320312184b0cbf28d047d68059f1b1}\label{class_item_aa8320312184b0cbf28d047d68059f1b1}} 
+\index{Item@{Item}!get\+Item\+Type@{get\+Item\+Type}}
+\index{get\+Item\+Type@{get\+Item\+Type}!Item@{Item}}
+\subsubsection{\texorpdfstring{get\+Item\+Type()}{getItemType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_equipment_8hpp_a3c7fe24829a0b210a1a4d36e29ac01c6}{En\+Item\+Type}} Item\+::get\+Item\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{class_item_a452c0983b99f1b148949274b63ed79fd}\label{class_item_a452c0983b99f1b148949274b63ed79fd}} 
 \index{Item@{Item}!get\+Mass@{get\+Mass}}
 \index{get\+Mass@{get\+Mass}!Item@{Item}}
@@ -282,6 +328,12 @@ Here is the caller graph for this function\+:
 \includegraphics[width=350pt]{dc/d32/class_item_af22ec5d207b70e2a3359e76dccfc7e11_icgraph}
 \end{center}
 \end{figure}
+\mbox{\Hypertarget{class_item_ac8e94ab96931949a517490d1c4b37287}\label{class_item_ac8e94ab96931949a517490d1c4b37287}} 
+\index{Item@{Item}!get\+Max\+Stack\+Size@{get\+Max\+Stack\+Size}}
+\index{get\+Max\+Stack\+Size@{get\+Max\+Stack\+Size}!Item@{Item}}
+\subsubsection{\texorpdfstring{get\+Max\+Stack\+Size()}{getMaxStackSize()}}
+{\footnotesize\ttfamily int Item\+::get\+Max\+Stack\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{class_item_ab015078a1ea19c197fc88b7a556d37cc}\label{class_item_ab015078a1ea19c197fc88b7a556d37cc}} 
 \index{Item@{Item}!get\+Position@{get\+Position}}
 \index{get\+Position@{get\+Position}!Item@{Item}}
@@ -300,6 +352,26 @@ Here is the caller graph for this function\+:
 \subsubsection{\texorpdfstring{get\+Size()}{getSize()}}
 {\footnotesize\ttfamily float Item\+::get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
+\mbox{\Hypertarget{class_item_a7cbcf6f1a3b7c07a05b9cc0954e677db}\label{class_item_a7cbcf6f1a3b7c07a05b9cc0954e677db}} 
+\index{Item@{Item}!get\+Stack\+Size@{get\+Stack\+Size}}
+\index{get\+Stack\+Size@{get\+Stack\+Size}!Item@{Item}}
+\subsubsection{\texorpdfstring{get\+Stack\+Size()}{getStackSize()}}
+{\footnotesize\ttfamily int Item\+::get\+Stack\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_item_a5e829376b05757d63d2593fb378d05ff}\label{class_item_a5e829376b05757d63d2593fb378d05ff}} 
+\index{Item@{Item}!get\+Tag@{get\+Tag}}
+\index{get\+Tag@{get\+Tag}!Item@{Item}}
+\subsubsection{\texorpdfstring{get\+Tag()}{getTag()}}
+{\footnotesize\ttfamily boost\+::uuids\+::uuid Item\+::get\+Tag (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dc/d32/class_item_a5e829376b05757d63d2593fb378d05ff_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_item_a61272a187be1a07a49685cbee45d30bd}\label{class_item_a61272a187be1a07a49685cbee45d30bd}} 
 \index{Item@{Item}!get\+Tile@{get\+Tile}}
 \index{get\+Tile@{get\+Tile}!Item@{Item}}
@@ -338,6 +410,20 @@ Here is the caller graph for this function\+:
 \subsubsection{\texorpdfstring{operator==()}{operator==()}}
 {\footnotesize\ttfamily bool Item\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_item}{Item}} \&}]{other }\end{DoxyParamCaption}) const}
 
+\mbox{\Hypertarget{class_item_a5eece4e311535630dec1ac8c65b683e6}\label{class_item_a5eece4e311535630dec1ac8c65b683e6}} 
+\index{Item@{Item}!set\+Descriptive\+Text@{set\+Descriptive\+Text}}
+\index{set\+Descriptive\+Text@{set\+Descriptive\+Text}!Item@{Item}}
+\subsubsection{\texorpdfstring{set\+Descriptive\+Text()}{setDescriptiveText()}}
+{\footnotesize\ttfamily void Item\+::set\+Descriptive\+Text (\begin{DoxyParamCaption}\item[{std\+::string}]{str }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dc/d32/class_item_a5eece4e311535630dec1ac8c65b683e6_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_item_ade0d63a4f02aa1a97f977b13f96eb891}\label{class_item_ade0d63a4f02aa1a97f977b13f96eb891}} 
 \index{Item@{Item}!set\+Is\+Equipped@{set\+Is\+Equipped}}
 \index{set\+Is\+Equipped@{set\+Is\+Equipped}!Item@{Item}}
@@ -366,6 +452,12 @@ Here is the caller graph for this function\+:
 \includegraphics[width=350pt]{dc/d32/class_item_ae8dd38d585a7795f134f6453feb1000e_icgraph}
 \end{center}
 \end{figure}
+\mbox{\Hypertarget{class_item_ae4c09d3c7d22b96a4bca5f530f5f3b42}\label{class_item_ae4c09d3c7d22b96a4bca5f530f5f3b42}} 
+\index{Item@{Item}!set\+Item\+Type@{set\+Item\+Type}}
+\index{set\+Item\+Type@{set\+Item\+Type}!Item@{Item}}
+\subsubsection{\texorpdfstring{set\+Item\+Type()}{setItemType()}}
+{\footnotesize\ttfamily void Item\+::set\+Item\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_equipment_8hpp_a3c7fe24829a0b210a1a4d36e29ac01c6}{En\+Item\+Type}}}]{val }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{class_item_a3d6c15b2f0a37709541086df917aa761}\label{class_item_a3d6c15b2f0a37709541086df917aa761}} 
 \index{Item@{Item}!set\+Mass@{set\+Mass}}
 \index{set\+Mass@{set\+Mass}!Item@{Item}}
@@ -386,6 +478,12 @@ Here is the caller graph for this function\+:
 \includegraphics[width=313pt]{dc/d32/class_item_af8f9e1899f933fc2ae2cdee6c7de0a4e_icgraph}
 \end{center}
 \end{figure}
+\mbox{\Hypertarget{class_item_a3ae38e2b09f1b12e2fd799865fe7000d}\label{class_item_a3ae38e2b09f1b12e2fd799865fe7000d}} 
+\index{Item@{Item}!set\+Max\+Stack\+Size@{set\+Max\+Stack\+Size}}
+\index{set\+Max\+Stack\+Size@{set\+Max\+Stack\+Size}!Item@{Item}}
+\subsubsection{\texorpdfstring{set\+Max\+Stack\+Size()}{setMaxStackSize()}}
+{\footnotesize\ttfamily void Item\+::set\+Max\+Stack\+Size (\begin{DoxyParamCaption}\item[{int}]{val }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{class_item_af8f03acf491fb71ec8cf1e4248bb4b3d}\label{class_item_af8f03acf491fb71ec8cf1e4248bb4b3d}} 
 \index{Item@{Item}!set\+Position@{set\+Position}}
 \index{set\+Position@{set\+Position}!Item@{Item}}
@@ -400,6 +498,14 @@ Here is the call graph for this function\+:
 \includegraphics[width=317pt]{dc/d32/class_item_af8f03acf491fb71ec8cf1e4248bb4b3d_cgraph}
 \end{center}
 \end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{dc/d32/class_item_af8f03acf491fb71ec8cf1e4248bb4b3d_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_item_a87100c3d13e81e42e58969f817d591ef}\label{class_item_a87100c3d13e81e42e58969f817d591ef}} 
 \index{Item@{Item}!set\+Section@{set\+Section}}
 \index{set\+Section@{set\+Section}!Item@{Item}}
@@ -411,6 +517,18 @@ Here is the call graph for this function\+:
 \index{set\+Size@{set\+Size}!Item@{Item}}
 \subsubsection{\texorpdfstring{set\+Size()}{setSize()}}
 {\footnotesize\ttfamily void Item\+::set\+Size (\begin{DoxyParamCaption}\item[{float}]{\+\_\+size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_item_a0e0495bbb3eafeef69f8f8aa5bf94dbb}\label{class_item_a0e0495bbb3eafeef69f8f8aa5bf94dbb}} 
+\index{Item@{Item}!set\+Stack\+Size@{set\+Stack\+Size}}
+\index{set\+Stack\+Size@{set\+Stack\+Size}!Item@{Item}}
+\subsubsection{\texorpdfstring{set\+Stack\+Size()}{setStackSize()}}
+{\footnotesize\ttfamily void Item\+::set\+Stack\+Size (\begin{DoxyParamCaption}\item[{int}]{val }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_item_a18f7cd6d575a855529a4df7b47b3585e}\label{class_item_a18f7cd6d575a855529a4df7b47b3585e}} 
+\index{Item@{Item}!set\+Tag@{set\+Tag}}
+\index{set\+Tag@{set\+Tag}!Item@{Item}}
+\subsubsection{\texorpdfstring{set\+Tag()}{setTag()}}
+{\footnotesize\ttfamily void Item\+::set\+Tag (\begin{DoxyParamCaption}\item[{boost\+::uuids\+::uuid}]{val }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{class_item_aaf7dae41afdce432c11261043e8e4e30}\label{class_item_aaf7dae41afdce432c11261043e8e4e30}} 
 \index{Item@{Item}!show\+Item\+Stats@{show\+Item\+Stats}}
@@ -440,6 +558,18 @@ Implemented in \mbox{\hyperlink{class_armor_a4fe1507d7aaf280a18e19f51a6f8c42d}{A
 
 
 \subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_item_a337c41fb4f1ac4b9ab69266722d9afac}\label{class_item_a337c41fb4f1ac4b9ab69266722d9afac}} 
+\index{Item@{Item}!descriptive\+Text@{descriptive\+Text}}
+\index{descriptive\+Text@{descriptive\+Text}!Item@{Item}}
+\subsubsection{\texorpdfstring{descriptive\+Text}{descriptiveText}}
+{\footnotesize\ttfamily std\+::string Item\+::descriptive\+Text\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_item_a132d392fc3cd4c7dfa06ceaa0888a491}\label{class_item_a132d392fc3cd4c7dfa06ceaa0888a491}} 
+\index{Item@{Item}!en\+Item\+Type@{en\+Item\+Type}}
+\index{en\+Item\+Type@{en\+Item\+Type}!Item@{Item}}
+\subsubsection{\texorpdfstring{en\+Item\+Type}{enItemType}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_equipment_8hpp_a3c7fe24829a0b210a1a4d36e29ac01c6}{En\+Item\+Type}} Item\+::en\+Item\+Type\hspace{0.3cm}{\ttfamily [private]}}
+
 \mbox{\Hypertarget{class_item_a47a03cb11d41796494640d62f4d6b9d2}\label{class_item_a47a03cb11d41796494640d62f4d6b9d2}} 
 \index{Item@{Item}!is\+Equipped@{is\+Equipped}}
 \index{is\+Equipped@{is\+Equipped}!Item@{Item}}
@@ -463,6 +593,12 @@ Implemented in \mbox{\hyperlink{class_armor_a4fe1507d7aaf280a18e19f51a6f8c42d}{A
 \index{material@{material}!Item@{Item}}
 \subsubsection{\texorpdfstring{material}{material}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_material}{Material}} Item\+::material\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_item_a21048ebf5f1893ed429657863c622288}\label{class_item_a21048ebf5f1893ed429657863c622288}} 
+\index{Item@{Item}!max\+Stack\+Size@{max\+Stack\+Size}}
+\index{max\+Stack\+Size@{max\+Stack\+Size}!Item@{Item}}
+\subsubsection{\texorpdfstring{max\+Stack\+Size}{maxStackSize}}
+{\footnotesize\ttfamily int Item\+::max\+Stack\+Size\hspace{0.3cm}{\ttfamily [private]}}
 
 \mbox{\Hypertarget{class_item_ad1c1601358e5c56063390327e0d86ce1}\label{class_item_ad1c1601358e5c56063390327e0d86ce1}} 
 \index{Item@{Item}!position@{position}}
@@ -493,6 +629,18 @@ Implemented in \mbox{\hyperlink{class_armor_a4fe1507d7aaf280a18e19f51a6f8c42d}{A
 \index{size@{size}!Item@{Item}}
 \subsubsection{\texorpdfstring{size}{size}}
 {\footnotesize\ttfamily float Item\+::size\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_item_a0e80a8ff6b74d6a2ecbd9a972e7df69a}\label{class_item_a0e80a8ff6b74d6a2ecbd9a972e7df69a}} 
+\index{Item@{Item}!stack\+Size@{stack\+Size}}
+\index{stack\+Size@{stack\+Size}!Item@{Item}}
+\subsubsection{\texorpdfstring{stack\+Size}{stackSize}}
+{\footnotesize\ttfamily int Item\+::stack\+Size\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_item_ae25a4fa73976dabda3d4df6cf16fdaf1}\label{class_item_ae25a4fa73976dabda3d4df6cf16fdaf1}} 
+\index{Item@{Item}!tag@{tag}}
+\index{tag@{tag}!Item@{Item}}
+\subsubsection{\texorpdfstring{tag}{tag}}
+{\footnotesize\ttfamily boost\+::uuids\+::uuid Item\+::tag\hspace{0.3cm}{\ttfamily [private]}}
 
 \mbox{\Hypertarget{class_item_a1784c30db978d4858e34cf812ff261d5}\label{class_item_a1784c30db978d4858e34cf812ff261d5}} 
 \index{Item@{Item}!tile@{tile}}

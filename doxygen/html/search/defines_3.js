@@ -7,5 +7,7 @@ var searchData=
   ['desert_5fcactus_5f1',['DESERT_CACTUS_1',['../d0/dcd/_tile_reader_8hpp.html#a839d8c398c080e839d7241042aa255f3',1,'TileReader.hpp']]],
   ['desert_5fdead_5ftree_5f1',['DESERT_DEAD_TREE_1',['../d0/dcd/_tile_reader_8hpp.html#a916debc8c28f7a1f32908008af3e77fa',1,'TileReader.hpp']]],
   ['desert_5ftile_5f1',['DESERT_TILE_1',['../d0/dcd/_tile_reader_8hpp.html#aa27fb6cb1b1ac9dee822ec9ddc659c04',1,'TileReader.hpp']]],
-  ['dismember_5fchance',['DISMEMBER_CHANCE',['../db/df3/_wound_8hpp.html#ae5511ad1f1852e967e11a91750da7748',1,'Wound.hpp']]]
+  ['dismember_5fchance',['DISMEMBER_CHANCE',['../db/df3/_wound_8hpp.html#ae5511ad1f1852e967e11a91750da7748',1,'Wound.hpp']]],
+  ['double_5fclick_5fsignal',['DOUBLE_CLICK_SIGNAL',['../d1/d27/_player_windows_8hpp.html#a010bcf1e126ca4edd6b0704647d694e1',1,'PlayerWindows.hpp']]],
+  ['drop_5foption',['DROP_OPTION',['../d1/d27/_player_windows_8hpp.html#af7d5e9d5dff79c81dc55979667c23e53',1,'PlayerWindows.hpp']]]
 ];

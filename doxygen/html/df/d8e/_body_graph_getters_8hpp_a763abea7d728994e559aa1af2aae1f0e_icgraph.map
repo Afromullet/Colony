@@ -1,5 +1,7 @@
 <map id="convertConnectionType" name="convertConnectionType">
 <area shape="rect" id="node2" href="$da/d7d/class_creature_body.html#a8feda2cfc35e1b76730a31eb368ffed6" title="CreatureBody::GenerateEdges" alt="" coords="215,5,419,31"/>
-<area shape="rect" id="node4" href="$da/d7d/class_creature_body.html#af1303a40606bf06aed980f14e7027d54" title="CreatureBody::GenerateOrgan\lEdges" alt="" coords="215,55,419,93"/>
-<area shape="rect" id="node3" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="467,33,517,59"/>
+<area shape="rect" id="node6" href="$da/d7d/class_creature_body.html#af1303a40606bf06aed980f14e7027d54" title="CreatureBody::GenerateOrgan\lEdges" alt="" coords="215,55,419,93"/>
+<area shape="rect" id="node3" href="$df/d0a/main_8cpp.html#a37d529700e0f9a49f368764a2965b20f" title="InitializePlayerData" alt="" coords="467,33,603,59"/>
+<area shape="rect" id="node4" href="$df/d0a/main_8cpp.html#ad60a204b9b7e3351c3f1a99b7aa7e429" title="InitializeAllData" alt="" coords="651,33,763,59"/>
+<area shape="rect" id="node5" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="811,33,861,59"/>
 </map>

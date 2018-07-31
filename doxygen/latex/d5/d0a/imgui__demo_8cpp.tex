@@ -1,0 +1,228 @@
+\hypertarget{imgui__demo_8cpp}{}\section{/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/imgui\+\_\+demo.cpp File Reference}
+\label{imgui__demo_8cpp}\index{/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/imgui\+\_\+demo.\+cpp@{/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/imgui\+\_\+demo.\+cpp}}
+{\ttfamily \#include \char`\"{}imgui.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for imgui\+\_\+demo.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dc/d12/imgui__demo_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_example_app_console}{Example\+App\+Console}}
+\item 
+struct \mbox{\hyperlink{struct_example_app_log}{Example\+App\+Log}}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{imgui__demo_8cpp_a1bfa04d9a2431433f9668c814fd4c3d5}{I\+M\+\_\+\+N\+E\+W\+L\+I\+NE}}~\char`\"{}\textbackslash{}n\char`\"{}
+\item 
+\#define \mbox{\hyperlink{imgui__demo_8cpp_aa175fe2b2e8134ace6a1358438ebad63}{I\+M\+\_\+\+M\+AX}}(\+\_\+A,  \+\_\+B)~(((\+\_\+A) $>$= (\+\_\+B)) ? (\+\_\+A) \+: (\+\_\+B))
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{imgui__demo_8cpp_a8e5624314ae6402dd0ddf2a62aa91473}{Show\+Example\+App\+Console}} (bool $\ast$p\+\_\+open)
+\item 
+static void \mbox{\hyperlink{imgui__demo_8cpp_ad0303cf1f675002eb4e68c17a47b3f88}{Show\+Example\+App\+Log}} (bool $\ast$p\+\_\+open)
+\item 
+static void \mbox{\hyperlink{imgui__demo_8cpp_adfe8516f13b623adbf78b024efd5bb6e}{Show\+Example\+App\+Layout}} (bool $\ast$p\+\_\+open)
+\item 
+static void \mbox{\hyperlink{imgui__demo_8cpp_a4d8ba8c6a1febc3053bd843c150305da}{Show\+Example\+App\+Property\+Editor}} (bool $\ast$p\+\_\+open)
+\item 
+static void \mbox{\hyperlink{imgui__demo_8cpp_a4dadf5e7b393795666d19af9694037cf}{Show\+Example\+App\+Long\+Text}} (bool $\ast$p\+\_\+open)
+\item 
+static void \mbox{\hyperlink{imgui__demo_8cpp_a38c9b50749061ff83a0ebf3137c00174}{Show\+Example\+App\+Auto\+Resize}} (bool $\ast$p\+\_\+open)
+\item 
+static void \mbox{\hyperlink{imgui__demo_8cpp_a4f7b0b016c2ffd33836c3bdcf78ed97b}{Show\+Example\+App\+Constrained\+Resize}} (bool $\ast$p\+\_\+open)
+\item 
+static void \mbox{\hyperlink{imgui__demo_8cpp_a41a6cb36f6ad91f80eba61b0053d17a5}{Show\+Example\+App\+Simple\+Overlay}} (bool $\ast$p\+\_\+open)
+\item 
+static void \mbox{\hyperlink{imgui__demo_8cpp_aa93cc0d732db176bbffaf106faaa0ca1}{Show\+Example\+App\+Window\+Titles}} (bool $\ast$p\+\_\+open)
+\item 
+static void \mbox{\hyperlink{imgui__demo_8cpp_a0729207a285af6ef57ce5a31d1a60348}{Show\+Example\+App\+Custom\+Rendering}} (bool $\ast$p\+\_\+open)
+\item 
+static void \mbox{\hyperlink{imgui__demo_8cpp_a41fc5e36f317b1e9f66bdd2d7bca7764}{Show\+Example\+App\+Main\+Menu\+Bar}} ()
+\item 
+static void \mbox{\hyperlink{imgui__demo_8cpp_af6ff107f662e23ad39345a8192d782eb}{Show\+Example\+Menu\+File}} ()
+\item 
+static void \mbox{\hyperlink{imgui__demo_8cpp_a5a6835892409131d5a4b1a49f40d194a}{Show\+Help\+Marker}} (const char $\ast$desc)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{imgui__demo_8cpp_aa175fe2b2e8134ace6a1358438ebad63}\label{imgui__demo_8cpp_aa175fe2b2e8134ace6a1358438ebad63}} 
+\index{imgui\+\_\+demo.\+cpp@{imgui\+\_\+demo.\+cpp}!I\+M\+\_\+\+M\+AX@{I\+M\+\_\+\+M\+AX}}
+\index{I\+M\+\_\+\+M\+AX@{I\+M\+\_\+\+M\+AX}!imgui\+\_\+demo.\+cpp@{imgui\+\_\+demo.\+cpp}}
+\subsubsection{\texorpdfstring{I\+M\+\_\+\+M\+AX}{IM\_MAX}}
+{\footnotesize\ttfamily \#define I\+M\+\_\+\+M\+AX(\begin{DoxyParamCaption}\item[{}]{\+\_\+A,  }\item[{}]{\+\_\+B }\end{DoxyParamCaption})~(((\+\_\+A) $>$= (\+\_\+B)) ? (\+\_\+A) \+: (\+\_\+B))}
+
+\mbox{\Hypertarget{imgui__demo_8cpp_a1bfa04d9a2431433f9668c814fd4c3d5}\label{imgui__demo_8cpp_a1bfa04d9a2431433f9668c814fd4c3d5}} 
+\index{imgui\+\_\+demo.\+cpp@{imgui\+\_\+demo.\+cpp}!I\+M\+\_\+\+N\+E\+W\+L\+I\+NE@{I\+M\+\_\+\+N\+E\+W\+L\+I\+NE}}
+\index{I\+M\+\_\+\+N\+E\+W\+L\+I\+NE@{I\+M\+\_\+\+N\+E\+W\+L\+I\+NE}!imgui\+\_\+demo.\+cpp@{imgui\+\_\+demo.\+cpp}}
+\subsubsection{\texorpdfstring{I\+M\+\_\+\+N\+E\+W\+L\+I\+NE}{IM\_NEWLINE}}
+{\footnotesize\ttfamily \#define I\+M\+\_\+\+N\+E\+W\+L\+I\+NE~\char`\"{}\textbackslash{}n\char`\"{}}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{imgui__demo_8cpp_a38c9b50749061ff83a0ebf3137c00174}\label{imgui__demo_8cpp_a38c9b50749061ff83a0ebf3137c00174}} 
+\index{imgui\+\_\+demo.\+cpp@{imgui\+\_\+demo.\+cpp}!Show\+Example\+App\+Auto\+Resize@{Show\+Example\+App\+Auto\+Resize}}
+\index{Show\+Example\+App\+Auto\+Resize@{Show\+Example\+App\+Auto\+Resize}!imgui\+\_\+demo.\+cpp@{imgui\+\_\+demo.\+cpp}}
+\subsubsection{\texorpdfstring{Show\+Example\+App\+Auto\+Resize()}{ShowExampleAppAutoResize()}}
+{\footnotesize\ttfamily static void Show\+Example\+App\+Auto\+Resize (\begin{DoxyParamCaption}\item[{bool $\ast$}]{p\+\_\+open }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{imgui__demo_8cpp_a8e5624314ae6402dd0ddf2a62aa91473}\label{imgui__demo_8cpp_a8e5624314ae6402dd0ddf2a62aa91473}} 
+\index{imgui\+\_\+demo.\+cpp@{imgui\+\_\+demo.\+cpp}!Show\+Example\+App\+Console@{Show\+Example\+App\+Console}}
+\index{Show\+Example\+App\+Console@{Show\+Example\+App\+Console}!imgui\+\_\+demo.\+cpp@{imgui\+\_\+demo.\+cpp}}
+\subsubsection{\texorpdfstring{Show\+Example\+App\+Console()}{ShowExampleAppConsole()}}
+{\footnotesize\ttfamily static void Show\+Example\+App\+Console (\begin{DoxyParamCaption}\item[{bool $\ast$}]{p\+\_\+open }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d5/d0a/imgui__demo_8cpp_a8e5624314ae6402dd0ddf2a62aa91473_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__demo_8cpp_a4f7b0b016c2ffd33836c3bdcf78ed97b}\label{imgui__demo_8cpp_a4f7b0b016c2ffd33836c3bdcf78ed97b}} 
+\index{imgui\+\_\+demo.\+cpp@{imgui\+\_\+demo.\+cpp}!Show\+Example\+App\+Constrained\+Resize@{Show\+Example\+App\+Constrained\+Resize}}
+\index{Show\+Example\+App\+Constrained\+Resize@{Show\+Example\+App\+Constrained\+Resize}!imgui\+\_\+demo.\+cpp@{imgui\+\_\+demo.\+cpp}}
+\subsubsection{\texorpdfstring{Show\+Example\+App\+Constrained\+Resize()}{ShowExampleAppConstrainedResize()}}
+{\footnotesize\ttfamily static void Show\+Example\+App\+Constrained\+Resize (\begin{DoxyParamCaption}\item[{bool $\ast$}]{p\+\_\+open }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d5/d0a/imgui__demo_8cpp_a4f7b0b016c2ffd33836c3bdcf78ed97b_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__demo_8cpp_a0729207a285af6ef57ce5a31d1a60348}\label{imgui__demo_8cpp_a0729207a285af6ef57ce5a31d1a60348}} 
+\index{imgui\+\_\+demo.\+cpp@{imgui\+\_\+demo.\+cpp}!Show\+Example\+App\+Custom\+Rendering@{Show\+Example\+App\+Custom\+Rendering}}
+\index{Show\+Example\+App\+Custom\+Rendering@{Show\+Example\+App\+Custom\+Rendering}!imgui\+\_\+demo.\+cpp@{imgui\+\_\+demo.\+cpp}}
+\subsubsection{\texorpdfstring{Show\+Example\+App\+Custom\+Rendering()}{ShowExampleAppCustomRendering()}}
+{\footnotesize\ttfamily static void Show\+Example\+App\+Custom\+Rendering (\begin{DoxyParamCaption}\item[{bool $\ast$}]{p\+\_\+open }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{imgui__demo_8cpp_adfe8516f13b623adbf78b024efd5bb6e}\label{imgui__demo_8cpp_adfe8516f13b623adbf78b024efd5bb6e}} 
+\index{imgui\+\_\+demo.\+cpp@{imgui\+\_\+demo.\+cpp}!Show\+Example\+App\+Layout@{Show\+Example\+App\+Layout}}
+\index{Show\+Example\+App\+Layout@{Show\+Example\+App\+Layout}!imgui\+\_\+demo.\+cpp@{imgui\+\_\+demo.\+cpp}}
+\subsubsection{\texorpdfstring{Show\+Example\+App\+Layout()}{ShowExampleAppLayout()}}
+{\footnotesize\ttfamily static void Show\+Example\+App\+Layout (\begin{DoxyParamCaption}\item[{bool $\ast$}]{p\+\_\+open }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{imgui__demo_8cpp_ad0303cf1f675002eb4e68c17a47b3f88}\label{imgui__demo_8cpp_ad0303cf1f675002eb4e68c17a47b3f88}} 
+\index{imgui\+\_\+demo.\+cpp@{imgui\+\_\+demo.\+cpp}!Show\+Example\+App\+Log@{Show\+Example\+App\+Log}}
+\index{Show\+Example\+App\+Log@{Show\+Example\+App\+Log}!imgui\+\_\+demo.\+cpp@{imgui\+\_\+demo.\+cpp}}
+\subsubsection{\texorpdfstring{Show\+Example\+App\+Log()}{ShowExampleAppLog()}}
+{\footnotesize\ttfamily static void Show\+Example\+App\+Log (\begin{DoxyParamCaption}\item[{bool $\ast$}]{p\+\_\+open }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d5/d0a/imgui__demo_8cpp_ad0303cf1f675002eb4e68c17a47b3f88_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__demo_8cpp_a4dadf5e7b393795666d19af9694037cf}\label{imgui__demo_8cpp_a4dadf5e7b393795666d19af9694037cf}} 
+\index{imgui\+\_\+demo.\+cpp@{imgui\+\_\+demo.\+cpp}!Show\+Example\+App\+Long\+Text@{Show\+Example\+App\+Long\+Text}}
+\index{Show\+Example\+App\+Long\+Text@{Show\+Example\+App\+Long\+Text}!imgui\+\_\+demo.\+cpp@{imgui\+\_\+demo.\+cpp}}
+\subsubsection{\texorpdfstring{Show\+Example\+App\+Long\+Text()}{ShowExampleAppLongText()}}
+{\footnotesize\ttfamily static void Show\+Example\+App\+Long\+Text (\begin{DoxyParamCaption}\item[{bool $\ast$}]{p\+\_\+open }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=335pt]{d5/d0a/imgui__demo_8cpp_a4dadf5e7b393795666d19af9694037cf_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__demo_8cpp_a41fc5e36f317b1e9f66bdd2d7bca7764}\label{imgui__demo_8cpp_a41fc5e36f317b1e9f66bdd2d7bca7764}} 
+\index{imgui\+\_\+demo.\+cpp@{imgui\+\_\+demo.\+cpp}!Show\+Example\+App\+Main\+Menu\+Bar@{Show\+Example\+App\+Main\+Menu\+Bar}}
+\index{Show\+Example\+App\+Main\+Menu\+Bar@{Show\+Example\+App\+Main\+Menu\+Bar}!imgui\+\_\+demo.\+cpp@{imgui\+\_\+demo.\+cpp}}
+\subsubsection{\texorpdfstring{Show\+Example\+App\+Main\+Menu\+Bar()}{ShowExampleAppMainMenuBar()}}
+{\footnotesize\ttfamily static void Show\+Example\+App\+Main\+Menu\+Bar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d5/d0a/imgui__demo_8cpp_a41fc5e36f317b1e9f66bdd2d7bca7764_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__demo_8cpp_a4d8ba8c6a1febc3053bd843c150305da}\label{imgui__demo_8cpp_a4d8ba8c6a1febc3053bd843c150305da}} 
+\index{imgui\+\_\+demo.\+cpp@{imgui\+\_\+demo.\+cpp}!Show\+Example\+App\+Property\+Editor@{Show\+Example\+App\+Property\+Editor}}
+\index{Show\+Example\+App\+Property\+Editor@{Show\+Example\+App\+Property\+Editor}!imgui\+\_\+demo.\+cpp@{imgui\+\_\+demo.\+cpp}}
+\subsubsection{\texorpdfstring{Show\+Example\+App\+Property\+Editor()}{ShowExampleAppPropertyEditor()}}
+{\footnotesize\ttfamily static void Show\+Example\+App\+Property\+Editor (\begin{DoxyParamCaption}\item[{bool $\ast$}]{p\+\_\+open }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d5/d0a/imgui__demo_8cpp_a4d8ba8c6a1febc3053bd843c150305da_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__demo_8cpp_a41a6cb36f6ad91f80eba61b0053d17a5}\label{imgui__demo_8cpp_a41a6cb36f6ad91f80eba61b0053d17a5}} 
+\index{imgui\+\_\+demo.\+cpp@{imgui\+\_\+demo.\+cpp}!Show\+Example\+App\+Simple\+Overlay@{Show\+Example\+App\+Simple\+Overlay}}
+\index{Show\+Example\+App\+Simple\+Overlay@{Show\+Example\+App\+Simple\+Overlay}!imgui\+\_\+demo.\+cpp@{imgui\+\_\+demo.\+cpp}}
+\subsubsection{\texorpdfstring{Show\+Example\+App\+Simple\+Overlay()}{ShowExampleAppSimpleOverlay()}}
+{\footnotesize\ttfamily static void Show\+Example\+App\+Simple\+Overlay (\begin{DoxyParamCaption}\item[{bool $\ast$}]{p\+\_\+open }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{imgui__demo_8cpp_aa93cc0d732db176bbffaf106faaa0ca1}\label{imgui__demo_8cpp_aa93cc0d732db176bbffaf106faaa0ca1}} 
+\index{imgui\+\_\+demo.\+cpp@{imgui\+\_\+demo.\+cpp}!Show\+Example\+App\+Window\+Titles@{Show\+Example\+App\+Window\+Titles}}
+\index{Show\+Example\+App\+Window\+Titles@{Show\+Example\+App\+Window\+Titles}!imgui\+\_\+demo.\+cpp@{imgui\+\_\+demo.\+cpp}}
+\subsubsection{\texorpdfstring{Show\+Example\+App\+Window\+Titles()}{ShowExampleAppWindowTitles()}}
+{\footnotesize\ttfamily static void Show\+Example\+App\+Window\+Titles (\begin{DoxyParamCaption}\item[{bool $\ast$}]{p\+\_\+open }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{imgui__demo_8cpp_af6ff107f662e23ad39345a8192d782eb}\label{imgui__demo_8cpp_af6ff107f662e23ad39345a8192d782eb}} 
+\index{imgui\+\_\+demo.\+cpp@{imgui\+\_\+demo.\+cpp}!Show\+Example\+Menu\+File@{Show\+Example\+Menu\+File}}
+\index{Show\+Example\+Menu\+File@{Show\+Example\+Menu\+File}!imgui\+\_\+demo.\+cpp@{imgui\+\_\+demo.\+cpp}}
+\subsubsection{\texorpdfstring{Show\+Example\+Menu\+File()}{ShowExampleMenuFile()}}
+{\footnotesize\ttfamily static void Show\+Example\+Menu\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{d5/d0a/imgui__demo_8cpp_af6ff107f662e23ad39345a8192d782eb_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d5/d0a/imgui__demo_8cpp_af6ff107f662e23ad39345a8192d782eb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{imgui__demo_8cpp_a5a6835892409131d5a4b1a49f40d194a}\label{imgui__demo_8cpp_a5a6835892409131d5a4b1a49f40d194a}} 
+\index{imgui\+\_\+demo.\+cpp@{imgui\+\_\+demo.\+cpp}!Show\+Help\+Marker@{Show\+Help\+Marker}}
+\index{Show\+Help\+Marker@{Show\+Help\+Marker}!imgui\+\_\+demo.\+cpp@{imgui\+\_\+demo.\+cpp}}
+\subsubsection{\texorpdfstring{Show\+Help\+Marker()}{ShowHelpMarker()}}
+{\footnotesize\ttfamily static void Show\+Help\+Marker (\begin{DoxyParamCaption}\item[{const char $\ast$}]{desc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d5/d0a/imgui__demo_8cpp_a5a6835892409131d5a4b1a49f40d194a_icgraph}
+\end{center}
+\end{figure}

@@ -99,43 +99,43 @@ void Biome::setWildlifeLevel(float level)
 }
 
 
-float Biome::getLowTemp()
+float Biome::getLowTemp() const
 {
     return lowTemp;
 }
 
-float Biome::getHighTemp()
+float Biome::getHighTemp() const
 {
     return highTemp;
 }
 
 
-enBiomes Biome::getBiome()
+enBiomes Biome::getBiome() const
 {
     return EnBiome;
 }
 
-std::string Biome::getBiomeName()
+std::string Biome::getBiomeName() const
 {
     return name;
 }
 
-float Biome::getCurrentTemp()
+float Biome::getCurrentTemp() const
 {
     return currentTemp;
 }
 
-float Biome::getWildlifeLevel()
+float Biome::getWildlifeLevel() const
 {
     return wildlifeLevel;
 }
 
-float Biome::getVegetationLevel()
+float Biome::getVegetationLevel() const
 {
     return vegetationLevel;
 }
 
-float Biome::getTreeLevel()
+float Biome::getTreeLevel() const
 {
     return treeLevel;
 }

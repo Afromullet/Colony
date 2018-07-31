@@ -111,7 +111,7 @@ public:
     int getStackSize();
     int getMaxStackSize();
     std::string getDescriptiveText() const;
-    
+    void UpdateTileTexture(const std::string &textureLocation, sf::Vector2i tileSize);
     
     void addSection(std::string value);
     void setItemName(std::string value);

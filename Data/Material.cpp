@@ -419,12 +419,12 @@ void Material::setAppliedForceEffects(AppliedForceEffect effect)
     effectsOnMaterial.push_back(effect);
 }
 
-std::string Material::getMaterialName()
+std::string Material::getMaterialName() const
 {
     return materialName;
 }
 
-float Material::getDensity()
+float Material::getDensity() const
 {
     return density;
 }

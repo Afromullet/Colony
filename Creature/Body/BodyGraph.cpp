@@ -414,7 +414,7 @@ bool CreatureBody::Equip(std::unique_ptr<Item> item,ItemManager &inventory,int i
     bool equipSuccess = false;
     
     std::unique_ptr<Item> tempitem(std::move(item));
-    std::cout << "\n Name " << tempitem->getItemName();
+  //  std::cout << "\n Name " << tempitem->getItemName();
     inventory.ClearSlot(index);
     
  

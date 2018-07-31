@@ -1,0 +1,316 @@
+\hypertarget{class_inventory_window}{}\section{Inventory\+Window Class Reference}
+\label{class_inventory_window}\index{Inventory\+Window@{Inventory\+Window}}
+
+
+Not created a parent class at the moment. Never made a G\+UI like this, and can\textquotesingle{}t accurately predict what will be reused until I implement a prototype. Trying to keep the function methods consitent so that I can add a parent class when needed.  
+
+
+
+
+{\ttfamily \#include $<$Player\+Windows.\+hpp$>$}
+
+
+
+Inheritance diagram for Inventory\+Window\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=241pt]{dd/d13/class_inventory_window__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Inventory\+Window\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{d4/dee/class_inventory_window__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_inventory_window_a95caa6b7f5cc394cb24ce44d3cd423c0}{Inventory\+Window}} ()
+\item 
+void \mbox{\hyperlink{class_inventory_window_a184239af4739a83163b45c4bb72ff6ec}{Additional\+Actions\+Double\+Click}} (std\+::string name)
+\item 
+void \mbox{\hyperlink{class_inventory_window_a5115f00fecccca34ba3559079a325a9a}{Additional\+Actions\+Handler}} (std\+::string name)
+\item 
+void \mbox{\hyperlink{class_inventory_window_ad023d9091385b9829673f6f592dd44ea}{Handle\+Event}} (sf\+::\+Event \&event, tgui\+::\+Gui \&gui\+Ref)
+\item 
+void \mbox{\hyperlink{class_inventory_window_a201c5b514200d4b3afc27fa056c1c365}{Handle\+Window\+Event}} (sf\+::\+Event \&event, tgui\+::\+Gui \&gui\+Ref)
+\item 
+void \mbox{\hyperlink{class_inventory_window_a0d286a4370871087af734042a3a6495d}{setup\+Widgets}} (const std\+::string \&\mbox{\hyperlink{class_selection_window_a555e8cf723b237c5a2bef0f190e03c76}{main\+Window\+Tag}}, const std\+::string \&ex\+Window\+Tag, const std\+::string \&\mbox{\hyperlink{class_selection_window_ae21c9fb80565153e0dc21b30f42e5db3}{additional\+Actions\+Window\+Tag}}, tgui\+::\+Gui \&gui\+Ref, \mbox{\hyperlink{class_base_creature}{Base\+Creature}} $\ast$\+\_\+creature)
+\item 
+void \mbox{\hyperlink{class_inventory_window_ada117b35239727b734887c1d56dcf6f0}{setup\+Signals}} ()
+\item 
+void \mbox{\hyperlink{class_inventory_window_a02cf6a3724a6ca38f12de98b96e8a8e7}{Update\+Main\+Window}} ()
+\item 
+bool \mbox{\hyperlink{class_inventory_window_a6fd4220caaec67979e93f5b8b52365a8}{is\+Any\+Window\+Visible}} ()
+\item 
+void \mbox{\hyperlink{class_inventory_window_aef14cbe5f17a626c01df9948aac71259}{Hide\+All\+Windows}} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_base_creature}{Base\+Creature}} $\ast$ \mbox{\hyperlink{class_inventory_window_a0a6e10b89b02f690ecd44792d7cb41e8}{creature}}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Not created a parent class at the moment. Never made a G\+UI like this, and can\textquotesingle{}t accurately predict what will be reused until I implement a prototype. Trying to keep the function methods consitent so that I can add a parent class when needed. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_inventory_window_a95caa6b7f5cc394cb24ce44d3cd423c0}\label{class_inventory_window_a95caa6b7f5cc394cb24ce44d3cd423c0}} 
+\index{Inventory\+Window@{Inventory\+Window}!Inventory\+Window@{Inventory\+Window}}
+\index{Inventory\+Window@{Inventory\+Window}!Inventory\+Window@{Inventory\+Window}}
+\subsubsection{\texorpdfstring{Inventory\+Window()}{InventoryWindow()}}
+{\footnotesize\ttfamily Inventory\+Window\+::\+Inventory\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_inventory_window_a184239af4739a83163b45c4bb72ff6ec}\label{class_inventory_window_a184239af4739a83163b45c4bb72ff6ec}} 
+\index{Inventory\+Window@{Inventory\+Window}!Additional\+Actions\+Double\+Click@{Additional\+Actions\+Double\+Click}}
+\index{Additional\+Actions\+Double\+Click@{Additional\+Actions\+Double\+Click}!Inventory\+Window@{Inventory\+Window}}
+\subsubsection{\texorpdfstring{Additional\+Actions\+Double\+Click()}{AdditionalActionsDoubleClick()}}
+{\footnotesize\ttfamily void Inventory\+Window\+::\+Additional\+Actions\+Double\+Click (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_selection_window_a853f6c1c78163cd976d8a7d7bf1a9153}{Selection\+Window}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/dee/class_inventory_window_a184239af4739a83163b45c4bb72ff6ec_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/dee/class_inventory_window_a184239af4739a83163b45c4bb72ff6ec_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_inventory_window_a5115f00fecccca34ba3559079a325a9a}\label{class_inventory_window_a5115f00fecccca34ba3559079a325a9a}} 
+\index{Inventory\+Window@{Inventory\+Window}!Additional\+Actions\+Handler@{Additional\+Actions\+Handler}}
+\index{Additional\+Actions\+Handler@{Additional\+Actions\+Handler}!Inventory\+Window@{Inventory\+Window}}
+\subsubsection{\texorpdfstring{Additional\+Actions\+Handler()}{AdditionalActionsHandler()}}
+{\footnotesize\ttfamily void Inventory\+Window\+::\+Additional\+Actions\+Handler (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_selection_window_aaa0131b5b67dc5b3f7ebb85835cd31a7}{Selection\+Window}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/dee/class_inventory_window_a5115f00fecccca34ba3559079a325a9a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/dee/class_inventory_window_a5115f00fecccca34ba3559079a325a9a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_inventory_window_ad023d9091385b9829673f6f592dd44ea}\label{class_inventory_window_ad023d9091385b9829673f6f592dd44ea}} 
+\index{Inventory\+Window@{Inventory\+Window}!Handle\+Event@{Handle\+Event}}
+\index{Handle\+Event@{Handle\+Event}!Inventory\+Window@{Inventory\+Window}}
+\subsubsection{\texorpdfstring{Handle\+Event()}{HandleEvent()}}
+{\footnotesize\ttfamily void Inventory\+Window\+::\+Handle\+Event (\begin{DoxyParamCaption}\item[{sf\+::\+Event \&}]{event,  }\item[{tgui\+::\+Gui \&}]{gui\+Ref }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_selection_window_a2a7aa65a4c77fce6f2a44a0d10b911eb}{Selection\+Window}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/dee/class_inventory_window_ad023d9091385b9829673f6f592dd44ea_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/dee/class_inventory_window_ad023d9091385b9829673f6f592dd44ea_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_inventory_window_a201c5b514200d4b3afc27fa056c1c365}\label{class_inventory_window_a201c5b514200d4b3afc27fa056c1c365}} 
+\index{Inventory\+Window@{Inventory\+Window}!Handle\+Window\+Event@{Handle\+Window\+Event}}
+\index{Handle\+Window\+Event@{Handle\+Window\+Event}!Inventory\+Window@{Inventory\+Window}}
+\subsubsection{\texorpdfstring{Handle\+Window\+Event()}{HandleWindowEvent()}}
+{\footnotesize\ttfamily void Inventory\+Window\+::\+Handle\+Window\+Event (\begin{DoxyParamCaption}\item[{sf\+::\+Event \&}]{event,  }\item[{tgui\+::\+Gui \&}]{gui\+Ref }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/dee/class_inventory_window_a201c5b514200d4b3afc27fa056c1c365_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/dee/class_inventory_window_a201c5b514200d4b3afc27fa056c1c365_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_inventory_window_aef14cbe5f17a626c01df9948aac71259}\label{class_inventory_window_aef14cbe5f17a626c01df9948aac71259}} 
+\index{Inventory\+Window@{Inventory\+Window}!Hide\+All\+Windows@{Hide\+All\+Windows}}
+\index{Hide\+All\+Windows@{Hide\+All\+Windows}!Inventory\+Window@{Inventory\+Window}}
+\subsubsection{\texorpdfstring{Hide\+All\+Windows()}{HideAllWindows()}}
+{\footnotesize\ttfamily void Inventory\+Window\+::\+Hide\+All\+Windows (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_selection_window_a1d0561e5fbd751025c71484589f83841}{Selection\+Window}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/dee/class_inventory_window_aef14cbe5f17a626c01df9948aac71259_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/dee/class_inventory_window_aef14cbe5f17a626c01df9948aac71259_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_inventory_window_a6fd4220caaec67979e93f5b8b52365a8}\label{class_inventory_window_a6fd4220caaec67979e93f5b8b52365a8}} 
+\index{Inventory\+Window@{Inventory\+Window}!is\+Any\+Window\+Visible@{is\+Any\+Window\+Visible}}
+\index{is\+Any\+Window\+Visible@{is\+Any\+Window\+Visible}!Inventory\+Window@{Inventory\+Window}}
+\subsubsection{\texorpdfstring{is\+Any\+Window\+Visible()}{isAnyWindowVisible()}}
+{\footnotesize\ttfamily bool Inventory\+Window\+::is\+Any\+Window\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_selection_window_ad68953313a12ca42cafea68e15077c86}{Selection\+Window}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/dee/class_inventory_window_a6fd4220caaec67979e93f5b8b52365a8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/dee/class_inventory_window_a6fd4220caaec67979e93f5b8b52365a8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_inventory_window_ada117b35239727b734887c1d56dcf6f0}\label{class_inventory_window_ada117b35239727b734887c1d56dcf6f0}} 
+\index{Inventory\+Window@{Inventory\+Window}!setup\+Signals@{setup\+Signals}}
+\index{setup\+Signals@{setup\+Signals}!Inventory\+Window@{Inventory\+Window}}
+\subsubsection{\texorpdfstring{setup\+Signals()}{setupSignals()}}
+{\footnotesize\ttfamily void Inventory\+Window\+::setup\+Signals (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_selection_window_a912063c60bb6c7899422b5d470bcf64e}{Selection\+Window}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/dee/class_inventory_window_ada117b35239727b734887c1d56dcf6f0_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/dee/class_inventory_window_ada117b35239727b734887c1d56dcf6f0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_inventory_window_a0d286a4370871087af734042a3a6495d}\label{class_inventory_window_a0d286a4370871087af734042a3a6495d}} 
+\index{Inventory\+Window@{Inventory\+Window}!setup\+Widgets@{setup\+Widgets}}
+\index{setup\+Widgets@{setup\+Widgets}!Inventory\+Window@{Inventory\+Window}}
+\subsubsection{\texorpdfstring{setup\+Widgets()}{setupWidgets()}}
+{\footnotesize\ttfamily void Inventory\+Window\+::setup\+Widgets (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{main\+Window\+Tag,  }\item[{const std\+::string \&}]{ex\+Window\+Tag,  }\item[{const std\+::string \&}]{additional\+Actions\+Window\+Tag,  }\item[{tgui\+::\+Gui \&}]{gui\+Ref,  }\item[{\mbox{\hyperlink{class_base_creature}{Base\+Creature}} $\ast$}]{\+\_\+creature }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/dee/class_inventory_window_a0d286a4370871087af734042a3a6495d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/dee/class_inventory_window_a0d286a4370871087af734042a3a6495d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_inventory_window_a02cf6a3724a6ca38f12de98b96e8a8e7}\label{class_inventory_window_a02cf6a3724a6ca38f12de98b96e8a8e7}} 
+\index{Inventory\+Window@{Inventory\+Window}!Update\+Main\+Window@{Update\+Main\+Window}}
+\index{Update\+Main\+Window@{Update\+Main\+Window}!Inventory\+Window@{Inventory\+Window}}
+\subsubsection{\texorpdfstring{Update\+Main\+Window()}{UpdateMainWindow()}}
+{\footnotesize\ttfamily void Inventory\+Window\+::\+Update\+Main\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_selection_window_a4ccb50fc06840c6c3966c89b1d991b03}{Selection\+Window}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/dee/class_inventory_window_a02cf6a3724a6ca38f12de98b96e8a8e7_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/dee/class_inventory_window_a02cf6a3724a6ca38f12de98b96e8a8e7_icgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_inventory_window_a0a6e10b89b02f690ecd44792d7cb41e8}\label{class_inventory_window_a0a6e10b89b02f690ecd44792d7cb41e8}} 
+\index{Inventory\+Window@{Inventory\+Window}!creature@{creature}}
+\index{creature@{creature}!Inventory\+Window@{Inventory\+Window}}
+\subsubsection{\texorpdfstring{creature}{creature}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_base_creature}{Base\+Creature}}$\ast$ Inventory\+Window\+::creature\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/\+G\+U\+I/\mbox{\hyperlink{_player_windows_8hpp}{Player\+Windows.\+hpp}}\item 
+/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/\+G\+U\+I/\mbox{\hyperlink{_player_windows_8cpp}{Player\+Windows.\+cpp}}\end{DoxyCompactItemize}

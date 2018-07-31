@@ -37,7 +37,7 @@ void MapData::DrawItemsOnMap()
     std::list<Item*>::iterator itemIterator;
     for(itemIterator = itemsOnMap.begin(); itemIterator != itemsOnMap.end(); ++itemIterator)
     {
-        window->draw((*itemIterator)->tile);
+        window->draw((*itemIterator)->itemTile);
     }
     
 }
@@ -102,8 +102,8 @@ void MapData::PlaceItemsOnMap()
     {
         //TODO...Do some research on whether setting a pointer with a list iterator like that is a bad idea
         
-        (*itemit)->tile.loadTile("blessed_blade.png", sf::Vector2i(32,32), sf::Vector2i((*itemit)->getPosition().x,(*itemit)->getPosition().y));
-        map->Map2D[(*itemit)->getPosition().x][(*itemit)->getPosition().y].SetItemOnTile(*itemit);
+       // (*itemit)->itemTile.loadTile("blessed_blade.png", sf::Vector2i(4,4), sf::Vector2i((*itemit)->getPosition().x,(*itemit)->getPosition().y));
+     //   map->Map2D[(*itemit)->getPosition().x][(*itemit)->getPosition().y].SetItemOnTile(*itemit);
     }
 }
 

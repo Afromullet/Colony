@@ -22,7 +22,7 @@ using namespace std;
 
 class CreatureBody;
 
-class ItemManager
+class ItemManager : public sf::Drawable, public sf::Transformable
 {
 private:
     
@@ -61,6 +61,7 @@ public:
     std::string getItemNameAtIndex(int i);
     std::string getItemDescriptionAtIndex(int i);
  
+    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     
     
     //void MoveInventory(

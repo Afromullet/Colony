@@ -1,0 +1,4 @@
+<map id="SelectionWindow" name="SelectionWindow">
+<area shape="rect" id="node2" href="$d8/dcb/class_equipment_window.html" title="{EquipmentWindow\n|&#45; creature\l|+ EquipmentWindow()\l+ AdditionalActionsDoubleClick()\l+ AdditionalActionsHandler()\l+ HandleEvent()\l+ HandleWindowEvent()\l+ setupWidgets()\l+ setupSignals()\l+ UpdateMainWindow()\l+ isAnyWindowVisible()\l+ HideAllWindows()\l}" alt="" coords="5,367,220,560"/>
+<area shape="rect" id="node3" href="$d1/dee/class_inventory_window.html" title="Not created a parent class at the moment. Never made a GUI like this, and can&#39;t accurately predict wh..." alt="" coords="244,367,458,560"/>
+</map>

@@ -1,0 +1,308 @@
+\hypertarget{class_equipment_window}{}\section{Equipment\+Window Class Reference}
+\label{class_equipment_window}\index{Equipment\+Window@{Equipment\+Window}}
+
+
+{\ttfamily \#include $<$Player\+Windows.\+hpp$>$}
+
+
+
+Inheritance diagram for Equipment\+Window\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=241pt]{d1/d3f/class_equipment_window__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Equipment\+Window\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{d2/d39/class_equipment_window__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_equipment_window_ae2fd493944d97be1e7ac583f3ce3972c}{Equipment\+Window}} ()
+\item 
+void \mbox{\hyperlink{class_equipment_window_abfd5a25ea90203e21291d6c6725b30f2}{Additional\+Actions\+Double\+Click}} (std\+::string name)
+\item 
+void \mbox{\hyperlink{class_equipment_window_aa97046abad40cd1b4003fef694686992}{Additional\+Actions\+Handler}} (std\+::string name)
+\item 
+void \mbox{\hyperlink{class_equipment_window_aea251bbf9967a0f39ccca5df854adcbe}{Handle\+Event}} (sf\+::\+Event \&event, tgui\+::\+Gui \&gui\+Ref)
+\item 
+void \mbox{\hyperlink{class_equipment_window_a51ce202b7d1c4ac4e0e7d93df9dec726}{Handle\+Window\+Event}} (sf\+::\+Event \&event, tgui\+::\+Gui \&gui\+Ref)
+\item 
+void \mbox{\hyperlink{class_equipment_window_ad6ac175768f8725534c9b9ca1bd4d79a}{setup\+Widgets}} (const std\+::string \&\mbox{\hyperlink{class_selection_window_a555e8cf723b237c5a2bef0f190e03c76}{main\+Window\+Tag}}, const std\+::string \&ex\+Window\+Tag, const std\+::string \&\mbox{\hyperlink{class_selection_window_ae21c9fb80565153e0dc21b30f42e5db3}{additional\+Actions\+Window\+Tag}}, tgui\+::\+Gui \&gui\+Ref, \mbox{\hyperlink{class_base_creature}{Base\+Creature}} $\ast$\+\_\+creature)
+\item 
+void \mbox{\hyperlink{class_equipment_window_ae0c437e74fb9e01a5fb0423df76e4665}{setup\+Signals}} ()
+\item 
+void \mbox{\hyperlink{class_equipment_window_acf7d2c5609224291b20ad65d1241eeca}{Update\+Main\+Window}} ()
+\item 
+bool \mbox{\hyperlink{class_equipment_window_a8d311134213a637a7de2d9a3885c716c}{is\+Any\+Window\+Visible}} ()
+\item 
+void \mbox{\hyperlink{class_equipment_window_a9ff317935c0c7698a4cde661348ad059}{Hide\+All\+Windows}} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_base_creature}{Base\+Creature}} $\ast$ \mbox{\hyperlink{class_equipment_window_aa4e082610d80b8270a932220ae90c5c5}{creature}}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_equipment_window_ae2fd493944d97be1e7ac583f3ce3972c}\label{class_equipment_window_ae2fd493944d97be1e7ac583f3ce3972c}} 
+\index{Equipment\+Window@{Equipment\+Window}!Equipment\+Window@{Equipment\+Window}}
+\index{Equipment\+Window@{Equipment\+Window}!Equipment\+Window@{Equipment\+Window}}
+\subsubsection{\texorpdfstring{Equipment\+Window()}{EquipmentWindow()}}
+{\footnotesize\ttfamily Equipment\+Window\+::\+Equipment\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_equipment_window_abfd5a25ea90203e21291d6c6725b30f2}\label{class_equipment_window_abfd5a25ea90203e21291d6c6725b30f2}} 
+\index{Equipment\+Window@{Equipment\+Window}!Additional\+Actions\+Double\+Click@{Additional\+Actions\+Double\+Click}}
+\index{Additional\+Actions\+Double\+Click@{Additional\+Actions\+Double\+Click}!Equipment\+Window@{Equipment\+Window}}
+\subsubsection{\texorpdfstring{Additional\+Actions\+Double\+Click()}{AdditionalActionsDoubleClick()}}
+{\footnotesize\ttfamily void Equipment\+Window\+::\+Additional\+Actions\+Double\+Click (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_selection_window_a853f6c1c78163cd976d8a7d7bf1a9153}{Selection\+Window}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/dcb/class_equipment_window_abfd5a25ea90203e21291d6c6725b30f2_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/dcb/class_equipment_window_abfd5a25ea90203e21291d6c6725b30f2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_equipment_window_aa97046abad40cd1b4003fef694686992}\label{class_equipment_window_aa97046abad40cd1b4003fef694686992}} 
+\index{Equipment\+Window@{Equipment\+Window}!Additional\+Actions\+Handler@{Additional\+Actions\+Handler}}
+\index{Additional\+Actions\+Handler@{Additional\+Actions\+Handler}!Equipment\+Window@{Equipment\+Window}}
+\subsubsection{\texorpdfstring{Additional\+Actions\+Handler()}{AdditionalActionsHandler()}}
+{\footnotesize\ttfamily void Equipment\+Window\+::\+Additional\+Actions\+Handler (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_selection_window_aaa0131b5b67dc5b3f7ebb85835cd31a7}{Selection\+Window}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/dcb/class_equipment_window_aa97046abad40cd1b4003fef694686992_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/dcb/class_equipment_window_aa97046abad40cd1b4003fef694686992_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_equipment_window_aea251bbf9967a0f39ccca5df854adcbe}\label{class_equipment_window_aea251bbf9967a0f39ccca5df854adcbe}} 
+\index{Equipment\+Window@{Equipment\+Window}!Handle\+Event@{Handle\+Event}}
+\index{Handle\+Event@{Handle\+Event}!Equipment\+Window@{Equipment\+Window}}
+\subsubsection{\texorpdfstring{Handle\+Event()}{HandleEvent()}}
+{\footnotesize\ttfamily void Equipment\+Window\+::\+Handle\+Event (\begin{DoxyParamCaption}\item[{sf\+::\+Event \&}]{event,  }\item[{tgui\+::\+Gui \&}]{gui\+Ref }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_selection_window_a2a7aa65a4c77fce6f2a44a0d10b911eb}{Selection\+Window}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/dcb/class_equipment_window_aea251bbf9967a0f39ccca5df854adcbe_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/dcb/class_equipment_window_aea251bbf9967a0f39ccca5df854adcbe_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_equipment_window_a51ce202b7d1c4ac4e0e7d93df9dec726}\label{class_equipment_window_a51ce202b7d1c4ac4e0e7d93df9dec726}} 
+\index{Equipment\+Window@{Equipment\+Window}!Handle\+Window\+Event@{Handle\+Window\+Event}}
+\index{Handle\+Window\+Event@{Handle\+Window\+Event}!Equipment\+Window@{Equipment\+Window}}
+\subsubsection{\texorpdfstring{Handle\+Window\+Event()}{HandleWindowEvent()}}
+{\footnotesize\ttfamily void Equipment\+Window\+::\+Handle\+Window\+Event (\begin{DoxyParamCaption}\item[{sf\+::\+Event \&}]{event,  }\item[{tgui\+::\+Gui \&}]{gui\+Ref }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/dcb/class_equipment_window_a51ce202b7d1c4ac4e0e7d93df9dec726_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/dcb/class_equipment_window_a51ce202b7d1c4ac4e0e7d93df9dec726_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_equipment_window_a9ff317935c0c7698a4cde661348ad059}\label{class_equipment_window_a9ff317935c0c7698a4cde661348ad059}} 
+\index{Equipment\+Window@{Equipment\+Window}!Hide\+All\+Windows@{Hide\+All\+Windows}}
+\index{Hide\+All\+Windows@{Hide\+All\+Windows}!Equipment\+Window@{Equipment\+Window}}
+\subsubsection{\texorpdfstring{Hide\+All\+Windows()}{HideAllWindows()}}
+{\footnotesize\ttfamily void Equipment\+Window\+::\+Hide\+All\+Windows (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_selection_window_a1d0561e5fbd751025c71484589f83841}{Selection\+Window}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/dcb/class_equipment_window_a9ff317935c0c7698a4cde661348ad059_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/dcb/class_equipment_window_a9ff317935c0c7698a4cde661348ad059_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_equipment_window_a8d311134213a637a7de2d9a3885c716c}\label{class_equipment_window_a8d311134213a637a7de2d9a3885c716c}} 
+\index{Equipment\+Window@{Equipment\+Window}!is\+Any\+Window\+Visible@{is\+Any\+Window\+Visible}}
+\index{is\+Any\+Window\+Visible@{is\+Any\+Window\+Visible}!Equipment\+Window@{Equipment\+Window}}
+\subsubsection{\texorpdfstring{is\+Any\+Window\+Visible()}{isAnyWindowVisible()}}
+{\footnotesize\ttfamily bool Equipment\+Window\+::is\+Any\+Window\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_selection_window_ad68953313a12ca42cafea68e15077c86}{Selection\+Window}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/dcb/class_equipment_window_a8d311134213a637a7de2d9a3885c716c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/dcb/class_equipment_window_a8d311134213a637a7de2d9a3885c716c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_equipment_window_ae0c437e74fb9e01a5fb0423df76e4665}\label{class_equipment_window_ae0c437e74fb9e01a5fb0423df76e4665}} 
+\index{Equipment\+Window@{Equipment\+Window}!setup\+Signals@{setup\+Signals}}
+\index{setup\+Signals@{setup\+Signals}!Equipment\+Window@{Equipment\+Window}}
+\subsubsection{\texorpdfstring{setup\+Signals()}{setupSignals()}}
+{\footnotesize\ttfamily void Equipment\+Window\+::setup\+Signals (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_selection_window_a912063c60bb6c7899422b5d470bcf64e}{Selection\+Window}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/dcb/class_equipment_window_ae0c437e74fb9e01a5fb0423df76e4665_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/dcb/class_equipment_window_ae0c437e74fb9e01a5fb0423df76e4665_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_equipment_window_ad6ac175768f8725534c9b9ca1bd4d79a}\label{class_equipment_window_ad6ac175768f8725534c9b9ca1bd4d79a}} 
+\index{Equipment\+Window@{Equipment\+Window}!setup\+Widgets@{setup\+Widgets}}
+\index{setup\+Widgets@{setup\+Widgets}!Equipment\+Window@{Equipment\+Window}}
+\subsubsection{\texorpdfstring{setup\+Widgets()}{setupWidgets()}}
+{\footnotesize\ttfamily void Equipment\+Window\+::setup\+Widgets (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{main\+Window\+Tag,  }\item[{const std\+::string \&}]{ex\+Window\+Tag,  }\item[{const std\+::string \&}]{additional\+Actions\+Window\+Tag,  }\item[{tgui\+::\+Gui \&}]{gui\+Ref,  }\item[{\mbox{\hyperlink{class_base_creature}{Base\+Creature}} $\ast$}]{\+\_\+creature }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/dcb/class_equipment_window_ad6ac175768f8725534c9b9ca1bd4d79a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/dcb/class_equipment_window_ad6ac175768f8725534c9b9ca1bd4d79a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_equipment_window_acf7d2c5609224291b20ad65d1241eeca}\label{class_equipment_window_acf7d2c5609224291b20ad65d1241eeca}} 
+\index{Equipment\+Window@{Equipment\+Window}!Update\+Main\+Window@{Update\+Main\+Window}}
+\index{Update\+Main\+Window@{Update\+Main\+Window}!Equipment\+Window@{Equipment\+Window}}
+\subsubsection{\texorpdfstring{Update\+Main\+Window()}{UpdateMainWindow()}}
+{\footnotesize\ttfamily void Equipment\+Window\+::\+Update\+Main\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_selection_window_a4ccb50fc06840c6c3966c89b1d991b03}{Selection\+Window}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/dcb/class_equipment_window_acf7d2c5609224291b20ad65d1241eeca_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/dcb/class_equipment_window_acf7d2c5609224291b20ad65d1241eeca_icgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_equipment_window_aa4e082610d80b8270a932220ae90c5c5}\label{class_equipment_window_aa4e082610d80b8270a932220ae90c5c5}} 
+\index{Equipment\+Window@{Equipment\+Window}!creature@{creature}}
+\index{creature@{creature}!Equipment\+Window@{Equipment\+Window}}
+\subsubsection{\texorpdfstring{creature}{creature}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_base_creature}{Base\+Creature}}$\ast$ Equipment\+Window\+::creature\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/\+G\+U\+I/\mbox{\hyperlink{_player_windows_8hpp}{Player\+Windows.\+hpp}}\item 
+/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/\+G\+U\+I/\mbox{\hyperlink{_player_windows_8cpp}{Player\+Windows.\+cpp}}\end{DoxyCompactItemize}

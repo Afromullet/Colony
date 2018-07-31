@@ -11,7 +11,7 @@ Collaboration diagram for Item\+Manager\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=177pt]{d2/d0e/class_item_manager__coll__graph}
+\includegraphics[width=229pt]{d2/d0e/class_item_manager__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
@@ -38,6 +38,14 @@ void \mbox{\hyperlink{class_item_manager_a865c3d2863ca55df09728514e4f6cd6d}{show
 void \mbox{\hyperlink{class_item_manager_a55d0009a402e2f5fc3a18cf0629cec64}{Equip\+Item}} (int i, \mbox{\hyperlink{class_creature_body}{Creature\+Body}} \&body)
 \item 
 void \mbox{\hyperlink{class_item_manager_a2aa35a782e14a35ad9477c512e256303}{Clear\+Slot}} (int i)
+\item 
+void \mbox{\hyperlink{class_item_manager_a70bf322ab676e3eb16850ddbcdf601d5}{Release\+All\+Memory}} ()
+\item 
+int \mbox{\hyperlink{class_item_manager_aba8fa0833328eacca5f55e16c5eb0fe9}{get\+Inventory\+Size}} ()
+\item 
+std\+::string \mbox{\hyperlink{class_item_manager_a60f99805e73cc978c02b1972dd988111}{get\+Item\+Name\+At\+Index}} (int i)
+\item 
+std\+::string \mbox{\hyperlink{class_item_manager_a93049d232e7c75f23b1f1356a586372b}{get\+Item\+Description\+At\+Index}} (int i)
 \end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -74,6 +82,14 @@ std\+::vector$<$ unique\+\_\+ptr$<$ \mbox{\hyperlink{class_item}{Item}} $>$ $>$ 
 \subsubsection{\texorpdfstring{add\+Armor()}{addArmor()}}
 {\footnotesize\ttfamily void Item\+Manager\+::add\+Armor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_armor}{Armor}}}]{armor }\end{DoxyParamCaption})}
 
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=311pt]{dc/de1/class_item_manager_af16502a871d116ebd2241cd8d2d745f5_cgraph}
+\end{center}
+\end{figure}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -102,6 +118,14 @@ Here is the caller graph for this function\+:
 \subsubsection{\texorpdfstring{add\+Weapon()}{addWeapon()}}
 {\footnotesize\ttfamily void Item\+Manager\+::add\+Weapon (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_weapon}{Weapon}}}]{weapon }\end{DoxyParamCaption})}
 
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{dc/de1/class_item_manager_a2631fb34c48555098029e18e66d7eb05_cgraph}
+\end{center}
+\end{figure}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -146,6 +170,48 @@ Here is the caller graph for this function\+:
 \includegraphics[width=350pt]{dc/de1/class_item_manager_a55d0009a402e2f5fc3a18cf0629cec64_icgraph}
 \end{center}
 \end{figure}
+\mbox{\Hypertarget{class_item_manager_aba8fa0833328eacca5f55e16c5eb0fe9}\label{class_item_manager_aba8fa0833328eacca5f55e16c5eb0fe9}} 
+\index{Item\+Manager@{Item\+Manager}!get\+Inventory\+Size@{get\+Inventory\+Size}}
+\index{get\+Inventory\+Size@{get\+Inventory\+Size}!Item\+Manager@{Item\+Manager}}
+\subsubsection{\texorpdfstring{get\+Inventory\+Size()}{getInventorySize()}}
+{\footnotesize\ttfamily int Item\+Manager\+::get\+Inventory\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dc/de1/class_item_manager_aba8fa0833328eacca5f55e16c5eb0fe9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_item_manager_a93049d232e7c75f23b1f1356a586372b}\label{class_item_manager_a93049d232e7c75f23b1f1356a586372b}} 
+\index{Item\+Manager@{Item\+Manager}!get\+Item\+Description\+At\+Index@{get\+Item\+Description\+At\+Index}}
+\index{get\+Item\+Description\+At\+Index@{get\+Item\+Description\+At\+Index}!Item\+Manager@{Item\+Manager}}
+\subsubsection{\texorpdfstring{get\+Item\+Description\+At\+Index()}{getItemDescriptionAtIndex()}}
+{\footnotesize\ttfamily std\+::string Item\+Manager\+::get\+Item\+Description\+At\+Index (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dc/de1/class_item_manager_a93049d232e7c75f23b1f1356a586372b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_item_manager_a60f99805e73cc978c02b1972dd988111}\label{class_item_manager_a60f99805e73cc978c02b1972dd988111}} 
+\index{Item\+Manager@{Item\+Manager}!get\+Item\+Name\+At\+Index@{get\+Item\+Name\+At\+Index}}
+\index{get\+Item\+Name\+At\+Index@{get\+Item\+Name\+At\+Index}!Item\+Manager@{Item\+Manager}}
+\subsubsection{\texorpdfstring{get\+Item\+Name\+At\+Index()}{getItemNameAtIndex()}}
+{\footnotesize\ttfamily std\+::string Item\+Manager\+::get\+Item\+Name\+At\+Index (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dc/de1/class_item_manager_a60f99805e73cc978c02b1972dd988111_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_item_manager_a2fc75a7db020109a6a11d6db7e56a791}\label{class_item_manager_a2fc75a7db020109a6a11d6db7e56a791}} 
 \index{Item\+Manager@{Item\+Manager}!operator=@{operator=}}
 \index{operator=@{operator=}!Item\+Manager@{Item\+Manager}}
@@ -158,20 +224,26 @@ Here is the caller graph for this function\+:
 \subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_item_manager}{Item\+Manager}} \& Item\+Manager\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_item_manager}{Item\+Manager}} \&\&}]{other }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{class_item_manager_a865c3d2863ca55df09728514e4f6cd6d}\label{class_item_manager_a865c3d2863ca55df09728514e4f6cd6d}} 
-\index{Item\+Manager@{Item\+Manager}!show\+Item\+Stats@{show\+Item\+Stats}}
-\index{show\+Item\+Stats@{show\+Item\+Stats}!Item\+Manager@{Item\+Manager}}
-\subsubsection{\texorpdfstring{show\+Item\+Stats()}{showItemStats()}}
-{\footnotesize\ttfamily void Item\+Manager\+::show\+Item\+Stats (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{class_item_manager_a70bf322ab676e3eb16850ddbcdf601d5}\label{class_item_manager_a70bf322ab676e3eb16850ddbcdf601d5}} 
+\index{Item\+Manager@{Item\+Manager}!Release\+All\+Memory@{Release\+All\+Memory}}
+\index{Release\+All\+Memory@{Release\+All\+Memory}!Item\+Manager@{Item\+Manager}}
+\subsubsection{\texorpdfstring{Release\+All\+Memory()}{ReleaseAllMemory()}}
+{\footnotesize\ttfamily void Item\+Manager\+::\+Release\+All\+Memory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=300pt]{dc/de1/class_item_manager_a865c3d2863ca55df09728514e4f6cd6d_icgraph}
+\includegraphics[width=350pt]{dc/de1/class_item_manager_a70bf322ab676e3eb16850ddbcdf601d5_icgraph}
 \end{center}
 \end{figure}
+\mbox{\Hypertarget{class_item_manager_a865c3d2863ca55df09728514e4f6cd6d}\label{class_item_manager_a865c3d2863ca55df09728514e4f6cd6d}} 
+\index{Item\+Manager@{Item\+Manager}!show\+Item\+Stats@{show\+Item\+Stats}}
+\index{show\+Item\+Stats@{show\+Item\+Stats}!Item\+Manager@{Item\+Manager}}
+\subsubsection{\texorpdfstring{show\+Item\+Stats()}{showItemStats()}}
+{\footnotesize\ttfamily void Item\+Manager\+::show\+Item\+Stats (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
 
 
 \subsection{Member Data Documentation}

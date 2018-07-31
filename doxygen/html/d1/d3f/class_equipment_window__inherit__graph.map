@@ -1,0 +1,3 @@
+<map id="EquipmentWindow" name="EquipmentWindow">
+<area shape="rect" id="node2" href="$db/d9c/class_selection_window.html" title="{SelectionWindow\n|# mainWindow\l# additional_ActionsWindow\l# examineWindow\l# creature\l# mainWindowTag\l# additionalActionsWindowTag\l# examineWindowTag\l# curItemIndex\l# curActionsIndex\l|+ SelectionWindow()\l+ SetupMainWindow()\l+ SetupActionWindow()\l+ SetupExamineWindow()\l+ MainDoubleClickAction()\l+ isAnyInitialWindowVisible()\l+ AdditionalActionsDoubleClick()\l+ AdditionalActionsHandler()\l+ setupSignals()\l+ HandleEvent()\land 15 more...\l}" alt="" coords="5,5,220,319"/>
+</map>

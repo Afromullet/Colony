@@ -33,13 +33,15 @@ bool \mbox{\hyperlink{class_entity_tile_ad5adfda10fac26073effad1f16d6ffb6}{opera
 \item 
 void \mbox{\hyperlink{class_entity_tile_a81dbf6b294b80d6edcc830a243cdfae8}{operator=}} (const \mbox{\hyperlink{class_entity_tile}{Entity\+Tile}} \&other)
 \item 
+\mbox{\hyperlink{class_entity_tile_a7339ed82b7f4d506ef34f99b1446714a}{Entity\+Tile}} ()
+\item 
 bool \mbox{\hyperlink{class_entity_tile_a1a6b6b995ad942e7850f14cc6e693bbc}{load\+Tile}} (const std\+::string \&tileset, sf\+::\+Vector2i \+\_\+tile\+Size, sf\+::\+Vector2i creature\+Position)
 \item 
 void \mbox{\hyperlink{class_entity_tile_a7b9e5be8dc4017eb5af8e4fda7add3c4}{set\+Position}} (int x, int y)
 \item 
-sf\+::\+Vector2i \mbox{\hyperlink{class_entity_tile_a5b0c178bfb2b65842c9c70ffafd857a7}{get\+Tile\+Size}} ()
+sf\+::\+Vector2i \mbox{\hyperlink{class_entity_tile_a73cc06d0699f6d30a08d93e5cf9afe3b}{get\+Tile\+Size}} () const
 \item 
-int \mbox{\hyperlink{class_entity_tile_a2a4d57fa026ee00140e4cfd4ccc0d2b0}{get\+Entity\+Tile\+ID}} ()
+int \mbox{\hyperlink{class_entity_tile_ae03bd8f12e01ddeb289be1b7229386ca}{get\+Entity\+Tile\+ID}} () const
 \end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -77,6 +79,23 @@ static int \mbox{\hyperlink{class_entity_tile_a48bfcc60158b629788db1357707a9614}
 \end{DoxyCompactItemize}
 
 
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_entity_tile_a7339ed82b7f4d506ef34f99b1446714a}\label{class_entity_tile_a7339ed82b7f4d506ef34f99b1446714a}} 
+\index{Entity\+Tile@{Entity\+Tile}!Entity\+Tile@{Entity\+Tile}}
+\index{Entity\+Tile@{Entity\+Tile}!Entity\+Tile@{Entity\+Tile}}
+\subsubsection{\texorpdfstring{Entity\+Tile()}{EntityTile()}}
+{\footnotesize\ttfamily Entity\+Tile\+::\+Entity\+Tile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=316pt]{d7/dd4/class_entity_tile_a7339ed82b7f4d506ef34f99b1446714a_cgraph}
+\end{center}
+\end{figure}
+
+
 \subsection{Member Function Documentation}
 \mbox{\Hypertarget{class_entity_tile_a1d61eb82fed61b1c7aebc54249bd7c80}\label{class_entity_tile_a1d61eb82fed61b1c7aebc54249bd7c80}} 
 \index{Entity\+Tile@{Entity\+Tile}!draw@{draw}}
@@ -84,11 +103,11 @@ static int \mbox{\hyperlink{class_entity_tile_a48bfcc60158b629788db1357707a9614}
 \subsubsection{\texorpdfstring{draw()}{draw()}}
 {\footnotesize\ttfamily void Entity\+Tile\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Target \&}]{target,  }\item[{sf\+::\+Render\+States}]{states }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [virtual]}}
 
-\mbox{\Hypertarget{class_entity_tile_a2a4d57fa026ee00140e4cfd4ccc0d2b0}\label{class_entity_tile_a2a4d57fa026ee00140e4cfd4ccc0d2b0}} 
+\mbox{\Hypertarget{class_entity_tile_ae03bd8f12e01ddeb289be1b7229386ca}\label{class_entity_tile_ae03bd8f12e01ddeb289be1b7229386ca}} 
 \index{Entity\+Tile@{Entity\+Tile}!get\+Entity\+Tile\+ID@{get\+Entity\+Tile\+ID}}
 \index{get\+Entity\+Tile\+ID@{get\+Entity\+Tile\+ID}!Entity\+Tile@{Entity\+Tile}}
 \subsubsection{\texorpdfstring{get\+Entity\+Tile\+I\+D()}{getEntityTileID()}}
-{\footnotesize\ttfamily int Entity\+Tile\+::get\+Entity\+Tile\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int Entity\+Tile\+::get\+Entity\+Tile\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 \mbox{\Hypertarget{class_entity_tile_acabd6691ddcf65a812c38e86e12e28e7}\label{class_entity_tile_acabd6691ddcf65a812c38e86e12e28e7}} 
 \index{Entity\+Tile@{Entity\+Tile}!get\+Entity\+Tile\+I\+D\+Counter@{get\+Entity\+Tile\+I\+D\+Counter}}
@@ -96,19 +115,11 @@ static int \mbox{\hyperlink{class_entity_tile_a48bfcc60158b629788db1357707a9614}
 \subsubsection{\texorpdfstring{get\+Entity\+Tile\+I\+D\+Counter()}{getEntityTileIDCounter()}}
 {\footnotesize\ttfamily static int Entity\+Tile\+::get\+Entity\+Tile\+I\+D\+Counter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
-Here is the caller graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=271pt]{d7/dd4/class_entity_tile_acabd6691ddcf65a812c38e86e12e28e7_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{class_entity_tile_a5b0c178bfb2b65842c9c70ffafd857a7}\label{class_entity_tile_a5b0c178bfb2b65842c9c70ffafd857a7}} 
+\mbox{\Hypertarget{class_entity_tile_a73cc06d0699f6d30a08d93e5cf9afe3b}\label{class_entity_tile_a73cc06d0699f6d30a08d93e5cf9afe3b}} 
 \index{Entity\+Tile@{Entity\+Tile}!get\+Tile\+Size@{get\+Tile\+Size}}
 \index{get\+Tile\+Size@{get\+Tile\+Size}!Entity\+Tile@{Entity\+Tile}}
 \subsubsection{\texorpdfstring{get\+Tile\+Size()}{getTileSize()}}
-{\footnotesize\ttfamily sf\+::\+Vector2i Entity\+Tile\+::get\+Tile\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily sf\+::\+Vector2i Entity\+Tile\+::get\+Tile\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 \mbox{\Hypertarget{class_entity_tile_a1a6b6b995ad942e7850f14cc6e693bbc}\label{class_entity_tile_a1a6b6b995ad942e7850f14cc6e693bbc}} 
 \index{Entity\+Tile@{Entity\+Tile}!load\+Tile@{load\+Tile}}

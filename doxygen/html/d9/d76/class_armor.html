@@ -79,7 +79,7 @@ Inheritance diagram for Armor:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../db/d06/class_armor__inherit__graph.png" border="0" usemap="#_armor_inherit__map" alt="Inheritance graph"/></div>
 <map name="_armor_inherit__map" id="_armor_inherit__map">
-<area shape="rect" id="node2" href="../../dc/d32/class_item.html" title="{Item\n|+ itemTile\l+ tile\l+ sections\l&#45; position\l&#45; size\l&#45; mass\l&#45; section\l&#45; material\l&#45; sEquipmentName\l&#45; isEquipped\l|+ operator==()\l+ operator!=()\l+ operator=()\l+ Item()\l+ Item()\l+ Item()\l+ Item()\l+ Item()\l+ clone()\l+ create()\land 22 more...\l}" alt="" coords="9,5,145,332"/>
+<area shape="rect" id="node2" href="../../dc/d32/class_item.html" title="{Item\n|+ itemTile\l+ tile\l+ sections\l&#45; position\l&#45; size\l&#45; mass\l&#45; section\l&#45; material\l&#45; sEquipmentName\l&#45; isEquipped\l&#45; tag\l&#45; enItemType\l&#45; stackSize\l&#45; maxStackSize\l&#45; descriptiveText\l|+ operator==()\l+ operator!=()\l+ operator=()\l+ Item()\l+ Item()\l+ Item()\l+ clone()\l+ create()\l+ showItemStats()\l+ getItemExamineString()\land 31 more...\l}" alt="" coords="5,5,178,399"/>
 </map>
 </div>
 <div class="dynheader">
@@ -87,8 +87,8 @@ Collaboration diagram for Armor:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../d0/d90/class_armor__coll__graph.png" border="0" usemap="#_armor_coll__map" alt="Collaboration graph"/></div>
 <map name="_armor_coll__map" id="_armor_coll__map">
-<area shape="rect" id="node2" href="../../dc/d32/class_item.html" title="{Item\n|+ sections\l&#45; position\l&#45; size\l&#45; mass\l&#45; section\l&#45; sEquipmentName\l&#45; isEquipped\l|+ operator==()\l+ operator!=()\l+ operator=()\l+ Item()\l+ Item()\l+ Item()\l+ Item()\l+ Item()\l+ clone()\l+ create()\land 22 more...\l}" alt="" coords="195,716,331,1003"/>
-<area shape="rect" id="node3" href="../../d7/dd4/class_entity_tile.html" title="{EntityTile\n|&#45; m_vertices\l&#45; m_tileset\l&#45; tileSize\l&#45; position\l&#45; width\l&#45; height\l&#45; entityTileID\l&#45; tileSetString\l&#45; entityTileIDCounter\l|+ operator==()\l+ operator!=()\l+ operator=()\l+ loadTile()\l+ setPosition()\l+ getTileSize()\l+ getEntityTileID()\l+ getEntityTileIDCounter()\l&#45; draw()\l}" alt="" coords="14,241,189,528"/>
+<area shape="rect" id="node2" href="../../dc/d32/class_item.html" title="{Item\n|+ sections\l&#45; position\l&#45; size\l&#45; mass\l&#45; section\l&#45; sEquipmentName\l&#45; isEquipped\l&#45; tag\l&#45; enItemType\l&#45; stackSize\l&#45; maxStackSize\l&#45; descriptiveText\l|+ operator==()\l+ operator!=()\l+ operator=()\l+ Item()\l+ Item()\l+ Item()\l+ clone()\l+ create()\l+ showItemStats()\l+ getItemExamineString()\land 31 more...\l}" alt="" coords="176,716,349,1069"/>
+<area shape="rect" id="node3" href="../../d7/dd4/class_entity_tile.html" title="{EntityTile\n|&#45; m_vertices\l&#45; m_tileset\l&#45; tileSize\l&#45; position\l&#45; width\l&#45; height\l&#45; entityTileID\l&#45; tileSetString\l&#45; entityTileIDCounter\l|+ operator==()\l+ operator!=()\l+ operator=()\l+ EntityTile()\l+ loadTile()\l+ setPosition()\l+ getTileSize()\l+ getEntityTileID()\l+ getEntityTileIDCounter()\l&#45; draw()\l}" alt="" coords="14,235,189,535"/>
 <area shape="rect" id="node6" href="../../dc/dee/class_material.html" title="{Material\n|&#45; effectsOnMaterial\l&#45; compDefStrength\l&#45; impactDefStrength\l&#45; tensileDefStrength\l&#45; torsionDefStrenght\l&#45; shearDefStrength\l&#45; compFractStrength\l&#45; impactFractStrength\l&#45; tensileFractStrength\l&#45; torsionFractStrenght\l&#45; shearFractStrength\l&#45; plasticity\l&#45; density\l&#45; materialName\l|+ operator==()\l+ operator!=()\l+ operator=()\l+ Material()\l+ Material()\l+ PerformMaterialCalculations()\l+ setDeformationStrenghts()\l+ setFractureStrength()\l+ setDensity()\l+ setMaterialName()\land 6 more...\l&#45; SetupForce()\l&#45; SetupShearForce()\l&#45; SetupImpactForce()\l&#45; SetupCompressionForce()\l&#45; SetupTensileForce()\l&#45; SetupTorsionForce()\l&#45; CalculateForcePenentration()\l&#45; CalculateForcePenentration()\l&#45; ApplyForcePenentration()\l&#45; DetermineWoundSeverity()\l}" alt="" coords="213,128,422,641"/>
 </map>
 </div>
@@ -103,10 +103,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad706d994c7d3a3ea4d7c1728faccc0aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a33d37eb11165792cce7035dfb2ff93"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d76/class_armor.html#a4a33d37eb11165792cce7035dfb2ff93">Armor</a> (<a class="el" href="../../dc/dee/class_material.html">Material</a> _material, std::string _sEquipmentName, short int _siArmorBonus, float _fDodgeModifier, float _fDamageReduction, float _fMovementModifier)</td></tr>
 <tr class="separator:a4a33d37eb11165792cce7035dfb2ff93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e58e27c6b7550a8baf7fb1b2167d6cc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d76/class_armor.html#a6e58e27c6b7550a8baf7fb1b2167d6cc">Armor</a> (std::string itemName)</td></tr>
-<tr class="separator:a6e58e27c6b7550a8baf7fb1b2167d6cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a1bc35d82ebba3f5a81f9e40d93f3c9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d76/class_armor.html#a1a1bc35d82ebba3f5a81f9e40d93f3c9">Armor</a> (std::string itemName, std::string _section)</td></tr>
-<tr class="separator:a1a1bc35d82ebba3f5a81f9e40d93f3c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40d54a621183a93edaecb2cd4e83c800"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d76/class_armor.html#a40d54a621183a93edaecb2cd4e83c800">Armor</a> (const <a class="el" href="../../d9/d76/class_armor.html">Armor</a> &amp;other)</td></tr>
 <tr class="separator:a40d54a621183a93edaecb2cd4e83c800"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23323e95bbeb488eb6fe54cbd83d49a2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d76/class_armor.html#a23323e95bbeb488eb6fe54cbd83d49a2">Armor</a> ()</td></tr>
@@ -119,10 +115,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a731bb4d1fe53070f30a336db82fada2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4fe1507d7aaf280a18e19f51a6f8c42d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d76/class_armor.html#a4fe1507d7aaf280a18e19f51a6f8c42d">showItemStats</a> () const</td></tr>
 <tr class="separator:a4fe1507d7aaf280a18e19f51a6f8c42d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b5dc1feb7b5d3c4bd023cf9e0857fe3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d76/class_armor.html#a0b5dc1feb7b5d3c4bd023cf9e0857fe3">EquipItem</a> (<a class="el" href="../../d2/d6f/class_body_part.html">BodyPart</a> &amp;bp, <a class="el" href="../../dc/de1/class_item_manager.html">ItemManager</a> &amp;itemManager)</td></tr>
-<tr class="separator:a0b5dc1feb7b5d3c4bd023cf9e0857fe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a697e23862a5a6bb32fc5b1b143d61f58"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d76/class_armor.html#a697e23862a5a6bb32fc5b1b143d61f58">EquipItem</a> (<a class="el" href="../../d2/d6f/class_body_part.html">BodyPart</a> &amp;bp)</td></tr>
+<tr class="separator:a697e23862a5a6bb32fc5b1b143d61f58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a248a63d0d2801a10d6a4039f60b6a0c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d76/class_armor.html#a248a63d0d2801a10d6a4039f60b6a0c7">PrintArmorStatistics</a> ()</td></tr>
 <tr class="separator:a248a63d0d2801a10d6a4039f60b6a0c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a008a9def7f07c141c87771937d856616"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d76/class_armor.html#a008a9def7f07c141c87771937d856616">AddToItemManager</a> (<a class="el" href="../../dc/de1/class_item_manager.html">ItemManager</a> &amp;manager)</td></tr>
+<tr class="separator:a008a9def7f07c141c87771937d856616"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72b3d5c0294e80243ed8c96dbc35ccc7"><td class="memItemLeft" align="right" valign="top">short int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d76/class_armor.html#a72b3d5c0294e80243ed8c96dbc35ccc7">siGetArmorBonus</a> () const</td></tr>
 <tr class="separator:a72b3d5c0294e80243ed8c96dbc35ccc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2eab88550e74345eef13e2a279a2f995"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d76/class_armor.html#a2eab88550e74345eef13e2a279a2f995">fGetDodgeModifier</a> () const</td></tr>
@@ -139,8 +137,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a08f926ae8438bae04058c22b098c6fcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99475fc688add41f89b7fef160534e33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d76/class_armor.html#a99475fc688add41f89b7fef160534e33">setMovementModifier</a> (float value)</td></tr>
 <tr class="separator:a99475fc688add41f89b7fef160534e33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac86ccbc735cc83849f1c62099285a0c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d76/class_armor.html#ac86ccbc735cc83849f1c62099285a0c9">calculateMaterialBonuses</a> ()</td></tr>
-<tr class="separator:ac86ccbc735cc83849f1c62099285a0c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1710521cbba1bf9328e969cbbc8cdbf3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d76/class_armor.html#a1710521cbba1bf9328e969cbbc8cdbf3">setMaterial</a> (<a class="el" href="../../dc/dee/class_material.html">Material</a> value)</td></tr>
 <tr class="separator:a1710521cbba1bf9328e969cbbc8cdbf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_item"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_item')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../dc/d32/class_item.html">Item</a></td></tr>
@@ -150,14 +146,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a612c595b62d2f7b9c5cd2b085a14b365 inherit pub_methods_class_item"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47267a43bfae3f28e183170f45783da5 inherit pub_methods_class_item"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a47267a43bfae3f28e183170f45783da5">operator=</a> (const <a class="el" href="../../dc/d32/class_item.html">Item</a> &amp;other)</td></tr>
 <tr class="separator:a47267a43bfae3f28e183170f45783da5 inherit pub_methods_class_item"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a931e8f47fe5a367166280f28edca3950 inherit pub_methods_class_item"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a931e8f47fe5a367166280f28edca3950">Item</a> (<a class="el" href="../../dc/dee/class_material.html">Material</a> _material, std::string _sEquipmentName)</td></tr>
-<tr class="separator:a931e8f47fe5a367166280f28edca3950 inherit pub_methods_class_item"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7071a91f151036f7fd1a87e12a07f83 inherit pub_methods_class_item"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#aa7071a91f151036f7fd1a87e12a07f83">Item</a> (std::string equipmentName)</td></tr>
-<tr class="separator:aa7071a91f151036f7fd1a87e12a07f83 inherit pub_methods_class_item"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac84b16ca0e3ce8554dbd817d62bcbab0 inherit pub_methods_class_item"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#ac84b16ca0e3ce8554dbd817d62bcbab0">Item</a> (std::string equipmentName, std::string _section)</td></tr>
-<tr class="separator:ac84b16ca0e3ce8554dbd817d62bcbab0 inherit pub_methods_class_item"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a297720c02984eab37332ae795d22189d inherit pub_methods_class_item"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a297720c02984eab37332ae795d22189d">Item</a> ()</td></tr>
 <tr class="separator:a297720c02984eab37332ae795d22189d inherit pub_methods_class_item"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a151feb15d24241570c89d776ac31aeb4 inherit pub_methods_class_item"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a151feb15d24241570c89d776ac31aeb4">Item</a> (<a class="el" href="../../dc/dee/class_material.html">Material</a> _material, std::string _sEquipmentName, <a class="el" href="../../db/d1b/_equipment_8hpp.html#a3c7fe24829a0b210a1a4d36e29ac01c6">EnItemType</a> itType)</td></tr>
+<tr class="separator:a151feb15d24241570c89d776ac31aeb4 inherit pub_methods_class_item"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44f7e3f580bd6c0fa2e1c288dff484be inherit pub_methods_class_item"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a44f7e3f580bd6c0fa2e1c288dff484be">Item</a> (const <a class="el" href="../../dc/d32/class_item.html">Item</a> &amp;other)</td></tr>
 <tr class="separator:a44f7e3f580bd6c0fa2e1c288dff484be inherit pub_methods_class_item"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f02bc86b6f66142e35a660a5c28ba74 inherit pub_methods_class_item"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a8f02bc86b6f66142e35a660a5c28ba74">CalculateMaterialBonuses</a> ()</td></tr>
@@ -180,6 +172,16 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af22ec5d207b70e2a3359e76dccfc7e11 inherit pub_methods_class_item"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61272a187be1a07a49685cbee45d30bd inherit pub_methods_class_item"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/dd4/class_entity_tile.html">EntityTile</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a61272a187be1a07a49685cbee45d30bd">getTile</a> ()</td></tr>
 <tr class="separator:a61272a187be1a07a49685cbee45d30bd inherit pub_methods_class_item"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e829376b05757d63d2593fb378d05ff inherit pub_methods_class_item"><td class="memItemLeft" align="right" valign="top">boost::uuids::uuid&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a5e829376b05757d63d2593fb378d05ff">getTag</a> ()</td></tr>
+<tr class="separator:a5e829376b05757d63d2593fb378d05ff inherit pub_methods_class_item"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8320312184b0cbf28d047d68059f1b1 inherit pub_methods_class_item"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d1b/_equipment_8hpp.html#a3c7fe24829a0b210a1a4d36e29ac01c6">EnItemType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#aa8320312184b0cbf28d047d68059f1b1">getItemType</a> ()</td></tr>
+<tr class="separator:aa8320312184b0cbf28d047d68059f1b1 inherit pub_methods_class_item"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cbcf6f1a3b7c07a05b9cc0954e677db inherit pub_methods_class_item"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a7cbcf6f1a3b7c07a05b9cc0954e677db">getStackSize</a> ()</td></tr>
+<tr class="separator:a7cbcf6f1a3b7c07a05b9cc0954e677db inherit pub_methods_class_item"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8e94ab96931949a517490d1c4b37287 inherit pub_methods_class_item"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#ac8e94ab96931949a517490d1c4b37287">getMaxStackSize</a> ()</td></tr>
+<tr class="separator:ac8e94ab96931949a517490d1c4b37287 inherit pub_methods_class_item"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc7555345dbfa5a079622fb3eec6f5b7 inherit pub_methods_class_item"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#acc7555345dbfa5a079622fb3eec6f5b7">getDescriptiveText</a> () const</td></tr>
+<tr class="separator:acc7555345dbfa5a079622fb3eec6f5b7 inherit pub_methods_class_item"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c9f73ef36b176cdb75bc9b13d5be8e8 inherit pub_methods_class_item"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a6c9f73ef36b176cdb75bc9b13d5be8e8">addSection</a> (std::string value)</td></tr>
 <tr class="separator:a6c9f73ef36b176cdb75bc9b13d5be8e8 inherit pub_methods_class_item"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8dd38d585a7795f134f6453feb1000e inherit pub_methods_class_item"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#ae8dd38d585a7795f134f6453feb1000e">setItemName</a> (std::string value)</td></tr>
@@ -198,6 +200,16 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a87100c3d13e81e42e58969f817d591ef inherit pub_methods_class_item"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10dd503844c230e3d3bf890e969af867 inherit pub_methods_class_item"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a10dd503844c230e3d3bf890e969af867">isValidSection</a> (std::string _section)</td></tr>
 <tr class="separator:a10dd503844c230e3d3bf890e969af867 inherit pub_methods_class_item"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18f7cd6d575a855529a4df7b47b3585e inherit pub_methods_class_item"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a18f7cd6d575a855529a4df7b47b3585e">setTag</a> (boost::uuids::uuid val)</td></tr>
+<tr class="separator:a18f7cd6d575a855529a4df7b47b3585e inherit pub_methods_class_item"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4c09d3c7d22b96a4bca5f530f5f3b42 inherit pub_methods_class_item"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#ae4c09d3c7d22b96a4bca5f530f5f3b42">setItemType</a> (<a class="el" href="../../db/d1b/_equipment_8hpp.html#a3c7fe24829a0b210a1a4d36e29ac01c6">EnItemType</a> val)</td></tr>
+<tr class="separator:ae4c09d3c7d22b96a4bca5f530f5f3b42 inherit pub_methods_class_item"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e0495bbb3eafeef69f8f8aa5bf94dbb inherit pub_methods_class_item"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a0e0495bbb3eafeef69f8f8aa5bf94dbb">setStackSize</a> (int val)</td></tr>
+<tr class="separator:a0e0495bbb3eafeef69f8f8aa5bf94dbb inherit pub_methods_class_item"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ae38e2b09f1b12e2fd799865fe7000d inherit pub_methods_class_item"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a3ae38e2b09f1b12e2fd799865fe7000d">setMaxStackSize</a> (int val)</td></tr>
+<tr class="separator:a3ae38e2b09f1b12e2fd799865fe7000d inherit pub_methods_class_item"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5eece4e311535630dec1ac8c65b683e6 inherit pub_methods_class_item"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d32/class_item.html#a5eece4e311535630dec1ac8c65b683e6">setDescriptiveText</a> (std::string str)</td></tr>
+<tr class="separator:a5eece4e311535630dec1ac8c65b683e6 inherit pub_methods_class_item"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -227,7 +239,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4a33d37eb11165792cce7035dfb2ff93"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a33d37eb11165792cce7035dfb2ff93">&#9670;&nbsp;</a></span>Armor() <span class="overload">[1/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a33d37eb11165792cce7035dfb2ff93">&#9670;&nbsp;</a></span>Armor() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -278,54 +290,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a6e58e27c6b7550a8baf7fb1b2167d6cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e58e27c6b7550a8baf7fb1b2167d6cc">&#9670;&nbsp;</a></span>Armor() <span class="overload">[2/5]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Armor::Armor </td>
-          <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>itemName</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a1a1bc35d82ebba3f5a81f9e40d93f3c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a1bc35d82ebba3f5a81f9e40d93f3c9">&#9670;&nbsp;</a></span>Armor() <span class="overload">[3/5]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Armor::Armor </td>
-          <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>itemName</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>_section</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a40d54a621183a93edaecb2cd4e83c800"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a40d54a621183a93edaecb2cd4e83c800">&#9670;&nbsp;</a></span>Armor() <span class="overload">[4/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a40d54a621183a93edaecb2cd4e83c800">&#9670;&nbsp;</a></span>Armor() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -343,7 +309,7 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <a id="a23323e95bbeb488eb6fe54cbd83d49a2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a23323e95bbeb488eb6fe54cbd83d49a2">&#9670;&nbsp;</a></span>Armor() <span class="overload">[5/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a23323e95bbeb488eb6fe54cbd83d49a2">&#9670;&nbsp;</a></span>Armor() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -361,30 +327,48 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../d9/d76/class_armor_a23323e95bbeb488eb6fe54cbd83d49a2_icgraph.png" border="0" usemap="#d9/d76/class_armor_a23323e95bbeb488eb6fe54cbd83d49a2_icgraph" alt=""/></div>
 <map name="d9/d76/class_armor_a23323e95bbeb488eb6fe54cbd83d49a2_icgraph" id="d9/d76/class_armor_a23323e95bbeb488eb6fe54cbd83d49a2_icgraph">
-<area shape="rect" id="node2" href="../../d9/d76/class_armor.html#aac8aec108de9a8a45bada1534c0f23b7" title="Armor::clone" alt="" coords="157,29,254,55"/>
-<area shape="rect" id="node5" href="../../d9/d76/class_armor.html#a21de0acaa6ecdb6f5937166b83da9b01" title="Armor::create" alt="" coords="155,79,257,104"/>
-<area shape="rect" id="node3" href="../../df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="360,5,410,31"/>
-<area shape="rect" id="node4" href="../../d8/d46/_test_data_generator_8hpp.html#adf5c94513b4604bb65ec2255caad5188" title="GenerateRandomItems" alt="" coords="305,55,465,80"/>
+<area shape="rect" id="node2" href="../../d9/d76/class_armor.html#aac8aec108de9a8a45bada1534c0f23b7" title="Armor::clone" alt="" coords="157,5,254,31"/>
+<area shape="rect" id="node3" href="../../d9/d76/class_armor.html#a21de0acaa6ecdb6f5937166b83da9b01" title="Armor::create" alt="" coords="155,55,257,80"/>
 </map>
 </div>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ac86ccbc735cc83849f1c62099285a0c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac86ccbc735cc83849f1c62099285a0c9">&#9670;&nbsp;</a></span>calculateMaterialBonuses()</h2>
+<a id="a008a9def7f07c141c87771937d856616"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a008a9def7f07c141c87771937d856616">&#9670;&nbsp;</a></span>AddToItemManager()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Armor::calculateMaterialBonuses </td>
+          <td class="memname">void Armor::AddToItemManager </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="../../dc/de1/class_item_manager.html">ItemManager</a> &amp;&#160;</td>
+          <td class="paramname"><em>manager</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p>Implements <a class="el" href="../../dc/d32/class_item.html#ae534538f3e77078f804acc742ef68521">Item</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d9/d76/class_armor_a008a9def7f07c141c87771937d856616_cgraph.png" border="0" usemap="#d9/d76/class_armor_a008a9def7f07c141c87771937d856616_cgraph" alt=""/></div>
+<map name="d9/d76/class_armor_a008a9def7f07c141c87771937d856616_cgraph" id="d9/d76/class_armor_a008a9def7f07c141c87771937d856616_cgraph">
+<area shape="rect" id="node2" href="../../dc/de1/class_item_manager.html#af16502a871d116ebd2241cd8d2d745f5" title="ItemManager::addArmor" alt="" coords="235,5,401,31"/>
+<area shape="rect" id="node3" href="../../dc/d32/class_item.html#a5e829376b05757d63d2593fb378d05ff" title="Item::getTag" alt="" coords="449,5,543,31"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -418,15 +402,6 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="../../d9/d76/class_armor_aac8aec108de9a8a45bada1534c0f23b7_cgraph.png" border="0" usemap="#d9/d76/class_armor_aac8aec108de9a8a45bada1534c0f23b7_cgraph" alt=""/></div>
 <map name="d9/d76/class_armor_aac8aec108de9a8a45bada1534c0f23b7_cgraph" id="d9/d76/class_armor_aac8aec108de9a8a45bada1534c0f23b7_cgraph">
 <area shape="rect" id="node2" href="../../d9/d76/class_armor.html#a23323e95bbeb488eb6fe54cbd83d49a2" title="Armor::Armor" alt="" coords="150,5,252,31"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d9/d76/class_armor_aac8aec108de9a8a45bada1534c0f23b7_icgraph.png" border="0" usemap="#d9/d76/class_armor_aac8aec108de9a8a45bada1534c0f23b7_icgraph" alt=""/></div>
-<map name="d9/d76/class_armor_aac8aec108de9a8a45bada1534c0f23b7_icgraph" id="d9/d76/class_armor_aac8aec108de9a8a45bada1534c0f23b7_icgraph">
-<area shape="rect" id="node2" href="../../df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="205,5,255,31"/>
-<area shape="rect" id="node3" href="../../d8/d46/_test_data_generator_8hpp.html#adf5c94513b4604bb65ec2255caad5188" title="GenerateRandomItems" alt="" coords="150,55,310,80"/>
 </map>
 </div>
 
@@ -467,8 +442,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a0b5dc1feb7b5d3c4bd023cf9e0857fe3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b5dc1feb7b5d3c4bd023cf9e0857fe3">&#9670;&nbsp;</a></span>EquipItem()</h2>
+<a id="a697e23862a5a6bb32fc5b1b143d61f58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a697e23862a5a6bb32fc5b1b143d61f58">&#9670;&nbsp;</a></span>EquipItem()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -480,18 +455,8 @@ Here is the call graph for this function:</div>
           <td class="memname">void Armor::EquipItem </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d2/d6f/class_body_part.html">BodyPart</a> &amp;&#160;</td>
-          <td class="paramname"><em>bp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>bp</em></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../dc/de1/class_item_manager.html">ItemManager</a> &amp;&#160;</td>
-          <td class="paramname"><em>itemManager</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -501,14 +466,34 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="../../dc/d32/class_item.html#ad1a25684e25e0fc14cbe88f77ea035c2">Item</a>.</p>
+<p>Implements <a class="el" href="../../dc/d32/class_item.html#af4b9caf8fcfc22bbde13bf6c3505b35c">Item</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/d76/class_armor_a0b5dc1feb7b5d3c4bd023cf9e0857fe3_cgraph.png" border="0" usemap="#d9/d76/class_armor_a0b5dc1feb7b5d3c4bd023cf9e0857fe3_cgraph" alt=""/></div>
-<map name="d9/d76/class_armor_a0b5dc1feb7b5d3c4bd023cf9e0857fe3_cgraph" id="d9/d76/class_armor_a0b5dc1feb7b5d3c4bd023cf9e0857fe3_cgraph">
-<area shape="rect" id="node2" href="../../d2/d6f/class_body_part.html#a089afe1bbd06d3fc84a9870ec173883c" title="BodyPart::setArmor" alt="" coords="192,5,330,31"/>
-<area shape="rect" id="node3" href="../../dc/de1/class_item_manager.html#af16502a871d116ebd2241cd8d2d745f5" title="ItemManager::addArmor" alt="" coords="178,55,344,80"/>
+<div class="center"><img src="../../d9/d76/class_armor_a697e23862a5a6bb32fc5b1b143d61f58_cgraph.png" border="0" usemap="#d9/d76/class_armor_a697e23862a5a6bb32fc5b1b143d61f58_cgraph" alt=""/></div>
+<map name="d9/d76/class_armor_a697e23862a5a6bb32fc5b1b143d61f58_cgraph" id="d9/d76/class_armor_a697e23862a5a6bb32fc5b1b143d61f58_cgraph">
+<area shape="rect" id="node2" href="../../d2/d6f/class_body_part.html#a089afe1bbd06d3fc84a9870ec173883c" title="BodyPart::setArmor" alt="" coords="178,5,316,31"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d9/d76/class_armor_a697e23862a5a6bb32fc5b1b143d61f58_icgraph.png" border="0" usemap="#d9/d76/class_armor_a697e23862a5a6bb32fc5b1b143d61f58_icgraph" alt=""/></div>
+<map name="d9/d76/class_armor_a697e23862a5a6bb32fc5b1b143d61f58_icgraph" id="d9/d76/class_armor_a697e23862a5a6bb32fc5b1b143d61f58_icgraph">
+<area shape="rect" id="node2" href="../../da/d7d/class_creature_body.html#a8a55f2c0785aaf956cdee04a538dfb97" title="CreatureBody::Equip" alt="" coords="178,41,324,67"/>
+<area shape="rect" id="node3" href="../../dc/de1/class_item_manager.html#a55d0009a402e2f5fc3a18cf0629cec64" title="ItemManager::EquipItem" alt="" coords="372,41,539,67"/>
+<area shape="rect" id="node4" href="../../d2/d3b/class_base_creature.html#a1e73375251b20070ae9dac505b280b3e" title="BaseCreature::EquipItem" alt="" coords="587,41,758,67"/>
+<area shape="rect" id="node5" href="../../d1/dee/class_inventory_window.html#a5115f00fecccca34ba3559079a325a9a" title="InventoryWindow::Additional\lActionsHandler" alt="" coords="806,35,995,73"/>
+<area shape="rect" id="node6" href="../../d1/dee/class_inventory_window.html#a184239af4739a83163b45c4bb72ff6ec" title="InventoryWindow::Additional\lActionsDoubleClick" alt="" coords="1043,5,1233,44"/>
+<area shape="rect" id="node12" href="../../d1/dee/class_inventory_window.html#a201c5b514200d4b3afc27fa056c1c365" title="InventoryWindow::HandleWindow\lEvent" alt="" coords="1281,63,1502,101"/>
+<area shape="rect" id="node7" href="../../d1/dee/class_inventory_window.html#ada117b35239727b734887c1d56dcf6f0" title="InventoryWindow::setupSignals" alt="" coords="1288,13,1495,39"/>
+<area shape="rect" id="node8" href="../../db/dcd/class_player_g_u_i.html#a7fdc3f6f9478ea077ddaffd8d34a3854" title="PlayerGUI::SetupPlayerGUI" alt="" coords="1560,16,1747,41"/>
+<area shape="rect" id="node9" href="../../d1/d27/_player_windows_8hpp.html#acc8d46ee468ab4d8721d18b65370186d" title="SetupGUI" alt="" coords="1872,17,1952,43"/>
+<area shape="rect" id="node10" href="../../df/d0a/main_8cpp.html#ad60a204b9b7e3351c3f1a99b7aa7e429" title="InitializeAllData" alt="" coords="2067,17,2180,43"/>
+<area shape="rect" id="node11" href="../../df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="2228,43,2278,68"/>
+<area shape="rect" id="node13" href="../../d1/dee/class_inventory_window.html#ad023d9091385b9829673f6f592dd44ea" title="InventoryWindow::HandleEvent" alt="" coords="1550,67,1757,92"/>
+<area shape="rect" id="node14" href="../../db/dcd/class_player_g_u_i.html#a1658f37b9e537d4a7377ca842bf60598" title="PlayerGUI::HandleWindowEvent" alt="" coords="1805,67,2019,92"/>
+<area shape="rect" id="node15" href="../../df/d0a/main_8cpp.html#ab8ef98eaa887a3be4bb916cdde45b3d1" title="GameLoop3" alt="" coords="2076,67,2171,92"/>
 </map>
 </div>
 
@@ -562,15 +547,6 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d9/d76/class_armor_a788fee5745a82a7ffc587aa4938200dc_icgraph.png" border="0" usemap="#d9/d76/class_armor_a788fee5745a82a7ffc587aa4938200dc_icgraph" alt=""/></div>
-<map name="d9/d76/class_armor_a788fee5745a82a7ffc587aa4938200dc_icgraph" id="d9/d76/class_armor_a788fee5745a82a7ffc587aa4938200dc_icgraph">
-<area shape="rect" id="node2" href="../../df/d0a/main_8cpp.html#a272c53135b61217828e494f5d86dabe4" title="PointerTest" alt="" coords="253,5,341,31"/>
-<area shape="rect" id="node3" href="../../df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="389,31,440,56"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -693,10 +669,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="../../d9/d76/class_armor_a14c15f72741f2a3dec28c746b3678c20_icgraph.png" border="0" usemap="#d9/d76/class_armor_a14c15f72741f2a3dec28c746b3678c20_icgraph" alt=""/></div>
 <map name="d9/d76/class_armor_a14c15f72741f2a3dec28c746b3678c20_icgraph" id="d9/d76/class_armor_a14c15f72741f2a3dec28c746b3678c20_icgraph">
 <area shape="rect" id="node2" href="../../d6/d62/_item_generator_8hpp.html#a73c459717a9061affce0f19c1e98d626" title="GenerateRandomArmor" alt="" coords="211,5,375,31"/>
-<area shape="rect" id="node4" href="../../d8/d46/_test_data_generator_8hpp.html#aab0823e979250be375299f1337314fe1" title="GenerateTestEquipment" alt="" coords="210,55,375,80"/>
-<area shape="rect" id="node3" href="../../d8/d46/_test_data_generator_8hpp.html#adf5c94513b4604bb65ec2255caad5188" title="GenerateRandomItems" alt="" coords="423,5,583,31"/>
-<area shape="rect" id="node5" href="../../df/d0a/main_8cpp.html#ab5227b073ad87fc30322650e123e0055" title="SetupGameData" alt="" coords="443,55,564,80"/>
-<area shape="rect" id="node6" href="../../df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="631,55,682,80"/>
+<area shape="rect" id="node3" href="../../d7/d1f/_test_data_generator_8cpp.html#aab0823e979250be375299f1337314fe1" title="GenerateTestEquipment" alt="" coords="210,55,375,80"/>
 </map>
 </div>
 
@@ -723,10 +696,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="../../d9/d76/class_armor_a08f926ae8438bae04058c22b098c6fcf_icgraph.png" border="0" usemap="#d9/d76/class_armor_a08f926ae8438bae04058c22b098c6fcf_icgraph" alt=""/></div>
 <map name="d9/d76/class_armor_a08f926ae8438bae04058c22b098c6fcf_icgraph" id="d9/d76/class_armor_a08f926ae8438bae04058c22b098c6fcf_icgraph">
 <area shape="rect" id="node2" href="../../d6/d62/_item_generator_8hpp.html#a73c459717a9061affce0f19c1e98d626" title="GenerateRandomArmor" alt="" coords="247,5,411,31"/>
-<area shape="rect" id="node4" href="../../d8/d46/_test_data_generator_8hpp.html#aab0823e979250be375299f1337314fe1" title="GenerateTestEquipment" alt="" coords="247,55,412,80"/>
-<area shape="rect" id="node3" href="../../d8/d46/_test_data_generator_8hpp.html#adf5c94513b4604bb65ec2255caad5188" title="GenerateRandomItems" alt="" coords="460,5,620,31"/>
-<area shape="rect" id="node5" href="../../df/d0a/main_8cpp.html#ab5227b073ad87fc30322650e123e0055" title="SetupGameData" alt="" coords="479,55,600,80"/>
-<area shape="rect" id="node6" href="../../df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="668,55,718,80"/>
+<area shape="rect" id="node3" href="../../d7/d1f/_test_data_generator_8cpp.html#aab0823e979250be375299f1337314fe1" title="GenerateTestEquipment" alt="" coords="247,55,412,80"/>
 </map>
 </div>
 
@@ -753,10 +723,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="../../d9/d76/class_armor_ab48309e3f16d226d56af617c65350698_icgraph.png" border="0" usemap="#d9/d76/class_armor_ab48309e3f16d226d56af617c65350698_icgraph" alt=""/></div>
 <map name="d9/d76/class_armor_ab48309e3f16d226d56af617c65350698_icgraph" id="d9/d76/class_armor_ab48309e3f16d226d56af617c65350698_icgraph">
 <area shape="rect" id="node2" href="../../d6/d62/_item_generator_8hpp.html#a73c459717a9061affce0f19c1e98d626" title="GenerateRandomArmor" alt="" coords="224,5,387,31"/>
-<area shape="rect" id="node4" href="../../d8/d46/_test_data_generator_8hpp.html#aab0823e979250be375299f1337314fe1" title="GenerateTestEquipment" alt="" coords="223,55,388,80"/>
-<area shape="rect" id="node3" href="../../d8/d46/_test_data_generator_8hpp.html#adf5c94513b4604bb65ec2255caad5188" title="GenerateRandomItems" alt="" coords="436,5,596,31"/>
-<area shape="rect" id="node5" href="../../df/d0a/main_8cpp.html#ab5227b073ad87fc30322650e123e0055" title="SetupGameData" alt="" coords="456,55,576,80"/>
-<area shape="rect" id="node6" href="../../df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="644,55,694,80"/>
+<area shape="rect" id="node3" href="../../d7/d1f/_test_data_generator_8cpp.html#aab0823e979250be375299f1337314fe1" title="GenerateTestEquipment" alt="" coords="223,55,388,80"/>
 </map>
 </div>
 
@@ -808,12 +775,11 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../d9/d76/class_armor_a99475fc688add41f89b7fef160534e33_icgraph.png" border="0" usemap="#d9/d76/class_armor_a99475fc688add41f89b7fef160534e33_icgraph" alt=""/></div>
 <map name="d9/d76/class_armor_a99475fc688add41f89b7fef160534e33_icgraph" id="d9/d76/class_armor_a99475fc688add41f89b7fef160534e33_icgraph">
-<area shape="rect" id="node2" href="../../df/d0a/main_8cpp.html#a272c53135b61217828e494f5d86dabe4" title="PointerTest" alt="" coords="495,5,583,31"/>
-<area shape="rect" id="node3" href="../../df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="667,56,717,81"/>
-<area shape="rect" id="node4" href="../../d6/d62/_item_generator_8hpp.html#a73c459717a9061affce0f19c1e98d626" title="GenerateRandomArmor" alt="" coords="247,107,410,132"/>
-<area shape="rect" id="node6" href="../../d8/d46/_test_data_generator_8hpp.html#aab0823e979250be375299f1337314fe1" title="GenerateTestEquipment" alt="" coords="246,156,411,181"/>
-<area shape="rect" id="node5" href="../../d8/d46/_test_data_generator_8hpp.html#adf5c94513b4604bb65ec2255caad5188" title="GenerateRandomItems" alt="" coords="459,107,619,132"/>
-<area shape="rect" id="node7" href="../../df/d0a/main_8cpp.html#ab5227b073ad87fc30322650e123e0055" title="SetupGameData" alt="" coords="479,156,599,181"/>
+<area shape="rect" id="node2" href="../../df/d0a/main_8cpp.html#a0e54b88e292aa007c9534e8ab287d049" title="InitializeTestingData" alt="" coords="258,5,398,31"/>
+<area shape="rect" id="node5" href="../../d6/d62/_item_generator_8hpp.html#a73c459717a9061affce0f19c1e98d626" title="GenerateRandomArmor" alt="" coords="247,55,410,80"/>
+<area shape="rect" id="node6" href="../../d7/d1f/_test_data_generator_8cpp.html#aab0823e979250be375299f1337314fe1" title="GenerateTestEquipment" alt="" coords="246,104,411,129"/>
+<area shape="rect" id="node3" href="../../df/d0a/main_8cpp.html#ad60a204b9b7e3351c3f1a99b7aa7e429" title="InitializeAllData" alt="" coords="459,5,571,31"/>
+<area shape="rect" id="node4" href="../../df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="619,5,670,31"/>
 </map>
 </div>
 

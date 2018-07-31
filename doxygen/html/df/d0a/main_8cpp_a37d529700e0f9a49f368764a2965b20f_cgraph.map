@@ -1,0 +1,25 @@
+<map id="InitializePlayerData" name="InitializePlayerData">
+<area shape="rect" id="node2" href="$d2/d3b/class_base_creature.html#af2066b8eb62bf595d30feae6671e4495" title="BaseCreature::loadCreatureTile" alt="" coords="196,44,406,69"/>
+<area shape="rect" id="node4" href="$d2/d3b/class_base_creature.html#a00ffc1ee732a8f0a8921c9cee6842e4d" title="BaseCreature::setPosition" alt="" coords="213,131,389,156"/>
+<area shape="rect" id="node6" href="$da/d7d/class_creature_body.html#ac4140e081c8970ad4330c253c615ba33" title="CreatureBody::openBodyTypeFile" alt="" coords="190,256,412,281"/>
+<area shape="rect" id="node7" href="$da/d7d/class_creature_body.html#a52d765dd974e81a549fd0cb27b355cf2" title="CreatureBody::readBodyTokenList" alt="" coords="189,439,413,464"/>
+<area shape="rect" id="node9" href="$da/d7d/class_creature_body.html#af7047fb13005abbb9a816c0dd64af873" title="CreatureBody::GenerateVertices" alt="" coords="194,368,408,393"/>
+<area shape="rect" id="node18" href="$da/d7d/class_creature_body.html#a8feda2cfc35e1b76730a31eb368ffed6" title="CreatureBody::GenerateEdges" alt="" coords="199,533,403,559"/>
+<area shape="rect" id="node22" href="$da/d7d/class_creature_body.html#a9cf5cffe6209ed851bf32c2b164d9391" title="CreatureBody::GenerateOrgan\lVertices" alt="" coords="199,305,403,344"/>
+<area shape="rect" id="node23" href="$da/d7d/class_creature_body.html#af1303a40606bf06aed980f14e7027d54" title="CreatureBody::GenerateOrgan\lEdges" alt="" coords="199,583,403,621"/>
+<area shape="rect" id="node24" href="$da/d7d/class_creature_body.html#af2b152c045862bb0fbc370b444bf98f0" title="CreatureBody::Initialize\lBodypartEquipment" alt="" coords="221,645,381,684"/>
+<area shape="rect" id="node3" href="$d7/dd4/class_entity_tile.html#a1a6b6b995ad942e7850f14cc6e693bbc" title="EntityTile::loadTile" alt="" coords="502,5,632,31"/>
+<area shape="rect" id="node5" href="$d7/dd4/class_entity_tile.html#a7b9e5be8dc4017eb5af8e4fda7add3c4" title="EntityTile::setPosition" alt="" coords="493,55,641,80"/>
+<area shape="rect" id="node8" href="$df/d0a/main_8cpp.html#a6355d41788bff5386a6854b1fd02ab9b" title="v" alt="" coords="548,512,586,537"/>
+<area shape="rect" id="node10" href="$da/d7d/class_creature_body.html#a2e5f101eb4ce889f47810e8e65164d50" title="CreatureBody::convertTruth\lValue" alt="" coords="474,104,660,143"/>
+<area shape="rect" id="node11" href="$d2/d6f/class_body_part.html#ab22b9412b4959e3a0a42efc79e409199" title="BodyPart::setRelativeSize" alt="" coords="479,167,655,192"/>
+<area shape="rect" id="node12" href="$d2/d6f/class_body_part.html#ad83118e7510cbab332815cd9254a6024" title="BodyPart::setCanHoldArmor" alt="" coords="472,216,662,241"/>
+<area shape="rect" id="node13" href="$d2/d6f/class_body_part.html#af61f39aa545dacd8c1a9cf43761df85a" title="BodyPart::setCanHoldWeapon" alt="" coords="466,265,668,291"/>
+<area shape="rect" id="node14" href="$d2/d6f/class_body_part.html#acc147f8434d4bf881ee4b54e1b79c439" title="BodyPart::setCanSmell" alt="" coords="488,315,647,340"/>
+<area shape="rect" id="node15" href="$d2/d6f/class_body_part.html#acc7c6792cd9837901dfb7d639714eb00" title="BodyPart::setCanSee" alt="" coords="492,364,642,389"/>
+<area shape="rect" id="node16" href="$d2/d6f/class_body_part.html#acae2236af2e131dfb8a49b4ca62d0d1f" title="BodyPart::setSection" alt="" coords="494,413,640,439"/>
+<area shape="rect" id="node17" href="$d2/d6f/class_body_part.html#a089afe1bbd06d3fc84a9870ec173883c" title="BodyPart::setArmor" alt="" coords="498,463,636,488"/>
+<area shape="rect" id="node19" href="$df/d51/_body_graph_getters_8cpp.html#a1684c9f93f236d359bb8fbbafa4d3f8c" title="GetVerticesWithToken" alt="" coords="491,611,643,636"/>
+<area shape="rect" id="node20" href="$df/d51/_body_graph_getters_8cpp.html#a763abea7d728994e559aa1af2aae1f0e" title="convertConnectionType" alt="" coords="486,660,648,685"/>
+<area shape="rect" id="node21" href="$df/d51/_body_graph_getters_8cpp.html#adb1abedeca85af21db1d704103903a87" title="convertConnectionPropertyType" alt="" coords="461,561,673,587"/>
+</map>

@@ -1,0 +1,20 @@
+<map id="ImGui::Combo" name="ImGui::Combo">
+<area shape="rect" id="node2" href="$d8/d3a/namespace_body_part_creator.html#aa69c6643c5e96d7dee3884662bb6ca00" title="BodyPartCreator::BPCreator" alt="" coords="694,96,885,121"/>
+<area shape="rect" id="node6" href="$d8/d3a/namespace_body_part_creator.html#a7d0a8af2804bcc6a41e19b1d84013efd" title="BodyPartCreator::ReadInput" alt="" coords="172,83,362,108"/>
+<area shape="rect" id="node7" href="$d8/d3a/namespace_body_part_creator.html#ac18c9ae3935b336efbb9634fb329413f" title="BodyPartCreator::BPEditor" alt="" coords="437,121,618,147"/>
+<area shape="rect" id="node8" href="$df/d9e/namespace_body_graph_viewer.html#ae2458c73737cf4926078c6415ee2087b" title="BodyGraphViewer::SetupViewer\lComponents" alt="" coords="422,171,634,209"/>
+<area shape="rect" id="node9" href="$df/d9e/namespace_body_graph_viewer.html#af9dda6b999602264957b77351415c57d" title="BodyGraphViewer::GraphViewer" alt="" coords="682,235,897,260"/>
+<area shape="rect" id="node10" href="$df/d9e/namespace_body_graph_viewer.html#a84ae9cb3a7a4441cd2f55037b98ddcaf" title="BodyGraphViewer::VertexAdder" alt="" coords="423,285,633,311"/>
+<area shape="rect" id="node11" href="$df/d9e/namespace_body_graph_viewer.html#a269151dfadc20a939854d1187a7ef914" title="BodyGraphViewer::BodyGraph\lConnector" alt="" coords="426,360,630,399"/>
+<area shape="rect" id="node12" href="$df/d9e/namespace_body_graph_viewer.html#a7a0ddd4c8da17a236fb1b160d43d6c72" title="BodyGraphViewer::FirstBody\lPartMenu" alt="" coords="170,387,363,425"/>
+<area shape="rect" id="node13" href="$df/d9e/namespace_body_graph_viewer.html#a8f24a618383585f0b013da6054244e2c" title="BodyGraphViewer::SecondBody\lPartMenu" alt="" coords="161,449,373,488"/>
+<area shape="rect" id="node14" href="$d6/d1f/_imgui_debug_8hpp.html#a724daa873580bc506b61df3166b6bda4" title="BPConnector" alt="" coords="216,512,317,537"/>
+<area shape="rect" id="node15" href="$d6/d1f/_imgui_debug_8hpp.html#a16eed7dbc6009a0b01d6b18fc4e6a890" title="BodyGraphViewer2" alt="" coords="198,561,335,587"/>
+<area shape="rect" id="node16" href="$d5/d0a/imgui__demo_8cpp.html#af6ff107f662e23ad39345a8192d782eb" title="ShowExampleMenuFile" alt="" coords="186,611,347,636"/>
+<area shape="rect" id="node18" href="$d5/d0a/imgui__demo_8cpp.html#a4f7b0b016c2ffd33836c3bdcf78ed97b" title="ShowExampleAppConstrained\lResize" alt="" coords="166,660,368,699"/>
+<area shape="rect" id="node19" href="$d5/d0a/imgui__demo_8cpp.html#a4dadf5e7b393795666d19af9694037cf" title="ShowExampleAppLongText" alt="" coords="175,723,359,748"/>
+<area shape="rect" id="node3" href="$d9/dd7/namespace_main_debug_window.html#a2c9084a9752a2e4ef87b8ca3039f5a4d" title="MainDebugWindow::MenuBar\lHandler" alt="" coords="945,172,1143,211"/>
+<area shape="rect" id="node4" href="$d9/dd7/namespace_main_debug_window.html#ae0112f4e295169b45c2615b4915e3cc5" title="MainDebugWindow::ShowMain\lDebugWindow" alt="" coords="1191,172,1398,211"/>
+<area shape="rect" id="node5" href="$d9/dd7/namespace_main_debug_window.html#ae86fa1cdeae81822f5567320f9d56f65" title="MainDebugWindow::DebugMain\lWindow" alt="" coords="1446,172,1658,211"/>
+<area shape="rect" id="node17" href="$d5/d0a/imgui__demo_8cpp.html#a41fc5e36f317b1e9f66bdd2d7bca7764" title="ShowExampleAppMainMenuBar" alt="" coords="421,611,634,636"/>
+</map>

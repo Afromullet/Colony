@@ -21,6 +21,7 @@
 #include <stdio.h>
 #include <string>
 #include <memory>
+#include "ItemManager.hpp"
 
 /*
  
@@ -59,6 +60,8 @@ public:
     //bool operator=(const Tile &other);
     
     Tile();
+    Tile(Tile &other);
+    Tile(const Tile &other);
   
     
     
@@ -96,6 +99,8 @@ public:
     Biome getBiome() const;
     int getIndex() const;
    
+    //For adding items to tiles
+    void AddArmor(Armor armor);
     
     
     
@@ -111,6 +116,7 @@ public:
     
 private:
     
+    ItemManager inventory;
     std::string tileName;
     int TileID; //Use a table to decode what kind of parameters this tile has (texture, etc)
     sf::Texture tileTexture;

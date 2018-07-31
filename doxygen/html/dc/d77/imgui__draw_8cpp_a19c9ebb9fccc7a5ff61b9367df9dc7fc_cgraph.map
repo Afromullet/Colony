@@ -1,0 +1,9 @@
+<map id="ImFontAtlasBuildWithStbTruetype" name="ImFontAtlasBuildWithStbTruetype">
+<area shape="rect" id="node2" href="$dc/d77/imgui__draw_8cpp.html#a1c06e6e488c5f6034ebec7b6a84ce205" title="ImFontAtlasBuildRegister\lDefaultCustomRects" alt="" coords="287,5,459,44"/>
+<area shape="rect" id="node3" href="$dc/d77/imgui__draw_8cpp.html#a0b75d411a640f923fd9ca6e879c45b75" title="ImFontAtlasBuildPackCustom\lRects" alt="" coords="274,68,472,107"/>
+<area shape="rect" id="node4" href="$dc/d77/imgui__draw_8cpp.html#a8d5f3a053aae34ac7b93e39cb9096d06" title="ImFontAtlasBuildMultiply\lCalcLookupTable" alt="" coords="289,131,457,169"/>
+<area shape="rect" id="node5" href="$dc/d77/imgui__draw_8cpp.html#a8dc3feae771599949b33712b520e9060" title="ImFontAtlasBuildMultiply\lRectAlpha8" alt="" coords="289,193,457,232"/>
+<area shape="rect" id="node6" href="$dc/d77/imgui__draw_8cpp.html#a4bea0932904c84de73237df3f1f76bdd" title="ImFontAtlasBuildSetupFont" alt="" coords="281,256,465,281"/>
+<area shape="rect" id="node7" href="$dc/d77/imgui__draw_8cpp.html#adbf0ee92b3ac86e30b9e81f552d15d37" title="ImFontAtlasBuildFinish" alt="" coords="294,305,452,331"/>
+<area shape="rect" id="node8" href="$dc/d77/imgui__draw_8cpp.html#a5c1e7dc4dbb8ef1787cc953b6156fb28" title="ImFontAtlasBuildRenderDefault\lTexData" alt="" coords="520,299,728,337"/>
+</map>

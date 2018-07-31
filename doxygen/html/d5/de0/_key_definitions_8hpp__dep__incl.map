@@ -1,8 +1,6 @@
 <map id="/Users/Afromullet/Documents/SFML/Colony2/Colony/CommandHandlers/KeyDefinitions.hpp" name="/Users/Afromullet/Documents/SFML/Colony2/Colony/CommandHandlers/KeyDefinitions.hpp">
 <area shape="rect" id="node2" href="$dd/d33/_key_definitions_8cpp.html" title="/Users/Afromullet/Documents\l/SFML/Colony2/Colony/CommandHandlers\l/KeyDefinitions.cpp" alt="" coords="5,105,282,157"/>
-<area shape="rect" id="node3" href="$d6/dbf/_window_commands_8hpp.html" title="/Users/Afromullet/Documents\l/SFML/Colony2/Colony/CommandHandlers\l/WindowCommands.hpp" alt="" coords="307,105,584,157"/>
-<area shape="rect" id="node4" href="$df/dbd/_window_commands_8cpp.html" title="/Users/Afromullet/Documents\l/SFML/Colony2/Colony/CommandHandlers\l/WindowCommands.cpp" alt="" coords="176,205,453,257"/>
-<area shape="rect" id="node5" href="$df/d40/_player_controls_8hpp.html" title="/Users/Afromullet/Documents\l/SFML/Colony2/Colony/Input\l/PlayerControls.hpp" alt="" coords="477,205,672,257"/>
-<area shape="rect" id="node6" href="$dd/d33/_player_controls_8cpp.html" title="/Users/Afromullet/Documents\l/SFML/Colony2/Colony/Input\l/PlayerControls.cpp" alt="" coords="362,305,557,357"/>
-<area shape="rect" id="node7" href="$df/d0a/main_8cpp.html" title="/Users/Afromullet/Documents\l/SFML/Colony2/Colony/main.cpp" alt="" coords="581,312,797,351"/>
+<area shape="rect" id="node3" href="$d1/d27/_player_windows_8hpp.html" title="/Users/Afromullet/Documents\l/SFML/Colony2/Colony/GUI\l/PlayerWindows.hpp" alt="" coords="306,105,501,157"/>
+<area shape="rect" id="node4" href="$d6/d8e/_player_windows_8cpp.html" title="/Users/Afromullet/Documents\l/SFML/Colony2/Colony/GUI\l/PlayerWindows.cpp" alt="" coords="192,205,387,257"/>
+<area shape="rect" id="node5" href="$df/d0a/main_8cpp.html" title="/Users/Afromullet/Documents\l/SFML/Colony2/Colony/main.cpp" alt="" coords="410,212,627,251"/>
 </map>

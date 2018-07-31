@@ -29,6 +29,10 @@ void \mbox{\hyperlink{class_creature_body_af1303a40606bf06aed980f14e7027d54}{Gen
 \item 
 void \mbox{\hyperlink{class_creature_body_af2b152c045862bb0fbc370b444bf98f0}{Initialize\+Bodypart\+Equipment}} ()
 \item 
+void \mbox{\hyperlink{class_creature_body_a5fa474a4a6f2c04d6ae55db42e6a9c75}{set\+Name}} (std\+::string name)
+\item 
+std\+::string \mbox{\hyperlink{class_creature_body_abfbe9ab6a145745934fc7fafefccdb67}{get\+Name}} ()
+\item 
 void \mbox{\hyperlink{class_creature_body_a947efb646a893964de6244b886bab038}{load}} ()
 \item 
 void \mbox{\hyperlink{class_creature_body_ac4140e081c8970ad4330c253c615ba33}{open\+Body\+Type\+File}} (const std\+::string \&file\+Name)
@@ -39,6 +43,10 @@ int \mbox{\hyperlink{class_creature_body_a2e5f101eb4ce889f47810e8e65164d50}{conv
 \item 
 bool \mbox{\hyperlink{class_creature_body_a8a55f2c0785aaf956cdee04a538dfb97}{Equip}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_item}{Item}} $>$ item, \mbox{\hyperlink{class_item_manager}{Item\+Manager}} \&inventory, int index)
 \item 
+void \mbox{\hyperlink{class_creature_body_aa923b5ba453a19b651af7290d568a4fc}{Unequip\+Armor\+By\+Section}} (std\+::vector$<$ int $>$ \&indices, \mbox{\hyperlink{class_item_manager}{Item\+Manager}} \&item\+Manager)
+\item 
+void \mbox{\hyperlink{class_creature_body_a4cd14d7e1ed54d8beeb853a99ff0516c}{Unequip\+Weapon\+By\+Section}} (std\+::vector$<$ int $>$ \&indices, \mbox{\hyperlink{class_item_manager}{Item\+Manager}} \&item\+Manager, \mbox{\hyperlink{_weapon_8hpp_a160076f6c574c69cd1ce2b3f42cf3755}{En\+Weapon\+Size}} size)
+\item 
 void \mbox{\hyperlink{class_creature_body_a5a14d8decef3d1051ac7e9d79a1a4b72}{Equip\+Armor}} (\mbox{\hyperlink{class_item}{Item}} $\ast$item)
 \item 
 void \mbox{\hyperlink{class_creature_body_af329b825db569100370683f7a9b0263c}{Equip\+Weapon}} (\mbox{\hyperlink{class_item}{Item}} $\ast$item)
@@ -46,6 +54,8 @@ void \mbox{\hyperlink{class_creature_body_af329b825db569100370683f7a9b0263c}{Equ
 void \mbox{\hyperlink{class_creature_body_aa6525bf32e8f99cc5bd1bda76044964d}{Apply\+Attack}} (\mbox{\hyperlink{struct_attack_stats}{Attack\+Stats}} attack\+Stats, int n)
 \item 
 void \mbox{\hyperlink{class_creature_body_a82e519351551538b1138fea170776f3f}{Print\+Wounds}} ()
+\item 
+void \mbox{\hyperlink{class_creature_body_ad41423874acaacde458a04b99c468c91}{Add\+Vertex}} (\mbox{\hyperlink{class_body_part}{Body\+Part}} \&bp)
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -62,6 +72,8 @@ std\+::string \mbox{\hyperlink{class_creature_body_a7bb511e3d385b86c65613a627f33
 std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_creature_body_ad882f21d3166e49c5b8def87121bb9c0}{body\+Token\+List}}
 \item 
 float \mbox{\hyperlink{class_creature_body_ae91bf63d2607dc4ee6e56fb1b7558fa4}{body\+Size}}
+\item 
+std\+::string \mbox{\hyperlink{class_creature_body_a9d0be8de94783d95307a80fe0acf7aa9}{body\+Name}}
 \end{DoxyCompactItemize}
 
 
@@ -75,6 +87,12 @@ float \mbox{\hyperlink{class_creature_body_ae91bf63d2607dc4ee6e56fb1b7558fa4}{bo
 
 
 \subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_creature_body_ad41423874acaacde458a04b99c468c91}\label{class_creature_body_ad41423874acaacde458a04b99c468c91}} 
+\index{Creature\+Body@{Creature\+Body}!Add\+Vertex@{Add\+Vertex}}
+\index{Add\+Vertex@{Add\+Vertex}!Creature\+Body@{Creature\+Body}}
+\subsubsection{\texorpdfstring{Add\+Vertex()}{AddVertex()}}
+{\footnotesize\ttfamily void Creature\+Body\+::\+Add\+Vertex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_body_part}{Body\+Part}} \&}]{bp }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{class_creature_body_aa6525bf32e8f99cc5bd1bda76044964d}\label{class_creature_body_aa6525bf32e8f99cc5bd1bda76044964d}} 
 \index{Creature\+Body@{Creature\+Body}!Apply\+Attack@{Apply\+Attack}}
 \index{Apply\+Attack@{Apply\+Attack}!Creature\+Body@{Creature\+Body}}
@@ -106,7 +124,7 @@ Here is the call graph for this function\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=346pt]{da/d7d/class_creature_body_a8a55f2c0785aaf956cdee04a538dfb97_cgraph}
+\includegraphics[width=350pt]{da/d7d/class_creature_body_a8a55f2c0785aaf956cdee04a538dfb97_cgraph}
 \end{center}
 \end{figure}
 Here is the caller graph for this function\+:
@@ -123,14 +141,6 @@ Here is the caller graph for this function\+:
 \subsubsection{\texorpdfstring{Equip\+Armor()}{EquipArmor()}}
 {\footnotesize\ttfamily void Creature\+Body\+::\+Equip\+Armor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_item}{Item}} $\ast$}]{item }\end{DoxyParamCaption})}
 
-Here is the caller graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=290pt]{da/d7d/class_creature_body_a5a14d8decef3d1051ac7e9d79a1a4b72_icgraph}
-\end{center}
-\end{figure}
 \mbox{\Hypertarget{class_creature_body_af329b825db569100370683f7a9b0263c}\label{class_creature_body_af329b825db569100370683f7a9b0263c}} 
 \index{Creature\+Body@{Creature\+Body}!Equip\+Weapon@{Equip\+Weapon}}
 \index{Equip\+Weapon@{Equip\+Weapon}!Creature\+Body@{Creature\+Body}}
@@ -143,14 +153,6 @@ Here is the call graph for this function\+:
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{da/d7d/class_creature_body_af329b825db569100370683f7a9b0263c_cgraph}
-\end{center}
-\end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=300pt]{da/d7d/class_creature_body_af329b825db569100370683f7a9b0263c_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{class_creature_body_a8feda2cfc35e1b76730a31eb368ffed6}\label{class_creature_body_a8feda2cfc35e1b76730a31eb368ffed6}} 
@@ -172,7 +174,7 @@ Here is the caller graph for this function\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=307pt]{da/d7d/class_creature_body_a8feda2cfc35e1b76730a31eb368ffed6_icgraph}
+\includegraphics[width=350pt]{da/d7d/class_creature_body_a8feda2cfc35e1b76730a31eb368ffed6_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{class_creature_body_af1303a40606bf06aed980f14e7027d54}\label{class_creature_body_af1303a40606bf06aed980f14e7027d54}} 
@@ -194,7 +196,7 @@ Here is the caller graph for this function\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=306pt]{da/d7d/class_creature_body_af1303a40606bf06aed980f14e7027d54_icgraph}
+\includegraphics[width=350pt]{da/d7d/class_creature_body_af1303a40606bf06aed980f14e7027d54_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{class_creature_body_a9cf5cffe6209ed851bf32c2b164d9391}\label{class_creature_body_a9cf5cffe6209ed851bf32c2b164d9391}} 
@@ -216,7 +218,7 @@ Here is the caller graph for this function\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=306pt]{da/d7d/class_creature_body_a9cf5cffe6209ed851bf32c2b164d9391_icgraph}
+\includegraphics[width=350pt]{da/d7d/class_creature_body_a9cf5cffe6209ed851bf32c2b164d9391_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{class_creature_body_af7047fb13005abbb9a816c0dd64af873}\label{class_creature_body_af7047fb13005abbb9a816c0dd64af873}} 
@@ -238,7 +240,21 @@ Here is the caller graph for this function\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=314pt]{da/d7d/class_creature_body_af7047fb13005abbb9a816c0dd64af873_icgraph}
+\includegraphics[width=350pt]{da/d7d/class_creature_body_af7047fb13005abbb9a816c0dd64af873_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_creature_body_abfbe9ab6a145745934fc7fafefccdb67}\label{class_creature_body_abfbe9ab6a145745934fc7fafefccdb67}} 
+\index{Creature\+Body@{Creature\+Body}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Creature\+Body@{Creature\+Body}}
+\subsubsection{\texorpdfstring{get\+Name()}{getName()}}
+{\footnotesize\ttfamily std\+::string Creature\+Body\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d7d/class_creature_body_abfbe9ab6a145745934fc7fafefccdb67_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{class_creature_body_af2b152c045862bb0fbc370b444bf98f0}\label{class_creature_body_af2b152c045862bb0fbc370b444bf98f0}} 
@@ -252,7 +268,7 @@ Here is the caller graph for this function\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=273pt]{da/d7d/class_creature_body_af2b152c045862bb0fbc370b444bf98f0_icgraph}
+\includegraphics[width=350pt]{da/d7d/class_creature_body_af2b152c045862bb0fbc370b444bf98f0_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{class_creature_body_a947efb646a893964de6244b886bab038}\label{class_creature_body_a947efb646a893964de6244b886bab038}} 
@@ -280,7 +296,7 @@ Here is the caller graph for this function\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=320pt]{da/d7d/class_creature_body_ac4140e081c8970ad4330c253c615ba33_icgraph}
+\includegraphics[width=350pt]{da/d7d/class_creature_body_ac4140e081c8970ad4330c253c615ba33_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{class_creature_body_a82e519351551538b1138fea170776f3f}\label{class_creature_body_a82e519351551538b1138fea170776f3f}} 
@@ -295,14 +311,6 @@ Here is the call graph for this function\+:
 \begin{center}
 \leavevmode
 \includegraphics[width=346pt]{da/d7d/class_creature_body_a82e519351551538b1138fea170776f3f_cgraph}
-\end{center}
-\end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=294pt]{da/d7d/class_creature_body_a82e519351551538b1138fea170776f3f_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{class_creature_body_a52d765dd974e81a549fd0cb27b355cf2}\label{class_creature_body_a52d765dd974e81a549fd0cb27b355cf2}} 
@@ -324,7 +332,65 @@ Here is the caller graph for this function\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=322pt]{da/d7d/class_creature_body_a52d765dd974e81a549fd0cb27b355cf2_icgraph}
+\includegraphics[width=350pt]{da/d7d/class_creature_body_a52d765dd974e81a549fd0cb27b355cf2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_creature_body_a5fa474a4a6f2c04d6ae55db42e6a9c75}\label{class_creature_body_a5fa474a4a6f2c04d6ae55db42e6a9c75}} 
+\index{Creature\+Body@{Creature\+Body}!set\+Name@{set\+Name}}
+\index{set\+Name@{set\+Name}!Creature\+Body@{Creature\+Body}}
+\subsubsection{\texorpdfstring{set\+Name()}{setName()}}
+{\footnotesize\ttfamily void Creature\+Body\+::set\+Name (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d7d/class_creature_body_a5fa474a4a6f2c04d6ae55db42e6a9c75_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_creature_body_aa923b5ba453a19b651af7290d568a4fc}\label{class_creature_body_aa923b5ba453a19b651af7290d568a4fc}} 
+\index{Creature\+Body@{Creature\+Body}!Unequip\+Armor\+By\+Section@{Unequip\+Armor\+By\+Section}}
+\index{Unequip\+Armor\+By\+Section@{Unequip\+Armor\+By\+Section}!Creature\+Body@{Creature\+Body}}
+\subsubsection{\texorpdfstring{Unequip\+Armor\+By\+Section()}{UnequipArmorBySection()}}
+{\footnotesize\ttfamily void Creature\+Body\+::\+Unequip\+Armor\+By\+Section (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$ \&}]{indices,  }\item[{\mbox{\hyperlink{class_item_manager}{Item\+Manager}} \&}]{item\+Manager }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d7d/class_creature_body_aa923b5ba453a19b651af7290d568a4fc_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d7d/class_creature_body_aa923b5ba453a19b651af7290d568a4fc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_creature_body_a4cd14d7e1ed54d8beeb853a99ff0516c}\label{class_creature_body_a4cd14d7e1ed54d8beeb853a99ff0516c}} 
+\index{Creature\+Body@{Creature\+Body}!Unequip\+Weapon\+By\+Section@{Unequip\+Weapon\+By\+Section}}
+\index{Unequip\+Weapon\+By\+Section@{Unequip\+Weapon\+By\+Section}!Creature\+Body@{Creature\+Body}}
+\subsubsection{\texorpdfstring{Unequip\+Weapon\+By\+Section()}{UnequipWeaponBySection()}}
+{\footnotesize\ttfamily void Creature\+Body\+::\+Unequip\+Weapon\+By\+Section (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$ \&}]{indices,  }\item[{\mbox{\hyperlink{class_item_manager}{Item\+Manager}} \&}]{item\+Manager,  }\item[{\mbox{\hyperlink{_weapon_8hpp_a160076f6c574c69cd1ce2b3f42cf3755}{En\+Weapon\+Size}}}]{size }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d7d/class_creature_body_a4cd14d7e1ed54d8beeb853a99ff0516c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d7d/class_creature_body_a4cd14d7e1ed54d8beeb853a99ff0516c_icgraph}
 \end{center}
 \end{figure}
 
@@ -335,6 +401,12 @@ Here is the caller graph for this function\+:
 \index{anatomy\+Graph@{anatomy\+Graph}!Creature\+Body@{Creature\+Body}}
 \subsubsection{\texorpdfstring{anatomy\+Graph}{anatomyGraph}}
 {\footnotesize\ttfamily \mbox{\hyperlink{_body_graph_8hpp_ab01b157c2e143191570b012d275fbf0d}{Anatomy\+Graph}} Creature\+Body\+::anatomy\+Graph}
+
+\mbox{\Hypertarget{class_creature_body_a9d0be8de94783d95307a80fe0acf7aa9}\label{class_creature_body_a9d0be8de94783d95307a80fe0acf7aa9}} 
+\index{Creature\+Body@{Creature\+Body}!body\+Name@{body\+Name}}
+\index{body\+Name@{body\+Name}!Creature\+Body@{Creature\+Body}}
+\subsubsection{\texorpdfstring{body\+Name}{bodyName}}
+{\footnotesize\ttfamily std\+::string Creature\+Body\+::body\+Name\hspace{0.3cm}{\ttfamily [private]}}
 
 \mbox{\Hypertarget{class_creature_body_ae91bf63d2607dc4ee6e56fb1b7558fa4}\label{class_creature_body_ae91bf63d2607dc4ee6e56fb1b7558fa4}} 
 \index{Creature\+Body@{Creature\+Body}!body\+Size@{body\+Size}}

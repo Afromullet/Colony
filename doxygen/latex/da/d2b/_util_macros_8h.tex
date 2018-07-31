@@ -11,7 +11,9 @@ This graph shows which files directly or indirectly include this file\+:
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \mbox{\hyperlink{_util_macros_8h_a9bb67131806aef362372a54616925617}{I\+S\+\_\+\+N\+U\+M\+\_\+\+G\+T\+\_\+0}}(a)~((a $>$ 0) ? a \+: 0);
+\#define \mbox{\hyperlink{_util_macros_8h_a9bb67131806aef362372a54616925617}{I\+S\+\_\+\+N\+U\+M\+\_\+\+G\+T\+\_\+0}}(a)~((a $>$ 0) ? a \+: 1);
+\item 
+\#define \mbox{\hyperlink{_util_macros_8h_a44792d6cfdc19251dc0c3f08ed8f1a46}{I\+S\+\_\+\+N\+U\+M\+\_\+\+G\+T\+E\+\_\+0}}(a)~((a $>$= 0) ? a \+: 1);
 \end{DoxyCompactItemize}
 
 
@@ -20,5 +22,11 @@ This graph shows which files directly or indirectly include this file\+:
 \index{Util\+Macros.\+h@{Util\+Macros.\+h}!I\+S\+\_\+\+N\+U\+M\+\_\+\+G\+T\+\_\+0@{I\+S\+\_\+\+N\+U\+M\+\_\+\+G\+T\+\_\+0}}
 \index{I\+S\+\_\+\+N\+U\+M\+\_\+\+G\+T\+\_\+0@{I\+S\+\_\+\+N\+U\+M\+\_\+\+G\+T\+\_\+0}!Util\+Macros.\+h@{Util\+Macros.\+h}}
 \subsubsection{\texorpdfstring{I\+S\+\_\+\+N\+U\+M\+\_\+\+G\+T\+\_\+0}{IS\_NUM\_GT\_0}}
-{\footnotesize\ttfamily \#define I\+S\+\_\+\+N\+U\+M\+\_\+\+G\+T\+\_\+0(\begin{DoxyParamCaption}\item[{}]{a }\end{DoxyParamCaption})~((a $>$ 0) ? a \+: 0);}
+{\footnotesize\ttfamily \#define I\+S\+\_\+\+N\+U\+M\+\_\+\+G\+T\+\_\+0(\begin{DoxyParamCaption}\item[{}]{a }\end{DoxyParamCaption})~((a $>$ 0) ? a \+: 1);}
+
+\mbox{\Hypertarget{_util_macros_8h_a44792d6cfdc19251dc0c3f08ed8f1a46}\label{_util_macros_8h_a44792d6cfdc19251dc0c3f08ed8f1a46}} 
+\index{Util\+Macros.\+h@{Util\+Macros.\+h}!I\+S\+\_\+\+N\+U\+M\+\_\+\+G\+T\+E\+\_\+0@{I\+S\+\_\+\+N\+U\+M\+\_\+\+G\+T\+E\+\_\+0}}
+\index{I\+S\+\_\+\+N\+U\+M\+\_\+\+G\+T\+E\+\_\+0@{I\+S\+\_\+\+N\+U\+M\+\_\+\+G\+T\+E\+\_\+0}!Util\+Macros.\+h@{Util\+Macros.\+h}}
+\subsubsection{\texorpdfstring{I\+S\+\_\+\+N\+U\+M\+\_\+\+G\+T\+E\+\_\+0}{IS\_NUM\_GTE\_0}}
+{\footnotesize\ttfamily \#define I\+S\+\_\+\+N\+U\+M\+\_\+\+G\+T\+E\+\_\+0(\begin{DoxyParamCaption}\item[{}]{a }\end{DoxyParamCaption})~((a $>$= 0) ? a \+: 1);}
 

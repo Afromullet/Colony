@@ -1,0 +1,5 @@
+<map id="InventoryWindow::UpdateMainWindow" name="InventoryWindow::UpdateMainWindow">
+<area shape="rect" id="node2" href="$dc/de1/class_item_manager.html#aba8fa0833328eacca5f55e16c5eb0fe9" title="ItemManager::getInventorySize" alt="" coords="256,5,463,31"/>
+<area shape="rect" id="node3" href="$db/d9c/class_selection_window.html#aa423c4b3c042949c8c7edfec26355e95" title="SelectionWindow::AddText\lToMainWindow" alt="" coords="270,55,449,93"/>
+<area shape="rect" id="node4" href="$dc/de1/class_item_manager.html#a60f99805e73cc978c02b1972dd988111" title="ItemManager::getItemName\lAtIndex" alt="" coords="266,117,453,156"/>
+</map>

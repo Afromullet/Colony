@@ -95,7 +95,7 @@ void ParseTileFile()
       
             //std::cout << "\nSplit String " <<  ;
             std::getline(tileFile,textureLocationLine);
-            std::cout << "Texture location string " << textureLocationLine << "\n";
+        
             
             if(!LoadTextureLocation(textureLocationLine))
             {

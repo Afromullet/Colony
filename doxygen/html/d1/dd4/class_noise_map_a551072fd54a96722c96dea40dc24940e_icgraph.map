@@ -1,6 +1,7 @@
 <map id="NoiseMap::Generate_NoiseMap" name="NoiseMap::Generate_NoiseMap">
 <area shape="rect" id="node2" href="$df/d0a/main_8cpp.html#ab8ef98eaa887a3be4bb916cdde45b3d1" title="GameLoop3" alt="" coords="361,5,455,31"/>
-<area shape="rect" id="node4" href="$df/d0a/main_8cpp.html#add6bd5657070c4129c65dc07a1280f7f" title="InitializeMaps" alt="" coords="198,55,300,80"/>
-<area shape="rect" id="node3" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="516,31,567,56"/>
-<area shape="rect" id="node5" href="$df/d0a/main_8cpp.html#ab5227b073ad87fc30322650e123e0055" title="SetupGameData" alt="" coords="348,55,468,80"/>
+<area shape="rect" id="node4" href="$df/d0a/main_8cpp.html#add6bd5657070c4129c65dc07a1280f7f" title="InitializeMaps" alt="" coords="198,56,300,81"/>
+<area shape="rect" id="node3" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="677,31,727,56"/>
+<area shape="rect" id="node5" href="$df/d0a/main_8cpp.html#ab5227b073ad87fc30322650e123e0055" title="SetupGameData" alt="" coords="348,56,468,81"/>
+<area shape="rect" id="node6" href="$df/d0a/main_8cpp.html#ad60a204b9b7e3351c3f1a99b7aa7e429" title="InitializeAllData" alt="" coords="516,56,629,81"/>
 </map>

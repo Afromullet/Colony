@@ -81,6 +81,8 @@ std\+::list$<$ \mbox{\hyperlink{class_item}{Item}} $\ast$ $>$ \mbox{\hyperlink{c
 \item 
 std\+::vector$<$ \mbox{\hyperlink{struct_attack_stats}{Attack\+Stats}} $>$ \& \mbox{\hyperlink{class_base_creature_ae2fdab903403a68e431baa080f715d3c}{get\+Attacks}} ()
 \item 
+bool \mbox{\hyperlink{class_base_creature_a21c84d48b1395f0305fb0ab5ca760db3}{get\+Can\+Move}} () const
+\item 
 void \mbox{\hyperlink{class_base_creature_a00ffc1ee732a8f0a8921c9cee6842e4d}{set\+Position}} (short int x, short int y)
 \item 
 void \mbox{\hyperlink{class_base_creature_ae1cb6e6d01d0c369433fb1fb20803f91}{set\+Velocity}} (int x, int y)
@@ -90,6 +92,10 @@ void \mbox{\hyperlink{class_base_creature_a3a2eb318b9c5d849a02884b20e32f83d}{set
 void \mbox{\hyperlink{class_base_creature_ad6357a6d4456d0b669abd1675efcca30}{set\+Agility}} (int \+\_\+agility)
 \item 
 void \mbox{\hyperlink{class_base_creature_a82f847585033035597700b071e40611f}{set\+Total\+Health}} (int \+\_\+health)
+\item 
+void \mbox{\hyperlink{class_base_creature_ad43564c6907562a3968ddc34a4d332a4}{set\+Can\+Move}} (bool val)
+\item 
+void \mbox{\hyperlink{class_base_creature_abaee8f951832751222a3f61c4faefd9d}{Release\+Inventory\+Memory}} ()
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -132,6 +138,8 @@ std\+::queue$<$ sf\+::\+Vector2i $>$ \mbox{\hyperlink{class_base_creature_a0e419
 bool \mbox{\hyperlink{class_base_creature_adeb6eed7546d84b1547e8134f582a6c7}{is\+Alive}}
 \item 
 std\+::vector$<$ \mbox{\hyperlink{struct_attack_stats}{Attack\+Stats}} $>$ \mbox{\hyperlink{class_base_creature_ab40c21845e4c19538b356bbcb01f7075}{attacks}}
+\item 
+bool \mbox{\hyperlink{class_base_creature_a484b63e12609985cc8b1b6c099eef9ee}{can\+Move}}
 \end{DoxyCompactItemize}
 
 
@@ -176,7 +184,7 @@ Here is the caller graph for this function\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=293pt]{d2/d3b/class_base_creature_a03122a2c070fe7cab0dc772f552f1a63_icgraph}
+\includegraphics[width=350pt]{d2/d3b/class_base_creature_a03122a2c070fe7cab0dc772f552f1a63_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{class_base_creature_ab6f0139afb4e1b15d5f1feecc267580d}\label{class_base_creature_ab6f0139afb4e1b15d5f1feecc267580d}} 
@@ -226,7 +234,7 @@ Here is the caller graph for this function\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=302pt]{d2/d3b/class_base_creature_ab0a90200835bc80c6db29e31f98d35e9_icgraph}
+\includegraphics[width=350pt]{d2/d3b/class_base_creature_ab0a90200835bc80c6db29e31f98d35e9_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{class_base_creature_a63f43a7153eee3c1032b02f6d1948cdb}\label{class_base_creature_a63f43a7153eee3c1032b02f6d1948cdb}} 
@@ -316,7 +324,7 @@ Here is the caller graph for this function\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=282pt]{d2/d3b/class_base_creature_a1e73375251b20070ae9dac505b280b3e_icgraph}
+\includegraphics[width=350pt]{d2/d3b/class_base_creature_a1e73375251b20070ae9dac505b280b3e_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{class_base_creature_a637cb7174d9bb9677a21281ff19fb10a}\label{class_base_creature_a637cb7174d9bb9677a21281ff19fb10a}} 
@@ -325,14 +333,6 @@ Here is the caller graph for this function\+:
 \subsubsection{\texorpdfstring{Equip\+Item\+From\+Inventory()}{EquipItemFromInventory()}}
 {\footnotesize\ttfamily void Base\+Creature\+::\+Equip\+Item\+From\+Inventory (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
 
-Here is the caller graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{d2/d3b/class_base_creature_a637cb7174d9bb9677a21281ff19fb10a_icgraph}
-\end{center}
-\end{figure}
 \mbox{\Hypertarget{class_base_creature_ac04efe1dda147e264998609635baadb6}\label{class_base_creature_ac04efe1dda147e264998609635baadb6}} 
 \index{Base\+Creature@{Base\+Creature}!get\+Agility@{get\+Agility}}
 \index{get\+Agility@{get\+Agility}!Base\+Creature@{Base\+Creature}}
@@ -367,20 +367,26 @@ Here is the caller graph for this function\+:
 \subsubsection{\texorpdfstring{get\+Attack\+Value()}{getAttackValue()}}
 {\footnotesize\ttfamily short int Base\+Creature\+::get\+Attack\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-\mbox{\Hypertarget{class_base_creature_a505e70415a3e2db87aac0767498375ff}\label{class_base_creature_a505e70415a3e2db87aac0767498375ff}} 
-\index{Base\+Creature@{Base\+Creature}!get\+Inventory@{get\+Inventory}}
-\index{get\+Inventory@{get\+Inventory}!Base\+Creature@{Base\+Creature}}
-\subsubsection{\texorpdfstring{get\+Inventory()}{getInventory()}}
-{\footnotesize\ttfamily std\+::list$<$ \mbox{\hyperlink{class_item}{Item}} $\ast$ $>$ Base\+Creature\+::get\+Inventory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{class_base_creature_a21c84d48b1395f0305fb0ab5ca760db3}\label{class_base_creature_a21c84d48b1395f0305fb0ab5ca760db3}} 
+\index{Base\+Creature@{Base\+Creature}!get\+Can\+Move@{get\+Can\+Move}}
+\index{get\+Can\+Move@{get\+Can\+Move}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{get\+Can\+Move()}{getCanMove()}}
+{\footnotesize\ttfamily bool Base\+Creature\+::get\+Can\+Move (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{d2/d3b/class_base_creature_a505e70415a3e2db87aac0767498375ff_icgraph}
+\includegraphics[width=350pt]{d2/d3b/class_base_creature_a21c84d48b1395f0305fb0ab5ca760db3_icgraph}
 \end{center}
 \end{figure}
+\mbox{\Hypertarget{class_base_creature_a505e70415a3e2db87aac0767498375ff}\label{class_base_creature_a505e70415a3e2db87aac0767498375ff}} 
+\index{Base\+Creature@{Base\+Creature}!get\+Inventory@{get\+Inventory}}
+\index{get\+Inventory@{get\+Inventory}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{get\+Inventory()}{getInventory()}}
+{\footnotesize\ttfamily std\+::list$<$ \mbox{\hyperlink{class_item}{Item}} $\ast$ $>$ Base\+Creature\+::get\+Inventory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{class_base_creature_a19f380cccb11f31d10d00de934da1b7f}\label{class_base_creature_a19f380cccb11f31d10d00de934da1b7f}} 
 \index{Base\+Creature@{Base\+Creature}!Get\+Item\+Info@{Get\+Item\+Info}}
 \index{Get\+Item\+Info@{Get\+Item\+Info}!Base\+Creature@{Base\+Creature}}
@@ -463,14 +469,6 @@ Here is the caller graph for this function\+:
 \subsubsection{\texorpdfstring{get\+Vision()}{getVision()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_vision}{Vision}} \& Base\+Creature\+::get\+Vision (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Here is the caller graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{d2/d3b/class_base_creature_a8a960bc7a7689f5633b1abaa82fa6e95_icgraph}
-\end{center}
-\end{figure}
 \mbox{\Hypertarget{class_base_creature_af2066b8eb62bf595d30feae6671e4495}\label{class_base_creature_af2066b8eb62bf595d30feae6671e4495}} 
 \index{Base\+Creature@{Base\+Creature}!load\+Creature\+Tile@{load\+Creature\+Tile}}
 \index{load\+Creature\+Tile@{load\+Creature\+Tile}!Base\+Creature@{Base\+Creature}}
@@ -541,18 +539,38 @@ Here is the caller graph for this function\+:
 \subsubsection{\texorpdfstring{Print\+Inventory()}{PrintInventory()}}
 {\footnotesize\ttfamily void Base\+Creature\+::\+Print\+Inventory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+\mbox{\Hypertarget{class_base_creature_abaee8f951832751222a3f61c4faefd9d}\label{class_base_creature_abaee8f951832751222a3f61c4faefd9d}} 
+\index{Base\+Creature@{Base\+Creature}!Release\+Inventory\+Memory@{Release\+Inventory\+Memory}}
+\index{Release\+Inventory\+Memory@{Release\+Inventory\+Memory}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{Release\+Inventory\+Memory()}{ReleaseInventoryMemory()}}
+{\footnotesize\ttfamily void Base\+Creature\+::\+Release\+Inventory\+Memory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/d3b/class_base_creature_abaee8f951832751222a3f61c4faefd9d_cgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_base_creature_ad6357a6d4456d0b669abd1675efcca30}\label{class_base_creature_ad6357a6d4456d0b669abd1675efcca30}} 
 \index{Base\+Creature@{Base\+Creature}!set\+Agility@{set\+Agility}}
 \index{set\+Agility@{set\+Agility}!Base\+Creature@{Base\+Creature}}
 \subsubsection{\texorpdfstring{set\+Agility()}{setAgility()}}
 {\footnotesize\ttfamily void Base\+Creature\+::set\+Agility (\begin{DoxyParamCaption}\item[{int}]{\+\_\+agility }\end{DoxyParamCaption})}
 
+\mbox{\Hypertarget{class_base_creature_ad43564c6907562a3968ddc34a4d332a4}\label{class_base_creature_ad43564c6907562a3968ddc34a4d332a4}} 
+\index{Base\+Creature@{Base\+Creature}!set\+Can\+Move@{set\+Can\+Move}}
+\index{set\+Can\+Move@{set\+Can\+Move}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{set\+Can\+Move()}{setCanMove()}}
+{\footnotesize\ttfamily void Base\+Creature\+::set\+Can\+Move (\begin{DoxyParamCaption}\item[{bool}]{val }\end{DoxyParamCaption})}
+
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{d2/d3b/class_base_creature_ad6357a6d4456d0b669abd1675efcca30_icgraph}
+\includegraphics[width=350pt]{d2/d3b/class_base_creature_ad43564c6907562a3968ddc34a4d332a4_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{class_base_creature_a00ffc1ee732a8f0a8921c9cee6842e4d}\label{class_base_creature_a00ffc1ee732a8f0a8921c9cee6842e4d}} 
@@ -583,14 +601,6 @@ Here is the caller graph for this function\+:
 \subsubsection{\texorpdfstring{set\+Strength()}{setStrength()}}
 {\footnotesize\ttfamily void Base\+Creature\+::set\+Strength (\begin{DoxyParamCaption}\item[{int}]{\+\_\+strength }\end{DoxyParamCaption})}
 
-Here is the caller graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{d2/d3b/class_base_creature_a3a2eb318b9c5d849a02884b20e32f83d_icgraph}
-\end{center}
-\end{figure}
 \mbox{\Hypertarget{class_base_creature_a82f847585033035597700b071e40611f}\label{class_base_creature_a82f847585033035597700b071e40611f}} 
 \index{Base\+Creature@{Base\+Creature}!set\+Total\+Health@{set\+Total\+Health}}
 \index{set\+Total\+Health@{set\+Total\+Health}!Base\+Creature@{Base\+Creature}}
@@ -659,6 +669,12 @@ Here is the caller graph for this function\+:
 \index{body@{body}!Base\+Creature@{Base\+Creature}}
 \subsubsection{\texorpdfstring{body}{body}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_creature_body}{Creature\+Body}} Base\+Creature\+::body}
+
+\mbox{\Hypertarget{class_base_creature_a484b63e12609985cc8b1b6c099eef9ee}\label{class_base_creature_a484b63e12609985cc8b1b6c099eef9ee}} 
+\index{Base\+Creature@{Base\+Creature}!can\+Move@{can\+Move}}
+\index{can\+Move@{can\+Move}!Base\+Creature@{Base\+Creature}}
+\subsubsection{\texorpdfstring{can\+Move}{canMove}}
+{\footnotesize\ttfamily bool Base\+Creature\+::can\+Move\hspace{0.3cm}{\ttfamily [private]}}
 
 \mbox{\Hypertarget{class_base_creature_aa62b65a4bd43be6e999d9a29a472fffe}\label{class_base_creature_aa62b65a4bd43be6e999d9a29a472fffe}} 
 \index{Base\+Creature@{Base\+Creature}!charisma@{charisma}}

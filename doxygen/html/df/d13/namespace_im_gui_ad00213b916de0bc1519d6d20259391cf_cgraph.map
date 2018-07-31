@@ -1,0 +1,12 @@
+<map id="ImGui::NavUpdateWindowing" name="ImGui::NavUpdateWindowing">
+<area shape="rect" id="node2" href="$da/d72/imgui_8cpp.html#a1711c52eb54dd6f6995f18e572035c60" title="IsNavInputPressed" alt="" coords="285,5,419,31"/>
+<area shape="rect" id="node3" href="$da/d72/imgui_8cpp.html#a8faca7166485b9106c91ef03b836ae26" title="IsKeyPressedMap" alt="" coords="287,55,417,80"/>
+<area shape="rect" id="node4" href="$da/d72/imgui_8cpp.html#aa61c1b273cd6b189e5b9f4cb90cb36b8" title="FindWindowNavigable" alt="" coords="535,109,689,135"/>
+<area shape="rect" id="node5" href="$da/d72/imgui_8cpp.html#a24ca0e08c6e33315fd201b557aec2598" title="NavUpdateWindowingHighlight\lWindow" alt="" coords="250,156,455,195"/>
+<area shape="rect" id="node7" href="$da/d72/imgui_8cpp.html#a96dc3ecad6b9d102dc6ec26a0c792c0a" title="IsNavInputDown" alt="" coords="293,219,412,244"/>
+<area shape="rect" id="node8" href="$da/d72/imgui_8cpp.html#a29a26b773698f2b18e24e0cc4e203b08" title="NavRestoreLastChildNavWindow" alt="" coords="503,269,721,295"/>
+<area shape="rect" id="node9" href="$da/d72/imgui_8cpp.html#a9ba787f7b1ae676675e10ad3676baade" title="NavRestoreLayer" alt="" coords="290,320,415,345"/>
+<area shape="rect" id="node6" href="$da/d72/imgui_8cpp.html#ab83e8fc43f6e33871313204f087538b2" title="FindWindowIndex" alt="" coords="548,163,676,188"/>
+<area shape="rect" id="node10" href="$da/d72/imgui_8cpp.html#a073bc2b679234928c9e5bb25e42c4613" title="SetNavIDWithRectRel" alt="" coords="536,320,688,345"/>
+<area shape="rect" id="node11" href="$da/d72/imgui_8cpp.html#a806524974b3662b408e10ea52401de06" title="SetNavID" alt="" coords="769,320,848,345"/>
+</map>

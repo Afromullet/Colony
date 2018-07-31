@@ -1,5 +1,8 @@
 \hypertarget{_globals_8hpp}{}\section{/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/\+Defs/\+Globals.hpp File Reference}
 \label{_globals_8hpp}\index{/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/\+Defs/\+Globals.\+hpp@{/\+Users/\+Afromullet/\+Documents/\+S\+F\+M\+L/\+Colony2/\+Colony/\+Defs/\+Globals.\+hpp}}
+{\ttfamily \#include $<$T\+G\+U\+I/\+T\+G\+U\+I.\+hpp$>$}\newline
+{\ttfamily \#include \char`\"{}imgui.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}imgui-\/\+S\+F\+M\+L.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$S\+F\+M\+L/\+Graphics.\+hpp$>$}\newline
 {\ttfamily \#include $<$Vector$>$}\newline
@@ -49,6 +52,8 @@ typedef struct \mbox{\hyperlink{struct_tile_identification_data}{Tile\+Identific
 \item 
 void \mbox{\hyperlink{_globals_8hpp_a9bcdcb765a42512f7ff98bf5feafcdc5}{Initialize\+Globals}} ()
 \item 
+void \mbox{\hyperlink{_globals_8hpp_add199e9f8e090a1d6bfc1e7cb551941f}{Initialize\+Windows}} ()
+\item 
 bool \mbox{\hyperlink{_globals_8hpp_ae6568d3ab890e695fabbf2090be193ab}{does\+Effect\+I\+D\+Exist}} (int id)
 \item 
 int \mbox{\hyperlink{_globals_8hpp_a3028c6b7001d4b3036b6e6753ef11dd8}{Assign\+Effect\+ID}} ()
@@ -58,11 +63,11 @@ int \mbox{\hyperlink{_globals_8hpp_a3028c6b7001d4b3036b6e6753ef11dd8}{Assign\+Ef
 \item 
 bool \mbox{\hyperlink{_globals_8hpp_afe26025958369f3cf166861cbb98b1f8}{Player\+Action\+Taken}}
 \item 
-\mbox{\hyperlink{class_file_logger}{File\+Logger}} \mbox{\hyperlink{_globals_8hpp_a8ea4868d4b008c14c63ddc1b093c5841}{error\+Log}}
-\item 
 std\+::vector$<$ \mbox{\hyperlink{_globals_8hpp_a9af6325a1a0eb8e6b3713a9813e70f30}{Tile\+I\+D\+Data}} $>$ \mbox{\hyperlink{_globals_8hpp_a7014cfee6fd3bff072f6e535b21a968c}{tile\+I\+D\+Table}}
 \item 
 sf\+::\+Render\+Window \mbox{\hyperlink{_globals_8hpp_ae90e155ced28d8d3e69df6bad6b6d893}{window}}
+\item 
+tgui\+::\+Gui \mbox{\hyperlink{_globals_8hpp_ae58aae5565d4e12e01e8129d47830606}{gui}}
 \item 
 \mbox{\hyperlink{class_map}{Map}} \mbox{\hyperlink{_globals_8hpp_ac01be1b16c3ca154a54b0ab4e107baa0}{Main\+Map}}
 \item 
@@ -113,16 +118,14 @@ sf\+::\+Color \mbox{\hyperlink{_globals_8hpp_ac9f99d007bf0e49cc3a1272f0cd1f4ba}{
 \subsubsection{\texorpdfstring{Assign\+Effect\+I\+D()}{AssignEffectID()}}
 {\footnotesize\ttfamily int Assign\+Effect\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=292pt]{d4/d9c/_globals_8hpp_a3028c6b7001d4b3036b6e6753ef11dd8_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -135,8 +138,7 @@ Here is the caller graph for this function\+:
 \subsubsection{\texorpdfstring{does\+Effect\+I\+D\+Exist()}{doesEffectIDExist()}}
 {\footnotesize\ttfamily bool does\+Effect\+I\+D\+Exist (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -154,7 +156,7 @@ Here is the call graph for this function\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=251pt]{d4/d9c/_globals_8hpp_a9bcdcb765a42512f7ff98bf5feafcdc5_cgraph}
+\includegraphics[width=350pt]{d4/d9c/_globals_8hpp_a9bcdcb765a42512f7ff98bf5feafcdc5_cgraph}
 \end{center}
 \end{figure}
 Here is the caller graph for this function\+:
@@ -163,6 +165,28 @@ Here is the caller graph for this function\+:
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{d4/d9c/_globals_8hpp_a9bcdcb765a42512f7ff98bf5feafcdc5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_globals_8hpp_add199e9f8e090a1d6bfc1e7cb551941f}\label{_globals_8hpp_add199e9f8e090a1d6bfc1e7cb551941f}} 
+\index{Globals.\+hpp@{Globals.\+hpp}!Initialize\+Windows@{Initialize\+Windows}}
+\index{Initialize\+Windows@{Initialize\+Windows}!Globals.\+hpp@{Globals.\+hpp}}
+\subsubsection{\texorpdfstring{Initialize\+Windows()}{InitializeWindows()}}
+{\footnotesize\ttfamily void Initialize\+Windows (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{d4/d9c/_globals_8hpp_add199e9f8e090a1d6bfc1e7cb551941f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d4/d9c/_globals_8hpp_add199e9f8e090a1d6bfc1e7cb551941f_icgraph}
 \end{center}
 \end{figure}
 
@@ -192,17 +216,17 @@ Here is the caller graph for this function\+:
 \subsubsection{\texorpdfstring{default\+Font}{defaultFont}}
 {\footnotesize\ttfamily sf\+::\+Font default\+Font}
 
-\mbox{\Hypertarget{_globals_8hpp_a8ea4868d4b008c14c63ddc1b093c5841}\label{_globals_8hpp_a8ea4868d4b008c14c63ddc1b093c5841}} 
-\index{Globals.\+hpp@{Globals.\+hpp}!error\+Log@{error\+Log}}
-\index{error\+Log@{error\+Log}!Globals.\+hpp@{Globals.\+hpp}}
-\subsubsection{\texorpdfstring{error\+Log}{errorLog}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_file_logger}{File\+Logger}} error\+Log}
-
 \mbox{\Hypertarget{_globals_8hpp_a9340ef56458071ba1d4ad36b09e99a98}\label{_globals_8hpp_a9340ef56458071ba1d4ad36b09e99a98}} 
 \index{Globals.\+hpp@{Globals.\+hpp}!F\+I\+S\+T\+\_\+\+W\+E\+A\+P\+ON@{F\+I\+S\+T\+\_\+\+W\+E\+A\+P\+ON}}
 \index{F\+I\+S\+T\+\_\+\+W\+E\+A\+P\+ON@{F\+I\+S\+T\+\_\+\+W\+E\+A\+P\+ON}!Globals.\+hpp@{Globals.\+hpp}}
 \subsubsection{\texorpdfstring{F\+I\+S\+T\+\_\+\+W\+E\+A\+P\+ON}{FIST\_WEAPON}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_weapon}{Weapon}} F\+I\+S\+T\+\_\+\+W\+E\+A\+P\+ON}
+
+\mbox{\Hypertarget{_globals_8hpp_ae58aae5565d4e12e01e8129d47830606}\label{_globals_8hpp_ae58aae5565d4e12e01e8129d47830606}} 
+\index{Globals.\+hpp@{Globals.\+hpp}!gui@{gui}}
+\index{gui@{gui}!Globals.\+hpp@{Globals.\+hpp}}
+\subsubsection{\texorpdfstring{gui}{gui}}
+{\footnotesize\ttfamily tgui\+::\+Gui gui}
 
 \mbox{\Hypertarget{_globals_8hpp_ac01be1b16c3ca154a54b0ab4e107baa0}\label{_globals_8hpp_ac01be1b16c3ca154a54b0ab4e107baa0}} 
 \index{Globals.\+hpp@{Globals.\+hpp}!Main\+Map@{Main\+Map}}

@@ -1,6 +1,6 @@
 <map id="MoveCreatureRandomly" name="MoveCreatureRandomly">
 <area shape="rect" id="node2" href="$df/d0a/main_8cpp.html#a077e67179777b70a256e0a22842dd13c" title="MoveAllCreatures" alt="" coords="219,5,346,31"/>
-<area shape="rect" id="node3" href="$df/d0a/main_8cpp.html#a377655cd77e8b9b489137b63d6bcfcaf" title="DrawEverything" alt="" coords="394,5,510,31"/>
+<area shape="rect" id="node3" href="$df/d0a/main_8cpp.html#a5d7b7e04a7ca2595a71bee3df40fdd4e" title="DrawEverything" alt="" coords="394,5,510,31"/>
 <area shape="rect" id="node4" href="$df/d0a/main_8cpp.html#ab8ef98eaa887a3be4bb916cdde45b3d1" title="GameLoop3" alt="" coords="558,5,653,31"/>
 <area shape="rect" id="node5" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="701,5,751,31"/>
 </map>

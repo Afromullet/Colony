@@ -3,6 +3,9 @@
 {\ttfamily \#include \char`\"{}Globals.\+hpp\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Constants.\+hpp\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Material.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$S\+F\+M\+L/\+System/\+Clock.\+hpp$>$}\newline
+{\ttfamily \#include $<$S\+F\+M\+L/\+Window/\+Event.\+hpp$>$}\newline
+{\ttfamily \#include $<$T\+G\+U\+I/\+T\+G\+U\+I.\+hpp$>$}\newline
 Include dependency graph for Globals.\+cpp\+:
 \nopagebreak
 \begin{figure}[H]
@@ -16,7 +19,11 @@ Include dependency graph for Globals.\+cpp\+:
 \item 
 sf\+::\+Render\+Window \mbox{\hyperlink{_globals_8cpp_ae227837337adb8c62b56e2930ad81cda}{window}} (sf\+::\+Video\+Mode(\mbox{\hyperlink{_constants_8hpp_ab83a5d29cf7742497ed64dbcbab6a788}{W\+I\+N\+D\+O\+W\+\_\+X}}, \mbox{\hyperlink{_constants_8hpp_a41d6125f63ec24f88253daf46f47ac3f}{W\+I\+N\+D\+O\+W\+\_\+Y}}), \char`\"{}My window\char`\"{})
 \item 
+tgui\+::\+Font \mbox{\hyperlink{_globals_8cpp_a2f028b404e2125f2a6995b1c6432b551}{tgui\+Font}} (\char`\"{}tnr.\+ttf\char`\"{})
+\item 
 void \mbox{\hyperlink{_globals_8cpp_a9bcdcb765a42512f7ff98bf5feafcdc5}{Initialize\+Globals}} ()
+\item 
+void \mbox{\hyperlink{_globals_8cpp_add199e9f8e090a1d6bfc1e7cb551941f}{Initialize\+Windows}} ()
 \item 
 bool \mbox{\hyperlink{_globals_8cpp_ae6568d3ab890e695fabbf2090be193ab}{does\+Effect\+I\+D\+Exist}} (int id)
 \item 
@@ -27,13 +34,13 @@ int \mbox{\hyperlink{_globals_8cpp_a3028c6b7001d4b3036b6e6753ef11dd8}{Assign\+Ef
 \item 
 bool \mbox{\hyperlink{_globals_8cpp_afe26025958369f3cf166861cbb98b1f8}{Player\+Action\+Taken}} = false
 \item 
-\mbox{\hyperlink{class_file_logger}{File\+Logger}} \mbox{\hyperlink{_globals_8cpp_a03f34a60c08014ed01eafde70084c979}{error\+Log}} (\char`\"{}errors.\+txt\char`\"{})
+tgui\+::\+Gui \mbox{\hyperlink{_globals_8cpp_ae58aae5565d4e12e01e8129d47830606}{gui}}
 \item 
 sf\+::\+Font \mbox{\hyperlink{_globals_8cpp_a3044f4b71a77183dac34b948821d462a}{default\+Font}}
 \item 
 std\+::vector$<$ \mbox{\hyperlink{_globals_8hpp_a9af6325a1a0eb8e6b3713a9813e70f30}{Tile\+I\+D\+Data}} $>$ \mbox{\hyperlink{_globals_8cpp_a7014cfee6fd3bff072f6e535b21a968c}{tile\+I\+D\+Table}}
 \item 
-\mbox{\hyperlink{class_armor}{Armor}} \mbox{\hyperlink{_globals_8cpp_a0efca8c0ddc2b97bf9ba3d2b00c96870}{N\+O\+\_\+\+A\+R\+M\+OR}} (\mbox{\hyperlink{class_material}{Material}}(),\char`\"{}No armor\char`\"{}, 0, 0, 0, 0)
+\mbox{\hyperlink{class_armor}{Armor}} \mbox{\hyperlink{_globals_8cpp_a69b32c161b656625a89033c6b8121aac}{N\+O\+\_\+\+A\+R\+M\+OR}} (\mbox{\hyperlink{class_material}{Material}}(),\char`\"{}No armor\char`\"{}, 1, 1, 1, 1)
 \item 
 \mbox{\hyperlink{class_weapon}{Weapon}} \mbox{\hyperlink{_globals_8cpp_adf88bd889961335bfa0706312f4c7a41}{F\+I\+S\+T\+\_\+\+W\+E\+A\+P\+ON}} (\mbox{\hyperlink{class_material}{Material}}(),\char`\"{}Fist \mbox{\hyperlink{class_weapon}{Weapon}}\char`\"{}, 1, 1)
 \item 
@@ -62,16 +69,14 @@ std\+::vector$<$ int $>$ \mbox{\hyperlink{_globals_8cpp_abbe08ca692bdb06a4d87ab4
 \subsubsection{\texorpdfstring{Assign\+Effect\+I\+D()}{AssignEffectID()}}
 {\footnotesize\ttfamily int Assign\+Effect\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=292pt]{d2/d5d/_globals_8cpp_a3028c6b7001d4b3036b6e6753ef11dd8_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -84,8 +89,7 @@ Here is the caller graph for this function\+:
 \subsubsection{\texorpdfstring{does\+Effect\+I\+D\+Exist()}{doesEffectIDExist()}}
 {\footnotesize\ttfamily bool does\+Effect\+I\+D\+Exist (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -103,7 +107,7 @@ Here is the call graph for this function\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=251pt]{d2/d5d/_globals_8cpp_a9bcdcb765a42512f7ff98bf5feafcdc5_cgraph}
+\includegraphics[width=350pt]{d2/d5d/_globals_8cpp_a9bcdcb765a42512f7ff98bf5feafcdc5_cgraph}
 \end{center}
 \end{figure}
 Here is the caller graph for this function\+:
@@ -114,6 +118,34 @@ Here is the caller graph for this function\+:
 \includegraphics[width=350pt]{d2/d5d/_globals_8cpp_a9bcdcb765a42512f7ff98bf5feafcdc5_icgraph}
 \end{center}
 \end{figure}
+\mbox{\Hypertarget{_globals_8cpp_add199e9f8e090a1d6bfc1e7cb551941f}\label{_globals_8cpp_add199e9f8e090a1d6bfc1e7cb551941f}} 
+\index{Globals.\+cpp@{Globals.\+cpp}!Initialize\+Windows@{Initialize\+Windows}}
+\index{Initialize\+Windows@{Initialize\+Windows}!Globals.\+cpp@{Globals.\+cpp}}
+\subsubsection{\texorpdfstring{Initialize\+Windows()}{InitializeWindows()}}
+{\footnotesize\ttfamily void Initialize\+Windows (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{d2/d5d/_globals_8cpp_add199e9f8e090a1d6bfc1e7cb551941f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/d5d/_globals_8cpp_add199e9f8e090a1d6bfc1e7cb551941f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_globals_8cpp_a2f028b404e2125f2a6995b1c6432b551}\label{_globals_8cpp_a2f028b404e2125f2a6995b1c6432b551}} 
+\index{Globals.\+cpp@{Globals.\+cpp}!tgui\+Font@{tgui\+Font}}
+\index{tgui\+Font@{tgui\+Font}!Globals.\+cpp@{Globals.\+cpp}}
+\subsubsection{\texorpdfstring{tgui\+Font()}{tguiFont()}}
+{\footnotesize\ttfamily tgui\+::\+Font tgui\+Font (\begin{DoxyParamCaption}\item[{\char`\"{}tnr.\+ttf\char`\"{}}]{ }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{_globals_8cpp_ae227837337adb8c62b56e2930ad81cda}\label{_globals_8cpp_ae227837337adb8c62b56e2930ad81cda}} 
 \index{Globals.\+cpp@{Globals.\+cpp}!window@{window}}
 \index{window@{window}!Globals.\+cpp@{Globals.\+cpp}}
@@ -155,17 +187,17 @@ Here is the caller graph for this function\+:
 \subsubsection{\texorpdfstring{default\+Font}{defaultFont}}
 {\footnotesize\ttfamily sf\+::\+Font default\+Font}
 
-\mbox{\Hypertarget{_globals_8cpp_a03f34a60c08014ed01eafde70084c979}\label{_globals_8cpp_a03f34a60c08014ed01eafde70084c979}} 
-\index{Globals.\+cpp@{Globals.\+cpp}!error\+Log@{error\+Log}}
-\index{error\+Log@{error\+Log}!Globals.\+cpp@{Globals.\+cpp}}
-\subsubsection{\texorpdfstring{error\+Log}{errorLog}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_file_logger}{File\+Logger}} error\+Log(\char`\"{}errors.\+txt\char`\"{})}
-
 \mbox{\Hypertarget{_globals_8cpp_adf88bd889961335bfa0706312f4c7a41}\label{_globals_8cpp_adf88bd889961335bfa0706312f4c7a41}} 
 \index{Globals.\+cpp@{Globals.\+cpp}!F\+I\+S\+T\+\_\+\+W\+E\+A\+P\+ON@{F\+I\+S\+T\+\_\+\+W\+E\+A\+P\+ON}}
 \index{F\+I\+S\+T\+\_\+\+W\+E\+A\+P\+ON@{F\+I\+S\+T\+\_\+\+W\+E\+A\+P\+ON}!Globals.\+cpp@{Globals.\+cpp}}
 \subsubsection{\texorpdfstring{F\+I\+S\+T\+\_\+\+W\+E\+A\+P\+ON}{FIST\_WEAPON}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_weapon}{Weapon}} F\+I\+S\+T\+\_\+\+W\+E\+A\+P\+ON(\mbox{\hyperlink{class_material}{Material}}(),\char`\"{}Fist \mbox{\hyperlink{class_weapon}{Weapon}}\char`\"{}, 1, 1)}
+
+\mbox{\Hypertarget{_globals_8cpp_ae58aae5565d4e12e01e8129d47830606}\label{_globals_8cpp_ae58aae5565d4e12e01e8129d47830606}} 
+\index{Globals.\+cpp@{Globals.\+cpp}!gui@{gui}}
+\index{gui@{gui}!Globals.\+cpp@{Globals.\+cpp}}
+\subsubsection{\texorpdfstring{gui}{gui}}
+{\footnotesize\ttfamily tgui\+::\+Gui gui}
 
 \mbox{\Hypertarget{_globals_8cpp_ac01be1b16c3ca154a54b0ab4e107baa0}\label{_globals_8cpp_ac01be1b16c3ca154a54b0ab4e107baa0}} 
 \index{Globals.\+cpp@{Globals.\+cpp}!Main\+Map@{Main\+Map}}
@@ -173,11 +205,11 @@ Here is the caller graph for this function\+:
 \subsubsection{\texorpdfstring{Main\+Map}{MainMap}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_map}{Map}} Main\+Map}
 
-\mbox{\Hypertarget{_globals_8cpp_a0efca8c0ddc2b97bf9ba3d2b00c96870}\label{_globals_8cpp_a0efca8c0ddc2b97bf9ba3d2b00c96870}} 
+\mbox{\Hypertarget{_globals_8cpp_a69b32c161b656625a89033c6b8121aac}\label{_globals_8cpp_a69b32c161b656625a89033c6b8121aac}} 
 \index{Globals.\+cpp@{Globals.\+cpp}!N\+O\+\_\+\+A\+R\+M\+OR@{N\+O\+\_\+\+A\+R\+M\+OR}}
 \index{N\+O\+\_\+\+A\+R\+M\+OR@{N\+O\+\_\+\+A\+R\+M\+OR}!Globals.\+cpp@{Globals.\+cpp}}
 \subsubsection{\texorpdfstring{N\+O\+\_\+\+A\+R\+M\+OR}{NO\_ARMOR}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_armor}{Armor}} N\+O\+\_\+\+A\+R\+M\+OR(\mbox{\hyperlink{class_material}{Material}}(),\char`\"{}No armor\char`\"{}, 0, 0, 0, 0)}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_armor}{Armor}} N\+O\+\_\+\+A\+R\+M\+OR(\mbox{\hyperlink{class_material}{Material}}(),\char`\"{}No armor\char`\"{}, 1, 1, 1, 1)}
 
 \mbox{\Hypertarget{_globals_8cpp_aaa9365240b8cc8fdf03bb61448cdc2d1}\label{_globals_8cpp_aaa9365240b8cc8fdf03bb61448cdc2d1}} 
 \index{Globals.\+cpp@{Globals.\+cpp}!N\+O\+\_\+\+W\+E\+A\+P\+ON@{N\+O\+\_\+\+W\+E\+A\+P\+ON}}

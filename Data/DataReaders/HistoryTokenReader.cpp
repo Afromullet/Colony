@@ -104,7 +104,7 @@ void SplitRulesOnSeperator(const std::string &str)
 {
     RewriteRules rules;
     std::size_t found = FindRewriteSeperator(str);
-    std::cout << "\n Found at " << found;
+   // std::cout << "\n Found at " << found;
     
     for(int i=0; i < found;i++)
     {
@@ -157,7 +157,7 @@ void SplitGrammarRulesOnSeperator(const std::string &str)
 {
     RewriteRules rules;
     std::size_t found = FindRewriteSeperator(str);
-    std::cout << "\n Found at " << found;
+   // std::cout << "\n Found at " << found;
     
     for(int i=0; i < found;i++)
     {

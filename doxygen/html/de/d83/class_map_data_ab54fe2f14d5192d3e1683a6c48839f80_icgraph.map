@@ -1,5 +1,3 @@
 <map id="MapData::AddCreatureToMap" name="MapData::AddCreatureToMap">
-<area shape="rect" id="node2" href="$d8/d46/_test_data_generator_8hpp.html#aaa00cb8da2835d201d4ede8ae6a31389" title="CreateRandomCreatures" alt="" coords="252,5,422,31"/>
-<area shape="rect" id="node3" href="$d8/d46/_test_data_generator_8hpp.html#adba10fd22a50f3f21847269b6af05729" title="CreateTargetCreatures" alt="" coords="258,55,415,80"/>
-<area shape="rect" id="node4" href="$df/d0a/main_8cpp.html#a6c1e06f0b04a13da772c0c1ac36470fc" title="SetupCurrentMap" alt="" coords="470,55,597,80"/>
+<area shape="rect" id="node2" href="$d7/d1f/_test_data_generator_8cpp.html#aaa00cb8da2835d201d4ede8ae6a31389" title="CreateRandomCreatures" alt="" coords="252,5,422,31"/>
 </map>

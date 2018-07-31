@@ -1,0 +1,5 @@
+<map id="ImGui::UpdateManualResize" name="ImGui::UpdateManualResize">
+<area shape="rect" id="node2" href="$da/d72/imgui_8cpp.html#a4a08265b41e9f0869e434203091e81ca" title="CalcSizeAfterConstraint" alt="" coords="485,5,648,31"/>
+<area shape="rect" id="node3" href="$da/d72/imgui_8cpp.html#ab94af6ce69cc289c81fe0c6cd501ddce" title="CalcResizePosSizeFromAny\lCorner" alt="" coords="245,27,437,65"/>
+<area shape="rect" id="node4" href="$da/d72/imgui_8cpp.html#a87ed05c4aaa0a8358f38f29d599c2050" title="GetBorderRect" alt="" coords="286,89,396,115"/>
+</map>

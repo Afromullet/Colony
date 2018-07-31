@@ -1,0 +1,6 @@
+<map id="InventoryWindow::setupSignals" name="InventoryWindow::setupSignals">
+<area shape="rect" id="node2" href="$db/dcd/class_player_g_u_i.html#a7fdc3f6f9478ea077ddaffd8d34a3854" title="PlayerGUI::SetupPlayerGUI" alt="" coords="261,5,447,31"/>
+<area shape="rect" id="node3" href="$d1/d27/_player_windows_8hpp.html#acc8d46ee468ab4d8721d18b65370186d" title="SetupGUI" alt="" coords="495,5,575,31"/>
+<area shape="rect" id="node4" href="$df/d0a/main_8cpp.html#ad60a204b9b7e3351c3f1a99b7aa7e429" title="InitializeAllData" alt="" coords="623,5,736,31"/>
+<area shape="rect" id="node5" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="784,5,834,31"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="UniversalDebugFunctions::GetBodyPart" name="UniversalDebugFunctions::GetBodyPart">
+<area shape="rect" id="node2" href="$df/d9e/namespace_body_graph_viewer.html#a9722a49a47d752678a7508ca1c10e6ad" title="BodyGraphViewer::Connect\lBodyPartsButtonHandler" alt="" coords="227,5,414,44"/>
+<area shape="rect" id="node3" href="$df/d9e/namespace_body_graph_viewer.html#a269151dfadc20a939854d1187a7ef914" title="BodyGraphViewer::BodyGraph\lConnector" alt="" coords="462,5,666,44"/>
+<area shape="rect" id="node4" href="$df/d9e/namespace_body_graph_viewer.html#af9dda6b999602264957b77351415c57d" title="BodyGraphViewer::GraphViewer" alt="" coords="714,12,928,37"/>
+<area shape="rect" id="node5" href="$d9/dd7/namespace_main_debug_window.html#a2c9084a9752a2e4ef87b8ca3039f5a4d" title="MainDebugWindow::MenuBar\lHandler" alt="" coords="976,5,1175,44"/>
+<area shape="rect" id="node6" href="$d9/dd7/namespace_main_debug_window.html#ae0112f4e295169b45c2615b4915e3cc5" title="MainDebugWindow::ShowMain\lDebugWindow" alt="" coords="1223,5,1429,44"/>
+<area shape="rect" id="node7" href="$d9/dd7/namespace_main_debug_window.html#ae86fa1cdeae81822f5567320f9d56f65" title="MainDebugWindow::DebugMain\lWindow" alt="" coords="1477,5,1690,44"/>
+</map>

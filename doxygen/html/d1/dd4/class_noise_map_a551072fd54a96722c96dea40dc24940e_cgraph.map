@@ -45,7 +45,7 @@
 <area shape="rect" id="node42" href="$dd/d11/class_map.html#a2ee6fd8a412c966c941784b226374bd1" title="Map::canHoldCreature" alt="" coords="476,785,631,811"/>
 <area shape="rect" id="node44" href="$df/d79/class_tile.html#ab3414f28d4e7334903bc9e8f8451ccee" title="Tile::getTileVertices" alt="" coords="485,835,622,860"/>
 <area shape="rect" id="node47" href="$dc/d79/_data_storage_8cpp.html#a922c9c2233151c002fb65b44b60ee6fc" title="findBiome" alt="" coords="513,983,594,1008"/>
-<area shape="rect" id="node48" href="$d6/dd0/class_biome.html#a198f0bb873cce52c8e62df2cf0282e84" title="Biome::getLowTemp" alt="" coords="483,1032,625,1057"/>
-<area shape="rect" id="node49" href="$d6/dd0/class_biome.html#afc882c431129cdaae8109ad5dcc8267e" title="Biome::getHighTemp" alt="" coords="481,884,626,909"/>
+<area shape="rect" id="node48" href="$d6/dd0/class_biome.html#afd3fa2df745d92eb95aaf8b58d119ca5" title="Biome::getLowTemp" alt="" coords="483,1032,625,1057"/>
+<area shape="rect" id="node49" href="$d6/dd0/class_biome.html#aee5574622d28c0bb3b91eece705252c4" title="Biome::getHighTemp" alt="" coords="481,884,626,909"/>
 <area shape="rect" id="node50" href="$d6/dd0/class_biome.html#a73164a278cfd1c3c6cf52a6b006034e0" title="Biome::setCurrentTemp" alt="" coords="473,933,634,959"/>
 </map>

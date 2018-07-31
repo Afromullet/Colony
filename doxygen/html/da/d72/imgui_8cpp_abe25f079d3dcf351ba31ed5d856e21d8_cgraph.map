@@ -1,0 +1,5 @@
+<map id="PatchFormatStringFloatToInt" name="PatchFormatStringFloatToInt">
+<area shape="rect" id="node2" href="$da/d72/imgui_8cpp.html#a626d7d52c95ea9823d90a558ad969ec3" title="ImParseFormatFindStart" alt="" coords="244,5,412,31"/>
+<area shape="rect" id="node3" href="$da/d72/imgui_8cpp.html#a075502c0add9e1ec37d31593bd311af8" title="ImParseFormatFindEnd" alt="" coords="247,55,409,80"/>
+<area shape="rect" id="node4" href="$da/d72/imgui_8cpp.html#a75ccaf7d676b1f567ba888ae42ac3809" title="ImFormatString" alt="" coords="271,104,385,129"/>
+</map>

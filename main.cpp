@@ -69,13 +69,15 @@
 #include "PlayerWindows.hpp"
 #include "ImguiDebug.hpp"
 
+
+
 void GameLoop3();
 
 void MoveAllCreatures();
 void InitializeMaps();
 void SetupCurrentMap();
 void SetupGameData(Map *map);
-void DrawEverything(MapData _mapdata);
+void DrawEverything(MapData &_mapdata);
 
 MapData mapdata;
 CA_RuleSet ruleset;
@@ -123,8 +125,9 @@ int main()
     
     InitializeAllData();
     
-  
-
+   
+    
+     
     GameLoop3();
     
    
@@ -281,27 +284,9 @@ void MoveAllCreatures()
 
 
 
-void SetupGameData(Map *map)
-{
-    
-    
-
-    
-
-    InitializeGlobals();
-    InitializeMaps();
-    
- 
-    mapdata.setMap(map);
 
 
-
-    
-
-    
-}
-
-void DrawEverything(MapData _mapdata)
+void DrawEverything(MapData &_mapdata)
 {
     
     
@@ -327,6 +312,26 @@ void DrawEverything(MapData _mapdata)
     gui.draw();
     mapdata.window->display();
     mapdata.window->clear();
+}
+
+void SetupGameData(Map *map)
+{
+    
+    
+    
+    
+    
+    InitializeGlobals();
+    InitializeMaps();
+    
+    
+    mapdata.setMap(map);
+    int i;
+    
+    
+    
+    
+    
 }
 
 void InitializeAllData()
@@ -515,6 +520,8 @@ void InitializeTestingData()
     testArmor2.addSection("upperbodysection");
     testArmor2.addSection("armsection");
     testArmor2.setDescriptiveText("Descriptive text");
+    
+
 
 }
 

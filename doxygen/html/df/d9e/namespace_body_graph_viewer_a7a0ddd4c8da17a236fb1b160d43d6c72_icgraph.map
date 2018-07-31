@@ -1,0 +1,7 @@
+<map id="BodyGraphViewer::FirstBodyPartMenu" name="BodyGraphViewer::FirstBodyPartMenu">
+<area shape="rect" id="node2" href="$df/d9e/namespace_body_graph_viewer.html#a269151dfadc20a939854d1187a7ef914" title="BodyGraphViewer::BodyGraph\lConnector" alt="" coords="246,5,451,44"/>
+<area shape="rect" id="node3" href="$df/d9e/namespace_body_graph_viewer.html#af9dda6b999602264957b77351415c57d" title="BodyGraphViewer::GraphViewer" alt="" coords="499,12,713,37"/>
+<area shape="rect" id="node4" href="$d9/dd7/namespace_main_debug_window.html#a2c9084a9752a2e4ef87b8ca3039f5a4d" title="MainDebugWindow::MenuBar\lHandler" alt="" coords="761,5,959,44"/>
+<area shape="rect" id="node5" href="$d9/dd7/namespace_main_debug_window.html#ae0112f4e295169b45c2615b4915e3cc5" title="MainDebugWindow::ShowMain\lDebugWindow" alt="" coords="1007,5,1214,44"/>
+<area shape="rect" id="node6" href="$d9/dd7/namespace_main_debug_window.html#ae86fa1cdeae81822f5567320f9d56f65" title="MainDebugWindow::DebugMain\lWindow" alt="" coords="1262,5,1474,44"/>
+</map>

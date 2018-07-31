@@ -223,8 +223,8 @@ public:
     void setMaterialName(std::string name);
     void setAppliedForceEffects(AppliedForceEffect effect);
     
-    std::string getMaterialName();
-    float getDensity();
+    std::string getMaterialName() const;
+    float getDensity() const;
     std::vector<AppliedForceEffect> &getAppliedForceEffects();
     void clearAppliedMaterialEffects();
     

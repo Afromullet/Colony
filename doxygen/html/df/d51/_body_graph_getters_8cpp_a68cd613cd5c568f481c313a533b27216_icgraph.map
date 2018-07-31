@@ -1,10 +1,9 @@
 <map id="getInternalVertices" name="getInternalVertices">
 <area shape="rect" id="node2" href="$db/df3/_wound_8hpp.html#aaad24d5891076a31900647e4b5c0ab23" title="DetermineWoundTargets" alt="" coords="185,75,354,100"/>
 <area shape="rect" id="node3" href="$db/d1e/class_wound_calculations.html#ae0e649e97591c6a6b28d6a4ff7e0324e" title="WoundCalculations::\lApplySlashingShearWound" alt="" coords="402,5,585,44"/>
-<area shape="rect" id="node8" href="$db/d1e/class_wound_calculations.html#ac763bba5d770b968ab68532b974d878d" title="WoundCalculations::\lApplyPiercingShearWound" alt="" coords="403,68,584,107"/>
-<area shape="rect" id="node9" href="$db/d1e/class_wound_calculations.html#a645dc9bb6dfc7d5fc20fc8e8b91fd430" title="WoundCalculations::\lApplyImpactWound" alt="" coords="422,131,565,169"/>
+<area shape="rect" id="node7" href="$db/d1e/class_wound_calculations.html#ac763bba5d770b968ab68532b974d878d" title="WoundCalculations::\lApplyPiercingShearWound" alt="" coords="403,68,584,107"/>
+<area shape="rect" id="node8" href="$db/d1e/class_wound_calculations.html#a645dc9bb6dfc7d5fc20fc8e8b91fd430" title="WoundCalculations::\lApplyImpactWound" alt="" coords="422,131,565,169"/>
 <area shape="rect" id="node4" href="$db/d1e/class_wound_calculations.html#a8143ba01702cf1a1072d17ee7deab4e0" title="WoundCalculations::\lApplyWound" alt="" coords="633,68,776,107"/>
 <area shape="rect" id="node5" href="$d3/d9c/_attack_handler_8hpp.html#a06418078dcd0cb84babdf25f9ef58881" title="Single_Attack_Melee" alt="" coords="824,49,971,75"/>
-<area shape="rect" id="node7" href="$d3/d9c/_attack_handler_8hpp.html#a40fa6bc13b57d799d179e22cb54d761d" title="AttackBodyPart" alt="" coords="841,99,954,124"/>
-<area shape="rect" id="node6" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="1019,49,1069,75"/>
+<area shape="rect" id="node6" href="$d3/d9c/_attack_handler_8hpp.html#a40fa6bc13b57d799d179e22cb54d761d" title="AttackBodyPart" alt="" coords="841,99,954,124"/>
 </map>

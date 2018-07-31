@@ -1,0 +1,6 @@
+<map id="EquipmentWindow::AdditionalActionsDoubleClick" name="EquipmentWindow::AdditionalActionsDoubleClick">
+<area shape="rect" id="node2" href="$d8/dcb/class_equipment_window.html#aa97046abad40cd1b4003fef694686992" title="EquipmentWindow::Additional\lActionsHandler" alt="" coords="252,48,450,87"/>
+<area shape="rect" id="node3" href="$d9/d6d/_wound_8cpp.html#aeea66c7e63179a3375e101f954cb5248" title="GetWoundType" alt="" coords="527,5,640,31"/>
+<area shape="rect" id="node4" href="$d0/d28/class_examine_window.html#ab88efb6bed6125a0c941ce70a360baf0" title="ExamineWindow::setText" alt="" coords="498,55,669,80"/>
+<area shape="rect" id="node5" href="$d0/d28/class_examine_window.html#a5d93b356de906a2b4891b8ff79425b90" title="ExamineWindow::show" alt="" coords="504,104,663,129"/>
+</map>

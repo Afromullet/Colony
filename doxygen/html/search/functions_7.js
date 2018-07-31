@@ -1,9 +1,12 @@
 var searchData=
 [
-  ['handlemainwindowaction',['handleMainWindowAction',['../da/d07/class_window_commands.html#ac4a64479853dfa15653a7690403815b7',1,'WindowCommands']]],
-  ['handleopenmainwindow',['handleOpenMainWindow',['../da/d07/class_window_commands.html#a9b124a88e3af586738fe6b3cbce6fda2',1,'WindowCommands']]],
+  ['handleevent',['HandleEvent',['../db/d9c/class_selection_window.html#a2a7aa65a4c77fce6f2a44a0d10b911eb',1,'SelectionWindow::HandleEvent()'],['../d1/dee/class_inventory_window.html#ad023d9091385b9829673f6f592dd44ea',1,'InventoryWindow::HandleEvent()'],['../d8/dcb/class_equipment_window.html#aea251bbf9967a0f39ccca5df854adcbe',1,'EquipmentWindow::HandleEvent()'],['../db/dcd/class_player_g_u_i.html#a06602d2c26b2e1a3edad345d483c6132',1,'PlayerGUI::HandleEvent()']]],
   ['handleplayerinput',['HandlePlayerInput',['../dd/d33/_player_controls_8cpp.html#a2fbf8484c8a051b724315afd0f442465',1,'HandlePlayerInput(sf::Event &amp;event, MapData &amp;mapdata, BaseCreature &amp;creature):&#160;PlayerControls.cpp'],['../df/d40/_player_controls_8hpp.html#a2fbf8484c8a051b724315afd0f442465',1,'HandlePlayerInput(sf::Event &amp;event, MapData &amp;mapdata, BaseCreature &amp;creature):&#160;PlayerControls.cpp']]],
-  ['handlesubwindowaction',['handleSubWindowAction',['../da/d07/class_window_commands.html#a1c45c8c693e631b581eeb355176a49e7',1,'WindowCommands']]],
-  ['handlewindowhighlighter',['handleWindowHighlighter',['../da/d07/class_window_commands.html#a579bde80c82ababdcdbf271ccefd30b5',1,'WindowCommands']]],
-  ['hasweapon',['hasWeapon',['../d2/d6f/class_body_part.html#aeaa4e41c77eb72031f6482ed4d7e5919',1,'BodyPart::hasWeapon()'],['../db/de5/class_weapon.html#a99c74249e561d0130575a2278a982a6c',1,'Weapon::hasWeapon()']]]
+  ['handlewindowevent',['HandleWindowEvent',['../d1/dee/class_inventory_window.html#a201c5b514200d4b3afc27fa056c1c365',1,'InventoryWindow::HandleWindowEvent()'],['../d8/dcb/class_equipment_window.html#a51ce202b7d1c4ac4e0e7d93df9dec726',1,'EquipmentWindow::HandleWindowEvent()'],['../db/dcd/class_player_g_u_i.html#a1658f37b9e537d4a7377ca842bf60598',1,'PlayerGUI::HandleWindowEvent()']]],
+  ['hasweapon',['hasWeapon',['../d2/d6f/class_body_part.html#aeaa4e41c77eb72031f6482ed4d7e5919',1,'BodyPart::hasWeapon()'],['../db/de5/class_weapon.html#a99c74249e561d0130575a2278a982a6c',1,'Weapon::hasWeapon()']]],
+  ['hide',['hide',['../d0/d28/class_examine_window.html#a43f65ea7b98e29f773cdf0098ab0ed9c',1,'ExamineWindow']]],
+  ['hideadditionalactionswindow',['hideAdditionalActionsWindow',['../db/d9c/class_selection_window.html#a1008dc5a1719e62a1017d0603f7560c1',1,'SelectionWindow']]],
+  ['hideallwindows',['HideAllWindows',['../db/d9c/class_selection_window.html#a1d0561e5fbd751025c71484589f83841',1,'SelectionWindow::HideAllWindows()'],['../d1/dee/class_inventory_window.html#aef14cbe5f17a626c01df9948aac71259',1,'InventoryWindow::HideAllWindows()'],['../d8/dcb/class_equipment_window.html#a9ff317935c0c7698a4cde661348ad059',1,'EquipmentWindow::HideAllWindows()']]],
+  ['hideexaminewindow',['hideExamineWindow',['../db/d9c/class_selection_window.html#a6b24ed933c8d785bda07ed9fd2283a18',1,'SelectionWindow']]],
+  ['hidemainwindow',['hideMainWindow',['../db/d9c/class_selection_window.html#a94b39debec610af4bba8d53e92618876',1,'SelectionWindow']]]
 ];

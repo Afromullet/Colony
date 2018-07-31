@@ -8,9 +8,21 @@
 
 #include "EntityTile.hpp"
 #include "ErrorConstants.hpp"
-
+#include "Globals.hpp"
 
 int EntityTile::entityTileIDCounter = 0;
+
+EntityTile::EntityTile()
+{
+    
+    tileSetString = ERROR_TILE_LOCATION;
+    width = DEFAULT_TILE_SIZE;
+    height = DEFAULT_TILE_SIZE;
+    tileSize.x = DEFAULT_TILE_SIZE;
+    tileSize.y = DEFAULT_TILE_SIZE;
+    loadTile(ERROR_TILE_LOCATION, sf::Vector2i(DEFAULT_TILE_SIZE,DEFAULT_TILE_SIZE), position);
+    
+}
 
 bool EntityTile::operator==(const EntityTile &other) const
 {
@@ -148,6 +160,12 @@ void EntityTile::setPosition(int x, int y)
     quad[2].position = sf::Vector2f((creaturePosition.x + 1) * tileSize.x, (creaturePosition.y + 1) * tileSize.y);
     quad[3].position = sf::Vector2f(creaturePosition.x * tileSize.x, (creaturePosition.y + 1) * tileSize.y);
 }
+
+void EntityTile::setTilesetString(const std::string &str)
+{
+    tileSetString = str;
+}
+
 void EntityTile::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
     // apply the transform

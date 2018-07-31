@@ -1,0 +1,32 @@
+<map id="BodyPartCreator::BPCreator" name="BodyPartCreator::BPCreator">
+<area shape="rect" id="node2" href="$df/d13/namespace_im_gui.html#a405b19deb7db39d92f42ac1329740892" title="ImGui::Combo" alt="" coords="798,147,905,172"/>
+<area shape="rect" id="node3" href="$d8/d3a/namespace_body_part_creator.html#a7d0a8af2804bcc6a41e19b1d84013efd" title="BodyPartCreator::ReadInput" alt="" coords="490,172,680,197"/>
+<area shape="rect" id="node4" href="$d8/d3a/namespace_body_part_creator.html#a1e5297a1d1c20d2867434868cfc42ac1" title="BodyPartCreator::CreateBodyPart" alt="" coords="474,505,697,531"/>
+<area shape="rect" id="node19" href="$d8/d3a/namespace_body_part_creator.html#ac18c9ae3935b336efbb9634fb329413f" title="BodyPartCreator::BPEditor" alt="" coords="244,267,424,292"/>
+<area shape="rect" id="node5" href="$d2/d6f/class_body_part.html#af61f39aa545dacd8c1a9cf43761df85a" title="BodyPart::setCanHoldWeapon" alt="" coords="750,653,953,679"/>
+<area shape="rect" id="node6" href="$d2/d6f/class_body_part.html#ad83118e7510cbab332815cd9254a6024" title="BodyPart::setCanHoldArmor" alt="" coords="757,703,946,728"/>
+<area shape="rect" id="node7" href="$d2/d6f/class_body_part.html#acb68020a45ea6f0d14b963b3159317a2" title="BodyPart::setCanInteract" alt="" coords="766,259,936,284"/>
+<area shape="rect" id="node8" href="$d2/d6f/class_body_part.html#a8a6352fc3a764e8358f52f17caaa2867" title="BodyPart::setCanMoveCreature" alt="" coords="746,308,956,333"/>
+<area shape="rect" id="node9" href="$d2/d6f/class_body_part.html#acc7c6792cd9837901dfb7d639714eb00" title="BodyPart::setCanSee" alt="" coords="777,357,926,383"/>
+<area shape="rect" id="node10" href="$d2/d6f/class_body_part.html#acc147f8434d4bf881ee4b54e1b79c439" title="BodyPart::setCanSmell" alt="" coords="772,407,931,432"/>
+<area shape="rect" id="node11" href="$d2/d6f/class_body_part.html#a23728f2f16804c3ab90c891319e3df84" title="BodyPart::setCanBreathe" alt="" coords="765,456,938,481"/>
+<area shape="rect" id="node12" href="$d2/d6f/class_body_part.html#a9d3d014b8d645dbbf1ef6c14335ef940" title="BodyPart::setBodyPartName" alt="" coords="755,505,947,531"/>
+<area shape="rect" id="node13" href="$d2/d6f/class_body_part.html#afe0684374c38122fe9316bedff8742dc" title="BodyPart::setBodyPartToken" alt="" coords="755,555,947,580"/>
+<area shape="rect" id="node14" href="$d2/d6f/class_body_part.html#acae2236af2e131dfb8a49b4ca62d0d1f" title="BodyPart::setSection" alt="" coords="778,604,924,629"/>
+<area shape="rect" id="node15" href="$da/dd9/_imgui_debug_8cpp.html#a672976022f6368d3df9551a2e5bd62f3" title="isValidBodyPart" alt="" coords="794,801,909,827"/>
+<area shape="rect" id="node18" href="$da/dd9/_imgui_debug_8cpp.html#a3c97b2273cd01b18e2c4edb486928f2f" title="DisplayShit" alt="" coords="807,752,895,777"/>
+<area shape="rect" id="node16" href="$d2/d6f/class_body_part.html#af5a68e571235e6b4e8cd6a13ec94bab3" title="BodyPart::getBodyPartName" alt="" coords="1014,525,1206,551"/>
+<area shape="rect" id="node17" href="$d2/d6f/class_body_part.html#a9768feacb428c5611d0a8f58a0540618" title="BodyPart::getBodyPartToken" alt="" coords="1014,725,1206,751"/>
+<area shape="rect" id="node20" href="$d4/d16/namespace_universal_debug_functions.html#a069b66d16867ce9cdef140dc7b77f297" title="UniversalDebugFunctions\l::UpdateBodyPartNames" alt="" coords="498,273,672,312"/>
+<area shape="rect" id="node21" href="$d8/d3a/namespace_body_part_creator.html#af0715dc94164f78c721237555a28209c" title="BodyPartCreator::Display\lSelectedInput" alt="" coords="765,196,937,235"/>
+<area shape="rect" id="node31" href="$d8/d3a/namespace_body_part_creator.html#ab6d6a7845f43f745c09aaa1514881e20" title="BodyPartCreator::UpdateBodyPart" alt="" coords="472,456,698,481"/>
+<area shape="rect" id="node22" href="$d2/d6f/class_body_part.html#a1603cca73c99ce6f2f2ca5c73e387594" title="BodyPart::getSection" alt="" coords="1037,301,1183,327"/>
+<area shape="rect" id="node23" href="$da/dd9/_imgui_debug_8cpp.html#a1c4c0a9029339d444add94ec15ef888d" title="convertBPTruthVal" alt="" coords="1044,351,1176,376"/>
+<area shape="rect" id="node24" href="$d2/d6f/class_body_part.html#a9982b6e93c9168734960e9f334acdece" title="BodyPart::getCanHoldWeapon" alt="" coords="1008,400,1212,425"/>
+<area shape="rect" id="node25" href="$d2/d6f/class_body_part.html#a0be339561a54fa3dbff4ebc27f4b3c4c" title="BodyPart::getCanHoldArmor" alt="" coords="1015,5,1205,31"/>
+<area shape="rect" id="node26" href="$d2/d6f/class_body_part.html#a9a53de5a283928eb78986c3195d0f1b9" title="BodyPart::getCanInteract" alt="" coords="1024,55,1196,80"/>
+<area shape="rect" id="node27" href="$d2/d6f/class_body_part.html#a77da57c41bc2b7bde4f35d13298224ca" title="BodyPart::getCanMoveCreature" alt="" coords="1004,104,1216,129"/>
+<area shape="rect" id="node28" href="$d2/d6f/class_body_part.html#ab1a17aec7b3aa4d388fb9c8421cdc519" title="BodyPart::getCanSee" alt="" coords="1035,153,1185,179"/>
+<area shape="rect" id="node29" href="$d2/d6f/class_body_part.html#a9a954b18bd4bee1a8a2dea9d3464fd29" title="BodyPart::getCanSmell" alt="" coords="1030,203,1190,228"/>
+<area shape="rect" id="node30" href="$d2/d6f/class_body_part.html#a9bbc06713cb6b2d0c6c978e5b307d85b" title="BodyPart::getCanBreathe" alt="" coords="1023,252,1197,277"/>
+</map>

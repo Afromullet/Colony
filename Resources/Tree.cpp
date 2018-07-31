@@ -68,7 +68,7 @@ void InitializeTreeMaterials()
         }
     }
     
-    std::cout << "\n End";
+   // std::cout << "\n End";
 }
 
 Tree::Tree() : maxDiameter(1),maxHeight(1)
@@ -107,12 +107,12 @@ void Tree::setMaxDiameter(float val)
     maxDiameter = val;
 }
 
-float Tree::getMaxHeight()
+float Tree::getMaxHeight() const
 {
     return maxHeight;
 }
 
-float Tree::getMaxDiameter()
+float Tree::getMaxDiameter() const
 {
     return maxDiameter;
 }

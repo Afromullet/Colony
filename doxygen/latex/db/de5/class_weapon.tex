@@ -39,8 +39,6 @@ void \mbox{\hyperlink{class_weapon_a9a4297ad2057a660e2a7bd2c690f1ada}{operator=}
 \item 
 \mbox{\hyperlink{class_weapon_a167d8c34946b69123ddbb3ce7d739358}{Weapon}} (const \mbox{\hyperlink{class_weapon}{Weapon}} \&weapon)
 \item 
-\mbox{\hyperlink{class_weapon_a43fa490f1c719993d54294f1c3cf5f50}{Weapon}} (std\+::string \+\_\+itemname, std\+::string \+\_\+section)
-\item 
 \mbox{\hyperlink{class_weapon}{Weapon}} $\ast$ \mbox{\hyperlink{class_weapon_a4a914fa26d1d67a5d890252950f6b9be}{clone}} () const
 \item 
 \mbox{\hyperlink{class_weapon}{Weapon}} $\ast$ \mbox{\hyperlink{class_weapon_a0755dc1352391eb484644ab4e4cf144d}{create}} () const
@@ -49,9 +47,9 @@ void \mbox{\hyperlink{class_weapon_a5bd0118be0d84307c0865a63d907fec7}{show\+Item
 \item 
 std\+::string \mbox{\hyperlink{class_weapon_aa52cecf0a3c34aba70a6425c36d40afa}{get\+Item\+Examine\+String}} () const
 \item 
-void \mbox{\hyperlink{class_weapon_ab40ee049b9f2a5c3cfdec36750f0842d}{Equip\+Item}} (\mbox{\hyperlink{class_body_part}{Body\+Part}} \&bp, \mbox{\hyperlink{class_item_manager}{Item\+Manager}} \&item\+Manager)
+void \mbox{\hyperlink{class_weapon_a241a74219d47374ffebebaad675dc250}{Add\+To\+Item\+Manager}} (\mbox{\hyperlink{class_item_manager}{Item\+Manager}} \&manager)
 \item 
-void \mbox{\hyperlink{class_weapon_ad7be6ba61b660d807b5b56c289defbde}{calculate\+Material\+Bonuses}} ()
+void \mbox{\hyperlink{class_weapon_af7fda0b6e0d4ce8f25e2b0e4ad5fd94d}{Equip\+Item}} (\mbox{\hyperlink{class_body_part}{Body\+Part}} \&bp)
 \item 
 short int \mbox{\hyperlink{class_weapon_a726f5f0de9244b9e24e52407272cdf08}{get\+Range}} () const
 \item 
@@ -74,6 +72,8 @@ void \mbox{\hyperlink{class_weapon_a0c582ba1c1413a4ecda931bb8acff458}{set\+Damag
 void \mbox{\hyperlink{class_weapon_a2861d732a0cccff20a9ea29548d05702}{set\+Material}} (\mbox{\hyperlink{class_material}{Material}} value)
 \item 
 void \mbox{\hyperlink{class_weapon_a78e4b6c131a25e93f647594191bae38d}{set\+Weapon\+Size}} (\mbox{\hyperlink{_weapon_8hpp_a160076f6c574c69cd1ce2b3f42cf3755}{En\+Weapon\+Size}} \+\_\+size)
+\item 
+void \mbox{\hyperlink{class_weapon_ab5365be296cfc81438b458814ca2b9a2}{set\+Contact\+Area}} (int area)
 \end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -82,13 +82,13 @@ short int \mbox{\hyperlink{class_weapon_afb5789f93e22dfb039d273f0bd4480b0}{si\+R
 \item 
 short int \mbox{\hyperlink{class_weapon_aedd020151d162c99d7fc5e28f627c517}{si\+Damage}}
 \item 
-int \mbox{\hyperlink{class_weapon_a7bdfc4c90d872b07d6dc78d9d0f4e662}{contact\+Area}}
-\item 
 bool \mbox{\hyperlink{class_weapon_a790c117505d8bf62c8297b3f87396070}{is\+Twohanded}}
 \item 
 bool \mbox{\hyperlink{class_weapon_a7e50af15bd27dfffe931e051b02101ac}{is\+Ranged}}
 \item 
 \mbox{\hyperlink{_weapon_8hpp_a160076f6c574c69cd1ce2b3f42cf3755}{En\+Weapon\+Size}} \mbox{\hyperlink{class_weapon_a24ad6d1a7d69604fc35d5c7f65245df4}{en\+Weapon\+Size}}
+\item 
+int \mbox{\hyperlink{class_weapon_a7bdfc4c90d872b07d6dc78d9d0f4e662}{contact\+Area}}
 \end{DoxyCompactItemize}
 \subsection*{Friends}
 \begin{DoxyCompactItemize}
@@ -102,17 +102,16 @@ class \mbox{\hyperlink{class_weapon_aad85754f188b769ff61150eaf36106c4}{Item}}
 \mbox{\Hypertarget{class_weapon_a832f6d4c8d48728aaf1fe0459bed0dbd}\label{class_weapon_a832f6d4c8d48728aaf1fe0459bed0dbd}} 
 \index{Weapon@{Weapon}!Weapon@{Weapon}}
 \index{Weapon@{Weapon}!Weapon@{Weapon}}
-\subsubsection{\texorpdfstring{Weapon()}{Weapon()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+\subsubsection{\texorpdfstring{Weapon()}{Weapon()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
 {\footnotesize\ttfamily Weapon\+::\+Weapon (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_material}{Material}}}]{\+\_\+material,  }\item[{std\+::string}]{\+\_\+s\+Equipment\+Name,  }\item[{short int}]{\+\_\+si\+Range,  }\item[{short int}]{\+\_\+si\+Damage }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{class_weapon_a42dbc46dd70319a24763992c4ebbd396}\label{class_weapon_a42dbc46dd70319a24763992c4ebbd396}} 
 \index{Weapon@{Weapon}!Weapon@{Weapon}}
 \index{Weapon@{Weapon}!Weapon@{Weapon}}
-\subsubsection{\texorpdfstring{Weapon()}{Weapon()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+\subsubsection{\texorpdfstring{Weapon()}{Weapon()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
 {\footnotesize\ttfamily Weapon\+::\+Weapon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -122,24 +121,30 @@ Here is the caller graph for this function\+:
 \mbox{\Hypertarget{class_weapon_a167d8c34946b69123ddbb3ce7d739358}\label{class_weapon_a167d8c34946b69123ddbb3ce7d739358}} 
 \index{Weapon@{Weapon}!Weapon@{Weapon}}
 \index{Weapon@{Weapon}!Weapon@{Weapon}}
-\subsubsection{\texorpdfstring{Weapon()}{Weapon()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+\subsubsection{\texorpdfstring{Weapon()}{Weapon()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
 {\footnotesize\ttfamily Weapon\+::\+Weapon (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_weapon}{Weapon}} \&}]{weapon }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{class_weapon_a43fa490f1c719993d54294f1c3cf5f50}\label{class_weapon_a43fa490f1c719993d54294f1c3cf5f50}} 
-\index{Weapon@{Weapon}!Weapon@{Weapon}}
-\index{Weapon@{Weapon}!Weapon@{Weapon}}
-\subsubsection{\texorpdfstring{Weapon()}{Weapon()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
-{\footnotesize\ttfamily Weapon\+::\+Weapon (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+itemname,  }\item[{std\+::string}]{\+\_\+section }\end{DoxyParamCaption})}
 
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{class_weapon_ad7be6ba61b660d807b5b56c289defbde}\label{class_weapon_ad7be6ba61b660d807b5b56c289defbde}} 
-\index{Weapon@{Weapon}!calculate\+Material\+Bonuses@{calculate\+Material\+Bonuses}}
-\index{calculate\+Material\+Bonuses@{calculate\+Material\+Bonuses}!Weapon@{Weapon}}
-\subsubsection{\texorpdfstring{calculate\+Material\+Bonuses()}{calculateMaterialBonuses()}}
-{\footnotesize\ttfamily void Weapon\+::calculate\+Material\+Bonuses (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{class_weapon_a241a74219d47374ffebebaad675dc250}\label{class_weapon_a241a74219d47374ffebebaad675dc250}} 
+\index{Weapon@{Weapon}!Add\+To\+Item\+Manager@{Add\+To\+Item\+Manager}}
+\index{Add\+To\+Item\+Manager@{Add\+To\+Item\+Manager}!Weapon@{Weapon}}
+\subsubsection{\texorpdfstring{Add\+To\+Item\+Manager()}{AddToItemManager()}}
+{\footnotesize\ttfamily void Weapon\+::\+Add\+To\+Item\+Manager (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_item_manager}{Item\+Manager}} \&}]{manager }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
+
+
+Implements \mbox{\hyperlink{class_item_ae534538f3e77078f804acc742ef68521}{Item}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/de5/class_weapon_a241a74219d47374ffebebaad675dc250_cgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_weapon_a4a914fa26d1d67a5d890252950f6b9be}\label{class_weapon_a4a914fa26d1d67a5d890252950f6b9be}} 
 \index{Weapon@{Weapon}!clone@{clone}}
 \index{clone@{clone}!Weapon@{Weapon}}
@@ -150,8 +155,7 @@ Here is the caller graph for this function\+:
 
 Implements \mbox{\hyperlink{class_item_a6d963581e2caad2e08979683a827f39f}{Item}}.
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -168,24 +172,39 @@ Here is the call graph for this function\+:
 
 Implements \mbox{\hyperlink{class_item_a17b3fa0cef44ada961e0d3c65e1de864}{Item}}.
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=298pt]{db/de5/class_weapon_a0755dc1352391eb484644ab4e4cf144d_cgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{class_weapon_ab40ee049b9f2a5c3cfdec36750f0842d}\label{class_weapon_ab40ee049b9f2a5c3cfdec36750f0842d}} 
+\mbox{\Hypertarget{class_weapon_af7fda0b6e0d4ce8f25e2b0e4ad5fd94d}\label{class_weapon_af7fda0b6e0d4ce8f25e2b0e4ad5fd94d}} 
 \index{Weapon@{Weapon}!Equip\+Item@{Equip\+Item}}
 \index{Equip\+Item@{Equip\+Item}!Weapon@{Weapon}}
 \subsubsection{\texorpdfstring{Equip\+Item()}{EquipItem()}}
-{\footnotesize\ttfamily void Weapon\+::\+Equip\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_body_part}{Body\+Part}} \&}]{bp,  }\item[{\mbox{\hyperlink{class_item_manager}{Item\+Manager}} \&}]{item\+Manager }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Weapon\+::\+Equip\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_body_part}{Body\+Part}} \&}]{bp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
-Implements \mbox{\hyperlink{class_item_ad1a25684e25e0fc14cbe88f77ea035c2}{Item}}.
+Implements \mbox{\hyperlink{class_item_af4b9caf8fcfc22bbde13bf6c3505b35c}{Item}}.
 
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{db/de5/class_weapon_af7fda0b6e0d4ce8f25e2b0e4ad5fd94d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/de5/class_weapon_af7fda0b6e0d4ce8f25e2b0e4ad5fd94d_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_weapon_adb39958d1bfe60371314991040ab04fd}\label{class_weapon_adb39958d1bfe60371314991040ab04fd}} 
 \index{Weapon@{Weapon}!get\+Damage@{get\+Damage}}
 \index{get\+Damage@{get\+Damage}!Weapon@{Weapon}}
@@ -258,6 +277,20 @@ Here is the caller graph for this function\+:
 \subsubsection{\texorpdfstring{operator==()}{operator==()}}
 {\footnotesize\ttfamily bool Weapon\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_weapon}{Weapon}} \&}]{other }\end{DoxyParamCaption}) const}
 
+\mbox{\Hypertarget{class_weapon_ab5365be296cfc81438b458814ca2b9a2}\label{class_weapon_ab5365be296cfc81438b458814ca2b9a2}} 
+\index{Weapon@{Weapon}!set\+Contact\+Area@{set\+Contact\+Area}}
+\index{set\+Contact\+Area@{set\+Contact\+Area}!Weapon@{Weapon}}
+\subsubsection{\texorpdfstring{set\+Contact\+Area()}{setContactArea()}}
+{\footnotesize\ttfamily void Weapon\+::set\+Contact\+Area (\begin{DoxyParamCaption}\item[{int}]{area }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/de5/class_weapon_ab5365be296cfc81438b458814ca2b9a2_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_weapon_a0c582ba1c1413a4ecda931bb8acff458}\label{class_weapon_a0c582ba1c1413a4ecda931bb8acff458}} 
 \index{Weapon@{Weapon}!set\+Damage@{set\+Damage}}
 \index{set\+Damage@{set\+Damage}!Weapon@{Weapon}}
@@ -283,7 +316,7 @@ Here is the caller graph for this function\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=268pt]{db/de5/class_weapon_a73bb6176d7e535811f30a3ee9df53b8d_icgraph}
+\includegraphics[width=350pt]{db/de5/class_weapon_a73bb6176d7e535811f30a3ee9df53b8d_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{class_weapon_a2861d732a0cccff20a9ea29548d05702}\label{class_weapon_a2861d732a0cccff20a9ea29548d05702}} 

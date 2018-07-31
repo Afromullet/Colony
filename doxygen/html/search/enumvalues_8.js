@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['natural',['Natural',['../d1/dd8/class_fast_noise.html#a457e58d0da6dbe486deb5a21a3db52bfa8c2bcda9a2663b7211ac2063a8ec0b11',1,'FastNoise']]],
-  ['noiselookup',['NoiseLookup',['../d1/dd8/class_fast_noise.html#a942d73b97b870138c9a07249d5a57737a3549281f2d6b8b8a0c6710197f2342fe',1,'FastNoise']]]
+  ['manhattan',['Manhattan',['../d1/dd8/class_fast_noise.html#a457e58d0da6dbe486deb5a21a3db52bfafadd869c5ef79241e9ecb3cf11ddc655',1,'FastNoise']]]
 ];
