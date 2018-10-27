@@ -72,6 +72,12 @@ enum WoundSeverity
     enMinorWound,enModerateWound,enMajorWound
 };
 
+
+enum ValueType
+{
+    enString,
+    enNumerical
+};
 //TODO find a better place for this
 struct AttackStats
 {

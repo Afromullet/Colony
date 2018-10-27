@@ -408,64 +408,69 @@ int CreatureBody::convertTruthValue(std::string truthVal)
     return -1;
 }
 
+
+
 //Todo remove tempItems and just replace it with item. tempitem is left over from when I handled it a different way
+/*
+For armor:
+ 1) Get all of the sections the new armor covers
+ 2) Get all unique armor names covering those sections on the body
+ 3) Remove all armor on body covering the same section as the new armor
+ 4) Using the armorNames, remove leftovers
+ 
+ */
 bool CreatureBody::Equip(std::unique_ptr<Item> item,ItemManager &inventory,int index)
 {
     bool equipSuccess = false;
-    
+    std::string tempItemName;
     std::unique_ptr<Item> tempitem(std::move(item));
-  //  std::cout << "\n Name " << tempitem->getItemName();
     inventory.ClearSlot(index);
-    
+    std::vector<int> sectionIndices;
  
+    Armor arm;
     
     if(tempitem->getItemType() == enArmorType)
     {
         Armor *tempArmor  = dynamic_cast<Armor*>(tempitem.get());
+        std::vector<string> armorNames; //Stores the names of the armors unequipped
+        std::vector<Armor> unequippedArmor; //Stores the armor that has been unequipped
         
-        std::cout << "\n Temp Armor " << tempArmor->getItemName();
         for(int i =0; i < tempArmor->sections.size(); i++)
         {
             Anatomy_DFS_Section_Visitor vis(tempArmor->sections.at(i));
             depth_first_search(anatomyGraph,visitor(vis));
-            std::vector<int> indices = vis.getVertexIndices();
-        
-            //The item can be equipped
-            if(indices.size() > 0)
+            sectionIndices = vis.getVertexIndices(); //Index of all the sections this armor covers
+            
+            //Need to unequip the armor for each section
+            for(int j = 0; j < sectionIndices.size(); j++)
             {
-             
-            
-          
-            
-           
-                //Only removes armor whose sections match the input armor. If I want to change this in the future
-                //Check the first piece of equipment at indices[0], get the section the armor at that body part fits
-                //And then search for all body parts matching that section and remove the armor
-                UnequipArmorBySection(indices, inventory);
+                
+                arm = anatomyGraph[sectionIndices.at(j)].getArmor();
                 
                 
-                for(int j =0; j < indices.size(); j++)
-                {
-                    
-                    //Creates a copy of the item. Adds what is currently in the slot to the inventory. Creates a copy
-                    //tempitem->EquipItem(anatomyGraph[indices.at(j)]);
-                    tempArmor->EquipItem(anatomyGraph[indices.at(j)]);
-                    equipSuccess = true;
-                }
+
+                
             }
-            else
-            {
-                //No valid slot. Early exit
-                //inventory.ClearSlot(index);
-                inventory.addItem(std::move(tempitem));
             
-                return false;
-            }
+            //We have at least one valid section
+            if(sectionIndices.size() > 0)
+                equipSuccess = true;
+            
+            
+            
+            
         }
+        
+        
+     
+        
         
        if(equipSuccess == true)
        {
-          tempitem.release();
+           
+           
+           //UnequipArmorByName(armorNames);
+          //tempitem.release();
          //inventory.ClearSlot(index);
        }
         
@@ -532,6 +537,146 @@ bool CreatureBody::Equip(std::unique_ptr<Item> item,ItemManager &inventory,int i
 
 
 /*
+ 
+ bool CreatureBody::Equip(std::unique_ptr<Item> item,ItemManager &inventory,int index)
+ {
+ bool equipSuccess = false;
+ std::string tempItemName;
+ std::unique_ptr<Item> tempitem(std::move(item));
+ //  std::cout << "\n Name " << tempitem->getItemName();
+ inventory.ClearSlot(index);
+ 
+ 
+ 
+ if(tempitem->getItemType() == enArmorType)
+ {
+ Armor *tempArmor  = dynamic_cast<Armor*>(tempitem.get());
+ 
+ std::cout << "\n Temp Armor " << tempArmor->getItemName();
+ 
+ std::vector<string> armorNames; //Stores the names of the armors unequipped
+ 
+ 
+ for(int i =0; i < tempArmor->sections.size(); i++)
+ {
+ Anatomy_DFS_Section_Visitor vis(tempArmor->sections.at(i));
+ depth_first_search(anatomyGraph,visitor(vis));
+ std::vector<int> indices = vis.getVertexIndices(); //Index of all the sections this armor covers
+ 
+ 
+ //Since one piece can cover multiple items, for every piece that we remove, get the name so we can unequip it later
+ for(int bpIndex = 0; bpIndex < indices.size(); bpIndex++)
+ {
+ tempItemName = anatomyGraph[bpIndex].getArmor().getItemName();
+ if(std::find(armorNames.begin(),armorNames.end(),tempItemName) == armorNames.end())
+ armorNames.push_back(tempItemName);
+ 
+ }
+ 
+ 
+ //The item can be equipped
+ if(indices.size() > 0)
+ {
+ 
+ 
+ UnequipArmorBySection(indices, inventory);
+ 
+ 
+ for(int j =0; j < indices.size(); j++)
+ {
+ 
+ //Creates a copy of the item. Adds what is currently in the slot to the inventory. Creates a copy
+ //tempitem->EquipItem(anatomyGraph[indices.at(j)]);
+ 
+ 
+ tempArmor->EquipItem(anatomyGraph[indices.at(j)]);
+ equipSuccess = true;
+ }
+ }
+ else
+ {
+ //No valid slot. Early exit
+ //inventory.ClearSlot(index);
+ inventory.addItem(std::move(tempitem));
+ 
+ return false;
+ }
+ }
+ 
+ if(equipSuccess == true)
+ {
+ 
+ 
+ UnequipArmorByName(armorNames);
+ tempitem.release();
+ //inventory.ClearSlot(index);
+ }
+ 
+ 
+ }
+ 
+ else if(tempitem->getItemType() == enWeaponType)
+ {
+ Weapon *tempWeapon  = dynamic_cast<Weapon*>(tempitem.get());
+ std::vector<int> indices = getVerticesThatCanHoldWeapons(anatomyGraph);
+ 
+ 
+ UnequipWeaponBySection(indices,inventory,tempWeapon->getWeaponSize());
+ 
+ if(tempWeapon->getWeaponSize() == enLargeWeapon)
+ {
+ if(indices.size() >= 2)
+ {
+ tempWeapon->EquipItem(anatomyGraph[indices.at(0)]);
+ 
+ anatomyGraph[indices.at(1)].setWeapon(WEAPON_SLOT_FILLED);
+ equipSuccess = true;
+ 
+ }
+ else
+ {
+ inventory.addItem(std::move(tempitem));
+ return false;
+ }
+ }
+ else
+ {
+ if(indices.size() >= 1)
+ {
+ tempWeapon->EquipItem(anatomyGraph[indices.at(0)]);
+ anatomyGraph[indices.at(1)].setWeapon(FIST_WEAPON);
+ equipSuccess = true;
+ 
+ }
+ else
+ {
+ inventory.addItem(std::move(tempitem));
+ return false;
+ }
+ 
+ }
+ 
+ if(equipSuccess == true)
+ {
+ tempitem.release();
+ }
+ 
+ 
+ 
+ 
+ }
+ 
+ 
+ 
+ 
+ return equipSuccess;
+ }
+
+ 
+ */
+
+
+/*
  Only a single piece of armor per body part, but a piece of armor can cover multiple sections.
  
  Find all unique pieces of armor equipped on the vertices given by the indices vector
@@ -539,11 +684,12 @@ bool CreatureBody::Equip(std::unique_ptr<Item> item,ItemManager &inventory,int i
  
  
  */
-void CreatureBody::UnequipArmorBySection(std::vector<int> &indices,ItemManager &itemManager)
+void  CreatureBody::UnequipArmorBySection(std::vector<int> &indices,ItemManager &itemManager)
 {
     std::vector<Armor> vecArmor;
     Armor tempArmor;
     
+  
   
     
     for(int i = 0; i < indices.size(); i++)
@@ -554,21 +700,36 @@ void CreatureBody::UnequipArmorBySection(std::vector<int> &indices,ItemManager &
         if(tempArmor != NO_ARMOR)
         {
             
-            if(std::find(vecArmor.begin(),vecArmor.end(),tempArmor) != vecArmor.end())
-            {
-                //Do nothing
-            }
-            else
+            if(std::find(vecArmor.begin(),vecArmor.end(),tempArmor) == vecArmor.end())
             {
                 itemManager.addArmor(tempArmor);
-                //vecArmor.push_back(tempArmor);
             }
+          
             
             anatomyGraph[indices.at(i)].setArmor(NO_ARMOR); //Clear the armor slot
             
         }
         
 
+    }
+    
+
+}
+
+void CreatureBody::UnequipArmorByName(std::vector<string> &vec)
+{
+    
+    std::vector<int> indices = getExternalBodyParts(anatomyGraph); //Only need external body parts
+    for(int i = 0; i < vec.size(); i++)
+    {
+        for(int j = 0; j < indices.size(); j++)
+        {
+            if(vec.at(i) == anatomyGraph[indices.at(j)].getArmor().getItemName())
+            {
+                anatomyGraph[indices.at(j)].setArmor(NO_ARMOR);
+            }
+        }
+        
     }
 }
 

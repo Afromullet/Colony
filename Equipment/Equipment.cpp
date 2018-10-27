@@ -70,8 +70,8 @@ Item::Item(Material _material, std::string _sEquipmentName,EnItemType itType): m
     
     tag = boost::uuids::random_generator()();
     enItemType = itType;
-    stackSize = 0;
-    maxStackSize = 1;
+    stackSize = 1;
+    maxStackSize = 99;
 }
 
 
@@ -272,6 +272,16 @@ void Item::setMaxStackSize(int val)
 void Item::setDescriptiveText(std::string str)
 {
     descriptiveText = str;
+}
+
+void Item::IncrementStackSize()
+{
+    ++stackSize;
+}
+
+void Item::DecrementStackSize()
+{
+    --stackSize;
 }
 
 

@@ -21,6 +21,7 @@ public:
     void GenerateNoiseValues();
     void SetBiomes();
     void LoadBiomeTiles();
+    void GenerateTerrainFeatures();
  
 };
 

@@ -68,7 +68,7 @@
 #include <memory>
 #include "PlayerWindows.hpp"
 #include "ImguiDebug.hpp"
-
+#include "SettlementEV.hpp"
 
 
 void GameLoop3();
@@ -116,7 +116,7 @@ void InitializeGlobalData();
 void InitializePlayerData();
 void InitializeAllData();
 void InitializeTestingData();
-
+Armor tArmor;
 
 int main()
 {
@@ -126,6 +126,20 @@ int main()
     InitializeAllData();
     
    
+ 
+    
+    
+
+    for(int i = 0; i < MAP_WIDTH; i++)
+    {
+        for(int j = 0; j < 1; j++)
+        {
+            tArmor.setPosition(i, j);
+            tArmor.UpdateTileTexture("blessed_blade.png",sf::Vector2i(32,32));
+            mapdata.map->Map2D[i][j].AddArmor(tArmor);
+        }
+    }
+
     
      
     GameLoop3();
@@ -239,6 +253,7 @@ void GameLoop3()
         ImGui::SFML::Update(window, deltaClock.restart());
         ImGui::SFML::Render(window);
         DrawEverything(mapdata);
+ 
         PlayerActionTaken = false;
 
         }
@@ -292,8 +307,16 @@ void DrawEverything(MapData &_mapdata)
     
     mapdata.window->draw(*mapdata.map);
     mapdata.window->draw(player.creatureTile);
+    
+   // tArmor.itemTile = player.creatureTile;
+   // tArmor.UpdateTileTexture("blessed_blade.png",sf::Vector2i(32,32));
+   // tArmor.setPosition(1,1);
+    
+    mapdata.window->draw(tArmor.itemTile);
     elapsed = globalClock.getElapsedTime();
     //Only move creatures randomly every  second..testing
+    
+ 
     
     if(elapsed.asMilliseconds() >= 1000)
     {
@@ -302,11 +325,32 @@ void DrawEverything(MapData &_mapdata)
     }
     
     
+    
+    
+    
     MoveAllCreatures();
     
     _mapdata.RemoveDeadCreature();
     _mapdata.DrawCreaturesOnMap();
     _mapdata.DrawItemsOnMap();
+    
+    for(int i = 0; i < NUM_TEST_SETTLEMENTS; i++)
+    {
+        
+        
+        mapdata.window->draw(settlements.at(i).tile);
+        
+        /*
+        MapEffect circ;
+        circ.vertices = mapdata.map->getVertices(settlements.at(i).area);
+        circ.setColor(sf::Color::Yellow);
+        circ.setID(AssignEffectID());
+        mapdata.map->AddEffect(circ.getID(), circ.vertices);
+         */
+
+        
+    }
+    
     
     ImGui::SFML::Render(window);
     gui.draw();
@@ -502,6 +546,7 @@ void InitializeTestingData()
     testWeapon7.setDescriptiveText("Test Weapon 7 Text");
     
     player.AddArmorToInventory(testArmor5);
+    player.AddArmorToInventory(testArmor5);
     player.AddArmorToInventory(testArmor6);
     player.AddArmorToInventory(testArmor7);
     player.AddArmorToInventory(testArmor8);
@@ -520,6 +565,47 @@ void InitializeTestingData()
     testArmor2.addSection("upperbodysection");
     testArmor2.addSection("armsection");
     testArmor2.setDescriptiveText("Descriptive text");
+    
+    createTestSettlements();
+    
+    for(int i = 0; i < NUM_TEST_SETTLEMENTS; i++)
+    {
+        
+        
+        
+        
+        MapEffect circ;
+        
+        
+        
+        /*
+        for(int j = 0; j < 3; j++)
+        {
+            sf::Vector2i tempVec = circ.getRandomPointInCircle();
+            
+            settlements.at(i).area.push_back(tempVec);
+            // circ.vertices.push_back(tempVec);
+        }
+         */
+        
+        circ.vertices = mapdata.map->getVertices(settlements.at(i).area);
+        
+   
+
+        
+        
+        
+        
+        circ.setColor(sf::Color::Red);
+        circ.setID(AssignEffectID());
+        
+
+        
+        mapdata.map->AddEffect(circ.getID(), circ.vertices);
+        
+        
+    }
+    
     
 
 

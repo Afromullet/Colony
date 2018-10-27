@@ -26,7 +26,7 @@
 
 #include "ItemManager.hpp"
 
-
+#include "Message.hpp"
 
 
 
@@ -44,7 +44,7 @@ class Map;
 
 
 //todo rename..not abstract anymore
-class BaseCreature
+class BaseCreature : public Message
 {
 private:
     short int attackValue;
@@ -145,6 +145,8 @@ public:
     void setCanMove(bool val);
 
     void ReleaseInventoryMemory();
+    
+    void SendMessage();
     
 };
 

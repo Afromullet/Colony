@@ -114,6 +114,7 @@ void NoiseMap::SetBiomes()
                 Map2D[i][j].setTileID(WATER_1_TILE);
                 Map2D[i][j].SetBiome(enWaterBiome);
                 
+                
             }
             else if(Map2D[i][j].getElevation() < 0.16)
             {
@@ -305,6 +306,86 @@ void NoiseMap::LoadBiomeTiles()
 {
     
 }
+
+void NoiseMap::GenerateTerrainFeatures()
+{
+    
+    
+    
+    EnTerrainFeature feature;
+    enBiomes tempBiome; //Only want to call getEnBiome once for every iteration
+    
+    
+    for (unsigned int i = 0; i < GetWidth(); ++i)
+    {
+        for (unsigned int j = 0; j < GetHeight(); ++j)
+        {
+            
+            tempBiome = Map2D[i][j].getEnBiome();
+            if(tempBiome ==  enWaterBiome)
+            {
+                Map2D[i][j].terrainFeature = enWaterFeature;
+            }
+            else if(tempBiome ==  enBeachBiome)
+            {
+                Map2D[i][j].terrainFeature = enWaterFeature;
+            }
+            else if(tempBiome ==  enTundraBiome)
+            {
+                Map2D[i][j].terrainFeature = enMetalFeature;
+            }
+            else if(tempBiome ==  enSnowMountainBiome)
+            {
+                Map2D[i][j].terrainFeature = enStoneFeature;
+            }
+            else if(tempBiome ==  enSnowBiome)
+            {
+                Map2D[i][j].terrainFeature = enWaterFeature;
+            }
+            else if(tempBiome ==  enTemperateDesertBiome)
+            {
+                Map2D[i][j].terrainFeature = enMetalFeature;
+            }
+            else if(tempBiome ==  enShrublandBiome)
+            {
+                Map2D[i][j].terrainFeature = enLandFertilityFeature;
+            }
+            else if(tempBiome ==  enTaigaBiome)
+            {
+                Map2D[i][j].terrainFeature = enWoodFeature;
+            }
+            else if(tempBiome ==  enGrasslandBiome)
+            {
+                Map2D[i][j].terrainFeature = enLandFertilityFeature;
+            }
+            else if(tempBiome ==  enDecidiousForestBiome)
+            {
+                Map2D[i][j].terrainFeature = enWoodFeature;
+            }
+            else if(tempBiome ==  enTemperateRainForestBiome)
+            {
+                Map2D[i][j].terrainFeature = enLandFertilityFeature;
+            }
+            else if(tempBiome ==  enSubtropicalDesertBiome)
+            {
+                Map2D[i][j].terrainFeature = enStoneFeature;
+            }
+            else if(tempBiome ==  enTropicalSeasonalForest)
+            {
+                Map2D[i][j].terrainFeature = enWoodFeature;
+            }
+            else
+            {
+                Map2D[i][j].terrainFeature = enInvalidTerrainFeature;
+            }
+        }
+        
+        
+    }
+    
+}
+
+//Map2D[i][j].terrainFeatures.push_back(enWaterFeature);
 
 /*
  

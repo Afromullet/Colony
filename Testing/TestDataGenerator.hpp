@@ -12,9 +12,11 @@
 #include "Globals.hpp"
 #include "Constants.hpp"
 
+
+
 #ifndef TestDataGenerator_hpp
 #define TestDataGenerator_hpp
-
+#include "SettlementEV.hpp"
 
 
 extern Armor tHeadArmor;
@@ -36,4 +38,16 @@ void InitializeCreatureTypes();
 
 
 void GenerateRandomCave();
+
+
+/* 
+ TEST DATA FOR FETTLEMENT RELATED THINGS
+ 
+ */
+
+
+//ResourceFunction rs;
+//ResourceFunction testResourceFunctions[10];
+
+
 #endif /* TestDataGenerator_hpp */

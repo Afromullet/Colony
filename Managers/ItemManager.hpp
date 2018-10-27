@@ -26,11 +26,11 @@ class ItemManager : public sf::Drawable, public sf::Transformable
 {
 private:
     
-    std::vector<unique_ptr<Item>> items;
+    
     
 public:
     
-    
+    std::vector<unique_ptr<Item>> items;
     
     void operator=(ItemManager &other);
     
@@ -60,6 +60,7 @@ public:
     int getInventorySize();
     std::string getItemNameAtIndex(int i);
     std::string getItemDescriptionAtIndex(int i);
+    int getItemStackSizeAtIndex(int i);
  
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     

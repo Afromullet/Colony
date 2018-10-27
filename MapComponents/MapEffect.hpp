@@ -31,6 +31,8 @@ private:
     int squareSize;
     int id;
     sf::Color color;
+    sf::Vector2i origin;
+    int radius;
    
     
 public:
@@ -61,9 +63,12 @@ public:
     
     std::vector<sf::Vector2i> getShape(sf::Vector2i position,int n) ;
     std::vector<sf::Vector2i> getLine(int x0, int y0, int x1, int y1) ;
+    std::vector<sf::Vector2i> getTilePositions();
+    
     int getSquareSize() ;
     int getID() ;
     sf::Color getColor() ;
+    int getRadius();
     
     
     void setSquare(sf::Vector2i position,int n) ;
@@ -82,6 +87,10 @@ public:
     void RemoveOOBTiles();
     void MoveShape(int xOffset,int yOffset);
     void MoveLine(int xOffset,int yOffset);
+    
+    
+    sf::Vector2i getRandomPointInCircle();
+    
     
     
     

@@ -270,11 +270,24 @@ Biome Tile::getBiome() const
 
 int Tile::getIndex() const
 {
-    
+    return index;
 }
 
 //For adding items to tiles
 void Tile::AddArmor(Armor armor)
 {
     inventory.addArmor(armor);
+}
+
+std::vector<string> Tile::getItemNames()
+{
+    std::vector<std::string> names;
+    int size = inventory.getInventorySize();
+    for(int i = 0; i < size ; i++)
+    {
+        names.push_back(inventory.getItemNameAtIndex(i));
+    }
+    
+    return names;
+
 }

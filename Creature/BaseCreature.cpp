@@ -492,6 +492,10 @@ void BaseCreature::ReleaseInventoryMemory()
     inventory.ReleaseAllMemory();
 }
 
+void BaseCreature::SendMessage()
+{
+    
+}
 
 
 

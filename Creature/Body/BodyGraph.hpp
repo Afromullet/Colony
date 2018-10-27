@@ -118,8 +118,10 @@ public:
     void openBodyTypeFile(const std::string &fileName);
     void readBodyTokenList();
     int convertTruthValue(std::string truthVal);
+   
     bool Equip(std::unique_ptr<Item> item,ItemManager &inventory,int index);
     void UnequipArmorBySection(std::vector<int> &indices,ItemManager &itemManager);
+    void UnequipArmorByName(std::vector<string> &vec);
     void UnequipWeaponBySection(std::vector<int> &indices,ItemManager &itemManager,EnWeaponSize size);
     void EquipArmor(Item *item);
     void EquipWeapon(Item *item);

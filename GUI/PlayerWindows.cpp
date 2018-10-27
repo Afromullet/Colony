@@ -460,7 +460,7 @@ void InventoryWindow::UpdateMainWindow()
     for(int i = 0; i < inventorySize; i++)
     {
         
-        AddTextToMainWindow(creature->inventory.getItemNameAtIndex(i));
+        AddTextToMainWindow(creature->inventory.getItemNameAtIndex(i) + "  " + std::to_string(creature->inventory.getItemStackSizeAtIndex(i)));
     }
 }
 

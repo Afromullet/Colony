@@ -156,10 +156,16 @@ public:
     void MainDoubleClickAction(std::string name);
     bool isAnyInitialWindowVisible();
     
-    virtual void AdditionalActionsDoubleClick(std::string name) = 0;
+    //Registered to the tgui double click actions
+    virtual void AdditionalActionsDoubleClick(std::string name) = 0; 
+    
+    //Name is the name of the action in the selection window.  Implements the logic for action of name n
     virtual void AdditionalActionsHandler(std::string name) = 0;
+    
+    //Connects the action to the gui elements
     virtual void setupSignals() = 0;
     
+    //Handles the keyboard-window logic..I.E, if window1 is open and window2 is not, you can move in windows1
     virtual void HandleEvent(sf::Event &event,tgui::Gui &guiRef) = 0;
     virtual void UpdateMainWindow() = 0;
     virtual void HideAllWindows() = 0;
@@ -204,6 +210,13 @@ private:
     //ExamineWindow examineWindow;
     
     //Didn't want this here at first, but this will make things much easier and more self contained
+    
+    
+    /*
+       original comment: todo shouldnt need this here, don't know why I used it
+       now: turns out that commenting this out keeps the creature from staying still while manipulating the invnentory. Todo figure out why that happens 
+     
+     */
     BaseCreature *creature;
     
     //std::string inventoryBoxTag;
@@ -304,7 +317,6 @@ public:
     
     
 };
-
 
 
 

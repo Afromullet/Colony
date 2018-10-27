@@ -45,6 +45,19 @@
 #define BOTTOM_RIGHT 3
 
 
+#define NUM_TERRAIN_FEATURE 5
+
+enum EnTerrainFeature
+{
+    enWaterFeature,
+    enLandFertilityFeature,
+    enWoodFeature,
+    enStoneFeature,
+    enMetalFeature,
+    enDominationFeature,
+    enInvalidTerrainFeature
+};
+
 
 class BaseCreature;
 class Tile
@@ -102,12 +115,15 @@ public:
     //For adding items to tiles
     void AddArmor(Armor armor);
     
+    std::vector<string> getItemNames();
+    
     
     
    
     
     
-    
+    ItemManager inventory;
+    EnTerrainFeature terrainFeature;
     
 
     
@@ -116,7 +132,7 @@ public:
     
 private:
     
-    ItemManager inventory;
+  
     std::string tileName;
     int TileID; //Use a table to decode what kind of parameters this tile has (texture, etc)
     sf::Texture tileTexture;

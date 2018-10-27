@@ -40,6 +40,17 @@ void MapData::DrawItemsOnMap()
         window->draw((*itemIterator)->itemTile);
     }
     
+    
+    for(int i = 0; i < map->GetWidth(); i++)
+    {
+        for(int j = 0; j < map->GetHeight(); j++)
+        {
+            if(map->Map2D[i][j].inventory.getInventorySize())
+            {
+                window->draw(map->Map2D[i][j].inventory.items.at(0)->itemTile);
+            }
+        }
+    }
 }
 
 void MapData::DrawImGUI()

@@ -138,6 +138,11 @@ std::vector<sf::Vector2i> MapEffect::getLine(int x0, int y0, int x1, int y1)
 }
 
 
+std::vector<sf::Vector2i> MapEffect::getTilePositions()
+{
+    return tilePositions;
+}
+
 int MapEffect::getID()
 {
     return id;
@@ -151,6 +156,11 @@ int MapEffect::getSquareSize()
 sf::Color MapEffect::getColor()
 {
     return color;
+}
+
+int MapEffect::getRadius()
+{
+    return radius;
 }
 
 void MapEffect::setColor(sf::Color newColor) 
@@ -180,6 +190,9 @@ void MapEffect::setSquare(sf::Vector2i position,int n)
     
     sf::Vector2i tempPos;
     std::vector<sf::Vector2i> tempVec;
+    
+    origin.x = position.x;
+    origin.y = position.y;
     
     //For now, calculates with origin at the bottom left corner..
     //TODO, change it to be at origin of square...for that, just translate the origin..when the player gives an origin, subtract 1 from x and y
@@ -214,6 +227,8 @@ void MapEffect::setLine(sf::Vector2i position,int n,MoveDirection movDirection)
     sf::Vector2i tempPos = position;
     
     std::vector<sf::Vector2i> tempVec;
+    origin.x = position.x;
+    origin.y = position.y;
     
     //For now, calculates with origin at the bottom left corner..
     //TODO, change it to be at origin of square...for that, just translate the origin..when the player gives an origin, subtract 1 from x and y
@@ -270,6 +285,9 @@ void MapEffect::setLine(int x0, int y0, int x1, int y1)
     tilePositions.clear();
     std::vector<sf::Vector2i> tempVec;
     sf::Vector2i tempPos;
+    origin.x = x0;
+    origin.y = x1;
+    
     
     int i = 0;
     for(;;){  /* loop */
@@ -308,6 +326,14 @@ void MapEffect::setCircle(int xm, int ym, int r)
     std::vector<sf::Vector2i> tempVec;
     sf::Vector2i tempPos;
     
+    if(r <= 1)
+        radius = 1;
+    else
+        radius = r;
+    
+    origin.x = xm;
+    origin.y = ym;
+    
     
     
     int err = 2-2*r; /* II. Quadrant */
@@ -335,6 +361,7 @@ void MapEffect::setCircle(int xm, int ym, int r)
         if (r > x || err > y) err += ++x*2+1; /* e_xy+e_x > 0 or no 2nd y-step */
     } while (x < 0);
     
+
     enShape = enCircle;;
 }
 
@@ -343,6 +370,34 @@ void MapEffect::setSquareSize(int val)
     squareSize = val;
 }
 
+
+sf::Vector2i MapEffect::getRandomPointInCircle()
+{
+   // int x = rand() % radius + (-radius) + origin.x;
+  //  int y = rand() % radius + (-radius) + origin.y;
+    
+
+    int x = rand() % radius ;
+    int y = rand() % radius ;
+    
+    int xSelection = rand() % 1;
+    int ySelection = rand() % 2;
+    
+    //So that we don't only draw in positive direction..Point can be x,-x,y,-y
+    if(xSelection == 0)
+        x *= -1;
+    if(ySelection == 0)
+        y *= -1;
+
+    
+
+    std::cout << "\n Radius " << radius;
+    std::cout << "\n Origin: " << + origin.x << "," <<  origin.y;
+    std::cout << "\n New x and y" << x + origin.x << "," << y + origin.y<< "\n";
+    
+    
+    return sf::Vector2i(x + origin.x,y + origin.y);
+}
 
 
 

@@ -127,6 +127,9 @@ public:
     void setStackSize(int val);
     void setMaxStackSize(int val);
     void setDescriptiveText(std::string str);
+    
+    void IncrementStackSize();
+    void DecrementStackSize();
 
     
     

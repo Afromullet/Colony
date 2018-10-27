@@ -97,6 +97,7 @@ void ItemManager::addArmor(Armor armor)
     {
         if(armor.getTag() == items.at(i)->getTag())
         {
+            items.at(i)->IncrementStackSize();
             std::cout << "\n Found";
             return;
         }
@@ -104,6 +105,7 @@ void ItemManager::addArmor(Armor armor)
     
     if(!itemFound)
     {
+        //armor.IncrementStackSize();
         std::unique_ptr<Item> it(new Armor(armor));
         items.push_back(std::move(it));
     }
@@ -123,6 +125,7 @@ void ItemManager::addWeapon(Weapon weapon)
     {
         if(weapon.getTag() == items.at(i)->getTag())
         {
+            items.at(i)->IncrementStackSize();
             std::cout << "\n Found";
             return;
         }
@@ -130,6 +133,7 @@ void ItemManager::addWeapon(Weapon weapon)
     
     if(!itemFound)
     {
+       // weapon.IncrementStackSize();
         std::unique_ptr<Item> it(new Weapon(weapon));
         items.push_back(std::move(it));
     }
@@ -203,6 +207,14 @@ std::string ItemManager::getItemDescriptionAtIndex(int i)
         return "";
     else
         return items.at(i)->getDescriptiveText();
+}
+
+int ItemManager::getItemStackSizeAtIndex(int i)
+{
+    if(i > items.size())
+        return -1;
+    else
+        return items.at(i)->getStackSize();
 }
 
 void ItemManager::draw(sf::RenderTarget& target, sf::RenderStates states) const
