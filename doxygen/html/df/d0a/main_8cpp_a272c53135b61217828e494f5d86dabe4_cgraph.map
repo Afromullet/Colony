@@ -1,6 +1,0 @@
-<map id="PointerTest" name="PointerTest">
-<area shape="rect" id="node2" href="$dc/d32/class_item.html#ae8dd38d585a7795f134f6453feb1000e" title="Item::setItemName" alt="" coords="174,5,308,31"/>
-<area shape="rect" id="node3" href="$d9/d76/class_armor.html#a99475fc688add41f89b7fef160534e33" title="Armor::setMovementModifier" alt="" coords="145,55,338,80"/>
-<area shape="rect" id="node4" href="$dc/d32/class_item.html#a806159273f1f9fbb07fe75a74f2f51c5" title="Item::getItemName" alt="" coords="174,104,309,129"/>
-<area shape="rect" id="node5" href="$d9/d76/class_armor.html#a788fee5745a82a7ffc587aa4938200dc" title="Armor::fGetMovementModifier" alt="" coords="141,153,341,179"/>
-</map>

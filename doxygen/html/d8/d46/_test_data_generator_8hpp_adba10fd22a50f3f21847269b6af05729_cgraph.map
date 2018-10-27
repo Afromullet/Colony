@@ -1,5 +1,0 @@
-<map id="CreateTargetCreatures" name="CreateTargetCreatures">
-<area shape="rect" id="node2" href="$d2/d3b/class_base_creature.html#a00ffc1ee732a8f0a8921c9cee6842e4d" title="BaseCreature::setPosition" alt="" coords="221,5,398,31"/>
-<area shape="rect" id="node4" href="$de/d83/class_map_data.html#ab54fe2f14d5192d3e1683a6c48839f80" title="MapData::AddCreatureToMap" alt="" coords="210,55,409,80"/>
-<area shape="rect" id="node3" href="$d7/dd4/class_entity_tile.html#a7b9e5be8dc4017eb5af8e4fda7add3c4" title="EntityTile::setPosition" alt="" coords="457,5,605,31"/>
-</map>

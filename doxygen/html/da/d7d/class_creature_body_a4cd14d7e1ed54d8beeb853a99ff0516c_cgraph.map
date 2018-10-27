@@ -1,4 +1,0 @@
-<map id="CreatureBody::UnequipWeaponBySection" name="CreatureBody::UnequipWeaponBySection">
-<area shape="rect" id="node2" href="$dc/de1/class_item_manager.html#a2631fb34c48555098029e18e66d7eb05" title="ItemManager::addWeapon" alt="" coords="263,12,442,37"/>
-<area shape="rect" id="node3" href="$dc/d32/class_item.html#a5e829376b05757d63d2593fb378d05ff" title="Item::getTag" alt="" coords="490,12,585,37"/>
-</map>

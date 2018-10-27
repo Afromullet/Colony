@@ -1,8 +1,0 @@
-<map id="FindRewriteSeperator" name="FindRewriteSeperator">
-<area shape="rect" id="node2" href="$df/de8/_history_token_reader_8hpp.html#a3413f15c87d9cf0718e69b9afedef398" title="SplitRulesOnSeperator" alt="" coords="233,5,390,31"/>
-<area shape="rect" id="node7" href="$df/de8/_history_token_reader_8hpp.html#a46386841fb4ea28b1db75e4940d3d8bf" title="SplitGrammarRulesOnSeperator" alt="" coords="204,55,418,80"/>
-<area shape="rect" id="node3" href="$df/de8/_history_token_reader_8hpp.html#af24ca70589cc140dcdce0d5d844f6c93" title="ReadFirstRewriteRules" alt="" coords="466,31,625,56"/>
-<area shape="rect" id="node4" href="$df/d0a/main_8cpp.html#a32c7da4c4c129a2af80924d89fe1f89c" title="InitialzeDataFromFiles" alt="" coords="673,31,827,56"/>
-<area shape="rect" id="node5" href="$df/d0a/main_8cpp.html#ad60a204b9b7e3351c3f1a99b7aa7e429" title="InitializeAllData" alt="" coords="875,31,987,56"/>
-<area shape="rect" id="node6" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="1035,31,1085,56"/>
-</map>

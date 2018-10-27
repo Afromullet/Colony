@@ -1,9 +1,0 @@
-<map id="SelectionWindow::isExamineWindowVisible" name="SelectionWindow::isExamineWindowVisible">
-<area shape="rect" id="node2" href="$d1/dee/class_inventory_window.html#a201c5b514200d4b3afc27fa056c1c365" title="InventoryWindow::HandleWindow\lEvent" alt="" coords="250,5,471,44"/>
-<area shape="rect" id="node7" href="$d8/dcb/class_equipment_window.html#a51ce202b7d1c4ac4e0e7d93df9dec726" title="EquipmentWindow::HandleWindow\lEvent" alt="" coords="246,68,475,107"/>
-<area shape="rect" id="node3" href="$d1/dee/class_inventory_window.html#ad023d9091385b9829673f6f592dd44ea" title="InventoryWindow::HandleEvent" alt="" coords="528,16,735,41"/>
-<area shape="rect" id="node4" href="$db/dcd/class_player_g_u_i.html#a1658f37b9e537d4a7377ca842bf60598" title="PlayerGUI::HandleWindowEvent" alt="" coords="788,44,1002,69"/>
-<area shape="rect" id="node5" href="$df/d0a/main_8cpp.html#ab8ef98eaa887a3be4bb916cdde45b3d1" title="GameLoop3" alt="" coords="1050,44,1144,69"/>
-<area shape="rect" id="node6" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="1192,44,1243,69"/>
-<area shape="rect" id="node8" href="$d8/dcb/class_equipment_window.html#aea251bbf9967a0f39ccca5df854adcbe" title="EquipmentWindow::HandleEvent" alt="" coords="523,68,740,93"/>
-</map>

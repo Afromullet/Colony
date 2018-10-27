@@ -1,6 +1,0 @@
-<map id="Material::setDeformationStrenghts" name="Material::setDeformationStrenghts">
-<area shape="rect" id="node2" href="$d1/d1e/_data_readers_8hpp.html#a8fdb82e3c7550ba10e84f81fa9ec1cf5" title="ReadMaterialFile" alt="" coords="220,12,342,37"/>
-<area shape="rect" id="node3" href="$df/d0a/main_8cpp.html#a32c7da4c4c129a2af80924d89fe1f89c" title="InitialzeDataFromFiles" alt="" coords="390,12,544,37"/>
-<area shape="rect" id="node4" href="$df/d0a/main_8cpp.html#ad60a204b9b7e3351c3f1a99b7aa7e429" title="InitializeAllData" alt="" coords="592,12,704,37"/>
-<area shape="rect" id="node5" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="752,12,803,37"/>
-</map>

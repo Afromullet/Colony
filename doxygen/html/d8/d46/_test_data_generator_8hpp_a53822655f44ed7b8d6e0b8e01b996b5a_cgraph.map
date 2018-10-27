@@ -1,4 +1,0 @@
-<map id="InitializeCreatureTypes" name="InitializeCreatureTypes">
-<area shape="rect" id="node2" href="$d2/d3b/class_base_creature.html#af2066b8eb62bf595d30feae6671e4495" title="BaseCreature::loadCreatureTile" alt="" coords="210,5,419,31"/>
-<area shape="rect" id="node3" href="$d7/dd4/class_entity_tile.html#a1a6b6b995ad942e7850f14cc6e693bbc" title="EntityTile::loadTile" alt="" coords="467,5,597,31"/>
-</map>

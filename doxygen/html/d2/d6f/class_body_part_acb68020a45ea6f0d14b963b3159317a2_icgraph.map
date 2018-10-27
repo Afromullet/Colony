@@ -1,9 +1,0 @@
-<map id="BodyPart::setCanInteract" name="BodyPart::setCanInteract">
-<area shape="rect" id="node2" href="$d8/d3a/namespace_body_part_creator.html#a1e5297a1d1c20d2867434868cfc42ac1" title="BodyPartCreator::CreateBodyPart" alt="" coords="498,5,720,31"/>
-<area shape="rect" id="node7" href="$d8/d3a/namespace_body_part_creator.html#ab6d6a7845f43f745c09aaa1514881e20" title="BodyPartCreator::UpdateBodyPart" alt="" coords="224,55,450,80"/>
-<area shape="rect" id="node3" href="$d8/d3a/namespace_body_part_creator.html#aa69c6643c5e96d7dee3884662bb6ca00" title="BodyPartCreator::BPCreator" alt="" coords="768,31,959,56"/>
-<area shape="rect" id="node4" href="$d9/dd7/namespace_main_debug_window.html#a2c9084a9752a2e4ef87b8ca3039f5a4d" title="MainDebugWindow::MenuBar\lHandler" alt="" coords="1007,24,1205,63"/>
-<area shape="rect" id="node5" href="$d9/dd7/namespace_main_debug_window.html#ae0112f4e295169b45c2615b4915e3cc5" title="MainDebugWindow::ShowMain\lDebugWindow" alt="" coords="1253,24,1460,63"/>
-<area shape="rect" id="node6" href="$d9/dd7/namespace_main_debug_window.html#ae86fa1cdeae81822f5567320f9d56f65" title="MainDebugWindow::DebugMain\lWindow" alt="" coords="1508,24,1720,63"/>
-<area shape="rect" id="node8" href="$d8/d3a/namespace_body_part_creator.html#ac18c9ae3935b336efbb9634fb329413f" title="BodyPartCreator::BPEditor" alt="" coords="519,55,699,80"/>
-</map>

@@ -1,8 +1,0 @@
-<map id="BodyPart::getArmorRef" name="BodyPart::getArmorRef">
-<area shape="rect" id="node2" href="$d8/dcb/class_equipment_window.html#acf7d2c5609224291b20ad65d1241eeca" title="EquipmentWindow::UpdateMain\lWindow" alt="" coords="212,5,424,44"/>
-<area shape="rect" id="node3" href="$d8/dcb/class_equipment_window.html#a51ce202b7d1c4ac4e0e7d93df9dec726" title="EquipmentWindow::HandleWindow\lEvent" alt="" coords="472,5,702,44"/>
-<area shape="rect" id="node4" href="$d8/dcb/class_equipment_window.html#aea251bbf9967a0f39ccca5df854adcbe" title="EquipmentWindow::HandleEvent" alt="" coords="750,12,966,37"/>
-<area shape="rect" id="node5" href="$db/dcd/class_player_g_u_i.html#a1658f37b9e537d4a7377ca842bf60598" title="PlayerGUI::HandleWindowEvent" alt="" coords="1014,12,1228,37"/>
-<area shape="rect" id="node6" href="$df/d0a/main_8cpp.html#ab8ef98eaa887a3be4bb916cdde45b3d1" title="GameLoop3" alt="" coords="1276,12,1371,37"/>
-<area shape="rect" id="node7" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="1419,12,1469,37"/>
-</map>

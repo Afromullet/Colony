@@ -1,6 +1,0 @@
-<map id="CreatureBody::GenerateEdges" name="CreatureBody::GenerateEdges">
-<area shape="rect" id="node2" href="$df/d0a/main_8cpp.html#a6355d41788bff5386a6854b1fd02ab9b" title="v" alt="" coords="344,5,383,31"/>
-<area shape="rect" id="node3" href="$df/d51/_body_graph_getters_8cpp.html#a1684c9f93f236d359bb8fbbafa4d3f8c" title="GetVerticesWithToken" alt="" coords="287,55,440,80"/>
-<area shape="rect" id="node4" href="$df/d51/_body_graph_getters_8cpp.html#a763abea7d728994e559aa1af2aae1f0e" title="convertConnectionType" alt="" coords="283,104,444,129"/>
-<area shape="rect" id="node5" href="$df/d51/_body_graph_getters_8cpp.html#adb1abedeca85af21db1d704103903a87" title="convertConnectionPropertyType" alt="" coords="258,153,470,179"/>
-</map>

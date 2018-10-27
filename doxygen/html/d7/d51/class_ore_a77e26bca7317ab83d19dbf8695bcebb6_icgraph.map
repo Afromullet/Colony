@@ -1,6 +1,0 @@
-<map id="Ore::getOreType" name="Ore::getOreType">
-<area shape="rect" id="node2" href="$d1/d1e/_data_readers_8hpp.html#a18a93cbb4de7a759fcaecb3022dccc26" title="ReadOreFile" alt="" coords="174,5,271,31"/>
-<area shape="rect" id="node3" href="$df/d0a/main_8cpp.html#a32c7da4c4c129a2af80924d89fe1f89c" title="InitialzeDataFromFiles" alt="" coords="319,5,473,31"/>
-<area shape="rect" id="node4" href="$df/d0a/main_8cpp.html#ad60a204b9b7e3351c3f1a99b7aa7e429" title="InitializeAllData" alt="" coords="521,5,633,31"/>
-<area shape="rect" id="node5" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="681,5,732,31"/>
-</map>

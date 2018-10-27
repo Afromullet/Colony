@@ -1,6 +1,0 @@
-<map id="InventoryWindow::HandleWindowEvent" name="InventoryWindow::HandleWindowEvent">
-<area shape="rect" id="node2" href="$d1/dee/class_inventory_window.html#ad023d9091385b9829673f6f592dd44ea" title="InventoryWindow::HandleEvent" alt="" coords="274,12,481,37"/>
-<area shape="rect" id="node3" href="$db/dcd/class_player_g_u_i.html#a1658f37b9e537d4a7377ca842bf60598" title="PlayerGUI::HandleWindowEvent" alt="" coords="529,12,743,37"/>
-<area shape="rect" id="node4" href="$df/d0a/main_8cpp.html#ab8ef98eaa887a3be4bb916cdde45b3d1" title="GameLoop3" alt="" coords="791,12,886,37"/>
-<area shape="rect" id="node5" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="934,12,984,37"/>
-</map>

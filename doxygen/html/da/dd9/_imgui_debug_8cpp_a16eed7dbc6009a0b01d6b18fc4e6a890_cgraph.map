@@ -1,6 +1,0 @@
-<map id="BodyGraphViewer2" name="BodyGraphViewer2">
-<area shape="rect" id="node2" href="$da/d7d/class_creature_body.html#a5fa474a4a6f2c04d6ae55db42e6a9c75" title="CreatureBody::setName" alt="" coords="190,5,354,31"/>
-<area shape="rect" id="node3" href="$df/d13/namespace_im_gui.html#a405b19deb7db39d92f42ac1329740892" title="ImGui::Combo" alt="" coords="219,55,326,80"/>
-<area shape="rect" id="node4" href="$da/dd9/_imgui_debug_8cpp.html#a7f9f6442244ddfe471cc27a5662eeaa4" title="CreateBPTree" alt="" coords="219,104,325,129"/>
-<area shape="rect" id="node5" href="$df/d51/_body_graph_getters_8cpp.html#af1f9aa3eb19810590eedfa16c0d79179" title="getConnectedVertices" alt="" coords="402,104,554,129"/>
-</map>

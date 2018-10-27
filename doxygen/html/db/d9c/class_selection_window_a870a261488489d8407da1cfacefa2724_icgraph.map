@@ -1,8 +1,0 @@
-<map id="SelectionWindow::setCreature" name="SelectionWindow::setCreature">
-<area shape="rect" id="node2" href="$d1/dee/class_inventory_window.html#a0d286a4370871087af734042a3a6495d" title="InventoryWindow::setupWidgets" alt="" coords="258,5,470,31"/>
-<area shape="rect" id="node7" href="$d8/dcb/class_equipment_window.html#ad6ac175768f8725534c9b9ca1bd4d79a" title="EquipmentWindow::setupWidgets" alt="" coords="254,55,475,80"/>
-<area shape="rect" id="node3" href="$db/dcd/class_player_g_u_i.html#a7fdc3f6f9478ea077ddaffd8d34a3854" title="PlayerGUI::SetupPlayerGUI" alt="" coords="523,31,709,56"/>
-<area shape="rect" id="node4" href="$d1/d27/_player_windows_8hpp.html#acc8d46ee468ab4d8721d18b65370186d" title="SetupGUI" alt="" coords="757,31,837,56"/>
-<area shape="rect" id="node5" href="$df/d0a/main_8cpp.html#ad60a204b9b7e3351c3f1a99b7aa7e429" title="InitializeAllData" alt="" coords="885,31,998,56"/>
-<area shape="rect" id="node6" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="1046,31,1096,56"/>
-</map>

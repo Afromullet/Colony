@@ -1,8 +1,0 @@
-<map id="SelectionWindow::AddAdditionalAction" name="SelectionWindow::AddAdditionalAction">
-<area shape="rect" id="node2" href="$d1/dee/class_inventory_window.html#a0d286a4370871087af734042a3a6495d" title="InventoryWindow::setupWidgets" alt="" coords="271,5,483,31"/>
-<area shape="rect" id="node7" href="$d8/dcb/class_equipment_window.html#ad6ac175768f8725534c9b9ca1bd4d79a" title="EquipmentWindow::setupWidgets" alt="" coords="267,55,487,80"/>
-<area shape="rect" id="node3" href="$db/dcd/class_player_g_u_i.html#a7fdc3f6f9478ea077ddaffd8d34a3854" title="PlayerGUI::SetupPlayerGUI" alt="" coords="535,31,722,56"/>
-<area shape="rect" id="node4" href="$d1/d27/_player_windows_8hpp.html#acc8d46ee468ab4d8721d18b65370186d" title="SetupGUI" alt="" coords="770,31,850,56"/>
-<area shape="rect" id="node5" href="$df/d0a/main_8cpp.html#ad60a204b9b7e3351c3f1a99b7aa7e429" title="InitializeAllData" alt="" coords="898,31,1010,56"/>
-<area shape="rect" id="node6" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="1058,31,1109,56"/>
-</map>

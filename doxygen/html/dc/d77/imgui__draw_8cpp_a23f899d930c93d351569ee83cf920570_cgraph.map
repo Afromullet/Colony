@@ -1,7 +1,0 @@
-<map id="stb_decompress" name="stb_decompress">
-<area shape="rect" id="node2" href="$dc/d77/imgui__draw_8cpp.html#a5a5301def23b33e2156ac79a8b65c69b" title="stb_decompress_length" alt="" coords="172,5,335,31"/>
-<area shape="rect" id="node3" href="$dc/d77/imgui__draw_8cpp.html#ab60a4defbdf649dc073a900f61505dc2" title="stb_decompress_token" alt="" coords="174,55,334,80"/>
-<area shape="rect" id="node6" href="$dc/d77/imgui__draw_8cpp.html#a13802610d242126f44f88bc9392e3bbc" title="stb_adler32" alt="" coords="208,104,299,129"/>
-<area shape="rect" id="node4" href="$dc/d77/imgui__draw_8cpp.html#a7369890717be8d014dc7a437dcdfb282" title="stb__match" alt="" coords="383,31,474,56"/>
-<area shape="rect" id="node5" href="$dc/d77/imgui__draw_8cpp.html#a1e4edfcb0eca0c2f9b67338817342cc4" title="stb__lit" alt="" coords="397,80,460,105"/>
-</map>

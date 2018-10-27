@@ -1,9 +1,0 @@
-<map id="Biome::setCurrentTemp" name="Biome::setCurrentTemp">
-<area shape="rect" id="node2" href="$dd/d11/class_map.html#ae5a05885aef979310e900b8343679abd" title="Map::InitializeBiomeTemperatures" alt="" coords="215,31,437,56"/>
-<area shape="rect" id="node3" href="$d1/dd4/class_noise_map.html#a551072fd54a96722c96dea40dc24940e" title="NoiseMap::Generate\l_NoiseMap" alt="" coords="485,24,629,63"/>
-<area shape="rect" id="node4" href="$df/d0a/main_8cpp.html#ab8ef98eaa887a3be4bb916cdde45b3d1" title="GameLoop3" alt="" coords="840,5,935,31"/>
-<area shape="rect" id="node6" href="$df/d0a/main_8cpp.html#add6bd5657070c4129c65dc07a1280f7f" title="InitializeMaps" alt="" coords="677,56,779,81"/>
-<area shape="rect" id="node5" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="1156,31,1207,56"/>
-<area shape="rect" id="node7" href="$df/d0a/main_8cpp.html#ab5227b073ad87fc30322650e123e0055" title="SetupGameData" alt="" coords="827,56,948,81"/>
-<area shape="rect" id="node8" href="$df/d0a/main_8cpp.html#ad60a204b9b7e3351c3f1a99b7aa7e429" title="InitializeAllData" alt="" coords="996,56,1108,81"/>
-</map>

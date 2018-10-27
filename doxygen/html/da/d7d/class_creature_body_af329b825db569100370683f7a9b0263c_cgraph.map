@@ -1,5 +1,0 @@
-<map id="CreatureBody::EquipWeapon" name="CreatureBody::EquipWeapon">
-<area shape="rect" id="node2" href="$df/d51/_body_graph_getters_8cpp.html#a051c242a8b8389d6cbac3cfea5435a3e" title="getVerticesThatCanHoldWeapons" alt="" coords="248,12,470,37"/>
-<area shape="rect" id="node4" href="$db/de5/class_weapon.html#a459fd4ef8f2eefc9be73f05b6ec42bcd" title="Weapon::getWeaponSize" alt="" coords="273,61,445,87"/>
-<area shape="rect" id="node3" href="$d5/db3/class_anatomy___basic___d_f_s___visitor.html#aa4d4a9a684cd4ab15c965d3044530b76" title="Anatomy_Basic_DFS_Visitor\l::getVertexIndices" alt="" coords="518,5,710,44"/>
-</map>

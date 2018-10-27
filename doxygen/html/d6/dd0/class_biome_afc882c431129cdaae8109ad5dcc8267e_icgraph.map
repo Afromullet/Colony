@@ -1,8 +1,0 @@
-<map id="Biome::getHighTemp" name="Biome::getHighTemp">
-<area shape="rect" id="node2" href="$dd/d11/class_map.html#ae5a05885aef979310e900b8343679abd" title="Map::InitializeBiomeTemperatures" alt="" coords="198,29,421,55"/>
-<area shape="rect" id="node3" href="$d1/dd4/class_noise_map.html#a551072fd54a96722c96dea40dc24940e" title="NoiseMap::Generate\l_NoiseMap" alt="" coords="469,23,613,61"/>
-<area shape="rect" id="node4" href="$df/d0a/main_8cpp.html#ab8ef98eaa887a3be4bb916cdde45b3d1" title="GameLoop3" alt="" coords="824,5,919,31"/>
-<area shape="rect" id="node6" href="$df/d0a/main_8cpp.html#add6bd5657070c4129c65dc07a1280f7f" title="InitializeMaps" alt="" coords="661,55,763,80"/>
-<area shape="rect" id="node5" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="980,31,1030,56"/>
-<area shape="rect" id="node7" href="$df/d0a/main_8cpp.html#ab5227b073ad87fc30322650e123e0055" title="SetupGameData" alt="" coords="811,55,932,80"/>
-</map>

@@ -1,6 +1,0 @@
-<map id="MapEffect::setID" name="MapEffect::setID">
-<area shape="rect" id="node2" href="$df/d40/_player_controls_8hpp.html#a2fbf8484c8a051b724315afd0f442465" title="HandlePlayerInput" alt="" coords="333,5,464,31"/>
-<area shape="rect" id="node5" href="$dd/d11/class_map.html#a4392e61c95d9873f6f2bd4b46e988bba" title="Map::AddEffect" alt="" coords="173,31,285,56"/>
-<area shape="rect" id="node3" href="$df/d0a/main_8cpp.html#ab8ef98eaa887a3be4bb916cdde45b3d1" title="GameLoop3" alt="" coords="512,5,607,31"/>
-<area shape="rect" id="node4" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="655,5,705,31"/>
-</map>

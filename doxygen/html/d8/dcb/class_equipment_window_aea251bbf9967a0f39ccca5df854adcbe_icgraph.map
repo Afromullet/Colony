@@ -1,5 +1,0 @@
-<map id="EquipmentWindow::HandleEvent" name="EquipmentWindow::HandleEvent">
-<area shape="rect" id="node2" href="$db/dcd/class_player_g_u_i.html#a1658f37b9e537d4a7377ca842bf60598" title="PlayerGUI::HandleWindowEvent" alt="" coords="270,5,484,31"/>
-<area shape="rect" id="node3" href="$df/d0a/main_8cpp.html#ab8ef98eaa887a3be4bb916cdde45b3d1" title="GameLoop3" alt="" coords="532,5,626,31"/>
-<area shape="rect" id="node4" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="674,5,725,31"/>
-</map>

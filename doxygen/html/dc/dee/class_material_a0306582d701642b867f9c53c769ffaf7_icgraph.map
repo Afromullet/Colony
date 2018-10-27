@@ -1,5 +1,0 @@
-<map id="Material::SetupImpactForce" name="Material::SetupImpactForce">
-<area shape="rect" id="node2" href="$dc/dee/class_material.html#aa2951eaa13d1f8137cc228ccc9b0c33c" title="Material::SetupForce" alt="" coords="238,12,384,37"/>
-<area shape="rect" id="node3" href="$dc/dee/class_material.html#a9340d9854962d09d685b9638be093fa5" title="Material::PerformMaterial\lCalculations" alt="" coords="432,5,603,44"/>
-<area shape="rect" id="node4" href="$d2/d6f/class_body_part.html#aed6e734467a8cd25b4be8bc18edc9033" title="BodyPart::ApplyAttack" alt="" coords="651,12,805,37"/>
-</map>

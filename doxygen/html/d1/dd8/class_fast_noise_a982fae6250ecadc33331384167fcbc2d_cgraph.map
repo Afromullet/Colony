@@ -1,8 +1,0 @@
-<map id="FastNoise::SingleValue" name="FastNoise::SingleValue">
-<area shape="rect" id="node2" href="$dc/dc1/_fast_noise_8cpp.html#a318facc2356654373240fde1b2cbc281" title="FastFloor" alt="" coords="267,5,344,31"/>
-<area shape="rect" id="node3" href="$dc/dc1/_fast_noise_8cpp.html#abd9bf665bf4e99846a274ccb52934f9d" title="InterpHermiteFunc" alt="" coords="240,55,371,80"/>
-<area shape="rect" id="node4" href="$dc/dc1/_fast_noise_8cpp.html#a9249edba704a32939798c3efbf1063a9" title="InterpQuinticFunc" alt="" coords="242,104,369,129"/>
-<area shape="rect" id="node5" href="$dc/dc1/_fast_noise_8cpp.html#a824a3801b9df898891f37d807824ad4e" title="Lerp" alt="" coords="281,153,329,179"/>
-<area shape="rect" id="node6" href="$d1/dd8/class_fast_noise.html#a8711ebad77216b74f5d248deb024de2f" title="FastNoise::ValCoord3DFast" alt="" coords="212,203,399,228"/>
-<area shape="rect" id="node7" href="$d1/dd8/class_fast_noise.html#a1102de0e643266c5ea9b54a5bbca2476" title="FastNoise::Index3D_256" alt="" coords="447,203,615,228"/>
-</map>

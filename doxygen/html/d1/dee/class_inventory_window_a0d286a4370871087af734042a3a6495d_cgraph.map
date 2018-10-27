@@ -1,9 +1,0 @@
-<map id="InventoryWindow::setupWidgets" name="InventoryWindow::setupWidgets">
-<area shape="rect" id="node2" href="$db/d9c/class_selection_window.html#a870a261488489d8407da1cfacefa2724" title="SelectionWindow::setCreature" alt="" coords="274,5,474,31"/>
-<area shape="rect" id="node3" href="$db/d9c/class_selection_window.html#a114554837c81ec32275741764bfccdc0" title="SelectionWindow::SetupMain\lWindow" alt="" coords="277,55,471,93"/>
-<area shape="rect" id="node4" href="$db/d9c/class_selection_window.html#a091bd686d352a2cf1236aa56a2e70174" title="SelectionWindow::SetupAction\lWindow" alt="" coords="273,117,475,156"/>
-<area shape="rect" id="node5" href="$db/d9c/class_selection_window.html#a364adfebc05e660c153d58117762ed97" title="SelectionWindow::SetupExamine\lWindow" alt="" coords="265,180,483,219"/>
-<area shape="rect" id="node8" href="$db/d9c/class_selection_window.html#ad520a06caa0f206afcd0f07eb2489066" title="SelectionWindow::AddAdditional\lAction" alt="" coords="267,243,481,281"/>
-<area shape="rect" id="node6" href="$d0/d28/class_examine_window.html#a15f26e824ea2849573ce7a0664adc192" title="ExamineWindow::setupWidgets" alt="" coords="531,163,740,188"/>
-<area shape="rect" id="node7" href="$d0/d28/class_examine_window.html#a43f65ea7b98e29f773cdf0098ab0ed9c" title="ExamineWindow::hide" alt="" coords="559,212,712,237"/>
-</map>

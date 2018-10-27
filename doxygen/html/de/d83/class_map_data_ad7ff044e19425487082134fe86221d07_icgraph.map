@@ -1,5 +1,0 @@
-<map id="MapData::DrawCreaturesOnMap" name="MapData::DrawCreaturesOnMap">
-<area shape="rect" id="node2" href="$df/d0a/main_8cpp.html#a5d7b7e04a7ca2595a71bee3df40fdd4e" title="DrawEverything" alt="" coords="270,5,385,31"/>
-<area shape="rect" id="node3" href="$df/d0a/main_8cpp.html#ab8ef98eaa887a3be4bb916cdde45b3d1" title="GameLoop3" alt="" coords="433,5,528,31"/>
-<area shape="rect" id="node4" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="576,5,626,31"/>
-</map>

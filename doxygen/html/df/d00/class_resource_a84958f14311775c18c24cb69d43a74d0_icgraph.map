@@ -1,7 +1,0 @@
-<map id="Resource::setMaterial" name="Resource::setMaterial">
-<area shape="rect" id="node2" href="$da/dd3/_plant_8hpp.html#a1466b8cfab7ab3dc92c539fa267361c6" title="InitializePlantMaterials" alt="" coords="204,5,358,31"/>
-<area shape="rect" id="node6" href="$d2/d21/_tree_8hpp.html#a9d274a18e427ee5b8db941200eab52dd" title="InitializeTreeMaterials" alt="" coords="206,55,357,80"/>
-<area shape="rect" id="node3" href="$df/d0a/main_8cpp.html#a32c7da4c4c129a2af80924d89fe1f89c" title="InitialzeDataFromFiles" alt="" coords="406,31,560,56"/>
-<area shape="rect" id="node4" href="$df/d0a/main_8cpp.html#ad60a204b9b7e3351c3f1a99b7aa7e429" title="InitializeAllData" alt="" coords="608,31,721,56"/>
-<area shape="rect" id="node5" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="769,31,819,56"/>
-</map>

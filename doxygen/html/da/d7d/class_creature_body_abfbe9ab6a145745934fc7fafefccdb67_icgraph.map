@@ -1,7 +1,0 @@
-<map id="CreatureBody::getName" name="CreatureBody::getName">
-<area shape="rect" id="node2" href="$df/d9e/namespace_body_graph_viewer.html#a4f4bee772e1d2c1133111866dd88f140" title="BodyGraphViewer::Display\lGraph" alt="" coords="218,5,399,44"/>
-<area shape="rect" id="node3" href="$df/d9e/namespace_body_graph_viewer.html#af9dda6b999602264957b77351415c57d" title="BodyGraphViewer::GraphViewer" alt="" coords="447,12,661,37"/>
-<area shape="rect" id="node4" href="$d9/dd7/namespace_main_debug_window.html#a2c9084a9752a2e4ef87b8ca3039f5a4d" title="MainDebugWindow::MenuBar\lHandler" alt="" coords="709,5,908,44"/>
-<area shape="rect" id="node5" href="$d9/dd7/namespace_main_debug_window.html#ae0112f4e295169b45c2615b4915e3cc5" title="MainDebugWindow::ShowMain\lDebugWindow" alt="" coords="956,5,1162,44"/>
-<area shape="rect" id="node6" href="$d9/dd7/namespace_main_debug_window.html#ae86fa1cdeae81822f5567320f9d56f65" title="MainDebugWindow::DebugMain\lWindow" alt="" coords="1210,5,1423,44"/>
-</map>

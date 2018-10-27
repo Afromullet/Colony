@@ -1,7 +1,0 @@
-<map id="NavScoreItem" name="NavScoreItem">
-<area shape="rect" id="node2" href="$da/d72/imgui_8cpp.html#ab172b759f70219fff17c9e1445ac6a15" title="NavClampRectToVisibleArea\lForMoveDir" alt="" coords="159,5,351,44"/>
-<area shape="rect" id="node3" href="$da/d72/imgui_8cpp.html#a740720398cccbdf1fd1ae6ffef8f7971" title="NavScoreItemDistInterval" alt="" coords="169,68,342,93"/>
-<area shape="rect" id="node4" href="$da/d72/imgui_8cpp.html#ab63935df6180e66c25317358f3d2e064" title="NavScoreItemGetQuadrant" alt="" coords="164,117,347,143"/>
-<area shape="rect" id="node5" href="$da/d72/imgui_8cpp.html#a75ccaf7d676b1f567ba888ae42ac3809" title="ImFormatString" alt="" coords="199,167,312,192"/>
-<area shape="rect" id="node6" href="$da/d72/imgui_8cpp.html#a8faca7166485b9106c91ef03b836ae26" title="IsKeyPressedMap" alt="" coords="191,216,320,241"/>
-</map>

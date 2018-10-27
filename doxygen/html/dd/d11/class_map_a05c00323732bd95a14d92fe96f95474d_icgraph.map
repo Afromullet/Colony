@@ -1,6 +1,0 @@
-<map id="Map::setEffectColor" name="Map::setEffectColor">
-<area shape="rect" id="node2" href="$df/d40/_player_controls_8hpp.html#abc69fe16b664614aa47cbd2b13ad76ac" title="ControlTargetSquare" alt="" coords="192,5,336,31"/>
-<area shape="rect" id="node3" href="$df/d40/_player_controls_8hpp.html#a2fbf8484c8a051b724315afd0f442465" title="HandlePlayerInput" alt="" coords="384,5,515,31"/>
-<area shape="rect" id="node4" href="$df/d0a/main_8cpp.html#ab8ef98eaa887a3be4bb916cdde45b3d1" title="GameLoop3" alt="" coords="563,5,658,31"/>
-<area shape="rect" id="node5" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="706,5,756,31"/>
-</map>

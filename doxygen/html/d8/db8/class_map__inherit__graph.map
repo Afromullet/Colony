@@ -1,4 +1,0 @@
-<map id="Map" name="Map">
-<area shape="rect" id="node4" href="$df/dfe/class_c_a___map.html" title="{CA_Map\n|&#45; ruleset\l&#45; allNumOfNeighbors\l|+ CA_Map()\l+ Generate_CA_MAP()\l+ SetInitialState()\l+ SetRuleSet()\l+ SimulationStep()\l+ CaveSimulationStep()\l+ GetLivingNeighbors()\l+ TestRuleset()\l+ PlacementTest()\l+ CaveTunnelMap()\l+ CreateRoom()\l}" alt="" coords="5,501,168,721"/>
-<area shape="rect" id="node5" href="$d1/dd4/class_noise_map.html" title="{NoiseMap\n||+ NoiseMap()\l+ Generate_NoiseMap()\l+ GenerateNoiseValues()\l+ SetBiomes()\l+ LoadBiomeTiles()\l}" alt="" coords="192,548,363,675"/>
-</map>

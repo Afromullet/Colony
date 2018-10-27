@@ -1,4 +1,0 @@
-<map id="Item" name="Item">
-<area shape="rect" id="node2" href="$d9/d76/class_armor.html" title="{Armor\n|&#45; siArmorBonus\l&#45; fDodgeModifier\l&#45; fDamageReduction\l&#45; fMovementModifier\l|+ operator==()\l+ operator!=()\l+ operator=()\l+ Armor()\l+ Armor()\l+ Armor()\l+ clone()\l+ create()\l+ getItemExamineString()\l+ showItemStats()\land 12 more...\l}" alt="" coords="5,460,178,707"/>
-<area shape="rect" id="node3" href="$db/de5/class_weapon.html" title="{Weapon\n|&#45; siRange\l&#45; siDamage\l&#45; isTwohanded\l&#45; isRanged\l&#45; enWeaponSize\l&#45; contactArea\l|+ operator==()\l+ operator!=()\l+ operator=()\l+ Weapon()\l+ Weapon()\l+ Weapon()\l+ clone()\l+ create()\l+ showItemStats()\l+ getItemExamineString()\land 14 more...\l}" alt="" coords="203,447,376,720"/>
-</map>

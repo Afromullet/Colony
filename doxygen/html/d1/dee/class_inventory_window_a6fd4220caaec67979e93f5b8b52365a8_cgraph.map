@@ -1,4 +1,0 @@
-<map id="InventoryWindow::isAnyWindowVisible" name="InventoryWindow::isAnyWindowVisible">
-<area shape="rect" id="node2" href="$db/d9c/class_selection_window.html#a40ffbdbd4b8bc3ef84208faed2ae97da" title="SelectionWindow::isAnyInitial\lWindowVisible" alt="" coords="264,5,459,44"/>
-<area shape="rect" id="node3" href="$d0/d28/class_examine_window.html#a71b248a6336a0626d8f6593921ecf2bd" title="ExamineWindow::isVisible" alt="" coords="507,12,684,37"/>
-</map>

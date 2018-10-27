@@ -1,6 +1,0 @@
-<map id="WindowCommands::getInventoryData" name="WindowCommands::getInventoryData">
-<area shape="rect" id="node2" href="$d1/def/class_data_window.html#a84545c27ad784513eb4f830d4aeda82a" title="DataWindow::getWindowType" alt="" coords="299,5,498,31"/>
-<area shape="rect" id="node3" href="$d2/d3b/class_base_creature.html#a505e70415a3e2db87aac0767498375ff" title="BaseCreature::getInventory" alt="" coords="307,55,491,80"/>
-<area shape="rect" id="node4" href="$d1/def/class_data_window.html#a8bec28c4e6514e9b62b10686e0e9b40d" title="DataWindow::AddText" alt="" coords="323,104,475,129"/>
-<area shape="rect" id="node5" href="$d1/def/class_data_window.html#a05ac7ad6357b9cabd0436c181c6cf29d" title="DataWindow::setTextColor" alt="" coords="310,153,488,179"/>
-</map>

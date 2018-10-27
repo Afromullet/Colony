@@ -1,9 +1,0 @@
-<map id="SetupCurrentMap" name="SetupCurrentMap">
-<area shape="rect" id="node2" href="$de/d83/class_map_data.html#a8adfe57c9e74b6e306540dcb003feb95" title="MapData::setMap" alt="" coords="226,5,352,31"/>
-<area shape="rect" id="node3" href="$d7/d1f/_test_data_generator_8cpp.html#adba10fd22a50f3f21847269b6af05729" title="CreateTargetCreatures" alt="" coords="211,55,368,80"/>
-<area shape="rect" id="node7" href="$de/d83/class_map_data.html#ad377a46f779bfcb9ac57dcdd3a969eca" title="MapData::PlaceCreaturesOnMap" alt="" coords="180,104,398,129"/>
-<area shape="rect" id="node8" href="$de/d83/class_map_data.html#aae575fa856f1d179220c4781873fd635" title="MapData::PlaceItemsOnMap" alt="" coords="193,153,385,179"/>
-<area shape="rect" id="node4" href="$d2/d3b/class_base_creature.html#a00ffc1ee732a8f0a8921c9cee6842e4d" title="BaseCreature::setPosition" alt="" coords="457,31,634,56"/>
-<area shape="rect" id="node6" href="$de/d83/class_map_data.html#ab54fe2f14d5192d3e1683a6c48839f80" title="MapData::AddCreatureToMap" alt="" coords="446,80,645,105"/>
-<area shape="rect" id="node5" href="$d7/dd4/class_entity_tile.html#a7b9e5be8dc4017eb5af8e4fda7add3c4" title="EntityTile::setPosition" alt="" coords="693,31,841,56"/>
-</map>

@@ -1,3 +1,0 @@
-<map id="BaseCreature::PickupItem" name="BaseCreature::PickupItem">
-<area shape="rect" id="node2" href="$df/d79/class_tile.html#a21a4a6291fcf5bfd4e05ddc9eeda61b0" title="Tile::getItemOnTile" alt="" coords="230,5,363,31"/>
-</map>

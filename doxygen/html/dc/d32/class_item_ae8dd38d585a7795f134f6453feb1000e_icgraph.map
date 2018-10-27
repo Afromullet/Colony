@@ -1,8 +1,0 @@
-<map id="Item::setItemName" name="Item::setItemName">
-<area shape="rect" id="node2" href="$df/d0a/main_8cpp.html#a0e54b88e292aa007c9534e8ab287d049" title="InitializeTestingData" alt="" coords="206,5,346,31"/>
-<area shape="rect" id="node5" href="$d6/d62/_item_generator_8hpp.html#a73c459717a9061affce0f19c1e98d626" title="GenerateRandomArmor" alt="" coords="194,55,357,80"/>
-<area shape="rect" id="node6" href="$d6/d62/_item_generator_8hpp.html#a5be96f6f28cdb72430191c9116ee5048" title="GenerateRandomWeapon" alt="" coords="187,104,364,129"/>
-<area shape="rect" id="node7" href="$d7/d1f/_test_data_generator_8cpp.html#aab0823e979250be375299f1337314fe1" title="GenerateTestEquipment" alt="" coords="193,153,358,179"/>
-<area shape="rect" id="node3" href="$df/d0a/main_8cpp.html#ad60a204b9b7e3351c3f1a99b7aa7e429" title="InitializeAllData" alt="" coords="412,5,525,31"/>
-<area shape="rect" id="node4" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="573,5,623,31"/>
-</map>

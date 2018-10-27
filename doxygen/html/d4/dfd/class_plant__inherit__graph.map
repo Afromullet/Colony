@@ -1,4 +1,0 @@
-<map id="Plant" name="Plant">
-<area shape="rect" id="node3" href="$dd/df8/class_tree.html" title="{Tree\n|&#45; maxHeight\l&#45; maxDiameter\l|+ operator==()\l+ operator=()\l+ operator=()\l+ Tree()\l+ Tree()\l+ setMaxHeight()\l+ setMaxDiameter()\l+ getMaxHeight()\l+ getMaxDiameter()\l}" alt="" coords="21,661,160,855"/>
-<area shape="rect" id="node2" href="$df/d00/class_resource.html" title="{Resource\n|&#45; isRenewable\l&#45; isEdible\l&#45; resourceCategory\l&#45; name\l&#45; rarity\l&#45; material\l|+ operator==()\l+ operator!=()\l+ operator=()\l+ Resource()\l+ Resource()\l+ Resource()\l+ setResourceCategory()\l+ setIsRenewable()\l+ setResourceName()\l+ setRarity()\land 12 more...\l}" alt="" coords="5,5,176,279"/>
-</map>

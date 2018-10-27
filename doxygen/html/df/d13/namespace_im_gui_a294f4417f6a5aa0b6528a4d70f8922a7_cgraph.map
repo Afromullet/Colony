@@ -1,9 +1,0 @@
-<map id="ImGui::NavProcessItem" name="ImGui::NavProcessItem">
-<area shape="rect" id="node2" href="$da/d72/imgui_8cpp.html#acbb76ca32af07da396906eb70afaa00c" title="NavUpdateAnyRequestFlag" alt="" coords="215,68,402,93"/>
-<area shape="rect" id="node3" href="$da/d72/imgui_8cpp.html#a4b8569680821551b9e1e28da458acf5b" title="NavScoreItem" alt="" coords="256,117,362,143"/>
-<area shape="rect" id="node4" href="$da/d72/imgui_8cpp.html#ab172b759f70219fff17c9e1445ac6a15" title="NavClampRectToVisibleArea\lForMoveDir" alt="" coords="450,5,642,44"/>
-<area shape="rect" id="node5" href="$da/d72/imgui_8cpp.html#a740720398cccbdf1fd1ae6ffef8f7971" title="NavScoreItemDistInterval" alt="" coords="460,68,632,93"/>
-<area shape="rect" id="node6" href="$da/d72/imgui_8cpp.html#ab63935df6180e66c25317358f3d2e064" title="NavScoreItemGetQuadrant" alt="" coords="455,117,638,143"/>
-<area shape="rect" id="node7" href="$da/d72/imgui_8cpp.html#a75ccaf7d676b1f567ba888ae42ac3809" title="ImFormatString" alt="" coords="490,167,603,192"/>
-<area shape="rect" id="node8" href="$da/d72/imgui_8cpp.html#a8faca7166485b9106c91ef03b836ae26" title="IsKeyPressedMap" alt="" coords="481,216,611,241"/>
-</map>

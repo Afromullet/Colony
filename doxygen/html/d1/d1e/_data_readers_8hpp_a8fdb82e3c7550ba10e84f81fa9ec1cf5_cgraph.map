@@ -1,8 +1,0 @@
-<map id="ReadMaterialFile" name="ReadMaterialFile">
-<area shape="rect" id="node2" href="$df/d0a/main_8cpp.html#a6355d41788bff5386a6854b1fd02ab9b" title="v" alt="" coords="253,5,292,31"/>
-<area shape="rect" id="node3" href="$d6/d38/_data_readers_8cpp.html#ac22aa8a1fae8271d21dabf52ae481e0c" title="convertFloatVal" alt="" coords="216,55,329,80"/>
-<area shape="rect" id="node4" href="$dc/dee/class_material.html#a24b0f9d7ae4787f66ef055f70f63b240" title="Material::setDeformation\lStrenghts" alt="" coords="189,104,356,143"/>
-<area shape="rect" id="node5" href="$dc/dee/class_material.html#a9c2547bdd4f225f9ad2351b8c2ad7c7e" title="Material::setFractureStrength" alt="" coords="175,167,369,192"/>
-<area shape="rect" id="node6" href="$dc/dee/class_material.html#ab73b88e094cf38d28f9addfd12357b04" title="Material::setMaterialName" alt="" coords="184,216,361,241"/>
-<area shape="rect" id="node7" href="$dc/dee/class_material.html#ab7aca2e9daaf35b5b8a45ee677c07073" title="Material::setDensity" alt="" coords="203,265,342,291"/>
-</map>

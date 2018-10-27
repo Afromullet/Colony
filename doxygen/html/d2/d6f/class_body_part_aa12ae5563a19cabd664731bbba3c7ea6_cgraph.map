@@ -1,4 +1,0 @@
-<map id="BodyPart::EquipArmor" name="BodyPart::EquipArmor">
-<area shape="rect" id="node2" href="$dc/d32/class_item.html#ade0d63a4f02aa1a97f977b13f96eb891" title="Item::setIsEquipped" alt="" coords="207,5,346,31"/>
-<area shape="rect" id="node3" href="$dc/d32/class_item.html#a806159273f1f9fbb07fe75a74f2f51c5" title="Item::getItemName" alt="" coords="210,55,344,80"/>
-</map>

@@ -1,4 +1,0 @@
-<map id="Material::DetermineWoundSeverity" name="Material::DetermineWoundSeverity">
-<area shape="rect" id="node2" href="$dc/dee/class_material.html#a9340d9854962d09d685b9638be093fa5" title="Material::PerformMaterial\lCalculations" alt="" coords="233,5,404,44"/>
-<area shape="rect" id="node3" href="$d2/d6f/class_body_part.html#aed6e734467a8cd25b4be8bc18edc9033" title="BodyPart::ApplyAttack" alt="" coords="452,12,606,37"/>
-</map>

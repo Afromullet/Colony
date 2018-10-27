@@ -1,9 +1,0 @@
-<map id="InMapBoundaries" name="InMapBoundaries">
-<area shape="rect" id="node2" href="$d6/dbc/_movement_handler_8hpp.html#a33c006feb26c363de26d7c11361ba2c0" title="MovePlayer" alt="" coords="216,5,308,31"/>
-<area shape="rect" id="node6" href="$d6/dbc/_movement_handler_8hpp.html#a90b82498b11fee5568c3853a60f16e6a" title="MoveCreatureRandomly" alt="" coords="179,55,345,80"/>
-<area shape="rect" id="node3" href="$df/d40/_player_controls_8hpp.html#a2fbf8484c8a051b724315afd0f442465" title="HandlePlayerInput" alt="" coords="568,5,699,31"/>
-<area shape="rect" id="node4" href="$df/d0a/main_8cpp.html#ab8ef98eaa887a3be4bb916cdde45b3d1" title="GameLoop3" alt="" coords="747,31,842,56"/>
-<area shape="rect" id="node5" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="890,31,940,56"/>
-<area shape="rect" id="node7" href="$df/d0a/main_8cpp.html#a077e67179777b70a256e0a22842dd13c" title="MoveAllCreatures" alt="" coords="393,55,520,80"/>
-<area shape="rect" id="node8" href="$df/d0a/main_8cpp.html#a5d7b7e04a7ca2595a71bee3df40fdd4e" title="DrawEverything" alt="" coords="576,55,692,80"/>
-</map>

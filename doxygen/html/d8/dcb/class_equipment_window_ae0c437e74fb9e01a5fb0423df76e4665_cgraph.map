@@ -1,8 +1,0 @@
-<map id="EquipmentWindow::setupSignals" name="EquipmentWindow::setupSignals">
-<area shape="rect" id="node2" href="$db/d9c/class_selection_window.html#aad256b3ad7d9dfef1465a3ca9bba6e5b" title="SelectionWindow::MainDouble\lClickAction" alt="" coords="270,5,472,44"/>
-<area shape="rect" id="node3" href="$d8/dcb/class_equipment_window.html#abfd5a25ea90203e21291d6c6725b30f2" title="EquipmentWindow::Additional\lActionsDoubleClick" alt="" coords="271,68,470,107"/>
-<area shape="rect" id="node4" href="$d8/dcb/class_equipment_window.html#aa97046abad40cd1b4003fef694686992" title="EquipmentWindow::Additional\lActionsHandler" alt="" coords="520,68,718,107"/>
-<area shape="rect" id="node5" href="$d9/d6d/_wound_8cpp.html#aeea66c7e63179a3375e101f954cb5248" title="GetWoundType" alt="" coords="794,25,908,51"/>
-<area shape="rect" id="node6" href="$d0/d28/class_examine_window.html#ab88efb6bed6125a0c941ce70a360baf0" title="ExamineWindow::setText" alt="" coords="766,75,937,100"/>
-<area shape="rect" id="node7" href="$d0/d28/class_examine_window.html#a5d93b356de906a2b4891b8ff79425b90" title="ExamineWindow::show" alt="" coords="772,124,931,149"/>
-</map>

@@ -1,6 +1,0 @@
-<map id="doesEffectIDExist" name="doesEffectIDExist">
-<area shape="rect" id="node2" href="$d4/d9c/_globals_8hpp.html#a3028c6b7001d4b3036b6e6753ef11dd8" title="AssignEffectID" alt="" coords="180,5,288,31"/>
-<area shape="rect" id="node3" href="$df/d40/_player_controls_8hpp.html#a2fbf8484c8a051b724315afd0f442465" title="HandlePlayerInput" alt="" coords="336,5,467,31"/>
-<area shape="rect" id="node4" href="$df/d0a/main_8cpp.html#ab8ef98eaa887a3be4bb916cdde45b3d1" title="GameLoop3" alt="" coords="515,5,610,31"/>
-<area shape="rect" id="node5" href="$df/d0a/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="658,5,708,31"/>
-</map>
