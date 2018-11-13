@@ -9,10 +9,9 @@
 #include "Armor.hpp"
 #include "BodyPart.hpp"
 #include "ItemManager.hpp"
-#include <boost/uuid/uuid.hpp>
-#include <boost/uuid/uuid_generators.hpp>
-#include "Globals.hpp"
-#include "UtilMacros.h"
+
+//#include "Globals.hpp"
+
 
 //todo add "Blank" armor for when no armor is equipped or when we have something like leg armor
 
@@ -110,6 +109,34 @@ Armor::Armor(const Armor &other)
     enItemType = enArmorType;
     itemTile = other.itemTile;
 
+    
+}
+
+Armor::Armor(const Armor *other)
+{
+    
+    siArmorBonus = other->siArmorBonus;
+    fDodgeModifier = other->fDodgeModifier;
+    fDamageReduction = other->fDamageReduction;
+    fMovementModifier = other->fMovementModifier;
+    sEquipmentName = other->sEquipmentName;
+    section = other->section;
+    size = other->size;
+    mass = other->mass;
+    material = other->material;
+    isEquipped = other->isEquipped;
+    position = other->position;
+    tile = other->tile;
+    itemTile = other->itemTile;
+    sections = other->sections;
+    position = other->position;
+    tag = other->tag;
+    stackSize = other->stackSize;
+    maxStackSize = other->maxStackSize;
+    descriptiveText = other->descriptiveText;
+    enItemType = enArmorType;
+    itemTile = other->itemTile;
+    
     
 }
 
@@ -224,6 +251,7 @@ void Armor::setMaterial(Material value)
 }
 
 
+Armor NO_ARMOR(Material(),"No armor",1,1,1,1);
 
 
 

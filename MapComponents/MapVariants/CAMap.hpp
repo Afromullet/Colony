@@ -69,4 +69,6 @@ private:
     
 };
 
+extern CA_Map caMap;
+
 #endif /* CAMap_hpp */

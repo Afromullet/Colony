@@ -17,11 +17,18 @@
 
 #ifndef Map_hpp
 #define Map_hpp
-#include <unordered_map>
+
 #include <stdio.h>
+#include <iostream>
+#include <vector>
+#include <math.h>
+#include <random>
 
 #include "MapEffect.hpp"
 #include "DataStorage.hpp"
+//#include "Globals.hpp"
+#include "Constants.hpp"
+#include "TileReader.hpp"
 //Groups tile vertices by a tile ID
 //Todo make vertexarray a reference so we do not contain the vertices twice
 typedef struct MapTileParameters
@@ -137,6 +144,10 @@ private:
     
     
 };
+
+
+extern Map MainMap; //No need to have more than one main map (At least for now)
+
 #endif /* Map_hpp */
 
 

@@ -7,18 +7,6 @@
 //
 
 #include "DataReaders.hpp"
-#include <boost/range/irange.hpp>
-#include <boost/property_tree/ptree.hpp>
-#include <boost/property_tree/xml_parser.hpp>
-#include <boost/foreach.hpp>
-#include "Material.hpp"
-#include "DataStorage.hpp"
-#include "Biomes.hpp"
-#include "Constants.hpp"
-#include "Tree.hpp"
-
-#include <boost/algorithm/string.hpp>
-#include <boost/algorithm/string/split.hpp>
 
 
 

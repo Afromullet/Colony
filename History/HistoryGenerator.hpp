@@ -11,7 +11,11 @@
 
 #include <stdio.h>
 #include "HistoryTokenReader.hpp"
-
+#include "DataStorage.hpp"
+#include <boost/random/mersenne_twister.hpp>
+#include <boost/random/uniform_int_distribution.hpp>
+#include <iostream>
+#include "Constants.hpp"
 
 RewriteRules SelectStartingHistoryRule();
 

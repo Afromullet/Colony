@@ -15,8 +15,9 @@
 #include <stdio.h>
 #include "Equipment.hpp"
 #include <memory>
-
-
+#include <boost/uuid/uuid.hpp>
+#include <boost/uuid/uuid_generators.hpp>
+#include "UtilMacros.h"
 
 class Armor : public Item
 {
@@ -44,6 +45,7 @@ public:
 
     
     Armor(const Armor &other);
+    Armor(const Armor *other);
    
 
     
@@ -102,6 +104,8 @@ public:
     
 };
 
+
+extern Armor NO_ARMOR;
 
 
 #endif /* Armor_hpp */

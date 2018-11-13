@@ -10,6 +10,9 @@
 #define ImguiDebug_hpp
 
 
+#ifdef ENABLE_IMGUI
+
+
 #include "imgui.h"
 #include "imgui-SFML.h"
 #include <memory>
@@ -17,6 +20,8 @@
 #include <string>
 #include "BodyPart.hpp"
 #include <vector>
+#include <string>
+//#include "BodyGraphGetters.hpp"
 
 
 
@@ -191,6 +196,6 @@ void DisplayShit();
 //Groups of functions that serve as a debug menu..I.E, spawning creatures, modifying stats
 
 
-#include <stdio.h>
+#endif 
 
 #endif /* ImguiDebug_hpp */

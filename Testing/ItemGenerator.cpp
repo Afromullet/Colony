@@ -7,11 +7,6 @@
 //
 
 #include "ItemGenerator.hpp"
-#include "Constants.hpp"
-#include "Globals.hpp"
-#include "Map.hpp"
-#include "EnumTypes.hpp"
-
 
 //todo add destructors
 

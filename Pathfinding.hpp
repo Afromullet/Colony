@@ -7,7 +7,7 @@
 //
 
 
-#include "Map.hpp"
+
 
 #ifndef Pathfinding_hpp
 #define Pathfinding_hpp
@@ -16,8 +16,11 @@
 
 #include <SFML/Graphics.hpp>
 #include <stdio.h>
-
-
+#include <queue>
+#include <map>
+#include <set>
+#include <fstream>
+#include "Map.hpp"
 
 struct GridLocation
 {

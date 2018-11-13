@@ -7,16 +7,7 @@
 //
 
 #include "Map.hpp"
-#include <iostream>
 
-#include <vector>
-#include <unordered_map>
-#include "Globals.hpp"
-#include "Constants.hpp"
-#include <math.h>
-
-
-#include <random>
 /*
  
  An explicit example showing how to build a vertexarrays from existing vertices,
@@ -794,3 +785,6 @@ void Map::setHeight(int val)
     height = val;
     
 }
+
+
+Map MainMap;

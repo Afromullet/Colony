@@ -7,8 +7,7 @@
 //
 
 #include "Ore.hpp"
-#include "DataStorage.hpp"
-#include <iostream>
+
 
 //Stone and gem is also considered an ore for purposes of modeling it
  Ore metalResources[MAX_RESOURCES_PER_GROUP];

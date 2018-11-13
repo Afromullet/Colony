@@ -14,7 +14,8 @@
 #include <vector>
 
 #include "EnumTypes.hpp"
-
+#include "ErrorConstants.hpp"
+#include "UtilMacros.h"
 
 //Inspired by Dwarf Fortress
 //Not an accurate representation of material science...

@@ -7,11 +7,7 @@
 //
 
 #include "HistoryGenerator.hpp"
-#include "DataStorage.hpp"
-#include <boost/random/mersenne_twister.hpp>
-#include <boost/random/uniform_int_distribution.hpp>
-#include <iostream>
-#include "Constants.hpp"
+
 
 /*
  1) Select initial rule

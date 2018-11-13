@@ -7,11 +7,55 @@
 //
 
 #include "Wound.hpp"
-#include "BodyGraphGetters.hpp"
+//#include "BodyGraphGetters.hpp"
 
 std::vector<WoundRule> shearWoundRuleset;
 std::vector<WoundRule> impactWoundRuleset;
 
+
+
+WoundTable::WoundTable()
+{
+    
+}
+
+//Need to merge tables when the creatures woundTable gets updated
+void WoundTable::operator=(WoundTable &other) const
+{
+    
+    
+}
+
+void WoundTable::AddElement(int index, WoundType woundType)
+{
+    //std::vector<WoundTableElement>::iterator it;
+    
+    
+    bool elementFound = false;
+    
+    for(int i = 0; i < table.size(); i++)
+    {
+        
+        std::vector<WoundTableElement>::iterator it;
+        it = std::find(table.begin(),table.end(),table.at(i));
+        
+        if( it != table.end())
+        {
+            table.at(i).addWoundType(woundType);
+        }
+        else
+        {
+            table.push_back(WoundTableElement(index,woundType));
+        }
+        /*
+         if(table.at(i).index == index)
+         {
+         elementFound = true;
+         table.at(i).addWoundType(woundType);
+         break;
+         }*/
+    }
+}
 
 
 void SetupWoundRuleset()
@@ -323,6 +367,8 @@ void WoundCalculations::ApplyWound(AppliedForceEffect &effect, AnatomyGraph &gra
         ApplyImpactWound(effect,graph);
     }
     
+    
+    
 }
 
 //One thing that needs to be addressed - The way the ApplyxWound functions access the vertices
@@ -332,6 +378,8 @@ std::vector<int> WoundCalculations::ApplySlashingShearWound(AppliedForceEffect &
 {
     
     std::vector<int> targets;
+    
+   
     if(effect.effect == enShearDefEffect || effect.effect == enShearFracEffect || effect.attackType == enSlash)
         
     {
@@ -340,17 +388,22 @@ std::vector<int> WoundCalculations::ApplySlashingShearWound(AppliedForceEffect &
         if(effect.woundSeverity == enMinorWound)
         {
             graph[targets.at(0)].AddWound(enMinorCut);
+             woundTable.AddElement(0,enMinorCut);
         }
         else if(effect.woundSeverity == enModerateWound)
         {
             graph[targets.at(0)].AddWound(enModerateCut);
+            woundTable.AddElement(0,enModerateCut);
         }
         else if(effect.woundSeverity == enMajorWound)
         {
             graph[targets.at(0)].AddWound(enMajorCut);
             int dismmemberChance = rand() % 101;
             if(dismmemberChance <= DISMEMBER_CHANCE)
+            {
                 graph[targets.at(0)].AddWound(enDismember);
+                woundTable.AddElement(0,enDismember);
+            }
         }
     }
     
@@ -371,22 +424,32 @@ std::vector<int> WoundCalculations::ApplyPiercingShearWound(AppliedForceEffect &
         if(effect.woundSeverity == enMinorWound)
         {
             graph[targets.at(0)].AddWound(enMinorPuncture);
+            woundTable.AddElement(0,enMinorPuncture);
 
         }
         else if(effect.woundSeverity == enModerateWound)
         {
         
             graph[targets.at(0)].AddWound(enModeratePuncture);
+            woundTable.AddElement(0,enModeratePuncture);
             
             if(targets.size() > 1)
+            {
                 graph[targets.at(1)].AddWound(enMinorPuncture);
+                woundTable.AddElement(1,enMinorPuncture);
+                
+            }
         }
         else if(effect.woundSeverity == enMajorWound)
         {
             graph[targets.at(0)].AddWound(enMajorPuncture);
+            woundTable.AddElement(0,enMajorPuncture);
             
             if(targets.size() > 1)
+            {
                 graph[targets.at(1)].AddWound(enModeratePuncture);
+                woundTable.AddElement(1,enModeratePuncture);
+            }
         }
     }
     
@@ -412,19 +475,30 @@ std::vector<int> WoundCalculations::ApplyImpactWound(AppliedForceEffect &effect,
         if(effect.woundSeverity == enMinorWound)
         {
             graph[targets.at(0)].AddWound(enMinorBruise);
-        
+            woundTable.AddElement(0,enMinorBruise);
             if(fractureChance <= FRACTURE_CHANCE)
+            {
                 graph[targets.at(0)].AddWound(enMinorFracture);
+                woundTable.AddElement(0,enMinorFracture);
+            }
         }
         else if(effect.woundSeverity == enModerateWound)
         {
             graph[targets.at(0)].AddWound(enModerateBruise);
+            woundTable.AddElement(0,enModeratePuncture);
         
             if(fractureChance <= FRACTURE_CHANCE)
+            {
+                woundTable.AddElement(0,enModerateFracture);
                 graph[targets.at(0)].AddWound(enModerateFracture);
+                
+            }
         
             if(targets.size() > 1)
+            {
                 graph[targets.at(1)].AddWound(enMinorBruise);
+                woundTable.AddElement(1,enMinorBruise);
+            }
         
         }
         else if(effect.woundSeverity == enMajorWound)
@@ -432,9 +506,13 @@ std::vector<int> WoundCalculations::ApplyImpactWound(AppliedForceEffect &effect,
             int ruptureChance = rand() % 101;
         
             graph[targets.at(0)].AddWound(enMajorBruise);
+            woundTable.AddElement(0,enMajorBruise);
         
             if(fractureChance <= FRACTURE_CHANCE)
+            {
                 graph[targets.at(0)].AddWound(enMajorFracture);
+                woundTable.AddElement(0,enMajorFracture);
+            }
         
             std::cout << "\n Target size " << targets.size();
          
@@ -442,11 +520,15 @@ std::vector<int> WoundCalculations::ApplyImpactWound(AppliedForceEffect &effect,
             {
                    std::cout << "\n Targets at 1" << targets.at(1);
                 graph[targets.at(1)].AddWound(enMajorBruise);
+                woundTable.AddElement(1,enMajorBruise);
                 
             }
         
             if(ruptureChance <= RUPTURE_CHANCE && targets.size() > 1)
+            {
                 graph[targets.at(1)].AddWound(enRupture);
+                woundTable.AddElement(1,enRupture);
+            }
             
         }
     

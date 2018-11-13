@@ -12,6 +12,7 @@
 #ifndef BodyPart_hpp
 #define BodyPart_hpp
 
+#include "Equipment.hpp"
 #include "Weapon.hpp"
 #include "Armor.hpp"
 
@@ -20,7 +21,9 @@
 #include <vector>
 #include "Tissue.hpp"
 #include "ItemManager.hpp"
-
+#include "Globals.hpp"
+#include "Weapon.hpp"
+#include "Armor.hpp"
 
 
 #define ARM_STRING "arm"
@@ -50,6 +53,9 @@
 #define BP_FLOAT_VALUES 1
 #define BP_ARMOR_VALUES 1
 #define BP_WEAPON_VALUES 1
+
+
+
 
 class BodyPart
 {
@@ -155,6 +161,7 @@ public:
     
     
     void AddWound(WoundType woundType);
+    
     
     
     

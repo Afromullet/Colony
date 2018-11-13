@@ -19,7 +19,19 @@
 #include <memory>
 
 #include "BaseCreature.hpp"
+#include "Map.hpp"
+#include "imgui.h"
+#include "imgui-SFML.h"
 
+#include <SFML/Graphics.hpp>
+#include <SFML/System/Clock.hpp>
+#include <SFML/Window/Event.hpp>
+#include "Globals.hpp"
+#include <memory>
+
+//#include "BodyGraphGetters.hpp"
+#include "Constants.hpp"
+#include "Wound.hpp"
 
 
 
@@ -54,12 +66,19 @@ typedef tgui::ListBox EquipmentExamineBoxWidgetType;
 #define EQUIPMENT_EXAMINEBOX_TAG "EXAMINE_EQUIPMENT_BOX"
 
 
+#define TILE_INVENTORY_WIDGET_TAG "TILE_INVENTORY_COMBO_BOX"
+#define TILE_INVENTORY_ADDITIONAL_ACTIONS_WIDGET_TAG "TILE_INVENTORY_RIGHTCLICK_BOX"
+#define TILE_INVENTORY_EXAMINEBOX_TAG "TILE_EXAMINE_INVENTORY"
+
+#define TILE_EXAMINEBOX_TAG "TILE_EXAMINE_BOX"
 
 
 //Actions for the Inventory Right Click Menu. The Letter) is the keyboard instead of click option
 #define EXAMINE_OPTION "Examine"
 #define DROP_OPTION "Drop"
 #define EQUIP_OPTION "Equip"
+#define GRAB_OPTION "Grab"
+
 
 //Default theme for the widgets
 extern tgui::Theme::Ptr defaultTheme;
@@ -95,6 +114,10 @@ extern float ADDIT_EQUIPMENT_ACTIONS_WINDOWX_POSITION;
 extern float ADDIT_EQUIPMENT_ACTIONS_WINDOWY_POSITION;
 
 
+/*
+ An examinewindow is a window that displays text. It's pretty much just a textbox
+ 
+ */
 class ExamineWindow
 {
 private:
@@ -119,7 +142,25 @@ public:
 };
 
 
+/*
+ 
+ A window that displays options of things to select
+ 
+ I.E, select an item, you can "examine,drop,equip" so we'd end up with a window like this:
+ 
+ --------
+ -Look   -
+ -Drop   -
+ -Equip  -
+ _________
+ 
+ 
+ 
+ Te AdditionalActionsHandler handles the actions for the selection
+ 
 
+
+*/
 class SelectionWindow
 {
 private:
@@ -197,87 +238,35 @@ public:
 
 
 
-///Not created a parent class at the moment. Never made a GUI like this, and can't accurately predict what will be reused until I implement a prototype. Trying to keep the function methods consitent so that I can add a parent class when needed
 
 
 
 
 class InventoryWindow : public SelectionWindow
 {
-private:
-    //InventoryWidgetType::Ptr inventoryBox;
-    //InventoryAdditionalActionsWidget::Ptr additionalActionsWindow;
-    //ExamineWindow examineWindow;
-    
-    //Didn't want this here at first, but this will make things much easier and more self contained
-    
-    
-    /*
-       original comment: todo shouldnt need this here, don't know why I used it
-       now: turns out that commenting this out keeps the creature from staying still while manipulating the invnentory. Todo figure out why that happens 
-     
-     */
-    BaseCreature *creature;
-    
-    //std::string inventoryBoxTag;
-   // std::string additionalActionsBoxTag;
-   // std::string examineWindowTag;
-    
-   
-    
 
-    
+   
 public:
     
     InventoryWindow();
-    
+    BaseCreature *creature;
     
    
     void AdditionalActionsDoubleClick(std::string name);
-    
-   
     void AdditionalActionsHandler(std::string name);
-    
     void HandleEvent(sf::Event &event,tgui::Gui &guiRef);
     void HandleWindowEvent(sf::Event &event,tgui::Gui &guiRef);
-  
-    
-    
-       
-
-    
-    
     void setupWidgets(const std::string &mainWindowTag, const std::string &exWindowTag,const std::string &additionalActionsWindowTag,tgui::Gui &guiRef,BaseCreature *_creature);
     void setupSignals();
-       
     void UpdateMainWindow();
-    
-    
-    
-
     bool isAnyWindowVisible();
-    
     void HideAllWindows();
-   
- 
-  
-    
 
-
-   
-    
 };
 
 class EquipmentWindow : public SelectionWindow
 {
-private:
 
-    BaseCreature *creature;
-    
-
-    
-    
-    
 public:
     
     EquipmentWindow();
@@ -285,27 +274,14 @@ public:
     
     
     void AdditionalActionsDoubleClick(std::string name);
-    
-    
     void AdditionalActionsHandler(std::string name);
-    
     void HandleEvent(sf::Event &event,tgui::Gui &guiRef);
     void HandleWindowEvent(sf::Event &event,tgui::Gui &guiRef);
-    
-    
-    
-    
-    
-    
-    
     void setupWidgets(const std::string &mainWindowTag, const std::string &exWindowTag,const std::string &additionalActionsWindowTag,tgui::Gui &guiRef,BaseCreature *_creature);
     void setupSignals();
     
     void UpdateMainWindow();
-    
-    
-    
-    
+
     bool isAnyWindowVisible();
     void HideAllWindows();
     
@@ -317,6 +293,55 @@ public:
     
     
 };
+//Creature inventory window and tile inventory window are so similar that I
+//Really shouldn't have to create this subclass. Unfortunately I didn't anticipate
+//that I would just reuse itemanager for the tile inventory.
+
+
+
+class TileInventoryWindow : public SelectionWindow
+{
+private:
+
+    Tile *tile;
+    BaseCreature *creature;
+    Map *map;
+    
+
+
+public:
+    
+    TileInventoryWindow();
+    
+    
+    
+    void AdditionalActionsDoubleClick(std::string name);
+    
+    
+    void AdditionalActionsHandler(std::string name);
+    
+    void HandleEvent(sf::Event &event,tgui::Gui &guiRef);
+    void HandleWindowEvent(sf::Event &event,tgui::Gui &guiRef);
+    
+    void setTile(Map &map, int x, int y);
+    void setupWidgets(const std::string &mainWindowTag, const std::string &exWindowTag,const std::string &additionalActionsWindowTag,tgui::Gui &guiRef,BaseCreature *_creature);
+    void setupSignals();
+    void setMap(Map *_map);
+    void setCreature(BaseCreature *_creature);
+    
+    void UpdateMainWindow();
+    bool isAnyWindowVisible();
+    void HideAllWindows();
+    
+    
+    
+    
+    
+    
+    
+    
+};
+
 
 
 
@@ -341,11 +366,32 @@ public:
     
 };
 
+class TileGUI
+{
+private:
+    TileInventoryWindow inventoryWindow;
+    EquipmentWindow equipmentWindow;
+   // Map *map;
+    
+    BaseCreature *creature;
+    
+    
+public:
+    TileGUI();
+    void HandleEvent(sf::Event &event,tgui::Gui &guiRef);
+    void HandleWindowEvent(sf::Event &event,tgui::Gui &guiRef);
+    void SetupTileGUI(tgui::Gui &guiRef,BaseCreature *_creature, Map *_map);
+    
+    
+};
+
+
 
 
 extern InventoryWindow inventoryWindow;
 extern ExamineWindow examineWindow;
 extern PlayerGUI playerGUI;
+extern TileGUI  tileGUI;
 
 
 void SetupGUI(tgui::Gui &guiRef);

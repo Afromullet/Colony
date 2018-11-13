@@ -9,10 +9,9 @@
 #include "Weapon.hpp"
 #include "BodyPart.hpp"
 #include "ItemManager.hpp"
-#include <boost/uuid/uuid.hpp>
-#include <boost/uuid/uuid_generators.hpp>
-#include "Globals.hpp"
-#include "UtilMacros.h"
+
+
+
 
 bool Weapon::operator==(const Weapon &other) const
 {
@@ -119,7 +118,29 @@ Weapon::Weapon(const Weapon &weapon)
 }
 
 
-
+Weapon::Weapon(const Weapon *other)
+{
+    sEquipmentName = other->sEquipmentName;
+    siRange = other->siRange;
+    siDamage = other->siDamage;
+    contactArea = other->contactArea;
+    isTwohanded = other->isTwohanded;
+    isRanged = other->isRanged;
+    enWeaponSize = other->enWeaponSize;
+    size = other->size;
+    mass = other->mass;
+    section = other->section;
+    material = other->material;
+    isEquipped = other->isEquipped;
+    tag = other->tag;
+    section = other->section;
+    sections = other->sections;
+    stackSize = other->stackSize;
+    maxStackSize = other->maxStackSize;
+    descriptiveText = other->descriptiveText;
+    enItemType = enWeaponType;
+    itemTile = other->itemTile;
+}
 
 void Weapon::showItemStats() const
 {
@@ -214,7 +235,9 @@ EnWeaponSize Weapon::getWeaponSize() const
 
 }
 
-
+Weapon FIST_WEAPON(Material(),"Fist Weapon",1,1);
+Weapon NO_WEAPON(Material(),"No weapon",0,0);
+Weapon WEAPON_SLOT_FILLED(Material(),"Weapon Slot Filled",0,0);
 
 
 

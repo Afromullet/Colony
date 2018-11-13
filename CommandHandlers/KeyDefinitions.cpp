@@ -9,6 +9,7 @@
 #include "KeyDefinitions.hpp"
 
 sf::Keyboard::Key OPEN_INVENTORY_KEY = sf::Keyboard::Key::I;
+sf::Keyboard::Key OPEN_TILE_KEY = sf::Keyboard::Key::G;
 sf::Keyboard::Key OPEN_EQUIPMENT_KEY = sf::Keyboard::Key::P;
 sf::Keyboard::Key OPEN_SELECTION_WINDOW_KEY = sf::Keyboard::Key::Space;
 sf::Keyboard::Key CLOSE_WINDOW_KEY = sf::Keyboard::Key::Escape;

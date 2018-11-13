@@ -14,11 +14,15 @@
 #include "MovementHandler.hpp"
 #include "MapData.hpp"
 #include "EnumTypes.hpp"
+#include "Pathfinding.hpp"
+#include "Globals.hpp"
+#include "Noisemap.hpp"
+#include "Interactions.hpp"
 
 
 
 
-
+extern bool PlayerActionTaken;
 //Don't want to use command pattern riht now
 extern bool usingTargetSquare;
 extern bool isInventoryWindowOpen;

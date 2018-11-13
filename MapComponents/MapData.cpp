@@ -88,9 +88,10 @@ void MapData::AddItemToMap(std::unique_ptr<Item> item)
     items.push_back(std::move(item));
 }
 
-void MapData::AddCreatureToMap(BaseCreature creature)
+void MapData::AddCreatureToMap(BaseCreature &creature)
 {
     creaturesOnMap.push_back(creature);
+    map->Map2D[creature.getPosition().x][creature.getPosition().y].SetCreatureOnTile(&creature);
 }
 
 void MapData::PlaceCreaturesOnMap()
@@ -132,6 +133,7 @@ void MapData::setItemsOnMap(std::list<Item*> _itemsOnMap)
 }
 
 
+
 void MapData::setCreaturesOnMap(std::list<BaseCreature> _lCreatures)
 {
     
@@ -141,3 +143,6 @@ void MapData::SetWindow(sf::RenderWindow *_window)
 {
     window = _window;
 }
+
+MapData mapdata;
+

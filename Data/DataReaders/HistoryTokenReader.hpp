@@ -12,6 +12,14 @@
 #include <stdio.h>
 #include <string>
 #include <vector>
+#include "DataStorage.hpp"
+#include "GenericReaders.hpp"
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>      // std::stringstream
+#include <boost/regex.hpp>
+
 
 #define MAX_REWRITE_RULES 300
 #define MAX_SECONDARY_RULES 10

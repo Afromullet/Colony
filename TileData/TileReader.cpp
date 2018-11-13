@@ -7,11 +7,9 @@
 //
 
 #include "TileReader.hpp"
-#include "Globals.hpp"
-#include <iostream>
-#include <fstream>
 
 TileIDData tempData;
+std::vector<TileIDData> tileIDTable; //Tile types are predefined. TODO, populate this from a file.
 int tileTableSize = 0; //Helpds with population terrainTypeTable
 
 std::string tileFileLocation = "//Users//Afromullet//Documents//SFML//Colony2//Colony//TileData//tileData.afr";

@@ -10,7 +10,8 @@
 
 #include <stdio.h>
 #include "Resource.hpp"
-
+#include "DataStorage.hpp"
+#include <iostream>
 
 enum EnOreType{enGemOre,enStoneOre,enMetalOre,enErrorOreType};
 

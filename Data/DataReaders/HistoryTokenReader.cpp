@@ -7,13 +7,6 @@
 //
 
 #include "HistoryTokenReader.hpp"
-#include "DataStorage.hpp"
-#include "GenericReaders.hpp"
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <sstream>      // std::stringstream
-#include <boost/regex.hpp>
 
 
 RewriteRules startRewriteRules[MAX_REWRITE_RULES];

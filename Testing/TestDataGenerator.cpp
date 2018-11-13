@@ -7,10 +7,6 @@
 //
 
 #include "TestDataGenerator.hpp"
-#include "BaseCreature.hpp"
-
-#include "ItemGenerator.hpp"
-#include "CAMap.hpp"
 
 
 //Armor and weapons for the player
@@ -27,6 +23,8 @@ Weapon tTwoHanded;
 BaseCreature basicGoblin;
 BaseCreature basicOrc;
 BaseCreature basicPulser;
+
+std::vector<BaseCreature> testCreatures;
 
 void InitializeCreatureTypes()
 {
@@ -45,7 +43,7 @@ void CreateRandomCreatures(MapData &mapdata)
     
     std::list<BaseCreature> tempCreatureList;
 
-    for(int i = 0; i < 10; i++)
+    for(int i = 0; i < 1; i++)
     {
         BaseCreature testCreature;
         
@@ -64,16 +62,37 @@ void CreateRandomCreatures(MapData &mapdata)
                 break;
         }
   
-    
+        //testCreature
+        testCreature.setPosition(1+i, 0);
+        //testCreature.setPosition(rand() % mapdata.map->GetWidth(), rand() % mapdata.map->GetHeight());
+
         
-        testCreature.setPosition(rand() % mapdata.map->GetWidth(), rand() % mapdata.map->GetHeight());
-        mapdata.AddCreatureToMap(testCreature);
+        testCreatures.push_back(testCreature);
+        mapdata.AddCreatureToMap(testCreatures.at(i));
+        
+        testCreatures.at(i).body.openBodyTypeFile("/Users/Afromullet/Documents/SFML/Colony2/Colony/Creature/BodyData/BasicHumanoidBody.xml");
+        testCreatures.at(i).body.readBodyTokenList();
+        testCreatures.at(i).body.GenerateVertices();
+        testCreatures.at(i).body.GenerateEdges();
+        testCreatures.at(i).body.GenerateOrganVertices();
+        testCreatures.at(i).body.GenerateOrganEdges();
         //tempCreatureList.push_back(testCreature);
     }
     
-   // InitCreaturesOnMap(caMap,lCreatures);
+    //InitCreaturesOnMap(caMap,lCreatures);
+    InitCreaturesOnMap(mapdata);
     
-    
+}
+
+void InitCreaturesOnMap(MapData &mapdata)
+{
+    std::list<BaseCreature>::iterator it;
+    for(it = mapdata.creaturesOnMap.begin(); it != mapdata.creaturesOnMap.end(); ++it)
+    {
+        
+        it->loadCreatureTile("goblin.png",32,32);
+     
+    }
 }
 
 
@@ -190,4 +209,47 @@ void GenerateRandomCave()
     ruleset.deathLimit = DEATH_LIMIT;
     caMap.SetRuleSet(ruleset);
     caMap.Generate_CA_MAP(sf::Vector2i(32,32), MAP_WIDTH,MAP_HEIGHT,ruleset);
+}
+
+void GenerateItemsOnMap()
+{
+    
+    Armor tempArmor, tempArmor2,tempArmor3;
+    Weapon tempWeapon,tempWeapon2,tempWeapon3;
+    for(int i = 0; i < MAP_WIDTH; i++)
+    {
+        for(int j = 0; j < 1; j++)
+        {
+           
+            tempArmor.setPosition(i, j);
+            tempArmor.UpdateTileTexture("blessed_blade.png",sf::Vector2i(32,32));
+            tempArmor.setItemName("A");
+            tempArmor2.setPosition(i, j);
+            tempArmor2.UpdateTileTexture("blessed_blade.png",sf::Vector2i(32,32));
+            tempArmor2.setItemName("B");
+            tempArmor3.setPosition(i, j);
+            tempArmor3.UpdateTileTexture("blessed_blade.png",sf::Vector2i(32,32));
+            tempArmor3.setItemName("C");
+            tempWeapon.setPosition(i, j);
+            tempWeapon.UpdateTileTexture("blessed_blade.png",sf::Vector2i(32,32));
+            tempWeapon.setItemName("WA");
+            tempWeapon2.setPosition(i, j);
+            tempWeapon2.UpdateTileTexture("blessed_blade.png",sf::Vector2i(32,32));
+            tempWeapon2.setItemName("WB");
+            tempWeapon3.setPosition(i, j);
+            tempWeapon3.UpdateTileTexture("blessed_blade.png",sf::Vector2i(32,32));
+            tempWeapon3.setItemName("WC");
+            
+            mapdata.map->Map2D[i][j].AddArmor(tempArmor);
+            mapdata.map->Map2D[i][j].AddArmor(tempArmor2);
+            mapdata.map->Map2D[i][j].AddArmor(tempArmor2);
+            mapdata.map->Map2D[i][j].AddArmor(tempArmor3);
+            mapdata.map->Map2D[i][j].AddWeapon(tempWeapon);
+            mapdata.map->Map2D[i][j].AddWeapon(tempWeapon);
+            mapdata.map->Map2D[i][j].AddWeapon(tempWeapon);
+            mapdata.map->Map2D[i][j].AddWeapon(tempWeapon2);
+            mapdata.map->Map2D[i][j].AddWeapon(tempWeapon3);
+        }
+    }
+
 }

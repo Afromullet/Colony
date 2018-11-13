@@ -10,7 +10,7 @@
 #define StaticVarInitializer_hpp
 
 #include <stdio.h>
-
+#include "EntityTile.hpp"
 void InitializeStaticVariables();
 
 

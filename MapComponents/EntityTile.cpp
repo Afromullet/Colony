@@ -7,7 +7,7 @@
 //
 
 #include "EntityTile.hpp"
-#include "ErrorConstants.hpp"
+
 #include "Globals.hpp"
 
 int EntityTile::entityTileIDCounter = 0;

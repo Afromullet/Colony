@@ -7,8 +7,6 @@
 //
 
 #include "SettlementEV.hpp"
-#include "Constants.hpp"
-#include "MapEffect.hpp"
 #include <iostream>
 
 

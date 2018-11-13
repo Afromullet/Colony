@@ -1,73 +1,19 @@
-#include "imgui.h"
-#include "imgui-SFML.h"
+
 #include <TGUI/TGUI.hpp>
 
 #include <SFML/Graphics.hpp>
 #include <SFML/System/Clock.hpp>
 #include <SFML/Window/Event.hpp>
-
-#include "StaticVarInitializer.hpp"
-#include <iostream>
-#include <Vector>
-#include <cstdlib>
-
-#include "Universal_Includes.h"
-#include "Equipment_Includes.h"
-
 #include "Globals.hpp"
-#include "EnumTypes.hpp"
-
-
-
-
-
-
-
-
-#include "CAMap.hpp"
-#include "TileReader.hpp"
-#include "MovementHandler.hpp"
-
-
-
-#include "BaseCreature.hpp"
-
-
-#include "ItemGenerator.hpp"
 #include "MapData.hpp"
 #include "TestDataGenerator.hpp"
 #include "PlayerControls.hpp"
-
-
-
-
-#include "BodyGraph.hpp"
-#include <string>
-
-#include "BodyGraphGetters.hpp"
-#include "AttackHandler.hpp"
 #include "DataReaders.hpp"
-#include "DataStorage.hpp"
-#include "Wound.hpp"
-#include "FastNoise.h"
-#include "NoiseMap.hpp"
-#include "Plant.hpp"
-#include "Tree.hpp"
 
-#include <iostream>
-#include <string>
-#include <vector>
 
-#include <regex>
 
-#include <boost/regex.hpp>
-#include "GenericReaders.hpp"
-#include "HistoryTokenReader.hpp"
-#include "HistoryGenerator.hpp"
-#include "ItemManager.hpp"
-#include <memory>
+
 #include "PlayerWindows.hpp"
-#include "ImguiDebug.hpp"
 #include "SettlementEV.hpp"
 
 
@@ -78,8 +24,9 @@ void InitializeMaps();
 void SetupCurrentMap();
 void SetupGameData(Map *map);
 void DrawEverything(MapData &_mapdata);
+//void SetupGUI(tgui::Gui &guiRef);
 
-MapData mapdata;
+//MapData mapdata;
 CA_RuleSet ruleset;
 sf::Time elapsed;
 
@@ -130,15 +77,6 @@ int main()
     
     
 
-    for(int i = 0; i < MAP_WIDTH; i++)
-    {
-        for(int j = 0; j < 1; j++)
-        {
-            tArmor.setPosition(i, j);
-            tArmor.UpdateTileTexture("blessed_blade.png",sf::Vector2i(32,32));
-            mapdata.map->Map2D[i][j].AddArmor(tArmor);
-        }
-    }
 
     
      
@@ -186,7 +124,7 @@ void drawLine(int x0, int y0, int x1, int y1)
     
     int i = 0;
     for(;;){  /* loop */
-        std::cout << x0 <<  "," << y0 << "\n";
+       // std::cout << x0 <<  "," << y0 << "\n";
         v[i].position = sf::Vector2f(x0+100,y0+100);
         v[i].color = sf::Color::Red;
         if (x0==x1 && y0==y1) break;
@@ -242,6 +180,7 @@ void GameLoop3()
             }
             
            playerGUI.HandleWindowEvent(event,gui);
+            tileGUI.HandleWindowEvent(event,gui);
             //inventoryWindow.HandleEvent(event,gui,player.inventory);
             //inventoryWindow.UpdateInventory(player.inventory);
             
@@ -328,7 +267,7 @@ void DrawEverything(MapData &_mapdata)
     
     
     
-    MoveAllCreatures();
+    //MoveAllCreatures();
     
     _mapdata.RemoveDeadCreature();
     _mapdata.DrawCreaturesOnMap();
@@ -388,6 +327,7 @@ void InitializeAllData()
     
     SetupGameData(&noiseMap);
     SetupGUI(gui);
+    
     InitializeTestingData();
 }
 
@@ -399,23 +339,24 @@ void InitialzeDataFromFiles()
     
     ReadMaterialFile("/Users/Afromullet/Documents/SFML/Colony2/Colony/Data/DataFiles/MaterialFiles/BasicMaterials.xml");
     ReadBiomeFile("/Users/Afromullet/Documents/SFML/Colony2/Colony/Data/DataFiles/BiomeFiles/BiomeData.xml");
-    ReadPlantFile("/Users/Afromullet/Documents/SFML/Colony2/Colony/Data/DataFiles/PlantFiles/BasicPlants.xml");
-    ReadOreFile("/Users/Afromullet/Documents/SFML/Colony2/Colony/Data/DataFiles/OreFiles/BasicOre.xml");
-    ReadTreeFile("/Users/Afromullet/Documents/SFML/Colony2/Colony/Data/DataFiles/TreeFiles/BasicTrees.xml");
+  //  ReadPlantFile("/Users/Afromullet/Documents/SFML/Colony2/Colony/Data/DataFiles/PlantFiles/BasicPlants.xml");
+   //ReadOreFile("/Users/Afromullet/Documents/SFML/Colony2/Colony/Data/DataFiles/OreFiles/BasicOre.xml");
+   // ReadTreeFile("/Users/Afromullet/Documents/SFML/Colony2/Colony/Data/DataFiles/TreeFiles/BasicTrees.xml");
     
-    InitializePlantMaterials();
-    InitializeOreMaterials();
-    InitializeTreeMaterials();
+   // InitializePlantMaterials();
+   // InitializeOreMaterials();
+   // InitializeTreeMaterials();
     
     
-    ReadInitialHistoryTokens();
-    ReadFirstRewriteRules();
+    //ReadInitialHistoryTokens();
+    //ReadFirstRewriteRules();
     
 }
 
 void InitializeDebugData()
 {
     InitializeCreatureTypes();
+   
 }
 
 void InitializeGlobalData()
@@ -450,7 +391,7 @@ void InitializeMaps()
 void InitializePlayerData()
 {
     player.loadCreatureTile("daeva.png", 32, 32);
-    player.setPosition(0, 10);
+    player.setPosition(0, 0);
     
     //bReader.load("/Users/Afromullet/Documents/SFML/Colony2/Colony/Creature/BodyData/TestFile.xml");
     player.body.openBodyTypeFile("/Users/Afromullet/Documents/SFML/Colony2/Colony/Creature/BodyData/BasicHumanoidBody.xml");
@@ -460,7 +401,7 @@ void InitializePlayerData()
     player.body.GenerateOrganVertices();
     player.body.GenerateOrganEdges();
     player.body.InitializeBodypartEquipment();
-      player.setPosition(10, 10);
+      player.setPosition(0, 0);
 }
 
 
@@ -520,6 +461,9 @@ void InitializeTestingData()
     testWeapon5.setRange(5);
     testWeapon5.setDamage(5);
     testWeapon5.setContactArea(7);
+    testWeapon5.setMass(5);
+    testWeapon5.setSize(3);
+    
     
     testWeapon6.setItemName("Test Weapon 6");
     testWeapon6.setWeaponSize(enLargeWeapon);
@@ -556,6 +500,8 @@ void InitializeTestingData()
     
     player.AddWeaponToInventory((testWeapon7));
     
+    
+       //std::cout << "\n Printing value " << packet.value;
     
     
     
@@ -606,9 +552,24 @@ void InitializeTestingData()
         
     }
     
+    //GenerateItemsOnMap();
+     CreateRandomCreatures(mapdata);
+    
     
 
 
 }
-
+/*
+void SetupGUI(tgui::Gui &guiRef)
+{
+    
+    
+    
+    
+    defaultTheme = tgui::Theme::create("Black.txt");
+    playerGUI.SetupPlayerGUI(guiRef,&player);
+    // tileGUI.SetupTileGUI(guiRef,&player);
+    
+}
+*/
 

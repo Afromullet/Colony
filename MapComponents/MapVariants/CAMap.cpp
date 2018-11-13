@@ -7,7 +7,7 @@
 //
 
 #include "CAMap.hpp"
-#include "Globals.hpp"
+//#include "Globals.hpp"
 #include <time.h>
 #include <math.h>
 
@@ -443,3 +443,5 @@ void CA_Map::CreateRoom(std::vector<std::vector<Tile> > &newMap,int roomSize, sf
     
     
 }
+
+CA_Map caMap;

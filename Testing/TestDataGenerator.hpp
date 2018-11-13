@@ -6,17 +6,21 @@
 //  Copyright © 2018 Afromullet. All rights reserved.
 //
 
-#include <stdio.h>
-#include "CaMap.hpp"
-#include "MapData.hpp"
-#include "Globals.hpp"
-#include "Constants.hpp"
 
 
 
 #ifndef TestDataGenerator_hpp
 #define TestDataGenerator_hpp
 #include "SettlementEV.hpp"
+#include "BaseCreature.hpp"
+
+#include "ItemGenerator.hpp"
+#include "CAMap.hpp"
+#include <stdio.h>
+#include "CaMap.hpp"
+#include "MapData.hpp"
+//#include "Globals.hpp"
+#include "Constants.hpp"
 
 
 extern Armor tHeadArmor;
@@ -35,9 +39,12 @@ extern BaseCreature basicOrc;
 extern BaseCreature basicPulser;
 
 void InitializeCreatureTypes();
-
-
+void CreateRandomCreatures(MapData &mapdata);
+void InitCreaturesOnMap(MapData &mapdata);
 void GenerateRandomCave();
+void GenerateItemsOnMap();
+
+extern std::vector<BaseCreature> testCreatures;
 
 
 /* 

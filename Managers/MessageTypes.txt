@@ -1,0 +1,15 @@
+ItemManager:
+
+Creates the following messages:
+
+
+ItemName Types : MSG_ITEMANAGER_ITEMANMES_TYPE
+    Returns all items in the item manager in the form item1,item2...,item - comma sepparated
+
+
+
+Tile Information Window
+options:
+    Items on tile
+    creatures on tile
+    examine

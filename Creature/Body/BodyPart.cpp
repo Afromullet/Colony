@@ -7,9 +7,7 @@
 //
 
 #include "BodyPart.hpp"
-#include "Globals.hpp"
-#include "Weapon.hpp"
-#include "Armor.hpp"
+
 //Read these from a file later and store in a vector of strings
 //That way it can be customized easily by reading from files
 

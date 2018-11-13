@@ -7,8 +7,6 @@
 //
 
 
-#include "Armor.hpp"
-#include "Weapon.hpp"
 
 
 #ifndef ItemManager_hpp
@@ -16,16 +14,28 @@
 
 #include <stdio.h>
 #include <memory>
+#include <iterator>
+#include <memory>
+
+#include "Equipment.hpp"
+#include "Armor.hpp"
+#include "Weapon.hpp"
+
 
 
 using namespace std;
 
+#define MSG_ITEMANAGER_ITEMANMES_TYPE "item_name_msg"
+#define MSG_ITEMMANAGER_ITEMNAME_FIELD "itemnames_field"
+
 class CreatureBody;
+class Tile;
+class BaseCreature;
 
 class ItemManager : public sf::Drawable, public sf::Transformable
 {
 private:
-    
+    std::string getItemNamesString();
     
     
 public:
@@ -62,8 +72,13 @@ public:
     std::string getItemDescriptionAtIndex(int i);
     int getItemStackSizeAtIndex(int i);
  
+    void TransferItemToCreature(BaseCreature &creature, Tile &tile, int offset); //Move item from the tile to the creature
+    void TransferItemToTile(BaseCreature &creature, Tile &tile, int offset); //Move item from the tile to the creature
+    
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     
+    
+
     
     //void MoveInventory(
     

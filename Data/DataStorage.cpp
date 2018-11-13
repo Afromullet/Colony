@@ -8,7 +8,6 @@
 
 #include "DataStorage.hpp"
 #include <iostream>
-#include "Constants.hpp"
 
 std::vector<Material> materials;
 std::vector<Biome> vecBiome;

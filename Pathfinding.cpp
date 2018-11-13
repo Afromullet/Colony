@@ -7,10 +7,7 @@
 //
 
 #include "Pathfinding.hpp"
-#include <queue>
-#include <map>
-#include <set>
-#include <fstream>
+
 
 bool operator <(const AStarNode& lhs, const AStarNode& rhs)
 {

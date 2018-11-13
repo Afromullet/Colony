@@ -16,7 +16,8 @@
 #include "EntityTile.hpp"
 #include "MapEffect.hpp"
 #include "Tile.hpp"
-
+#include "Constants.hpp"
+#include "MapEffect.hpp"
 //Until I determine how I want to organize the classes, this file will contain them all
 
 

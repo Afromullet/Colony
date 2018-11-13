@@ -18,6 +18,10 @@
 #include "EntityTile.hpp"
 #include "Material.hpp"
 #include <boost/uuid/uuid.hpp>
+#include "ErrorConstants.hpp"
+#include "UtilMacros.h"
+#include <boost/uuid/uuid_generators.hpp>
+#include "Constants.hpp"
 
 
 

@@ -6,7 +6,7 @@
 //  Copyright © 2018 Afromullet. All rights reserved.
 //
 
-#include "Vision.hpp"
+
 //
 //  Vision.hpp
 //  Colony
@@ -19,10 +19,11 @@
 
 #include <stdio.h>
 
-#include "Vision.hpp"
+//#include "Vision.hpp"
 
 //For now vision is a square
 
+/*
 bool Vision::operator==(const Vision &other) const
 {
     if(origin == other.origin && visionArea == other.visionArea)
@@ -230,4 +231,4 @@ void Vision::setOrigin(sf::Vector2i newOrigin)
 
 
 
-
+*/

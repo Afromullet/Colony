@@ -7,7 +7,7 @@
 //
 
 #include "Plant.hpp"
-#include "Constants.hpp"
+
 #include <iostream>
 
 Plant plantResource[MAX_RESOURCES_PER_GROUP];

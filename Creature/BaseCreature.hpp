@@ -11,22 +11,35 @@
 
 
 
+
 #ifndef AbstractCreature_hpp
 #define AbstractCreature_hpp
 #include <stdio.h>
 #include <list>
-#include <Unordered_Map>
-
+//#include "Globals.hpp"
+#include "Constants.hpp"
 #include "BodyPart.hpp"
 #include "EnumTypes.hpp"
-#include "Vision.hpp"
+//#include "Vision.hpp"
 #include <queue>
 #include "Pathfinding.hpp"
 #include "Bodygraph.hpp"
-
+#include "Equipment.hpp"
+#include "Armor.hpp"
+#include "Weapon.hpp"
+#include "Tile.hpp"
 #include "ItemManager.hpp"
 
-#include "Message.hpp"
+
+
+#define BASECREATURE_NUM_FIELDS 3 //the number of string constatns
+//string constant for the fieldname
+#define MSG_STRENGTH_FIELD "strength"
+#define MSG_AGILITY_FIELD   "agility"
+#define MSG_ENDURANCE_FIELD    "endurance"
+
+
+const std::string CREATURE_MESSAGE_TYPES[BASECREATURE_NUM_FIELDS] = {MSG_STRENGTH_FIELD,MSG_AGILITY_FIELD,MSG_ENDURANCE_FIELD };
 
 
 
@@ -44,7 +57,7 @@ class Map;
 
 
 //todo rename..not abstract anymore
-class BaseCreature : public Message
+class BaseCreature
 {
 private:
     short int attackValue;
@@ -59,7 +72,7 @@ private:
     sf::Vector2i position;
     std::list<Item*> creatureItems;
     std::queue<sf::Vector2i> path; //A queue holding the path a creature walks
-    Vision vision;
+    //Vision vision;
     bool isAlive; //For testing
     std::vector<AttackStats> attacks;
     
@@ -129,7 +142,7 @@ public:
     std::string GetItemInfo(int n) ;
     int getTotalHealth() const;
     std::list<Item*> getInventory();
-    Vision &getVision();
+   // Vision &getVision();
     std::vector<AttackStats> &getAttacks();
     bool getCanMove() const;
     
@@ -146,10 +159,13 @@ public:
 
     void ReleaseInventoryMemory();
     
-    void SendMessage();
+    AttackStats GetAttack(AttackType attackType);
+    
+
+    
     
 };
 
 
-
+extern BaseCreature player; //Maybe sometimes in the future there'll be more than one player. For now, having a player as a global var makes things easier for me
 #endif /* AbstractCreature_hpp */

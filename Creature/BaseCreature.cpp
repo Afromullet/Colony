@@ -7,9 +7,8 @@
 //
 
 #include "BaseCreature.hpp"
-#include "BodyGraphGetters.hpp"
-#include "Globals.hpp"
-#include "Constants.hpp"
+//#include "BodyGraphGetters.hpp"
+
 
 //todo replace raw pointers with unique ptr
 
@@ -48,7 +47,7 @@ BaseCreature::BaseCreature(const BaseCreature &other)
     totalHealth = other.totalHealth;
     position = other.position;
     path = other.path; //Do we really want to copy this?
-    vision = other.vision;
+    //vision = other.vision;
     isAlive = other.isAlive;
     
     creatureItems = other.creatureItems; //Not needded in the future
@@ -74,7 +73,7 @@ BaseCreature::BaseCreature(BaseCreature &other)
     totalHealth = other.totalHealth;
     position = other.position;
     path = other.path; //Do we really want to copy this?
-    vision = other.vision;
+    //vision = other.vision;
     isAlive = other.isAlive;
     
     creatureItems = other.creatureItems; //Not needded in the future
@@ -96,6 +95,7 @@ void BaseCreature::loadCreatureTile(const std::string& tileset, int tileXSize,in
 }
 
 
+//Sets up everything except the force type and attack type. That's handled later.
 void BaseCreature::calculateAttackParameters()
 {
     AttackStats attackStats;
@@ -110,13 +110,13 @@ void BaseCreature::calculateAttackParameters()
         attackStats.range = body.anatomyGraph[verts.at(i)].getWeaponRef().getRange();
         attackStats.damage = body.anatomyGraph[verts.at(i)].getWeaponRef().getDamage();
         
-        std::cout << "\nweapon damage " <<  attackStats.damage;
+       
         
         
         
         //A spear may have a range greater than 1, but it's not a ranged weapon, whcih is why that distinction is made
         
-        std::cout << "\n Is Ranged " << body.anatomyGraph[verts.at(i)].getWeaponRef().isRangedWeapon();
+    
         if(body.anatomyGraph[verts.at(i)].getWeaponRef().isRangedWeapon())
         {
             attackStats.attackValue = getRangedAttackValue();
@@ -140,10 +140,7 @@ void BaseCreature::calculateAttackParameters()
         
     }
     
-    for(int i = 0; i < attacks.size(); i++)
-    {
-        std::cout << "\n Damage at the end " << attacks.at(i).damage;
-    }
+
     
 }
 
@@ -417,6 +414,34 @@ std::string BaseCreature::GetItemInfo(int n)
     
 }
 
+//Uses the first attack from the AttackType vector
+//Fills in the attack type of the attack (slash, pierce, blunt), create a copy, and returns it
+
+AttackStats BaseCreature::GetAttack(AttackType attackType)
+{
+    if (attacks.size() == 0)
+        return;
+    
+    AttackStats attack = attacks.front();
+    attack.attackType = attackType;
+    if(attackType == enSlash)
+    {
+         attack.enAttackForceType = enShear;
+    }
+    else if(attackType == enBlunt)
+    {
+         attack.enAttackForceType = enImpact;
+    }
+    else if(attackType == enPierce)
+    {
+         attack.enAttackForceType = enShear;
+    }
+    
+    attacks.erase(attacks.begin());
+    return attack;
+    
+}
+
 
 
 std::list<Item*> BaseCreature::getInventory()
@@ -438,10 +463,13 @@ int BaseCreature::getTotalHealth() const
     return totalHealth;
 }
 
+
+/*
 Vision& BaseCreature::getVision() 
 {
     return vision;
 }
+ */
 
 
 std::vector<AttackStats>& BaseCreature::getAttacks()
@@ -492,10 +520,8 @@ void BaseCreature::ReleaseInventoryMemory()
     inventory.ReleaseAllMemory();
 }
 
-void BaseCreature::SendMessage()
-{
-    
-}
 
 
+
+BaseCreature player;
 

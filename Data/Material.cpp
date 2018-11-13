@@ -7,8 +7,7 @@
 //
 
 #include "Material.hpp"
-#include "ErrorConstants.hpp"
-#include "UtilMacros.h"
+
 
 bool Material::operator==(const Material &other) const
 {

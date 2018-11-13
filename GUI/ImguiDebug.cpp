@@ -6,9 +6,12 @@
 //  Copyright © 2018 Afromullet. All rights reserved.
 //
 
+#ifdef ENABLE_IMGUI
+
+
 #include "ImguiDebug.hpp"
-#include <string>
-#include "BodyGraphGetters.hpp"
+
+
 
 //Storing information entered in the debug menu
 
@@ -497,7 +500,7 @@ namespace BodyGraphViewer
     
     void DisplayGraph()
     {
-                tempGraph = UniversalDebugFunctions::getBody(debugBodiesNames.at(graphItem));
+               // tempGraph = UniversalDebugFunctions::getBody(debugBodiesNames.at(graphItem));
         std::string nodeString;
         for(int i = 0; i < num_vertices(tempGraph.anatomyGraph); i++)
         {
@@ -1103,3 +1106,5 @@ void DisplayShit()
         std::cout << "\n" << debugBodyparts.at(i).getBodyPartName();
     }
 }
+
+#endif

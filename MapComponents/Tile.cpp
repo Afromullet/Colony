@@ -279,6 +279,11 @@ void Tile::AddArmor(Armor armor)
     inventory.addArmor(armor);
 }
 
+void Tile::AddWeapon(Weapon weapon)
+{
+    inventory.addWeapon(weapon);
+}
+
 std::vector<string> Tile::getItemNames()
 {
     std::vector<std::string> names;
@@ -291,3 +296,4 @@ std::vector<string> Tile::getItemNames()
     return names;
 
 }
+

@@ -7,23 +7,14 @@
 //
 
 #include "PlayerWindows.hpp"
-#include "imgui.h"
-#include "imgui-SFML.h"
 
-#include <SFML/Graphics.hpp>
-#include <SFML/System/Clock.hpp>
-#include <SFML/Window/Event.hpp>
-#include "Globals.hpp"
-#include <memory>
-
-#include "BodyGraphGetters.hpp"
-#include "Constants.hpp"
-#include "Wound.hpp"
 
 InventoryWindow inventoryWindow;
 ExamineWindow examineWindow;
 
 PlayerGUI playerGUI;
+TileGUI  tileGUI;
+
 
 tgui::Theme::Ptr defaultTheme;
 
@@ -62,7 +53,7 @@ PlayerGUI::PlayerGUI()
 
 void PlayerGUI::SetupPlayerGUI(tgui::Gui &guiRef,BaseCreature *_creature)
 {
-    creature = _creature;
+    //creature = _creature;
     inventoryWindow.setupWidgets(INVENTORY_WIDGET_TAG,EQUIPMENT_EXAMINEBOX_TAG,INVENTORY_ADDITIONAL_ACTIONS_WIDGET_TAG,guiRef,_creature);
     inventoryWindow.setupSignals();
     
@@ -78,9 +69,9 @@ void PlayerGUI::HandleWindowEvent(sf::Event &event,tgui::Gui &guiRef)
 {
     //Don't want to move when navigating through the inventory
      if(inventoryWindow.isAnyInitialWindowVisible())
-         creature->setCanMove(false);
+         inventoryWindow.creature->setCanMove(false);
      else
-         creature->setCanMove(true);
+         inventoryWindow.creature->setCanMove(true);
     
     
      if(inventoryWindow.isAnyWindowVisible())
@@ -96,6 +87,56 @@ void PlayerGUI::HandleWindowEvent(sf::Event &event,tgui::Gui &guiRef)
      inventoryWindow.HandleEvent(event,guiRef);
      equipmentWindow.HandleEvent(event,guiRef);
 }
+
+
+
+TileGUI::TileGUI()
+{
+    
+}
+
+void TileGUI::SetupTileGUI(tgui::Gui &guiRef,BaseCreature *_creature, Map *_map)
+{
+    creature = _creature;
+   // map = _map;
+    inventoryWindow.setMap(_map);
+    inventoryWindow.setCreature(_creature);
+    inventoryWindow.setupWidgets(TILE_INVENTORY_WIDGET_TAG,TILE_EXAMINEBOX_TAG,TILE_INVENTORY_ADDITIONAL_ACTIONS_WIDGET_TAG,guiRef,_creature);
+    inventoryWindow.setupSignals();
+    
+    
+    equipmentWindow.setupWidgets(EQUIPMENT_WIDGET_TAG,TILE_EXAMINEBOX_TAG,EQUIMENT_ADDITIONAACTIONS_WIDGET_TAG,guiRef,_creature);
+    equipmentWindow.setupSignals();
+     
+}
+
+
+//TODO handle window opening so that only one window at a time can be opened
+//Maybe add a "Close all windows except xxx function that takes a widget as a parameter that closes
+//All functions except the ones passed as a parameter
+void TileGUI::HandleWindowEvent(sf::Event &event,tgui::Gui &guiRef)
+{
+    //Don't want to move when navigating through the inventory
+    if(inventoryWindow.isAnyInitialWindowVisible())
+        creature->setCanMove(false);
+    else
+        creature->setCanMove(true);
+    
+    
+    if(inventoryWindow.isAnyWindowVisible())
+    {
+       // equipmentWindow.HideAllWindows();
+    }
+    else if(equipmentWindow.isAnyWindowVisible())
+    {
+        inventoryWindow.HideAllWindows();
+    }
+    
+    
+    inventoryWindow.HandleEvent(event,guiRef);
+    equipmentWindow.HandleEvent(event,guiRef);
+}
+
 
 
 SelectionWindow::SelectionWindow()
@@ -304,6 +345,7 @@ void InventoryWindow::AdditionalActionsHandler(std::string name)
     else if(name == DROP_OPTION)
     {
         std::cout << "\n Dropping";
+        //creature->inventory.TransferItemToTile(*creature,*tile,curItemIndex);
     }
     else if(name == EQUIP_OPTION)
     {
@@ -712,6 +754,242 @@ void EquipmentWindow::HideAllWindows()
 }
 
 
+TileInventoryWindow::TileInventoryWindow()
+{
+    
+    
+}
+
+
+void TileInventoryWindow::AdditionalActionsDoubleClick(std::string name)
+{
+    AdditionalActionsHandler(name);
+}
+
+
+
+void TileInventoryWindow::AdditionalActionsHandler(std::string name)
+{
+    
+    
+    curActionsIndex = additional_ActionsWindow->getSelectedItemIndex();
+    std::cout << "\n Current INdex " << curItemIndex;
+    
+    if(name == EXAMINE_OPTION)
+    {
+        /*
+        if(creature->inventory.getInventorySize() > 0)
+            examineWindow.setText(creature->inventory.getItemDescriptionAtIndex(curItemIndex));
+        */
+        examineWindow.show();
+        std::cout << "\n Examining";
+    }
+    else if(name == GRAB_OPTION)
+    {
+        
+
+        
+        tile->inventory.TransferItemToCreature(*creature,*tile,curItemIndex);
+       
+        mainWindow->hide();
+        UpdateMainWindow();
+        mainWindow->show();
+        additional_ActionsWindow->hide();
+        
+        
+
+    }
+    
+    additional_ActionsWindow->show();
+    
+    
+    
+    
+}
+
+void TileInventoryWindow::HandleEvent(sf::Event &event,tgui::Gui &guiRef)
+{
+    HandleWindowEvent(event,guiRef);
+}
+
+
+void TileInventoryWindow::HandleWindowEvent(sf::Event &event,tgui::Gui &guiRef)
+{
+    
+    
+    
+    if(isAdditionalActionsWindowVisible() && !isExamineWindowVisible())
+    {
+        mainWindow->deselectItem(); //So that the inventory double click action is not triggered again when the additional actions window is open
+    }
+    else if(isExamineWindowVisible() && isAdditionalActionsWindowVisible() && isMainWindowVisible())
+    {
+        //So that the inventory double click action is not triggered again when the additional actions window is open
+        mainWindow->deselectItem();
+        additional_ActionsWindow->deselectItem();
+    }
+    
+    if(!isMainWindowVisible())
+    {
+        
+        
+        if(event.key.code == OPEN_TILE_KEY)
+        {
+            
+         
+            tile = &map->Map2D[creature->getPosition().x][creature->getPosition().y];
+            UpdateMainWindow();
+            mainWindow->show();
+        }
+         
+        
+    }
+    else if(isMainWindowVisible() && !isAdditionalActionsWindowVisible() && !isExamineWindowVisible())
+    {
+        if(event.key.code == CLOSE_WINDOW_KEY && event.type == sf::Event::KeyReleased)
+        {
+            mainWindow->removeAllItems();
+            mainWindow->hide();
+        }
+        else if(event.key.code == DOWN_KEY && event.type == sf::Event::KeyReleased)
+        {
+            int index = mainWindow->getSelectedItemIndex();
+            mainWindow->setSelectedItemByIndex(++index);
+        }
+        else if(event.key.code == UP_KEY && event.type == sf::Event::KeyReleased)
+        {
+            int index = mainWindow->getSelectedItemIndex();
+            mainWindow->setSelectedItemByIndex(--index);
+        }
+        else if(event.key.code == SELECT_ACTION_KEY && event.type == sf::Event::KeyReleased)
+        {
+            
+            curItemIndex = mainWindow->getSelectedItemIndex();
+            additional_ActionsWindow->show();
+        }
+        
+        
+    }
+    else if(isMainWindowVisible() && isAdditionalActionsWindowVisible() && !isExamineWindowVisible())
+    {
+        if(event.key.code == CLOSE_WINDOW_KEY && event.type == sf::Event::KeyReleased)
+        {
+            additional_ActionsWindow->hide();
+        }
+        else if(event.key.code == DOWN_KEY && event.type == sf::Event::KeyReleased)
+        {
+            
+            int index = additional_ActionsWindow->getSelectedItemIndex();
+            additional_ActionsWindow->setSelectedItemByIndex(++index);
+        }
+        else if(event.key.code == UP_KEY && event.type == sf::Event::KeyReleased)
+        {
+            int index = additional_ActionsWindow->getSelectedItemIndex();
+            additional_ActionsWindow->setSelectedItemByIndex(--index);
+        }
+        else if(event.key.code == SELECT_ACTION_KEY && event.type == sf::Event::KeyReleased)
+        {
+            
+            curActionsIndex = additional_ActionsWindow->getSelectedItemIndex();
+            AdditionalActionsHandler(additional_ActionsWindow->getSelectedItem());
+            //additionalActionsWindow->show();
+        }
+        
+    }
+    else if(isMainWindowVisible() && isAdditionalActionsWindowVisible() && isExamineWindowVisible())
+    {
+        if(event.key.code == CLOSE_WINDOW_KEY && event.type == sf::Event::KeyReleased)
+        {
+            hideExamineWindow();
+            
+        }
+        
+    }
+}
+
+
+
+
+
+
+void TileInventoryWindow::setupWidgets(const std::string &mainWindowTag,const std::string &exWindowTag, const std::string &additionalActionsWindowTag, tgui::Gui &guiRef,BaseCreature *_creature)
+{
+    
+    creature = _creature;
+    
+    examineWindowTag = exWindowTag;
+    inventoryWindow.setCreature(_creature);
+    
+    SetupMainWindow(mainWindowTag,INVENTORY_WINDOWX_SIZE,INVENTORY_WINDOWY_SIZE,INVENTORY_WINDOWX_POSITION,INVENTORY_WINDOWY_POSITION,guiRef);
+    
+    SetupActionWindow(additionalActionsWindowTag,INVENTORY_WINDOWX_SIZE,INVENTORY_WINDOWY_SIZE,ADDIT_INVENTORY_ACTIONS_WINDOWX_POSITION,ADDIT_INVENTORY_ACTIONS_WINDOWY_POSITION,guiRef);
+    
+    SetupExamineWindow(examineWindowTag,0,0,0,0,guiRef);
+    
+    AddAdditionalAction(EXAMINE_OPTION);
+    AddAdditionalAction(GRAB_OPTION);
+}
+
+void TileInventoryWindow::setupSignals()
+{
+    
+    if(mainWindow)
+    {
+        mainWindow->connect(DOUBLE_CLICK_SIGNAL,&::TileInventoryWindow::MainDoubleClickAction,this);
+    }
+    
+    additional_ActionsWindow->connect(DOUBLE_CLICK_SIGNAL,&::TileInventoryWindow::AdditionalActionsDoubleClick,this);
+}
+
+
+
+void TileInventoryWindow::UpdateMainWindow()
+{
+    int inventorySize = tile->inventory.getInventorySize();
+    mainWindow->removeAllItems();
+    
+    if(NULL == tile)
+        return;
+    
+    
+    for(int i = 0; i < inventorySize; i++)
+    {
+        
+        
+        AddTextToMainWindow(tile->inventory.getItemNameAtIndex(i) + "  " + std::to_string(tile->inventory.getItemStackSizeAtIndex(i)));
+        
+    }
+
+}
+
+bool TileInventoryWindow::isAnyWindowVisible()
+{
+    isAnyInitialWindowVisible();
+}
+
+void TileInventoryWindow::HideAllWindows()
+{
+    mainWindow->hide();
+    additional_ActionsWindow->hide();
+    examineWindow.hide();
+}
+
+void TileInventoryWindow::setTile(Map &map, int x, int y)
+{
+    
+}
+
+
+void TileInventoryWindow::setMap(Map *_map)
+{
+    map = _map;
+}
+
+ void TileInventoryWindow::setCreature(BaseCreature *_creature)
+{
+    creature = _creature;
+}
+
 void SetupGUI(tgui::Gui &guiRef)
 {
  
@@ -720,6 +998,8 @@ void SetupGUI(tgui::Gui &guiRef)
     
     defaultTheme = tgui::Theme::create("Black.txt");
     playerGUI.SetupPlayerGUI(guiRef,&player);
+   tileGUI.SetupTileGUI(guiRef,&player,mapdata.map);
+
 }
 
 

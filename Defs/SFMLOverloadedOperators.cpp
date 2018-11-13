@@ -8,7 +8,9 @@
 
 #include "SFMLOverloadedOperators.hpp"
 
+
+/*
 bool operator==(const sf::VertexArray &varr1,sf::VertexArray &varr2)
 {
     
-}
+}*/

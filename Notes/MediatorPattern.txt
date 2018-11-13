@@ -1,0 +1,24 @@
+Objects like a tile and a creature, a creature and a creature, a creature and its environmen
+have to interact - for this I plan on using the mediator pattern. Now here's a look ad the consequences, so we can determine whether or not it's a good choice (The consequenes are from Gamma, Helm, Johnson, and Blissides Design Pattern books)
+
+1) It limits subclassing
+    -I intend to keep subclassing to a minimum and try to keep things as general and data driven as they can.
+
+2) It decouples colleagues (A benefit)
+    Besides the creature and creature interaction (which can probably be implemented differently), the colleagues should be decoupled. It'd be nice to decouple
+        everything, and use only space (x,y) coordinates to determine whether something should interact. I.E, a Tile would not need a pointer to the creature, it'd work at follows. Creature moves into tile at position (5,5), another creature is already on the tile. Rather than checking whether there is a creature on the tile , we'd compare the coordinates, and then select the rule for what happens if two creature try to be at the same point in space
+
+            Scratch that above completely, there'd be way too much checking to do if we want to determine whether something overlaps in space..It'd have to check every turn '
+
+3) It simplifies object protocols (benefit)
+    Simpler is better
+
+4) It abstracts how objects cooperate (hmm...)
+    I love abstraction, maybe a little too much
+
+5) It centrealizes control (benefit)
+    Simpler to maintain and make changes to
+
+
+On second pattern, mediator pattern won't exactly work. I'll have to implement something with similar concepts..The interaction between some objects can be too complex
+    too handle it in a single virtual function (alternatively, I could just have that virtual function call class specific functions)

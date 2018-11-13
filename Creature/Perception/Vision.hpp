@@ -6,6 +6,8 @@
 //  Copyright © 2018 Afromullet. All rights reserved.
 //
 
+/*
+
 #include "Map.hpp"
 
 #ifndef Vision_hpp
@@ -13,7 +15,8 @@
 
 #include <stdio.h>
 #include "Pathfinding.hpp"
-
+#include "Tile.hpp"
+#include "BaseCreature.hpp"
 
 class Vision
 {
@@ -52,5 +55,5 @@ public:
     
 };
 
-
+*/
 #endif /* Vision_hpp */

@@ -8,15 +8,16 @@
 
 
 
-#include <stdio.h>
 
-#include "Map.hpp"
-#include "BaseCreature.hpp"
 
 
 #ifndef MovementHandler_hpp
 #define MovementHandler_hpp
 
+#include <stdio.h>
+
+#include "Map.hpp"
+#include "BaseCreature.hpp"
 
 //Handles creature movement..maybe in the future, I should define interaction between a creture and a map in another class or file where the functions describe the interactions between the classes
 

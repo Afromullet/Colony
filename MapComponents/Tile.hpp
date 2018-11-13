@@ -16,12 +16,15 @@
 #include "BaseCreature.hpp"
 #include "Biomes.hpp"
 #include "Equipment.hpp"
+#include "Armor.hpp"
+#include "Weapon.hpp"
 
-
+#include <SFML/Graphics.hpp>
 #include <stdio.h>
 #include <string>
 #include <memory>
 #include "ItemManager.hpp"
+
 
 /*
  
@@ -45,8 +48,7 @@
 #define BOTTOM_RIGHT 3
 
 
-#define NUM_TERRAIN_FEATURE 5
-
+#define NUM_TERRAIN_FEATURE 5 
 enum EnTerrainFeature
 {
     enWaterFeature,
@@ -59,8 +61,8 @@ enum EnTerrainFeature
 };
 
 
-class BaseCreature;
-class Tile
+
+class Tile 
 {
     
     
@@ -114,8 +116,12 @@ public:
    
     //For adding items to tiles
     void AddArmor(Armor armor);
+    void AddWeapon(Weapon weapon);
     
-    std::vector<string> getItemNames();
+    std::vector<std::string> getItemNames();
+    
+    
+
     
     
     

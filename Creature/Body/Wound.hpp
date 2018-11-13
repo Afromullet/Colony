@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include "BodyGraph.hpp"
+
 #include "Material.hpp"
 #include "EnumTypes.hpp"
 #include <vector>
@@ -47,6 +48,12 @@ void PrintWoundType(WoundType type);
 std::string GetWoundType(WoundType type);
 
 
+
+
+
+
+
+//Calculates how the wound propagates from the origin
 class WoundCalculations
 {
 private:
@@ -54,15 +61,20 @@ private:
     int origin; //Index for the origin of the wound in the graph
     bool woundEffectActive;
     
+    
 public:
     
     bool operator==(WoundCalculations &other) const ;
     bool operator!=(WoundCalculations &other) const;
     void operator=(WoundCalculations &other);
     
+    WoundTable woundTable;
+    
+    
     WoundCalculations(int _origin);
     WoundCalculations();
     WoundCalculations(const WoundCalculations &other);
+    
     
     std::vector<int> ApplySlashingShearWound(AppliedForceEffect &effect,AnatomyGraph &graph);
     std::vector<int> ApplyPiercingShearWound(AppliedForceEffect &effect,AnatomyGraph &graph);

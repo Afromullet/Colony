@@ -8,8 +8,7 @@
 
 #include "ItemManager.hpp"
 #include "BodyGraph.hpp"
-#include <iterator>
-#include <memory>
+
 
 
 void ItemManager::operator=(ItemManager &other)
@@ -98,7 +97,7 @@ void ItemManager::addArmor(Armor armor)
         if(armor.getTag() == items.at(i)->getTag())
         {
             items.at(i)->IncrementStackSize();
-            std::cout << "\n Found";
+            //std::cout << "\n Found";
             return;
         }
     }
@@ -126,7 +125,7 @@ void ItemManager::addWeapon(Weapon weapon)
         if(weapon.getTag() == items.at(i)->getTag())
         {
             items.at(i)->IncrementStackSize();
-            std::cout << "\n Found";
+           // std::cout << "\n Found";
             return;
         }
     }
@@ -217,10 +216,76 @@ int ItemManager::getItemStackSizeAtIndex(int i)
         return items.at(i)->getStackSize();
 }
 
+std::string ItemManager::getItemNamesString()
+{
+    std::string str = "";
+    for(int i = 0; i < items.size(); i++)
+    {
+        str = str +  items.at(i)->getItemName() + ",";
+
+    }
+    
+    str.pop_back(); //Removes the last ,
+    
+    return str;
+}
+
 void ItemManager::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
     for(int i = 0; i < items.size(); i++)
     {
         
     }
+}
+
+
+
+//Move item from the tile to the creature
+void ItemManager::TransferItemToCreature(BaseCreature &creature, Tile &tile,int offset)
+{
+    //std::unique_ptr<Item> tempitem(std::move(items.at(offset)));
+    
+    //Create a copy of the item if there is more than one. The unique pointer can remain in the inventory since there are still items of that kind left
+    if (getItemStackSizeAtIndex(offset) > 1)
+    {
+        
+        
+        if (items.at(offset)->getItemType() == enArmorType)
+        {
+            items.at(offset)->DecrementStackSize();
+            
+            Armor *armor =  (Armor*)items.at(offset)->clone();
+            armor->setStackSize(1);
+            Armor arm(armor);
+            creature.inventory.addArmor(arm);
+            free(armor);
+        }
+        else if (items.at(offset)->getItemType() == enWeaponType)
+        {
+            items.at(offset)->DecrementStackSize();
+            
+            Weapon *weapon =  (Weapon*)items.at(offset)->clone();
+            weapon->setStackSize(1);
+            Weapon wep(weapon);
+            creature.inventory.addWeapon(wep);
+            free(weapon);
+        }
+    }
+    else
+    {
+        
+        creature.inventory.addItem(std::move(items.at(offset)));
+        tile.inventory.ClearSlot(offset);
+        
+    }
+
+
+}
+
+//Move item from creature to tile
+void ItemManager::TransferItemToTile(BaseCreature &creature, Tile &tile, int offset)
+{
+    
+    tile.inventory.addItem(std::move(items.at(offset)));
+    creature.inventory.ClearSlot(offset);
 }

@@ -7,7 +7,7 @@
 //
 
 #include "StaticVarInitializer.hpp"
-#include "EntityTile.hpp"
+
 
 void InitializeStaticVariables()
 {

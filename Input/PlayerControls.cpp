@@ -7,14 +7,10 @@
 //
 
 #include "PlayerControls.hpp"
-#include "Pathfinding.hpp"
-#include "Globals.hpp"
-#include "Noisemap.hpp"
 
 
 
-
-
+bool PlayerActionTaken = false;
 bool usingTargetSquare = false;
 bool isInventoryWindowOpen = false;
 bool isEquipmentWindowOpen = false;
@@ -56,7 +52,8 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
             else
             {
                 if(creature.getCanMove())
-                    MovePlayer(Right, creature,*mapdata.map);
+                    CreatureMovesToTile(creature,*mapdata.map,Right);
+                   // MovePlayer(Right, creature,*mapdata.map);
             }
             
         }
@@ -71,7 +68,8 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
             else
             {
                 if(creature.getCanMove())
-                    MovePlayer(Left, creature,*mapdata.map);
+                    CreatureMovesToTile(creature,*mapdata.map,Left);
+                    //MovePlayer(Left, creature,*mapdata.map);
             }
             
             
@@ -89,7 +87,8 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
             else
             {
                 if(creature.getCanMove())
-                    MovePlayer(Up, creature,*mapdata.map);
+                    CreatureMovesToTile(creature,*mapdata.map,Up);
+                   // MovePlayer(Up, creature,*mapdata.map);
             }
             
             
@@ -104,7 +103,8 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
             else 
             {
                 if(creature.getCanMove())
-                    MovePlayer(Down, creature,*mapdata.map);
+                    CreatureMovesToTile(creature,*mapdata.map,Down);
+                   // MovePlayer(Down, creature,*mapdata.map);
             }
         }
         else if(event.key.code == sf::Keyboard::G)

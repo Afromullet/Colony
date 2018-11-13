@@ -13,6 +13,7 @@
 
 #include "Map.hpp"
 #include <stdio.h>
+#include "Equipment.hpp"
 #include <memory>
 
 
@@ -46,7 +47,7 @@ public:
     
     void AddItemToMap(Item *item);
     void AddItemToMap(std::unique_ptr<Item> item);
-    void AddCreatureToMap(BaseCreature creature);
+    void AddCreatureToMap(BaseCreature &creature);
     void PlaceCreaturesOnMap();
     void PlaceItemsOnMap();
     void setMap(Map *_map);
@@ -55,5 +56,6 @@ public:
     void SetWindow(sf::RenderWindow *_window);
 };
 
+extern MapData mapdata;
 
 #endif /* MapData_hpp */

@@ -6,10 +6,30 @@
 //  Copyright © 2018 Afromullet. All rights reserved.
 //
 
+
+
+#include "Globals.hpp"
+
+
+#include "Wound.hpp"
+
+
+
+
+
+#ifndef BodyGraph_hpp
+#define BodyGraph_hpp
+
+#include "EnumTypes.hpp"
+#include "BodyPart.hpp"
+#include "ItemManager.hpp"
+#include "Equipment.hpp"
+#include <memory>
+#include <string>
+
 #include <stdio.h>
 #include <vector>
 #include <list>
-
 #include <boost/graph/adjacency_list.hpp>
 #include <boost/graph/graphviz.hpp>
 #include <boost/graph/breadth_first_search.hpp>
@@ -20,22 +40,7 @@
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/xml_parser.hpp>
 #include <boost/foreach.hpp>
-#include <string>
-#include "Globals.hpp"
-#include "EnumTypes.hpp"
-#include <memory>
-#include "ItemManager.hpp"
-
-
-
-
 using namespace boost;
-#ifndef BodyGraph_hpp
-#define BodyGraph_hpp
-
-
-#include "BodyPart.hpp"
-
 
 
 
@@ -86,6 +91,76 @@ typedef boost::property_map<AnatomyGraph, vertex_index_t>::type AnatomyIndexMap;
 
 namespace pt = boost::property_tree;
 
+
+
+//Using a struct so that a wound table can handle its own insertions and finding of elements
+//Don't need this to be a class because it only has a few operations and no polymorphism is intended. It's just a lookup table
+
+
+
+
+struct WoundTableElement
+{
+public:
+    
+    int index;
+    std::vector<WoundType> woundTypes;
+    
+    friend bool operator==(const WoundTableElement &lhs,const WoundTableElement &rhs)
+    {
+        
+        return lhs.index == rhs.index;
+        
+        
+    }
+    
+    void operator=(const WoundTableElement &other)
+    {
+        index = other.index;
+        woundTypes.insert(woundTypes.end(),other.woundTypes.begin(),other.woundTypes.end());
+        
+    }
+    
+    WoundTableElement(int index, WoundType wound)
+    {
+        woundTypes.push_back(wound);
+    }
+    
+    WoundTableElement()
+    {
+        
+    }
+    
+    void addWoundType(WoundType type)
+    {
+        woundTypes.push_back(type);
+    }
+    
+    
+};
+
+struct WoundTable
+{
+    std::vector<WoundTableElement> table;
+    
+    
+    
+    //Need to merge tables when the creatures woundTable gets updated
+    void operator=(WoundTable &other) const;
+    
+    
+    WoundTable();
+    
+    
+    
+    
+    void AddElement(int index, WoundType woundType);
+    
+    
+    
+};
+
+
 //Rename class..just use this as the bodygraph later
 
 class CreatureBody
@@ -97,10 +172,12 @@ private:
     std::vector<std::string> bodyTokenList;
     float bodySize;
     std::string bodyName;
+
     
 public:
     
     AnatomyGraph anatomyGraph;
+    WoundTable woundTable;//A one dimensional table I guess? Takes extra space, but it's better than having to search the graph for every wound
     
     CreatureBody();
   
@@ -121,7 +198,7 @@ public:
    
     bool Equip(std::unique_ptr<Item> item,ItemManager &inventory,int index);
     void UnequipArmorBySection(std::vector<int> &indices,ItemManager &itemManager);
-    void UnequipArmorByName(std::vector<string> &vec);
+    void UnequipArmorByName(std::vector<std::string> &vec);
     void UnequipWeaponBySection(std::vector<int> &indices,ItemManager &itemManager,EnWeaponSize size);
     void EquipArmor(Item *item);
     void EquipWeapon(Item *item);
@@ -129,6 +206,8 @@ public:
     void PrintWounds();
     
     void AddVertex(BodyPart &bp);
+    
+   
    
     
     
@@ -138,6 +217,26 @@ public:
 };
 
 
+
+//Returns the vertex index
+int GetVerticesWithToken(std::string bptoken,  AnatomyGraph &graph);
+EnConnectionType convertConnectionType(std::string conType);
+EnConnectionProperty convertConnectionPropertyType(std::string conType);
+void printBodyGraphEdges(const AnatomyGraph &graph);
+void printConnectionType(GraphConnection con);
+void printConnectionProperty(GraphConnection con);
+void printBodyGraphVertices(const AnatomyGraph &graph);
+
+
+std::vector<int> getExternalBodyParts(const AnatomyGraph &graph);
+int getRandomExternalBodyParts(const AnatomyGraph &graph);
+
+int getFirstUnequippedFromSection(const AnatomyGraph &graph, const std::string &section);
+std::vector<int> getVerticesThatCanHoldWeapons(const AnatomyGraph &graph);
+std::vector<int> getInternalVertices(int n,AnatomyGraph &graph);
+std::vector<int> getConnectedVertices(int n,AnatomyGraph &graph);
+
+void WoundReport(AnatomyGraph &graph);
 
 
 

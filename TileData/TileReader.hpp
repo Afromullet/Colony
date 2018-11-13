@@ -14,8 +14,11 @@
 #include <string>
 #include <stdio.h>
 #include <vector>
-#include "Globals.hpp"
+
 #include "EnumTypes.hpp"
+
+#include <iostream>
+#include <fstream>
 
 
 
@@ -54,8 +57,20 @@
 #define SNOW_MOUNTAIN_1 15
 
 #define GRASS_MOUNTAIN_1 16
+//Matches up a tile ID with a tile type, texture, etc.
+//To be loaded at initilization, so when generating maps, you have the necessary data
+typedef struct TileIdentificationData
+{
+    TileTerrainType enTileTerrainType;
+    int ID;
+    bool canHoldCreature;
+    std::string textureFileName;
+    
+}TileIDData;
 
 extern TileIDData tempData;
+extern std::vector<TileIDData> tileIDTable;
+
 extern std::vector<std::string> terrainTypeTable;
 extern int tileTableSize;
 

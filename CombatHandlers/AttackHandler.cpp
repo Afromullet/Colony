@@ -7,11 +7,23 @@
 //
 
 #include "AttackHandler.hpp"
-#include "BodyGraphGetters.hpp"
-#include <iostream>
-#include "Wound.hpp"
 
-void Single_Attack_Melee(AttackStats attack, BaseCreature &defender)
+//Need to be display what body part has been targeted and what kind of wound has been applied
+/*
+ At this point, the game will have to responsd to several things
+ 
+ 1) The effects of wound on the body
+ 2) Whether any vertices have to be removed from the graph
+ 3) The location of the wound
+ 
+ */
+
+struct WoundIdentifier
+{
+    
+};
+
+void Single_Attack_Melee(AttackStats &attack, BaseCreature &defender)
 {
     int target = getRandomExternalBodyParts(defender.body.anatomyGraph);
     defender.body.anatomyGraph[target].getArmorRef().getMaterialRef().PerformMaterialCalculations(attack.force,attack.contactArea,attack.enAttackForceType,attack.attackType);
@@ -22,9 +34,12 @@ void Single_Attack_Melee(AttackStats attack, BaseCreature &defender)
     
     for(int i=0;i<effects.size();i++)
     {
-        woundCalcs.ApplyWound(effects.at(i),defender.body.anatomyGraph);
+        woundCalcs.ApplyWound(effects.at(i),defender.body.anatomyGraph); //Changes the sate of the defenders body graph
     }
     
+    //Here I need to merge the woundCalc wouldTable with the defender woundTable
+    
+   // defender.body.woundTable = woundCalcs.woundTable;
     
     
     
@@ -123,4 +138,26 @@ void AttackBodyPart(AttackStats stats,int index,AnatomyGraph &graph)
     std::vector<AppliedForceEffect> effects = graph[index].ApplyAttack(stats); //For now only apply the first effect
     WoundCalculations woundCalcs(index);
     woundCalcs.ApplyWound(effects.at(0),graph);
+}
+
+//For providing some info to display to the user following a attack
+std::string getAttackString(BaseCreature &attacker, BaseCreature &defender,AttackStats &stats)
+{
+    std::string tempString = "Attacks with a";
+    
+    if(stats.attackType == enPierce)
+    {
+        tempString += " Thrust";
+    }
+    else if(stats.attackType == enBlunt)
+    {
+        tempString += " Slam";
+    }
+    else if(stats.attackType == enSlash)
+    {
+        tempString += " Slash";
+    }
+    
+    return tempString;
+    
 }

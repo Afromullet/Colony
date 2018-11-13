@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include "Resource.hpp"
 #include "DataStorage.hpp"
-
+#include "Constants.hpp"
 
 extern Plant plantResource[MAX_RESOURCES_PER_GROUP];
 extern int numPlantResources;

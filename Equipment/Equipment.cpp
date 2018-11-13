@@ -7,10 +7,7 @@
 //
 
 #include "Equipment.hpp"
-#include "ErrorConstants.hpp"
-#include "UtilMacros.h"
-#include <boost/uuid/uuid_generators.hpp>
-#include "Constants.hpp"
+
 //Overloaded operators
 
 bool Item::operator==(const Item &other) const

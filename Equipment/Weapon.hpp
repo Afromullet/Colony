@@ -14,7 +14,9 @@
 
 #include <stdio.h>
 #include "Equipment.hpp"
-
+#include "UtilMacros.h"
+#include <boost/uuid/uuid.hpp>
+#include <boost/uuid/uuid_generators.hpp>
 
 enum EnWeaponSize{enSmallWeapon,enMediumWeapon,enLargeWeapon};
 
@@ -43,6 +45,7 @@ public:
     
     Weapon();
     Weapon(const Weapon &weapon);
+    Weapon(const Weapon *other);
     
     
        
@@ -91,5 +94,9 @@ public:
 };
 
 
+
+extern Weapon FIST_WEAPON;
+extern Weapon NO_WEAPON;
+extern Weapon WEAPON_SLOT_FILLED;
 
 #endif /* Weapon_hpp */
