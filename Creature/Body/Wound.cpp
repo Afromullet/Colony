@@ -14,49 +14,6 @@ std::vector<WoundRule> impactWoundRuleset;
 
 
 
-WoundTable::WoundTable()
-{
-    
-}
-
-//Need to merge tables when the creatures woundTable gets updated
-void WoundTable::operator=(WoundTable &other) const
-{
-    
-    
-}
-
-void WoundTable::AddElement(int index, WoundType woundType)
-{
-    //std::vector<WoundTableElement>::iterator it;
-    
-    
-    bool elementFound = false;
-    
-    for(int i = 0; i < table.size(); i++)
-    {
-        
-        std::vector<WoundTableElement>::iterator it;
-        it = std::find(table.begin(),table.end(),table.at(i));
-        
-        if( it != table.end())
-        {
-            table.at(i).addWoundType(woundType);
-        }
-        else
-        {
-            table.push_back(WoundTableElement(index,woundType));
-        }
-        /*
-         if(table.at(i).index == index)
-         {
-         elementFound = true;
-         table.at(i).addWoundType(woundType);
-         break;
-         }*/
-    }
-}
-
 
 void SetupWoundRuleset()
 {
@@ -366,6 +323,8 @@ void WoundCalculations::ApplyWound(AppliedForceEffect &effect, AnatomyGraph &gra
     {
         ApplyImpactWound(effect,graph);
     }
+    
+    printf("Break here");
     
     
     

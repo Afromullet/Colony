@@ -1286,3 +1286,36 @@ int getFirstUnequippedFromSection(const AnatomyGraph &graph,const std::string &s
 }
 
 
+WoundTable::WoundTable()
+{
+    
+}
+
+
+
+void WoundTable::AddElement(int index, WoundType woundType)
+{
+    //std::vector<WoundTableElement>::iterator it;
+    
+    
+    bool elementFound = false;
+    WoundTableElement temp = WoundTableElement(index,woundType);
+    std::vector<WoundTableElement>::iterator it;
+    it = std::find(table.begin(),table.end(),temp);
+            
+    if( it != table.end())
+    {
+        
+        it->addWoundType(woundType);
+    }
+    else
+    {
+        table.push_back(WoundTableElement(index,woundType));
+    }
+        
+    
+}
+
+
+
+

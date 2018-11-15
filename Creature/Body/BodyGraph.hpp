@@ -121,8 +121,9 @@ public:
         
     }
     
-    WoundTableElement(int index, WoundType wound)
+    WoundTableElement(int _index, WoundType wound)
     {
+        index = _index;
         woundTypes.push_back(wound);
     }
     
@@ -146,7 +147,34 @@ struct WoundTable
     
     
     //Need to merge tables when the creatures woundTable gets updated
-    void operator=(WoundTable &other) const;
+    void operator=(const WoundTable &other)
+    {
+        std::vector<WoundTableElement>::iterator it;
+        for(int i = 0; i < other.table.size(); i++)
+        {
+            
+      
+            
+            it = std::find(table.begin(),table.end(),other.table.at(i));
+            
+            if( it != table.end())
+            {
+                
+                *it = other.table.at(i);
+                //it->addWoundType(woundType);
+            }
+            else
+            {
+                table.push_back(other.table.at(i));
+                
+               // table.push_back(WoundTableElement(index,other.at());
+            }
+         
+           
+        }
+        
+        
+    }
     
     
     WoundTable();
@@ -155,6 +183,11 @@ struct WoundTable
     
     
     void AddElement(int index, WoundType woundType);
+    
+    void AddElement(WoundTableElement &other)
+    {
+        table.push_back(other);
+    }
     
     
     

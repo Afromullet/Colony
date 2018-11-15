@@ -15,6 +15,7 @@
 
 #include "PlayerWindows.hpp"
 #include "SettlementEV.hpp"
+#include "WoundTableInterface.hpp"
 
 
 void GameLoop3();

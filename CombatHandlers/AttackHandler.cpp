@@ -39,7 +39,7 @@ void Single_Attack_Melee(AttackStats &attack, BaseCreature &defender)
     
     //Here I need to merge the woundCalc wouldTable with the defender woundTable
     
-   // defender.body.woundTable = woundCalcs.woundTable;
+    defender.body.woundTable = woundCalcs.woundTable;
     
     
     
