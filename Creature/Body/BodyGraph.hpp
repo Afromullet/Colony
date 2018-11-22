@@ -12,7 +12,7 @@
 
 
 #include "Wound.hpp"
-
+#include "WoundTableInterface.hpp"
 
 
 
@@ -40,6 +40,9 @@
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/xml_parser.hpp>
 #include <boost/foreach.hpp>
+
+
+
 using namespace boost;
 
 
@@ -194,6 +197,12 @@ struct WoundTable
 };
 
 
+//Forward declarations
+class WoundTableInterface;
+class ImpactWoundInterface;
+class ShearWoundInterface;
+
+
 //Rename class..just use this as the bodygraph later
 
 class CreatureBody
@@ -205,6 +214,8 @@ private:
     std::vector<std::string> bodyTokenList;
     float bodySize;
     std::string bodyName;
+    
+    
 
     
 public:
@@ -214,7 +225,7 @@ public:
     
     CreatureBody();
   
-    
+    WoundTableInterface *woundTableInterface;
     void GenerateVertices();
     void GenerateOrganVertices();
     void GenerateEdges();
@@ -239,15 +250,9 @@ public:
     void PrintWounds();
     
     void AddVertex(BodyPart &bp);
-    
-   
-   
-    
-    
-    
-    
-    
 };
+
+
 
 
 

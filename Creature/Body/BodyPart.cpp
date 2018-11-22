@@ -37,7 +37,7 @@ bool BodyPart::operator==(BodyPart &other) const
         if(canMoveCreature == other.canMoveCreature && canSee == other.canSee && canSmell == other.canSmell && canBreathe == other.canBreathe && isInternal == other.isInternal)
             
         {
-            if(relativeSize == other.relativeSize && tissues == other.tissues && bodyPartName == other.bodyPartName && wounds == other.wounds && armor == other.armor && weapon == other.weapon)
+            if(relativeSize == other.relativeSize && tissues == other.tissues && bodyPartName == other.bodyPartName && wounds == other.wounds && armor == other.armor && weapon == other.weapon && fractureLevel == other.fractureLevel && bruiseLevel == other.bruiseLevel && cutLevel == other.cutLevel && piercedLevel == other.piercedLevel)
             {
                 return true;
             }
@@ -73,6 +73,10 @@ void BodyPart::operator=(const BodyPart &other)
     wounds = other.wounds;
     armor = other.armor;
     weapon = other.weapon;
+    fractureLevel = other.fractureLevel;
+    bruiseLevel = other.bruiseLevel;
+    cutLevel = other.cutLevel;
+    piercedLevel = other.piercedLevel;
  
 }
  
@@ -90,7 +94,10 @@ BodyPart::BodyPart() : armor(NO_ARMOR),weapon(NO_WEAPON)
 
 BodyPart::BodyPart(bool _canHoldWeapon, bool _canHoldArmor, bool _canInteract, bool _canMoveCreature,std::string _bodyPartName, int _health) : canHoldArmor(_canHoldArmor),canHoldWeapon(_canHoldWeapon),armor(NO_ARMOR),weapon(NO_WEAPON),health(1), bodyPartName(_bodyPartName)
 {
-    
+    fractureLevel = 0;
+    bruiseLevel = 0;
+    cutLevel = 0;
+    piercedLevel = 0;
 }
 
 
@@ -98,6 +105,10 @@ BodyPart::BodyPart(bool _canHoldWeapon, bool _canHoldArmor, bool _canInteract, b
 BodyPart::BodyPart(std::string bptoken,std::string bpname) : bodyPartToken(bptoken),bodyPartName(bpname)
 {
     health = 10;
+    fractureLevel = 0;
+    bruiseLevel = 0;
+    cutLevel = 0;
+    piercedLevel = 0;
 }
 
 
@@ -124,7 +135,11 @@ BodyPart::BodyPart(const BodyPart& other)
     wounds = other.wounds;
     armor = other.armor;
     weapon = other.weapon;
-     
+    fractureLevel = other.fractureLevel;
+    bruiseLevel = other.bruiseLevel;
+    cutLevel = other.cutLevel;
+    piercedLevel = other.piercedLevel;
+    
    
     
 }
@@ -307,6 +322,30 @@ void BodyPart::setBodyPartName(std::string val)
     bodyPartName = val;
 }
 
+void BodyPart::increaseFractureLevel(float level)
+{
+    fractureLevel += level;
+}
+
+void BodyPart::increaseBruiseLevel(float level)
+{
+    bruiseLevel += level;
+}
+
+void BodyPart::increaseCutLevel(float level)
+{
+    cutLevel += level;
+}
+
+void BodyPart::increasePiercedLevel(float level)
+{
+    piercedLevel += level;
+}
+
+void BodyPart::setIsRuptured(bool val)
+{
+    isRuptured = val;
+}
 
 
 

@@ -74,6 +74,12 @@ private:
     bool canSmell;
     bool canBreathe;
     bool isInternal;
+    float fractureLevel; //Determines the severity of the fracture
+    float bruiseLevel;
+    float cutLevel;
+    float piercedLevel;
+    bool isRuptured;
+    
     float relativeSize; //How large this part is in relation to the whole body. A percent..I.E, .53 is 53%
     
    
@@ -133,6 +139,11 @@ public:
     void setIsInternal(bool val) ;
     void setRelativeSize(float val) ;
     void setBodyPartName(std::string val) ;
+    void increaseFractureLevel(float level);
+    void increaseBruiseLevel(float level);
+    void increaseCutLevel(float level);
+    void increasePiercedLevel(float level);
+    void setIsRuptured(bool val);
     
     Armor getArmor() const;
     Weapon getWeapon() const;

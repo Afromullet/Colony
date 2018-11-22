@@ -7,6 +7,8 @@
 //
 
 #include "AttackHandler.hpp"
+#include "ImpactWoundInterface.hpp"
+#include "ShearWoundInterface.hpp"
 
 //Need to be display what body part has been targeted and what kind of wound has been applied
 /*
@@ -39,7 +41,17 @@ void Single_Attack_Melee(AttackStats &attack, BaseCreature &defender)
     
     //Here I need to merge the woundCalc wouldTable with the defender woundTable
     
-    defender.body.woundTable = woundCalcs.woundTable;
+     defender.body.woundTable = woundCalcs.woundTable;
+    ImpactWoundInterface impact(defender.body.anatomyGraph,defender.body.woundTable);
+    ShearWoundInterface shear(defender.body.anatomyGraph,defender.body.woundTable);
+   
+    
+    defender.body.woundTableInterface = &impact;
+    defender.body.woundTableInterface->ProcesWoundTable();
+    defender.body.woundTableInterface = &shear;
+    defender.body.woundTableInterface->ProcesWoundTable();
+    
+    
     
     
     

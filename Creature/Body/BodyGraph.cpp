@@ -934,6 +934,13 @@ void CreatureBody::AddVertex(BodyPart &bp)
 }
 
 
+/*
+BodyPart& getBodyPartRef(AnatomyGraph *graph,int index)
+{
+    return &graph[index];
+}
+ */
+
 std::vector<int> getVerticesThatCanHoldWeapons(const AnatomyGraph &graph)
 {
     Anatomy_Basic_DFS_Visitor vis;
@@ -1315,6 +1322,8 @@ void WoundTable::AddElement(int index, WoundType woundType)
         
     
 }
+
+
 
 
 
