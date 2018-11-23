@@ -20,20 +20,33 @@ void ImpactWoundInterface::ProcessElement(WoundTableElement &element)
     for(it = element.woundTypes.begin(); it != element.woundTypes.end();)
     {
         type = *it;
+        std::cout << "\n Attacking " << graph[element.index].getBodyPartName();
         if(type == enMinorFracture || type == enModerateFracture || type == enMajorFracture)
         {
             ApplyFracture(element.index,type);
+            graph[element.index].DetermineEffects(body.bodyProperties);
+            body.AddToPainLevel(graph[element.index].getPainLevel());
+            body.AddToBleedingRate(graph[element.index].getBleedingRate());
             element.woundTypes.erase(it);
         }
         else if(type == enMinorBruise || type == enModerateBruise || type == enMajorBruise)
         {
             ApplyBruise(element.index,type);
+            graph[element.index].DetermineEffects(body.bodyProperties);
+            body.AddToPainLevel(graph[element.index].getPainLevel());
+            body.AddToBleedingRate(graph[element.index].getBleedingRate());
             element.woundTypes.erase(it);
+            
         }
         else if(type == enRupture)
         {
             ApplyRupture(element.index,type);
+            graph[element.index].DetermineEffects(body.bodyProperties);
+            body.AddToPainLevel(graph[element.index].getPainLevel());
+            body.AddToBleedingRate(graph[element.index].getBleedingRate());
             element.woundTypes.erase(it);
+            
+         
         }
         else
         {

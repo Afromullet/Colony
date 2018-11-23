@@ -53,7 +53,7 @@ void CreatureBody::GenerateVertices()
     
     //Declaring the variables to make this more readable
     std::string bptoken,bpname,section;
-    int holdsWeapon,holdsArmor,canInteract,canSee,canSmell,canBreathe;
+    int holdsWeapon,holdsArmor,canInteract,canSee,canSmell,canBreathe,canMove,isOrgan;
     float relativeSize;
     BOOST_FOREACH(pt::ptree::value_type &v, tree.get_child("bodyparts"))
     {
@@ -130,6 +130,33 @@ void CreatureBody::GenerateVertices()
                 relativeSize = 10;
             }
             
+            try
+            {
+                canInteract = convertTruthValue(v.second.get<std::string>("caninteract"));
+            }
+            catch(pt::ptree_bad_path)
+            {
+                canInteract = false;
+            }
+        
+            try
+            {
+                canMove = convertTruthValue(v.second.get<std::string>("canmovecreature"));
+            }
+            catch(pt::ptree_bad_path)
+            {
+                canMove = false;
+            }
+            
+            try
+            {
+                isOrgan = convertTruthValue(v.second.get<std::string>("isorgan"));
+            }
+            catch(pt::ptree_bad_path)
+            {
+                isOrgan = false;
+            }
+            
             
             
             
@@ -147,6 +174,31 @@ void CreatureBody::GenerateVertices()
             bp.setCanSee(canSee);
             bp.setSection(section);
             bp.setArmor(NO_ARMOR);
+            bp.setCanBreathe(canBreathe);
+            bp.setCanInteract(canInteract);
+            bp.setCanMoveCreature(canMove);
+            bp.setIsOrgan(isOrgan);
+            
+            if(canSmell)
+            {
+                bodyProperties.numSmellingParts += 1;
+            }
+            if(canSee)
+            {
+                bodyProperties.numSeeingParts += 1;
+            }
+            if(canBreathe)
+            {
+                bodyProperties.numBreathingParts += 1;
+            }
+            if(canInteract)
+            {
+                bodyProperties.numInteractingParts += 1;
+            }
+            if(canMove)
+            {
+                bodyProperties.numCanMoveParts += 1;
+            }
             
             
             
@@ -167,7 +219,7 @@ void CreatureBody::GenerateOrganVertices()
     
     //Declaring the variables to make this more readable
     std::string bptoken,bpname,section;
-    int holdsWeapon,holdsArmor,canInteract,canSee,canSmell,canBreathe;
+    int holdsWeapon,holdsArmor,canInteract,canSee,canSmell,canBreathe,canMove,isOrgan;
     float relativeSize;
     BOOST_FOREACH(pt::ptree::value_type &v, tree.get_child("organs"))
     {
@@ -249,6 +301,35 @@ void CreatureBody::GenerateOrganVertices()
                 relativeSize = 10;
             }
             
+            try
+            {
+                canInteract = convertTruthValue(v.second.get<std::string>("caninteract"));
+            }
+            catch(pt::ptree_bad_path)
+            {
+                canInteract = false;
+            }
+            
+            try
+            {
+                canMove = convertTruthValue(v.second.get<std::string>("canmovecreature"));
+            }
+            catch(pt::ptree_bad_path)
+            {
+                canMove = false;
+            }
+            
+            try
+            {
+                isOrgan = convertTruthValue(v.second.get<std::string>("isorgan"));
+            }
+            catch(pt::ptree_bad_path)
+            {
+                isOrgan = false;
+            }
+            
+            
+            
             
             
             
@@ -261,6 +342,33 @@ void CreatureBody::GenerateOrganVertices()
             bp.setCanSee(canSee);
             bp.setSection(section);
             bp.setArmor(NO_ARMOR);
+            bp.setCanBreathe(canBreathe);
+            bp.setCanInteract(canInteract);
+            bp.setCanMoveCreature(canMove);
+            bp.setIsOrgan(isOrgan);
+            
+            if(canSmell)
+            {
+                bodyProperties.numSmellingParts += 1;
+            }
+            if(canSee)
+            {
+                bodyProperties.numSeeingParts += 1;
+            }
+            if(canBreathe)
+            {
+               bodyProperties.numBreathingParts += 1;
+            }
+            if(canInteract)
+            {
+                bodyProperties.numInteractingParts += 1;
+            }
+            if(canMove)
+            {
+                bodyProperties.numCanMoveParts += 1;
+            }
+            
+            
             
             
             
@@ -933,7 +1041,16 @@ void CreatureBody::AddVertex(BodyPart &bp)
     
 }
 
+void CreatureBody::AddToPainLevel(float level)
+{
+    totalPain += level;
+}
 
+
+void CreatureBody::AddToBleedingRate(float rate)
+{
+    totalBleedingRate += rate;
+}
 /*
 BodyPart& getBodyPartRef(AnatomyGraph *graph,int index)
 {

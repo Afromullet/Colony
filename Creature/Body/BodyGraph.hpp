@@ -21,6 +21,7 @@
 #define BodyGraph_hpp
 
 #include "EnumTypes.hpp"
+#include "BodyDefs.h"
 #include "BodyPart.hpp"
 #include "ItemManager.hpp"
 #include "Equipment.hpp"
@@ -205,6 +206,8 @@ class ShearWoundInterface;
 
 //Rename class..just use this as the bodygraph later
 
+
+
 class CreatureBody
 {
     
@@ -214,6 +217,9 @@ private:
     std::vector<std::string> bodyTokenList;
     float bodySize;
     std::string bodyName;
+    float totalPain;
+    float totalBleedingRate;
+    
     
     
 
@@ -222,6 +228,7 @@ public:
     
     AnatomyGraph anatomyGraph;
     WoundTable woundTable;//A one dimensional table I guess? Takes extra space, but it's better than having to search the graph for every wound
+    BodyPropertyTable bodyProperties;
     
     CreatureBody();
   
@@ -250,6 +257,8 @@ public:
     void PrintWounds();
     
     void AddVertex(BodyPart &bp);
+    void AddToPainLevel(float level);
+    void AddToBleedingRate(float rate);
 };
 
 

@@ -24,6 +24,7 @@
 #include "Globals.hpp"
 #include "Weapon.hpp"
 #include "Armor.hpp"
+#include "BodyDefs.h"
 
 
 #define ARM_STRING "arm"
@@ -54,6 +55,19 @@
 #define BP_ARMOR_VALUES 1
 #define BP_WEAPON_VALUES 1
 
+#define LOW_WOUND_LEVEL 10
+#define MODERATE_WOUND_LEVEL 30
+#define MAJOR_WOUND_LEVEL 50
+
+#define LOW_PAIN 1
+#define MODERATE_PAIN 2
+#define HIGH_PAIN 3
+
+#define LOW_BLEEDING_RATE 1
+#define MODERATE_BLEEDING_RATE 2
+#define HIGH_BLEEDING_RATE 3
+
+
 
 
 
@@ -74,10 +88,13 @@ private:
     bool canSmell;
     bool canBreathe;
     bool isInternal;
+    bool isOrgan;
     float fractureLevel; //Determines the severity of the fracture
     float bruiseLevel;
     float cutLevel;
     float piercedLevel;
+    float bleedingRate;
+    float painLevel;
     bool isRuptured;
     
     float relativeSize; //How large this part is in relation to the whole body. A percent..I.E, .53 is 53%
@@ -144,6 +161,7 @@ public:
     void increaseCutLevel(float level);
     void increasePiercedLevel(float level);
     void setIsRuptured(bool val);
+    void setIsOrgan(bool val);
     
     Armor getArmor() const;
     Weapon getWeapon() const;
@@ -169,9 +187,19 @@ public:
     std::string getBodyPartName() const;
     std::vector<WoundType> getWounds() const;
     std::vector<WoundType> &getWoundsRef() ;
-    
+    float getPainLevel();
+    float getBleedingRate();
+    bool getIsOrgan();
     
     void AddWound(WoundType woundType);
+    
+    
+    void DetermineEffects(BodyPropertyTable &bpState);
+    void DetermineFractureEffects(BodyPropertyTable &bpState);
+    void DetermineCutEffects(BodyPropertyTable &bpState);
+    void DeterminePiercedEffects(BodyPropertyTable &bpState);
+    void DetermineBruiseEffects(BodyPropertyTable &bpState);
+    void DetermineRupturedEffects(BodyPropertyTable &bpState);
     
     
     

@@ -347,12 +347,12 @@ std::vector<int> WoundCalculations::ApplySlashingShearWound(AppliedForceEffect &
         if(effect.woundSeverity == enMinorWound)
         {
             graph[targets.at(0)].AddWound(enMinorCut);
-             woundTable.AddElement(0,enMinorCut);
+             woundTable.AddElement(targets.at(0),enMinorCut);
         }
         else if(effect.woundSeverity == enModerateWound)
         {
             graph[targets.at(0)].AddWound(enModerateCut);
-            woundTable.AddElement(0,enModerateCut);
+            woundTable.AddElement(targets.at(0),enModerateCut);
         }
         else if(effect.woundSeverity == enMajorWound)
         {
@@ -361,7 +361,7 @@ std::vector<int> WoundCalculations::ApplySlashingShearWound(AppliedForceEffect &
             if(dismmemberChance <= DISMEMBER_CHANCE)
             {
                 graph[targets.at(0)].AddWound(enDismember);
-                woundTable.AddElement(0,enDismember);
+                woundTable.AddElement(targets.at(0),enDismember);
             }
         }
     }
@@ -383,31 +383,31 @@ std::vector<int> WoundCalculations::ApplyPiercingShearWound(AppliedForceEffect &
         if(effect.woundSeverity == enMinorWound)
         {
             graph[targets.at(0)].AddWound(enMinorPuncture);
-            woundTable.AddElement(0,enMinorPuncture);
+            woundTable.AddElement(targets.at(0),enMinorPuncture);
 
         }
         else if(effect.woundSeverity == enModerateWound)
         {
         
             graph[targets.at(0)].AddWound(enModeratePuncture);
-            woundTable.AddElement(0,enModeratePuncture);
+            woundTable.AddElement(targets.at(0),enModeratePuncture);
             
             if(targets.size() > 1)
             {
                 graph[targets.at(1)].AddWound(enMinorPuncture);
-                woundTable.AddElement(1,enMinorPuncture);
+                woundTable.AddElement(targets.at(1),enMinorPuncture);
                 
             }
         }
         else if(effect.woundSeverity == enMajorWound)
         {
             graph[targets.at(0)].AddWound(enMajorPuncture);
-            woundTable.AddElement(0,enMajorPuncture);
+            woundTable.AddElement(targets.at(0),enMajorPuncture);
             
             if(targets.size() > 1)
             {
                 graph[targets.at(1)].AddWound(enModeratePuncture);
-                woundTable.AddElement(1,enModeratePuncture);
+                woundTable.AddElement(targets.at(1),enModeratePuncture);
             }
         }
     }
@@ -434,17 +434,17 @@ std::vector<int> WoundCalculations::ApplyImpactWound(AppliedForceEffect &effect,
         if(effect.woundSeverity == enMinorWound)
         {
             graph[targets.at(0)].AddWound(enMinorBruise);
-            woundTable.AddElement(0,enMinorBruise);
+            woundTable.AddElement(targets.at(0),enMinorBruise);
             if(fractureChance <= FRACTURE_CHANCE)
             {
                 graph[targets.at(0)].AddWound(enMinorFracture);
-                woundTable.AddElement(0,enMinorFracture);
+                woundTable.AddElement(targets.at(0),enMinorFracture);
             }
         }
         else if(effect.woundSeverity == enModerateWound)
         {
             graph[targets.at(0)].AddWound(enModerateBruise);
-            woundTable.AddElement(0,enModeratePuncture);
+            woundTable.AddElement(targets.at(0),enModeratePuncture);
         
             if(fractureChance <= FRACTURE_CHANCE)
             {
@@ -456,7 +456,7 @@ std::vector<int> WoundCalculations::ApplyImpactWound(AppliedForceEffect &effect,
             if(targets.size() > 1)
             {
                 graph[targets.at(1)].AddWound(enMinorBruise);
-                woundTable.AddElement(1,enMinorBruise);
+                woundTable.AddElement(targets.at(1),enMinorBruise);
             }
         
         }
@@ -465,28 +465,28 @@ std::vector<int> WoundCalculations::ApplyImpactWound(AppliedForceEffect &effect,
             int ruptureChance = rand() % 101;
         
             graph[targets.at(0)].AddWound(enMajorBruise);
-            woundTable.AddElement(0,enMajorBruise);
+            woundTable.AddElement(targets.at(0),enMajorBruise);
         
             if(fractureChance <= FRACTURE_CHANCE)
             {
                 graph[targets.at(0)].AddWound(enMajorFracture);
-                woundTable.AddElement(0,enMajorFracture);
+                woundTable.AddElement(targets.at(0),enMajorFracture);
             }
         
-            std::cout << "\n Target size " << targets.size();
+           // std::cout << "\n Target size " << targets.size();
          
             if(targets.size() > 1)
             {
-                   std::cout << "\n Targets at 1" << targets.at(1);
+                  // std::cout << "\n Targets at 1" << targets.at(1);
                 graph[targets.at(1)].AddWound(enMajorBruise);
-                woundTable.AddElement(1,enMajorBruise);
+                woundTable.AddElement(targets.at(1),enMajorBruise);
                 
             }
         
             if(ruptureChance <= RUPTURE_CHANCE && targets.size() > 1)
             {
                 graph[targets.at(1)].AddWound(enRupture);
-                woundTable.AddElement(1,enRupture);
+                woundTable.AddElement(targets.at(1),enRupture);
             }
             
         }

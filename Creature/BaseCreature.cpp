@@ -54,6 +54,7 @@ BaseCreature::BaseCreature(const BaseCreature &other)
     path = other.path;
     attacks = other.attacks;
     canMove = other.canMove;
+    body.bodyProperties = other.body.bodyProperties;
    //inventory = other.inventory;
     
     
@@ -83,6 +84,7 @@ BaseCreature::BaseCreature(BaseCreature &other)
     inventory = other.inventory;
     
     canMove = other.canMove;
+    body.bodyProperties = other.body.bodyProperties;
 }
 
  

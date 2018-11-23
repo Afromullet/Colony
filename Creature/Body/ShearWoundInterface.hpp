@@ -18,8 +18,8 @@ class ShearWoundInterface : public WoundTableInterface
     
     
 public:
-    ShearWoundInterface(AnatomyGraph &graph, WoundTable &table) :
-    WoundTableInterface(graph,table)
+    ShearWoundInterface(AnatomyGraph &graph, WoundTable &table,CreatureBody &_body) :
+    WoundTableInterface(graph,table,_body)
     {
         
     }

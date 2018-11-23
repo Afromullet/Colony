@@ -52,6 +52,44 @@
         <relativesize>10</relativesize>
     </bpdescription>
     
+    
+    <bpdescription>
+        <bptoken>righttentacle1</bptoken>
+        <bodypartname>Right Tentacle 1</bodypartname>
+        <canholdweapon>false</canholdweapon>
+        <canholdarmor>true</canholdarmor>
+        <section>armsection</section>
+        <relativesize>10</relativesize>
+    </bpdescription>
+    
+    <bpdescription>
+        <bptoken>righttentacle2</bptoken>
+        <bodypartname>Right Tentacle 2</bodypartname>
+        <canholdweapon>false</canholdweapon>
+        <canholdarmor>true</canholdarmor>
+        <section>armsection</section>
+        <relativesize>10</relativesize>
+    </bpdescription>
+    
+    <bpdescription>
+        <bptoken>lefttentacle1</bptoken>
+        <bodypartname>LeftTentacle1</bodypartname>
+        <canholdweapon>false</canholdweapon>
+        <canholdarmor>true</canholdarmor>
+        <section>armsection</section>
+        <relativesize>10</relativesize>
+    </bpdescription>
+    
+    <bpdescription>
+        <bptoken>lefttentacle2</bptoken>
+        <bodypartname>LeftTentacle2</bodypartname>
+        <canholdweapon>false</canholdweapon>
+        <canholdarmor>true</canholdarmor>
+        <section>armsection</section>
+        <relativesize>10</relativesize>
+    </bpdescription>
+    
+    
     <bpdescription>
         <bptoken>lefthand</bptoken>
         <bodypartname>LeftHand</bodypartname>
@@ -131,7 +169,7 @@
         <relativesize>10</relativesize>
         <isorgan>true</isorgan>
     </bpdescription>
-
+    
     <bpdescription>
         <bptoken>leftlung</bptoken>
         <bodypartname>LeftLung</bodypartname>
@@ -144,9 +182,9 @@
     <bpdescription>
         <bptoken>brain</bptoken>
         <bodypartname>Brain</bodypartname>
-         <section>headinternalsection</section>
-         <relativesize>5</relativesize>
-         <isorgan>true</isorgan>
+        <section>headinternalsection</section>
+        <relativesize>5</relativesize>
+        <isorgan>true</isorgan>
     </bpdescription>
     
     <bpdescription>
@@ -195,16 +233,44 @@
         <connectiontype>direct</connectiontype>
         <connectionproperty>bone</connectionproperty>
     </bodypart>
-
+    
     <bodypart>
         <bptoken>leftarm</bptoken>
         <connectsto>chest</connectsto>
         <connectiontype>externalleft</connectiontype>
         <connectionproperty>bone</connectionproperty>
     </bodypart>
-
+    
     <bodypart>
         <bptoken>rightarm</bptoken>
+        <connectsto>chest</connectsto>
+        <connectiontype>externalright</connectiontype>
+        <connectionproperty>bone</connectionproperty>
+    </bodypart>
+    
+    <bodypart>
+        <bptoken>righttentacle1</bptoken>
+        <connectsto>chest</connectsto>
+        <connectiontype>externalright</connectiontype>
+        <connectionproperty>bone</connectionproperty>
+    </bodypart>
+    
+    <bodypart>
+        <bptoken>righttentacle2</bptoken>
+        <connectsto>chest</connectsto>
+        <connectiontype>externalright</connectiontype>
+        <connectionproperty>bone</connectionproperty>
+    </bodypart>
+    
+    <bodypart>
+        <bptoken>lefttentacle1</bptoken>
+        <connectsto>chest</connectsto>
+        <connectiontype>externalright</connectiontype>
+        <connectionproperty>bone</connectionproperty>
+    </bodypart>
+    
+    <bodypart>
+        <bptoken>lefttentacle2</bptoken>
         <connectsto>chest</connectsto>
         <connectiontype>externalright</connectiontype>
         <connectionproperty>bone</connectionproperty>
@@ -223,7 +289,7 @@
         <connectiontype>externalright</connectiontype>
         <connectionproperty>bone</connectionproperty>
     </bodypart>
-
+    
     <bodypart>
         <bptoken>lefthand</bptoken>
         <connectsto>leftarm</connectsto>
@@ -311,8 +377,8 @@
         <connectionproperty>connectivetissue</connectionproperty>
     </organconnection>
     
-
-
+    
+    
 </organconnections>
 
 

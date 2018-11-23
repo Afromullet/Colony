@@ -95,7 +95,7 @@ void CreatureAttacksCreature(BaseCreature &attacker, BaseCreature &defender)
      
         
        //For testing purposes, randomly select the attack type
-        std::cout << "\n" << getAttackString(attacker,defender,attack);
+       // std::cout << "\n" << getAttackString(attacker,defender,attack);
        Single_Attack_Melee(attack,defender);
         
     }

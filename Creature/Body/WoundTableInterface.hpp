@@ -15,9 +15,6 @@
 #include "BodyGraph.hpp"
 #include "BodyPart.hpp"
 
-#define LOW_WOUND_LEVEL 10
-#define MODERATE_WOUND_LEVEL 30
-#define MAJOR_WOUND_LEVEL 50
 
 class ImpactWoundInterface;
 class ShearWoundInterface;
@@ -27,6 +24,7 @@ class WoundTableInterface
 {
     
 private:
+    CreatureBody &body;
     AnatomyGraph &graph;
     WoundTable &woundTable;
     
@@ -36,10 +34,17 @@ public:
     friend class ShearWoundInterface;
 
     
-    WoundTableInterface(AnatomyGraph &_graph, WoundTable &table) : graph(_graph), woundTable(table)
+    void operator=(const BodyPart &other)
+    {
+        //body.
+    }
+    
+    WoundTableInterface(AnatomyGraph &_graph, WoundTable &table, CreatureBody &_body) : graph(_graph), woundTable(table), body(_body)
     {
         
     }
+    
+    
     
  
     virtual void ProcessElement(WoundTableElement &element) = 0; //Implements the logic for handling a single ement of a table;
@@ -73,7 +78,7 @@ public:
             
         }
         
-        std::cout << "Processing Impact Wound Table";
+   
     }
 
 };

@@ -28,8 +28,11 @@ struct WoundIdentifier
 void Single_Attack_Melee(AttackStats &attack, BaseCreature &defender)
 {
     int target = getRandomExternalBodyParts(defender.body.anatomyGraph);
-    defender.body.anatomyGraph[target].getArmorRef().getMaterialRef().PerformMaterialCalculations(attack.force,attack.contactArea,attack.enAttackForceType,attack.attackType);
     
+    std::cout << "\n Target " << target;
+    
+    
+    defender.body.anatomyGraph[target].getArmorRef().getMaterialRef().PerformMaterialCalculations(attack.force,attack.contactArea,attack.enAttackForceType,attack.attackType);
     std::vector<AppliedForceEffect> &effects = defender.body.anatomyGraph[target].getArmorRef().getMaterialRef().getAppliedForceEffects();
     
     WoundCalculations woundCalcs(target);
@@ -42,8 +45,8 @@ void Single_Attack_Melee(AttackStats &attack, BaseCreature &defender)
     //Here I need to merge the woundCalc wouldTable with the defender woundTable
     
      defender.body.woundTable = woundCalcs.woundTable;
-    ImpactWoundInterface impact(defender.body.anatomyGraph,defender.body.woundTable);
-    ShearWoundInterface shear(defender.body.anatomyGraph,defender.body.woundTable);
+    ImpactWoundInterface impact(defender.body.anatomyGraph,defender.body.woundTable,defender.body);
+    ShearWoundInterface shear(defender.body.anatomyGraph,defender.body.woundTable,defender.body);
    
     
     defender.body.woundTableInterface = &impact;

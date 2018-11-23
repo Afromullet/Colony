@@ -20,8 +20,8 @@ class ImpactWoundInterface : public WoundTableInterface
     
 public:
     
-    ImpactWoundInterface(AnatomyGraph &graph, WoundTable &table) :
-    WoundTableInterface(graph,table)
+    ImpactWoundInterface(AnatomyGraph &graph, WoundTable &table,CreatureBody &_body) :
+    WoundTableInterface(graph,table,_body)
     {
         
     }

@@ -396,6 +396,7 @@ void InitializePlayerData()
     
     //bReader.load("/Users/Afromullet/Documents/SFML/Colony2/Colony/Creature/BodyData/TestFile.xml");
     player.body.openBodyTypeFile("/Users/Afromullet/Documents/SFML/Colony2/Colony/Creature/BodyData/BasicHumanoidBody.xml");
+    player.body.openBodyTypeFile("/Users/Afromullet/Documents/SFML/Colony2/Colony/Creature/BodyData/BasicLovecraftCreature.xml");
     player.body.readBodyTokenList();
     player.body.GenerateVertices();
     player.body.GenerateEdges();

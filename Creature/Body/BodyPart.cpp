@@ -37,7 +37,7 @@ bool BodyPart::operator==(BodyPart &other) const
         if(canMoveCreature == other.canMoveCreature && canSee == other.canSee && canSmell == other.canSmell && canBreathe == other.canBreathe && isInternal == other.isInternal)
             
         {
-            if(relativeSize == other.relativeSize && tissues == other.tissues && bodyPartName == other.bodyPartName && wounds == other.wounds && armor == other.armor && weapon == other.weapon && fractureLevel == other.fractureLevel && bruiseLevel == other.bruiseLevel && cutLevel == other.cutLevel && piercedLevel == other.piercedLevel)
+            if(relativeSize == other.relativeSize && tissues == other.tissues && bodyPartName == other.bodyPartName && wounds == other.wounds && armor == other.armor && weapon == other.weapon && fractureLevel == other.fractureLevel && bruiseLevel == other.bruiseLevel && cutLevel == other.cutLevel && piercedLevel == other.piercedLevel && painLevel  == other.painLevel && isOrgan == other.isOrgan)
             {
                 return true;
             }
@@ -77,6 +77,9 @@ void BodyPart::operator=(const BodyPart &other)
     bruiseLevel = other.bruiseLevel;
     cutLevel = other.cutLevel;
     piercedLevel = other.piercedLevel;
+    painLevel = other.painLevel;
+    isRuptured = other.isRuptured;
+    isOrgan = other.isOrgan;
  
 }
  
@@ -98,6 +101,8 @@ BodyPart::BodyPart(bool _canHoldWeapon, bool _canHoldArmor, bool _canInteract, b
     bruiseLevel = 0;
     cutLevel = 0;
     piercedLevel = 0;
+    painLevel = 0;
+    isOrgan = false;
 }
 
 
@@ -109,6 +114,8 @@ BodyPart::BodyPart(std::string bptoken,std::string bpname) : bodyPartToken(bptok
     bruiseLevel = 0;
     cutLevel = 0;
     piercedLevel = 0;
+    painLevel = 0;
+    isOrgan = false;
 }
 
 
@@ -139,6 +146,9 @@ BodyPart::BodyPart(const BodyPart& other)
     bruiseLevel = other.bruiseLevel;
     cutLevel = other.cutLevel;
     piercedLevel = other.piercedLevel;
+    painLevel = other.painLevel;
+    isRuptured = other.isRuptured;
+    isOrgan = other.isOrgan;
     
    
     
@@ -347,6 +357,10 @@ void BodyPart::setIsRuptured(bool val)
     isRuptured = val;
 }
 
+void BodyPart::setIsOrgan(bool val)
+{
+    isOrgan = val;
+}
 
 
 
@@ -473,10 +487,215 @@ std::vector<WoundType>& BodyPart::getWoundsRef()
     return wounds;
 }
 
+float BodyPart::getPainLevel()
+{
+    return painLevel;
+}
+
+float BodyPart::getBleedingRate()
+{
+    return bleedingRate;
+}
+
+bool BodyPart::getIsOrgan()
+{
+    return isOrgan;
+}
+                   
+
 void BodyPart::AddWound(WoundType woundType)
 {
     wounds.push_back(woundType);
 }
 
+void BodyPart::DetermineEffects(BodyPropertyTable &bpState)
+{
+    
+    DetermineFractureEffects(bpState);
+    DetermineCutEffects(bpState);
+    DeterminePiercedEffects(bpState);
+    DetermineBruiseEffects(bpState);
+    DetermineRupturedEffects(bpState);
+}
+
+void BodyPart::DetermineFractureEffects(BodyPropertyTable &bpState)
+{
+    if(fractureLevel <= LOW_WOUND_LEVEL)
+    {
+        painLevel += LOW_PAIN;
+    }
+    else if(fractureLevel > LOW_WOUND_LEVEL && fractureLevel <= MODERATE_WOUND_LEVEL)
+    {
+        painLevel += MODERATE_PAIN;
+    }
+     if(fractureLevel > MODERATE_WOUND_LEVEL)
+    {
+        painLevel += HIGH_PAIN;
+        
+        if(canHoldWeapon)
+        {
+            canHoldWeapon = false;
+        }
+        if(canSee)
+        {
+            canSee = false;
+            bpState.numSeeingParts--;
+        }
+        if(canSmell)
+        {
+            canSmell = false;
+            bpState.numSmellingParts--;
+        }
+        if(canBreathe)
+        {
+            canBreathe = false;
+            bpState.numBreathingParts--;
+        }
+        if(canInteract)
+        {
+            canInteract = false;
+            bpState.numInteractingParts--;
+        }
+        if(canMoveCreature)
+        {
+            canMoveCreature = false;
+            bpState.numCanMoveParts--;
+        }
+        
+  
+    }
+}
+
+void BodyPart::DetermineCutEffects(BodyPropertyTable &bpState)
+{
+    if(cutLevel <= LOW_WOUND_LEVEL)
+    {
+        painLevel += LOW_PAIN;
+        bleedingRate = LOW_BLEEDING_RATE;
+        
+    }
+    else if(cutLevel > LOW_WOUND_LEVEL && cutLevel <= MODERATE_WOUND_LEVEL)
+    {
+        painLevel += MODERATE_PAIN;
+        bleedingRate = MODERATE_BLEEDING_RATE;
+        
+    }
+     if(cutLevel > MODERATE_WOUND_LEVEL)
+    {
+        painLevel += HIGH_PAIN;
+        bleedingRate = HIGH_BLEEDING_RATE;
+        if(canHoldWeapon)
+        {
+            canHoldWeapon = false;
+        }
+        if(canSee)
+        {
+            canSee = false;
+            bpState.numSeeingParts--;
+        }
+        if(canSmell)
+        {
+            canSmell = false;
+            bpState.numSmellingParts--;
+        }
+        if(canBreathe)
+        {
+            canBreathe = false;
+            bpState.numBreathingParts--;
+        }
+        if(canInteract)
+        {
+            canInteract = false;
+            bpState.numInteractingParts--;
+        }
+        if(canMoveCreature)
+        {
+            canMoveCreature = false;
+            bpState.numCanMoveParts--;
+        }
+        
+    }
+    
+}
+
+void BodyPart::DeterminePiercedEffects(BodyPropertyTable &bpState)
+{
+    if(piercedLevel <= LOW_WOUND_LEVEL)
+    {
+        painLevel += LOW_PAIN;
+        
+        bleedingRate = LOW_BLEEDING_RATE;
+    }
+    else if(piercedLevel > LOW_WOUND_LEVEL && piercedLevel <= MODERATE_WOUND_LEVEL)
+    {
+        painLevel += MODERATE_PAIN;
+        bleedingRate = MODERATE_BLEEDING_RATE;
+    }
+     if(piercedLevel > MODERATE_WOUND_LEVEL)
+    {
+        painLevel += HIGH_PAIN;
+        bleedingRate = HIGH_BLEEDING_RATE;
+        
+        if(canHoldWeapon)
+        {
+            canHoldWeapon = false;
+        }
+        if(canSee)
+        {
+            canSee = false;
+            bpState.numSeeingParts--;
+        }
+        if(canSmell)
+        {
+            canSmell = false;
+            bpState.numSmellingParts--;
+        }
+        if(canBreathe)
+        {
+            canBreathe = false;
+            bpState.numBreathingParts--;
+        }
+        if(canInteract)
+        {
+            canInteract = false;
+            bpState.numInteractingParts--;
+        }
+        if(canMoveCreature)
+        {
+            canMoveCreature = false;
+            bpState.numCanMoveParts--;
+        }
+    }
+    
+}
+
+void BodyPart::DetermineBruiseEffects(BodyPropertyTable &bpState)
+{
+    if(bruiseLevel <= LOW_WOUND_LEVEL)
+    {
+        painLevel += LOW_PAIN;
+    }
+    else if(bruiseLevel > LOW_WOUND_LEVEL && bruiseLevel <= MODERATE_WOUND_LEVEL)
+    {
+        painLevel += MODERATE_PAIN;
+        bleedingRate = MODERATE_BLEEDING_RATE;
+    }
+    else if(bruiseLevel > MODERATE_WOUND_LEVEL)
+    {
+        painLevel += HIGH_PAIN;
+        bleedingRate = HIGH_BLEEDING_RATE;
+        
+    }
+    
+}
+
+void BodyPart::DetermineRupturedEffects(BodyPropertyTable &bpState)
+{
+    if(isRuptured)
+    {
+        painLevel += HIGH_PAIN;
+        bleedingRate = HIGH_BLEEDING_RATE;
+    }
+}
 
 

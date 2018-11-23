@@ -16,19 +16,29 @@ void ShearWoundInterface::ProcessElement(WoundTableElement &element)
     for(it = element.woundTypes.begin(); it != element.woundTypes.end();)
     {
         type = *it;
+        std::cout << "\n Attacking " << graph[element.index].getBodyPartName();
         if(type == enMinorCut || type == enModerateCut || type == enMajorCut)
         {
             ApplyCut(element.index,type);
+            graph[element.index].DetermineEffects(body.bodyProperties);
+            body.AddToPainLevel(graph[element.index].getPainLevel());
+            body.AddToBleedingRate(graph[element.index].getBleedingRate());
             element.woundTypes.erase(it);
         }
         else if(type == enMinorPuncture || type == enModeratePuncture || type == enMajorPuncture)
         {
             ApplyPuncture(element.index,type);
+            graph[element.index].DetermineEffects(body.bodyProperties);
+            body.AddToPainLevel(graph[element.index].getPainLevel());
+            body.AddToBleedingRate(graph[element.index].getBleedingRate());
             element.woundTypes.erase(it);
         }
         else if(type == enDismember)
         {
             ApplyDismember(element.index,type);
+            graph[element.index].DetermineEffects(body.bodyProperties);
+            body.AddToPainLevel(graph[element.index].getPainLevel());
+            body.AddToBleedingRate(graph[element.index].getBleedingRate());
             element.woundTypes.erase(it);
         }
         else
