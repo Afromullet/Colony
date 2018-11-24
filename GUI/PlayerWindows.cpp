@@ -23,8 +23,8 @@ float INVENTORY_WINDOWY_SIZE = WINDOW_Y/2;
 float INVENTORY_WINDOWX_POSITION = WINDOW_X/4;
 float INVENTORY_WINDOWY_POSITION = 0;
 
-float ADDIT_INVENTORY_ACTIONS_WINDOWX_SIZE = WINDOW_X / 4;
-float ADDIT_INVENTORY_ACTIONS_WINDOWY_SIZE = WINDOW_Y / 4;
+float ADDIT_INVENTORY_ACTIONS_WINDOWX_SIZE = WINDOW_X / 2;
+float ADDIT_INVENTORY_ACTIONS_WINDOWY_SIZE = WINDOW_Y / 2;
 float ADDIT_INVENTORY_ACTIONS_WINDOWX_POSITION = INVENTORY_WINDOWX_POSITION + INVENTORY_WINDOWX_SIZE / 2;
 float ADDIT_INVENTORY_ACTIONS_WINDOWY_POSITION = INVENTORY_WINDOWY_SIZE / 2;
 
@@ -40,8 +40,8 @@ float EQUIPMENT_WINDOWX_POSITION = WINDOW_X/4;
 float EQUIPMENT_WINDOWY_POSITION = 0;
 
 
-float ADDIT_EQUIPMENT_ACTIONS_WINDOWX_SIZE = WINDOW_X / 4;
-float ADDIT_EQUIPMENT_ACTIONS_WINDOWY_SIZE = WINDOW_Y / 4;
+float ADDIT_EQUIPMENT_ACTIONS_WINDOWX_SIZE = WINDOW_X / 2;
+float ADDIT_EQUIPMENT_ACTIONS_WINDOWY_SIZE = WINDOW_Y / 2;
 float ADDIT_EQUIPMENT_ACTIONS_WINDOWX_POSITION = EQUIPMENT_WINDOWX_POSITION + ADDIT_EQUIPMENT_ACTIONS_WINDOWX_SIZE / 2;
 float ADDIT_EQUIPMENT_ACTIONS_WINDOWY_POSITION  = EQUIPMENT_WINDOWY_SIZE / 2;
 
@@ -152,7 +152,8 @@ void SelectionWindow::SetupMainWindow(std::string tag, int xSize,int ySize,int x
     if(gui.get<SelectionWindowWidgetType>(mainWindowTag))
         guiRef.remove(mainWindow);
     
-    mainWindow = SelectionWindowWidgetType::create();
+    //mainWindow = SelectionWindowWidgetType::create();
+    mainWindow = defaultTheme->load(MAIN_WINDOW_WIDGETTYPE_TEXT);
     mainWindow->setSize(sf::Vector2f(xSize,ySize));
     mainWindow->setPosition(sf::Vector2f(xPosition,yPosition));
     mainWindow->hide();
@@ -175,6 +176,7 @@ void SelectionWindow::SetupActionWindow(std::string tag, int xSize,int ySize,int
 
     //Defining the actions that the player can take when rightclicking in the inventory window
     additional_ActionsWindow = InventoryAdditionalActionsWidget::create();
+   // additional_ActionsWindow = defaultTheme->load(ADDITACTIONS_WIDGETTYPE_TEXT);
     additional_ActionsWindow->setPosition(sf::Vector2f(xPosition,yPosition));
     additional_ActionsWindow->hide(); //It isn't shown until after right click so hide at startup
     guiRef.add(additional_ActionsWindow,additionalActionsWindowTag);
@@ -298,7 +300,8 @@ void ExamineWindow::setupWidgets(tgui::Gui &guiRef,std::string _tag,int xPositio
     if(gui.get<ExamineBoxWidgetType>(tag))
         guiRef.remove(examineBox);
     
-    examineBox = ExamineBoxWidgetType::create();
+    //examineBox = ExamineBoxWidgetType::create();
+    examineBox = defaultTheme->load(EXAMINEWINDOW_WIDGETTYPE_TEXT);
     
     examineBox->setPosition(sf::Vector2f(EXAMINE_INV_WINDOW_X_POSITION,EXAMINE_INV_WINDOW_Y_POSITION));
     examineBox->setReadOnly();
@@ -996,7 +999,7 @@ void SetupGUI(tgui::Gui &guiRef)
 
 
     
-    defaultTheme = tgui::Theme::create("Black.txt");
+    defaultTheme = tgui::Theme::create("/Users/Afromullet/Documents/SFML/Colony2/Colony/GUI/TGUITheme/Black.txt");
     playerGUI.SetupPlayerGUI(guiRef,&player);
    tileGUI.SetupTileGUI(guiRef,&player,mapdata.map);
 

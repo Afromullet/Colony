@@ -30,12 +30,26 @@ ChildWindow {
     Borders         : (1, 1, 1, 1);
     DistanceToSide  : 5;
     CloseButton     : "ChildWindowCloseButton";
+    MaximizeButton  : "ChildWindowMaximizeButton";
+    MinimizeButton  : "ChildWindowMinimizeButton";
 }
 
 Button.ChildWindowCloseButton {
     NormalImage : "Black.png" Part(48, 179, 15, 15);
     HoverImage  : "Black.png" Part(63, 179, 15, 15);
     DownImage   : "Black.png" Part(78, 179, 15, 15);
+}
+
+Button.ChildWindowMaximizeButton {
+    NormalImage : "Black.png" Part(48, 194, 15, 15);
+    HoverImage  : "Black.png" Part(63, 194, 15, 15);
+    DownImage   : "Black.png" Part(78, 194, 15, 15);
+}
+
+Button.ChildWindowMinimizeButton {
+    NormalImage : "Black.png" Part(93, 194, 15, 15);
+    HoverImage  : "Black.png" Part(108, 194, 15, 15);
+    DownImage   : "Black.png" Part(123, 194, 15, 15);
 }
 
 ComboBox {
@@ -51,7 +65,7 @@ ComboBox {
 
 EditBox {
     NormalImage : "Black.png" Part(0, 114, 60, 40) Middle(15, 0, 30, 40);
-    HoverImage  : "Black.png" Part(0, 114, 60, 40) Middle(15, 0, 30, 40);
+    HoverImage  : "Black.png" Part(60, 114, 60, 40) Middle(15, 0, 30, 40);
 
     TextColor                   : rgb(190, 190, 190);
     SelectedTextColor           : rgb(255, 255, 255);
@@ -89,6 +103,10 @@ MessageBox {
     ChildWindow : "ChildWindow";
     Button      : "Button";
     TextColor   : rgb(190, 190, 190);
+}
+
+Panel {
+    BackgroundColor : rgb(80, 80, 80);
 }
 
 ProgressBar {

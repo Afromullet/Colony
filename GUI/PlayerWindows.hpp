@@ -55,6 +55,9 @@ typedef tgui::ListBox EquipmentAdditActionsWidget;
 typedef tgui::ListBox EquipmentExamineBoxWidgetType;
 
 
+#define MAIN_WINDOW_WIDGETTYPE_TEXT "ListBox"
+#define ADDITACTIONS_WIDGETTYPE_TEXT "ListBox"
+#define EXAMINEWINDOW_WIDGETTYPE_TEXT "TextBox"
 
 //Tags for each type of widget
 #define INVENTORY_WIDGET_TAG "INVENTORY_COMBO_BOX"
