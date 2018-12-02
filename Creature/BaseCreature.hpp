@@ -71,7 +71,7 @@ private:
     int totalHealth;
     sf::Vector2i position;
     std::list<Item*> creatureItems;
-    std::queue<sf::Vector2i> path; //A queue holding the path a creature walks
+  
     //Vision vision;
     bool isAlive; //For testing
     std::vector<AttackStats> attacks;
@@ -85,7 +85,7 @@ private:
     
 public:
     
-    
+    std::queue<sf::Vector2i> path; //A queue holding the path a creature walks
     
     ItemManager inventory;
     

@@ -16,7 +16,10 @@
 #include "PlayerWindows.hpp"
 #include "SettlementEV.hpp"
 #include "WoundTableInterface.hpp"
-
+#include "Action.hpp"
+#include "BasicMovementAction.hpp"
+#include "BasicAttackAction.hpp"
+#include "ActionQueue.hpp"
 
 void GameLoop3();
 
@@ -79,7 +82,26 @@ int main()
     
 
 
+    BaseCreature c1,c2;
+  /*
+    MovementAction m1(player,*mapdata.map);
+    BasicAttackAction m2(player,player);
+    m1.setPriority(1);
+    m2.setPriority(2);
     
+    ActionQueue q;
+    q.addAction(m1);
+    q.addAction(m2);
+    q.addAction(m1);
+    q.addAction(m2);
+    q.addAction(m1);
+    
+    q.Execute();
+    q.Execute();
+    q.Execute();
+    q.Execute();
+    q.Execute();
+   */
      
     GameLoop3();
     

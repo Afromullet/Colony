@@ -7,7 +7,9 @@
 //
 
 #include "PlayerControls.hpp"
-
+#include "Action.hpp"
+#include "BasicMovementAction.hpp"
+#include "ActionQueue.hpp"
 
 
 bool PlayerActionTaken = false;
@@ -18,6 +20,9 @@ bool isEquipmentWindowOpen = false;
 
 std::vector<sf::Vector2i> square;
 MapEffect targettingSquare;
+
+
+ActionQueue actQueue;
 
 bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creature)
 {
@@ -333,12 +338,17 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
             // aStarSearch(caMap,  start,  end);
             std::vector<sf::Vector2i> walkPath;
             
+  
+            
             for(int i =0; i < path.size(); i++)
             {
                 
                 creature.AddToPath(sf::Vector2i(path.at(i).x,path.at(i).y));
                 
             }
+            
+            BasicMovementAction mov(creature,*mapdata.map,path);
+            actQueue.addAction(mov);
 
 
         
@@ -376,7 +386,7 @@ bool HandlePlayerInput(sf::Event &event, MapData &mapdata, BaseCreature &creatur
             
            // sBehavior.AddLocationToPath(creature, *mapdata.map, 0);
           //  sBehavior.RemoveLocationFromPath(0);
-            
+            actQueue.Execute();
             
             
         }
